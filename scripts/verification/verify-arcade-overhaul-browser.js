@@ -217,7 +217,9 @@ async function inspectViewport(browser, viewport) {
 
         const login = await inspectRoute(page, '/login', '#login-view');
         const signup = await inspectRoute(page, '/signup', '#signup-view');
-        await page.goto(`${baseUrl}/about`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+        // Static routes load their page-specific stylesheet separately. Waiting
+        // only for HTML makes remote checks measure the unstyled document.
+        await page.goto(`${baseUrl}/about`, { waitUntil: 'networkidle', timeout: 30000 });
         const about = await page.evaluate(() => ({
             title: document.querySelector('h1')?.textContent,
             overflow: document.documentElement.scrollWidth - innerWidth

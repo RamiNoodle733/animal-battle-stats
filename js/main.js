@@ -419,6 +419,16 @@ class AnimalStatsApp {
         if (this._deferredInitStarted) return;
         this._deferredInitStarted = true;
 
+        // Keep first paint on the curated home sample, then hydrate the battle
+        // selectors with the complete roster while the page is idle.
+        if (this.state.view === 'home') {
+            this.runWhenIdle(() => {
+                this.ensureFullAnimalData().catch((error) => {
+                    console.warn('Background battle-selector roster load failed:', error.message);
+                });
+            });
+        }
+
         // Route-heavy managers and their styles are loaded only when entered.
     }
 

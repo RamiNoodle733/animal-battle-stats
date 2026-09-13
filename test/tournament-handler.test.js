@@ -1,0 +1,69 @@
+'use strict';
+
+const test = require('node:test');
+const assert = require('node:assert/strict');
+process.env.JWT_SECRET ||= 'test-secret-that-is-long-enough-for-hmac-verification';
+
+const auth = require('../lib/auth');
+const Animal = require('../lib/models/Animal');
+const TournamentSubmission = require('../lib/models/TournamentSubmission');
+
+function response() {
+    return {
+        headers: {},
+        setHeader(name, value) { this.headers[name] = value; },
+        getHeader(name) { return this.headers[name]; },
+        status(code) { this.code = code; return this; },
+        json(body) { this.body = body; return this; },
+        end() { return this; }
+    };
+}
+
+test('ranked tournament start uses a server-selected roster and server UUID', async () => {
+    const dbPath = require.resolve('../lib/mongodb');
+    const apiPath = require.resolve('../api/battles');
+    const priorDb = require.cache[dbPath];
+    require.cache[dbPath] = {
+        id: dbPath,
+        filename: dbPath,
+        loaded: true,
+        exports: { connectToDatabase: async () => {} }
+    };
+    delete require.cache[apiPath];
+    const handler = require('../api/battles');
+    const originalAggregate = Animal.aggregate;
+    const originalCreate = TournamentSubmission.create;
+    let pipeline;
+    let created;
+    Animal.aggregate = async (value) => {
+        pipeline = value;
+        return Array.from({ length: 8 }, (_, index) => ({ name: `Server Animal ${index + 1}` }));
+    };
+    TournamentSubmission.create = async (value) => { created = value; return value; };
+
+    try {
+        const token = auth.signToken({ userId: '507f1f77bcf86cd799439011', username: 'Rami' });
+        const res = response();
+        await handler({
+            method: 'POST',
+            query: { action: 'tournament_start' },
+            headers: { authorization: `Bearer ${token}` },
+            body: { bracketSize: 8, type: 'Mammal', participants: Array(8).fill('Attacker Pick') }
+        }, res);
+
+        assert.equal(res.code, 201);
+        assert.match(res.body.submissionId, /^[0-9a-f-]{36}$/i);
+        assert.deepEqual(res.body.participants, Array.from({ length: 8 }, (_, index) => `Server Animal ${index + 1}`));
+        assert.deepEqual(pipeline[0], { $match: { type: 'Mammal' } });
+        assert.deepEqual(pipeline[1], { $sample: { size: 8 } });
+        assert.equal(created.submissionId, res.body.submissionId);
+        assert.deepEqual(created.participants, res.body.participants);
+        assert.equal(created.status, 'active');
+    } finally {
+        Animal.aggregate = originalAggregate;
+        TournamentSubmission.create = originalCreate;
+        delete require.cache[apiPath];
+        if (priorDb) require.cache[dbPath] = priorDb;
+        else delete require.cache[dbPath];
+    }
+});

@@ -515,6 +515,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     #community-globe-canvas { height: 300px; min-height: 280px; }
 }
 
+/* The arcade layer loads after route CSS, so the shortest phone layout needs
+   its clearance rule here to prevent the decorative carousel covering nav. */
+@media (max-width: 700px) and (max-height: 600px) {
+    #home-view .silhouette-panel.panel-mobile { display: none !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
     body::before { display: none; }

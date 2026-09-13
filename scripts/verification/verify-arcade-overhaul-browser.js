@@ -6,7 +6,7 @@ const path = require('node:path');
 const { chromium } = require('playwright');
 
 const baseUrl = (process.argv[2] || 'http://127.0.0.1:3000').replace(/\/$/, '');
-const screenshotDir = path.resolve(__dirname, '..', '..', '.cache', 'browser-verification', 'arcade-v2.10.0');
+const screenshotDir = path.resolve(__dirname, '..', '..', '.cache', 'browser-verification', `arcade-v${require('../../package.json').version}`);
 const browserExecutable = process.env.ABS_BROWSER_EXECUTABLE || [
     'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
@@ -62,17 +62,46 @@ async function inspectViewport(browser, viewport) {
 
     try {
         const home = await inspectRoute(page, '/', '#home-view.active-view');
+        if (viewport.width === 1440) {
+            await page.waitForFunction(() => document.querySelectorAll('#portal-animal-a option').length >= 225, null, { timeout: 30000 });
+        }
         const homeState = await page.evaluate(() => {
-            const tournament = document.getElementById('portal-tournament-btn');
+            const battleForm = document.getElementById('portal-battle-form');
             const nav = document.getElementById('portal-nav');
+            const tournament = document.getElementById('portal-tournament-btn')?.getBoundingClientRect();
+            const mobilePanel = document.querySelector('.silhouette-panel.panel-mobile')?.getBoundingClientRect();
             return {
-                tournamentFirst: Boolean(tournament && nav && (tournament.compareDocumentPosition(nav) & Node.DOCUMENT_POSITION_FOLLOWING)),
-                tournamentLabel: tournament?.textContent.trim(),
+                battleFirst: Boolean(battleForm && nav && (battleForm.compareDocumentPosition(nav) & Node.DOCUMENT_POSITION_FOLLOWING)),
+                battleEnabled: !document.getElementById('portal-battle-submit')?.disabled,
+                selectorCount: document.querySelectorAll('#portal-battle-form select').length,
+                optionCounts: [...document.querySelectorAll('#portal-battle-form select')].map((select) => select.options.length),
+                selected: [...document.querySelectorAll('#portal-battle-form select')].map((select) => select.value),
+                navColumns: getComputedStyle(nav).gridTemplateColumns.split(/\s+/).filter(Boolean).length,
+                tournamentPanelOverlap: Boolean(tournament && mobilePanel && tournament.width && mobilePanel.width
+                    && tournament.left < mobilePanel.right && tournament.right > mobilePanel.left
+                    && tournament.top < mobilePanel.bottom && tournament.bottom > mobilePanel.top),
+                tournamentSecondary: Boolean(document.querySelector('#portal-nav #portal-tournament-btn')),
                 audioDownloaded: Boolean(document.querySelector('script[data-audio-manager]'))
             };
         });
-        assert(home.overflow <= 1 && home.pageScroll <= 1 && homeState.tournamentFirst && /PLAY TOURNAMENT/.test(homeState.tournamentLabel), `${label} home title screen failed`, { home, homeState });
+        assert(home.overflow <= 1 && home.pageScroll <= 1 && homeState.battleFirst && homeState.battleEnabled
+            && homeState.selectorCount === 2 && homeState.optionCounts.every((count) => count >= 2)
+            && homeState.selected.every((value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value))
+            && homeState.navColumns === 5 && !homeState.tournamentPanelOverlap
+            && homeState.tournamentSecondary, `${label} home battle-first title screen failed`, { home, homeState });
         assert(!homeState.audioDownloaded, `${label} first-time muted sound loaded eagerly`, homeState);
+
+        if (viewport.width === 1440) {
+            const selectedLeft = await page.locator('#portal-animal-a').inputValue();
+            await page.locator('#portal-animal-b').selectOption(selectedLeft);
+            await page.locator('#portal-battle-submit').click();
+            assert(/different animals/i.test(await page.locator('#portal-battle-status').textContent()), `${label} duplicate battle selection was accepted`);
+            await page.locator('#portal-animal-a').selectOption('african-lion');
+            await page.locator('#portal-animal-b').selectOption('siberian-tiger');
+            await page.locator('#portal-battle-submit').click();
+            await page.waitForURL((url) => url.pathname === '/battle' && url.searchParams.get('a') === 'african-lion'
+                && url.searchParams.get('b') === 'siberian-tiger', { timeout: 10000 });
+        }
 
         const community = await inspectRoute(page, '/community/map', '#community-view.active-view');
         const communityState = await page.evaluate(() => ({
@@ -220,7 +249,7 @@ async function inspectViewport(browser, viewport) {
         }));
         assert(/African Elephant/i.test(staticState.title) && staticState.picture > 150 && staticState.overflow <= 1, `${label} static animal page failed`, staticState);
 
-        if (viewport.width === 1440 || viewport.width === 390) {
+        if (viewport.width === 1440 || viewport.width === 390 || viewport.width === 320) {
             for (const [route, name] of [['/', 'home'], ['/rankings', 'rankings'], ['/tournament', 'tournament'], ['/community/map', 'community-map']]) {
                 await page.goto(`${baseUrl}${route}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
                 await page.waitForTimeout(350);

@@ -80,7 +80,7 @@ test('tournament rewards are tied to completion rather than quitting', () => {
     const source = fs.readFileSync(path.join(__dirname, '..', 'api', 'battles.js'), 'utf8');
     const completion = source.slice(
         source.indexOf('async function handleTournamentComplete'),
-        source.indexOf('async function updateTournamentPlacement')
+        source.indexOf('async function handleTournamentQuit')
     );
     const quit = source.slice(
         source.indexOf('async function handleTournamentQuit'),
@@ -88,5 +88,6 @@ test('tournament rewards are tied to completion rather than quitting', () => {
     );
 
     assert.match(completion, /action:\s*'tournament_participate'/);
+    assert.match(completion, /toISOString\(\)\.split\('T'\)\[0\]/);
     assert.doesNotMatch(quit, /action:\s*'tournament_participate'/);
 });

@@ -197,6 +197,8 @@ const HomepageController = {
     async activate(animals) {
         if (!animals || !animals.length) return;
 
+        this.populateBattleSelector(animals);
+
         const shouldBeVisible = this.isHomeViewActive();
 
         if (this.initialized) {
@@ -252,6 +254,64 @@ const HomepageController = {
         this.setupLifecycleGuards();
 
         this.setVisibility(shouldBeVisible);
+    },
+
+    populateBattleSelector(animals) {
+        const form = document.getElementById('portal-battle-form');
+        const left = document.getElementById('portal-animal-a');
+        const right = document.getElementById('portal-animal-b');
+        const submit = document.getElementById('portal-battle-submit');
+        const status = document.getElementById('portal-battle-status');
+        if (!form || !left || !right || !submit || !status) return;
+
+        const roster = animals
+            .filter((animal) => animal?.name)
+            .map((animal) => ({
+                name: animal.name,
+                // API roster entries expose database ids, but shareable battle URLs
+                // use the stable name-derived slug unless a canonical slug is present.
+                slug: String(animal.slug || animal.name)
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/^-|-$/g, '')
+            }))
+            .filter((animal, index, values) => animal.slug && values.findIndex((candidate) => candidate.slug === animal.slug) === index)
+            .sort((a, b) => a.name.localeCompare(b.name));
+        if (roster.length < 2) return;
+
+        const previousLeft = left.value;
+        const previousRight = right.value;
+        const options = roster.map((animal) => {
+            const option = document.createElement('option');
+            option.value = animal.slug;
+            option.textContent = animal.name;
+            return option;
+        });
+        left.replaceChildren(...options.map((option) => option.cloneNode(true)));
+        right.replaceChildren(...options);
+        const choose = (select, preferred, previous, fallback) => {
+            const available = new Set([...select.options].map((option) => option.value));
+            select.value = available.has(previous) ? previous : available.has(preferred) ? preferred : fallback;
+        };
+        choose(left, 'african-lion', previousLeft, roster[0].slug);
+        choose(right, 'siberian-tiger', previousRight, roster.find((animal) => animal.slug !== left.value).slug);
+        left.disabled = false;
+        right.disabled = false;
+        submit.disabled = false;
+
+        if (!form.dataset.bound) {
+            form.dataset.bound = 'true';
+            form.addEventListener('submit', (event) => {
+                if (!left.value || !right.value || left.value === right.value) {
+                    event.preventDefault();
+                    status.textContent = 'Choose two different animals.';
+                    (left.value === right.value ? right : left).focus();
+                    return;
+                }
+                status.textContent = '';
+            });
+            for (const select of [left, right]) select.addEventListener('change', () => { status.textContent = ''; });
+        }
     },
 
     detectPerformanceMode() {

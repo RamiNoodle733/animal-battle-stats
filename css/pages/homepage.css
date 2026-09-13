@@ -764,13 +764,63 @@ html.route-home nav[class*="mobile"] {
     line-height: 1.4;
 }
 
+.portal-battle-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) minmax(150px, .75fr);
+    align-items: end;
+    gap: 6px 10px;
+    width: 100%;
+    max-width: var(--portal-max-width);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 22;
+}
+.portal-battle-form label { color: rgba(255,255,255,.72); font: 700 .68rem var(--font-body, Inter, sans-serif); letter-spacing: .08em; text-transform: uppercase; }
+.portal-battle-form label:first-child { grid-column: 1; }
+.portal-battle-form label:nth-of-type(2) { grid-column: 3; }
+.portal-battle-form select {
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 12px;
+    color: #fff;
+    background: rgba(2,12,23,.94);
+    border: 1px solid rgba(0,212,255,.5);
+    border-radius: 9px;
+    font: 650 .86rem var(--font-body, Inter, sans-serif);
+}
+.portal-battle-form select:first-of-type { grid-column: 1; }
+.portal-battle-form select:last-of-type { grid-column: 3; }
+.portal-versus { grid-column: 2; grid-row: 2; align-self: center; color: #ffb15b; font-weight: 900; }
+.portal-battle-submit {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+    min-height: 48px;
+    padding: 0 16px;
+    color: #04121c;
+    background: linear-gradient(135deg, #53e3ff, #55ffca);
+    border: 0;
+    border-radius: 9px;
+    box-shadow: 0 0 28px rgba(0,212,255,.28);
+    font: 900 .78rem var(--font-body, Inter, sans-serif);
+    letter-spacing: .06em;
+    cursor: pointer;
+}
+.portal-battle-submit:disabled { opacity: .55; cursor: wait; }
+.portal-battle-submit i { margin-right: 6px; }
+.portal-battle-form :focus-visible, .portal-battle-presets a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.portal-battle-status { grid-column: 1 / -1; min-height: 0; margin: 0; color: #ffb0a9; font-size: .72rem; }
+.portal-battle-status:empty { display: none; }
+.portal-battle-presets { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; width: 100%; max-width: var(--portal-max-width); margin: 0 0 12px; position: relative; z-index: 22; }
+.portal-battle-presets a { color: #72e8ff; font-size: .72rem; text-decoration: underline; text-underline-offset: 3px; }
+.portal-description a { color: inherit; }
+
 /* ========================================
    NAV BUTTONS - Premium with Focus Effect
    ======================================== */
 .portal-nav {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 9px;
     width: 100%;
     max-width: var(--portal-max-width);
     margin-bottom: 18px;
@@ -784,7 +834,7 @@ html.route-home nav[class*="mobile"] {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    padding: 24px 22px;
+    padding: 13px 8px;
     text-decoration: none;
     border-radius: 14px;
     cursor: pointer;
@@ -869,7 +919,7 @@ html.route-home nav[class*="mobile"] {
 }
 
 .portal-nav-btn .btn-icon {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #00d4ff;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -882,8 +932,8 @@ html.route-home nav[class*="mobile"] {
 
 .portal-nav-btn .btn-label {
     font-family: var(--font-display, 'Bebas Neue', sans-serif);
-    font-size: 1.35rem;
-    letter-spacing: 3px;
+    font-size: .88rem;
+    letter-spacing: 1px;
     color: #fff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -958,6 +1008,18 @@ html.route-home nav[class*="mobile"] {
     border-color: rgba(153, 102, 255, 0.7); 
 }
 .portal-nav-btn[data-section="community"] .btn-icon { color: #9966ff; }
+.portal-nav-btn[data-section="tournament"] { --btn-accent-color: rgba(255,51,102,.7); --btn-glow-color: rgba(255,51,102,.3); border-color: rgba(255,51,102,.3); }
+.portal-nav-btn[data-section="tournament"] .btn-icon { color: #ff557d; }
+
+@media (max-width: 700px) {
+    .portal-battle-form { grid-template-columns: 1fr auto 1fr; }
+    .portal-battle-submit { grid-column: 1 / -1; grid-row: 3; min-height: 44px; }
+    .portal-battle-status { grid-row: 4; }
+    .portal-nav { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .portal-nav-btn { min-width: 0; padding: 10px 3px; }
+    .portal-nav-btn .btn-label { font-size: .64rem; letter-spacing: 0; }
+    .portal-nav-btn .btn-chevron { display: none; }
+}
 
 /* ========================================
    TOURNAMENT BUTTON - Premium with Focus Effect
@@ -1712,4 +1774,85 @@ html.route-about .silhouette-panel {
         padding: 10px 14px;
         margin-bottom: 10px;
     }
+}
+
+/* Battle-first homepage overrides live last so the legacy portal breakpoints
+   cannot turn the five secondary destinations back into oversized cards. */
+#home-view .portal-nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+.portal-battle-form label { grid-row: 1; }
+.portal-battle-form select { grid-row: 2; }
+
+@media (max-width: 700px) {
+    .portal-battle-form {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 4px 6px;
+        margin-bottom: 4px;
+    }
+
+    .portal-battle-form select {
+        min-height: 42px;
+        padding: 0 7px;
+        font-size: .75rem;
+    }
+
+    .portal-battle-submit {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        min-height: 40px;
+    }
+
+    .portal-battle-status { grid-row: 4; }
+    .portal-battle-presets { gap: 5px 10px; margin-bottom: 7px; }
+    .portal-battle-presets a { font-size: .66rem; }
+
+    .portal-nav {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 4px;
+        margin-bottom: 8px;
+    }
+
+    .portal-nav-btn {
+        min-width: 0;
+        padding: 9px 2px;
+        gap: 3px;
+    }
+
+    .portal-nav-btn .btn-icon { font-size: .82rem; }
+    .portal-nav-btn .btn-label { font-size: .58rem; letter-spacing: 0; }
+    .portal-nav-btn .btn-chevron { display: none; }
+}
+
+@media (max-height: 700px) {
+    .portal-logo-section { margin-bottom: 5px; }
+    .portal-battle-form { margin-bottom: 3px; }
+    .portal-battle-form select { min-height: 38px; }
+    .portal-battle-submit { min-height: 38px; }
+    .portal-battle-presets { margin-bottom: 5px; }
+    .portal-nav { gap: 4px; margin-bottom: 6px; }
+    .portal-nav-btn { padding: 8px 4px; }
+}
+
+@media (max-width: 700px) and (max-height: 600px) {
+    .silhouette-panel.panel-mobile { display: none !important; }
+    .home-portal { padding-bottom: 52px !important; }
+}
+
+@media (max-width: 350px) {
+    #home-view .portal-nav-btn .btn-label {
+        font-size: 0;
+    }
+
+    #home-view .portal-nav-btn .btn-label::after {
+        font-size: .52rem;
+        letter-spacing: -.02em;
+    }
+
+    #home-view .portal-nav-btn:nth-child(1) .btn-label::after { content: "STATS"; }
+    #home-view .portal-nav-btn:nth-child(2) .btn-label::after { content: "COMPARE"; }
+    #home-view .portal-nav-btn:nth-child(3) .btn-label::after { content: "RANKS"; }
+    #home-view .portal-nav-btn:nth-child(4) .btn-label::after { content: "SOCIAL"; }
+    #home-view .portal-nav-btn:nth-child(5) .btn-label::after { content: "TOURNEY"; }
 }

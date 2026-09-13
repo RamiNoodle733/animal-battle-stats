@@ -32,6 +32,7 @@ class TournamentManager {
         this.completedMatches = 0;
         this.winners = [];
         this.matchHistory = [];
+        this.submissionId = null;
         this.isActive = false;
         
         // Guess the majority feature
@@ -578,6 +579,7 @@ class TournamentManager {
     }
 
     resetTournamentState() {
+        this.submissionId = null;
         this.bracketSize = 0;
         this.animals = [];
         this.bracket = [];
@@ -719,7 +721,7 @@ class TournamentManager {
         }
     }
     
-    startTournament() {
+    async startTournament() {
         // Use selected bracket size
         const size = this.selectedBracketSize;
         if (!size || this.filteredAnimals.length < size) {
@@ -734,9 +736,36 @@ class TournamentManager {
         this.totalMatches = size - 1;
         this.isActive = true;
         this.startTime = Date.now(); // Track tournament start time
-        
-        // Get random animals from filtered list
+        // Guests receive a local random roster. Signed-in ranked tournaments
+        // replace it with the server-selected roster below.
         this.animals = this.getRandomAnimals(size);
+
+        // Ranked tournament writes are accepted only for a short-lived session
+        // created by the server and bound to this exact seeded roster.
+        if (window.Auth?.isLoggedIn()) {
+            try {
+                const response = await fetch('/api/battles?action=tournament_start', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${Auth.getToken()}`
+                    },
+                    body: JSON.stringify({ bracketSize: size, type: this.selectedType })
+                });
+                const result = await response.json();
+                if (!response.ok || !result.submissionId || !Array.isArray(result.participants)) {
+                    throw new Error(result.error || 'Tournament session could not be created');
+                }
+                this.submissionId = result.submissionId;
+                const byName = new Map(this.app.state.animals.map((animal) => [animal.name, animal]));
+                this.animals = result.participants.map((name) => byName.get(name));
+                if (this.animals.some((animal) => !animal)) throw new Error('The ranked roster is not available in this site version');
+            } catch (error) {
+                this.resetTournamentState();
+                if (typeof Auth.showToast === 'function') Auth.showToast(error.message, 5000);
+                return;
+            }
+        }
         
         // Build initial bracket (pairs of animals)
         this.bracket = [];
@@ -2009,6 +2038,10 @@ class TournamentManager {
     }
     
     async recordBattleWithInCardAnimation(winner, loser, winnerIndex) {
+        if (!this.submissionId) {
+            this.proceedToNextMatch();
+            return;
+        }
         try {
             // Record vote to matchup-votes API
             this.recordMatchupVote(winner.name, loser.name, winner.name);
@@ -2019,18 +2052,21 @@ class TournamentManager {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${Auth.getToken()}`
                 },
-                body: JSON.stringify({ winner: winner.name, loser: loser.name })
+                body: JSON.stringify({
+                    submissionId: this.submissionId,
+                    matchIndex: this.completedMatches - 1,
+                    round: this.currentRound,
+                    winner: winner.name,
+                    loser: loser.name
+                })
             });
             
-            if (!response.ok) {
-                console.error('Failed to record battle');
-                this.proceedToNextMatch();
-                return;
-            }
-            
             const result = await response.json();
+            if (!response.ok || !result.success) throw new Error(result.error || 'Failed to record ranked battle');
             
-            if (result.success && result.data) {
+            if (result.duplicate) {
+                this.proceedToNextMatch();
+            } else if (result.success && result.data) {
                 // Update ELO cache with new values
                 this.eloCache[winner.name] = result.data.winner.newRating;
                 this.eloCache[loser.name] = result.data.loser.newRating;
@@ -2056,11 +2092,25 @@ class TournamentManager {
                 await new Promise(resolve => setTimeout(resolve, 1500));
                 this.proceedToNextMatch();
             } else {
-                this.proceedToNextMatch();
+                throw new Error('Ranked battle response was incomplete');
             }
         } catch (error) {
             console.error('Error recording battle:', error);
-            this.proceedToNextMatch();
+            this.restoreMatchAfterRecordingFailure(error.message);
+        }
+    }
+
+    restoreMatchAfterRecordingFailure(message) {
+        this.matchHistory.pop();
+        this.winners.pop();
+        this.completedMatches = Math.max(0, this.completedMatches - 1);
+        for (const fighter of [this.getFighterCard(1), this.getFighterCard(2)]) {
+            fighter?.classList.remove('selected', 'eliminated', 'winner', 'loser');
+        }
+        this.isVotingLocked = false;
+        this.isMatchReady = true;
+        if (window.Auth && typeof Auth.showToast === 'function') {
+            Auth.showToast(`${message} Your selection was not recorded; try again.`, 6000);
         }
     }
     
@@ -2110,7 +2160,7 @@ class TournamentManager {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${Auth.getToken()}`
                 },
-                body: JSON.stringify({ winner: winnerName, loser: loserName })
+                body: JSON.stringify({ submissionId: this.submissionId, matchIndex: this.completedMatches - 1, round: this.currentRound, winner: winnerName, loser: loserName })
             });
             
             if (!response.ok) {
@@ -2542,11 +2592,13 @@ class TournamentManager {
         try {
             const runnerUps = finalFour.filter(a => a.name !== champion.name);
             const matchHistoryData = this.matchHistory.map(m => ({
+                round: m.round,
                 winner: m.winner.name,
                 loser: m.loser.name
             }));
             
             const data = {
+                submissionId: this.submissionId,
                 bracketSize: this.bracketSize,
                 totalMatches: this.totalMatches,
                 champion: champion.name,
@@ -2564,7 +2616,11 @@ class TournamentManager {
                 body: JSON.stringify(data)
             });
             const result = await response.json();
-            if (response.ok && result.success) this.applyTournamentReward(result.reward);
+            if (response.ok && result.success) {
+                this.applyTournamentReward(result.reward);
+            } else if (typeof Auth.showToast === 'function') {
+                Auth.showToast(result.error || 'Tournament result could not be recorded.', 5000);
+            }
         } catch (error) {
             console.error('Failed to notify tournament completion:', error);
         }

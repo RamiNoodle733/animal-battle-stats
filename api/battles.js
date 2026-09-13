@@ -15,10 +15,20 @@ const BattleStats = require('../lib/models/BattleStats');
 const Animal = require('../lib/models/Animal');
 const MatchupVote = require('../lib/models/MatchupVote');
 const MatchupVoteBallot = require('../lib/models/MatchupVoteBallot');
+const TournamentSubmission = require('../lib/models/TournamentSubmission');
 const { getAuthUser } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
+const mongoose = require('mongoose');
+const { randomUUID } = require('node:crypto');
+const {
+    TournamentValidationError,
+    validateTournamentId,
+    validateTournamentStart,
+    validateTournamentMatchRequest,
+    validateTournamentSubmission
+} = require('../lib/tournament-integrity');
 
 // ELO K-factor (how much ratings change per battle)
 const K_FACTOR = 20;
@@ -45,6 +55,9 @@ module.exports = async function handler(req, res) {
         const { action } = req.query;
 
         // Route by action
+        if (action === 'tournament_start' && req.method === 'POST') {
+            return await handleTournamentStart(req, res);
+        }
         if (action === 'tournament_complete' && req.method === 'POST') {
             return await handleTournamentComplete(req, res);
         }
@@ -69,6 +82,42 @@ module.exports = async function handler(req, res) {
         return res.status(500).json({ success: false, error: 'Internal server error' });
     }
 };
+
+function parseBody(req) {
+    if (typeof req.body !== 'string') return req.body || {};
+    try { return JSON.parse(req.body); } catch (_error) { return {}; }
+}
+
+async function handleTournamentStart(req, res) {
+    const user = getAuthUser(req);
+    if (!user) return res.status(401).json({ success: false, error: 'Authentication required' });
+    let start;
+    try {
+        start = validateTournamentStart(parseBody(req));
+    } catch (error) {
+        if (error instanceof TournamentValidationError) {
+            return res.status(400).json({ success: false, error: error.message });
+        }
+        throw error;
+    }
+    const match = start.type === 'all' ? {} : { type: start.type };
+    const sampled = await Animal.aggregate([{ $match: match }, { $sample: { size: start.bracketSize } }, { $project: { _id: 0, name: 1 } }]);
+    if (sampled.length !== start.bracketSize) return res.status(400).json({ success: false, error: 'Not enough animals for this tournament type' });
+    const participants = sampled.map((animal) => animal.name);
+    const submissionId = randomUUID();
+    await TournamentSubmission.create({
+        submissionKey: `${user.id}:${submissionId}`,
+        submissionId,
+        userId: user.id,
+        bracketSize: start.bracketSize,
+        participantCount: participants.length,
+        participants,
+        matchHistory: [],
+        status: 'active',
+        expiresAt: new Date(Date.now() + (4 * 60 * 60 * 1000))
+    });
+    return res.status(201).json({ success: true, submissionId, participants });
+}
 
 // ============================================
 // MATCHUP VOTES (consolidated from matchup-votes.js)
@@ -237,92 +286,111 @@ async function handleTournamentComplete(req, res) {
     if (!authenticatedUser) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
-    // Parse body - handle both JSON and text/plain from sendBeacon
-    let body = req.body;
-    if (typeof body === 'string') {
-        try { body = JSON.parse(body); } catch (_e) { body = {}; }
-    }
+    const body = parseBody(req);
     
-    const { bracketSize, totalMatches, champion, runnerUp, thirdFourth, matchHistory } = body || {};
-
-    const parsedBracketSize = Number(bracketSize);
-    const parsedTotalMatches = Number(totalMatches);
-    const validBracket = Number.isInteger(parsedBracketSize)
-        && parsedBracketSize >= 4
-        && parsedBracketSize <= 64
-        && (parsedBracketSize & (parsedBracketSize - 1)) === 0;
-    if (!validBracket || parsedTotalMatches !== parsedBracketSize - 1) {
-        return res.status(400).json({ success: false, error: 'Invalid tournament structure' });
-    }
-    if (!Array.isArray(matchHistory) || matchHistory.length !== parsedTotalMatches) {
-        return res.status(400).json({ success: false, error: 'Complete match history required' });
-    }
-    if (typeof champion !== 'string' || !champion || champion.length > 100) {
-        return res.status(400).json({ success: false, error: 'Valid champion required' });
-    }
-
-    const tournamentNames = [...new Set(matchHistory.flatMap((match) => [match?.winner, match?.loser])
-        .filter((name) => typeof name === 'string' && name.length > 0 && name.length <= 100))];
-    if (tournamentNames.length < parsedBracketSize || !tournamentNames.includes(champion)) {
-        return res.status(400).json({ success: false, error: 'Tournament participants are incomplete' });
-    }
-    const existingAnimals = await Animal.countDocuments({ name: { $in: tournamentNames } });
-    if (existingAnimals !== tournamentNames.length) {
-        return res.status(400).json({ success: false, error: 'Tournament contains an unknown animal' });
-    }
-    
-    // Save tournament placements to database
+    let tournament;
     try {
-        // Champion gets 1st place
-        if (champion) {
-            await updateTournamentPlacement(champion, 1);
+        tournament = validateTournamentSubmission(body);
+    } catch (error) {
+        if (error instanceof TournamentValidationError) {
+            return res.status(400).json({ success: false, error: error.message });
         }
-        
-        // Runner-up gets 2nd place
-        if (runnerUp && runnerUp !== 'N/A') {
-            await updateTournamentPlacement(runnerUp, 2);
-        }
-        
-        // Third/Fourth place finishers
-        if (thirdFourth && thirdFourth !== 'N/A') {
-            const thirdFourthAnimals = thirdFourth.split(',').map(s => s.trim()).filter(Boolean);
-            for (const animalName of thirdFourthAnimals) {
-                await updateTournamentPlacement(animalName, 3);
+        throw error;
+    }
+
+    const submissionKey = `${authenticatedUser.id}:${tournament.submissionId}`;
+    const issued = await TournamentSubmission.findOne({ submissionKey });
+    if (!issued) {
+        return res.status(400).json({ success: false, error: 'Tournament was not issued by the server' });
+    }
+    if (issued.status === 'completed') {
+        return res.status(200).json({ success: true, duplicate: true, reward: null, message: 'This tournament completion was already recorded.' });
+    }
+    const issuedParticipants = issued.participants.map(String);
+    const issuedHistory = issued.matchHistory.map(({ round, winner, loser }) => ({ round, winner, loser }));
+    if (issued.status !== 'active'
+        || issued.expiresAt <= new Date()
+        || issued.bracketSize !== tournament.bracketSize
+        || JSON.stringify(issuedParticipants) !== JSON.stringify(tournament.participants)
+        || JSON.stringify(issuedHistory) !== JSON.stringify(tournament.matchHistory)) {
+        return res.status(409).json({ success: false, error: 'Tournament result does not match the server-owned bracket' });
+    }
+
+    const increments = new Map(tournament.participants.map((name) => [name, { tournamentsPlayed: 1 }]));
+    increments.get(tournament.champion).tournamentsFirst = 1;
+    increments.get(tournament.runnerUp).tournamentsSecond = 1;
+    tournament.thirdFourth.forEach((name) => { increments.get(name).tournamentsThird = 1; });
+
+    const session = await mongoose.startSession();
+    try {
+        await session.withTransaction(async () => {
+            const consumed = await TournamentSubmission.findOneAndUpdate(
+                { submissionKey, status: 'active' },
+                { $set: {
+                    status: 'completed',
+                    champion: tournament.champion,
+                    completedAt: new Date(),
+                    rankingKey: `${authenticatedUser.id}:${new Date().toISOString().split('T')[0]}`,
+                    // Active sessions expire quickly; completed daily ranking
+                    // claims must remain beyond the guarded UTC day.
+                    expiresAt: new Date(Date.now() + (8 * 24 * 60 * 60 * 1000))
+                } },
+                { session, returnDocument: 'after' }
+            );
+            if (!consumed) throw new TournamentValidationError('Tournament was already consumed');
+            const existingStats = await BattleStats.find({ animalName: { $in: tournament.participants } }).session(session);
+            const statsByName = new Map(existingStats.map((stats) => [stats.animalName, stats]));
+            for (const animalName of tournament.participants) {
+                if (!statsByName.has(animalName)) statsByName.set(animalName, new BattleStats({ animalName }));
             }
-        }
-        
-        // Mark all animals in the tournament as having played
-        const allAnimals = new Set([champion]);
-        if (runnerUp && runnerUp !== 'N/A') allAnimals.add(runnerUp);
-        if (thirdFourth && thirdFourth !== 'N/A') {
-            thirdFourth.split(',').map(s => s.trim()).filter(Boolean).forEach(a => allAnimals.add(a));
-        }
-        // Also add all participants from match history
-        if (matchHistory && Array.isArray(matchHistory)) {
-            matchHistory.forEach(match => {
-                if (match.winner) allAnimals.add(match.winner);
-                if (match.loser) allAnimals.add(match.loser);
+            for (const match of tournament.matchHistory) {
+                const winnerStats = statsByName.get(match.winner);
+                const loserStats = statsByName.get(match.loser);
+                const expectedWinner = 1 / (1 + Math.pow(10, (loserStats.battleRating - winnerStats.battleRating) / 400));
+                const expectedLoser = 1 - expectedWinner;
+                winnerStats.battleRating = Math.round(winnerStats.battleRating + K_FACTOR * (1 - expectedWinner));
+                loserStats.battleRating = Math.round(loserStats.battleRating + K_FACTOR * (0 - expectedLoser));
+                winnerStats.tournamentWins += 1;
+                winnerStats.tournamentBattles += 1;
+                loserStats.tournamentBattles += 1;
+            }
+            for (const [animalName, increment] of increments) {
+                const stats = statsByName.get(animalName);
+                stats.tournamentsPlayed += increment.tournamentsPlayed || 0;
+                stats.tournamentsFirst += increment.tournamentsFirst || 0;
+                stats.tournamentsSecond += increment.tournamentsSecond || 0;
+                stats.tournamentsThird += increment.tournamentsThird || 0;
+                stats.lastBattleAt = new Date();
+                await stats.save({ session });
+            }
+        });
+    } catch (error) {
+        const dailyRankingConflict = error?.code === 11000
+            && (error?.keyPattern?.rankingKey === 1 || error?.keyValue?.rankingKey);
+        if (dailyRankingConflict || error instanceof TournamentValidationError) {
+            return res.status(200).json({
+                success: true,
+                duplicate: true,
+                reward: null,
+                message: dailyRankingConflict
+                    ? 'Your ranked tournament for today was already recorded.'
+                    : 'This tournament completion was already recorded.'
             });
         }
-        
-        // Increment tournamentsPlayed for all participants
-        for (const animalName of allAnimals) {
-            await incrementTournamentsPlayed(animalName);
-        }
-        
-    } catch (err) {
-        console.error('Error saving tournament placements:', err);
-        // Don't fail the request - still notify Discord
+        console.error('Error saving tournament completion:', error);
+        return res.status(500).json({ success: false, error: 'Failed to record tournament completion' });
+    } finally {
+        await session.endSession();
     }
-    
+
     await notifyDiscord('tournament_complete', {
         user: authenticatedUser.username,
-        bracketSize: bracketSize || 0,
-        totalMatches: totalMatches || 0,
-        champion: champion || 'Unknown',
-        runnerUp: runnerUp || 'N/A',
-        thirdFourth: thirdFourth || 'N/A',
-        matchHistory: matchHistory || []
+        bracketSize: tournament.bracketSize,
+        totalMatches: tournament.totalMatches,
+        champion: tournament.champion,
+        runnerUp: tournament.runnerUp,
+        thirdFourth: tournament.thirdFourth.join(', '),
+        matchHistory: tournament.matchHistory
     }, req);
 
     let reward = null;
@@ -330,47 +398,15 @@ async function handleTournamentComplete(req, res) {
         reward = await awardUserReward({
             userId: authenticatedUser.id,
             action: 'tournament_participate',
+            // Participation can be recorded repeatedly, but the progression
+            // reward is intentionally capped to one verified completion/day.
             sourceId: new Date().toISOString().split('T')[0]
         });
     } catch (rewardError) {
         console.error('Tournament reward failed:', rewardError.message);
     }
 
-    return res.status(200).json({ success: true, reward });
-}
-
-/**
- * Update tournament placement for an animal
- * @param {string} animalName - Name of the animal
- * @param {number} place - 1, 2, or 3 (3rd and 4th both count as 3rd)
- */
-async function updateTournamentPlacement(animalName, place) {
-    let stats = await BattleStats.findOne({ animalName });
-    if (!stats) {
-        stats = new BattleStats({ animalName });
-    }
-    
-    if (place === 1) {
-        stats.tournamentsFirst = (stats.tournamentsFirst || 0) + 1;
-    } else if (place === 2) {
-        stats.tournamentsSecond = (stats.tournamentsSecond || 0) + 1;
-    } else if (place === 3) {
-        stats.tournamentsThird = (stats.tournamentsThird || 0) + 1;
-    }
-    
-    await stats.save();
-}
-
-/**
- * Increment tournaments played count for an animal
- */
-async function incrementTournamentsPlayed(animalName) {
-    let stats = await BattleStats.findOne({ animalName });
-    if (!stats) {
-        stats = new BattleStats({ animalName });
-    }
-    stats.tournamentsPlayed = (stats.tournamentsPlayed || 0) + 1;
-    await stats.save();
+    return res.status(200).json({ success: true, duplicate: false, reward });
 }
 
 /**
@@ -412,12 +448,12 @@ async function recordBattle(req, res) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
 
-    const { winner, loser } = req.body || {};
+    const { submissionId: rawSubmissionId, matchIndex, round, winner, loser } = parseBody(req);
 
-    if (!winner || !loser) {
+    if (!rawSubmissionId || !winner || !loser) {
         return res.status(400).json({ 
             success: false, 
-            error: 'Winner and loser animal names required' 
+            error: 'A server tournament id plus winner and loser are required'
         });
     }
 
@@ -432,79 +468,83 @@ async function recordBattle(req, res) {
         return res.status(400).json({ success: false, error: 'Invalid animal name' });
     }
 
-    const knownAnimals = await Animal.countDocuments({ name: { $in: [winner, loser] } });
-    if (knownAnimals !== 2) {
-        return res.status(400).json({ success: false, error: 'Both battle animals must exist' });
+    let submissionId;
+    try {
+        submissionId = validateTournamentId(rawSubmissionId);
+    } catch (error) {
+        if (error instanceof TournamentValidationError) return res.status(400).json({ success: false, error: error.message });
+        throw error;
     }
 
+    const submissionKey = `${authenticatedUser.id}:${submissionId}`;
+    let resultData;
+    let duplicate = false;
+    const session = await mongoose.startSession();
     try {
-        // Get or create battle stats for both animals
-        let winnerStats = await BattleStats.findOne({ animalName: winner });
-        let loserStats = await BattleStats.findOne({ animalName: loser });
+        await session.withTransaction(async () => {
+            const issued = await TournamentSubmission.findOne({ submissionKey, status: 'active' }).session(session);
+            if (!issued || issued.expiresAt <= new Date()) {
+                throw new TournamentValidationError('Tournament is missing, expired, or already completed');
+            }
+            const request = validateTournamentMatchRequest(issued, { matchIndex, round, winner, loser });
+            duplicate = request.duplicate;
+            const match = request.match;
+            if (duplicate) return;
+            const persisted = await BattleStats.find({ animalName: { $in: issued.participants } }).session(session);
+            const ratingState = new Map(issued.participants.map((name) => [name, { rating: 1000, wins: 0, battles: 0 }]));
+            for (const stats of persisted) ratingState.set(stats.animalName, {
+                rating: stats.battleRating,
+                wins: stats.tournamentWins,
+                battles: stats.tournamentBattles
+            });
+            for (const prior of issued.matchHistory) {
+                const priorWinner = ratingState.get(prior.winner);
+                const priorLoser = ratingState.get(prior.loser);
+                const expected = 1 / (1 + Math.pow(10, (priorLoser.rating - priorWinner.rating) / 400));
+                priorWinner.rating = Math.round(priorWinner.rating + K_FACTOR * (1 - expected));
+                priorLoser.rating = Math.round(priorLoser.rating + K_FACTOR * (0 - (1 - expected)));
+                priorWinner.wins += 1;
+                priorWinner.battles += 1;
+                priorLoser.battles += 1;
+            }
+            const winnerStats = ratingState.get(winner);
+            const loserStats = ratingState.get(loser);
+            const ratingA = winnerStats.rating;
+            const ratingB = loserStats.rating;
+            const expectedA = 1 / (1 + Math.pow(10, (ratingB - ratingA) / 400));
+            const expectedB = 1 - expectedA;
+            const newRatingA = Math.round(ratingA + K_FACTOR * (1 - expectedA));
+            const newRatingB = Math.round(ratingB + K_FACTOR * (0 - expectedB));
 
-        if (!winnerStats) {
-            winnerStats = new BattleStats({ animalName: winner });
-        }
-        if (!loserStats) {
-            loserStats = new BattleStats({ animalName: loser });
-        }
-
-        // Current ratings
-        const ratingA = winnerStats.battleRating;
-        const ratingB = loserStats.battleRating;
-
-        // Calculate expected scores (ELO formula)
-        const expectedA = 1 / (1 + Math.pow(10, (ratingB - ratingA) / 400));
-        const expectedB = 1 - expectedA;
-
-        // Update ratings
-        // Winner gets points (actual score = 1)
-        // Loser loses points (actual score = 0)
-        const newRatingA = Math.round(ratingA + K_FACTOR * (1 - expectedA));
-        const newRatingB = Math.round(ratingB + K_FACTOR * (0 - expectedB));
-
-        // Update winner stats
-        winnerStats.battleRating = newRatingA;
-        winnerStats.tournamentWins += 1;
-        winnerStats.tournamentBattles += 1;
-        winnerStats.lastBattleAt = new Date();
-
-        // Update loser stats
-        loserStats.battleRating = newRatingB;
-        loserStats.tournamentBattles += 1;
-        loserStats.lastBattleAt = new Date();
-
-        // Save both
-        await Promise.all([winnerStats.save(), loserStats.save()]);
-
-        // Calculate rating changes for response
-        const winnerChange = newRatingA - ratingA;
-        const loserChange = newRatingB - ratingB;
-
-        return res.status(200).json({
-            success: true,
-            data: {
+            issued.matchHistory.push(match);
+            await issued.save({ session });
+            resultData = {
                 winner: {
                     name: winner,
                     oldRating: ratingA,
                     newRating: newRatingA,
-                    change: winnerChange,
-                    wins: winnerStats.tournamentWins,
-                    battles: winnerStats.tournamentBattles
+                    change: newRatingA - ratingA,
+                    wins: winnerStats.wins + 1,
+                    battles: winnerStats.battles + 1
                 },
                 loser: {
                     name: loser,
                     oldRating: ratingB,
                     newRating: newRatingB,
-                    change: loserChange,
-                    battles: loserStats.tournamentBattles
+                    change: newRatingB - ratingB,
+                    battles: loserStats.battles + 1
                 }
-            }
+            };
         });
-
+        return res.status(200).json({ success: true, duplicate, data: resultData || null });
     } catch (error) {
+        if (error instanceof TournamentValidationError) {
+            return res.status(409).json({ success: false, error: error.message });
+        }
         console.error('Error recording battle:', error);
         return res.status(500).json({ success: false, error: 'Failed to record battle' });
+    } finally {
+        await session.endSession();
     }
 }
 

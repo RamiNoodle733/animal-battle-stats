@@ -11,12 +11,14 @@ const contentRoot = process.argv[3] ? path.resolve(repoRoot, process.argv[3]) : 
 const productionOrigin = 'https://animalbattlestats.com';
 const allowedExtensions = new Set([
     '.html', '.css', '.js', '.json', '.geojson', '.png', '.jpg', '.jpeg',
-    '.webp', '.avif', '.svg', '.gif', '.ico', '.woff', '.woff2', '.ttf'
+    '.webp', '.avif', '.svg', '.gif', '.ico', '.woff', '.woff2', '.ttf', '.xml', '.txt'
 ]);
 
 const fixedRoutes = new Map([
     ['/', 'index.html'],
     ['/about', 'about.html'],
+    ['/battle', 'battle.html'],
+    ['/methodology', 'methodology.html'],
     ['/stats', 'stats.html'],
     ['/compare', 'compare.html'],
     ['/rankings', 'rankings.html'],
@@ -25,6 +27,8 @@ const fixedRoutes = new Map([
 ]);
 
 const contentTypes = {
+    '.xml': 'application/xml; charset=utf-8',
+    '.txt': 'text/plain; charset=utf-8',
     '.html': 'text/html; charset=utf-8',
     '.css': 'text/css; charset=utf-8',
     '.js': 'text/javascript; charset=utf-8',

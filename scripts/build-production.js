@@ -12,6 +12,8 @@ const outputRoot = path.join(repoRoot, 'dist');
 const rootFiles = Object.freeze([
     'index.html',
     'about.html',
+    'battle.html',
+    'methodology.html',
     'community.html',
     'compare.html',
     'rankings.html',
@@ -141,6 +143,10 @@ execFileSync(process.execPath, [
     stdio: 'inherit'
 });
 execFileSync(process.execPath, [path.join(repoRoot, 'scripts', 'prerender-seo-pages.mjs')], {
+    cwd: repoRoot,
+    stdio: 'inherit'
+});
+execFileSync(process.execPath, [path.join(repoRoot, 'scripts', 'generate-sitemap.mjs')], {
     cwd: repoRoot,
     stdio: 'inherit'
 });

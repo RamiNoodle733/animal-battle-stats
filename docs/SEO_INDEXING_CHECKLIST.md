@@ -38,8 +38,10 @@ npm run seo:audit -- --write
 Audit a local clean-URL static server:
 
 ```bash
-npx http-server . -p 3000 -c-1 --proxy http://localhost:3000/index.html
-npm run seo:audit -- --sitemap sitemap.xml --base http://localhost:3000 --write
+npm run build
+npm run preview:readonly -- 3000 dist
+# In another terminal:
+npm run seo:audit -- --sitemap sitemap.xml --base http://127.0.0.1:3000
 ```
 
 The JSON report is written to `reports/seo-audit.json` when `--write` is passed.
@@ -67,3 +69,11 @@ The JSON report is written to `reports/seo-audit.json` when `--write` is passed.
 - Run `npm run seo:audit -- --write` after each deployment that touches routes, metadata, sitemap, or animal data.
 - Keep auth, profile, API, and other private or low-value utility routes out of the sitemap.
 - Do not use `robots.txt` for noindex behavior.
+
+## Battle preview and search crawlers (2.11.0)
+
+- Build now regenerates the sitemap. `/battle` and `/methodology` contain static visible content and self-canonicals. Pair parameters canonicalize to `/battle`; they are not thousands of separately indexed matchup pages. Editorial pair pages remain a future quality-gated feature.
+- `OAI-SearchBot` serves search discovery. `GPTBot` is a separate training-policy control. Both were already allowed; the training policy has not been changed. See [OpenAI's crawler documentation](https://platform.openai.com/docs/bots).
+- After deployment fetch `/robots.txt`, `/sitemap.xml`, `/battle`, `/methodology` and a sample animal profile using the `OAI-SearchBot` user-agent. Check 200 responses, page content and no blocking X-Robots-Tag. A user-agent probe checks routing only; use CDN logs and official crawler IP ranges to verify genuine crawler traffic when that access is available.
+- In Search Console inspect canonical/rendered content and sitemap ingestion. The local audit does not prove indexing, rankings or AI citations. Follow [Google's AI search guidance](https://developers.google.com/search/docs/appearance/ai-features) and accurate visible-content schema.
+- Keep private routes and unsupported/empty pages out of the sitemap; do not use robots disallow as a substitute for noindex. Do not attach QAPage or fabricated review markup to the preview.

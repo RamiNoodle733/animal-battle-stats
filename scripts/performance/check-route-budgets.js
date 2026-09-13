@@ -183,6 +183,17 @@ assertWithin('Initial local JavaScript', initialJs.gzip, budgets.initialJavaScri
 assertWithin('Initial local styles', initialCss.gzip, budgets.initialStylesGzip);
 
 const rows = [];
+for (const name of ['battle', 'methodology']) {
+    const html = fs.readFileSync(path.join(repoRoot, `${name}.html`), 'utf8');
+    const assets = collectInitialAssets(html);
+    if (name === 'battle') assets.scripts.push('js/battle-engine.js');
+    const scripts = measure(assets.scripts);
+    const styles = measure(assets.styles);
+    assertWithin(`${name} static JavaScript including model import`, scripts.gzip, budgets.staticPageJavaScriptGzip);
+    assertWithin(`${name} static styles`, styles.gzip, budgets.staticPageStylesGzip);
+    assertWithin(`${name} HTML including roster data`, zlib.gzipSync(html).length, 50 * 1024);
+    rows.push({ route: name, initialJsGzip: formatKb(scripts.gzip), routeJsGzip: formatKb(0), initialCssGzip: formatKb(styles.gzip), routeCssGzip: formatKb(0) });
+}
 rows.push({
     route: 'about-static',
     initialJsGzip: formatKb(measure(aboutStaticAssets.scripts).gzip),

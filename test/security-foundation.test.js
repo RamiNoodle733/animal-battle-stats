@@ -16,6 +16,15 @@ const MatchupVote = require('../lib/models/MatchupVote');
 const MatchupVoteBallot = require('../lib/models/MatchupVoteBallot');
 const XpClaim = require('../lib/models/XpClaim');
 
+test('malformed authentication headers fail closed without crashing requests', () => {
+    for (const cookie of ['abs_auth_token=%ZZ', 'abs_auth_token=%E0%A4%A', [], {}]) {
+        assert.equal(auth.getAuthUser({ headers: { cookie } }), null);
+    }
+    assert.equal(auth.getAuthUser({ headers: { authorization: ['Bearer token'] } }), null);
+    const token = auth.signToken({ userId: 'user-1', username: 'Rami' });
+    assert.deepEqual(auth.getAuthUser({ headers: { cookie: `other=value; abs_auth_token=${encodeURIComponent(token)}` } }), { id: 'user-1', username: 'Rami' });
+});
+
 test('JWT verification is algorithm-restricted and secret access stays private', () => {
     const token = auth.signToken({ userId: 'user-1', username: 'Rami' }, { expiresIn: '5m' });
     assert.deepEqual(auth.verifyToken(token), { id: 'user-1', username: 'Rami' });

@@ -8,6 +8,7 @@ const { connectToDatabase } = require('../lib/mongodb');
 const Animal = require('../lib/models/Animal');
 const { applyCanonicalAnimalImage, applyCanonicalAnimalImages } = require('../lib/animal-images');
 const { setCorsHeaders } = require('../lib/cors');
+const { InputError, randomParams } = require('../lib/api-input');
 
 module.exports = async function handler(req, res) {
     // Public random-animal data is read-only and returns no auth/user data, so it intentionally stays open.
@@ -31,10 +32,8 @@ module.exports = async function handler(req, res) {
     }
 
     try {
+        const { count: numAnimals, type, exclude } = randomParams(req.query);
         await connectToDatabase();
-
-        const { count = 1, type, exclude } = req.query;
-        const numAnimals = Math.min(parseInt(count) || 1, 10);
 
         const matchStage = {};
         
@@ -57,11 +56,12 @@ module.exports = async function handler(req, res) {
             success: true,
             count: animals.length,
             data: numAnimals === 1
-                ? applyCanonicalAnimalImage(animals[0])
+                ? applyCanonicalAnimalImage(animals[0] || null)
                 : applyCanonicalAnimalImages(animals)
         });
 
     } catch (error) {
+        if (error instanceof InputError) return res.status(400).json({ success: false, error: error.message });
         console.error('Random API Error:', error);
         return res.status(500).json({
             success: false,

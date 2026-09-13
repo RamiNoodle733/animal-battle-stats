@@ -1,0 +1,74 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { animals, formatMeasurement } from '../lib/animals';
+import engine from '../../../js/battle-engine.js';
+
+const roster = [...animals].sort((a, b) => a.name.localeCompare(b.name));
+const left = roster.find((a) => a.slug === 'african-lion');
+const right = roster.find((a) => a.slug === 'siberian-tiger');
+const result = engine.compare(left, right);
+const favored = result.winner === 'left' ? left : right;
+const percent = Math.round(100 * (result.winner === 'left' ? result.probability : 1 - result.probability));
+const canonical = 'https://animalbattlestats.com/battle';
+const description = 'Explore all 225 animals with a transparent experimental ABS battle model. Compare ratings, inspect the formula, and share a reproducible hypothetical matchup.';
+const payload = roster.map((a) => Object.fromEntries(['name', 'slug', 'attack', 'defense', 'agility', 'stamina', 'intelligence', 'special', 'weight_kg', 'length_cm', 'height_cm', 'speed_mps', 'bite_force_psi'].map((key) => [key, a[key]])));
+const measurements = [['weight_kg', 'Body mass', 'kg', 2], ['length_cm', 'Body length', 'cm', 1], ['height_cm', 'Height', 'cm', 1], ['speed_mps', 'Speed', 'm/s', 1], ['bite_force_psi', 'Bite force', 'psi', 0]];
+const jsonLd = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'ABS Battle Model Preview', url: canonical, description, breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://animalbattlestats.com/' }, { '@type': 'ListItem', position: 2, name: 'Battle', item: canonical }] } };
+---
+<SiteLayout title="Who Would Win? Battle Model Preview | Animal Battle Stats" description={description} canonical={canonical} jsonLd={jsonLd} activeNav="battle" styles={['/css/pages/battle-static.css']} scripts={['/js/battle-client.js']} footerLabel="Experimental ABS battle model">
+    <main id="main-content" class="battle-main">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Battle</span></nav>
+        <header class="battle-hero">
+            <p class="battle-kicker">ABS BATTLE MODEL · EXPERIMENTAL PREVIEW</p>
+            <h1>Who would win?</h1>
+            <p>Pick two animals. See what the ABS ratings favor, then inspect every deciding factor.</p>
+            <p class="battle-caveat">This first model compares editorial ratings. It is not yet a terrain-aware or size-aware fight simulator.</p>
+        </header>
+        <section class="battle-panel" aria-labelledby="selector-title">
+            <h2 id="selector-title">Choose your matchup</h2>
+            <form id="battle-form" action="/battle" method="get">
+                <div class="battle-selectors">
+                    <label>Animal A<select name="a" id="animal-a">{roster.map((a) => <option value={a.slug} selected={a.slug === left.slug}>{a.name}</option>)}</select></label>
+                    <span class="versus" aria-hidden="true">VS</span>
+                    <label>Animal B<select name="b" id="animal-b">{roster.map((a) => <option value={a.slug} selected={a.slug === right.slug}>{a.name}</option>)}</select></label>
+                </div>
+                <button class="battle-primary" type="submit" id="battle-submit" disabled>Compare with ABS model</button>
+                <p id="battle-error" role="alert"></p>
+            </form>
+            <noscript><p>The example below is African Lion vs Siberian Tiger. Enable JavaScript to calculate another pair, or explore the <a href="/stats">static animal profiles</a>.</p></noscript>
+            <div class="battle-presets" aria-label="Example matchups">
+                <a href="/battle?a=african-lion&amp;b=siberian-tiger">Lion vs Tiger</a>
+                <a href="/battle?a=gorilla&amp;b=grizzly-bear">Gorilla vs Grizzly</a>
+                <a href="/battle?a=orca&amp;b=great-white-shark">Orca vs Great White</a>
+            </div>
+        </section>
+        <section class="battle-panel verdict" aria-labelledby="verdict-title" id="battle-result" tabindex="-1">
+            <p class="battle-kicker">ABS RATING MODEL · <span id="model-version">{engine.VERSION}</span></p>
+            <h2 id="verdict-title">{favored.name} favored: {percent}%</h2>
+            <p id="matchup-label">{left.name} vs {right.name}</p>
+            <p id="battle-summary">The largest weighted rating difference is {result.factors[0].label.toLowerCase()}. This is a formula-derived estimate, not a measured chance of winning.</p>
+            <div class="battle-meter" aria-hidden="true"><span id="probability-fill" style={`width:${result.probability * 100}%`}></span></div>
+            <p id="probability-label">{left.name} {Math.round(result.probability * 100)}% · {right.name} {Math.round((1 - result.probability) * 100)}%</p>
+            <p><strong>Prediction confidence: Low.</strong> <span>{result.confidenceReason}</span></p>
+            <p id="coverage-label">All six rating factors available. Per-field source verification remains incomplete.</p>
+            <p><strong>Assumptions:</strong> {result.scenario} Analytical calculation; no random simulations were run.</p>
+            <div class="battle-actions"><button id="share-battle" type="button" disabled>Copy matchup link</button><a href="/methodology">Read the full formula</a><a id="left-profile" href={`/stats/${left.slug}`}>{left.name} profile</a><a id="right-profile" href={`/stats/${right.slug}`}>{right.name} profile</a></div>
+            <p id="share-status" role="status"></p>
+            <label id="share-fallback" hidden>Matchup URL<input readonly id="share-url" type="url" /></label>
+        </section>
+        <section class="battle-panel" aria-labelledby="ratings-title">
+            <h2 id="ratings-title">Why the model leans this way</h2>
+            <p>Positive contributions favor Animal A; negative contributions favor Animal B. These are editorial ratings on a 0–100 scale.</p>
+            <div class="battle-table-wrap" role="region" aria-label="Battle rating comparison" tabindex="0">
+                <table><caption>Weighted rating breakdown</caption><thead><tr><th scope="col">Factor</th><th scope="col">Animal A</th><th scope="col">Animal B</th><th scope="col">Weight</th><th scope="col">Contribution</th></tr></thead><tbody id="factor-rows">{engine.FACTORS.map((f) => <tr><th scope="row">{f.label}</th><td>{left[f.key]}</td><td>{right[f.key]}</td><td>{Math.round(f.weight * 100)}%</td><td>{result.factors.find((v) => v.key === f.key).contribution.toFixed(1)}</td></tr>)}</tbody></table>
+            </div>
+        </section>
+        <section class="battle-panel" aria-labelledby="measurements-title">
+            <h2 id="measurements-title">Physical data, separate from the prediction</h2>
+            <p>Legacy dataset values awaiting complete source review. These measurements are shown for comparison and are not additional inputs to this preview. Unknown does not mean zero.</p>
+            <div class="battle-table-wrap" role="region" aria-label="Physical measurement comparison" tabindex="0"><table><caption>Physical measurements from the ABS dataset</caption><thead><tr><th scope="col">Measurement</th><th scope="col">Animal A</th><th scope="col">Animal B</th></tr></thead><tbody id="measurement-rows">{measurements.map(([key, label, unit, decimals]) => <tr><th scope="row">{label}</th><td>{formatMeasurement(left[key], unit, decimals)}</td><td>{formatMeasurement(right[key], unit, decimals)}</td></tr>)}</tbody></table></div>
+        </section>
+        <section class="battle-panel"><h2>What could change the answer?</h2><p>Body size, environment, available space, ambush, individual variation and specialized weapons can overturn a rating-only estimate. The preview does not quantify these effects. It should not be used to compare land and marine fighting conditions as though they were equivalent.</p><p>Community voting is a separate signal. <a href="/compare">Open the comparison arena</a> to explore the existing community tools.</p><p>ABS simulations are hypothetical entertainment and powerscaling models. Never approach, provoke, fight, or test yourself against wildlife.</p></section>
+    </main>
+    <script is:inline id="battle-data" type="application/json" set:html={JSON.stringify(payload).replace(/</g, '\\u003c')} />
+</SiteLayout>

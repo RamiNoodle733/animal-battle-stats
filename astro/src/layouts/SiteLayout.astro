@@ -16,6 +16,7 @@ const {
 const version = packageJson.version;
 const socialImage = new URL(image, 'https://animalbattlestats.com').href;
 const navItems = [
+    ['battle', '/battle', 'Battle'],
     ['stats', '/stats', 'Stats'],
     ['compare', '/compare', 'Compare'],
     ['rankings', '/rankings', 'Rankings'],
@@ -73,7 +74,8 @@ const navItems = [
             <div>
                 <span class="portal-version">v{version}</span>
                 <span aria-hidden="true">•</span>
-                <a href="/about">Methodology &amp; About</a>
+                <a href="/methodology">Battle methodology</a>
+                <a href="/about">About &amp; sources</a>
             </div>
             <p class="about-version">Version {version} • {footerLabel}</p>
         </footer>

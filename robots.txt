@@ -4,10 +4,11 @@
 User-agent: *
 Allow: /
 
-# AI/search discovery crawlers are explicitly welcome.
+# Search discovery is independent of training policy.
 User-agent: OAI-SearchBot
 Allow: /
 
+# Existing training policy is preserved; this is not a search requirement.
 User-agent: GPTBot
 Allow: /
 

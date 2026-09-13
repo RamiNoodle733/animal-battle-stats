@@ -8,6 +8,7 @@ const { connectToDatabase } = require('../lib/mongodb');
 const Animal = require('../lib/models/Animal');
 const { applyCanonicalAnimalImages } = require('../lib/animal-images');
 const { setCorsHeaders } = require('../lib/cors');
+const { InputError, searchParams } = require('../lib/api-input');
 
 module.exports = async function handler(req, res) {
     // Public animal search is read-only and returns no auth/user data, so it intentionally stays open.
@@ -31,10 +32,9 @@ module.exports = async function handler(req, res) {
     }
 
     try {
-        await connectToDatabase();
-
         // Get params from query (GET) or body (POST)
-        const params = req.method === 'POST' ? req.body : req.query;
+        const params = searchParams(req.method === 'POST' ? req.body : req.query);
+        await connectToDatabase();
 
         const {
             q,              // Search query
@@ -89,34 +89,34 @@ module.exports = async function handler(req, res) {
         }
 
         // Stat range filters
-        if (minAttack || maxAttack) {
+        if (minAttack !== undefined || maxAttack !== undefined) {
             query.attack = {};
-            if (minAttack) query.attack.$gte = parseFloat(minAttack);
-            if (maxAttack) query.attack.$lte = parseFloat(maxAttack);
+            if (minAttack !== undefined) query.attack.$gte = minAttack;
+            if (maxAttack !== undefined) query.attack.$lte = maxAttack;
         }
 
-        if (minDefense || maxDefense) {
+        if (minDefense !== undefined || maxDefense !== undefined) {
             query.defense = {};
-            if (minDefense) query.defense.$gte = parseFloat(minDefense);
-            if (maxDefense) query.defense.$lte = parseFloat(maxDefense);
+            if (minDefense !== undefined) query.defense.$gte = minDefense;
+            if (maxDefense !== undefined) query.defense.$lte = maxDefense;
         }
 
-        if (minAgility || maxAgility) {
+        if (minAgility !== undefined || maxAgility !== undefined) {
             query.agility = {};
-            if (minAgility) query.agility.$gte = parseFloat(minAgility);
-            if (maxAgility) query.agility.$lte = parseFloat(maxAgility);
+            if (minAgility !== undefined) query.agility.$gte = minAgility;
+            if (maxAgility !== undefined) query.agility.$lte = maxAgility;
         }
 
-        if (minStamina || maxStamina) {
+        if (minStamina !== undefined || maxStamina !== undefined) {
             query.stamina = {};
-            if (minStamina) query.stamina.$gte = parseFloat(minStamina);
-            if (maxStamina) query.stamina.$lte = parseFloat(maxStamina);
+            if (minStamina !== undefined) query.stamina.$gte = minStamina;
+            if (maxStamina !== undefined) query.stamina.$lte = maxStamina;
         }
 
-        if (minIntelligence || maxIntelligence) {
+        if (minIntelligence !== undefined || maxIntelligence !== undefined) {
             query.intelligence = {};
-            if (minIntelligence) query.intelligence.$gte = parseFloat(minIntelligence);
-            if (maxIntelligence) query.intelligence.$lte = parseFloat(maxIntelligence);
+            if (minIntelligence !== undefined) query.intelligence.$gte = minIntelligence;
+            if (maxIntelligence !== undefined) query.intelligence.$lte = maxIntelligence;
         }
 
         // Boolean filters
@@ -158,6 +158,7 @@ module.exports = async function handler(req, res) {
         });
 
     } catch (error) {
+        if (error instanceof InputError) return res.status(400).json({ success: false, error: error.message });
         console.error('Search API Error:', error);
         return res.status(500).json({
             success: false,

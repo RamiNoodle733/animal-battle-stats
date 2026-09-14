@@ -51,7 +51,7 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 - `npm test`: 121 passed. The suite accounts for all 95 historical finding IDs and exercises typed auth, shared XP math at levels 1/100, missing-author moderation, distributed integrity and existing public contracts.
 - `npm run lint`, `npm run build`, `npm run version:check`, `npm run security:exports`, `npm run perf:budget` and `git diff --check`: pass. All 234 HTML files agree on version 2.16.0; the closure changes require no destructive data migration.
 - Read-only browser verification passes UI stability, responsive images, community at 1440/768/390px and the full arcade at 1440/1366/768/390/320px.
-- Production proof remains pending V5 deployment; no live signup, rename or deletion mutation is required or authorized for verification.
+- Vercel marked feature commit `212871b` successful and production `version.json` matched v2.16.0 and that commit. Safe live reads returned two leaderboard rows with shared-curve XP values and no storage IDs; a populated public profile contained only documented public fields with no `id`/`_id`; an unknown profile returned 404. No production mutation was used for verification.
 
 ## Current official guidance consulted
 

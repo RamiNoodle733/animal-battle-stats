@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.19.0 — 2026-09-14
+
+- Rebuilt `/battle` as a compact ABS game arena with facing animal portraits, in-place selectors, a central run control, probability meter and result actions instead of a disconnected long-form tool.
+- Preserved the complete static answer, model explanation, weighted ratings, physical-data disclosure and limitations in crawlable HTML while presenting them through keyboard-accessible Summary, Ratings, Physical Data and Limits panels.
+- Added Battle and Tournament to the interactive app’s desktop and mobile navigation, connecting the arena directly to Stats, Compare, Rankings and Community in both directions.
+- The battle browser gate now verifies portrait updates, tab visibility, arrow-key tab navigation, the six-destination shell, share/reload/back behavior, mobile overflow, no-JavaScript content and one-viewport desktop presentation.
+
 ## 2.18.0 — 2026-09-14
 
 - Added an executable search-contract layer for canonical, robots, sitemap, social-card, structured-data, image-alt and crawlable-link validation across all 234 public URLs.

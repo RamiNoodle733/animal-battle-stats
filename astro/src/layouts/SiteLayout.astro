@@ -10,6 +10,7 @@ const {
     activeNav = '',
     styles = [],
     scripts = [],
+    bodyClass = '',
     skipLabel = 'Skip to main content',
     footerLabel = 'Static page'
 } = Astro.props;
@@ -56,7 +57,7 @@ const navItems = [
         <meta name="twitter:image" content={socialImage} />
         {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />}
     </head>
-    <body>
+    <body class={bodyClass || undefined}>
         <a class="skip-link" href="#main-content">{skipLabel}</a>
         <header class="site-header">
             <a class="brand" href="/" aria-label="Animal Battle Stats home">

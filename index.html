@@ -102,14 +102,14 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     <!-- Main stylesheet (all styles) -->
-    <link rel="stylesheet" href="/css/legacy.css?v=2.18.0">
+    <link rel="stylesheet" href="/css/legacy.css?v=2.19.0">
     
     <!-- Shared component styles; page/feature styles are loaded by js/router.js -->
-    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.18.0">
+    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.19.0">
     
     <!-- Mobile-specific styles (loaded last to override) -->
-    <link rel="stylesheet" href="/css/mobile.css?v=2.18.0" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/arcade.css?v=2.18.0">
+    <link rel="stylesheet" href="/css/mobile.css?v=2.19.0" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/arcade.css?v=2.19.0">
     
     <!-- Non-critical external resources loaded async -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
@@ -235,6 +235,9 @@
                 <div id="main-title" class="header__title">ANIMAL BATTLE <span class="title-mode header__title-mode">STATS</span></div>
             </div>
             <nav class="nav-tabs nav-tabs">
+                <a href="/battle" class="mode-btn nav-tab battle-mode-link" aria-label="Battle arena">
+                    <i class="fas fa-bolt"></i> <span class="mode-text nav-tab__text">BATTLE</span>
+                </a>
                 <button type="button" class="mode-btn nav-tab" id="stats-mode-btn" data-mode="stats">
                     <i class="fas fa-chart-bar"></i> <span class="mode-text nav-tab__text">STATS</span>
                 </button>
@@ -247,6 +250,9 @@
                 <button type="button" class="mode-btn nav-tab" id="community-mode-btn" data-mode="community">
                     <i class="fas fa-users"></i> <span class="mode-text nav-tab__text">COMMUNITY</span>
                 </button>
+                <a href="/tournament" class="mode-btn nav-tab battle-mode-link" aria-label="Tournament arena">
+                    <i class="fas fa-gamepad"></i> <span class="mode-text nav-tab__text">TOURNAMENT</span>
+                </a>
                 <!-- About Info Icon (Desktop) -->
                 <button type="button" class="about-info-btn desktop-about-btn" id="about-info-btn-desktop" aria-label="About" title="About">
                     <span class="about-info-icon">i</span>
@@ -392,7 +398,7 @@
 
             <!-- Footer with About link - OUTSIDE home-portal to avoid screen shake effects -->
             <footer class="portal-footer">
-                <span class="portal-version">v2.18.0</span>
+                <span class="portal-version">v2.19.0</span>
                 <div class="portal-footer-divider"></div>
                 <a href="/about" class="portal-footer-link">About</a>
                 <div class="portal-footer-divider"></div>
@@ -431,7 +437,7 @@
                     </div>
                     
                     <div class="about-version-section">
-                        <p class="about-version">Version 2.18.0 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
+                        <p class="about-version">Version 2.19.0 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
                     </div>
                 </div>
             </div>
@@ -3103,6 +3109,10 @@
     
     <!-- Mobile Bottom Navigation -->
     <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+        <a class="mobile-nav-item" data-view="battle" href="/battle">
+            <i class="fas fa-bolt"></i>
+            <span>Battle</span>
+        </a>
         <a class="mobile-nav-item" data-view="stats" href="/stats">
             <i class="fas fa-chart-bar"></i>
             <span>Stats</span>
@@ -3119,20 +3129,24 @@
             <i class="fas fa-users"></i>
             <span>Community</span>
         </a>
+        <a class="mobile-nav-item" data-view="tournament" href="/tournament">
+            <i class="fas fa-gamepad"></i>
+            <span>Tourney</span>
+        </a>
     </nav>
     <!-- Data loaded from MongoDB API - no local data.js needed -->
     
     <!-- Core utilities - shared across all modules -->
-    <script src="/js/core.js?v=2.18.0"></script>
-    <script src="/js/text-layout.js?v=2.18.0"></script>
+    <script src="/js/core.js?v=2.19.0"></script>
+    <script src="/js/text-layout.js?v=2.19.0"></script>
     
     <!-- Application modules - load order matters -->
-    <script src="/js/router.js?v=2.18.0"></script>
-    <script src="/js/motion.js?v=2.18.0"></script>
-    <script src="/js/auth.js?v=2.18.0"></script>
+    <script src="/js/router.js?v=2.19.0"></script>
+    <script src="/js/motion.js?v=2.19.0"></script>
+    <script src="/js/auth.js?v=2.19.0"></script>
     
     <!-- Main app (initializes everything) -->
-    <script src="/js/main.js?v=2.18.0" defer></script>
+    <script src="/js/main.js?v=2.19.0" defer></script>
     
 </body>
 </html>

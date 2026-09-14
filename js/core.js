@@ -400,8 +400,9 @@ function initMobileNav() {
     // Handle nav item clicks (prevent default and use router)
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
-            e.preventDefault();
             const href = item.getAttribute('href');
+            if (href === '/battle' || href === '/methodology') return;
+            e.preventDefault();
             if (window.Router) {
                 window.Router.navigate(href);
             } else {

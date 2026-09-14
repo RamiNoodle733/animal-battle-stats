@@ -55,6 +55,9 @@ async function initializeBattle() {
             const link = document.getElementById(`${side}-profile`);
             link.href = `/stats/${animal.slug}`;
             link.textContent = `${animal.name} profile`;
+            const image = document.getElementById(`animal-${side === 'left' ? 'a' : 'b'}-image`);
+            image.src = animal.image;
+            image.alt = animal.name;
         }
         const url = new URL('/battle', location.origin);
         url.search = new URLSearchParams({ a: left.slug, b: right.slug, model: model.VERSION, data: revision }).toString();
@@ -97,6 +100,26 @@ async function initializeBattle() {
         }
     });
     addEventListener('popstate', loadUrl);
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+    const activateTab = (tab) => {
+        tabs.forEach((candidate) => {
+            const selected = candidate === tab;
+            candidate.setAttribute('aria-selected', String(selected));
+            candidate.tabIndex = selected ? 0 : -1;
+            document.getElementById(candidate.getAttribute('aria-controls')).hidden = !selected;
+        });
+        tab.focus();
+    };
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateTab(tab));
+        tab.addEventListener('keydown', (event) => {
+            if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+            event.preventDefault();
+            const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1
+                : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+            activateTab(tabs[nextIndex]);
+        });
+    });
     render();
     loadUrl();
     document.getElementById('battle-submit').disabled = false;

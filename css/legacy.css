@@ -1888,6 +1888,8 @@ body {
     gap: 4px;
 }
 
+.battle-mode-link { text-decoration: none; }
+
 .mode-btn:hover {
     color: var(--text-light);
     background: rgba(0, 212, 255, 0.1);

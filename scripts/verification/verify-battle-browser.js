@@ -26,12 +26,22 @@ async function main() {
             await page.waitForFunction(() => !document.getElementById('battle-submit').disabled);
             assert.match(await page.locator('#matchup-label').innerText(), /African Lion vs Siberian Tiger/);
             assert.equal(await page.locator('h1').count(), 1);
+            assert.equal(await page.locator('.primary-nav a').count(), 6);
             assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://animalbattlestats.com/battle');
+            assert.match(await page.locator('#animal-a-image').getAttribute('src'), /african-lion/);
+            await page.locator('#tab-ratings').click();
+            assert.equal(await page.locator('#panel-ratings').isVisible(), true);
+            assert.equal(await page.locator('#panel-summary').isVisible(), false);
+            await page.locator('#tab-ratings').press('ArrowRight');
+            assert.equal(await page.locator('#panel-physical').isVisible(), true);
+            await page.locator('#tab-summary').click();
             await page.locator('#animal-a').selectOption('gorilla');
             await page.locator('#animal-b').selectOption('grizzly-bear');
             await page.locator('#battle-submit').focus();
             await page.keyboard.press('Enter');
             assert.match(await page.locator('#matchup-label').innerText(), /Gorilla vs Grizzly Bear/);
+            assert.match(await page.locator('#animal-a-image').getAttribute('src'), /gorilla/);
+            assert.match(await page.locator('#animal-b-image').getAttribute('src'), /grizzly-bear/);
             assert.equal(await page.locator('#battle-result').evaluate((el) => el === document.activeElement), true);
             const shared = page.url();
             assert.match(shared, /model=0\.1\.0-preview/);
@@ -51,6 +61,7 @@ async function main() {
             await page.goBack();
             assert.match(await page.locator('#matchup-label').innerText(), /Gorilla vs Grizzly Bear/);
             assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `overflow at ${width}`);
+            if (width === 1440) assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight + 1), 'desktop Battle arena should fit one viewport');
             await page.screenshot({ path: path.join(output, `battle-${width}.png`), fullPage: true });
             await page.goto(`${base}/battle?a=missing&model=old`);
             await page.waitForFunction(() => !document.getElementById('battle-submit').disabled);
@@ -60,6 +71,14 @@ async function main() {
             assert.equal(await page.locator('h1').count(), 1);
             assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `methodology overflow at ${width}`);
             await page.screenshot({ path: path.join(output, `methodology-${width}.png`), fullPage: true });
+            if (width === 390) {
+                await page.goto(`${base}/stats`);
+                await page.waitForFunction(() => window.app && document.getElementById('app-loading-screen')?.classList.contains('hidden'));
+                await page.locator('.mobile-nav-item[data-view="battle"]').click();
+                await page.waitForURL((url) => url.pathname === '/battle');
+                await page.waitForFunction(() => !document.getElementById('battle-submit').disabled);
+                assert.equal(await page.locator('body.battle-route').count(), 1);
+            }
             assert.deepEqual(errors, []);
             await context.close();
             console.log(`Battle and methodology verified at ${width}px: keyboard, reload, history, invalid input, overflow and console.`);

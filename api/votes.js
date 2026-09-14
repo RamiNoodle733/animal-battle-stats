@@ -17,6 +17,7 @@ const { getAuthUser } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 
 module.exports = async function handler(req, res) {
     setCorsHeaders(req, res, {
@@ -119,12 +120,21 @@ async function handlePost(req, res) {
     if (!user) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
+    if (!await enforceRateLimit(res, {
+        scope: 'animal-vote',
+        identity: requestIdentity(req, user.id),
+        max: 60,
+        windowMs: 10 * 60 * 1000
+    })) return;
 
     const { animalId, voteType } = req.body || {};
     const today = Vote.getTodayString();
 
     if (!animalId) {
         return res.status(400).json({ success: false, error: 'Animal ID required' });
+    }
+    if (!mongoose.isValidObjectId(animalId)) {
+        return res.status(400).json({ success: false, error: 'Invalid animal ID' });
     }
 
     const animal = await Animal.findById(animalId).select('_id name').lean().catch(() => null);
@@ -140,11 +150,12 @@ async function handlePost(req, res) {
     const dayKey = today;
     
     // Check for existing vote TODAY
-    const existingTodayVote = await Vote.findOne({ 
+    const voteKey = {
         animalId, 
         votedBy: user.id, 
         voteDate: today 
-    });
+    };
+    const existingTodayVote = await Vote.findOne(voteKey).select('voteType').lean();
 
     let action = 'none';
     let xpAwarded = false;
@@ -155,7 +166,7 @@ async function handlePost(req, res) {
     if (voteType === 'clear') {
         if (existingTodayVote) {
             const oldVoteType = existingTodayVote.voteType;
-            await Vote.deleteOne({ _id: existingTodayVote._id });
+            await Vote.deleteOne(voteKey);
             action = 'cleared';
             
             // Notify Discord about vote removal
@@ -166,42 +177,26 @@ async function handlePost(req, res) {
             }, req);
         }
     } else if (voteType) {
-        // Handle vote create or update
-        if (existingTodayVote) {
-            // Update existing vote if different
-            if (existingTodayVote.voteType !== voteType) {
-                const oldVoteType = existingTodayVote.voteType;
-                existingTodayVote.voteType = voteType;
-                await existingTodayVote.save();
-                action = 'updated';
-                
-                // Notify Discord about vote change
-                await notifyDiscord('vote_changed', {
-                    user: user.username,
-                    animal: animalName,
-                    oldVoteType: oldVoteType,
-                    newVoteType: voteType
-                }, req);
-            } else {
-                action = 'unchanged';
-            }
-        } else {
-            // Create new vote
-            await Vote.create({
-                animalId,
-                animalName,
-                votedBy: user.id,
-                votedByUsername: user.username,
-                voteType,
-                voteDate: today
-            });
-            action = 'created';
-            
-            // Notify Discord about new vote
-            await notifyDiscord('vote', {
+        const update = {
+            $set: { animalName, votedByUsername: user.username, voteType },
+            $setOnInsert: voteKey
+        };
+        try {
+            await Vote.findOneAndUpdate(voteKey, update, { upsert: true, returnDocument: 'after', setDefaultsOnInsert: true });
+        } catch (error) {
+            if (error?.code !== 11000) throw error;
+            await Vote.updateOne(voteKey, { $set: update.$set });
+        }
+        action = !existingTodayVote ? 'created' : existingTodayVote.voteType === voteType ? 'unchanged' : 'updated';
+
+        if (action === 'created') {
+            await notifyDiscord('vote', { user: user.username, animal: animalName, voteType }, req);
+        } else if (action === 'updated') {
+            await notifyDiscord('vote_changed', {
                 user: user.username,
                 animal: animalName,
-                voteType: voteType
+                oldVoteType: existingTodayVote.voteType,
+                newVoteType: voteType
             }, req);
         }
         
@@ -255,12 +250,21 @@ async function handleDelete(req, res) {
     if (!user) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
+    if (!await enforceRateLimit(res, {
+        scope: 'animal-vote',
+        identity: requestIdentity(req, user.id),
+        max: 60,
+        windowMs: 10 * 60 * 1000
+    })) return;
 
     const { animalId } = req.query;
     const today = Vote.getTodayString();
     
     if (!animalId) {
         return res.status(400).json({ success: false, error: 'Animal ID required' });
+    }
+    if (!mongoose.isValidObjectId(animalId)) {
+        return res.status(400).json({ success: false, error: 'Invalid animal ID' });
     }
 
     // Only delete TODAY's vote

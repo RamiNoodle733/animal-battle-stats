@@ -21,13 +21,21 @@ function response() {
 
 test('ranked tournament start uses a server-selected roster and server UUID', async () => {
     const dbPath = require.resolve('../lib/mongodb');
+    const limiterPath = require.resolve('../lib/distributed-rate-limit');
     const apiPath = require.resolve('../api/battles');
     const priorDb = require.cache[dbPath];
+    const priorLimiter = require.cache[limiterPath];
     require.cache[dbPath] = {
         id: dbPath,
         filename: dbPath,
         loaded: true,
         exports: { connectToDatabase: async () => {} }
+    };
+    require.cache[limiterPath] = {
+        id: limiterPath,
+        filename: limiterPath,
+        loaded: true,
+        exports: { enforceRateLimit: async () => true, requestIdentity: (_req, id) => `user:${id}` }
     };
     delete require.cache[apiPath];
     const handler = require('../api/battles');
@@ -65,5 +73,7 @@ test('ranked tournament start uses a server-selected roster and server UUID', as
         delete require.cache[apiPath];
         if (priorDb) require.cache[dbPath] = priorDb;
         else delete require.cache[dbPath];
+        if (priorLimiter) require.cache[limiterPath] = priorLimiter;
+        else delete require.cache[limiterPath];
     }
 });

@@ -5,11 +5,27 @@
 
 const { connectToDatabase } = require('../lib/mongodb');
 const Comment = require('../lib/models/Comment');
+const Animal = require('../lib/models/Animal');
 const { getAuthUser, authorizeRequest } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const { notifyDiscord } = require('../lib/discord');
 const { maskBlockedTerms } = require('../lib/moderation');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
+const mongoose = require('mongoose');
+const { buildAtomicVotePipeline } = require('../lib/atomic-vote');
+
+function boundedInteger(value, fallback, min, max) {
+    if (value === undefined) return fallback;
+    if (!['string', 'number'].includes(typeof value) || String(value).trim() === '') return null;
+    const parsed = Number(value);
+    return Number.isInteger(parsed) && parsed >= min && parsed <= max ? parsed : null;
+}
+
+function exactNameRegex(value) {
+    const escaped = value.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`^${escaped}$`, 'i');
+}
 
 module.exports = async function handler(req, res) {
     setCorsHeaders(req, res, {
@@ -82,7 +98,12 @@ function buildCommentTree(comments) {
 // GET: Get comments for an animal or comparison (with replies nested)
 async function handleGet(req, res) {
     try {
-        const { animalId, animalName, comparison, limit = 100 } = req.query;
+        const { animalId, animalName, comparison } = req.query;
+        const limit = boundedInteger(req.query.limit, 100, 1, 100);
+        if (limit === null) return res.status(400).json({ success: false, error: 'Invalid limit' });
+        if (animalId && !mongoose.isValidObjectId(animalId)) return res.status(400).json({ success: false, error: 'Invalid animal ID' });
+        if (animalName !== undefined && (typeof animalName !== 'string' || !animalName.trim() || animalName.length > 100)) return res.status(400).json({ success: false, error: 'Invalid animal name' });
+        if (comparison !== undefined && (typeof comparison !== 'string' || !comparison.trim() || comparison.length > 220)) return res.status(400).json({ success: false, error: 'Invalid comparison key' });
 
         const query = { isHidden: false };
         
@@ -101,7 +122,7 @@ async function handleGet(req, res) {
 
         const comments = await Comment.find(query)
             .sort({ createdAt: -1 })
-            .limit(parseInt(limit))
+            .limit(limit)
             .lean();
         
         // Try to get current user data, but don't fail if User model has issues
@@ -160,16 +181,24 @@ async function handlePost(req, res) {
     if (!user) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
+    if (!await enforceRateLimit(res, {
+        scope: 'comment-post',
+        identity: requestIdentity(req, user.id),
+        max: 8,
+        windowMs: 10 * 60 * 1000
+    })) return;
 
-    const { targetType, animalId, animalName, comparisonKey, content, parentId, isAnonymous } = req.body;
+    const { targetType, animalId, animalName, comparisonKey, content, parentId, isAnonymous } = req.body || {};
 
-    if (!content || content.trim().length === 0) {
+    if (typeof content !== 'string' || content.trim().length === 0) {
         return res.status(400).json({ success: false, error: 'Comment content required' });
     }
 
     if (content.length > 1000) {
         return res.status(400).json({ success: false, error: 'Comment too long (max 1000 characters)' });
     }
+    if (isAnonymous !== undefined && typeof isAnonymous !== 'boolean') return res.status(400).json({ success: false, error: 'isAnonymous must be true or false' });
+    if (parentId && !mongoose.isValidObjectId(parentId)) return res.status(400).json({ success: false, error: 'Invalid parent comment ID' });
 
     const trimmedContent = content.trim();
     const publicContent = maskBlockedTerms(trimmedContent);
@@ -193,7 +222,7 @@ async function handlePost(req, res) {
 
     // If this is a reply, get parent info
     if (parentId) {
-        const parent = await Comment.findById(parentId);
+        const parent = await Comment.findOne({ _id: parentId, isHidden: false });
         if (!parent) {
             return res.status(404).json({ success: false, error: 'Parent comment not found' });
         }
@@ -225,13 +254,26 @@ async function handlePost(req, res) {
             if (!animalId && !animalName) {
                 return res.status(400).json({ success: false, error: 'Animal ID or name required' });
             }
-            if (animalId) commentData.animalId = animalId;
-            if (animalName) commentData.animalName = animalName;
+            if (animalId && !mongoose.isValidObjectId(animalId)) return res.status(400).json({ success: false, error: 'Invalid animal ID' });
+            if (animalName !== undefined && (typeof animalName !== 'string' || !animalName.trim() || animalName.length > 100)) return res.status(400).json({ success: false, error: 'Invalid animal name' });
+            const animal = animalId
+                ? await Animal.findById(animalId).select('_id name').lean()
+                : await Animal.findOne({ name: { $regex: exactNameRegex(animalName) } }).select('_id name').lean();
+            if (!animal) return res.status(400).json({ success: false, error: 'Unknown animal' });
+            commentData.animalId = animal._id;
+            commentData.animalName = animal.name;
         } else if (targetType === 'comparison') {
             if (!comparisonKey) {
                 return res.status(400).json({ success: false, error: 'Comparison key required' });
             }
-            commentData.comparisonKey = comparisonKey;
+            if (typeof comparisonKey !== 'string' || comparisonKey.length > 220) return res.status(400).json({ success: false, error: 'Invalid comparison key' });
+            const pair = comparisonKey.split(/\s+vs\s+/i).map((name) => name.trim()).filter(Boolean);
+            if (pair.length !== 2 || pair[0].toLowerCase() === pair[1].toLowerCase() || pair.some((name) => name.length > 100)) {
+                return res.status(400).json({ success: false, error: 'Comparison key must identify two different animals' });
+            }
+            const animals = await Animal.find({ name: { $in: pair.map(exactNameRegex) } }).select('name').lean();
+            if (animals.length !== 2) return res.status(400).json({ success: false, error: 'Unknown comparison animal' });
+            commentData.comparisonKey = animals.map((animal) => animal.name).sort().join(' vs ');
         } else {
             return res.status(400).json({ success: false, error: 'Invalid target type' });
         }
@@ -281,6 +323,7 @@ async function handleDelete(req, res) {
     if (!targetId) {
         return res.status(400).json({ success: false, error: 'Comment ID required' });
     }
+    if (!mongoose.isValidObjectId(targetId)) return res.status(400).json({ success: false, error: 'Invalid comment ID' });
 
     const comment = await Comment.findById(targetId);
     if (!comment) {
@@ -317,70 +360,46 @@ async function handlePatch(req, res) {
     if (!user) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
+    if (!await enforceRateLimit(res, {
+        scope: 'comment-vote',
+        identity: requestIdentity(req, user.id),
+        max: 60,
+        windowMs: 5 * 60 * 1000
+    })) return;
 
     const { id } = req.query;
-    const { action } = req.body;
+    const { action } = req.body || {};
 
     if (!id) {
         return res.status(400).json({ success: false, error: 'Comment ID required' });
     }
-
-    const comment = await Comment.findById(id);
-    if (!comment) {
-        return res.status(404).json({ success: false, error: 'Comment not found' });
-    }
+    if (!mongoose.isValidObjectId(id)) return res.status(400).json({ success: false, error: 'Invalid comment ID' });
 
     const userId = user.id;
-    const upvoteIndex = comment.upvotes.findIndex(id => id.toString() === userId);
-    const downvoteIndex = comment.downvotes.findIndex(id => id.toString() === userId);
-
-    if (action === 'upvote') {
-        if (upvoteIndex > -1) {
-            // Remove upvote (toggle off)
-            comment.upvotes.splice(upvoteIndex, 1);
-        } else {
-            // Add upvote
-            comment.upvotes.push(userId);
-            // Remove downvote if exists
-            if (downvoteIndex > -1) {
-                comment.downvotes.splice(downvoteIndex, 1);
-            }
-            // Notify Discord
-            const authorName = comment.isAnonymous ? 'Anonymous' : comment.authorUsername;
-            await notifyDiscord('comment_upvote', {
-                user: user.username,
-                commentAuthor: authorName,
-                target: comment.animalName || comment.comparisonKey || 'Unknown'
-            }, req);
-        }
-    } else if (action === 'downvote') {
-        if (downvoteIndex > -1) {
-            // Remove downvote (toggle off)
-            comment.downvotes.splice(downvoteIndex, 1);
-        } else {
-            // Add downvote
-            comment.downvotes.push(userId);
-            // Remove upvote if exists
-            if (upvoteIndex > -1) {
-                comment.upvotes.splice(upvoteIndex, 1);
-            }
-            // Notify Discord
-            const authorName = comment.isAnonymous ? 'Anonymous' : comment.authorUsername;
-            await notifyDiscord('comment_downvote', {
-                user: user.username,
-                commentAuthor: authorName,
-                target: comment.animalName || comment.comparisonKey || 'Unknown'
-            }, req);
-        }
-    } else {
+    const normalizedAction = action === 'upvote' ? 'up' : action === 'downvote' ? 'down' : null;
+    if (!normalizedAction) {
         return res.status(400).json({ success: false, error: 'Invalid action. Use upvote or downvote' });
     }
-
-    await comment.save();
+    const objectUserId = new mongoose.Types.ObjectId(userId);
+    const comment = await Comment.findOneAndUpdate(
+        { _id: id, isHidden: false },
+        buildAtomicVotePipeline({ userId: objectUserId, vote: normalizedAction, toggle: true }),
+        { returnDocument: 'after' }
+    );
+    if (!comment) return res.status(404).json({ success: false, error: 'Comment not found' });
 
     const score = comment.upvotes.length - comment.downvotes.length;
     const userVote = comment.upvotes.some(id => id.toString() === userId) ? 'up' : 
                      comment.downvotes.some(id => id.toString() === userId) ? 'down' : null;
+
+    if (userVote === normalizedAction) {
+        const authorName = comment.isAnonymous ? 'Anonymous' : comment.authorUsername;
+        await notifyDiscord(`comment_${action}`, {
+            user: user.username,
+            commentAuthor: authorName,
+            target: comment.animalName || comment.comparisonKey || 'Unknown'
+        }, req);
+    }
 
     return res.status(200).json({
         success: true,

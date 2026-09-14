@@ -16,12 +16,14 @@ const Animal = require('../lib/models/Animal');
 const MatchupVote = require('../lib/models/MatchupVote');
 const MatchupVoteBallot = require('../lib/models/MatchupVoteBallot');
 const TournamentSubmission = require('../lib/models/TournamentSubmission');
+const SiteStats = require('../lib/models/SiteStats');
 const { getAuthUser } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
 const mongoose = require('mongoose');
 const { randomUUID } = require('node:crypto');
+const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 const {
     TournamentValidationError,
     validateTournamentId,
@@ -100,6 +102,12 @@ async function handleTournamentStart(req, res) {
         }
         throw error;
     }
+    if (!await enforceRateLimit(res, {
+        scope: 'tournament-start',
+        identity: requestIdentity(req, user.id),
+        max: 10,
+        windowMs: 60 * 60 * 1000
+    })) return;
     const match = start.type === 'all' ? {} : { type: start.type };
     const sampled = await Animal.aggregate([{ $match: match }, { $sample: { size: start.bracketSize } }, { $project: { _id: 0, name: 1 } }]);
     if (sampled.length !== start.bracketSize) return res.status(400).json({ success: false, error: 'Not enough animals for this tournament type' });
@@ -156,6 +164,12 @@ async function getMatchupVotes(req, res) {
 async function recordMatchupVote(req, res) {
     const user = getAuthUser(req);
     if (!user) return res.status(401).json({ success: false, error: 'Authentication required' });
+    if (!await enforceRateLimit(res, {
+        scope: 'matchup-vote',
+        identity: requestIdentity(req, user.id),
+        max: 30,
+        windowMs: 10 * 60 * 1000
+    })) return;
 
     const { animal1, animal2, votedFor } = req.body || {};
     if (!animal1 || !animal2 || !votedFor) {
@@ -363,6 +377,15 @@ async function handleTournamentComplete(req, res) {
                 stats.lastBattleAt = new Date();
                 await stats.save({ session });
             }
+            await SiteStats.updateOne(
+                { key: 'global' },
+                {
+                    $inc: { totalTournaments: 1 },
+                    $set: { lastUpdated: new Date() },
+                    $setOnInsert: { totalVisits: 0, totalComparisons: 0 }
+                },
+                { upsert: true, session }
+            );
         });
     } catch (error) {
         const dailyRankingConflict = error?.code === 11000
@@ -417,6 +440,12 @@ async function handleTournamentQuit(req, res) {
     if (!authenticatedUser) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
+    if (!await enforceRateLimit(res, {
+        scope: 'tournament-quit',
+        identity: requestIdentity(req, authenticatedUser.id),
+        max: 5,
+        windowMs: 10 * 60 * 1000
+    })) return;
 
     // Parse body - handle both JSON and text/plain from sendBeacon
     let body = req.body;
@@ -424,14 +453,31 @@ async function handleTournamentQuit(req, res) {
         try { body = JSON.parse(body); } catch (_e) { body = {}; }
     }
     
-    const { bracketSize, totalMatches, completedMatches, matchHistory } = body || {};
+    let submissionId;
+    try {
+        submissionId = validateTournamentId(body?.submissionId);
+    } catch (error) {
+        if (error instanceof TournamentValidationError) return res.status(400).json({ success: false, error: error.message });
+        throw error;
+    }
+    const submissionKey = `${authenticatedUser.id}:${submissionId}`;
+    const issued = await TournamentSubmission.findOne({ submissionKey, status: 'active' })
+        .select('bracketSize matchHistory expiresAt')
+        .lean();
+    if (!issued || issued.expiresAt <= new Date()) {
+        return res.status(404).json({ success: false, error: 'Tournament is missing or expired' });
+    }
+    const bracketSize = issued.bracketSize;
+    const totalMatches = bracketSize - 1;
+    const completedMatches = issued.matchHistory.length;
+    const matchHistory = issued.matchHistory.slice(0, 63).map(({ winner, loser }) => ({ winner, loser }));
     
     await notifyDiscord('tournament_quit', {
         user: authenticatedUser.username,
-        bracketSize: bracketSize || 0,
-        totalMatches: totalMatches || 0,
-        completedMatches: completedMatches || 0,
-        matchHistory: matchHistory || []
+        bracketSize,
+        totalMatches,
+        completedMatches,
+        matchHistory
     }, req);
     
     return res.status(200).json({ success: true });

@@ -15,6 +15,7 @@ const { connectToDatabase } = require('../lib/mongodb');
 const { verifyToken, getAuthUser } = require('../lib/auth');
 const { setCorsHeaders } = require('../lib/cors');
 const { sanitizeEventData } = require('../lib/activity-logger');
+const { consumeRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 const { waitUntil } = require('@vercel/functions');
 
 // In-memory presence store with TTL (would use Redis in production)
@@ -654,8 +655,7 @@ async function handleStats(req, res) {
         totalVotes,
         totalComments,
         totalChatMessages,
-        battleStatsAgg,
-        tournamentStatsAgg
+        battleStatsAgg
     ] = await Promise.all([
         User.countDocuments({}),
         Vote.countDocuments({}),
@@ -664,11 +664,7 @@ async function handleStats(req, res) {
         // Sum up all tournament battles (matches)
         BattleStats.aggregate([
             { $group: { _id: null, totalMatches: { $sum: '$tournamentBattles' } } }
-        ]).then(r => r[0]?.totalMatches || 0),
-        // Sum up all tournaments played (each animal's tournaments count / 8 for bracket size avg)
-        BattleStats.aggregate([
-            { $group: { _id: null, totalTournaments: { $sum: '$tournamentsPlayed' } } }
-        ]).then(r => r[0]?.totalTournaments || 0)
+        ]).then(r => r[0]?.totalMatches || 0)
     ]);
 
     // Clean up presence to get accurate count
@@ -676,10 +672,6 @@ async function handleStats(req, res) {
     
     // Total matches is sum of all tournamentBattles
     const totalMatches = battleStatsAgg;
-    // Total tournaments is sum of tournamentsPlayed divided by avg participants (8)
-    // Each tournament has 8 animals, so total tournamentsPlayed / 8 = actual tournaments
-    const totalTournaments = Math.floor(tournamentStatsAgg / 8) || siteStats.totalTournaments || 0;
-
     return res.status(200).json({
         success: true,
         data: {
@@ -687,9 +679,9 @@ async function handleStats(req, res) {
             totalVotes,
             totalComments: totalComments + totalChatMessages,
             totalMatches,
-            totalComparisons: siteStats.totalComparisons || totalMatches,
-            totalTournaments,
-            totalVisits: siteStats.totalVisits || Math.floor(totalUsers * 5), // Estimate if not tracked
+            totalComparisons: siteStats.totalComparisons || 0,
+            totalTournaments: siteStats.totalTournaments || 0,
+            totalVisits: siteStats.totalVisits || 0,
             onlineNow: presenceStore.size
         }
     });
@@ -697,13 +689,28 @@ async function handleStats(req, res) {
 
 /**
  * POST /api/community?action=visit
- * Increment site visit counter (rate limited on client side)
+ * Increment site visit counter once per anonymous browser/network window.
  * Returns the new total visits count
  */
 async function handleVisit(req, res) {
     const SiteStats = require('../lib/models/SiteStats');
     
     try {
+        const budget = await consumeRateLimit({
+            scope: 'community-visit',
+            identity: requestIdentity(req),
+            max: 1,
+            windowMs: 30 * 60 * 1000
+        });
+        if (!budget.allowed) {
+            const current = await SiteStats.findOne({ key: 'global' }).select('totalVisits').lean();
+            return res.status(200).json({
+                success: true,
+                counted: false,
+                totalVisits: current?.totalVisits || 0
+            });
+        }
+
         // Atomically increment the visit counter
         const result = await SiteStats.findOneAndUpdate(
             { key: 'global' },
@@ -723,6 +730,7 @@ async function handleVisit(req, res) {
         
         return res.status(200).json({
             success: true,
+            counted: true,
             totalVisits: result.totalVisits || 1
         });
     } catch (error) {

@@ -18,10 +18,12 @@
 
 const { connectToDatabase } = require('../lib/mongodb');
 const User = require('../lib/models/User');
+const Animal = require('../lib/models/Animal');
 const crypto = require('crypto');
 const { notifyDiscord } = require('../lib/discord');
 const { verifyToken, signToken } = require('../lib/auth');
 const { setCorsHeaders } = require('../lib/cors');
+const { consumeRateLimit, clientAddress } = require('../lib/distributed-rate-limit');
 const { validatePublicName } = require('../lib/moderation');
 const {
     normalizeNotificationPreferences,
@@ -889,6 +891,26 @@ async function handleForgotPassword(req, res) {
         return res.status(200).json(genericResponse);
     }
 
+    // Use independent distributed buckets so neither rotating email addresses
+    // from one client nor distributed clients targeting one inbox can spam mail.
+    const [ipBudget, emailBudget] = await Promise.all([
+        consumeRateLimit({
+            scope: 'forgot-password-ip',
+            identity: clientAddress(req),
+            max: 6,
+            windowMs: 60 * 60 * 1000
+        }),
+        consumeRateLimit({
+            scope: 'forgot-password-email',
+            identity: email,
+            max: 3,
+            windowMs: 60 * 60 * 1000
+        })
+    ]);
+    if (!ipBudget.allowed || !emailBudget.allowed) {
+        return res.status(200).json(genericResponse);
+    }
+
     const user = await User.findOne({ email });
     if (user) {
         const { token, tokenHash } = createOneTimeToken();
@@ -1143,8 +1165,15 @@ async function handleUpdateProfile(req, res) {
         return res.status(404).json({ success: false, error: 'User not found' });
     }
 
-    const { displayName, username, profileAnimal } = req.body;
+    const { displayName, username, profileAnimal } = req.body || {};
     let publicNameChanged = false;
+
+    if (username !== undefined && typeof username !== 'string') {
+        return res.status(400).json({ success: false, error: 'Username must be text' });
+    }
+    if (displayName !== undefined && typeof displayName !== 'string') {
+        return res.status(400).json({ success: false, error: 'Display name must be text' });
+    }
 
     // Handle username change (login credential) - 3/week limit
     if (username !== undefined && username !== user.username) {
@@ -1245,10 +1274,27 @@ async function handleUpdateProfile(req, res) {
 
     // Update profile animal
     if (profileAnimal !== undefined) {
-        user.profileAnimal = profileAnimal;
+        if (profileAnimal !== null && (typeof profileAnimal !== 'string' || !profileAnimal.trim() || profileAnimal.length > 100)) {
+            return res.status(400).json({ success: false, error: 'Invalid profile animal' });
+        }
+        if (profileAnimal === null) {
+            user.profileAnimal = null;
+        } else {
+            const escapedAnimal = profileAnimal.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const canonicalAnimal = await Animal.findOne({ name: { $regex: new RegExp(`^${escapedAnimal}$`, 'i') } })
+                .select('name')
+                .lean();
+            if (!canonicalAnimal) return res.status(400).json({ success: false, error: 'Unknown profile animal' });
+            user.profileAnimal = canonicalAnimal.name;
+        }
     }
 
-    await user.save();
+    try {
+        await user.save();
+    } catch (error) {
+        if (error?.code === 11000) return res.status(409).json({ success: false, error: 'Username is already taken' });
+        throw error;
+    }
 
     // Calculate username changes remaining this week
     const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
@@ -1425,9 +1471,15 @@ async function handlePrestige(req, res) {
         return res.status(400).json({ success: false, error: prestigeResult.error });
     }
 
-    // Apply prestige
-    const updatedUser = await User.findByIdAndUpdate(
-        user.id,
+    // Apply prestige only if the exact eligibility state we inspected is still
+    // current. Concurrent requests can otherwise each award the prestige BP.
+    const updatedUser = await User.findOneAndUpdate(
+        {
+            _id: user.id,
+            level: dbUser.level,
+            prestige: dbUser.prestige || 0,
+            xp: dbUser.xp || 0
+        },
         {
             $set: {
                 level: prestigeResult.newLevel,
@@ -1440,6 +1492,13 @@ async function handlePrestige(req, res) {
         },
         { returnDocument: 'after' }
     );
+
+    if (!updatedUser) {
+        return res.status(409).json({
+            success: false,
+            error: 'Prestige state changed. Refresh your profile and try again.'
+        });
+    }
 
     await notifyDiscord('prestige', { 
         username: updatedUser.username, 

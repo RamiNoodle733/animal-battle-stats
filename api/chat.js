@@ -19,6 +19,16 @@ const { getAuthUser, authorizeRequest } = require('../lib/auth');
 const { notifyDiscord } = require('../lib/discord');
 const { maskBlockedTerms } = require('../lib/moderation');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
+const mongoose = require('mongoose');
+const { buildAtomicVotePipeline } = require('../lib/atomic-vote');
+
+function boundedInteger(value, fallback, min, max) {
+    if (value === undefined) return fallback;
+    if (!['string', 'number'].includes(typeof value) || String(value).trim() === '') return null;
+    const parsed = Number(value);
+    return Number.isInteger(parsed) && parsed >= min && parsed <= max ? parsed : null;
+}
 
 module.exports = async function handler(req, res) {
     setCorsHeaders(req, res, {
@@ -139,7 +149,9 @@ async function fetchReplyDescendants(rootIds) {
 
 // GET: Get community feed (all comments)
 async function handleGetFeed(req, res) {
-    const { limit = 50, skip = 0 } = req.query;
+    const limit = boundedInteger(req.query.limit, 50, 1, 100);
+    const skip = boundedInteger(req.query.skip, 0, 0, 10000);
+    if (limit === null || skip === null) return res.status(400).json({ success: false, error: 'Invalid pagination' });
     const User = require('../lib/models/User');
 
     // Get all root comments (not replies) sorted by newest first
@@ -148,8 +160,8 @@ async function handleGetFeed(req, res) {
         parentId: null
     })
         .sort({ createdAt: -1 })
-        .skip(parseInt(skip))
-        .limit(parseInt(limit))
+        .skip(skip)
+        .limit(limit)
         .lean();
 
     // Collect all author IDs (including replies we'll fetch later)
@@ -239,27 +251,31 @@ async function handleGetFeed(req, res) {
         success: true,
         count: finalComments.length,
         total: totalCount,
-        hasMore: parseInt(skip) + finalComments.length < totalCount,
+        hasMore: skip + finalComments.length < totalCount,
         data: finalComments
     });
 }
 
 // GET: Get recent chat messages with nested replies
 async function handleGet(req, res) {
-    const { limit = 50, before } = req.query;
+    const { before } = req.query;
+    const limit = boundedInteger(req.query.limit, 50, 1, 100);
+    if (limit === null) return res.status(400).json({ success: false, error: 'Invalid limit' });
     const User = require('../lib/models/User');
 
     const query = { parentId: null }; // Only get root messages
     
     // For pagination - get messages before a certain timestamp
     if (before) {
-        query.createdAt = { $lt: new Date(before) };
+        const beforeDate = new Date(before);
+        if (Number.isNaN(beforeDate.getTime())) return res.status(400).json({ success: false, error: 'Invalid before cursor' });
+        query.createdAt = { $lt: beforeDate };
     }
 
     // Get root messages
     const rootMessages = await ChatMessage.find(query)
         .sort({ createdAt: -1 })
-        .limit(parseInt(limit))
+        .limit(limit)
         .lean();
 
     // Fetch replies at all depths for the selected root messages
@@ -303,16 +319,23 @@ async function handlePost(req, res) {
     if (!user) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
+    if (!await enforceRateLimit(res, {
+        scope: 'chat-post',
+        identity: requestIdentity(req, user.id),
+        max: 12,
+        windowMs: 10 * 60 * 1000
+    })) return;
 
-    const { content, parentId } = req.body;
+    const { content, parentId } = req.body || {};
 
-    if (!content || content.trim().length === 0) {
+    if (typeof content !== 'string' || content.trim().length === 0) {
         return res.status(400).json({ success: false, error: 'Message content required' });
     }
 
     if (content.length > 500) {
         return res.status(400).json({ success: false, error: 'Message too long (max 500 characters)' });
     }
+    if (parentId && !mongoose.isValidObjectId(parentId)) return res.status(400).json({ success: false, error: 'Invalid parent message ID' });
 
     const trimmedContent = content.trim();
     const publicContent = maskBlockedTerms(trimmedContent);
@@ -370,37 +393,31 @@ async function handlePatch(req, res) {
     if (!user) {
         return res.status(401).json({ success: false, error: 'Authentication required' });
     }
+    if (!await enforceRateLimit(res, {
+        scope: 'chat-vote',
+        identity: requestIdentity(req, user.id),
+        max: 60,
+        windowMs: 5 * 60 * 1000
+    })) return;
 
-    const { messageId, voteType } = req.body;
+    const { messageId, voteType } = req.body || {};
 
     if (!messageId) {
         return res.status(400).json({ success: false, error: 'Message ID required' });
     }
+    if (!mongoose.isValidObjectId(messageId)) return res.status(400).json({ success: false, error: 'Invalid message ID' });
 
     if (!['up', 'down', 'clear'].includes(voteType)) {
         return res.status(400).json({ success: false, error: 'Invalid vote type' });
     }
 
-    const message = await ChatMessage.findById(messageId);
-    if (!message) {
-        return res.status(404).json({ success: false, error: 'Message not found' });
-    }
-
     const userId = user.id;
-
-    // Remove existing votes
-    message.upvotes = message.upvotes.filter(id => id.toString() !== userId);
-    message.downvotes = message.downvotes.filter(id => id.toString() !== userId);
-
-    // Add new vote
-    if (voteType === 'up') {
-        message.upvotes.push(userId);
-    } else if (voteType === 'down') {
-        message.downvotes.push(userId);
-    }
-    // 'clear' just removes existing vote
-
-    await message.save();
+    const message = await ChatMessage.findOneAndUpdate(
+        { _id: messageId, isDeleted: { $ne: true } },
+        buildAtomicVotePipeline({ userId: new mongoose.Types.ObjectId(userId), vote: voteType }),
+        { returnDocument: 'after' }
+    );
+    if (!message) return res.status(404).json({ success: false, error: 'Message not found' });
 
     const score = message.upvotes.length - message.downvotes.length;
 
@@ -429,6 +446,7 @@ async function handleDelete(req, res) {
     if (!messageId) {
         return res.status(400).json({ success: false, error: 'Message ID required' });
     }
+    if (!mongoose.isValidObjectId(messageId)) return res.status(400).json({ success: false, error: 'Invalid message ID' });
 
     const message = await ChatMessage.findById(messageId);
     if (!message) {

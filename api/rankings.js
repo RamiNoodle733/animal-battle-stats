@@ -15,9 +15,11 @@ const Animal = require('../lib/models/Animal');
 const { applyCanonicalAnimalImage } = require('../lib/animal-images');
 const BattleStats = require('../lib/models/BattleStats');
 const RankHistory = require('../lib/models/RankHistory');
+const SiteStats = require('../lib/models/SiteStats');
 const { getAuthUser } = require('../lib/auth');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 
 module.exports = async function handler(req, res) {
     setCorsHeaders(req, res, {
@@ -43,6 +45,14 @@ module.exports = async function handler(req, res) {
         const animalCount = await Animal.countDocuments({ name: { $in: [animal1, animal2] } });
         if (animalCount !== 2) return res.status(400).json({ success: false, error: 'Unknown animal' });
 
+        const matchupKey = [animal1, animal2].sort().join(':');
+        if (!await enforceRateLimit(res, {
+            scope: `fight-analytics:${matchupKey}`,
+            identity: requestIdentity(req, user.id),
+            max: 1,
+            windowMs: 5 * 60 * 1000
+        })) return;
+
         await notifyDiscord('fight', { animal1, animal2, user: user.username }, req);
         
         // Increment comparison count for both animals
@@ -55,6 +65,15 @@ module.exports = async function handler(req, res) {
             await BattleStats.updateOne(
                 { animalName: animal2 },
                 { $inc: { comparisonCount: 1 } },
+                { upsert: true }
+            );
+            await SiteStats.updateOne(
+                { key: 'global' },
+                {
+                    $inc: { totalComparisons: 1 },
+                    $set: { lastUpdated: new Date() },
+                    $setOnInsert: { totalVisits: 0, totalTournaments: 0 }
+                },
                 { upsert: true }
             );
         } catch (e) {

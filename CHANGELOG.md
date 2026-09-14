@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.13.0 — 2026-09-13
+
+- Added MongoDB-backed rate limits for password-reset requests, community posts and votes, daily animal votes, ranked tournament actions, fight analytics and anonymous visit counting. Limits now work across serverless instances instead of relying on process memory.
+- Profile, comment and chat mutations reject malformed, oversized or non-canonical values before database access. Animal and matchup discussion targets must resolve to real canonical animals, and pagination is bounded.
+- Community comment/chat votes now update atomically. Daily animal voting uses its unique user/animal/day key with safe concurrent-insert recovery, preventing lost updates and duplicate rows under races.
+- Prestige now commits only when level, prestige and XP still match the state the server validated, so a concurrent reward cannot be erased. Tournament quit analytics are derived from the authenticated server-issued session rather than client totals.
+- Public comparison and tournament totals are incremented only on accepted server actions. Community statistics no longer substitute fabricated visit, comparison or tournament estimates when persisted totals are absent.
+- Added focused mutation, atomic-vote, distributed-limit and prestige regression suites, including duplicate-bucket and concurrent-state-change cases.
+
 ## 2.12.0 — 2026-09-13
 
 - Reoriented the homepage around the core question, “Who would win?”, with two keyboard-accessible animal selectors, one simulation action, three popular matchups, and Tournament moved into the secondary navigation.

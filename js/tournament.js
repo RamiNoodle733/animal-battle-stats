@@ -2639,7 +2639,7 @@ class TournamentManager {
             }));
             
             const data = JSON.stringify({
-                user: window.Auth?.isLoggedIn() ? window.Auth.getUser()?.username : 'Anonymous',
+                submissionId: this.submissionId,
                 bracketSize: this.bracketSize,
                 totalMatches: this.totalMatches,
                 completedMatches: this.completedMatches,

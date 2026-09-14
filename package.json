@@ -1,6 +1,6 @@
 {
   "name": "animal-battle-stats",
-  "version": "2.17.0",
+  "version": "2.18.0",
   "description": "Animal Battle Stats - a versioned wildlife comparison and animal powerscaling website",
   "main": "api/index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "astro:build": "astro build",
     "seo:sitemap": "node scripts/generate-sitemap.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
+    "seo:contracts": "node scripts/verification/verify-search-contracts.mjs",
     "assets:pipeline": "node scripts/assets/animal-image-pipeline.js",
     "assets:audit": "node scripts/assets/animal-image-pipeline.js audit",
     "assets:dimensions": "node scripts/assets/generate-animal-image-dimensions.js",

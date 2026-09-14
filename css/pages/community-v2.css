@@ -129,7 +129,7 @@
     letter-spacing: 0.18em;
 }
 
-#community-view .community-overview h1 {
+#community-view .community-overview :is(h1, h2) {
     margin: 0;
     font-family: 'Bebas Neue', 'Orbitron', sans-serif;
     font-size: clamp(1.55rem, 2.3vw, 2.25rem);
@@ -498,7 +498,7 @@
         border-radius: 13px !important;
     }
 
-    #community-view .community-overview h1 {
+    #community-view .community-overview :is(h1, h2) {
         font-size: 1.35rem !important;
     }
 
@@ -696,7 +696,7 @@
         font-size: 0.47rem !important;
     }
 
-    #community-view .community-overview h1 {
+    #community-view .community-overview :is(h1, h2) {
         font-size: 1.08rem !important;
         letter-spacing: 0.055em !important;
     }

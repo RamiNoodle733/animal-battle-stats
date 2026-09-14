@@ -326,7 +326,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     box-shadow: none !important;
 }
 
-.community-overview__copy h1 { margin: 0; font: 800 clamp(1.7rem, 3vw, 2.5rem)/1 "Orbitron", sans-serif; letter-spacing: .035em; }
+.community-overview__copy :is(h1, h2) { margin: 0; font: 800 clamp(1.7rem, 3vw, 2.5rem)/1 "Orbitron", sans-serif; letter-spacing: .035em; }
 .community-overview__copy p { max-width: 720px; margin: 8px 0 0; color: var(--arcade-muted); font-size: .98rem; }
 .community-overview__eyebrow, .community-overview__signals, .community-channel-live, .globe-live-pill { display: none; }
 
@@ -464,7 +464,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     }
     #community-view { padding: 10px 8px calc(78px + env(safe-area-inset-bottom)); }
     .community-overview { padding-inline: 4px; }
-    .community-overview__copy h1 { font-size: 1.55rem; }
+    .community-overview__copy :is(h1, h2) { font-size: 1.55rem; }
     .community-overview__copy p { font-size: .86rem; }
     .community-tab-bar { position: sticky; top: 4px; z-index: 15; }
     .community-tab-btn { padding: 6px; font-size: .68rem; }

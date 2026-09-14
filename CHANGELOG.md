@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.18.0 — 2026-09-14
+
+- Added an executable search-contract layer for canonical, robots, sitemap, social-card, structured-data, image-alt and crawlable-link validation across all 234 public URLs.
+- Added local and production verification for OAI-SearchBot access, query canonicalization, clean-URL redirects, true 404 responses and reachable public destinations while preserving the independent GPTBot policy.
+- The full SEO crawler now parses and validates JSON-LD and checks Open Graph, X/Twitter and image-alt contracts on every sitemap URL instead of checking only status and basic metadata.
+- Corrected the homepage Open Graph URL to match its self-canonical URL and reduced the legacy multi-view document from eight H1 elements to one without changing visible route headings.
+- Added a production deployment checklist that separates application-level crawler evidence from Search Console, indexing and upstream firewall checks that require external account access.
+
 ## 2.17.0 — 2026-09-14
 
 - Added a validated per-field animal evidence contract covering values, ranges, units, explicit missing-value states, measured/estimated basis, confidence, review dates and traceable source metadata.

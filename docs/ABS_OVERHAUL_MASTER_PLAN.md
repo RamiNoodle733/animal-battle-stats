@@ -27,6 +27,7 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 | Leaderboard duplicates an obsolete XP curve | Use shared `xpToNext`, explicit level-cap output | completed | api/community.js | level 1 and level 100 endpoint fixture passes | M10 owns future economy changes |
 | No documented executable battle model | Pure experimental model plus static tool and methodology | completed foundation | js/battle-engine.js, astro pages, route CSS/client | all 50,625 pairs and four browser widths pass | independent mass/environment modeling, calibrated scenarios and curated matchup pages |
 | Build/sitemap drift | Generate sitemap with build and include new Astro root routes | completed | build/prerender/sitemap/preview scripts | 234 local sitemap URLs pass; build and JSON-LD checks pass | full index quality gates |
+| Search audit accepts weak or duplicate output | Shared page-signal validator plus local/production crawler contracts | completed locally | lib/search-contracts.js, search-contract test and verifier, seo-audit | all 234 static pages and representative HTTP contracts pass | production V5, Search Console when account access exists |
 | Static navigation hides destination/overflows tablet | Keep six destinations; mobile three-column navigation; tablet wrapping | completed | css/static-shell.css | 320/390/768/1440px rendered checks; screenshots inspected | complete shared-shell navigation overhaul |
 
 ## 2.11.0 validation evidence
@@ -58,6 +59,7 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 - [Google AI features](https://developers.google.com/search/docs/appearance/ai-features): useful crawlable content and existing search fundamentals; no special AI schema requirement.
 - [Google structured-data policies](https://developers.google.com/search/docs/appearance/structured-data/sd-policies): describe visible content accurately; do not turn ordinary matchup articles into QAPage.
 - [OpenAI crawler documentation](https://platform.openai.com/docs/bots): OAI-SearchBot is search discovery; GPTBot training policy is separate. Preserve the existing training choice.
+- [Google canonicalization](https://developers.google.com/search/docs/crawling-indexing/canonicalization) and [sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), checked 2026-09-14: self-canonicals, redirects and clean absolute sitemap URLs are complementary signals; sitemap inclusion is not proof of indexing.
 - [OWASP input validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html): validate input types, allowed values and ranges before query construction.
 
 ## Release/rollback

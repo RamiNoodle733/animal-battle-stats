@@ -1,5 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const { validatePageSearchSignals } = require('../lib/search-contracts');
 
 const DEFAULT_SITEMAP = 'https://animalbattlestats.com/sitemap.xml';
 
@@ -102,6 +106,7 @@ async function auditUrl(url, options) {
   const canonical = canonicalFrom(html);
   const expectedCanonical = url;
   const primaryH1Count = h1Count(html);
+  const signals = validatePageSearchSignals(html, expectedCanonical);
 
   return {
     url,
@@ -117,7 +122,11 @@ async function auditUrl(url, options) {
     canonicalMatches: canonical === expectedCanonical,
     noindex: hasNoindex(html),
     h1Count: primaryH1Count,
-    hasH1: hasValidH1(url, primaryH1Count)
+    hasH1: hasValidH1(url, primaryH1Count),
+    social: !signals.errors.some((error) => error.includes('Open Graph') || error.includes('Twitter')),
+    jsonLd: !signals.errors.some((error) => error.includes('JSON-LD')),
+    imageAlt: !signals.errors.includes('image missing alt attribute'),
+    signalErrors: signals.errors
   };
 }
 
@@ -145,6 +154,10 @@ for (const url of urls) {
       noindex: false,
       h1Count: 0,
       hasH1: false,
+      social: false,
+      jsonLd: false,
+      imageAlt: false,
+      signalErrors: [error.message],
       error: error.message
     });
   }
@@ -158,7 +171,10 @@ const rows = results.map((result) => ({
   desc: result.hasDescription ? 'yes' : 'no',
   canonical: result.canonicalMatches ? 'match' : 'bad',
   noindex: result.noindex ? 'yes' : 'no',
-  h1: result.h1Count
+  h1: result.h1Count,
+  social: result.social ? 'yes' : 'no',
+  jsonLd: result.jsonLd ? 'yes' : 'no',
+  imageAlt: result.imageAlt ? 'yes' : 'no'
 }));
 
 console.table(rows);
@@ -170,7 +186,8 @@ const failures = results.filter((result) => (
   !result.hasDescription ||
   !result.canonicalMatches ||
   result.noindex ||
-  !result.hasH1
+  !result.hasH1 ||
+  result.signalErrors.length > 0
 ));
 
 console.log(`Audited ${results.length} URLs. Failures: ${failures.length}.`);

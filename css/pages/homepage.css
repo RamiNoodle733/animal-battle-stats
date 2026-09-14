@@ -1298,7 +1298,7 @@ html.route-about .silhouette-panel {
     transform: translateX(-4px);
 }
 
-.about-content h1 {
+.about-content :is(h1, h2) {
     font-family: var(--font-display, 'Bebas Neue', sans-serif);
     font-size: 2.5rem;
     letter-spacing: 4px;
@@ -1412,7 +1412,7 @@ html.route-about .silhouette-panel {
    ======================================== */
 @media (max-width: 600px) {
     /* About page mobile adjustments */
-    .about-content h1 {
+    .about-content :is(h1, h2) {
         font-size: 2rem;
     }
     

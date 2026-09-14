@@ -24,7 +24,7 @@
     <meta property="og:description" content="Choose two animals, run a transparent matchup estimate, inspect the deciding ratings, and explore 225 animal profiles, rankings, and tournaments.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://animalbattlestats.com/images/og-image.png">
-    <meta property="og:url" content="https://animalbattlestats.com">
+    <meta property="og:url" content="https://animalbattlestats.com/">
     <meta property="og:site_name" content="Animal Battle Stats">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Animal Battle Stats">
@@ -102,14 +102,14 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     <!-- Main stylesheet (all styles) -->
-    <link rel="stylesheet" href="/css/legacy.css?v=2.17.0">
+    <link rel="stylesheet" href="/css/legacy.css?v=2.18.0">
     
     <!-- Shared component styles; page/feature styles are loaded by js/router.js -->
-    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.17.0">
+    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.18.0">
     
     <!-- Mobile-specific styles (loaded last to override) -->
-    <link rel="stylesheet" href="/css/mobile.css?v=2.17.0" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/arcade.css?v=2.17.0">
+    <link rel="stylesheet" href="/css/mobile.css?v=2.18.0" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/arcade.css?v=2.18.0">
     
     <!-- Non-critical external resources loaded async -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
@@ -232,7 +232,7 @@
         <header class="game-header header">
             <div class="header-brand header__brand">
                 <img src="/images/logo.png" alt="Animal Battle Stats" class="header-logo header__logo" id="header-logo">
-                <h1 id="main-title" class="header__title">ANIMAL BATTLE <span class="title-mode header__title-mode">STATS</span></h1>
+                <div id="main-title" class="header__title">ANIMAL BATTLE <span class="title-mode header__title-mode">STATS</span></div>
             </div>
             <nav class="nav-tabs nav-tabs">
                 <button type="button" class="mode-btn nav-tab" id="stats-mode-btn" data-mode="stats">
@@ -392,7 +392,7 @@
 
             <!-- Footer with About link - OUTSIDE home-portal to avoid screen shake effects -->
             <footer class="portal-footer">
-                <span class="portal-version">v2.17.0</span>
+                <span class="portal-version">v2.18.0</span>
                 <div class="portal-footer-divider"></div>
                 <a href="/about" class="portal-footer-link">About</a>
                 <div class="portal-footer-divider"></div>
@@ -407,7 +407,7 @@
                     <i class="fas fa-arrow-left"></i> Back to Home
                 </a>
                 <div class="about-content">
-                    <h1>About Animal Battle Stats</h1>
+                    <h2>About Animal Battle Stats</h2>
                     <p class="about-intro">
                         <strong>Animal Battle Stats</strong> is the ultimate arena for settling "who would win?" debates across the animal kingdom. 
                         We analyze real-world data on strength, speed, defense, intelligence, and more to give each creature a fair shot in hypothetical showdowns.
@@ -431,7 +431,7 @@
                     </div>
                     
                     <div class="about-version-section">
-                        <p class="about-version">Version 2.17.0 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
+                        <p class="about-version">Version 2.18.0 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
                     </div>
                 </div>
             </div>
@@ -450,7 +450,7 @@
                     </a>
                     
                     <div class="auth-page-card">
-                        <h1 class="auth-page-title">Sign in</h1>
+                        <h2 class="auth-page-title">Sign in</h2>
                         <p class="auth-page-subtitle">Stay updated on the animal kingdom</p>
                         
                         <div class="auth-page-error" id="login-page-error"></div>
@@ -506,7 +506,7 @@
                     </a>
 
                     <div class="auth-page-card">
-                        <h1 class="auth-page-title">Reset password</h1>
+                        <h2 class="auth-page-title">Reset password</h2>
                         <p class="auth-page-subtitle">Enter your email and we’ll send a secure reset link.</p>
 
                         <div class="auth-page-error" id="forgot-page-error"></div>
@@ -544,7 +544,7 @@
                     </a>
 
                     <div class="auth-page-card">
-                        <h1 class="auth-page-title">Choose a new password</h1>
+                        <h2 class="auth-page-title">Choose a new password</h2>
                         <p class="auth-page-subtitle">Use at least 8 characters.</p>
 
                         <div class="auth-page-error" id="reset-page-error"></div>
@@ -587,7 +587,7 @@
                     </a>
                     
                     <div class="auth-page-card">
-                        <h1 class="auth-page-title">Join Animal Battle Stats</h1>
+                        <h2 class="auth-page-title">Join Animal Battle Stats</h2>
                         <p class="auth-page-subtitle">Make the most of the animal database</p>
                         
                         <div class="auth-page-error" id="signup-page-error"></div>
@@ -1530,7 +1530,7 @@
         <div id="community-view" class="view-container community">
             <section class="community-overview" aria-labelledby="community-page-title">
                 <div class="community-overview__copy">
-                    <h1 id="community-page-title">Community</h1>
+                    <h2 id="community-page-title">Community</h2>
                     <p>See where visitors are exploring Animal Battle Stats, read comments, or join the discussion.</p>
                 </div>
             </section>
@@ -3123,16 +3123,16 @@
     <!-- Data loaded from MongoDB API - no local data.js needed -->
     
     <!-- Core utilities - shared across all modules -->
-    <script src="/js/core.js?v=2.17.0"></script>
-    <script src="/js/text-layout.js?v=2.17.0"></script>
+    <script src="/js/core.js?v=2.18.0"></script>
+    <script src="/js/text-layout.js?v=2.18.0"></script>
     
     <!-- Application modules - load order matters -->
-    <script src="/js/router.js?v=2.17.0"></script>
-    <script src="/js/motion.js?v=2.17.0"></script>
-    <script src="/js/auth.js?v=2.17.0"></script>
+    <script src="/js/router.js?v=2.18.0"></script>
+    <script src="/js/motion.js?v=2.18.0"></script>
+    <script src="/js/auth.js?v=2.18.0"></script>
     
     <!-- Main app (initializes everything) -->
-    <script src="/js/main.js?v=2.17.0" defer></script>
+    <script src="/js/main.js?v=2.18.0" defer></script>
     
 </body>
 </html>

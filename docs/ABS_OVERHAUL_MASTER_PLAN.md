@@ -54,6 +54,14 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 - Read-only browser verification passes UI stability, responsive images, community at 1440/768/390px and the full arcade at 1440/1366/768/390/320px.
 - Vercel marked feature commit `212871b` successful and production `version.json` matched v2.16.0 and that commit. Safe live reads returned two leaderboard rows with shared-curve XP values and no storage IDs; a populated public profile contained only documented public fields with no `id`/`_id`; an unknown profile returned 404. No production mutation was used for verification.
 
+## 2.18.0 validation evidence
+
+- `npm test`: 127 passed, including exhaustive generated-page search contracts. Build, lint, version agreement, sensitive-export guard and route byte budgets pass.
+- Read-only browser verification passes UI stability, responsive images, community at 1440/768/390px and the full arcade at 1440/1366/768/390/320px after legacy inactive H1 elements became styled secondary headings.
+- Local and production `seo:contracts` pass: OAI-SearchBot can fetch robots, sitemap and representative content; 234 sitemap URLs are clean and unique; four query variants self-canonicalize; unknown routes return 404; `.html` redirects cleanly; representative internal destinations respond.
+- The expanded local and production SEO audits report zero failures across all 234 sitemap URLs, checking status, redirects, title, description, exact H1 count, canonical, robots, Open Graph/X parity, parseable JSON-LD and image-alt presence.
+- Vercel deployed commit `62f50ee`; production `version.json` matched v2.18.0 and that commit. Search Console selection/indexing and upstream IP firewall state are external account checks and are not inferred from these results.
+
 ## Current official guidance consulted
 
 - [Google AI features](https://developers.google.com/search/docs/appearance/ai-features): useful crawlable content and existing search fundamentals; no special AI schema requirement.

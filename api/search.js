@@ -9,6 +9,7 @@ const Animal = require('../lib/models/Animal');
 const { applyCanonicalAnimalImages } = require('../lib/animal-images');
 const { setCorsHeaders } = require('../lib/cors');
 const { InputError, searchParams } = require('../lib/api-input');
+const { enforceRequestSecurity } = require('../lib/request-security');
 
 module.exports = async function handler(req, res) {
     // Public animal search is read-only and returns no auth/user data, so it intentionally stays open.
@@ -22,6 +23,11 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    if (!enforceRequestSecurity(req, res, {
+        maxBodyBytes: 16 * 1024,
+        allowUnauthenticated: true
+    })) return;
 
     if (req.method !== 'GET' && req.method !== 'POST') {
         res.setHeader('Allow', ['GET', 'POST']);

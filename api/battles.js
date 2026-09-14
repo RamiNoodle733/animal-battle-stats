@@ -21,6 +21,7 @@ const { getAuthUser } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRequestSecurity } = require('../lib/request-security');
 const mongoose = require('mongoose');
 const { randomUUID } = require('node:crypto');
 const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
@@ -50,6 +51,8 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    if (!enforceRequestSecurity(req, res, { maxBodyBytes: 32 * 1024 })) return;
 
     try {
         await connectToDatabase();

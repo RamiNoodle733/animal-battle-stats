@@ -22,6 +22,9 @@ const { setCorsHeaders } = require('../lib/cors');
 const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 const mongoose = require('mongoose');
 const { buildAtomicVotePipeline } = require('../lib/atomic-vote');
+const { serializeCommunityItem } = require('../lib/community-serializer');
+const { enforceRequestSecurity } = require('../lib/request-security');
+const { collectDescendantIds } = require('../lib/community-tree');
 
 function boundedInteger(value, fallback, min, max) {
     if (value === undefined) return fallback;
@@ -40,6 +43,8 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    if (!enforceRequestSecurity(req, res, { maxBodyBytes: 16 * 1024 })) return;
 
     try {
         await connectToDatabase();
@@ -68,15 +73,14 @@ module.exports = async function handler(req, res) {
 };
 
 // Helper: Build message tree with replies
-function buildMessageTree(messages, userMap) {
+function buildMessageTree(messages, userMap, viewerId, canModerate) {
     const messageMap = {};
     const rootMessages = [];
     
     // First pass: create map and update user data
     messages.forEach(m => {
-        const message = m.toObject ? m.toObject() : { ...m };
+        let message = m.toObject ? m.toObject() : { ...m };
         message.replies = [];
-        message.score = (message.upvotes?.length || 0) - (message.downvotes?.length || 0);
         
         // Update with current user data
         const authorId = message.authorId?.toString();
@@ -85,6 +89,7 @@ function buildMessageTree(messages, userMap) {
             message.authorUsername = currentUser.displayName || message.authorUsername;
             message.profileAnimal = currentUser.profileAnimal ?? message.profileAnimal;
         }
+        message = serializeCommunityItem(message, { viewerId, canModerate });
         
         messageMap[message._id.toString()] = message;
     });
@@ -204,8 +209,10 @@ async function handleGetFeed(req, res) {
     }));
 
     // Fetch current user data for all authors
+    const viewer = getAuthUser(req);
+    if (viewer?.id) allAuthorIds.add(viewer.id);
     const users = await User.find({ _id: { $in: [...allAuthorIds] } })
-        .select('_id displayName username profileAnimal')
+        .select('_id displayName username profileAnimal role')
         .lean();
     
     const userMap = {};
@@ -216,13 +223,15 @@ async function handleGetFeed(req, res) {
             profileAnimal: u.profileAnimal
         };
     });
+    const viewerRecord = viewer?.id ? users.find((u) => u._id.toString() === viewer.id) : null;
+    const canModerate = ['admin', 'moderator'].includes(viewerRecord?.role);
 
     // Update comments and replies with current user data
     const finalComments = commentsWithReplies.map(({ comment, score, replyCount, replies, animalImage }) => {
         const authorId = comment.authorId?.toString();
         const currentUser = authorId ? userMap[authorId] : null;
         
-        return {
+        return serializeCommunityItem({
             ...comment,
             authorUsername: currentUser?.displayName || comment.authorUsername,
             profileAnimal: currentUser?.profileAnimal ?? comment.profileAnimal,
@@ -231,15 +240,14 @@ async function handleGetFeed(req, res) {
             replies: replies.map(r => {
                 const replyAuthorId = r.authorId?.toString();
                 const replyUser = replyAuthorId ? userMap[replyAuthorId] : null;
-                return {
+                return serializeCommunityItem({
                     ...r,
                     authorUsername: replyUser?.displayName || r.authorUsername,
                     profileAnimal: replyUser?.profileAnimal ?? r.profileAnimal,
-                    score: (r.upvotes?.length || 0) - (r.downvotes?.length || 0)
-                };
+                }, { viewerId: viewer?.id, canModerate });
             }),
             animalImage
-        };
+        }, { viewerId: viewer?.id, canModerate });
     });
 
     const totalCount = await Comment.countDocuments({
@@ -286,9 +294,11 @@ async function handleGet(req, res) {
     const allMessages = [...rootMessages, ...replies];
 
     // Fetch current user data for all message authors
+    const viewer = getAuthUser(req);
     const authorIds = [...new Set(allMessages.map(m => m.authorId?.toString()).filter(Boolean))];
+    if (viewer?.id && !authorIds.includes(viewer.id)) authorIds.push(viewer.id);
     const users = await User.find({ _id: { $in: authorIds } })
-        .select('_id displayName username profileAnimal')
+        .select('_id displayName username profileAnimal role')
         .lean();
     
     const userMap = {};
@@ -301,7 +311,9 @@ async function handleGet(req, res) {
     });
 
     // Build tree structure
-    const tree = buildMessageTree(allMessages, userMap);
+    const viewerRecord = viewer?.id ? users.find((u) => u._id.toString() === viewer.id) : null;
+    const canModerate = ['admin', 'moderator'].includes(viewerRecord?.role);
+    const tree = buildMessageTree(allMessages, userMap, viewer?.id, canModerate);
 
     // Keep newest first (reverse chronological)
     // tree.reverse(); // Removed - newest messages should be at top
@@ -371,19 +383,7 @@ async function handlePost(req, res) {
 
     return res.status(201).json({
         success: true,
-        data: {
-            _id: message._id,
-            content: message.content,
-            authorId: message.authorId,
-            authorUsername: message.authorUsername,
-            profileAnimal: message.profileAnimal,
-            parentId: message.parentId,
-            upvotes: [],
-            downvotes: [],
-            score: 0,
-            replies: [],
-            createdAt: message.createdAt
-        }
+        data: { ...serializeCommunityItem(message, { viewerId: user.id }), replies: [] }
     });
 }
 
@@ -461,9 +461,13 @@ async function handleDelete(req, res) {
         return res.status(403).json({ success: false, error: 'Not authorized to delete this message' });
     }
 
-    message.isDeleted = true;
-    message.deletedBy = user.id;
-    await message.save();
+    const descendants = await collectDescendantIds(messageId, (parentIds) => (
+        ChatMessage.find({ parentId: { $in: parentIds } }).select('_id').lean()
+    ));
+    await ChatMessage.updateMany(
+        { _id: { $in: [messageId, ...descendants] } },
+        { $set: { isDeleted: true, deletedBy: user.id } }
+    );
 
     return res.status(200).json({
         success: true,

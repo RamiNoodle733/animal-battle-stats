@@ -13,6 +13,7 @@ const { applyCanonicalAnimalImage } = require('../../lib/animal-images');
 const { authorizeRequest } = require('../../lib/auth');
 const mongoose = require('mongoose');
 const { setCorsHeaders } = require('../../lib/cors');
+const { enforceRequestSecurity } = require('../../lib/request-security');
 
 module.exports = async function handler(req, res) {
     setCorsHeaders(req, res, {
@@ -24,6 +25,8 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    if (!enforceRequestSecurity(req, res, { maxBodyBytes: 64 * 1024 })) return;
 
     const { id } = req.query;
 

@@ -1646,26 +1646,21 @@ class RankingsManager {
         const authorUsername = comment.author?.username || comment.authorUsername || null;
         const authorInitial = comment.isAnonymous ? '?' : displayName[0].toUpperCase();
         const timeAgo = this.getTimeAgo(new Date(comment.createdAt));
-        const authorId = comment.authorId || comment.author?.userId;
-        const currentUserId = Auth.getUser()?.id;
-        const isOwn = Auth.isLoggedIn() && authorId && authorId.toString() === currentUserId;
+        const canDelete = comment.canDelete === true;
 
         // Profile animal for avatar
         const profileAnimal = comment.author?.profileAnimal || comment.profileAnimal;
         const avatarHtml = this.getUserAvatarHtml(profileAnimal, authorInitial, comment.isAnonymous);
 
         // Vote state
-        const hasUpvoted = comment.upvotes?.some(id => id.toString() === currentUserId);
-        const hasDownvoted = comment.downvotes?.some(id => id.toString() === currentUserId);
-        const score = comment.score ?? ((comment.upvotes?.length || 0) - (comment.downvotes?.length || 0));
+        const hasUpvoted = comment.userVote === 'up';
+        const hasDownvoted = comment.userVote === 'down';
+        const score = comment.score || 0;
         const scoreClass = score > 0 ? 'positive' : score < 0 ? 'negative' : '';
         
         // Reply count
         const replyCount = comment.replies?.length || 0;
 
-        // Add user ID for avatar refresh
-        const userIdAttr = authorId ? `data-user-id="${authorId}"` : '';
-        
         // Admin/mod badge
         const roleBadge = comment.author?.role === 'admin' ? '<span class="comment-badge admin">Admin</span>' : 
                           comment.author?.role === 'moderator' ? '<span class="comment-badge mod">Mod</span>' : '';
@@ -1677,7 +1672,7 @@ class RankingsManager {
         const usernameAttr = isClickable ? `data-username="${authorUsername}"` : '';
         
         div.innerHTML = `
-            <div class="comment-header" ${userIdAttr}>
+            <div class="comment-header">
                 <div class="comment-author">
                     <span class="${avatarClass}" ${usernameAttr}>${avatarHtml}</span>
                     <span class="${nameClass}" ${usernameAttr}>${displayName}</span>
@@ -1699,7 +1694,7 @@ class RankingsManager {
                     <i class="fas fa-reply"></i>
                     Reply${replyCount > 0 ? ` (${replyCount})` : ''}
                 </button>
-                ${isOwn ? `
+                ${canDelete ? `
                     <button class="comment-action-btn delete-btn" data-comment-id="${comment._id}">
                         <i class="fas fa-trash"></i>
                         Delete

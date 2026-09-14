@@ -17,6 +17,8 @@ const { getAuthUser, authorizeRequest } = require('../lib/auth');
 const { applyCanonicalAnimalImage, applyCanonicalAnimalImages } = require('../lib/animal-images');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRequestSecurity } = require('../lib/request-security');
+const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 
 const ANIMAL_WRITE_FIELDS = Object.freeze([
     'name', 'scientific_name', 'description', 'type', 'class', 'habitat', 'size',
@@ -43,6 +45,12 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    if (!enforceRequestSecurity(req, res, {
+        maxBodyBytes: 64 * 1024,
+        allowUnauthenticated: req.query?.action === 'notify',
+        requireAllowedOrigin: req.query?.action === 'notify'
+    })) return;
 
     try {
         const { action } = req.query;
@@ -120,12 +128,18 @@ async function handleHealthCheck(req, res) {
 
 async function handleNotification(req, res) {
     try {
+        const authenticatedUser = getAuthUser(req);
+        if (!await enforceRateLimit(res, {
+            scope: 'browser-lifecycle-notify',
+            identity: requestIdentity(req, authenticatedUser?.id),
+            max: 4,
+            windowMs: 30 * 60 * 1000
+        })) return;
         let body = req.body;
         if (typeof body === 'string') {
             try { body = JSON.parse(body); } catch (_e) { body = {}; }
         }
         const { type, page, referrer, sessionId, duration, screenSize, language } = body || {};
-        const authenticatedUser = getAuthUser(req);
         const username = authenticatedUser?.username || 'Anonymous';
         
         // Build notification data with all available info

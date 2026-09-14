@@ -1526,7 +1526,6 @@ class CommunityManager {
         const time = this.formatTime(item.createdAt);
         const profileAnimal = item.author?.profileAnimal || item.profileAnimal;
         const avatarHtml = this.getUserAvatarHtml(profileAnimal, initial);
-        const authorId = item.authorId || item.author?._id;
         
         // Clickable author
         const isClickable = authorUsername && username !== 'Anonymous';
@@ -1539,14 +1538,11 @@ class CommunityManager {
         const scoreClass = score > 0 ? 'positive' : score < 0 ? 'negative' : '';
         
         // Check if user has voted
-        const userId = Auth.user?.id;
-        const hasUpvoted = userId && item.upvotes?.some(id => id.toString() === userId);
-        const hasDownvoted = userId && item.downvotes?.some(id => id.toString() === userId);
+        const hasUpvoted = item.userVote === 'up';
+        const hasDownvoted = item.userVote === 'down';
         
         // Can delete if owner or admin
-        const isOwner = userId && authorId === userId;
-        const isAdmin = Auth.user?.role === 'admin' || Auth.user?.role === 'moderator';
-        const canDelete = isOwner || isAdmin;
+        const canDelete = item.canDelete === true;
         
         // Animal context for comments
         let animalContextHtml = '';
@@ -1651,15 +1647,11 @@ class CommunityManager {
         const scoreClass = score > 0 ? 'positive' : score < 0 ? 'negative' : '';
         
         // Check if user has voted
-        const userId = Auth.user?.id;
-        const hasUpvoted = userId && reply.upvotes?.some(id => id.toString() === userId);
-        const hasDownvoted = userId && reply.downvotes?.some(id => id.toString() === userId);
+        const hasUpvoted = reply.userVote === 'up';
+        const hasDownvoted = reply.userVote === 'down';
         
         // Can delete if owner or admin
-        const authorId = reply.authorId || reply.author?._id;
-        const isOwner = userId && authorId === userId;
-        const isAdmin = Auth.user?.role === 'admin' || Auth.user?.role === 'moderator';
-        const canDelete = isOwner || isAdmin;
+        const canDelete = reply.canDelete === true;
         
         // Nested replies (if any)
         let nestedRepliesHtml = '';
@@ -2029,8 +2021,6 @@ class CommunityManager {
         // Profile animal for avatar
         const profileAnimal = comment.author?.profileAnimal || comment.profileAnimal;
         const avatarHtml = this.getUserAvatarHtml(profileAnimal, initial, comment.isAnonymous);
-        const authorId = comment.authorId || comment.author?._id;
-        const userIdAttr = authorId ? `data-user-id="${authorId}"` : '';
         
         // Clickable author (if not anonymous)
         const isClickable = !comment.isAnonymous && authorUsername;
@@ -2043,9 +2033,8 @@ class CommunityManager {
         const scoreClass = score > 0 ? 'positive' : (score < 0 ? 'negative' : '');
         
         // Check if user has voted
-        const userId = Auth.user?.id;
-        const hasUpvoted = userId && comment.upvotes?.includes(userId);
-        const hasDownvoted = userId && comment.downvotes?.includes(userId);
+        const hasUpvoted = comment.userVote === 'up';
+        const hasDownvoted = comment.userVote === 'down';
         
         // Render replies (show first 2, with option to see more)
         let repliesHtml = '';
@@ -2075,7 +2064,7 @@ class CommunityManager {
                         <i class="fas fa-external-link-alt"></i>
                     </button>
                 </div>
-                <div class="feed-comment-main" ${userIdAttr}>
+                <div class="feed-comment-main">
                     <div class="${avatarClass}" ${usernameAttr}>${avatarHtml}</div>
                     <div class="feed-comment-body">
                         <div class="feed-comment-author">
@@ -2111,8 +2100,6 @@ class CommunityManager {
         // Profile animal for avatar
         const profileAnimal = reply.author?.profileAnimal || reply.profileAnimal;
         const avatarHtml = this.getUserAvatarHtml(profileAnimal, initial, reply.isAnonymous);
-        const authorId = reply.authorId || reply.author?._id;
-        const userIdAttr = authorId ? `data-user-id="${authorId}"` : '';
         
         // Clickable author (if not anonymous)
         const isClickable = !reply.isAnonymous && authorUsername;
@@ -2121,7 +2108,7 @@ class CommunityManager {
         const usernameAttr = isClickable ? `data-username="${authorUsername}"` : '';
         
         return `
-            <div class="feed-reply" ${userIdAttr}>
+            <div class="feed-reply">
                 <div class="feed-reply-header">
                     <div class="${avatarClass}" ${usernameAttr}>${avatarHtml}</div>
                     <span class="${nameClass}" ${usernameAttr}>${this.escapeHtml(authorName)}</span>
@@ -2220,18 +2207,9 @@ class CommunityManager {
             if (comment && result.success) {
                 // API returns score directly, not arrays
                 comment.score = result.score;
-                // Update user vote state for UI
-                const userId = Auth.user?.id;
-                if (result.userVote === 'up') {
-                    comment.upvotes = [userId];
-                    comment.downvotes = [];
-                } else if (result.userVote === 'down') {
-                    comment.upvotes = [];
-                    comment.downvotes = [userId];
-                } else {
-                    comment.upvotes = [];
-                    comment.downvotes = [];
-                }
+                comment.userVote = result.userVote;
+                comment.upvoteCount = result.upvotes;
+                comment.downvoteCount = result.downvotes;
             }
             
             // Re-render the feed

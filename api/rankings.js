@@ -19,6 +19,7 @@ const SiteStats = require('../lib/models/SiteStats');
 const { getAuthUser } = require('../lib/auth');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRequestSecurity } = require('../lib/request-security');
 const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 
 module.exports = async function handler(req, res) {
@@ -31,6 +32,8 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    if (!enforceRequestSecurity(req, res, { maxBodyBytes: 8 * 1024 })) return;
 
     // Handle fight notifications
     if (req.method === 'POST' && req.query.action === 'fight') {

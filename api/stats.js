@@ -11,6 +11,7 @@ const { connectToDatabase } = require('../lib/mongodb');
 const Animal = require('../lib/models/Animal');
 const { applyCanonicalAnimalImages } = require('../lib/animal-images');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRequestSecurity } = require('../lib/request-security');
 
 module.exports = async function handler(req, res) {
     // Public aggregate stats are read-only and return no auth/user data, so they intentionally stay open.
@@ -24,6 +25,11 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    if (!enforceRequestSecurity(req, res, {
+        maxBodyBytes: 4 * 1024,
+        allowUnauthenticated: true
+    })) return;
 
     if (req.method !== 'GET') {
         res.setHeader('Allow', ['GET']);

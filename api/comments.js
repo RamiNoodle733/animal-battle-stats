@@ -14,6 +14,9 @@ const { setCorsHeaders } = require('../lib/cors');
 const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 const mongoose = require('mongoose');
 const { buildAtomicVotePipeline } = require('../lib/atomic-vote');
+const { serializeCommunityItem } = require('../lib/community-serializer');
+const { enforceRequestSecurity } = require('../lib/request-security');
+const { collectDescendantIds } = require('../lib/community-tree');
 
 function boundedInteger(value, fallback, min, max) {
     if (value === undefined) return fallback;
@@ -37,6 +40,8 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    if (!enforceRequestSecurity(req, res, { maxBodyBytes: 16 * 1024 })) return;
 
     try {
         await connectToDatabase();
@@ -68,7 +73,6 @@ function buildCommentTree(comments) {
     comments.forEach(c => {
         const comment = c.toObject ? c.toObject() : c;
         comment.replies = [];
-        comment.score = (comment.upvotes?.length || 0) - (comment.downvotes?.length || 0);
         commentMap[comment._id.toString()] = comment;
     });
     
@@ -126,13 +130,16 @@ async function handleGet(req, res) {
             .lean();
         
         // Try to get current user data, but don't fail if User model has issues
+        const viewer = getAuthUser(req);
         const userMap = {};
+        let canModerate = false;
         try {
             const User = require('../lib/models/User');
             const authorIds = [...new Set(comments.map(c => c.authorId?.toString()).filter(Boolean))];
+            if (viewer?.id && !authorIds.includes(viewer.id)) authorIds.push(viewer.id);
             if (authorIds.length > 0) {
                 const users = await User.find({ _id: { $in: authorIds } })
-                    .select('_id displayName username profileAnimal')
+                    .select('_id displayName username profileAnimal role')
                     .lean();
                 
                 users.forEach(u => {
@@ -141,6 +148,7 @@ async function handleGet(req, res) {
                         username: u.username,
                         profileAnimal: u.profileAnimal
                     };
+                    if (viewer?.id === u._id.toString()) canModerate = ['admin', 'moderator'].includes(u.role);
                 });
             }
         } catch (userError) {
@@ -152,12 +160,14 @@ async function handleGet(req, res) {
         const updatedComments = comments.map(c => {
             const authorId = c.authorId?.toString();
             const currentUser = authorId ? userMap[authorId] : null;
-            return {
+            return serializeCommunityItem({
                 ...c,
-                // Use current user data if available, fallback to stored data
+            }, {
+                viewerId: viewer?.id,
+                canModerate,
                 authorUsername: currentUser?.displayName || c.authorUsername,
                 profileAnimal: currentUser?.profileAnimal ?? c.profileAnimal
-            };
+            });
         });
         
         const tree = buildCommentTree(updatedComments);
@@ -171,7 +181,7 @@ async function handleGet(req, res) {
         });
     } catch (error) {
         console.error('handleGet error:', error);
-        return res.status(500).json({ success: false, error: 'Failed to load comments: ' + error.message });
+        return res.status(500).json({ success: false, error: 'Failed to load comments' });
     }
 }
 
@@ -305,7 +315,7 @@ async function handlePost(req, res) {
 
     return res.status(201).json({
         success: true,
-        data: comment,
+        data: serializeCommunityItem(comment, { viewerId: user.id }),
         reward
     });
 }
@@ -344,9 +354,12 @@ async function handleDelete(req, res) {
         content: comment.content
     }, req);
 
-    // Also delete all replies
-    await Comment.deleteMany({ parentId: targetId });
-    await Comment.deleteOne({ _id: targetId });
+    // Remove the complete reply subtree so nested replies cannot become
+    // unreachable orphan records when an ancestor is deleted.
+    const descendants = await collectDescendantIds(targetId, (parentIds) => (
+        Comment.find({ parentId: { $in: parentIds } }).select('_id').lean()
+    ));
+    await Comment.deleteMany({ _id: { $in: [targetId, ...descendants] } });
 
     return res.status(200).json({
         success: true,

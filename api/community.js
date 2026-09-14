@@ -16,10 +16,11 @@ const { verifyToken, getAuthUser } = require('../lib/auth');
 const { setCorsHeaders } = require('../lib/cors');
 const { sanitizeEventData } = require('../lib/activity-logger');
 const { consumeRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
+const { enforceRequestSecurity } = require('../lib/request-security');
 const { waitUntil } = require('@vercel/functions');
 
 // In-memory presence store with TTL (would use Redis in production)
-// Structure: { odId: { username, displayName, profileAnimal, lastSeen, page } }
+// Structure: { userId: { username, displayName, profileAnimal, lastSeen, page } }
 const presenceStore = new Map();
 const PRESENCE_TTL = 90 * 1000; // 90 seconds
 const PUBLIC_LOCATION_MINIMUM = 1;
@@ -405,6 +406,7 @@ async function handleAdminRetryDiscord(req, res) {
 
     if (req.method === 'OPTIONS') return res.status(200).end();
     if (req.method !== 'POST') return res.status(405).json({ success: false, error: 'Method not allowed' });
+    if (!enforceRequestSecurity(req, res, { maxBodyBytes: 16 * 1024 })) return;
     if (!await requireAdministrator(req, res)) return null;
 
     const rawIds = Array.isArray(req.body?.ids) ? req.body.ids : [];
@@ -466,9 +468,15 @@ module.exports = async function handler(req, res) {
         return res.status(200).end();
     }
 
+    const [action] = requestedActions;
+    if (!enforceRequestSecurity(req, res, {
+        maxBodyBytes: 16 * 1024,
+        allowUnauthenticated: action === 'ping' || action === 'visit',
+        requireAllowedOrigin: action === 'ping' || action === 'visit'
+    })) return;
+
     try {
         await connectToDatabase();
-        const [action] = requestedActions;
 
         switch (action) {
             case 'leaderboard':
@@ -530,7 +538,6 @@ async function handleLeaderboard(req, res) {
         
         return {
             rank: index + 1,
-            odId: user._id,
             username: user.displayName || user.username,
             profileAnimal: user.profileAnimal,
             level: user.level || 1,
@@ -568,9 +575,8 @@ async function handleGetPresence(req, res) {
     cleanupPresence();
 
     const onlineUsers = [];
-    for (const [userId, data] of presenceStore.entries()) {
+    for (const data of presenceStore.values()) {
         onlineUsers.push({
-            odId: userId,
             username: data.displayName || data.username,
             profileAnimal: data.profileAnimal,
             page: data.page || null
@@ -601,7 +607,7 @@ async function handlePing(req, res) {
         return res.status(200).json({ success: true, tracked: false });
     }
 
-    const { page } = req.body;
+    const { page } = req.body || {};
     const User = require('../lib/models/User');
 
     // Get current user data

@@ -23,6 +23,7 @@ const crypto = require('crypto');
 const { notifyDiscord } = require('../lib/discord');
 const { verifyToken, signToken } = require('../lib/auth');
 const { setCorsHeaders } = require('../lib/cors');
+const { enforceRequestSecurity } = require('../lib/request-security');
 const { consumeRateLimit, clientAddress } = require('../lib/distributed-rate-limit');
 const { validatePublicName } = require('../lib/moderation');
 const {
@@ -274,6 +275,14 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
+
+    const publicMutationActions = new Set([
+        'login', 'signup', 'verify-email', 'forgot-password', 'reset-password', 'unsubscribe'
+    ]);
+    if (!enforceRequestSecurity(req, res, {
+        maxBodyBytes: 32 * 1024,
+        allowUnauthenticated: publicMutationActions.has(req.query?.action)
+    })) return;
 
     const action = req.query.action;
 

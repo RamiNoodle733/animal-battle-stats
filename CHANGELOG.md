@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.14.0 — 2026-09-14
+
+- Added a shared request boundary to every serverless API. Unsafe requests now have route-specific 4–64 KiB application budgets and are rejected before database access or business side effects; Vercel retains its fixed platform payload ceiling.
+- Cookie-authenticated mutations require a configured trusted origin, while explicit Bearer clients and intentionally public operations follow explicit allowlists. Browser lifecycle and presence telemetry is same-origin only, and lifecycle notifications now have a distributed abuse budget.
+- Public comment, chat and feed responses no longer expose author account IDs, voter ID arrays, deletion metadata or community presence/leaderboard ObjectIds. They return aggregate vote counts plus viewer-specific vote and delete permissions instead.
+- Anonymous comments no longer reveal stored usernames or profile animals. Community and rankings interfaces now consume the privacy-safe response contract without losing voting, replies or owner/moderator deletion controls.
+- Deleting a comment or chat message now traverses the complete nested reply subtree, preventing unreachable orphan replies. Empty presence heartbeats are handled safely, and comment read failures no longer expose internal database errors.
+- Added request-origin, body-budget, response-privacy and recursive-tree regression suites, plus independent security review of the combined boundary.
+
 ## 2.13.0 — 2026-09-13
 
 - Added MongoDB-backed rate limits for password-reset requests, community posts and votes, daily animal votes, ranked tournament actions, fight analytics and anonymous visit counting. Limits now work across serverless instances instead of relying on process memory.

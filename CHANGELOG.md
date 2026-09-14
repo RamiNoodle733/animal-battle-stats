@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.17.0 — 2026-09-14
+
+- Added a validated per-field animal evidence contract covering values, ranges, units, explicit missing-value states, measured/estimated basis, confidence, review dates and traceable source metadata.
+- Added an additive MongoDB evidence model and an empty versioned evidence manifest. No legacy measurement is silently promoted to reviewed evidence.
+- Added a read-only 225-animal evidence audit. It distinguishes positive unreviewed catalogue values from ambiguous zeros, including 55 unresolved legacy bite-force zeros.
+- Every static animal profile now publishes its current evidence coverage and warns when displayed physical measurements remain unreviewed, with links to the source policy and battle methodology.
+- Documented the required dry-run, backup, idempotent apply verification and release-scoped rollback workflow for future reviewed evidence imports.
+
 ## 2.16.0 — 2026-09-14
 
 - Completed the historical backend review reconciliation: all 35 library and 60 API findings now have an explicit current disposition, evidence, or named downstream milestone instead of being treated as a stale failure list.

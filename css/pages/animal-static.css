@@ -135,6 +135,7 @@ h1 {
 
 .stats-panel,
 .intel-card,
+.evidence-panel,
 .arsenal,
 .related {
     margin-top: 24px;
@@ -194,6 +195,18 @@ dd { margin: 5px 0 0; color: #e7ebf5; font-size: 0.88rem; }
 .weaknesses li::before { background: var(--red); }
 .measurement-grid { display: grid; margin: 0; grid-template-columns: 1fr 1fr; gap: 9px; }
 
+.evidence-summary {
+    padding: 20px;
+    border: 1px solid rgba(255, 188, 92, 0.24);
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(255, 160, 54, 0.08), rgba(255,255,255,0.018));
+}
+.evidence-summary strong { color: var(--amber); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.evidence-summary p { max-width: 80ch; margin: 10px 0 0; color: #c4ccdc; font-size: 0.86rem; }
+.evidence-links { display: flex; flex-wrap: wrap; margin-top: 17px; gap: 10px; }
+.evidence-links a { padding: 8px 11px; color: var(--cyan); border: 1px solid rgba(98,247,211,0.25); border-radius: 7px; font-size: 0.73rem; font-weight: 800; }
+.evidence-links a:hover { border-color: rgba(98,247,211,0.6); }
+
 .arsenal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
 .arsenal-grid > div { padding: 20px; border: 1px solid rgba(255,255,255,0.065); border-radius: 15px; background: rgba(255,255,255,0.025); }
 .arsenal-grid h3 { color: var(--amber); }
@@ -235,7 +248,7 @@ dd { margin: 5px 0 0; color: #e7ebf5; font-size: 0.88rem; }
     h1 { font-size: clamp(3.2rem, 17vw, 5.2rem); }
     .hero-description { font-size: 0.96rem; }
     .hero-actions { display: grid; }
-    .stats-panel, .intel-card, .arsenal, .related { padding: 21px 17px; border-radius: 18px; }
+    .stats-panel, .intel-card, .evidence-panel, .arsenal, .related { padding: 21px 17px; border-radius: 18px; }
     .section-heading { align-items: start; flex-direction: column; gap: 7px; }
     .stat-grid { grid-template-columns: 1fr 1fr; }
     .profile-strip, .strength-grid, .arsenal-grid { grid-template-columns: 1fr; }

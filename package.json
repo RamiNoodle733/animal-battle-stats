@@ -1,6 +1,6 @@
 {
   "name": "animal-battle-stats",
-  "version": "2.16.0",
+  "version": "2.17.0",
   "description": "Animal Battle Stats - a versioned wildlife comparison and animal powerscaling website",
   "main": "api/index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "seed": "node scripts/seed-database.js",
     "hooks:install": "git config core.hooksPath .githooks",
     "security:exports": "node scripts/security/check-sensitive-exports.js",
+    "evidence:audit": "node scripts/migrations/audit-animal-evidence.js",
     "test": "node --test test/**/*.test.js",
     "recovery:geolocations": "node scripts/migrations/repair-activity-geolocations.js",
     "recovery:import-activity": "node scripts/migrations/import-site-activity.js",

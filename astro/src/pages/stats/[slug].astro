@@ -1,6 +1,7 @@
 ---
 import AnimalPicture from '../../components/AnimalPicture.astro';
 import AnimalLayout from '../../layouts/AnimalLayout.astro';
+import evidenceManifest from '../../../../data/animal-evidence.json';
 import {
     animals,
     clampScore,
@@ -28,6 +29,9 @@ const description = `${animal.name} is ranked #${animal.rank}. Explore attack, d
 const battleProfile = animal.battle_profile || {};
 const speedKmh = Number(animal.speed_mps) > 0 ? Number(animal.speed_mps) * 3.6 : 0;
 const powerIndex = animal.totalStats / stats.length;
+const evidenceFields = 6;
+const animalEvidence = evidenceManifest.records.filter((record) => record.animal === animal.name);
+const reviewedEvidenceFields = new Set(animalEvidence.map((record) => record.field)).size;
 const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -143,6 +147,26 @@ const jsonLd = {
                 </dl>
             </section>
         </div>
+
+        <section class="evidence-panel" aria-labelledby="evidence-title" data-evidence-status={reviewedEvidenceFields ? 'partial' : 'unavailable'}>
+            <div class="section-heading compact">
+                <div><p>DATA PROVENANCE</p><h2 id="evidence-title">Evidence status</h2></div>
+                <span>{reviewedEvidenceFields} of {evidenceFields} fields reviewed</span>
+            </div>
+            <div class="evidence-summary">
+                <strong>{reviewedEvidenceFields ? 'Partial evidence coverage' : 'Per-field review pending'}</strong>
+                <p>
+                    {reviewedEvidenceFields
+                        ? `${reviewedEvidenceFields} physical fields have cited evidence in data release ${evidenceManifest.dataRelease}. Unreviewed fields remain clearly separate from evidence-backed facts.`
+                        : `No physical fields for ${animal.name} have per-field cited evidence in data release ${evidenceManifest.dataRelease}. The measurements above are legacy catalogue values and remain unreviewed.`}
+                </p>
+                <p>Missing values and legacy zeros are not treated as verified actual zero unless a cited record explicitly says so.</p>
+                <div class="evidence-links">
+                    <a href="/about#sources-title">Source policy</a>
+                    <a href="/methodology">Battle methodology</a>
+                </div>
+            </div>
+        </section>
 
         <section class="arsenal" aria-labelledby="arsenal-title">
             <div class="section-heading"><div><p>SPECIALIZATION</p><h2 id="arsenal-title">Abilities &amp; traits</h2></div></div>

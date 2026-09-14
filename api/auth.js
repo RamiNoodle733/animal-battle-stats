@@ -198,6 +198,12 @@ function signSessionToken(user) {
     );
 }
 
+function isValidEmail(value) {
+    return typeof value === 'string'
+        && value.length <= 254
+        && /^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(value);
+}
+
 function buildUserPayload(user) {
     const authProviders = (user.authProviders || []).map((provider) => ({
         provider: provider.provider,
@@ -693,7 +699,7 @@ async function handleLogin(req, res) {
         return res.status(429).json({ success: false, error: GENERIC_AUTH_ERROR });
     }
 
-    if (!normalizedLogin || !password) {
+    if (typeof login !== 'string' || !normalizedLogin || typeof password !== 'string' || !password) {
         return res.status(400).json({
             success: false,
             error: 'Please provide email/username and password'
@@ -750,7 +756,9 @@ async function handleSignup(req, res) {
         return res.status(429).json({ success: false, error: GENERIC_AUTH_ERROR });
     }
 
-    if (!username || !normalizedEmail || !password) {
+    if (typeof username !== 'string' || !username.trim()
+        || typeof email !== 'string' || !normalizedEmail
+        || typeof password !== 'string' || !password) {
         return res.status(400).json({
             success: false,
             error: 'Please provide username, email, and password'
@@ -760,6 +768,10 @@ async function handleSignup(req, res) {
     const passwordError = validatePasswordPolicy(password);
     if (passwordError) {
         return res.status(400).json({ success: false, error: passwordError });
+    }
+
+    if (!isValidEmail(normalizedEmail)) {
+        return res.status(400).json({ success: false, error: 'Please provide a valid email address' });
     }
 
     const usernameModeration = validatePublicName(username);
@@ -1188,7 +1200,9 @@ async function handleUpdateProfile(req, res) {
         }
 
         // Record the change
-        if (!user.usernameChanges) user.usernameChanges = [];
+        // Only the rolling policy window is operationally relevant; pruning here
+        // prevents a lifetime of rename records from growing the account document.
+        user.usernameChanges = recentChanges;
         user.usernameChanges.push({
             oldUsername: user.username,
             newUsername: newUsername,

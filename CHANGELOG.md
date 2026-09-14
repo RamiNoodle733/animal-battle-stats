@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.16.0 — 2026-09-14
+
+- Completed the historical backend review reconciliation: all 35 library and 60 API findings now have an explicit current disposition, evidence, or named downstream milestone instead of being treated as a stale failure list.
+- Signup now rejects operator-shaped/non-string credentials and invalid email syntax before account lookup or creation, while retaining model validation as a second boundary.
+- Community leaderboard progression now uses the authoritative shared XP curve and reports level-100 completion without divide-by-infinity or a drifting duplicate formula.
+- Legacy chat records with a missing author now fail deletion authorization safely. Comment and chat schemas enforce non-empty trimmed content.
+- Username-change history is pruned to the active seven-day policy window, and duplicate explicit timestamp fields were removed in favor of Mongoose timestamps.
+- Added behavioral regressions for the new boundaries and a coverage test that accounts for every numbered historical review finding.
+
 ## 2.15.0 — 2026-09-14
 
 - Login and signup attempt budgets now use atomic MongoDB-backed buckets shared across serverless instances, with separate network and normalized-account limits instead of process-local memory.

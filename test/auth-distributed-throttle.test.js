@@ -136,6 +136,31 @@ test('login does not reveal whether an account exists or uses Google sign-in', a
     }
 });
 
+test('login and signup reject malformed credential types before account access', async () => {
+    const originalFindOne = User.findOne;
+    User.findOne = () => { throw new Error('invalid credentials must not query an account'); };
+
+    try {
+        await withAuthApi({
+            consumeRateLimit: async () => ({ allowed: true, remaining: 5 }),
+            clearRateLimit: async () => {},
+            clientAddress: () => '203.0.113.10'
+        }, async (handler) => {
+            for (const [action, body] of [
+                ['login', { login: { $ne: null }, password: 7 }],
+                ['signup', { username: ['Rami'], email: 'not-an-email', password: 'valid-password' }],
+                ['signup', { username: 'Rami', email: 'not-an-email', password: 'valid-password' }]
+            ]) {
+                const res = response();
+                await handler({ method: 'POST', query: { action }, headers: {}, body }, res);
+                assert.equal(res.code, 400);
+            }
+        });
+    } finally {
+        User.findOne = originalFindOne;
+    }
+});
+
 test('public profiles do not export the internal account identifier', async () => {
     const originalFindOne = User.findOne;
     User.findOne = async () => ({

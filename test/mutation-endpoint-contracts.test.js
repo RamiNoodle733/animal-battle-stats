@@ -175,6 +175,34 @@ test('community stats expose persisted comparison and tournament counters withou
     }
 });
 
+test('community leaderboard uses the shared XP curve and completes level 100 progress', async () => {
+    const originalFind = User.find;
+    User.find = () => ({
+        select() { return this; },
+        sort() { return this; },
+        limit() { return this; },
+        lean: async () => ([
+            { username: 'Newcomer', level: 1, xp: 10 },
+            { username: 'PrestigeReady', level: 100, xp: 605 }
+        ])
+    });
+
+    try {
+        await withApi('community', { '../lib/mongodb': databaseMock }, async (handler) => {
+            const res = response();
+            await handler({ method: 'GET', query: { action: 'leaderboard' }, headers: {} }, res);
+
+            assert.equal(res.code, 200);
+            assert.equal(res.body.data[0].xpForNextLevel, 25);
+            assert.equal(res.body.data[0].xpProgress, 40);
+            assert.equal(res.body.data[1].xpForNextLevel, null);
+            assert.equal(res.body.data[1].xpProgress, 100);
+        });
+    } finally {
+        User.find = originalFind;
+    }
+});
+
 test('daily animal vote resolves a concurrent first-vote upsert without duplicating the vote', async () => {
     const animalId = '507f1f77bcf86cd799439012';
     const userId = '507f1f77bcf86cd799439011';

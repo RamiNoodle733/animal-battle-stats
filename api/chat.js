@@ -454,7 +454,7 @@ async function handleDelete(req, res) {
     }
 
     // Check if user owns the message or is admin/mod
-    const isOwner = message.authorId.toString() === user.id;
+    const isOwner = message.authorId?.toString() === user.id;
     const isAdminOrMod = authorization.user.role === 'admin' || authorization.user.role === 'moderator';
 
     if (!isOwner && !isAdminOrMod) {

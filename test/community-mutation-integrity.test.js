@@ -6,6 +6,7 @@ const assert = require('node:assert/strict');
 process.env.JWT_SECRET ||= 'test-secret-that-is-long-enough-for-hmac-verification';
 const auth = require('../lib/auth');
 const Animal = require('../lib/models/Animal');
+const ChatMessage = require('../lib/models/ChatMessage');
 const User = require('../lib/models/User');
 
 function response() {
@@ -105,5 +106,30 @@ test('new comment targets must resolve to canonical animals', async () => {
     } finally {
         Animal.findOne = originalFindOne;
         User.findById = originalFindById;
+    }
+});
+
+test('legacy chat records without an author fail deletion authorization safely', async () => {
+    const originalMessageFind = ChatMessage.findById;
+    const originalUserFind = User.findById;
+    ChatMessage.findById = async () => ({ _id: '507f1f77bcf86cd799439012', authorId: null });
+    User.findById = async () => ({ role: 'user' });
+
+    try {
+        await withHandlers(async ({ chat }) => {
+            const token = auth.signToken({ userId: '507f1f77bcf86cd799439011', username: 'Rami' });
+            const res = response();
+            await chat({
+                method: 'DELETE',
+                query: { messageId: '507f1f77bcf86cd799439012' },
+                headers: { authorization: `Bearer ${token}` }
+            }, res);
+
+            assert.equal(res.code, 403);
+            assert.match(res.body.error, /not authorized/i);
+        });
+    } finally {
+        ChatMessage.findById = originalMessageFind;
+        User.findById = originalUserFind;
     }
 });

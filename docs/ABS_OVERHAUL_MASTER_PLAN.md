@@ -42,7 +42,7 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 - `npm test`: 117 passed, including endpoint-level distributed login/signup throttling, provider-disclosure equivalence, public-profile identifier privacy and deterministic rate-bucket cleanup.
 - `npm run lint`, `npm run build`, `npm run version:check`, `npm run security:exports`, `npm run perf:budget` and `git diff --check`: pass. All 234 HTML files agree on version 2.15.0; no database migration is required.
 - Read-only browser verification passes UI stability, responsive images, community at 1440/768/390px and the full arcade at 1440/1366/768/390/320px. These checks preserve public/read-only behavior and do not exercise abusive authentication attempts.
-- Release prepared for main push; V5 must confirm the matching production commit/version and safe public profile output without testing brute-force thresholds against production.
+- Vercel marked feature commit `59f7247` successful and production `version.json` matched v2.15.0 and that commit. The live public-profile route safely returned 404 for an unknown username; no populated leaderboard username was available, so public ID suppression is proven by the isolated endpoint fixture rather than a fabricated account. Brute-force thresholds were deliberately not exercised against production.
 
 ## Current official guidance consulted
 

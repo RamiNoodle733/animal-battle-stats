@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.20.0 — 2026-09-14
+
+- Replaced the stale all-roster data-entry checklist and its unsafe “zero if none” guidance with a structured animal-correction issue form.
+- Correction reports now require the exact animal and claim type, current and proposed values, units and biological context, exact source URL/title/publisher/date, rationale, and anti-fabrication attestation.
+- Every one of the 225 generated animal profiles links to the correction form with its animal name prefilled; the About page distinguishes public review requests from private email reports.
+- Added a repository contract test that verifies the complete intake schema and correction link on every generated animal profile.
+
 ## 2.19.0 — 2026-09-14
 
 - Rebuilt `/battle` as a compact ABS game arena with facing animal portraits, in-place selectors, a central run control, probability meter and result actions instead of a disconnected long-form tool.

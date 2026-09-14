@@ -62,6 +62,12 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 - The expanded local and production SEO audits report zero failures across all 234 sitemap URLs, checking status, redirects, title, description, exact H1 count, canonical, robots, Open Graph/X parity, parseable JSON-LD and image-alt presence.
 - Vercel deployed commit `62f50ee`; production `version.json` matched v2.18.0 and that commit. Search Console selection/indexing and upstream IP firewall state are external account checks and are not inferred from these results.
 
+## 2.20.0 validation evidence
+
+- The public correction path is review-gated and requires animal identity, claim type, current and proposed values, biological context, exact source metadata, rationale, and anti-fabrication attestations.
+- The previous bulk checklist and its instruction to encode absent bite force as zero were removed because they conflicted with the evidence state model.
+- `node --test test/data-correction-workflow.test.js` verifies the intake contract and correction link across all 225 generated profiles; full release evidence is recorded in `PLAN.md`.
+
 ## Current official guidance consulted
 
 - [Google AI features](https://developers.google.com/search/docs/appearance/ai-features): useful crawlable content and existing search fundamentals; no special AI schema requirement.

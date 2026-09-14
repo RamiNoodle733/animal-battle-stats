@@ -71,6 +71,16 @@ async function main() {
             assert.equal(await page.locator('h1').count(), 1);
             assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `methodology overflow at ${width}`);
             await page.screenshot({ path: path.join(output, `methodology-${width}.png`), fullPage: true });
+            await page.goto(`${base}/stats/african-elephant`);
+            const correctionHref = await page.getByRole('link', { name: 'Report this profile' }).getAttribute('href');
+            assert.match(correctionHref, /template=data-correction\.yml/);
+            assert.match(correctionHref, /Data%20correction%3A%20African%20Elephant/);
+            if (width === 390) {
+                await page.goto(`${base}/about#corrections-title`);
+                assert.equal(await page.locator('.correction-actions a').count(), 2);
+                await page.locator('#corrections-title').scrollIntoViewIfNeeded();
+                await page.screenshot({ path: path.join(output, 'corrections-390.png'), fullPage: false });
+            }
             if (width === 390) {
                 await page.goto(`${base}/stats`);
                 await page.waitForFunction(() => window.app && document.getElementById('app-loading-screen')?.classList.contains('hidden'));

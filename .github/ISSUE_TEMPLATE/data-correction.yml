@@ -1,0 +1,103 @@
+name: Animal data correction
+description: Propose a sourced correction to a factual field, editorial rating, image, or animal identity.
+title: "Data correction: "
+labels:
+  - data
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Animal Battle Stats. Factual measurements, editorial ratings, and hypothetical predictions are different claim types. Please provide enough context for a reviewer to reproduce the correction; submitting this form does not automatically change production data.
+  - type: input
+    id: animal
+    attributes:
+      label: Animal
+      description: Use the exact common name shown on the profile.
+      placeholder: African Elephant
+    validations:
+      required: true
+  - type: dropdown
+    id: claim-type
+    attributes:
+      label: Claim type
+      options:
+        - Factual measurement or biological fact
+        - Scientific or common-name identity
+        - Editorial ABS rating
+        - Animal image or attribution
+        - Battle-model behavior
+        - Other profile content
+    validations:
+      required: true
+  - type: input
+    id: field
+    attributes:
+      label: Field or section
+      description: Name the exact field, rating, image, or sentence at issue.
+      placeholder: weight_kg / Bite force / Attack rating / profile image
+    validations:
+      required: true
+  - type: textarea
+    id: current-value
+    attributes:
+      label: Current published value or claim
+      description: Copy the current value or summarize the current behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-correction
+    attributes:
+      label: Proposed correction
+      description: Include units. Use unknown or not applicable when that is what the evidence supports; do not substitute zero for missing data.
+    validations:
+      required: true
+  - type: textarea
+    id: biological-context
+    attributes:
+      label: Biological and measurement context
+      description: State sex, age, population, specimen, typical/range/maximum basis, environment, and measurement method when relevant.
+      placeholder: Typical healthy adult females in the named population; measured body mass range...
+    validations:
+      required: true
+  - type: input
+    id: source-url
+    attributes:
+      label: Exact source URL or DOI
+      description: Link the specific institutional page, paper, dataset, or primary record—not a search result.
+    validations:
+      required: true
+  - type: input
+    id: source-title
+    attributes:
+      label: Source title
+    validations:
+      required: true
+  - type: input
+    id: source-publisher
+    attributes:
+      label: Publisher or journal
+    validations:
+      required: true
+  - type: input
+    id: source-date
+    attributes:
+      label: Publication or revision date
+      placeholder: YYYY-MM-DD, year, or not stated
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why this source supports the correction
+      description: Explain the relevant passage or table in your own words and note conflicting reputable sources.
+    validations:
+      required: true
+  - type: checkboxes
+    id: attestation
+    attributes:
+      label: Submission checks
+      options:
+        - label: I linked the exact source and did not invent a citation, observation, or scientific certainty.
+          required: true
+        - label: I understand a reviewer may publish a range, mark the field unknown, or decline the change when sources conflict.
+          required: true

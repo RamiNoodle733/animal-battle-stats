@@ -32,6 +32,7 @@ const powerIndex = animal.totalStats / stats.length;
 const evidenceFields = 6;
 const animalEvidence = evidenceManifest.records.filter((record) => record.animal === animal.name);
 const reviewedEvidenceFields = new Set(animalEvidence.map((record) => record.field)).size;
+const correctionUrl = `https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml&title=${encodeURIComponent(`Data correction: ${animal.name}`)}`;
 const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -164,6 +165,7 @@ const jsonLd = {
                 <div class="evidence-links">
                     <a href="/about#sources-title">Source policy</a>
                     <a href="/methodology">Battle methodology</a>
+                    <a href={correctionUrl}>Report this profile</a>
                 </div>
             </div>
         </section>

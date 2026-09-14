@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.15.0 — 2026-09-14
+
+- Login and signup attempt budgets now use atomic MongoDB-backed buckets shared across serverless instances, with separate network and normalized-account limits instead of process-local memory.
+- Throttled authentication requests stop before account lookup or creation, return a generic response plus `Retry-After`, and successful authentication clears only the account bucket so a valid login cannot reset an attacker's network budget.
+- Password login now returns the same failure response for missing accounts, incorrect passwords and Google-only accounts, avoiding account-provider disclosure while retaining a general Google sign-in hint.
+- Public profile responses no longer expose internal account identifiers. Authenticated self-profile responses retain the identifier required by existing owner-specific clients.
+- Added endpoint-level login/signup throttle, account-disclosure and public-profile privacy regressions, plus deterministic distributed-bucket cleanup coverage.
+
 ## 2.14.0 — 2026-09-14
 
 - Added a shared request boundary to every serverless API. Unsafe requests now have route-specific 4–64 KiB application budgets and are rejected before database access or business side effects; Vercel retains its fixed platform payload ceiling.

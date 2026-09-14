@@ -20,7 +20,9 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 | --- | --- | --- | --- | --- | --- |
 | Source requirements not durable | Preserve all sections and dependency-aware execution plan | completed | docs/ABS_SUPER_OVERHAUL.md, PLAN.md | source equality and 74-section count pass | maintain milestone status |
 | Unsafe public search/random inputs | Typed filters, bounded pagination, sort allowlist, 400 before database access | completed | lib/api-input.js, api/search.js, api/random.js | helper and handler behavior tests pass | extend to other list APIs |
-| Malformed auth cookie crashes | Reject malformed headers/cookies as unauthenticated | completed | lib/auth.js | malformed and valid cookie regression tests pass | broader CSRF/rate-limit review |
+| Malformed auth cookie crashes | Reject malformed headers/cookies as unauthenticated | completed | lib/auth.js | malformed and valid cookie regression tests pass | cookie-origin and distributed auth follow-up completed in 2.14/2.15 |
+| Serverless login/signup throttles reset per process | Atomic network and normalized-identifier attempt buckets; generic login failures | completed | api/auth.js, lib/distributed-rate-limit.js | endpoint behavior and deterministic bucket tests pass | monitor real rejection rates before tuning budgets |
+| Public profile exports internal account ID | Omit storage ID from public response while retaining authenticated self ID | completed | api/auth.js | public-profile response regression passes | preserve username-based public routes |
 | No documented executable battle model | Pure experimental model plus static tool and methodology | completed foundation | js/battle-engine.js, astro pages, route CSS/client | all 50,625 pairs and four browser widths pass | independent mass/environment modeling, calibrated scenarios and curated matchup pages |
 | Build/sitemap drift | Generate sitemap with build and include new Astro root routes | completed | build/prerender/sitemap/preview scripts | 234 local sitemap URLs pass; build and JSON-LD checks pass | full index quality gates |
 | Static navigation hides destination/overflows tablet | Keep six destinations; mobile three-column navigation; tablet wrapping | completed | css/static-shell.css | 320/390/768/1440px rendered checks; screenshots inspected | complete shared-shell navigation overhaul |
@@ -34,6 +36,13 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 - Existing `verify:arcade`, `verify:ui-stability`, `verify:community`, `verify:responsive-images`: pass against dist read-only preview, including a full local eight-animal tournament. These do not prove production authenticated writes because preview blocks them.
 - Source text preserved exactly apart from line endings/trailing newline. Full milestone completion is not claimed: mass/scenario/human/team models, evidence backfill and further P0 hardening remain in PLAN.md.
 - Release prepared for main push; V5 checks must confirm the matching production commit and version. No claim of external indexing, AI citations, CDN real-crawler access or field performance measurements.
+
+## 2.15.0 validation evidence
+
+- `npm test`: 117 passed, including endpoint-level distributed login/signup throttling, provider-disclosure equivalence, public-profile identifier privacy and deterministic rate-bucket cleanup.
+- `npm run lint`, `npm run build`, `npm run version:check`, `npm run security:exports`, `npm run perf:budget` and `git diff --check`: pass. All 234 HTML files agree on version 2.15.0; no database migration is required.
+- Read-only browser verification passes UI stability, responsive images, community at 1440/768/390px and the full arcade at 1440/1366/768/390/320px. These checks preserve public/read-only behavior and do not exercise abusive authentication attempts.
+- Release prepared for main push; V5 must confirm the matching production commit/version and safe public profile output without testing brute-force thresholds against production.
 
 ## Current official guidance consulted
 

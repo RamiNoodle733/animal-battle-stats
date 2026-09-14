@@ -24,7 +24,7 @@ const { notifyDiscord } = require('../lib/discord');
 const { verifyToken, signToken } = require('../lib/auth');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
-const { consumeRateLimit, clientAddress } = require('../lib/distributed-rate-limit');
+const { consumeRateLimit, clearRateLimit, clientAddress } = require('../lib/distributed-rate-limit');
 const { validatePublicName } = require('../lib/moderation');
 const {
     normalizeNotificationPreferences,
@@ -42,10 +42,10 @@ const AUTH_COOKIE_NAME = 'abs_auth_token';
 const TOKEN_MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
 const VERIFICATION_TOKEN_HOURS = 24;
 const RESET_TOKEN_MINUTES = 60;
-const LOGIN_LIMIT = { windowMs: 15 * 60 * 1000, max: 5 };
-const SIGNUP_LIMIT = { windowMs: 60 * 60 * 1000, max: 5 };
-const attemptBuckets = new Map();
+const LOGIN_LIMIT = { windowMs: 15 * 60 * 1000, ipMax: 30, identifierMax: 6 };
+const SIGNUP_LIMIT = { windowMs: 60 * 60 * 1000, ipMax: 10, identifierMax: 5 };
 const GENERIC_AUTH_ERROR = 'Unable to complete this request. Please check your details and try again later.';
+const INVALID_LOGIN_ERROR = 'Invalid credentials. If you use Google sign-in, continue with Google.';
 const GOOGLE_PROVIDER = 'google';
 const GOOGLE_OAUTH_SCOPES = ['openid', 'email', 'profile'];
 const GOOGLE_STATE_COOKIE = 'abs_google_oauth_state';
@@ -56,55 +56,21 @@ function normalizeIdentifier(value) {
     return String(value || '').trim().toLowerCase();
 }
 
-function getClientIp(req) {
-    const forwarded = req.headers['x-forwarded-for'];
-    if (typeof forwarded === 'string' && forwarded) {
-        return forwarded.split(',')[0].trim();
-    }
-    return req.headers['x-real-ip'] || req.socket?.remoteAddress || 'unknown';
-}
-
-function getAttemptKey(kind, scope, value) {
-    return `${kind}:${scope}:${normalizeIdentifier(value) || 'unknown'}`;
-}
-
-function pruneBucket(bucket, now, windowMs) {
-    bucket.failures = bucket.failures.filter((timestamp) => now - timestamp < windowMs);
-}
-
-function isRateLimited(kind, req, identifier, config) {
-    const now = Date.now();
-    const keys = [
-        getAttemptKey(kind, 'ip', getClientIp(req)),
-        getAttemptKey(kind, 'id', identifier)
+function authAttemptPolicies(kind, req, identifier, config) {
+    return [
+        { scope: `${kind}-attempt-ip`, identity: clientAddress(req), max: config.ipMax, windowMs: config.windowMs },
+        { scope: `${kind}-attempt-id`, identity: normalizeIdentifier(identifier) || 'unknown', max: config.identifierMax, windowMs: config.windowMs }
     ];
-
-    return keys.some((key) => {
-        const bucket = attemptBuckets.get(key) || { failures: [] };
-        pruneBucket(bucket, now, config.windowMs);
-        attemptBuckets.set(key, bucket);
-        return bucket.failures.length >= config.max;
-    });
 }
 
-function recordFailedAttempt(kind, req, identifier, config) {
-    const now = Date.now();
-    [
-        getAttemptKey(kind, 'ip', getClientIp(req)),
-        getAttemptKey(kind, 'id', identifier)
-    ].forEach((key) => {
-        const bucket = attemptBuckets.get(key) || { failures: [] };
-        pruneBucket(bucket, now, config.windowMs);
-        bucket.failures.push(now);
-        attemptBuckets.set(key, bucket);
-    });
+async function consumeAuthAttempt(kind, req, identifier, config) {
+    const results = await Promise.all(authAttemptPolicies(kind, req, identifier, config).map(consumeRateLimit));
+    return results.every((result) => result.allowed);
 }
 
-function clearFailedAttempts(kind, req, identifier) {
-    [
-        getAttemptKey(kind, 'ip', getClientIp(req)),
-        getAttemptKey(kind, 'id', identifier)
-    ].forEach((key) => attemptBuckets.delete(key));
+async function clearAuthAttempt(kind, req, identifier, config) {
+    const [, identifierPolicy] = authAttemptPolicies(kind, req, identifier, config);
+    await clearRateLimit(identifierPolicy);
 }
 
 function validatePasswordPolicy(password) {
@@ -722,12 +688,12 @@ async function handleLogin(req, res) {
     const { login, password } = req.body || {};
     const normalizedLogin = normalizeIdentifier(login);
 
-    if (isRateLimited('login', req, normalizedLogin, LOGIN_LIMIT)) {
+    if (!await consumeAuthAttempt('login', req, normalizedLogin, LOGIN_LIMIT)) {
+        res.setHeader('Retry-After', String(Math.ceil(LOGIN_LIMIT.windowMs / 1000)));
         return res.status(429).json({ success: false, error: GENERIC_AUTH_ERROR });
     }
 
     if (!normalizedLogin || !password) {
-        recordFailedAttempt('login', req, normalizedLogin, LOGIN_LIMIT);
         return res.status(400).json({
             success: false,
             error: 'Please provide email/username and password'
@@ -742,26 +708,19 @@ async function handleLogin(req, res) {
     }).select('+password');
 
     if (!user) {
-        recordFailedAttempt('login', req, normalizedLogin, LOGIN_LIMIT);
-        return res.status(401).json({ success: false, error: 'Invalid credentials' });
+        return res.status(401).json({ success: false, error: INVALID_LOGIN_ERROR });
     }
 
     if (!user.password) {
-        recordFailedAttempt('login', req, normalizedLogin, LOGIN_LIMIT);
-        return res.status(401).json({
-            success: false,
-            error: 'This account uses Google sign-in. Continue with Google or reset your password to add password login.'
-        });
+        return res.status(401).json({ success: false, error: INVALID_LOGIN_ERROR });
     }
 
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
-        recordFailedAttempt('login', req, normalizedLogin, LOGIN_LIMIT);
-        const generic = isRateLimited('login', req, normalizedLogin, LOGIN_LIMIT);
-        return res.status(401).json({ success: false, error: generic ? GENERIC_AUTH_ERROR : 'Invalid credentials' });
+        return res.status(401).json({ success: false, error: INVALID_LOGIN_ERROR });
     }
 
-    clearFailedAttempts('login', req, normalizedLogin);
+    await clearAuthAttempt('login', req, normalizedLogin, LOGIN_LIMIT);
     user.lastLogin = new Date();
     await user.save();
 
@@ -786,12 +745,12 @@ async function handleSignup(req, res) {
     const normalizedEmail = normalizeIdentifier(email);
     const signupIdentifier = normalizedEmail || username;
 
-    if (isRateLimited('signup', req, signupIdentifier, SIGNUP_LIMIT)) {
+    if (!await consumeAuthAttempt('signup', req, signupIdentifier, SIGNUP_LIMIT)) {
+        res.setHeader('Retry-After', String(Math.ceil(SIGNUP_LIMIT.windowMs / 1000)));
         return res.status(429).json({ success: false, error: GENERIC_AUTH_ERROR });
     }
 
     if (!username || !normalizedEmail || !password) {
-        recordFailedAttempt('signup', req, signupIdentifier, SIGNUP_LIMIT);
         return res.status(400).json({
             success: false,
             error: 'Please provide username, email, and password'
@@ -800,13 +759,11 @@ async function handleSignup(req, res) {
 
     const passwordError = validatePasswordPolicy(password);
     if (passwordError) {
-        recordFailedAttempt('signup', req, signupIdentifier, SIGNUP_LIMIT);
         return res.status(400).json({ success: false, error: passwordError });
     }
 
     const usernameModeration = validatePublicName(username);
     if (!usernameModeration.valid) {
-        recordFailedAttempt('signup', req, signupIdentifier, SIGNUP_LIMIT);
         return res.status(400).json({ success: false, error: usernameModeration.error });
     }
 
@@ -815,12 +772,10 @@ async function handleSignup(req, res) {
     });
 
     if (existingUser) {
-        recordFailedAttempt('signup', req, signupIdentifier, SIGNUP_LIMIT);
-        const repeated = isRateLimited('signup', req, signupIdentifier, SIGNUP_LIMIT);
         const field = existingUser.email === normalizedEmail ? 'email' : 'username';
         return res.status(400).json({
             success: false,
-            error: repeated ? GENERIC_AUTH_ERROR : `An account with this ${field} already exists`
+            error: `An account with this ${field} already exists`
         });
     }
 
@@ -835,7 +790,7 @@ async function handleSignup(req, res) {
     });
 
     await user.save();
-    clearFailedAttempts('signup', req, signupIdentifier);
+    await clearAuthAttempt('signup', req, signupIdentifier, SIGNUP_LIMIT);
 
     await sendVerificationEmail(req, user, verificationToken);
 
@@ -1547,7 +1502,6 @@ async function handleGetPublicProfile(req, res) {
         success: true,
         data: {
             user: {
-                id: user._id,
                 username: user.username,
                 displayName: user.displayName || user.username,
                 profileAnimal: user.profileAnimal || null,

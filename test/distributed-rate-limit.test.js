@@ -7,7 +7,8 @@ const RateLimitBucket = require('../lib/models/RateLimitBucket');
 const {
     bucketId,
     requestIdentity,
-    consumeRateLimit
+    consumeRateLimit,
+    clearRateLimit
 } = require('../lib/distributed-rate-limit');
 
 test('rate limit buckets are deterministic within a window and rotate afterward', () => {
@@ -82,4 +83,24 @@ test('distributed limiter uses a conditional atomic upsert and denies a full buc
 test('rate limit buckets expire automatically', () => {
     const indexes = RateLimitBucket.schema.indexes();
     assert.ok(indexes.some(([fields, options]) => fields.expiresAt === 1 && options.expireAfterSeconds === 0));
+});
+
+test('successful authentication can clear only its deterministic identifier bucket', async () => {
+    const original = RateLimitBucket.deleteOne;
+    let deletedFilter;
+    RateLimitBucket.deleteOne = async (filter) => { deletedFilter = filter; };
+    const now = new Date('2026-09-14T02:00:00.000Z');
+    try {
+        await clearRateLimit({
+            scope: 'login-attempt-id',
+            identity: 'user@example.com',
+            windowMs: 15 * 60 * 1000,
+            now
+        });
+        assert.deepEqual(deletedFilter, {
+            _id: bucketId('login-attempt-id', 'user@example.com', now, 15 * 60 * 1000)
+        });
+    } finally {
+        RateLimitBucket.deleteOne = original;
+    }
 });

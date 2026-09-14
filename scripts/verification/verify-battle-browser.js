@@ -75,6 +75,8 @@ async function main() {
             const correctionHref = await page.getByRole('link', { name: 'Report this profile' }).getAttribute('href');
             assert.match(correctionHref, /template=data-correction\.yml/);
             assert.match(correctionHref, /Data%20correction%3A%20African%20Elephant/);
+            assert.equal((await page.locator('.evidence-confidence strong').innerText()).toLowerCase(), 'unavailable');
+            assert.equal(await page.locator('.evidence-table').count(), 0);
             if (width === 390) {
                 await page.goto(`${base}/about#corrections-title`);
                 assert.equal(await page.locator('.correction-actions a').count(), 2);

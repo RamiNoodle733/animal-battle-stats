@@ -207,6 +207,19 @@ dd { margin: 5px 0 0; color: #e7ebf5; font-size: 0.88rem; }
 .evidence-links a { padding: 8px 11px; color: var(--cyan); border: 1px solid rgba(98,247,211,0.25); border-radius: 7px; font-size: 0.73rem; font-weight: 800; }
 .evidence-links a:hover { border-color: rgba(98,247,211,0.6); }
 
+.evidence-table-wrap {
+    margin-top: 16px;
+    overflow-x: auto;
+    border: 1px solid rgba(98,247,211,0.2);
+    border-radius: 12px;
+}
+.evidence-table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; }
+.evidence-table th, .evidence-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: top; text-transform: capitalize; }
+.evidence-table td:last-child { text-transform: none; }
+.evidence-table a { color: var(--cyan); }
+.evidence-table small { display: block; margin-top: 5px; color: var(--muted); }
+.evidence-confidence { margin: 14px 0 0; color: var(--muted); font-size: 0.78rem; text-transform: capitalize; }
+
 .arsenal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
 .arsenal-grid > div { padding: 20px; border: 1px solid rgba(255,255,255,0.065); border-radius: 15px; background: rgba(255,255,255,0.025); }
 .arsenal-grid h3 { color: var(--amber); }

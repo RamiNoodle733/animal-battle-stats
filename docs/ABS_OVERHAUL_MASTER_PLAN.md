@@ -68,6 +68,13 @@ The complete source specification is [ABS_SUPER_OVERHAUL.md](ABS_SUPER_OVERHAUL.
 - The previous bulk checklist and its instruction to encode absent bite force as zero were removed because they conflicted with the evidence state model.
 - `node --test test/data-correction-workflow.test.js` verifies the intake contract and correction link across all 225 generated profiles; full release evidence is recorded in `PLAN.md`.
 
+## 2.21.0 validation evidence
+
+- `evidence:import` now validates complete release files without loading database credentials in dry-run mode and reports counts by animal, field, state, source quality and measured/estimated basis.
+- Apply mode requires an explicit release and external backup directory, refuses existing records outside the reviewed manifest, writes a checksummed release backup, uses evidence-identity upserts, and revalidates exact stored identities after writing. Rollback remains scoped to the named data release.
+- Synthetic fixture tests cover valid and rejected dry runs without publishing their `example.org` records. The checked-in release remains truthfully empty: 225 animals, zero reviewed animals, 55 ambiguous legacy bite-force zeros.
+- Profiles resolve only validated latest-per-field records and expose value/range, basis, confidence, sex/age context, notes, publisher/title/URL and published/accessed/reviewed dates when records exist. The current empty release visibly reports unavailable confidence and renders no citation table.
+
 ## Current official guidance consulted
 
 - [Google AI features](https://developers.google.com/search/docs/appearance/ai-features): useful crawlable content and existing search fundamentals; no special AI schema requirement.

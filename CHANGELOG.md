@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.21.0 — 2026-09-14
+
+- Added a dry-run-first evidence release importer with validation, duplicate protection, explicit apply/backup controls, idempotent upserts, post-write verification, backup checksums, and scoped rollback guidance.
+- Tightened the evidence contract around release identity, contextual strings, notes length, and declared confidence.
+- Made animal profiles resolve only valid latest-per-field evidence and render source/context rows only when reviewed records exist; empty releases retain an explicit unavailable-confidence disclosure.
+- Added fixture and browser regressions for valid/invalid imports and zero-record publication safety.
+
 ## 2.20.0 — 2026-09-14
 
 - Replaced the stale all-roster data-entry checklist and its unsafe “zero if none” guidance with a structured animal-correction issue form.

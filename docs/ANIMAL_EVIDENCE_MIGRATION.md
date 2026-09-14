@@ -23,6 +23,20 @@ No future evidence import may write by default. The importer must be implemented
 5. Require an explicit `--apply` flag and release identifier. Use idempotent upserts keyed by animal, field, source URL and review date.
 6. Re-read the applied release, compare counts and validation results with the dry run, then publish it only after profile and responsive checks pass.
 
+The guarded importer implements this contract. Dry-run the checked-in manifest with an explicit release:
+
+```powershell
+npm run evidence:import -- --release 2026-09-evidence-foundation
+```
+
+Applying additionally requires `MONGODB_URI` and an explicit backup directory outside the repository:
+
+```powershell
+npm run evidence:import -- --release <release> --file <reviewed-manifest.json> --apply --backup-dir <external-directory>
+```
+
+The importer rejects unknown animals, invalid or mismatched releases, duplicate evidence identities, invalid fields/states/units/sources, in-repository backups, and an existing backup filename. After an apply it re-reads and validates the release and prints the exact backup path, record count, SHA-256 checksum, and release-scoped rollback filter. A dry run never loads database credentials or connects to MongoDB.
+
 An import must never infer sources from the legacy catalogue, translate a missing or zero value into `actual_zero`, or claim a review date/source count that is not present in validated records.
 
 ## Rollback

@@ -2,6 +2,7 @@
 import AnimalPicture from '../../components/AnimalPicture.astro';
 import AnimalLayout from '../../layouts/AnimalLayout.astro';
 import evidenceManifest from '../../../../data/animal-evidence.json';
+import evidenceTools from '../../../../lib/animal-evidence.js';
 import {
     animals,
     clampScore,
@@ -30,9 +31,17 @@ const battleProfile = animal.battle_profile || {};
 const speedKmh = Number(animal.speed_mps) > 0 ? Number(animal.speed_mps) * 3.6 : 0;
 const powerIndex = animal.totalStats / stats.length;
 const evidenceFields = 6;
-const animalEvidence = evidenceManifest.records.filter((record) => record.animal === animal.name);
-const reviewedEvidenceFields = new Set(animalEvidence.map((record) => record.field)).size;
+const animalEvidence = evidenceTools.latestEvidenceByField(evidenceManifest.records.filter((record) => record.animal === animal.name));
+const evidenceAssessment = evidenceTools.assessEvidence(animalEvidence);
+const reviewedEvidenceFields = animalEvidence.length;
 const correctionUrl = `https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml&title=${encodeURIComponent(`Data correction: ${animal.name}`)}`;
+const evidenceValue = (record) => {
+    if (record.state !== 'known' && record.state !== 'actual_zero') return record.state.replaceAll('_', ' ');
+    const primary = `${record.typical ?? record.value} ${record.unit}`;
+    return record.minimum != null && record.maximum != null
+        ? `${primary} (range ${record.minimum}–${record.maximum} ${record.unit})`
+        : primary;
+};
 const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -168,6 +177,27 @@ const jsonLd = {
                     <a href={correctionUrl}>Report this profile</a>
                 </div>
             </div>
+            {animalEvidence.length > 0 && (
+                <div class="evidence-table-wrap" tabindex="0" aria-label={`${animal.name} reviewed evidence`}>
+                    <table class="evidence-table">
+                        <thead><tr><th>Field</th><th>Reviewed value</th><th>Context</th><th>Source</th></tr></thead>
+                        <tbody>
+                            {animalEvidence.map((record) => (
+                                <tr>
+                                    <th scope="row">{record.field.replaceAll('_', ' ')}</th>
+                                    <td>{evidenceValue(record)}</td>
+                                    <td>{[record.basis, record.confidence, record.sex, record.ageClass].filter(Boolean).join(' · ')}{record.notes && <small>{record.notes}</small>}</td>
+                                    <td>
+                                        <a href={record.source.url}>{record.source.publisher}: {record.source.title}</a>
+                                        <small>{record.source.publishedAt ? `Published ${record.source.publishedAt} · ` : ''}Accessed {record.source.accessedAt} · Reviewed {record.reviewedAt}</small>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
+            <p class="evidence-confidence">Evidence confidence: <strong>{evidenceAssessment.confidence}</strong></p>
         </section>
 
         <section class="arsenal" aria-labelledby="arsenal-title">

@@ -102,14 +102,14 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     <!-- Main stylesheet (all styles) -->
-    <link rel="stylesheet" href="/css/legacy.css?v=2.21.5">
+    <link rel="stylesheet" href="/css/legacy.css?v=2.21.6">
     
     <!-- Shared component styles; page/feature styles are loaded by js/router.js -->
-    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.21.5">
+    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.21.6">
     
     <!-- Mobile-specific styles (loaded last to override) -->
-    <link rel="stylesheet" href="/css/mobile.css?v=2.21.5" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/arcade.css?v=2.21.5">
+    <link rel="stylesheet" href="/css/mobile.css?v=2.21.6" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/arcade.css?v=2.21.6">
     
     <!-- Non-critical external resources loaded async -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
@@ -217,6 +217,15 @@
         html.is-login:not(.is-reset) #reset-password-view,
         html.is-profile #home-view,
         html.is-public-profile #home-view { display: none !important; }
+        /* Reserve utility slots even before external CSS has arrived. */
+        @media (max-width: 480px) {
+            .game-header { display: grid !important; grid-template-columns: 40px minmax(0, 1fr) 44px 44px; column-gap: 7px !important; align-items: center; }
+            .game-header .header-brand { grid-area: 1 / 1; min-width: 0; }
+            .game-header .auth-area { grid-area: 1 / 2; width: 100%; min-width: 0; margin: 0 !important; padding: 0 !important; }
+            .game-header .mobile-audio-btn, .game-header .mobile-about-btn { position: static !important; transform: none !important; width: 44px !important; height: 44px !important; }
+            .game-header .mobile-audio-btn { grid-area: 1 / 3; }
+            .game-header .mobile-about-btn { grid-area: 1 / 4; }
+        }
     </style>
 <script>document.documentElement.classList.add('js');</script>
 <style>
@@ -408,7 +417,7 @@ html.js #seo-content{display:none!important}
 
             <!-- Footer with About link - OUTSIDE home-portal to avoid screen shake effects -->
             <footer class="portal-footer">
-                <span class="portal-version">v2.21.5</span>
+                <span class="portal-version">v2.21.6</span>
                 <div class="portal-footer-divider"></div>
                 <a href="/about" class="portal-footer-link">About</a>
                 <div class="portal-footer-divider"></div>
@@ -447,7 +456,7 @@ html.js #seo-content{display:none!important}
                     </div>
                     
                     <div class="about-version-section">
-                        <p class="about-version">Version 2.21.5 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
+                        <p class="about-version">Version 2.21.6 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
                     </div>
                 </div>
             </div>
@@ -3173,16 +3182,16 @@ html.js #seo-content{display:none!important}
     <!-- Data loaded from MongoDB API - no local data.js needed -->
     
     <!-- Core utilities - shared across all modules -->
-    <script src="/js/core.js?v=2.21.5"></script>
-    <script src="/js/text-layout.js?v=2.21.5"></script>
+    <script src="/js/core.js?v=2.21.6"></script>
+    <script src="/js/text-layout.js?v=2.21.6"></script>
     
     <!-- Application modules - load order matters -->
-    <script src="/js/router.js?v=2.21.5"></script>
-    <script src="/js/motion.js?v=2.21.5"></script>
-    <script src="/js/auth.js?v=2.21.5"></script>
+    <script src="/js/router.js?v=2.21.6"></script>
+    <script src="/js/motion.js?v=2.21.6"></script>
+    <script src="/js/auth.js?v=2.21.6"></script>
     
     <!-- Main app (initializes everything) -->
-    <script src="/js/main.js?v=2.21.5" defer></script>
+    <script src="/js/main.js?v=2.21.6" defer></script>
     
 </body>
 </html>

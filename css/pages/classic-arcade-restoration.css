@@ -147,7 +147,7 @@
 /* One compact channel heading, followed by readable conversations. Older reply
  * CSS expected a body wrapper that the current renderer no longer emits. */
 #community-view .community-channel-kicker { display: none; }
-#community-view .community-channel-header { padding: 10px 12px; gap: 10px; }
+#community-view .community-channel-header { display: none !important; }
 #community-view .community-channel-header__icon { width: 30px; height: 30px; flex: 0 0 30px; }
 #community-view .community-channel-header h2 { font-family: 'Orbitron', sans-serif; font-size: .8rem !important; line-height: 1.5; letter-spacing: .03em; }
 #community-view .feed-load-more-btn { position: static !important; transform: none !important; margin: 14px auto !important; flex-shrink: 0; }

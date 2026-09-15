@@ -87,11 +87,9 @@ async function inspect(viewport) {
         assert(visibleTabs.every((tab) => tab.left >= chat.bar.left - 1 && tab.right <= chat.bar.right + 1), `${label} Community tabs clip or overflow`, chat);
         assert(chat.bodyOverflow <= 1, `${label} Community page scrolls horizontally`, chat);
         assert(chat.pageScroll <= 1, `${label} Discuss should scroll inside its feed, not the page`, chat);
-        if (viewport.width > 900) {
-            assert(chat.classicHudVisible && chat.sidebar.width >= 230 && chat.sidebar.width <= 310
-                && chat.feed.width >= 700 && chat.feed.left > chat.sidebar.right,
-            `${label} desktop HUD/sidebar composition failed`, chat);
-        }
+        assert(!chat.classicHudVisible && chat.sidebar.width === 0
+            && chat.feed.width >= Math.min(300, viewport.width - 24),
+        `${label} Community conversation surface is not cleanly focused`, chat);
         await page.screenshot({ path: path.join(screenshotDir, `community-chat-${label}.png`) });
 
         await page.locator('.community-tab-btn[data-tab="feed"]').click();

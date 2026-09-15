@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.21.2 — 2026-09-14
+
+- Restored the recent, polished arcade presentation for Home, Compare, and Community rather than blending it with older archived styling.
+- Kept the current routes, crawlable content, responsive image improvements, and Community Map while removing only the oversized circular Compare VS treatment.
+- Gave mobile audio and About controls dedicated header slots so they cannot overlap sign-in or profile controls.
+
 ## 2.21.1 — 2026-09-14
 
 - Restored the January 28 arcade title-screen hierarchy on Home while retaining crawlable content and the Battle Lab route.

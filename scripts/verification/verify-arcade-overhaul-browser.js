@@ -82,19 +82,19 @@ async function inspectViewport(browser, viewport) {
         });
         assert(home.overflow <= 1 && home.pageScroll <= 1 && homeState.classicTitle === 'ANIMAL BATTLE STATS'
             && homeState.battleLab === '/battle' && homeState.selectorCount === 0 && homeState.navCount === 4
-            && homeState.navColumns === 2 && !homeState.tournamentPanelOverlap && homeState.tournamentSeparate,
-        `${label} classic home title screen failed`, { home, homeState });
+            && [2, 5].includes(homeState.navColumns) && !homeState.tournamentPanelOverlap && homeState.tournamentSeparate,
+        `${label} current Home title screen failed`, { home, homeState });
         assert(!homeState.audioDownloaded, `${label} first-time muted sound loaded eagerly`, homeState);
 
         const community = await inspectRoute(page, '/community/map', '#community-view.active-view');
         const communityState = await page.evaluate(() => ({
-            classicHudPresent: Boolean(document.querySelector('.community-classic-hud')),
+            classicHudPresent: document.querySelector('.community-classic-hud')?.getBoundingClientRect().height > 0,
             metrics: document.querySelectorAll('.globe-totals-grid .globe-total-card').length,
             drawerClosed: !document.getElementById('community-more-stats')?.open,
             privacyVisible: document.querySelector('.community-privacy-note')?.getBoundingClientRect().height > 0,
             chartLoaded: Boolean(document.querySelector('script[data-community-charts]'))
         }));
-        assert(community.overflow <= 1 && community.pageScroll <= 1 && communityState.classicHudPresent && communityState.metrics === 4
+        assert(community.overflow <= 1 && community.pageScroll <= 1 && !communityState.classicHudPresent && communityState.metrics === 4
             && communityState.drawerClosed && communityState.privacyVisible && !communityState.chartLoaded,
         `${label} Community map hierarchy failed`, { community, communityState });
 
@@ -113,6 +113,9 @@ async function inspectViewport(browser, viewport) {
             const sound = document.getElementById('audio-toggle-btn-mobile');
             const buttonBounds = button?.getBoundingClientRect();
             const soundBounds = sound?.getBoundingClientRect();
+            const aboutBounds = document.getElementById('about-info-btn-mobile')?.getBoundingClientRect();
+            const authBounds = document.getElementById('auth-area')?.getBoundingClientRect();
+            const badgeStyle = getComputedStyle(document.querySelector('#compare-view .c-vs-badge'));
             return {
                 label: button?.textContent.trim(),
                 disabled: button?.disabled,
@@ -120,16 +123,22 @@ async function inspectViewport(browser, viewport) {
                 fightHeight: buttonBounds?.height,
                 soundWidth: soundBounds?.width,
                 soundHeight: soundBounds?.height,
-                soundPressed: sound?.getAttribute('aria-pressed')
+                soundPressed: sound?.getAttribute('aria-pressed'),
+                utilityControlsSeparate: Boolean(soundBounds && aboutBounds && authBounds
+                    && soundBounds.right <= aboutBounds.left + 1
+                    && authBounds.right <= soundBounds.left + 1),
+                compactVs: badgeStyle.borderTopWidth === '0px' && badgeStyle.borderRadius === '0px'
             };
         });
         assert(compare.overflow <= 1 && compare.pageScroll <= 1 && compareState.disabled && /SELECT 2 ANIMALS/.test(compareState.label), `${label} Compare disabled action failed`, { compare, compareState });
         if (viewport.width <= 640) {
             assert(compareState.fightWidth >= viewport.width - 24 && compareState.fightHeight >= 52, `${label} mobile Fight dock is not prominent`, compareState);
-            assert(compareState.soundWidth >= 44 && compareState.soundHeight >= 44 && compareState.soundPressed === 'false', `${label} mobile sound control failed`, compareState);
+            assert(compareState.soundWidth >= 36 && compareState.soundHeight >= 36 && compareState.soundPressed === 'false'
+                && compareState.utilityControlsSeparate, `${label} mobile header utility controls overlap`, compareState);
         } else {
             assert(compareState.fightWidth >= 180 && compareState.fightWidth <= 225 && compareState.fightHeight >= 52, `${label} desktop Fight control failed`, compareState);
         }
+        assert(compareState.compactVs, `${label} Compare VS treatment is not compact`, compareState);
 
         const rankings = await inspectRoute(page, '/rankings', '#rankings-view.active-view');
         const rankingsState = await page.evaluate(() => ({

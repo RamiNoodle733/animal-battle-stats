@@ -1,5 +1,31 @@
 /* Last-mile corrections layered over the current pre-overhaul arcade system.
  * This deliberately avoids reintroducing older layout and color treatments. */
+.mobile-control-heading { display: none; }
+@media (max-width: 600px) {
+    body { --phone-menu-reserve: 230px; }
+    body:has(.character-grid-container.hidden) { --phone-menu-reserve: 100px; }
+    body #stats-view .character-display-area { position: fixed !important; top: 70px !important; bottom: calc(var(--phone-menu-reserve) + env(safe-area-inset-bottom, 0px)) !important; height: auto !important; max-height: none !important; }
+    body:has(.character-grid-container.hidden) #stats-view.active-view .character-display-area { height: auto !important; }
+    #compare-view .fight-screen { position: fixed !important; top: 75px !important; bottom: calc(var(--phone-menu-reserve) + env(safe-area-inset-bottom, 0px)) !important; height: auto !important; max-height: none !important; width: 100%; }
+    #compare-view .compare-action-dock { bottom: calc(var(--phone-menu-reserve) + 8px + env(safe-area-inset-bottom, 0px)) !important; }
+    #stats-view .stat-row { display: grid !important; grid-template-columns: auto 1fr auto; grid-template-rows: 16px 10px; height: auto !important; gap: 3px !important; margin-bottom: 4px !important; }
+    #stats-view .stat-icon { display: none !important; }
+    #stats-view .stat-bar-wrapper { grid-column: 1 / -1; grid-row: 2; width: 100%; margin: 0 !important; }
+    #stats-view .stat-name { grid-column: 1; grid-row: 1; }
+    #stats-view .stat-value { grid-column: 3; grid-row: 1; }
+    #stats-view .quick-info-bar { width: 100% !important; display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 6px !important; }
+    #stats-view .quick-info-item { min-width: 0; width: 100%; justify-content: center; padding: 4px !important; }
+    #filter-toggle .control-label, #sort-toggle .control-label, #filter-toggle .dropdown-arrow, #sort-toggle .dropdown-arrow { display: none; }
+    #filter-toggle, #sort-toggle { min-width: 44px !important; width: 44px; padding: 8px !important; justify-content: center; }
+    .mobile-control-heading { display: block; margin: 8px 12px; font-size: .85rem; }
+    #rankings-view .hero-top-row { display: none !important; }
+    #community-view .community-feed-layout, #community-view .community-sidebar-column, #community-view .globe-focus-module, #community-view .community-map-grid, #community-view .community-location-panel { min-width: 0 !important; max-width: 100% !important; box-sizing: border-box; }
+    #community-view .community-map-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    #community-view .globe-city-directory, #community-view .globe-point-details { min-width: 0; overflow-wrap: anywhere; }
+    body #home-view .portal-footer { bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important; }
+    body #home-view .silhouette-panel.panel-mobile { bottom: calc(86px + env(safe-area-inset-bottom, 0px)) !important; }
+    body #home-view .home-portal { padding-bottom: 166px !important; }
+}
 
 #compare-analysis { width: min(680px, calc(100vw - 24px)); max-height: calc(100dvh - 36px); overflow: auto; color: #e8f5fc; background: #08121e; border: 1px solid #24869b; border-radius: 8px; padding: 22px; }
 #compare-analysis::backdrop { background: rgba(0, 5, 12, .8); }

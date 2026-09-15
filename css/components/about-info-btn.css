@@ -188,6 +188,8 @@
     }
 }
 
+.about-info-btn::before, .about-info-btn::after { pointer-events: none; }
+
 /* Mobile tap feedback */
     .mobile-about-btn:active {
         transform: scale(0.9);

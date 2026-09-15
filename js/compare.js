@@ -507,6 +507,7 @@
             const biteEl = document.getElementById(`c-bite-${num}`);
             
             // Weight - use app's unit preference (same as Stats)
+            const compactNumber = value => Number(value).toLocaleString('en-US', window.matchMedia('(max-width: 600px)').matches ? { notation: 'compact', maximumFractionDigits: 1 } : {});
             if (weightEl) {
                 const weightKg = animal.weight_kg;
                 if (!weightKg) {
@@ -515,9 +516,9 @@
                     const unit = window.app?.state?.weightUnit || 'kg';
                     if (unit === 'lbs') {
                         const lbs = (weightKg * 2.20462).toFixed(0);
-                        weightEl.querySelector('span').textContent = `${Number(lbs).toLocaleString()} lbs`;
+                        weightEl.querySelector('span').textContent = `${compactNumber(lbs)} lbs`;
                     } else {
-                        weightEl.querySelector('span').textContent = `${Number(weightKg.toFixed(0)).toLocaleString()} kg`;
+                        weightEl.querySelector('span').textContent = `${compactNumber(weightKg.toFixed(0))} kg`;
                     }
                 }
             }
@@ -542,7 +543,7 @@
             if (biteEl) {
                 const bite = animal.bite_force_psi || animal.biteForce;
                 biteEl.querySelector('span').textContent = bite 
-                    ? `${Math.round(bite).toLocaleString()} PSI` 
+                    ? `${compactNumber(Math.round(bite))} PSI` 
                     : '--';
             }
             

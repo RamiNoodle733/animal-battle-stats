@@ -63,7 +63,7 @@ async function inspect(viewport) {
             return {
                 path: location.pathname,
                 title: document.getElementById('community-channel-title')?.textContent,
-                overviewVisible: document.querySelector('.community-overview')?.getBoundingClientRect().height > 0,
+                accessiblePageHeading: document.getElementById('community-page-title')?.textContent,
                 bar: { left: Math.round(barBounds.left), right: Math.round(barBounds.right) },
                 tabs,
                 sidebar: { left: sidebar.left, right: sidebar.right, width: sidebar.width },
@@ -71,21 +71,26 @@ async function inspect(viewport) {
                 bodyOverflow: document.documentElement.scrollWidth - innerWidth,
                 pageScroll: document.documentElement.scrollHeight - innerHeight,
                 mobileStylesIndex: links.findIndex((href) => href.includes('/css/mobile.css')),
-                communityV2Index: links.findIndex((href) => href.includes('/css/pages/community-v2.css'))
+                communityV2Index: links.findIndex((href) => href.includes('/css/pages/community-v2.css')),
+                classicRestorationIndex: links.findIndex((href) => href.includes('/css/pages/classic-arcade-restoration.css')),
+                classicHudVisible: document.querySelector('.community-classic-hud')?.getBoundingClientRect().height > 0
             };
         });
 
         assert(chat.path === '/community/chat', `${label} did not open chat`, chat);
-        assert(chat.overviewVisible && chat.title === 'Animal & Matchup Discussion', `${label} Community heading failed`, chat);
-        assert(chat.communityV2Index > chat.mobileStylesIndex && chat.mobileStylesIndex >= 0, `${label} final Community CSS order failed`, chat);
+        assert(chat.accessiblePageHeading === 'Community' && chat.title === 'Animal & Matchup Discussion',
+            `${label} Community heading failed`, chat);
+        assert(chat.communityV2Index > chat.mobileStylesIndex && chat.classicRestorationIndex > chat.communityV2Index,
+            `${label} final Community CSS order failed`, chat);
         const visibleTabs = chat.tabs.filter((tab) => tab.visible);
         assert(visibleTabs.length === 3, `${label} Community tab count is wrong`, chat);
         assert(visibleTabs.every((tab) => tab.left >= chat.bar.left - 1 && tab.right <= chat.bar.right + 1), `${label} Community tabs clip or overflow`, chat);
         assert(chat.bodyOverflow <= 1, `${label} Community page scrolls horizontally`, chat);
         assert(chat.pageScroll <= 1, `${label} Discuss should scroll inside its feed, not the page`, chat);
         if (viewport.width > 900) {
-            const centered = Math.abs(((chat.feed.left + chat.feed.right) / 2) - (viewport.width / 2)) <= 2;
-            assert(chat.sidebar.width === 0 && chat.feed.width >= 700 && centered, `${label} desktop conversation feed is not centered`, chat);
+            assert(chat.classicHudVisible && chat.sidebar.width >= 230 && chat.sidebar.width <= 310
+                && chat.feed.width >= 700 && chat.feed.left > chat.sidebar.right,
+            `${label} desktop HUD/sidebar composition failed`, chat);
         }
         await page.screenshot({ path: path.join(screenshotDir, `community-chat-${label}.png`) });
 

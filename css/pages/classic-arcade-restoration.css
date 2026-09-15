@@ -1,0 +1,59 @@
+/* Final visual layer for the restored v0.1 arcade composition.
+ * Keep this after responsive and route feature layers: it changes hierarchy,
+ * not the current data, routing, accessible controls, or community features. */
+
+/* Home: a four-choice title screen with tournament as the distinct action. */
+#home-view .portal-nav { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; max-width: 600px; }
+#home-view .portal-nav-btn { min-height: 74px; padding: 14px 15px; }
+#home-view .portal-tournament-btn { display: flex !important; max-width: 600px; min-height: 72px; margin-top: -8px; }
+
+/* Compare: the current engine inside the original dense three-bay cabinet. */
+#compare-view .fight-screen { grid-template-columns: minmax(0, 1fr) minmax(245px, .62fr) minmax(0, 1fr); gap: 0; border-top: 1px solid rgba(255, 255, 255, .1); }
+#compare-view .fighter-section { border-radius: 0; clip-path: none; }
+#compare-view .fighter-left { border-left: 0; border-right: 1px solid rgba(155,108,255,.42); }
+#compare-view .fighter-right { border-left: 1px solid rgba(72,223,145,.42); border-right: 0; }
+#compare-view .fight-center { z-index: 2; border-inline: 1px solid rgba(255,255,255,.11); background: linear-gradient(180deg, rgba(15,19,39,.97), rgba(7,8,19,.98)); }
+#compare-view .fighter-display { width: clamp(235px, 33vh, 350px); height: clamp(235px, 33vh, 350px); }
+#compare-view .c-vs-badge { min-width: 64px; min-height: 64px; font-size: clamp(1.55rem, 2.4vw, 2.2rem); }
+
+/* Community: chat and comments regain the classic HUD/sidebar composition.
+ * Location Map stays a dedicated, full-width work surface on its own tab. */
+#community-view { padding: clamp(8px, 1.2vw, 16px); background: radial-gradient(circle at 56% 2%, rgba(18,119,169,.1), transparent 34%), #050914; }
+/* Header already names this surface "Animal Battle Community". Keep a screen-
+ * reader heading without spending the game's first viewport on duplicate copy. */
+#community-view .community-overview { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+#community-view .community-tab-bar { width: min(1400px, calc(100% - 16px)); margin: 0 auto 8px; border-radius: 4px; }
+#community-view .community-tab-btn { min-height: 38px; border-radius: 2px; font-size: .7rem; }
+#community-view .community-feed-layout { display: grid !important; grid-template-columns: minmax(230px, 285px) minmax(0, 1fr); gap: 12px; width: min(1400px, 100%); padding: 0 8px 10px; }
+#community-view .community-sidebar-column { display: flex !important; min-width: 0; max-height: calc(100dvh - 178px); padding: 0 5px 8px 0; overflow: auto; }
+#community-view .community-feed-column { width: auto !important; max-width: none !important; min-height: min(640px, calc(100dvh - 180px)); margin: 0 !important; border-radius: 3px; clip-path: none; }
+#community-view:not(.map-tab-active) .community-sidebar-column { display: flex !important; }
+#community-view:not(.map-tab-active) .community-feed-column { width: auto !important; max-width: none !important; margin: 0 !important; }
+#community-view .community-classic-hud { display: block; padding: 0; border: 1px solid rgba(56,216,255,.3); border-radius: 3px; background: linear-gradient(180deg, #13202d, #0a111c); clip-path: none; }
+#community-view .community-classic-hud .hud-header { padding: 10px 12px 8px; border-bottom: 1px solid rgba(56,216,255,.18); background: rgba(32,49,64,.74); }
+#community-view .community-classic-hud .hud-title, #community-view .community-classic-hud .module-title { color: #e8f8ff; font: 800 .74rem/1 "Orbitron", sans-serif; letter-spacing: .07em; }
+#community-view .community-classic-hud .hud-live-badges { display: flex; justify-content: space-between; gap: 5px; padding: 9px 11px; color: #b9cbdb; font-size: .66rem; }
+#community-view .community-classic-hud .online-dot, #community-view .community-map-status .fa-circle { color: #48df91; font-size: .45rem; }
+#community-view .community-classic-hud .hud-stats-grid { grid-template-columns: repeat(3, 1fr); padding: 0 8px 8px; gap: 5px; }
+#community-view .community-classic-hud .hud-stat-item { min-height: 53px; padding: 7px 4px; border-color: rgba(108,177,207,.18); border-radius: 2px; text-align: center; }
+#community-view .community-classic-hud .hud-stat-value { display: block; color: #fff; font: 800 .88rem/1 "Orbitron", sans-serif; }
+#community-view .community-classic-hud .hud-stat-label { display: block; margin-top: 5px; color: #91a7ba; font-size: .52rem; letter-spacing: .06em; text-transform: uppercase; }
+#community-view .community-classic-map-card { padding: 0; border-radius: 3px; clip-path: none; }
+#community-view .community-classic-map-card .module-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-bottom: 1px solid rgba(56,216,255,.15); }
+#community-view .community-classic-map-card .module-title { color: #ecf8ff; font: 800 .69rem/1 "Orbitron", sans-serif; letter-spacing: .06em; }
+#community-view .community-map-status { color: #70e7ae; font-size: .52rem; letter-spacing: .07em; }
+#community-view .community-classic-map-card p { margin: 10px 12px; color: #aebfd0; font-size: .72rem; line-height: 1.45; }
+#community-view .community-map-open-link { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 34px; margin: 10px 12px 12px; color: #041019; border: 1px solid #8deafa; background: linear-gradient(180deg, #81e8fa, #2dc0df); font: 800 .59rem/1 "Orbitron", sans-serif; letter-spacing: .06em; }
+#community-view:not(.map-tab-active) .map-primary-module { display: none !important; }
+#community-view.map-tab-active .community-classic-hud, #community-view.map-tab-active .community-classic-map-card { display: none; }
+#community-view.map-tab-active .community-sidebar-column { grid-column: 1 / -1; max-height: none; overflow: visible; }
+#community-view.map-tab-active .map-primary-module { display: block !important; width: 100%; }
+
+@media (max-width: 900px) {
+    #compare-view .fight-screen { grid-template-columns: 1fr 1fr; }
+    #compare-view .fight-center { grid-column: 1 / -1; border-inline: 0; border-top: 1px solid rgba(255,255,255,.11); }
+    #community-view .community-feed-layout { grid-template-columns: 1fr !important; }
+    #community-view .community-sidebar-column { display: none !important; max-height: none; padding: 0; overflow: visible; }
+    #community-view.map-tab-active .community-sidebar-column { display: flex !important; }
+    #community-view .community-feed-column { min-height: min(650px, calc(100dvh - 145px)); }
+}

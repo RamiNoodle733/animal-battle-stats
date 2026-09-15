@@ -102,14 +102,14 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     <!-- Main stylesheet (all styles) -->
-    <link rel="stylesheet" href="/css/legacy.css?v=2.21.0">
+    <link rel="stylesheet" href="/css/legacy.css?v=2.21.1">
     
     <!-- Shared component styles; page/feature styles are loaded by js/router.js -->
-    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.21.0">
+    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.21.1">
     
     <!-- Mobile-specific styles (loaded last to override) -->
-    <link rel="stylesheet" href="/css/mobile.css?v=2.21.0" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/arcade.css?v=2.21.0">
+    <link rel="stylesheet" href="/css/mobile.css?v=2.21.1" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/arcade.css?v=2.21.1">
     
     <!-- Non-critical external resources loaded async -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
@@ -343,29 +343,14 @@
                         <div class="portal-logo-glow"></div>
                         <img src="/images/logo.png" alt="Animal Battle Stats" class="portal-logo">
                     </div>
-                    <h1 class="portal-tagline">WHO WOULD WIN?</h1>
-                    <p class="portal-subtitle">Animal Battle Stats · transparent powerscaling</p>
-                    <p class="portal-description">Choose two animals for a direct, inspectable ABS model estimate based on the site's editorial combat ratings.</p>
+                    <h1 class="portal-tagline">ANIMAL BATTLE STATS</h1>
+                    <p class="portal-subtitle">The animal powerscaling database</p>
+                    <p class="portal-description">Compare matchups, rank the roster, and run tournaments to see who comes out on top.</p>
                 </div>
 
-                <form class="portal-battle-form" id="portal-battle-form" action="/battle" method="get">
-                    <label for="portal-animal-a">Animal A</label>
-                    <select id="portal-animal-a" name="a" aria-describedby="portal-battle-status" disabled><option>Loading roster…</option></select>
-                    <span class="portal-versus" aria-hidden="true">VS</span>
-                    <label for="portal-animal-b">Animal B</label>
-                    <select id="portal-animal-b" name="b" aria-describedby="portal-battle-status" disabled><option>Loading roster…</option></select>
-                    <button class="portal-battle-submit" id="portal-battle-submit" type="submit" disabled>
-                        <i class="fas fa-bolt" aria-hidden="true"></i><span>SIMULATE BATTLE</span>
-                    </button>
-                    <p id="portal-battle-status" class="portal-battle-status" role="alert"></p>
-                </form>
-                <div class="portal-battle-presets" aria-label="Popular matchups">
-                    <a href="/battle?a=african-lion&amp;b=siberian-tiger">Lion vs Tiger</a>
-                    <a href="/battle?a=gorilla&amp;b=grizzly-bear">Gorilla vs Grizzly</a>
-                    <a href="/battle?a=orca&amp;b=great-white-shark">Orca vs Great White</a>
-                </div>
+                <a href="/battle" class="portal-battle-link"><i class="fas fa-bolt" aria-hidden="true"></i> BATTLE LAB <span>Run a transparent matchup</span></a>
 
-                <!-- Secondary destinations -->
+                <!-- Core destinations -->
                 <nav class="portal-nav" id="portal-nav">
                     <a href="/stats" class="portal-nav-btn" data-section="stats">
                         <i class="fas fa-chart-bar btn-icon"></i>
@@ -387,18 +372,19 @@
                         <span class="btn-label">COMMUNITY</span>
                         <i class="fas fa-chevron-right btn-chevron"></i>
                     </a>
-                    <a href="/tournament" class="portal-nav-btn" id="portal-tournament-btn" data-section="tournament">
-                        <i class="fas fa-gamepad btn-icon"></i>
-                        <span class="btn-label">TOURNAMENT</span>
-                        <i class="fas fa-chevron-right btn-chevron"></i>
-                    </a>
                 </nav>
+
+                <a href="/tournament" class="portal-tournament-btn" id="portal-tournament-btn">
+                    <i class="fas fa-gamepad btn-icon"></i>
+                    <span class="btn-label">PLAY TOURNAMENT</span>
+                    <i class="fas fa-chevron-right btn-chevron"></i>
+                </a>
 
             </div>
 
             <!-- Footer with About link - OUTSIDE home-portal to avoid screen shake effects -->
             <footer class="portal-footer">
-                <span class="portal-version">v2.21.0</span>
+                <span class="portal-version">v2.21.1</span>
                 <div class="portal-footer-divider"></div>
                 <a href="/about" class="portal-footer-link">About</a>
                 <div class="portal-footer-divider"></div>
@@ -437,7 +423,7 @@
                     </div>
                     
                     <div class="about-version-section">
-                        <p class="about-version">Version 2.21.0 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
+                        <p class="about-version">Version 2.21.1 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
                     </div>
                 </div>
             </div>
@@ -1556,6 +1542,32 @@
             <div class="community-feed-layout community__layout">
                 <!-- Map section -->
                 <div class="community-sidebar-column community__sidebar">
+                    <section class="community-hud-module community-classic-hud" aria-label="Community HUD">
+                        <div class="hud-header">
+                            <span class="hud-title"><i class="fas fa-gamepad" aria-hidden="true"></i> COMMUNITY HUD</span>
+                        </div>
+                        <div class="hud-live-badges">
+                            <span class="hud-online-badge"><i class="fas fa-circle online-dot" aria-hidden="true"></i> <span data-community-stat="online">0</span> Online</span>
+                            <span class="hud-visits-badge"><i class="fas fa-eye" aria-hidden="true"></i> <span data-community-stat="visits">0</span> Visits</span>
+                        </div>
+                        <div class="hud-stats-grid">
+                            <div class="hud-stat-item"><span class="hud-stat-value" data-community-stat="members">--</span><span class="hud-stat-label">Members</span></div>
+                            <div class="hud-stat-item"><span class="hud-stat-value" data-community-stat="votes">--</span><span class="hud-stat-label">Votes</span></div>
+                            <div class="hud-stat-item"><span class="hud-stat-value" data-community-stat="comments">--</span><span class="hud-stat-label">Comments</span></div>
+                            <div class="hud-stat-item"><span class="hud-stat-value" data-community-stat="tournaments">--</span><span class="hud-stat-label">Tournaments</span></div>
+                            <div class="hud-stat-item"><span class="hud-stat-value" data-community-stat="matches">--</span><span class="hud-stat-label">Matches</span></div>
+                        </div>
+                    </section>
+
+                    <section class="sidebar-module community-classic-map-card hub-only-module" aria-label="Location activity">
+                        <div class="module-header">
+                            <span class="module-title"><i class="fas fa-globe-americas" aria-hidden="true"></i> LIVE ACTIVITY</span>
+                            <span class="community-map-status"><i class="fas fa-circle" aria-hidden="true"></i> GLOBAL</span>
+                        </div>
+                        <p>Explore anonymous city-level activity, trends, and recent visits on the map.</p>
+                        <a class="community-map-open-link" href="/community/map"><i class="fas fa-map-marked-alt" aria-hidden="true"></i> OPEN ACTIVITY MAP</a>
+                    </section>
+
                     <div class="sidebar-module globe-focus-module map-primary-module community-widget community-widget--with-brackets">
                         <div class="module-header community-widget__header">
                             <div>
@@ -3137,16 +3149,16 @@
     <!-- Data loaded from MongoDB API - no local data.js needed -->
     
     <!-- Core utilities - shared across all modules -->
-    <script src="/js/core.js?v=2.21.0"></script>
-    <script src="/js/text-layout.js?v=2.21.0"></script>
+    <script src="/js/core.js?v=2.21.1"></script>
+    <script src="/js/text-layout.js?v=2.21.1"></script>
     
     <!-- Application modules - load order matters -->
-    <script src="/js/router.js?v=2.21.0"></script>
-    <script src="/js/motion.js?v=2.21.0"></script>
-    <script src="/js/auth.js?v=2.21.0"></script>
+    <script src="/js/router.js?v=2.21.1"></script>
+    <script src="/js/motion.js?v=2.21.1"></script>
+    <script src="/js/auth.js?v=2.21.1"></script>
     
     <!-- Main app (initializes everything) -->
-    <script src="/js/main.js?v=2.21.0" defer></script>
+    <script src="/js/main.js?v=2.21.1" defer></script>
     
 </body>
 </html>

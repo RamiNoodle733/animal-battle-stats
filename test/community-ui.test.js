@@ -53,7 +53,7 @@ test('Community route CSS loads after legacy mobile overrides and preserves isol
     const router = read('js/router.js');
     const css = read('css/pages/community-v2.css');
 
-    assert.match(router, /stylesAfterMobile:\s*\[versionedAsset\('\/css\/pages\/community-v2\.css'\), versionedAsset\('\/css\/arcade\.css'\)\]/);
+    assert.match(router, /stylesAfterMobile:\s*\[versionedAsset\('\/css\/pages\/community-v2\.css'\), versionedAsset\('\/css\/arcade\.css'\), versionedAsset\('\/css\/pages\/classic-arcade-restoration\.css'\)\]/);
     assert.match(router, /document\.head\.appendChild\(link\)/);
     assert.match(css, /grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\) !important/);
     assert.match(css, /#community-view \.community-tab-btn\.active\s*\{[\s\S]*?background:[^;]+!important/);

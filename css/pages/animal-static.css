@@ -134,9 +134,11 @@ h1 {
 .power-index small { color: var(--muted); font-size: 0.65rem; }
 
 .stats-panel,
+.detail-panel,
 .intel-card,
 .evidence-panel,
 .arsenal,
+.powerscaling-panel,
 .related {
     margin-top: 24px;
     padding: clamp(24px, 4vw, 42px);
@@ -169,6 +171,14 @@ h1 {
 .stat-track span { display: block; width: var(--score); height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
 .stat-attack .stat-track span,
 .stat-special .stat-track span { background: linear-gradient(90deg, var(--red), var(--amber)); }
+
+.substat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.substat-row { display: grid; padding: 13px 14px; grid-template-columns: 1fr auto; gap: 8px 14px; border: 1px solid rgba(255,255,255,0.07); border-radius: 11px; background: rgba(255,255,255,0.025); }
+.substat-row span { color: #cbd3e3; font-size: 0.76rem; }
+.substat-row strong { font-size: 0.82rem; }
+.substat-track { height: 4px; grid-column: 1 / -1; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,0.08); }
+.substat-track i { display: block; height: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+.module-note { max-width: 88ch; margin: 18px 0 0; color: var(--muted); font-size: 0.76rem; }
 
 .intel-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; }
 .profile-strip { display: grid; margin: 0; grid-template-columns: repeat(3, 1fr); gap: 10px; }
@@ -225,6 +235,24 @@ dd { margin: 5px 0 0; color: #e7ebf5; font-size: 0.88rem; }
 .arsenal-grid h3 { color: var(--amber); }
 .arsenal-grid li::before { background: var(--amber); }
 
+.rank-context-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 11px; }
+.rank-context-grid article { display: grid; padding: 17px; border: 1px solid rgba(98,247,211,0.14); border-radius: 13px; background: rgba(98,247,211,0.035); }
+.rank-context-grid span { color: var(--muted); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.rank-context-grid strong { margin-top: 8px; color: var(--cyan); font-size: 1.75rem; }
+.rank-context-grid small { color: #aeb8ca; }
+.rival-heading { display: flex; margin: 28px 0 12px; align-items: baseline; justify-content: space-between; gap: 12px; }
+.rival-heading h3 { margin: 0; font-size: 1rem; }
+.rival-heading span { color: var(--muted); font-size: 0.72rem; }
+.rival-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.rival-grid article { display: grid; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; background: rgba(255,255,255,0.025); }
+.rival-profile { display: grid; min-height: 105px; padding: 14px; align-content: end; }
+.rival-profile span { align-self: start; color: var(--cyan); font-size: 0.66rem; }
+.rival-profile strong { margin-top: auto; }
+.rival-profile small { color: var(--muted); }
+.rival-battle { padding: 9px 12px; color: var(--amber); border-top: 1px solid rgba(255,255,255,0.07); font-size: 0.67rem; font-weight: 850; letter-spacing: 0.08em; text-align: center; text-transform: uppercase; }
+.powerscaling-actions { display: flex; margin-top: 18px; flex-wrap: wrap; gap: 9px; }
+.powerscaling-actions a { padding: 8px 11px; color: var(--cyan); border: 1px solid rgba(98,247,211,0.25); border-radius: 7px; font-size: 0.7rem; font-weight: 800; }
+
 .related { margin-bottom: 80px; }
 .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; }
 .related-grid a {
@@ -248,6 +276,7 @@ dd { margin: 5px 0 0; color: #e7ebf5; font-size: 0.88rem; }
     .animal-picture img { height: min(360px, 62vw); }
     .power-index { right: 6%; }
     .stat-grid { grid-template-columns: repeat(3, 1fr); }
+    .substat-grid { grid-template-columns: repeat(2, 1fr); }
     .intel-grid { grid-template-columns: 1fr; }
     .related-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -261,10 +290,11 @@ dd { margin: 5px 0 0; color: #e7ebf5; font-size: 0.88rem; }
     h1 { font-size: clamp(3.2rem, 17vw, 5.2rem); }
     .hero-description { font-size: 0.96rem; }
     .hero-actions { display: grid; }
-    .stats-panel, .intel-card, .evidence-panel, .arsenal, .related { padding: 21px 17px; border-radius: 18px; }
+    .stats-panel, .detail-panel, .intel-card, .evidence-panel, .arsenal, .powerscaling-panel, .related { padding: 21px 17px; border-radius: 18px; }
     .section-heading { align-items: start; flex-direction: column; gap: 7px; }
     .stat-grid { grid-template-columns: 1fr 1fr; }
     .profile-strip, .strength-grid, .arsenal-grid { grid-template-columns: 1fr; }
+    .rank-context-grid, .rival-grid { grid-template-columns: 1fr 1fr; }
     .measurement-grid { grid-template-columns: 1fr 1fr; }
     .related { margin-bottom: 110px; }
 }
@@ -272,5 +302,6 @@ dd { margin: 5px 0 0; color: #e7ebf5; font-size: 0.88rem; }
 @media (max-width: 430px) {
     .eyebrow-row span:not(.rank-chip) { display: none; }
     .measurement-grid, .related-grid { grid-template-columns: 1fr; }
+    .substat-grid, .rank-context-grid, .rival-grid { grid-template-columns: 1fr; }
     .related-grid a { min-height: 105px; }
 }

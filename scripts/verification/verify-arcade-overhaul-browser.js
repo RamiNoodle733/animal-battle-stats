@@ -62,56 +62,39 @@ async function inspectViewport(browser, viewport) {
 
     try {
         const home = await inspectRoute(page, '/', '#home-view.active-view');
-        if (viewport.width === 1440) {
-            await page.waitForFunction(() => document.querySelectorAll('#portal-animal-a option').length >= 225, null, { timeout: 30000 });
-        }
         const homeState = await page.evaluate(() => {
             const battleForm = document.getElementById('portal-battle-form');
             const nav = document.getElementById('portal-nav');
             const tournament = document.getElementById('portal-tournament-btn')?.getBoundingClientRect();
             const mobilePanel = document.querySelector('.silhouette-panel.panel-mobile')?.getBoundingClientRect();
             return {
-                battleFirst: Boolean(battleForm && nav && (battleForm.compareDocumentPosition(nav) & Node.DOCUMENT_POSITION_FOLLOWING)),
-                battleEnabled: !document.getElementById('portal-battle-submit')?.disabled,
+                classicTitle: document.querySelector('.portal-tagline')?.textContent?.trim(),
+                battleLab: document.querySelector('.portal-battle-link')?.getAttribute('href'),
                 selectorCount: document.querySelectorAll('#portal-battle-form select').length,
-                optionCounts: [...document.querySelectorAll('#portal-battle-form select')].map((select) => select.options.length),
-                selected: [...document.querySelectorAll('#portal-battle-form select')].map((select) => select.value),
+                navCount: nav?.querySelectorAll('.portal-nav-btn').length,
                 navColumns: getComputedStyle(nav).gridTemplateColumns.split(/\s+/).filter(Boolean).length,
                 tournamentPanelOverlap: Boolean(tournament && mobilePanel && tournament.width && mobilePanel.width
                     && tournament.left < mobilePanel.right && tournament.right > mobilePanel.left
                     && tournament.top < mobilePanel.bottom && tournament.bottom > mobilePanel.top),
-                tournamentSecondary: Boolean(document.querySelector('#portal-nav #portal-tournament-btn')),
+                tournamentSeparate: Boolean(document.querySelector('#home-portal > #portal-tournament-btn')),
                 audioDownloaded: Boolean(document.querySelector('script[data-audio-manager]'))
             };
         });
-        assert(home.overflow <= 1 && home.pageScroll <= 1 && homeState.battleFirst && homeState.battleEnabled
-            && homeState.selectorCount === 2 && homeState.optionCounts.every((count) => count >= 2)
-            && homeState.selected.every((value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value))
-            && homeState.navColumns === 5 && !homeState.tournamentPanelOverlap
-            && homeState.tournamentSecondary, `${label} home battle-first title screen failed`, { home, homeState });
+        assert(home.overflow <= 1 && home.pageScroll <= 1 && homeState.classicTitle === 'ANIMAL BATTLE STATS'
+            && homeState.battleLab === '/battle' && homeState.selectorCount === 0 && homeState.navCount === 4
+            && homeState.navColumns === 2 && !homeState.tournamentPanelOverlap && homeState.tournamentSeparate,
+        `${label} classic home title screen failed`, { home, homeState });
         assert(!homeState.audioDownloaded, `${label} first-time muted sound loaded eagerly`, homeState);
-
-        if (viewport.width === 1440) {
-            const selectedLeft = await page.locator('#portal-animal-a').inputValue();
-            await page.locator('#portal-animal-b').selectOption(selectedLeft);
-            await page.locator('#portal-battle-submit').click();
-            assert(/different animals/i.test(await page.locator('#portal-battle-status').textContent()), `${label} duplicate battle selection was accepted`);
-            await page.locator('#portal-animal-a').selectOption('african-lion');
-            await page.locator('#portal-animal-b').selectOption('siberian-tiger');
-            await page.locator('#portal-battle-submit').click();
-            await page.waitForURL((url) => url.pathname === '/battle' && url.searchParams.get('a') === 'african-lion'
-                && url.searchParams.get('b') === 'siberian-tiger', { timeout: 10000 });
-        }
 
         const community = await inspectRoute(page, '/community/map', '#community-view.active-view');
         const communityState = await page.evaluate(() => ({
-            removedCopyPresent: /FIELD NETWORK|Network online|COMMAND CENTER|\bHUD\b/.test(document.getElementById('community-view')?.innerText || ''),
+            classicHudPresent: Boolean(document.querySelector('.community-classic-hud')),
             metrics: document.querySelectorAll('.globe-totals-grid .globe-total-card').length,
             drawerClosed: !document.getElementById('community-more-stats')?.open,
             privacyVisible: document.querySelector('.community-privacy-note')?.getBoundingClientRect().height > 0,
             chartLoaded: Boolean(document.querySelector('script[data-community-charts]'))
         }));
-        assert(community.overflow <= 1 && community.pageScroll <= 1 && !communityState.removedCopyPresent && communityState.metrics === 4
+        assert(community.overflow <= 1 && community.pageScroll <= 1 && communityState.classicHudPresent && communityState.metrics === 4
             && communityState.drawerClosed && communityState.privacyVisible && !communityState.chartLoaded,
         `${label} Community map hierarchy failed`, { community, communityState });
 

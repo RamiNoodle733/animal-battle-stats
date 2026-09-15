@@ -10,6 +10,20 @@ const PRIMARY_STATS = Object.freeze([
     ['intelligence', 'Intelligence', 'INT'],
     ['special', 'Special', 'SPL']
 ]);
+const DETAILED_STATS = Object.freeze([
+    ['raw_power', 'Raw Power'],
+    ['weaponry', 'Weaponry'],
+    ['ferocity', 'Ferocity'],
+    ['protection', 'Protection'],
+    ['toughness', 'Toughness'],
+    ['maneuverability', 'Maneuverability'],
+    ['speed', 'Speed'],
+    ['endurance', 'Endurance'],
+    ['recovery', 'Recovery'],
+    ['tactics', 'Tactics'],
+    ['senses', 'Senses'],
+    ['abilities', 'Abilities']
+]);
 
 export function slugify(value) {
     return String(value || '')
@@ -78,13 +92,39 @@ export function relatedAnimals(animal, limit = 4) {
         .map(({ candidate }) => candidate);
 }
 
-export const stats = PRIMARY_STATS;
+export function rivalAnimals(animal, limit = 4) {
+    return animals
+        .filter((candidate) => candidate.slug !== animal.slug)
+        .map((candidate) => ({
+            candidate,
+            distance: Math.abs(candidate.totalStats - animal.totalStats),
+            affinity: Number(candidate.type === animal.type) + Number(candidate.class === animal.class)
+        }))
+        .sort((left, right) => left.distance - right.distance || right.affinity - left.affinity || left.candidate.rank - right.candidate.rank)
+        .slice(0, limit)
+        .map(({ candidate }) => candidate);
+}
 
-export const animals = animalRecords
+export const stats = PRIMARY_STATS;
+export const detailedStats = DETAILED_STATS;
+
+const rankedAnimals = animalRecords
     .map((animal) => ({
         ...animal,
         slug: slugify(animal.name),
         totalStats: PRIMARY_STATS.reduce((sum, [key]) => sum + clampScore(animal[key]), 0)
     }))
-    .sort((left, right) => right.totalStats - left.totalStats || left.name.localeCompare(right.name))
-    .map((animal, index) => ({ ...animal, rank: index + 1 }));
+    .sort((left, right) => right.totalStats - left.totalStats || left.name.localeCompare(right.name));
+
+function groupRank(animal, field) {
+    const peers = rankedAnimals.filter((candidate) => candidate[field] === animal[field]);
+    return { rank: peers.findIndex((candidate) => candidate.name === animal.name) + 1, total: peers.length };
+}
+
+export const animals = rankedAnimals.map((animal, index) => ({
+    ...animal,
+    rank: index + 1,
+    typeRank: groupRank(animal, 'type'),
+    classRank: groupRank(animal, 'class'),
+    sizeRank: groupRank(animal, 'size')
+}));

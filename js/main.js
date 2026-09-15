@@ -1163,8 +1163,13 @@ class AnimalStatsApp {
         
         // Load saved grid visibility state from localStorage
         const savedGridVisible = localStorage.getItem('isGridVisible');
-        if (savedGridVisible !== null) {
+        const freshCompareArena = this.state.view === 'compare'
+            && !this.state.compare.left && !this.state.compare.right;
+        if (savedGridVisible !== null && !freshCompareArena) {
             this.state.isGridVisible = savedGridVisible === 'true';
+            this.updateGridVisibility();
+        } else if (freshCompareArena) {
+            this.state.isGridVisible = false;
             this.updateGridVisibility();
         }
         
@@ -2420,7 +2425,11 @@ class AnimalStatsApp {
             if (this.dom.toggleGridBtn) this.dom.toggleGridBtn.style.display = 'flex';
             if (this.dom.sharedBottomBar) this.dom.sharedBottomBar.style.display = 'flex';
             
-            // Apply current grid visibility state (preserved from previous view)
+            // A direct Compare visit should open on the arena, like the original
+            // three-bay screen. The roster remains available through SHOW MENU.
+            if (!this.state.compare.left && !this.state.compare.right) {
+                this.state.isGridVisible = false;
+            }
             this.dom.gridWrapper.classList.toggle('hidden', !this.state.isGridVisible);
             
             // Reset selection state if entering compare mode

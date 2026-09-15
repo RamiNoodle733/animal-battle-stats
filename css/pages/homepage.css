@@ -1011,11 +1011,31 @@ html.route-home nav[class*="mobile"] {
 .portal-nav-btn[data-section="tournament"] { --btn-accent-color: rgba(255,51,102,.7); --btn-glow-color: rgba(255,51,102,.3); border-color: rgba(255,51,102,.3); }
 .portal-nav-btn[data-section="tournament"] .btn-icon { color: #ff557d; }
 
+/* Classic title-screen restoration: preserve the Battle route, but restore the
+   original four-card portal and the separate tournament call to action. */
+#home-view .portal-battle-link {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: -4px 0 13px;
+    color: #72e8ff;
+    font-size: .73rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+#home-view .portal-battle-link span { color: #aab8ca; font-weight: 600; letter-spacing: 0; }
+#home-view .portal-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 600px; }
+#home-view .portal-nav-btn { min-height: 74px; padding: 14px 15px; }
+#home-view .portal-nav-btn .btn-label { font-size: 1rem; }
+#home-view .portal-nav-btn .btn-chevron { position: static; margin-left: auto; }
+#home-view .portal-tournament-btn { display: flex; max-width: 600px; min-height: 72px; margin-top: -8px; }
+
 @media (max-width: 700px) {
     .portal-battle-form { grid-template-columns: 1fr auto 1fr; }
     .portal-battle-submit { grid-column: 1 / -1; grid-row: 3; min-height: 44px; }
     .portal-battle-status { grid-row: 4; }
-    .portal-nav { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    #home-view .portal-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
     .portal-nav-btn { min-width: 0; padding: 10px 3px; }
     .portal-nav-btn .btn-label { font-size: .64rem; letter-spacing: 0; }
     .portal-nav-btn .btn-chevron { display: none; }

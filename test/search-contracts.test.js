@@ -42,7 +42,10 @@ test('every sitemap page has complete consistent social, canonical and structure
 });
 
 test('crawlable internal links avoid query traps and point to known public or preserved app routes', () => {
-    const preservedAppRoutes = new Set(['/profile', '/login', '/signup', '/forgot-password', '/battlepoints']);
+    const preservedAppRoutes = new Set([
+        '/profile', '/login', '/signup', '/forgot-password', '/battlepoints',
+        '/community/map', '/community/feed', '/community/chat'
+    ]);
     sitemapUrls.forEach((url) => {
         const html = fs.readFileSync(fileFor(url), 'utf8');
         internalLinks(html).forEach((link) => {

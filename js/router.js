@@ -21,7 +21,7 @@
  * Scripts/styles are injected once and cached for repeat navigations.
  */
 const CHART_JS_URL = 'https://cdn.jsdelivr.net/npm/chart.js';
-const ASSET_REVISION = '2.21.0';
+const ASSET_REVISION = '2.21.1';
 
 function versionedAsset(path) {
     return `${path}?v=${ASSET_REVISION}`;
@@ -30,7 +30,7 @@ function versionedAsset(path) {
 const ROUTE_ASSET_DEFINITIONS = {
     home: {
         styles: [versionedAsset('/css/pages/homepage.css')],
-        stylesAfterMobile: [versionedAsset('/css/arcade.css')],
+        stylesAfterMobile: [versionedAsset('/css/arcade.css'), versionedAsset('/css/pages/classic-arcade-restoration.css')],
         scripts: [versionedAsset('/js/homepage.js'), versionedAsset('/js/social.js')]
     },
     about: {
@@ -58,7 +58,7 @@ const ROUTE_ASSET_DEFINITIONS = {
             versionedAsset('/community-page.css'),
             versionedAsset('/css/pages/community-globe.css')
         ],
-        stylesAfterMobile: [versionedAsset('/css/pages/community-v2.css'), versionedAsset('/css/arcade.css')],
+        stylesAfterMobile: [versionedAsset('/css/pages/community-v2.css'), versionedAsset('/css/arcade.css'), versionedAsset('/css/pages/classic-arcade-restoration.css')],
         scripts: [
             versionedAsset('/js/community-globe.js'),
             versionedAsset('/js/community-manager.js'),
@@ -70,7 +70,7 @@ const ROUTE_ASSET_DEFINITIONS = {
             versionedAsset('/css/components/match-intro.css'),
             versionedAsset('/compare-page.css')
         ],
-        stylesAfterMobile: [versionedAsset('/css/arcade.css')],
+        stylesAfterMobile: [versionedAsset('/css/arcade.css'), versionedAsset('/css/pages/classic-arcade-restoration.css')],
         scripts: [CHART_JS_URL, versionedAsset('/js/compare.js')]
     },
     battlepoints: {

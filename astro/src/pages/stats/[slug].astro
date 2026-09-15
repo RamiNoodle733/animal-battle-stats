@@ -6,11 +6,13 @@ import evidenceTools from '../../../../lib/animal-evidence.js';
 import {
     animals,
     clampScore,
+    detailedStats,
     formatList,
     formatMeasurement,
     formatScore,
     imageFor,
     relatedAnimals,
+    rivalAnimals,
     stats
 } from '../../lib/animals.js';
 
@@ -24,6 +26,7 @@ export function getStaticPaths() {
 const { animal } = Astro.props;
 const image = imageFor(animal);
 const related = relatedAnimals(animal);
+const rivals = rivalAnimals(animal);
 const canonical = `https://animalbattlestats.com/stats/${animal.slug}`;
 const title = `${animal.name} Stats, Rank, Habitat, Diet, and Battle Profile | Animal Battle Stats`;
 const description = `${animal.name} is ranked #${animal.rank}. Explore attack, defense, agility, stamina, intelligence, special abilities, habitat, measurements, and battle profile.`;
@@ -129,6 +132,22 @@ const jsonLd = {
             </div>
         </section>
 
+        <section class="detail-panel" aria-labelledby="detailed-stats-title">
+            <div class="section-heading">
+                <div><p>DETAILED COMBAT MATRIX</p><h2 id="detailed-stats-title">Twelve substats</h2></div>
+                <span>Editorial 0–100 ratings</span>
+            </div>
+            <div class="substat-grid">
+                {detailedStats.map(([key, label]) => (
+                    <div class="substat-row">
+                        <span>{label}</span><strong>{formatScore(animal.substats?.[key])}</strong>
+                        <div class="substat-track" aria-label={`${label}: ${formatScore(animal.substats?.[key])} out of 100`}><i style={`width:${clampScore(animal.substats?.[key])}%`}></i></div>
+                    </div>
+                ))}
+            </div>
+            <p class="module-note">Substats explain the six headline ratings. They are editorial judgments, not additional scientific measurements or independent inputs to the current battle probability.</p>
+        </section>
+
         <div class="intel-grid">
             <section class="intel-card battle-card" aria-labelledby="battle-profile-title">
                 <div class="section-heading compact"><div><p>TACTICAL READOUT</p><h2 id="battle-profile-title">Battle profile</h2></div></div>
@@ -206,6 +225,27 @@ const jsonLd = {
                 <div><h3>Special abilities</h3><ul>{(animal.special_abilities || []).map((item) => <li>{item}</li>)}</ul></div>
                 <div><h3>Unique traits</h3><ul>{(animal.unique_traits || []).map((item) => <li>{item}</li>)}</ul></div>
             </div>
+        </section>
+
+        <section class="powerscaling-panel" aria-labelledby="powerscaling-title">
+            <div class="section-heading"><div><p>ROSTER POSITION</p><h2 id="powerscaling-title">Powerscaling context</h2></div><a href="/rankings">Open rankings</a></div>
+            <div class="rank-context-grid">
+                <article><span>Overall</span><strong>#{animal.rank}</strong><small>of {animals.length}</small></article>
+                <article><span>{animal.type} rank</span><strong>#{animal.typeRank.rank}</strong><small>of {animal.typeRank.total}</small></article>
+                <article><span>{animal.class} archetype</span><strong>#{animal.classRank.rank}</strong><small>of {animal.classRank.total}</small></article>
+                <article><span>{animal.size} size class</span><strong>#{animal.sizeRank.rank}</strong><small>of {animal.sizeRank.total}</small></article>
+            </div>
+            <p class="module-note">These positions sort the current editorial six-stat total within the named roster groups. Biome and pound-for-pound ranks remain unpublished until their classification and normalization rules are reviewed.</p>
+            <div class="rival-heading"><h3>Closest roster rivals</h3><span>Nearest current total ratings</span></div>
+            <div class="rival-grid">
+                {rivals.map((candidate) => (
+                    <article>
+                        <a class="rival-profile" href={`/stats/${candidate.slug}`}><span>#{candidate.rank}</span><strong>{candidate.name}</strong><small>{candidate.type} · {candidate.class}</small></a>
+                        <a class="rival-battle" href={`/battle?a=${animal.slug}&b=${candidate.slug}`}>Run matchup</a>
+                    </article>
+                ))}
+            </div>
+            <div class="powerscaling-actions"><a href={`/battle?a=${animal.slug}`}>Choose another opponent</a><a href="/tournament">Enter tournament</a><a href="/methodology">How rankings differ from predictions</a></div>
         </section>
 
         <section class="related" aria-labelledby="related-title">

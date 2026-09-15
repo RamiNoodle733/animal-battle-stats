@@ -221,6 +221,14 @@ class CommunityManager {
             if (tournamentsEl) tournamentsEl.textContent = this.formatNumber(stats.totalTournaments || 0);
             if (matchesEl) matchesEl.textContent = this.formatNumber(stats.totalMatches || 0);
             if (visitsEl) visitsEl.textContent = this.formatNumber(stats.totalVisits || 0);
+            this.updateClassicHudStats({
+                members: this.formatNumber(stats.totalUsers || 0),
+                votes: this.formatNumber(stats.totalVotes || 0),
+                comments: this.formatNumber(stats.totalComments || 0),
+                tournaments: this.formatNumber(stats.totalTournaments || 0),
+                matches: this.formatNumber(stats.totalMatches || 0),
+                visits: this.formatNumber(stats.totalVisits || 0)
+            });
             
         } catch (error) {
             console.error('Error loading site stats:', error);
@@ -963,6 +971,14 @@ class CommunityManager {
         }
     }
 
+    updateClassicHudStats(values) {
+        Object.entries(values).forEach(([key, value]) => {
+            document.querySelectorAll(`[data-community-stat="${key}"]`).forEach((element) => {
+                element.textContent = value;
+            });
+        });
+    }
+
     renderOwnerAnalytics(ownerAnalytics) {
         const events = Array.isArray(ownerAnalytics?.events) ? ownerAnalytics.events : [];
         if (Auth.user?.role !== 'admin') return '';
@@ -1158,6 +1174,7 @@ class CommunityManager {
             const users = result.data || [];
             
             countEl.textContent = users.length;
+            this.updateClassicHudStats({ online: users.length });
             
         } catch (error) {
             console.error('Error loading online count:', error);

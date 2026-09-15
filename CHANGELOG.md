@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.21.1 — 2026-09-14
+
+- Restored the January 28 arcade title-screen hierarchy on Home while retaining crawlable content and the Battle Lab route.
+- Returned Compare to a direct arena-first three-bay experience with the roster behind Show Menu.
+- Restored a persistent Community HUD/sidebar for discussion and activity, retained the full anonymous location map, and removed the redundant visible Community heading.
+
 ## 2.21.0 — 2026-09-14
 
 - Added a dry-run-first evidence release importer with validation, duplicate protection, explicit apply/backup controls, idempotent upserts, post-write verification, backup checksums, and scoped rollback guidance.

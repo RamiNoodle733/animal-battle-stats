@@ -102,6 +102,23 @@ async function inspect(viewport) {
         await page.locator('.community-tab-btn[data-tab="feed"]').click();
         await page.waitForFunction(() => location.pathname === '/community/feed' && document.getElementById('community-channel-title')?.textContent === 'Community Conversations');
         const feedTitle = await page.locator('#community-channel-title').textContent();
+        const replyLayout = await page.evaluate(() => {
+            const fixture = document.createElement('div');
+            fixture.className = 'feed-reply';
+            fixture.innerHTML = '<div class="feed-reply-header">A community member</div><div class="feed-reply-content">A long reply that must appear below its author, not in a narrow adjacent column.</div>';
+            document.getElementById('feed-posts-container').append(fixture);
+            const header = fixture.firstElementChild.getBoundingClientRect();
+            const content = fixture.lastElementChild.getBoundingClientRect();
+            const result = {
+                stacked: content.top >= header.bottom,
+                overflow: fixture.scrollWidth - fixture.clientWidth,
+                postsShrink: getComputedStyle(document.getElementById('feed-posts-container')).flexShrink,
+                loadMorePosition: getComputedStyle(document.getElementById('feed-load-more-btn')).position
+            };
+            fixture.remove();
+            return result;
+        });
+        assert(replyLayout.stacked && replyLayout.overflow <= 1 && replyLayout.postsShrink === '0' && replyLayout.loadMorePosition === 'static', `${label} reply or Load more layout regressed`, replyLayout);
         const feedPageScroll = await page.evaluate(() => document.documentElement.scrollHeight - innerHeight);
         assert(feedPageScroll <= 1, `${label} Comments should scroll inside its feed, not the page`, { feedPageScroll });
 

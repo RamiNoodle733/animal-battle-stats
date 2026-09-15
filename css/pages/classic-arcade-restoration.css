@@ -144,6 +144,23 @@
 #community-view:not(.map-tab-active) .community-feed-layout { flex: 1 1 0; min-height: 0 !important; overflow: hidden; display: flex !important; }
 #community-view:not(.map-tab-active) .community-feed-column { display: flex !important; flex-direction: column; height: 100%; min-height: 0 !important; }
 #community-view .community-channel-header, #community-view .feed-compose-box { flex: 0 0 auto; }
+/* One compact channel heading, followed by readable conversations. Older reply
+ * CSS expected a body wrapper that the current renderer no longer emits. */
+#community-view .community-channel-kicker { display: none; }
+#community-view .community-channel-header { padding: 10px 12px; gap: 10px; }
+#community-view .community-channel-header__icon { width: 30px; height: 30px; flex: 0 0 30px; }
+#community-view .community-channel-header h2 { font-family: 'Orbitron', sans-serif; font-size: .8rem !important; line-height: 1.5; letter-spacing: .03em; }
+#community-view .feed-load-more-btn { position: static !important; transform: none !important; margin: 14px auto !important; flex-shrink: 0; }
+#community-view .feed-posts-container { flex: 0 0 auto !important; height: auto !important; max-height: none !important; }
+#community-view .feed-replies { padding-left: 12px; margin-left: 8px; }
+#community-view .feed-reply { display: block; padding: 12px 0 12px 8px; min-width: 0; }
+#community-view .feed-reply-header { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+#community-view .feed-reply-author { margin: 0; overflow-wrap: anywhere; min-width: 0; }
+#community-view .feed-reply-content { margin-top: 8px; overflow-wrap: anywhere; line-height: 1.6; }
+#community-view .feed-comment-body { min-width: 0; }
+#community-view .feed-comment-content, #community-view .thread-reply-content { overflow-wrap: anywhere; line-height: 1.6; }
+#community-view .community-widget__header { background: transparent; border: 0; padding-inline: 0; }
+#community-view .community-widget__title { font-family: 'Orbitron', sans-serif; font-size: .8rem; }
 #community-view .feed-scroll-region { flex: 1 1 0; min-height: 0 !important; overflow-y: auto !important; overscroll-behavior-y: contain; -webkit-overflow-scrolling: touch; }
 #home-view .portal-nav { width: min(600px, 100%); gap: 12px; }
 #home-view .portal-nav-btn { min-width: 0; justify-content: center; gap: 9px; }

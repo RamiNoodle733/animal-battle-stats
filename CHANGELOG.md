@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.21.3 — 2026-09-14
+
+- Repair the four-button Home grid, short-phone footer clearance, and mobile animation frame skipping.
+- Load shared header corrections for direct app entry; reserve space for signed-in profile, points, audio, and About.
+- Restore complete scientific-name text and fetch tournament records independently of visiting Rankings.
+- Reserve the desktop Compare medal row when the roster is expanded.
+- Remove the duplicate Community heading, restore message scrolling, fit the globe canvas, and expose all statistics without a dropdown.
+- Extend Community browser checks to reach the last statistics block and exercise message scrolling.
+
 ## 2.21.2 — 2026-09-14
 
 - Restored the recent, polished arcade presentation for Home, Compare, and Community rather than blending it with older archived styling.

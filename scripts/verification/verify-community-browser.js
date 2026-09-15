@@ -91,6 +91,13 @@ async function inspect(viewport) {
             && chat.feed.width >= Math.min(300, viewport.width - 24),
         `${label} Community conversation surface is not cleanly focused`, chat);
         await page.screenshot({ path: path.join(screenshotDir, `community-chat-${label}.png`) });
+        const scrollRegion = page.locator('#feed-scroll-region');
+        const scrollSize = await scrollRegion.evaluate((element) => element.scrollHeight - element.clientHeight);
+        if (scrollSize > 0) {
+            await scrollRegion.hover();
+            await page.mouse.wheel(0, 500);
+            await page.waitForFunction(() => document.getElementById('feed-scroll-region').scrollTop > 0);
+        }
 
         await page.locator('.community-tab-btn[data-tab="feed"]').click();
         await page.waitForFunction(() => location.pathname === '/community/feed' && document.getElementById('community-channel-title')?.textContent === 'Community Conversations');
@@ -115,7 +122,8 @@ async function inspect(viewport) {
                 feedDisplay: getComputedStyle(feed).display,
                 stage: { width: stage.width, height: stage.height },
                 mapSelected: mapTab.getAttribute('aria-selected'),
-                drawerClosed: !document.getElementById('community-more-stats')?.open,
+                statsCount: document.querySelectorAll('#community-more-stats .hud-stat-item').length,
+                dropdownCount: document.querySelectorAll('#community-view details, #community-view select').length,
                 metricCount: document.querySelectorAll('.globe-totals-grid .globe-total-card').length,
                 privacyVisible: document.querySelector('.community-privacy-note')?.getBoundingClientRect().height > 0,
                 chartLoaded: Boolean(document.querySelector('script[data-community-charts]')),
@@ -126,7 +134,10 @@ async function inspect(viewport) {
         });
         assert(map.sidebarDisplay !== 'none' && map.feedDisplay === 'none', `${label} Map surface mode failed`, map);
         assert(map.stage.width > 250 && map.stage.height >= 240 && map.mapSelected === 'true', `${label} Map stage is not usable`, map);
-        assert(map.drawerClosed && map.metricCount === 4 && map.privacyVisible && !map.chartLoaded && !map.dailyMatchupExists, `${label} Community focus modules are wrong`, map);
+        assert(map.statsCount === 7 && map.dropdownCount === 0 && map.metricCount === 4 && map.privacyVisible && !map.dailyMatchupExists, `${label} Community statistics are missing or collapsed`, map);
+        await page.locator('#globe-pages-list').scrollIntoViewIfNeeded();
+        const finalStats = await page.locator('#globe-pages-list').boundingBox();
+        assert(finalStats && finalStats.y < viewport.height, `${label} final statistics cannot be reached`, finalStats);
         assert(map.bodyOverflow <= 1, `${label} Map page scrolls horizontally`, map);
         assert(map.pageScroll <= 1, `${label} Map should fit without page scrolling`, map);
         await page.screenshot({ path: path.join(screenshotDir, `community-map-${label}.png`) });

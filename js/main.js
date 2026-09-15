@@ -2104,16 +2104,12 @@ class AnimalStatsApp {
                 maxLines: 1,
                 font: "900 2.4rem 'Bebas Neue', sans-serif"
             });
-            window.TextLayoutEngine.fitElement(this.dom.charScientific, {
-                sourceText: scientificName,
-                sourceAttr: 'data-text-source',
-                maxLines: 1,
-                font: "500 1rem 'Inter', sans-serif"
-            });
         } else {
             this.dom.charName.textContent = displayName;
             this.dom.charScientific.textContent = scientificName;
         }
+        this.dom.charScientific.textContent = scientificName;
+        this.dom.charScientific.removeAttribute('data-text-source');
         
         // Image
         this.dom.charSilhouette.style.display = 'none';
@@ -2492,6 +2488,7 @@ class AnimalStatsApp {
      * Select a fighter for the active side
      */
     selectFighter(animal) {
+        this.updateBattleRecord(animal);
         const side = this.state.compare.selectingSide;
         if (!side) return;
 
@@ -2858,7 +2855,28 @@ class AnimalStatsApp {
     updateBattleRecord(animal) {
         // Find animal in rankings (from RankingsManager)
         const animalName = animal.name.toLowerCase();
-        const rankings = (this.rankingsManager && this.rankingsManager.rankings) ? this.rankingsManager.rankings : [];
+        const rankings = this.rankingsManager?.rankings?.length
+            ? this.rankingsManager.rankings : (this.battleRecordRankings || []);
+        // Stats is independently routable: its records cannot depend on the
+        // visitor first opening Rankings and initializing that page's manager.
+        if (!rankings.length && !this.battleRecordRequest && !this.battleRecordLoadFailed) {
+            this.battleRecordRequest = fetch('/api/rankings')
+                .then((response) => {
+                    if (!response.ok) throw new Error('Battle records unavailable');
+                    return response.json();
+                })
+                .then((result) => {
+                    if (!result.success || !Array.isArray(result.data)) throw new Error('Invalid battle records');
+                    this.battleRecordRankings = result.data;
+                    if (this.state.selectedAnimal) this.updateBattleRecord(this.state.selectedAnimal);
+                    for (const side of ['left', 'right']) {
+                        const fighter = this.state.compare[side];
+                        if (fighter) window.ComparePageEnhancements?.updateFighterDisplay(side, fighter);
+                    }
+                })
+                .catch(() => { this.battleRecordLoadFailed = true; })
+                .finally(() => { this.battleRecordRequest = null; });
+        }
         
         // Rankings data uses item.animal.name structure
         const rankData = rankings.find((item, _index) => {
@@ -2897,7 +2915,7 @@ class AnimalStatsApp {
         } else {
             // No ranking data found
             if (this.dom.info.animalRank) this.dom.info.animalRank.textContent = '#--';
-            if (this.dom.info.animalBattles) this.dom.info.animalBattles.textContent = '0';
+            if (this.dom.info.animalBattles) this.dom.info.animalBattles.textContent = '--';
             if (this.dom.info.animalWinrate) this.dom.info.animalWinrate.textContent = '--%';
         }
     }

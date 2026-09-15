@@ -1363,7 +1363,8 @@ const HomepageController = {
     startAnimationLoop() {
         if (this.animationFrame) return;
 
-        const animate = () => {
+        let previousTime = null;
+        const animate = (time) => {
             if (!this.isVisible || document.hidden) {
                 this.animationFrame = null;
                 return;
@@ -1372,7 +1373,9 @@ const HomepageController = {
             const isMobile = window.innerWidth <= 600;
             this.frameCount++;
 
-            const effectiveStride = this.reducedMotion ? Math.max(this.frameStride, 2) : this.frameStride;
+            this.frameDelta = previousTime === null ? 1 : Math.min(3, (time - previousTime) / (1000 / 60));
+            previousTime = time;
+            const effectiveStride = this.reducedMotion ? Math.max(this.frameStride, 2) : (isMobile ? 1 : this.frameStride);
             if (!this.slingshot.active && effectiveStride > 1 && this.frameCount % effectiveStride !== 0) {
                 this.animationFrame = requestAnimationFrame(animate);
                 return;
@@ -1521,7 +1524,7 @@ const HomepageController = {
             mobile.track.style.transform = `translateX(${mobile.position}px)`;
         } else {
             mobile.speed += (mobile.targetSpeed - mobile.speed) * 0.15;
-            mobile.position += mobile.baseDirection * this.physics.baseSpeed * mobile.speed;
+            mobile.position += mobile.baseDirection * this.physics.baseSpeed * mobile.speed * (this.frameDelta || 1);
             mobile.track.style.transform = `translateX(${mobile.position}px)`;
         }
         

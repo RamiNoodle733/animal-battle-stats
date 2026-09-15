@@ -82,7 +82,7 @@ async function inspectViewport(browser, viewport) {
         });
         assert(home.overflow <= 1 && home.pageScroll <= 1 && homeState.classicTitle === 'ANIMAL BATTLE STATS'
             && homeState.battleLab === '/battle' && homeState.selectorCount === 0 && homeState.navCount === 4
-            && [2, 5].includes(homeState.navColumns) && !homeState.tournamentPanelOverlap && homeState.tournamentSeparate,
+            && homeState.navColumns === 2 && !homeState.tournamentPanelOverlap && homeState.tournamentSeparate,
         `${label} current Home title screen failed`, { home, homeState });
         assert(!homeState.audioDownloaded, `${label} first-time muted sound loaded eagerly`, homeState);
 
@@ -90,12 +90,13 @@ async function inspectViewport(browser, viewport) {
         const communityState = await page.evaluate(() => ({
             classicHudPresent: document.querySelector('.community-classic-hud')?.getBoundingClientRect().height > 0,
             metrics: document.querySelectorAll('.globe-totals-grid .globe-total-card').length,
-            drawerClosed: !document.getElementById('community-more-stats')?.open,
+            statsCount: document.querySelectorAll('#community-more-stats .hud-stat-item').length,
+            dropdownCount: document.querySelectorAll('#community-view details, #community-view select').length,
             privacyVisible: document.querySelector('.community-privacy-note')?.getBoundingClientRect().height > 0,
             chartLoaded: Boolean(document.querySelector('script[data-community-charts]'))
         }));
         assert(community.overflow <= 1 && community.pageScroll <= 1 && !communityState.classicHudPresent && communityState.metrics === 4
-            && communityState.drawerClosed && communityState.privacyVisible && !communityState.chartLoaded,
+            && communityState.statsCount === 7 && communityState.dropdownCount === 0 && communityState.privacyVisible,
         `${label} Community map hierarchy failed`, { community, communityState });
 
         const stats = await inspectRoute(page, '/stats', '#stats-view.active-view');

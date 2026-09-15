@@ -1799,7 +1799,7 @@ html.route-about .silhouette-panel {
 /* Battle-first homepage overrides live last so the legacy portal breakpoints
    cannot turn the five secondary destinations back into oversized cards. */
 #home-view .portal-nav {
-    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 
 .portal-battle-form label { grid-row: 1; }

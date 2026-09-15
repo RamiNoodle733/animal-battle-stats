@@ -320,9 +320,10 @@ class CommunityManager {
 
         const trendRange = document.getElementById('globe-trend-range');
         if (trendRange) {
-            trendRange.value = this.globeTrendRange;
-            trendRange.addEventListener('change', (event) => {
-                const nextRange = String(event.target.value || 'all').toLowerCase();
+            trendRange.addEventListener('click', (event) => {
+                const button = event.target.closest('[data-range]');
+                if (!button) return;
+                const nextRange = button.dataset.range;
                 this.globeTrendRange = ['all', '14d', '30d', '90d', '365d'].includes(nextRange) ? nextRange : 'all';
                 this.updateGlobeContextChips();
                 this.loadGlobeAnalytics();
@@ -338,16 +339,13 @@ class CommunityManager {
         const drawer = document.getElementById('community-more-stats');
         if (!drawer) return;
 
-        drawer.addEventListener('toggle', () => {
-            if (!drawer.open) return;
-            this.ensureChartJs().then(() => {
+        this.ensureChartJs().then(() => {
                 const payload = this.lastGlobePayload || {};
                 this.renderGlobeTrendChart(payload.trend || []);
                 this.renderGlobeCountryChart(payload.points || []);
             }).catch((error) => {
                 console.warn('Community charts could not be loaded:', error?.message || error);
             });
-        });
         this.globeMoreStatsBound = true;
     }
 
@@ -432,7 +430,7 @@ class CommunityManager {
             this.renderGlobeBreakdown('globe-actions-list', payload.actions || []);
             this.renderGlobeBreakdown('globe-pages-list', payload.pages || []);
             this.renderGlobeInsights(payload);
-            if (document.getElementById('community-more-stats')?.open && window.Chart) {
+            if (window.Chart) {
                 this.renderGlobeTrendChart(payload.trend || []);
                 this.renderGlobeCountryChart(payload.points || []);
             }
@@ -1116,9 +1114,9 @@ class CommunityManager {
         }
 
         const rangeSelect = document.getElementById('globe-trend-range');
-        if (rangeSelect && rangeSelect.value !== this.globeTrendRange) {
-            rangeSelect.value = this.globeTrendRange;
-        }
+        rangeSelect?.querySelectorAll('[data-range]').forEach((button) => {
+            button.setAttribute('aria-pressed', String(button.dataset.range === this.globeTrendRange));
+        });
 
         const trendTitle = document.getElementById('globe-trend-title');
         if (trendTitle) {

@@ -438,7 +438,8 @@
          * Get ranking data for an animal from rankingsManager
          */
         getRankingData(animalName) {
-            const rankings = window.rankingsManager?.rankings || [];
+            const rankings = window.rankingsManager?.rankings?.length
+                ? window.rankingsManager.rankings : (window.app?.battleRecordRankings || []);
             if (!rankings.length || !animalName) return null;
             
             const name = animalName.toLowerCase();
@@ -479,10 +480,10 @@
             
             // Update scientific name
             const sciEl = document.getElementById(`c-scientific-${num}`);
-            this.fitText(sciEl, animal.scientific_name || animal.latinName || '', {
-                maxLines: 1,
-                font: "500 0.75rem 'Inter', sans-serif"
-            });
+            if (sciEl) {
+                sciEl.textContent = animal.scientific_name || animal.latinName || '';
+                sciEl.removeAttribute('data-text-source');
+            }
             
             // Update battle record - lookup from rankings like Stats page does
             const rankEl = document.getElementById(`c-rank-${num}`);

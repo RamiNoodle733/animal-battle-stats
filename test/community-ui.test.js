@@ -19,7 +19,9 @@ test('Community centers location analytics and conversations without the Daily M
     assert.match(html, /data-tab="chat" role="tab" aria-selected="false"/);
     assert.match(html, /Comments &amp; Activity/);
     assert.match(html, /id="community-more-stats"/);
-    assert.match(html, /> More location stats</);
+    assert.match(html, /id="community-stats-title">Community statistics</);
+    assert.match(html, /<section class="community-more-stats"/);
+    assert.doesNotMatch(html, /<details class="community-more-stats"/);
     assert.match(html, /id="globe-total-locations"/);
     assert.match(html, /class="community-location-panel"/);
     assert.match(html, /Locations are anonymous, approximate city, region, or country points/);

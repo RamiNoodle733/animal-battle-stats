@@ -102,14 +102,14 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     <!-- Main stylesheet (all styles) -->
-    <link rel="stylesheet" href="/css/legacy.css?v=2.21.2">
+    <link rel="stylesheet" href="/css/legacy.css?v=2.21.3">
     
     <!-- Shared component styles; page/feature styles are loaded by js/router.js -->
-    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.21.2">
+    <link rel="stylesheet" href="/css/components/about-info-btn.css?v=2.21.3">
     
     <!-- Mobile-specific styles (loaded last to override) -->
-    <link rel="stylesheet" href="/css/mobile.css?v=2.21.2" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/arcade.css?v=2.21.2">
+    <link rel="stylesheet" href="/css/mobile.css?v=2.21.3" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/arcade.css?v=2.21.3">
     
     <!-- Non-critical external resources loaded async -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
@@ -408,7 +408,7 @@ html.js #seo-content{display:none!important}
 
             <!-- Footer with About link - OUTSIDE home-portal to avoid screen shake effects -->
             <footer class="portal-footer">
-                <span class="portal-version">v2.21.2</span>
+                <span class="portal-version">v2.21.3</span>
                 <div class="portal-footer-divider"></div>
                 <a href="/about" class="portal-footer-link">About</a>
                 <div class="portal-footer-divider"></div>
@@ -447,7 +447,7 @@ html.js #seo-content{display:none!important}
                     </div>
                     
                     <div class="about-version-section">
-                        <p class="about-version">Version 2.21.2 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
+                        <p class="about-version">Version 2.21.3 • Built with <i class="fas fa-heart" style="color: #ff4d6a;"></i> and JavaScript</p>
                     </div>
                 </div>
             </div>
@@ -1606,14 +1606,14 @@ html.js #seo-content{display:none!important}
                                 <button type="button" class="globe-mode-btn" id="globe-mode-flat" data-mode="flat">Flat map</button>
                             </div>
                             <div class="globe-context-item">
-                                <label class="globe-context-label" for="globe-trend-range">Time range</label>
-                                <select id="globe-trend-range" class="globe-context-select" aria-label="Select activity time range">
-                                    <option value="all" selected>All time</option>
-                                    <option value="14d">Last 14 days</option>
-                                    <option value="30d">Last 30 days</option>
-                                    <option value="90d">Last 90 days</option>
-                                    <option value="365d">Last 12 months</option>
-                                </select>
+                                <span class="globe-context-label">Time range</span>
+                                <div id="globe-trend-range" class="globe-range-buttons" role="group" aria-label="Activity time range">
+                                    <button type="button" data-range="all" aria-pressed="true">All time</button>
+                                    <button type="button" data-range="14d" aria-pressed="false">14 days</button>
+                                    <button type="button" data-range="30d" aria-pressed="false">30 days</button>
+                                    <button type="button" data-range="90d" aria-pressed="false">90 days</button>
+                                    <button type="button" data-range="365d" aria-pressed="false">12 months</button>
+                                </div>
                             </div>
                             <span id="globe-location-scope" class="globe-context-pill">Global</span>
                         </div>
@@ -1650,8 +1650,8 @@ html.js #seo-content{display:none!important}
 
                         <p class="community-privacy-note"><i class="fas fa-user-shield" aria-hidden="true"></i> Locations are anonymous, approximate city, region, or country points. No precise addresses or individual trails are shown.</p>
 
-                        <details class="community-more-stats" id="community-more-stats">
-                            <summary><span><i class="fas fa-chart-line" aria-hidden="true"></i> More location stats</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                        <section class="community-more-stats" id="community-more-stats" aria-labelledby="community-stats-title">
+                            <h3 id="community-stats-title">Community statistics</h3>
                             <div class="community-more-stats__body">
                                 <div class="community-hud-module community-summary-module">
                                     <div class="hud-stats-grid">
@@ -1683,7 +1683,7 @@ html.js #seo-content{display:none!important}
                                     <div class="globe-breakdown-col"><h4>Top pages</h4><div id="globe-pages-list" class="globe-breakdown-list"></div></div>
                                 </div>
                             </div>
-                        </details>
+                        </section>
                     </div>
 
                 </div>
@@ -3173,16 +3173,16 @@ html.js #seo-content{display:none!important}
     <!-- Data loaded from MongoDB API - no local data.js needed -->
     
     <!-- Core utilities - shared across all modules -->
-    <script src="/js/core.js?v=2.21.2"></script>
-    <script src="/js/text-layout.js?v=2.21.2"></script>
+    <script src="/js/core.js?v=2.21.3"></script>
+    <script src="/js/text-layout.js?v=2.21.3"></script>
     
     <!-- Application modules - load order matters -->
-    <script src="/js/router.js?v=2.21.2"></script>
-    <script src="/js/motion.js?v=2.21.2"></script>
-    <script src="/js/auth.js?v=2.21.2"></script>
+    <script src="/js/router.js?v=2.21.3"></script>
+    <script src="/js/motion.js?v=2.21.3"></script>
+    <script src="/js/auth.js?v=2.21.3"></script>
     
     <!-- Main app (initializes everything) -->
-    <script src="/js/main.js?v=2.21.2" defer></script>
+    <script src="/js/main.js?v=2.21.3" defer></script>
     
 </body>
 </html>

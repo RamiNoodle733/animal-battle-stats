@@ -21,7 +21,7 @@
  * Scripts/styles are injected once and cached for repeat navigations.
  */
 const CHART_JS_URL = 'https://cdn.jsdelivr.net/npm/chart.js';
-const ASSET_REVISION = '2.21.2';
+const ASSET_REVISION = '2.21.3';
 
 function versionedAsset(path) {
     return `${path}?v=${ASSET_REVISION}`;
@@ -154,6 +154,9 @@ function loadRouteAssets(routeName) {
         for (const href of (assets.stylesAfterMobile || [])) {
             await loadStylesheetOnce(href, { afterMobile: true });
         }
+        // Shared layout corrections must also apply to direct Stats entry and
+        // navigation from the static Battle page, before the route is shown.
+        await loadStylesheetOnce(versionedAsset('/css/pages/classic-arcade-restoration.css'), { afterMobile: true });
 
         // Load scripts in order so route dependencies are available before managers initialize.
         for (const src of (assets.scripts || [])) {

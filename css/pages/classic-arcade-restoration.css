@@ -70,11 +70,10 @@
     #compare-view .medal-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; width: 100%; }
     #compare-view .medal-card { padding: 4px 2px; gap: 2px; min-width: 0; }
     #compare-view .dashboard-title { font-size: .5rem; }
-    /* Keep the identity above the three-column cabinet, never underneath its
-     * stat rails. Short screens scroll this panel instead of clipping data. */
+    /* Screenshot reference: central identity/image cabinet with side rails. */
     #stats-view .character-display-area {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr) !important;
-        grid-template-rows: max-content max-content max-content max-content max-content !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr) minmax(0, 1fr) !important;
+        grid-template-rows: max-content max-content max-content minmax(160px, 1fr) max-content !important;
         align-content: start;
         gap: 5px !important;
         min-height: 0 !important;
@@ -82,17 +81,24 @@
         max-height: none !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
-        padding: 10px 8px !important;
+        padding: clamp(12px, 4dvh, 32px) 8px 8px !important;
     }
     #stats-view .character-showcase { display: contents !important; }
+    #stats-view .character-showcase::before { content: ''; grid-column: 2; grid-row: 1 / 5; background: linear-gradient(160deg, #030510, #07111d); border: 1px solid #284258; border-radius: 12px; z-index: 0; }
+    #stats-view .character-showcase > * { z-index: 1; }
     #stats-view .character-name-display,
     #stats-view .character-scientific-name,
-    #stats-view .battle-record-badge { grid-column: 1 / -1; justify-self: center; position: static !important; transform: none !important; width: auto !important; }
+    #stats-view .battle-record-badge { grid-column: 2; justify-self: center; position: static !important; transform: none !important; width: auto !important; }
     #stats-view .character-name-display { grid-row: 1; height: auto !important; min-height: 20px; white-space: normal !important; overflow-wrap: anywhere; text-align: center; }
+    #stats-view .character-name-display { margin-top: clamp(20px, calc(30dvh - 180px), 80px) !important; }
     #stats-view .character-scientific-name { grid-row: 2; font-size: .7rem !important; text-align: center; }
     #stats-view .battle-record-badge { grid-row: 3; height: auto !important; min-height: 42px; }
-    #stats-view .stats-panel { grid-row: 4 !important; padding: 0 !important; min-width: 0; }
-    #stats-view .character-model-container { grid-column: 2; grid-row: 4; align-self: start; position: static !important; transform: none !important; }
+    #stats-view .battle-record-badge .record-item { min-width: 0 !important; padding: 2px !important; }
+    #stats-view .battle-record-badge .record-value { min-width: 0 !important; font-size: .62rem !important; }
+    #stats-view .battle-record-badge .record-divider { margin: 0 !important; }
+    #stats-view .stats-panel { grid-row: 1 / 5 !important; padding: clamp(20px, calc(30dvh - 180px), 80px) 0 0 !important; min-width: 0; }
+    #stats-view .character-model-container { grid-column: 2; grid-row: 4; align-self: stretch; position: static !important; transform: none !important; max-width: 100% !important; }
+    #stats-view .character-model { max-height: 100% !important; width: 100%; height: 100%; object-fit: contain; }
     #stats-view .quick-info-bar { grid-column: 1 / -1; grid-row: 5; position: static !important; transform: none !important; justify-self: center; max-width: 100% !important; }
     #stats-view .stat-row { flex-wrap: wrap; gap: 3px !important; }
     #stats-view .stat-value { min-width: 0 !important; }

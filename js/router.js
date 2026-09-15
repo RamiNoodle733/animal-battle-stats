@@ -21,7 +21,7 @@
  * Scripts/styles are injected once and cached for repeat navigations.
  */
 const CHART_JS_URL = 'https://cdn.jsdelivr.net/npm/chart.js';
-const ASSET_REVISION = '2.21.3';
+const ASSET_REVISION = '2.21.4';
 
 function versionedAsset(path) {
     return `${path}?v=${ASSET_REVISION}`;
@@ -71,7 +71,7 @@ const ROUTE_ASSET_DEFINITIONS = {
             versionedAsset('/compare-page.css')
         ],
         stylesAfterMobile: [versionedAsset('/css/arcade.css'), versionedAsset('/css/pages/classic-arcade-restoration.css')],
-        scripts: [CHART_JS_URL, versionedAsset('/js/compare.js')]
+        scripts: [CHART_JS_URL, versionedAsset('/js/compare.js'), versionedAsset('/js/battle-engine.js'), versionedAsset('/js/compare-analysis.js')]
     },
     battlepoints: {
         styles: [versionedAsset('/css/pages/battlepoints.css')],

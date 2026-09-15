@@ -2468,7 +2468,7 @@ class AnimalStatsApp {
             const isCompare = (viewName === 'compare');
             const expandDetailsBtn = document.getElementById('expand-details-btn');
             const statsCommentsBtn = document.getElementById('stats-comments-btn');
-            if (expandDetailsBtn) expandDetailsBtn.disabled = isCompare;
+            if (expandDetailsBtn) expandDetailsBtn.disabled = false;
             if (statsCommentsBtn) statsCommentsBtn.disabled = isCompare;
         }
     }
@@ -2732,6 +2732,10 @@ class AnimalStatsApp {
      * Toggle Details Panel
      */
     toggleDetails() {
+        if (this.state.view === 'compare') {
+            window.ABSCompareAnalysis?.open(this.state.compare.left, this.state.compare.right);
+            return;
+        }
         this.state.isDetailsExpanded = !this.state.isDetailsExpanded;
         this.dom.detailsPanel.classList.toggle('expanded', this.state.isDetailsExpanded);
         this.dom.expandDetailsBtn.classList.toggle('expanded', this.state.isDetailsExpanded);

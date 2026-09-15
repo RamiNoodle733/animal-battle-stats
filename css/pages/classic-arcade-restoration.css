@@ -1,8 +1,79 @@
 /* Last-mile corrections layered over the current pre-overhaul arcade system.
  * This deliberately avoids reintroducing older layout and color treatments. */
 
+#compare-analysis { width: min(680px, calc(100vw - 24px)); max-height: calc(100dvh - 36px); overflow: auto; color: #e8f5fc; background: #08121e; border: 1px solid #24869b; border-radius: 8px; padding: 22px; }
+#compare-analysis::backdrop { background: rgba(0, 5, 12, .8); }
+#compare-analysis h2, #compare-analysis h3 { font-family: 'Orbitron', sans-serif; line-height: 1.4; }
+#compare-analysis p { line-height: 1.55; color: #bdcbd8; }
+#compare-analysis table { width: 100%; border-collapse: collapse; margin-block: 18px; }
+#compare-analysis th, #compare-analysis td { padding: 8px 4px; border-bottom: 1px solid #1b3447; text-align: left; }
+#compare-analysis a { color: #38d8ff; }
+#compare-analysis button { min-height: 44px; padding: 8px 12px; color: #dffaff; background: #123249; border: 1px solid #287187; border-radius: 4px; cursor: pointer; }
+#compare-analysis .analysis-close { float: right; font-size: 1.3rem; }
+#compare-analysis .analysis-content > button { display: block; margin-top: 16px; }
+#compare-analysis .analysis-profile-link { display: block; margin-block: 8px; }
+@media (max-width: 480px) {
+    #compare-analysis { padding: 14px; }
+    #compare-analysis table { font-size: .75rem; table-layout: fixed; overflow-wrap: anywhere; }
+    #compare-analysis h2 { font-size: 1.1rem; }
+    #compare-analysis h3 { font-size: .95rem; }
+}
+
 /* The original compact Compare cabinet uses a textual center marker, not a
  * large circular medallion that competes with the animals and stat rail. */
+@media (max-width: 600px) {
+    #compare-view .fighter-section {
+        height: calc(100% - 60px) !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        overscroll-behavior-y: contain;
+        scrollbar-width: thin;
+    }
+    #compare-view .fighter-section > * { flex-shrink: 0 !important; }
+    #compare-view .c-bottom-info { flex: 0 0 auto !important; overflow: visible !important; height: auto !important; max-height: none !important; }
+    #compare-view .fight-center { height: calc(100% - 60px) !important; min-height: 0 !important; overflow-y: auto !important; scrollbar-width: thin; }
+    #compare-view .fight-center > * { flex-shrink: 0 !important; }
+    #compare-view .c-tournament-dashboard {
+        display: flex !important;
+        flex-direction: column;
+        min-height: 54px;
+        padding: 8px 3px !important;
+        gap: 4px;
+    }
+    #compare-view .medal-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; width: 100%; }
+    #compare-view .medal-card { padding: 4px 2px; gap: 2px; min-width: 0; }
+    #compare-view .dashboard-title { font-size: .5rem; }
+    /* Keep the identity above the three-column cabinet, never underneath its
+     * stat rails. Short screens scroll this panel instead of clipping data. */
+    #stats-view .character-display-area {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr) !important;
+        grid-template-rows: max-content max-content max-content max-content max-content !important;
+        align-content: start;
+        gap: 5px !important;
+        min-height: 0 !important;
+        height: calc(100dvh - 290px - env(safe-area-inset-bottom, 0px)) !important;
+        max-height: none !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 10px 8px !important;
+    }
+    #stats-view .character-showcase { display: contents !important; }
+    #stats-view .character-name-display,
+    #stats-view .character-scientific-name,
+    #stats-view .battle-record-badge { grid-column: 1 / -1; justify-self: center; position: static !important; transform: none !important; width: auto !important; }
+    #stats-view .character-name-display { grid-row: 1; height: auto !important; min-height: 20px; white-space: normal !important; overflow-wrap: anywhere; text-align: center; }
+    #stats-view .character-scientific-name { grid-row: 2; font-size: .7rem !important; text-align: center; }
+    #stats-view .battle-record-badge { grid-row: 3; height: auto !important; min-height: 42px; }
+    #stats-view .stats-panel { grid-row: 4 !important; padding: 0 !important; min-width: 0; }
+    #stats-view .character-model-container { grid-column: 2; grid-row: 4; align-self: start; position: static !important; transform: none !important; }
+    #stats-view .quick-info-bar { grid-column: 1 / -1; grid-row: 5; position: static !important; transform: none !important; justify-self: center; max-width: 100% !important; }
+    #stats-view .stat-row { flex-wrap: wrap; gap: 3px !important; }
+    #stats-view .stat-value { min-width: 0 !important; }
+    #stats-view .abilities-card, #stats-view .traits-card { overflow-wrap: anywhere; }
+    body:has(.character-grid-container.hidden) #stats-view .character-display-area { height: calc(100dvh - 160px - env(safe-area-inset-bottom, 0px)) !important; }
+}
+
 #compare-view .c-vs-badge {
     min-width: 0;
     min-height: 0;

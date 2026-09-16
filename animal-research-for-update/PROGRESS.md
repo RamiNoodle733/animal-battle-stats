@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 2 / 225
+- **Completed research files:** 3 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** African Lion
-- **Next pending animal:** African Wild Dog
-- **Latest completion:** 2026-09-16 06:57 America/Chicago
-- **Latest image status:** African Lion — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** African Wild Dog
+- **Next pending animal:** Albatross
+- **Latest completion:** 2026-09-16 07:59 America/Chicago
+- **Latest image status:** African Wild Dog — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -42,3 +42,8 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 - **African Lion mane:** Do not treat the mane as heavy protective armor. Field wounding research found no compelling protective effect; it is better supported as a sexually selected signal/intimidation trait.
 - **African Lion ratings:** Revisit Attack/Agility/Stamina spacing after African Wild Dog, Cheetah, Spotted Hyena, Jaguar, Leopard, Siberian Tiger, Gorilla, Cape Buffalo, Hippopotamus and Rhinoceros are researched.
 - **African Lion image:** Real high-resolution standing adult male source located on Wikimedia Commons (Kenya, CC BY 3.0). Current connector cannot safely commit the transparent binary PNG, so source and direct-image resolver are recorded in the report for later cutout/promotion.
+- **African Wild Dog length:** Sources mix head-body and broader length conventions. `100.0 cm` is explicitly head-body; future schema should split tail length.
+- **African Wild Dog bite force:** Peer-reviewed anatomy/biomechanics supports exceptional relative bite mechanics but not a standardized in-vivo PSI value. Keep `bite_force_psi: 0.0` pending a force/contact-area standard.
+- **African Wild Dog hunting style:** Do not describe all hunts as long coordinated persistence chases. Instrumented woodland studies show many short opportunistic pursuits and additive group feeding, while other populations use longer chases.
+- **African Wild Dog ratings:** Stamina 82.0 is an early endurance anchor. Revisit after Gray Wolf, Dhole, Cheetah, Spotted Hyena and long-distance herbivore profiles establish the wider endurance distribution.
+- **African Wild Dog image:** Real 3002×2001 wild adult-male source located on Wikimedia Commons from the Okavango Delta (CC BY-SA 3.0). Current connector cannot safely commit the transparent binary PNG; source and resolver are recorded for later non-generative cutout/promotion.

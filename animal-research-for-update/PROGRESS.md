@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 3 / 225
+- **Completed research files:** 4 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** African Wild Dog
-- **Next pending animal:** Albatross
-- **Latest completion:** 2026-09-16 07:59 America/Chicago
-- **Latest image status:** African Wild Dog — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Albatross
+- **Next pending animal:** Alligator
+- **Latest completion:** 2026-09-16 08:58 America/Chicago
+- **Latest image status:** Albatross — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -47,3 +47,9 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 - **African Wild Dog hunting style:** Do not describe all hunts as long coordinated persistence chases. Instrumented woodland studies show many short opportunistic pursuits and additive group feeding, while other populations use longer chases.
 - **African Wild Dog ratings:** Stamina 82.0 is an early endurance anchor. Revisit after Gray Wolf, Dhole, Cheetah, Spotted Hyena and long-distance herbivore profiles establish the wider endurance distribution.
 - **African Wild Dog image:** Real 3002×2001 wild adult-male source located on Wikimedia Commons from the Okavango Delta (CC BY-SA 3.0). Current connector cannot safely commit the transparent binary PNG; source and resolver are recorded for later non-generative cutout/promotion.
+- **Albatross taxon:** The live label “Albatross” is underspecified. Research canon is the wandering albatross (*Diomedea exulans*), the largest and strongest living albatross. Production should make the taxon explicit.
+- **Albatross height:** Keep `height_cm: 0.0` until ABS defines a standardized bird-height convention. The well-supported body length is `120.0 cm`; do not repurpose it as standing height.
+- **Albatross speed:** `20.0 m/s` uses an empirically grounded GPS/wind airspeed regime. Do not replace it with much higher theoretical dynamic-soaring model predictions as though they were measured representative top speeds.
+- **Albatross bite force:** Keep `0.0`; no defensible standardized PSI measurement was found.
+- **Albatross ratings:** Stamina 96.0 is intentionally an elite absolute endurance anchor based on multi-day, multi-thousand-kilometer travel and low-cost dynamic soaring. Revisit after other extreme migratory/endurance specialists are researched. Agility 74.0 should be checked against Peregrine Falcon, Hummingbird, Dragonfly and raptors because huge wings improve soaring efficiency but limit tight-space maneuverability.
+- **Albatross image:** Selected real 2400×1503 *Diomedea exulans* photo on Wikimedia Commons with CC0 provenance. Current connector cannot safely commit binary PNG; source is recorded for later non-generative background removal and asset promotion.

@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 10 / 225
+- **Completed research files:** 11 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Arctic Fox
-- **Next pending animal:** Arctic Wolf
-- **Latest completion:** 2026-09-16 15:02 America/Chicago
-- **Latest image status:** Arctic Fox — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Arctic Wolf
+- **Next pending animal:** Armadillo
+- **Latest completion:** 2026-09-16 15:58 America/Chicago
+- **Latest image status:** Arctic Wolf — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -31,67 +31,27 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 
 ## Unresolved research conflicts / future audit notes
 
-- **African Elephant:** Canonical entry is explicitly *Loxodonta africana* (African savanna/bush elephant), not a pooled savanna + forest elephant profile.
-- **African Elephant length:** Institutional body-length figures vary with measurement convention. `660.0 cm` is a representative site value with moderate confidence and should be revisited if a stronger primary morphometric dataset is found.
-- **African Elephant bite force:** Keep `0.0` unless a reliable measured/biomechanical jaw-force source is found. Do not import unsourced internet PSI claims.
-- **African Elephant ratings:** First-animal decimal ratings are provisional calibration anchors. Revisit during cross-roster normalization, especially after Gorilla, Hippopotamus, Rhinoceros, Blue Whale, Orca, Great White Shark, Saltwater Crocodile, and Megalodon are researched.
-- **African Elephant image:** High-resolution real adult-bull source located on Wikimedia Commons, but current connector cannot safely commit a binary transparent PNG. Source and direct-image resolver are recorded in the animal report for later cutout/promotion.
-- **African Lion length:** Sources mix head-body and total length. `210.0 cm` is explicitly a representative head-body value. A future schema field should record measurement convention.
-- **African Lion speed:** `14.7 m/s` is deliberately conservative and based on an institutional ~53 km/h sprint figure. Revisit if a strong primary field/biomechanics source establishes a better representative maximum.
-- **African Lion bite force:** Peer-reviewed modeled canine-force estimates vary substantially by method. Keep `bite_force_psi: 0.0` until ABS has a defensible force/contact-area convention; consider adding newton fields.
-- **African Lion mane:** Do not treat the mane as heavy protective armor. Field wounding research found no compelling protective effect; it is better supported as a sexually selected signal/intimidation trait.
-- **African Lion ratings:** Revisit Attack/Agility/Stamina spacing after African Wild Dog, Cheetah, Spotted Hyena, Jaguar, Leopard, Siberian Tiger, Gorilla, Cape Buffalo, Hippopotamus and Rhinoceros are researched.
-- **African Lion image:** Real high-resolution standing adult male source located on Wikimedia Commons. Current connector cannot safely commit the transparent binary PNG, so source and direct-image resolver are recorded in the report.
-- **African Wild Dog length:** Sources mix head-body and broader length conventions. `100.0 cm` is explicitly head-body; future schema should split tail length.
-- **African Wild Dog bite force:** Peer-reviewed anatomy/biomechanics supports exceptional relative bite mechanics but not a standardized in-vivo PSI value. Keep `bite_force_psi: 0.0` pending a force/contact-area standard.
-- **African Wild Dog hunting style:** Do not describe all hunts as long coordinated persistence chases. Instrumented woodland studies show many short opportunistic pursuits and additive group feeding, while other populations use longer chases.
-- **African Wild Dog ratings:** Stamina 82.0 is an early endurance anchor. Revisit after Gray Wolf, Dhole, Cheetah, Spotted Hyena and long-distance herbivore profiles establish the wider endurance distribution.
-- **African Wild Dog image:** Real 3002×2001 wild adult-male source located on Wikimedia Commons from the Okavango Delta. Current connector cannot safely commit the transparent binary PNG.
-- **Albatross taxon:** The live label “Albatross” is underspecified. Research canon is the wandering albatross (*Diomedea exulans*), the largest and strongest living albatross. Production should make the taxon explicit.
-- **Albatross height:** Keep `height_cm: 0.0` until ABS defines a standardized bird-height convention.
-- **Albatross speed:** `20.0 m/s` uses an empirically grounded GPS/wind airspeed regime. Do not replace it with much higher theoretical dynamic-soaring model predictions as though they were measured representative top speeds.
-- **Albatross bite force:** Keep `0.0`; no defensible standardized PSI measurement was found.
-- **Albatross ratings:** Stamina 96.0 is intentionally an elite absolute endurance anchor based on multi-day, multi-thousand-kilometer travel and low-cost dynamic soaring. Revisit after other extreme migratory/endurance specialists are researched.
-- **Albatross image:** Selected real 2400×1503 *Diomedea exulans* photo on Wikimedia Commons with CC0 provenance. Current connector cannot safely commit binary PNG.
-- **Alligator taxon:** The live label `Alligator` is underspecified. Research canon is American alligator (*Alligator mississippiensis*), not Chinese alligator.
-- **Alligator mass:** `200.0 kg` is an adult-male combat-specimen recommendation, deliberately above pooled averages and far below record 400+ kg males.
-- **Alligator height:** Keep `0.0` until ABS defines a crocodilian standing-height convention.
-- **Alligator speed:** Keep `0.0` for now. Future schema should separate land and aquatic speed.
-- **Alligator bite force:** Direct in-vivo bite-force evidence is excellent and reaches 9,452 N and 13,172 N in cited studies, but these are forces, not PSI. Keep `bite_force_psi: 0.0` until ABS defines contact area or adds newton fields.
-- **Alligator ratings:** Attack 84.0 and Raw Power 82.0 should be revisited after Saltwater Crocodile, Hippopotamus, Great White Shark, Orca and Megalodon establish upper mechanical-force anchors.
-- **Alligator image:** Selected a real 3504×2336 large-adult American alligator photograph by Steve Hillebrand/USFWS on Wikimedia Commons, marked public domain. Current connector cannot safely commit the transparent binary PNG.
-- **Alpaca taxon:** Use *Vicugna pacos* as the preferred modern research name while retaining *Lama pacos* as an older synonym used by ADW and some institutions. Alpaca is domesticated, so production should not imply a normal wild population/IUCN status.
-- **Alpaca mass/size:** `65.0 kg`, `100.0 cm` shoulder height and `150.0 cm` head-body length are representative adult-male recommendations inside broad institutional ranges, not maxima.
-- **Alpaca speed:** Keep `speed_mps: 0.0` until a strong measured locomotor source is found.
-- **Alpaca bite force:** Keep `bite_force_psi: 0.0`. Male fighting teeth >3 cm are well documented, but no standardized combat bite PSI was found.
-- **Alpaca ratings:** Stamina 60.0 is based mainly on experimentally supported high-altitude oxygen physiology plus sustained grazing locomotion, not evidence of elite chase performance. Attack 25.0 should remain far below specialist predators despite male fighting teeth.
-- **Alpaca image:** Selected real 2400×1600 male *Vicugna pacos* photograph on Wikimedia Commons. Current connector cannot safely commit binary PNG.
-- **Anaconda taxon:** The roster label `Anaconda` is underspecified. Research canon is the green anaconda / traditional *Eunectes murinus* concept. The 2024 proposed split recognizing northern *E. akayima* remains contested, with subsequent peer-reviewed work treating it as a junior synonym. Preserve this uncertainty for production taxonomy.
-- **Anaconda canonical sex:** Use an adult female, not a male. Green anacondas have extreme female-biased size dimorphism, so the female is the larger/stronger combat form.
-- **Anaconda representative size:** `50.0 kg` and `450.0 cm` are deliberately representative large-adult-female recommendations, not record values. Revisit if a strong modern sex-specific wild morphometric dataset yields a better central estimate.
-- **Anaconda speed:** Keep `speed_mps: 0.0` until measured aquatic/terrestrial locomotor data justify a canonical value. Future schema should split water and land speed.
-- **Anaconda bite force:** Keep `bite_force_psi: 0.0`. The bite anchors prey for constriction, but no defensible standardized PSI measurement was found.
-- **Anaconda ratings:** Attack 70.0 and Raw Power 66.0 intentionally recognize dangerous constriction without treating a 50 kg snake as megafaunal. Revisit after Boa Constrictor, Python, Reticulated Python, Jaguar, Saltwater Crocodile, Gorilla and larger megafauna establish the full grapple/power ladder.
-- **Anaconda image:** USGS native-range Brazil photograph selected as primary candidate and marked Public Domain; sex is not stated. A 3602×2371 public-domain Wikimedia photo is recorded as fallback. Current connector cannot safely commit binary PNG, so later production should verify an adult-female candidate and perform non-generative background removal.
-- **Anglerfish taxon:** The roster label `Anglerfish` is underspecified. Research canon is Krøyer's deep-sea anglerfish / northern seadevil (*Ceratias holboelli*), not the entire Lophiiformes order.
-- **Anglerfish canonical sex:** Use an adult female. Sexual dimorphism is extreme and the dwarfed male form is not an appropriate combat specimen.
-- **Anglerfish length:** `77.0 cm` is the FishBase common female total length; maximum female TL is 120 cm. Do not use the maximum as the normal baseline.
-- **Anglerfish mass/speed/lifespan/bite force:** Keep these factual fields at `0.0` until defensible species-specific data are found. Do not promote tertiary mass/speed claims or invent bite PSI.
-- **Anglerfish ratings:** Special 76.0 is intentionally much higher than physical combat scores because the luminous lure and deep-sea specialization are unusual mechanisms. Revisit after electric, venomous, chemical-defense and advanced camouflage specialists establish the full Special distribution.
-- **Anglerfish image:** MNHN specimen MNHN-IC-2003-1598 selected because the museum explicitly verifies it as an adult female *Ceratias holboelli*. Current connector cannot safely commit binary PNG; source and direct museum image URL are recorded for later provenance review and non-generative cutout processing.
-- **Anteater taxon:** The roster label `Anteater` is standardized to the giant anteater (*Myrmecophaga tridactyla*), not a pooled profile of all anteater species.
-- **Anteater canonical specimen:** Use a representative robust adult around `40.0 kg`. Mammalian Species reports little sexual dimorphism, so do not force an unusually large male baseline merely because some zoo summaries report males as heavier.
-- **Anteater length:** `200.0 cm` is total length, not head-body length. Future schema should explicitly store measurement convention.
-- **Anteater speed:** Keep `speed_mps: 0.0` for now. Smithsonian reports a >30 mph emergency gallop, but this run did not trace it to a primary instrumented locomotor study.
-- **Anteater bite force:** Keep `bite_force_psi: 0.0`. Giant anteaters are edentulous and have strongly reduced jaw musculature; their meaningful combat weapon is the foreclaw system.
-- **Anteater claw length:** Use `6.5 cm` as the conservative scientific anchor. Some zoo pages publish larger values, but 6.5 cm is supported in peer-reviewed Brazilian literature and clinical literature.
-- **Anteater smell:** Do not promote the repeated `40× human` smell claim as measured fact. A Nature paper confirms olfactory specialization but explicitly notes lack of evidence for extraordinary acuity at that time.
-- **Anteater ratings:** Attack 53.0 intentionally recognizes clinically documented penetrating/fatal claw injuries while keeping a ~40 kg defensive insectivore well below dedicated large predators. Revisit after Jaguar, Puma/Cougar, Wolverine, Honey Badger, Gorilla and other claw/grapple specialists establish the wider weapon ladder.
-- **Anteater image:** Selected real 5184×3422 wild *M. tridactyla* photograph from Emas National Park on Wikimedia Commons, CC BY 2.0. Sex is unstated, which is acceptable given weak dimorphism. Current connector cannot safely commit binary PNG; later production should perform non-generative cutout and strict provenance promotion.
-- **Arctic Fox canonical specimen:** Use a representative adult male around `4.0 kg`; males are somewhat larger on average, but large regional extremes should not become the baseline.
-- **Arctic Fox length:** `100.0 cm` is a representative total-length value including tail. Sources mix total and head-body length, so production should eventually split measurement conventions.
-- **Arctic Fox speed:** Keep `speed_mps: 0.0`. Repeated 45-50 km/h internet figures were not traced to a strong instrumented locomotor source in this run.
-- **Arctic Fox bite force:** Keep `bite_force_psi: 0.0`. It has a functional predatory canid bite, but no defensible species-specific PSI measurement was located.
-- **Arctic Fox lifespan:** `5.0 years` represents wild ecological longevity rather than the ~16-year captive average reported by ADF&G/ADW; future schema should split wild and captive longevity.
-- **Arctic Fox ratings:** Attack 17.0 deliberately remains below Alpaca 25.0 because absolute body/weapon force matters more than predator label. Stamina 79.0 is supported by exceptional telemetry movement but should be revisited after Arctic Wolf, Gray Wolf, caribou/reindeer and other endurance specialists. Special 72.0 should be normalized after venom/electric/camouflage specialists are researched.
-- **Arctic Fox image:** Selected real 4000×4765 *V. lagopus* winter-coat photograph on Wikimedia Commons, CC BY-SA 4.0. Sex is not explicitly stated. Current connector cannot safely commit binary PNG; later production should verify adult status/provenance, perform non-generative cutout and run the strict asset audit.
+Detailed evidence and caveats remain in each completed animal report. The following items are the active cross-roster normalization watchlist:
+
+- **African Elephant:** Canon is *Loxodonta africana*. Revisit representative body length and first-animal decimal anchors after more megafauna are researched. Keep bite PSI at 0.0 absent defensible evidence.
+- **African Lion:** Sources mix head-body and total length. Bite-force models differ materially, so keep PSI at 0.0 pending a force/contact-area convention. Do not treat the mane as heavy armor. Revisit ratings after other big cats and large herbivores.
+- **African Wild Dog:** Do not generalize every hunt as a long persistence chase. Keep bite PSI at 0.0. Stamina 82.0 is an early endurance anchor to revisit after more cursorial predators.
+- **Albatross:** Canon is wandering albatross (*Diomedea exulans*). Height remains undefined. Keep measured/empirical flight regimes distinct from theoretical maxima. Stamina 96.0 requires later normalization against other extreme migrants.
+- **Alligator:** Canon is American alligator (*Alligator mississippiensis*). Direct bite force is well supported in newtons, but PSI remains 0.0 without contact area. Attack 84.0 and Raw Power 82.0 should be revisited after upper mechanical-force anchors.
+- **Alpaca:** Preferred research name is *Vicugna pacos*. Speed and bite PSI remain 0.0. Stamina 60.0 reflects high-altitude physiology rather than elite chase performance.
+- **Anaconda:** Canon is green anaconda/traditional *Eunectes murinus* concept; proposed *E. akayima* split remains contested. Canonical specimen is an adult female. Speed and bite PSI remain 0.0. Revisit constriction/power spacing after other giant snakes and grapplers.
+- **Anglerfish:** Canon is adult female *Ceratias holboelli*. Mass, speed, lifespan and bite PSI remain unresolved. Special 76.0 should be normalized after more venom/electric/camouflage specialists.
+- **Anteater:** Canon is giant anteater (*Myrmecophaga tridactyla*). Total length convention should be explicit. Keep speed and bite PSI at 0.0. Attack 53.0 is based on documented claw trauma and should be revisited after more claw/grapple specialists.
+- **Arctic Fox:** Total length includes tail. Keep speed and bite PSI at 0.0. Stamina 79.0 and Special 72.0 require later normalization against other endurance and environmental specialists.
+- **Arctic Wolf taxonomy:** *Canis lupus arctos* is retained as the traditional High Arctic research label, but North American gray-wolf subspecies boundaries remain debated. Production should not overstate taxonomic certainty.
+- **Arctic Wolf size:** Canonical male is 40.0 kg based on Toronto Zoo's 34–46 kg male range. Do not import 70–80 kg mainland gray-wolf extremes into this baseline.
+- **Arctic Wolf speed:** Direct Ellesmere measurements establish routine travel at 8.7 km/h and den-bound travel at 10.0 km/h, not maximum sprint speed. Keep `speed_mps: 0.0` until a defensible Arctic-specific maximum is found.
+- **Arctic Wolf bite force:** Keep `bite_force_psi: 0.0`. Comparative wolf cranial biomechanics does not justify fabricating a species-specific pressure value.
+- **Arctic Wolf lifespan:** `8.0 years` is a provisional wild ecological recommendation with lower confidence than the physical-size fields. Revisit if a High Arctic longevity dataset is found.
+- **Arctic Wolf pack effect:** Do not silently convert cooperative muskox-hunting success into individual one-on-one Attack. Pack Pressure is explicitly context-dependent.
+- **Arctic Wolf ratings:** Attack 52.0 is provisionally above African Wild Dog 47.0 and far below African Lion 79.0/Alligator 84.0. Stamina 86.0 is supported by direct travel and territory data but should be revisited after Gray Wolf, Reindeer/Caribou and other endurance anchors.
+- **Arctic Wolf image:** Selected real 2678×2316 image explicitly labeled male on Wikimedia Commons, Drew Avery, CC BY 2.0. It is captive, so later production may prefer a verified wild adult-male candidate. Current connector cannot safely commit binary PNG; source and original-image URL are recorded in the report.
+
+## Image pipeline status
+
+All 11 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

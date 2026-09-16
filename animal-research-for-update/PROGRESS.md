@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 7 / 225
+- **Completed research files:** 8 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Anaconda
-- **Next pending animal:** Anglerfish
-- **Latest completion:** 2026-09-16 12:04 America/Chicago
-- **Latest image status:** Anaconda — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Anglerfish
+- **Next pending animal:** Anteater
+- **Latest completion:** 2026-09-16 12:57 America/Chicago
+- **Latest image status:** Anglerfish — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -73,3 +73,9 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 - **Anaconda bite force:** Keep `bite_force_psi: 0.0`. The bite anchors prey for constriction, but no defensible standardized PSI measurement was found.
 - **Anaconda ratings:** Attack 70.0 and Raw Power 66.0 intentionally recognize dangerous constriction without treating a 50 kg snake as megafaunal. Revisit after Boa Constrictor, Python, Reticulated Python, Jaguar, Saltwater Crocodile, Gorilla and larger megafauna establish the full grapple/power ladder.
 - **Anaconda image:** USGS native-range Brazil photograph selected as primary candidate and marked Public Domain; sex is not stated. A 3602×2371 public-domain Wikimedia photo is recorded as fallback. Current connector cannot safely commit binary PNG, so later production should verify an adult-female candidate and perform non-generative background removal.
+- **Anglerfish taxon:** The roster label `Anglerfish` is underspecified. Research canon is Krøyer's deep-sea anglerfish / northern seadevil (*Ceratias holboelli*), not the entire Lophiiformes order.
+- **Anglerfish canonical sex:** Use an adult female. Sexual dimorphism is extreme and the dwarfed male form is not an appropriate combat specimen.
+- **Anglerfish length:** `77.0 cm` is the FishBase common female total length; maximum female TL is 120 cm. Do not use the maximum as the normal baseline.
+- **Anglerfish mass/speed/lifespan/bite force:** Keep these factual fields at `0.0` until defensible species-specific data are found. Do not promote tertiary mass/speed claims or invent bite PSI.
+- **Anglerfish ratings:** Special 76.0 is intentionally much higher than physical combat scores because the luminous lure and deep-sea specialization are unusual mechanisms. Revisit after electric, venomous, chemical-defense and advanced camouflage specialists establish the full Special distribution.
+- **Anglerfish image:** MNHN specimen MNHN-IC-2003-1598 selected because the museum explicitly verifies it as an adult female *Ceratias holboelli*. Current connector cannot safely commit binary PNG; source and direct museum image URL are recorded for later provenance review and non-generative cutout processing.

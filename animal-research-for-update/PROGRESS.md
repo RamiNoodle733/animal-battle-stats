@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 5 / 225
+- **Completed research files:** 6 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Alligator
-- **Next pending animal:** Alpaca
-- **Latest completion:** 2026-09-16 09:58 America/Chicago
-- **Latest image status:** Alligator — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Alpaca
+- **Next pending animal:** Anaconda
+- **Latest completion:** 2026-09-16 10:57 America/Chicago
+- **Latest image status:** Alpaca — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -60,3 +60,9 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 - **Alligator bite force:** Direct in-vivo bite-force evidence is excellent and reaches 9,452 N in an ontogenetic study and 13,172 N in a wild/captive comparison, but these are forces, not PSI. Keep `bite_force_psi: 0.0` until ABS defines contact area or adds newton fields.
 - **Alligator ratings:** Attack 84.0 and Raw Power 82.0 should be revisited after Saltwater Crocodile, Hippopotamus, Great White Shark, Orca and Megalodon establish upper mechanical-force anchors. Stamina 40.0 intentionally distinguishes ambush patience from sustained high-output endurance.
 - **Alligator image:** Selected a real 3504×2336 large-adult American alligator photograph by Steve Hillebrand/USFWS on Wikimedia Commons, marked public domain. Current connector cannot safely commit the transparent binary PNG; source and direct-image resolver are recorded for later non-generative cutout/promotion.
+- **Alpaca taxon:** Use *Vicugna pacos* as the preferred modern research name while retaining *Lama pacos* as an older synonym used by ADW and some institutions. Alpaca is domesticated, so production should not imply a normal wild population/IUCN status.
+- **Alpaca mass/size:** `65.0 kg`, `100.0 cm` shoulder height and `150.0 cm` head-body length are representative adult-male recommendations inside broad institutional ranges, not maxima.
+- **Alpaca speed:** Keep `speed_mps: 0.0` until a strong measured locomotor source is found. Tertiary web claims range roughly 35-56 km/h and are not adequate for canonical ABS data.
+- **Alpaca bite force:** Keep `bite_force_psi: 0.0`. Male fighting teeth >3 cm are well documented, but no standardized combat bite PSI was found.
+- **Alpaca ratings:** Stamina 60.0 is based mainly on experimentally supported high-altitude oxygen physiology plus sustained grazing locomotion, not evidence of elite chase performance. Revisit after Camel, Bactrian Camel, Yak, Pronghorn and mountain ungulates establish endurance anchors. Attack 25.0 should remain far below specialist predators despite male fighting teeth.
+- **Alpaca image:** Selected real 2400×1600 male *Vicugna pacos* photograph on Wikimedia Commons. Current connector cannot safely commit binary PNG; source is recorded for later non-generative background removal. A full-body fallback candidate is also recorded in the report.

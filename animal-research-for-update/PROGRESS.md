@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 9 / 225
+- **Completed research files:** 10 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Anteater
-- **Next pending animal:** Arctic Fox
-- **Latest completion:** 2026-09-16 13:58 America/Chicago
-- **Latest image status:** Anteater — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Arctic Fox
+- **Next pending animal:** Arctic Wolf
+- **Latest completion:** 2026-09-16 15:02 America/Chicago
+- **Latest image status:** Arctic Fox — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -88,3 +88,10 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 - **Anteater smell:** Do not promote the repeated `40× human` smell claim as measured fact. A Nature paper confirms olfactory specialization but explicitly notes lack of evidence for extraordinary acuity at that time.
 - **Anteater ratings:** Attack 53.0 intentionally recognizes clinically documented penetrating/fatal claw injuries while keeping a ~40 kg defensive insectivore well below dedicated large predators. Revisit after Jaguar, Puma/Cougar, Wolverine, Honey Badger, Gorilla and other claw/grapple specialists establish the wider weapon ladder.
 - **Anteater image:** Selected real 5184×3422 wild *M. tridactyla* photograph from Emas National Park on Wikimedia Commons, CC BY 2.0. Sex is unstated, which is acceptable given weak dimorphism. Current connector cannot safely commit binary PNG; later production should perform non-generative cutout and strict provenance promotion.
+- **Arctic Fox canonical specimen:** Use a representative adult male around `4.0 kg`; males are somewhat larger on average, but large regional extremes should not become the baseline.
+- **Arctic Fox length:** `100.0 cm` is a representative total-length value including tail. Sources mix total and head-body length, so production should eventually split measurement conventions.
+- **Arctic Fox speed:** Keep `speed_mps: 0.0`. Repeated 45-50 km/h internet figures were not traced to a strong instrumented locomotor source in this run.
+- **Arctic Fox bite force:** Keep `bite_force_psi: 0.0`. It has a functional predatory canid bite, but no defensible species-specific PSI measurement was located.
+- **Arctic Fox lifespan:** `5.0 years` represents wild ecological longevity rather than the ~16-year captive average reported by ADF&G/ADW; future schema should split wild and captive longevity.
+- **Arctic Fox ratings:** Attack 17.0 deliberately remains below Alpaca 25.0 because absolute body/weapon force matters more than predator label. Stamina 79.0 is supported by exceptional telemetry movement but should be revisited after Arctic Wolf, Gray Wolf, caribou/reindeer and other endurance specialists. Special 72.0 should be normalized after venom/electric/camouflage specialists are researched.
+- **Arctic Fox image:** Selected real 4000×4765 *V. lagopus* winter-coat photograph on Wikimedia Commons, CC BY-SA 4.0. Sex is not explicitly stated. Current connector cannot safely commit binary PNG; later production should verify adult status/provenance, perform non-generative cutout and run the strict asset audit.

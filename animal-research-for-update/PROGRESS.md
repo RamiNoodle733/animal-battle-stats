@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 12 / 225
+- **Completed research files:** 13 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Armadillo
-- **Next pending animal:** Army Ant
-- **Latest completion:** 2026-09-16 17:00 America/Chicago
-- **Latest image status:** Armadillo — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Army Ant
+- **Next pending animal:** Axolotl
+- **Latest completion:** 2026-09-16 18:00 America/Chicago
+- **Latest image status:** Army Ant — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -55,7 +55,12 @@ Detailed evidence and caveats remain in each completed animal report. The follow
 - **Armadillo physical fields:** Canonical mass 5.5 kg and total length 75.0 cm are well supported under the legacy North American species concept. Height, maximum speed and bite PSI remain 0.0 rather than promoting weak or inaccessible values.
 - **Armadillo ratings:** Attack 14.0 is intentionally low under absolute scaling despite strong digging forelimbs. Defense 47.0 and Special 54.0 recognize true osteoderm armor without treating it as complete shell immunity. Revisit armor spacing after pangolins, turtles/tortoises and other armored taxa.
 - **Armadillo image:** Selected real 4000×3000 NPS photograph from Big Thicket National Preserve, Texas, public domain. Source uses the old *D. novemcinctus* label but geography places it in current *D. mexicanus*. Sex is unstated; a verified adult male can supersede it later. Binary PNG remains pending.
+- **Army Ant canon:** Standardized as *Eciton burchellii* and a healthy adult major/soldier worker, not a queen or an abstract whole colony. Direct major dry mass is 9.3–11.4 mg; canonical `weight_kg` 0.0000104 is explicitly dry mass pending a strong live-mass value.
+- **Army Ant scaling:** Attack 1.8, Defense 0.9, and Raw Power 0.3 deliberately enforce absolute scaling. Do not import colony swarm lethality into an individual soldier. Agility 66.0 is allowed because fine maneuverability is a different axis from absolute force.
+- **Army Ant speed/bite/lifespan:** Keep `speed_mps: 0.0` because raid-front or traffic speed is not individual maximum sprint speed. Keep bite PSI 0.0. Worker lifespan 0.3 years is a low-confidence approximation of “several months.”
+- **Army Ant colony context:** Colony estimates vary widely, roughly 100,000–2,000,000 depending on source/context. Living architecture and leaderless raids are recorded as colony-dependent traits rather than individual intelligence/power.
+- **Army Ant image:** Selected real 2188×1610 *E. burchellii* macro photograph from Ecuador by Graham Wise, CC BY 2.0, with an Alex Wild CC0 fallback. Primary metadata does not explicitly certify caste, so a verified full-body major may supersede it. Binary PNG remains pending.
 
 ## Image pipeline status
 
-All 12 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.
+All 13 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

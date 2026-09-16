@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 11 / 225
+- **Completed research files:** 12 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Arctic Wolf
-- **Next pending animal:** Armadillo
-- **Latest completion:** 2026-09-16 15:58 America/Chicago
-- **Latest image status:** Arctic Wolf — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Armadillo
+- **Next pending animal:** Army Ant
+- **Latest completion:** 2026-09-16 17:00 America/Chicago
+- **Latest image status:** Armadillo — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -51,7 +51,11 @@ Detailed evidence and caveats remain in each completed animal report. The follow
 - **Arctic Wolf pack effect:** Do not silently convert cooperative muskox-hunting success into individual one-on-one Attack. Pack Pressure is explicitly context-dependent.
 - **Arctic Wolf ratings:** Attack 52.0 is provisionally above African Wild Dog 47.0 and far below African Lion 79.0/Alligator 84.0. Stamina 86.0 is supported by direct travel and territory data but should be revisited after Gray Wolf, Reindeer/Caribou and other endurance anchors.
 - **Arctic Wolf image:** Selected real 2678×2316 image explicitly labeled male on Wikimedia Commons, Drew Avery, CC BY 2.0. It is captive, so later production may prefer a verified wild adult-male candidate. Current connector cannot safely commit binary PNG; source and original-image URL are recorded in the report.
+- **Armadillo taxonomy:** Canonical U.S./Mexican nine-banded animal is now treated as *Dasypus mexicanus* following the 2025 Systematic Biology revision and current 2026 mammalogy usage. Classic U.S. literature uses *D. novemcinctus* sensu lato, so preserve geographic provenance when migrating legacy measurements.
+- **Armadillo physical fields:** Canonical mass 5.5 kg and total length 75.0 cm are well supported under the legacy North American species concept. Height, maximum speed and bite PSI remain 0.0 rather than promoting weak or inaccessible values.
+- **Armadillo ratings:** Attack 14.0 is intentionally low under absolute scaling despite strong digging forelimbs. Defense 47.0 and Special 54.0 recognize true osteoderm armor without treating it as complete shell immunity. Revisit armor spacing after pangolins, turtles/tortoises and other armored taxa.
+- **Armadillo image:** Selected real 4000×3000 NPS photograph from Big Thicket National Preserve, Texas, public domain. Source uses the old *D. novemcinctus* label but geography places it in current *D. mexicanus*. Sex is unstated; a verified adult male can supersede it later. Binary PNG remains pending.
 
 ## Image pipeline status
 
-All 11 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.
+All 12 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

@@ -140,12 +140,16 @@ jobs:
         run: |
           version="$(node -p "require('./package.json').version")"
           tag="v$version"
-          if git rev-parse "$tag" >/dev/null 2>&1; then
-            echo "Tag $tag already exists; refusing to overwrite it."
-            exit 1
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists; no new version to publish."
+            exit 0
           fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git tag --annotate "$tag" --message "Animal Battle Stats $tag"
-          git push origin "$tag"
+          if git rev-parse "$tag" >/dev/null 2>&1; then
+            echo "Tag $tag exists without a release; using the existing tag."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git tag --annotate "$tag" --message "Animal Battle Stats $tag"
+            git push origin "$tag"
+          fi
           gh release create "$tag" --verify-tag --generate-notes --title "Animal Battle Stats $tag"

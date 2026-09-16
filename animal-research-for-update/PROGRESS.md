@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 8 / 225
+- **Completed research files:** 9 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Anglerfish
-- **Next pending animal:** Anteater
-- **Latest completion:** 2026-09-16 12:57 America/Chicago
-- **Latest image status:** Anglerfish — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Anteater
+- **Next pending animal:** Arctic Fox
+- **Latest completion:** 2026-09-16 13:58 America/Chicago
+- **Latest image status:** Anteater — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -79,3 +79,12 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 - **Anglerfish mass/speed/lifespan/bite force:** Keep these factual fields at `0.0` until defensible species-specific data are found. Do not promote tertiary mass/speed claims or invent bite PSI.
 - **Anglerfish ratings:** Special 76.0 is intentionally much higher than physical combat scores because the luminous lure and deep-sea specialization are unusual mechanisms. Revisit after electric, venomous, chemical-defense and advanced camouflage specialists establish the full Special distribution.
 - **Anglerfish image:** MNHN specimen MNHN-IC-2003-1598 selected because the museum explicitly verifies it as an adult female *Ceratias holboelli*. Current connector cannot safely commit binary PNG; source and direct museum image URL are recorded for later provenance review and non-generative cutout processing.
+- **Anteater taxon:** The roster label `Anteater` is standardized to the giant anteater (*Myrmecophaga tridactyla*), not a pooled profile of all anteater species.
+- **Anteater canonical specimen:** Use a representative robust adult around `40.0 kg`. Mammalian Species reports little sexual dimorphism, so do not force an unusually large male baseline merely because some zoo summaries report males as heavier.
+- **Anteater length:** `200.0 cm` is total length, not head-body length. Future schema should explicitly store measurement convention.
+- **Anteater speed:** Keep `speed_mps: 0.0` for now. Smithsonian reports a >30 mph emergency gallop, but this run did not trace it to a primary instrumented locomotor study.
+- **Anteater bite force:** Keep `bite_force_psi: 0.0`. Giant anteaters are edentulous and have strongly reduced jaw musculature; their meaningful combat weapon is the foreclaw system.
+- **Anteater claw length:** Use `6.5 cm` as the conservative scientific anchor. Some zoo pages publish larger values, but 6.5 cm is supported in peer-reviewed Brazilian literature and clinical literature.
+- **Anteater smell:** Do not promote the repeated `40× human` smell claim as measured fact. A Nature paper confirms olfactory specialization but explicitly notes lack of evidence for extraordinary acuity at that time.
+- **Anteater ratings:** Attack 53.0 intentionally recognizes clinically documented penetrating/fatal claw injuries while keeping a ~40 kg defensive insectivore well below dedicated large predators. Revisit after Jaguar, Puma/Cougar, Wolverine, Honey Badger, Gorilla and other claw/grapple specialists establish the wider weapon ladder.
+- **Anteater image:** Selected real 5184×3422 wild *M. tridactyla* photograph from Emas National Park on Wikimedia Commons, CC BY 2.0. Sex is unstated, which is acceptable given weak dimorphism. Current connector cannot safely commit binary PNG; later production should perform non-generative cutout and strict provenance promotion.

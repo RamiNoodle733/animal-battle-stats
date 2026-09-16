@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 4 / 225
+- **Completed research files:** 5 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Albatross
-- **Next pending animal:** Alligator
-- **Latest completion:** 2026-09-16 08:58 America/Chicago
-- **Latest image status:** Albatross — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Alligator
+- **Next pending animal:** Alpaca
+- **Latest completion:** 2026-09-16 09:58 America/Chicago
+- **Latest image status:** Alligator — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -53,3 +53,10 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 - **Albatross bite force:** Keep `0.0`; no defensible standardized PSI measurement was found.
 - **Albatross ratings:** Stamina 96.0 is intentionally an elite absolute endurance anchor based on multi-day, multi-thousand-kilometer travel and low-cost dynamic soaring. Revisit after other extreme migratory/endurance specialists are researched. Agility 74.0 should be checked against Peregrine Falcon, Hummingbird, Dragonfly and raptors because huge wings improve soaring efficiency but limit tight-space maneuverability.
 - **Albatross image:** Selected real 2400×1503 *Diomedea exulans* photo on Wikimedia Commons with CC0 provenance. Current connector cannot safely commit binary PNG; source is recorded for later non-generative background removal and asset promotion.
+- **Alligator taxon:** The live label `Alligator` is underspecified. Research canon is American alligator (*Alligator mississippiensis*), not Chinese alligator.
+- **Alligator mass:** `200.0 kg` is an adult-male combat-specimen recommendation, deliberately above ADW's pooled 150 kg average and far below record 400+ kg males. Revisit if a strong sex-specific wild morphometric dataset provides a better male mean.
+- **Alligator height:** Keep `0.0` until ABS defines a crocodilian standing-height convention.
+- **Alligator speed:** Keep `0.0` for now. Primary locomotion literature confirms gait mechanics but the accessible evidence did not justify a single representative adult maximum in m/s. Do not import unsupported 20-30 mph web claims. Future schema should separate land and aquatic speed.
+- **Alligator bite force:** Direct in-vivo bite-force evidence is excellent and reaches 9,452 N in an ontogenetic study and 13,172 N in a wild/captive comparison, but these are forces, not PSI. Keep `bite_force_psi: 0.0` until ABS defines contact area or adds newton fields.
+- **Alligator ratings:** Attack 84.0 and Raw Power 82.0 should be revisited after Saltwater Crocodile, Hippopotamus, Great White Shark, Orca and Megalodon establish upper mechanical-force anchors. Stamina 40.0 intentionally distinguishes ambush patience from sustained high-output endurance.
+- **Alligator image:** Selected a real 3504×2336 large-adult American alligator photograph by Steve Hillebrand/USFWS on Wikimedia Commons, marked public domain. Current connector cannot safely commit the transparent binary PNG; source and direct-image resolver are recorded for later non-generative cutout/promotion.

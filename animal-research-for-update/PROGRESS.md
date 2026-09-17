@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 19 / 225
+- **Completed research files:** 20 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Barn Owl
-- **Next pending animal:** Barracuda
-- **Latest completion:** 2026-09-17 00:00 America/Chicago
-- **Latest image status:** Barn Owl — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Barracuda
+- **Next pending animal:** Beaver
+- **Latest completion:** 2026-09-17 00:57 America/Chicago
+- **Latest image status:** Barracuda — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -52,7 +52,8 @@ Detailed evidence and caveats remain in each completed animal report. The follow
 - **Badger:** Canon is European/Eurasian badger (*Meles meles*), representative adult male at 13.0 kg, 27.5 cm shoulder height and 75.0 cm head-body length. Seasonal mass variation is substantial. Keep maximum speed and bite PSI at 0.0. Attack 38.0, Defense 39.0 and Toughness 43.0 should be revisited after Wolverine, Honey Badger, Tasmanian Devil, Bobcat and Coyote. Selected image sex is not verified.
 - **Bald Eagle:** Canon is *Haliaeetus leucocephalus*, representative adult female at 5.3 kg and 91.0 cm head-to-tail length. Keep `height_cm`, maximum `speed_mps` and `bite_force_psi` at 0.0. Attack 36.0 intentionally reflects sharp talons without pound-for-pound inflation; Agility 79.0, Senses 82.0 and Stamina 75.0 require normalization against Golden Eagle, Harpy Eagle, Peregrine Falcon, Osprey and owls. Grip-pressure claims are rejected absent transparent methodology.
 - **Barn Owl:** Canon is *Tyto alba*, representative adult female at 0.35 kg and 37.0 cm body length, anchored to BTO female live-bird biometrics while retaining geographic/taxonomic size variation. Keep `height_cm`, maximum `speed_mps` and `bite_force_psi` at 0.0. Attack 13.0 deliberately preserves the huge absolute-force gap to Bald Eagle and terrestrial predators. Agility 82.0, Senses 94.0 and Special 82.0 should be normalized after Great Horned Owl, Snowy Owl, Peregrine Falcon, Golden Eagle and Harpy Eagle. Quiet flight is experimentally supported but must not be described as literally zero sound or double-counted across combat categories. Primary image is an explicitly identified adult female public-domain *T. alba* photograph; PNG promotion remains pending.
+- **Barracuda:** Canon is great barracuda (*Sphyraena barracuda*), representative mature adult at 17.0 kg and 140.0 cm TL. `speed_mps` is 6.2 based on a modern peer-reviewed muscle-physiology estimate rather than the repeated 35-36 mph popular claim; historical 12.16 m/s burst data remain conflicting context. Bite mechanics are unusually well researched in newtons, but `bite_force_psi` remains 0.0 because no defensible tooth contact area was found. Attack 48.0 and Weaponry 61.0 should be normalized after sharks, billfishes, tuna, moray eel, piranha and giant grouper. Canonical sex remains unresolved. Primary image is exact-species CC BY-SA 4.0 but requires transparent PNG promotion.
 
 ## Image pipeline status
 
-All 19 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.
+All 20 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

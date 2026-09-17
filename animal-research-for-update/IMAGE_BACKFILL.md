@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 31 / 225 (through Boa Constrictor). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 31. A source-photo link is not an approved PNG.
+**Research reports completed:** 32 / 225 (through Bobcat). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 32. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -10,7 +10,7 @@
 | African Lion | **Verified replacement source:** 5356×3367 adult male *Panthera leo melanochaita*, Bernard DUPONT, CC BY-SA 2.0; complete side-view body including paws and tail visible | No | Binary cutout/commit pending |
 | African Wild Dog | **Verified replacement/source:** 3002×2001 adult male *Lycaon pictus*, Charles J. Sharp, CC BY-SA 3.0; walking side view | No | Binary cutout/commit pending |
 | Albatross | **Full-body framing verified, but candidate is LICENSE UNVERIFIED - DO NOT COMMIT:** exact *Diomedea exulans* Mats Hildeman flight photograph, 2025 | No | Find a reuse-permitted equivalent before binary cutout; do not use WikiAves image without permission |
-| Alligator | Unverified | No | Audit complete snout/tail/feet |
+| Alligator | **Verified source:** 3504×2336 large *Alligator mississippiensis*, Steve Hillebrand/USFWS, public domain; complete snout-to-tail body and four limbs visible in search rendering | No | Binary cutout/commit pending |
 | Alpaca | Unverified | No | Audit legs/feet and ears |
 | Anaconda | Unverified | No | Audit entire head-to-tail snake |
 | Anglerfish | Unverified | No | Audit entire fish, fins and lure |
@@ -37,10 +37,11 @@
 | Black Widow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** female *Latrodectus hesperus*, 1500×1061, CC BY 2.0 | No | Prefer larger adult-female source and verify all 8 legs |
 | Blue Whale | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** NOAA adult *Balaenoptera musculus*, 1792×1128, public domain | No | Verify complete silhouette and fins |
 | Boa Constrictor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Boa constrictor*, Singapore Zoo, 2048×1536, CC BY-SA 2.0 Germany | No | Verify complete head-to-tail coil and adulthood; prefer larger adult female source |
+| Bobcat | **Verified source:** 1600×1160 wild adult male *Lynx rufus*, Jean-Lou Justine, CC BY-SA 3.0; complete side-view body, four paws and short tail visible | No | Binary cutout/commit pending; 2000+ replacement optional if equally complete |
 
 ## Image count and acceptance rule
 
-- `31` is a text-research count, not the number of valid images.
+- `32` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
@@ -50,13 +51,15 @@
 - **2026-09-17 African Elephant:** 6000×4000 adult-male Charles J. Sharp source retained; cutout pending.
 - **2026-09-17 African Lion:** 5356×3367 adult-male Bernard DUPONT source retained; cutout pending.
 - **2026-09-17 African Wild Dog:** 3002×2001 adult-male Charles J. Sharp source retained; cutout pending.
-- **2026-09-17 Albatross:** The earlier Crozet candidate remained difficult to verify strictly. A newer WikiAves record WA6672188 by Mats Hildeman visibly shows the complete *Diomedea exulans* in flight with both wing tips, head, body, tail and feet inside frame, so whole-body framing is satisfactory. However, WikiAves explicitly states that reproduction is prohibited without express author permission. It is therefore recorded only as `LICENSE UNVERIFIED - DO NOT COMMIT`, source page https://www.wikiaves.com.br/6672188 and direct image https://s3.amazonaws.com/media.wikiaves.com.br/images/2766/6672188_1e443147415ab123fafb719b8b501188.jpg . This candidate must not be redistributed. The next image pass should seek a similarly complete reuse-permitted *D. exulans* source rather than repeatedly rechecking this one.
+- **2026-09-17 Albatross:** WikiAves WA6672188 visibly satisfies complete-body framing, but reproduction requires express author permission. It remains `LICENSE UNVERIFIED - DO NOT COMMIT`; seek a reuse-permitted equivalent.
+- **2026-09-17 Alligator:** Existing Steve Hillebrand/USFWS candidate was re-audited. Search rendering shows the full large American alligator, including snout, tail tip and all four limbs, and Commons records a 3504×2336 public-domain source. Source page: https://commons.wikimedia.org/wiki/File:Big_american_aligator_alligator_mississippiensis.jpg ; original resolver: https://commons.wikimedia.org/wiki/Special:Redirect/file/Big_american_aligator_alligator_mississippiensis.jpg . This is now `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, not a completed PNG.
 - **2026-09-17 Black Bear:** Exact-species public-domain full-body source retained.
 - **2026-09-17 Black Mamba:** 4320×2592 exact-species complete-coil source retained.
 - **2026-09-17 Black Panther:** exact melanistic leopard candidate remains not strictly verified.
 - **2026-09-17 Black Rhinoceros:** adult-male full-body source retained; cutout pending.
 - **2026-09-17 Black Widow:** candidate remains below preferred resolution and not strict eight-leg verified.
 - **2026-09-17 Blue Whale:** NOAA public-domain source remains strict whole-body-not-verified.
-- **2026-09-17 Boa Constrictor:** report records a 2048×1536 Commons exact-species photograph under CC BY-SA 2.0 Germany, but strict full head-to-tail framing, adulthood and sex remain unverified. No binary is claimed.
+- **2026-09-17 Boa Constrictor:** 2048×1536 Commons exact-species photograph remains strict full head-to-tail/adulthood unverified.
+- **2026-09-17 Bobcat:** 1600×1160 Jean-Lou Justine wild male source is exact-species and CC BY-SA 3.0. Visual rendering shows complete head, torso, four paws and short tail. Full-body source verified; cutout pending.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Alligator.
+- **Next legacy audit:** Alpaca.

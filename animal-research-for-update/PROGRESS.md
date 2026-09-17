@@ -1,16 +1,16 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 25 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 25
+- **Completed research files:** 26 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 26
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Black Bear
-- **Next pending animal:** Black Mamba
-- **Latest completion:** 2026-09-17 06:00 America/Chicago
-- **Latest new-animal image status:** Black Bear — `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`
-- **Latest legacy image audit:** African Elephant — `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`
+- **Most recently completed:** Black Mamba
+- **Next pending animal:** Black Panther
+- **Latest completion:** 2026-09-17 07:02 America/Chicago
+- **Latest new-animal image status:** Black Mamba — `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`
+- **Latest legacy image audit:** African Lion — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -23,10 +23,10 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 
 ## Unresolved research conflicts / future audit notes
 
-Detailed evidence remains in each animal report. Active normalization watch items:
+Detailed evidence remains in each animal report. Active normalization watch items include:
 
-- **African Elephant:** Canon mature bull 5,500 kg. Attack 92.0 / Defense 94.0 remain provisional terrestrial-megafauna anchors pending rhinoceros, hippopotamus and extinct-giant comparisons. Bite PSI remains 0.0. Image source upgraded to verified 6000×4000 adult male *L. africana*, CC BY-SA 4.0; binary cutout pending.
-- **African Lion:** Length conventions and bite-force models conflict. Do not treat mane as heavy armor. Next legacy image audit.
+- **African Elephant:** Canon mature bull 5,500 kg. Attack 92.0 / Defense 94.0 remain provisional terrestrial-megafauna anchors. Bite PSI remains 0.0. Image source upgraded to verified 6000×4000 adult male; binary cutout pending.
+- **African Lion:** Length conventions and bite-force models conflict. Do not treat mane as heavy armor. Legacy image search found strong adult-male candidates, including 12000×8000 CC0 `Male lion walking.jpg`, but strict whole-body visual verification remains pending.
 - **African Wild Dog:** Stamina 82.0 is an early endurance anchor; do not generalize all hunts as persistence chases.
 - **Albatross:** Wandering albatross canon. Stamina 96.0 needs normalization against later extreme migrants.
 - **Alligator:** Direct bite force in newtons is strong but PSI remains 0.0 without defensible contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization.
@@ -49,12 +49,13 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Beluga Whale:** Adult male 1,500 kg / 430 cm. Maximum speed and bite PSI remain 0.0. Stamina 84.0 / Intelligence 79.0 / Senses 91.0 / Special 80.0 need marine-specialist normalization.
 - **Bighorn Sheep:** Mature ram 110 kg. `speed_mps` 9.0 is peer-reviewed ramming approach speed, not maximum sprint. Attack 58.0 / Agility 74.0 need later ungulate comparison.
 - **Bison:** Mature bull 900 kg. `speed_mps` 15.3 uses Yellowstone 35 mph agency figure, not an instrumented trial. Attack 72.0 / Defense 68.0 need megaherbivore comparison.
-- **Black Bear:** American black bear mature male canon at 120 kg, 90 cm shoulder, 175 cm length. `speed_mps` 13.4 is a conservative NPS natural-history figure amid 25–35 mph agency claims. Bite PSI remains 0.0. Attack 56.0 / Defense 49.0 preserve the absolute gap below Bison while Agility 70.0 credits climbing and forest maneuverability. Hibernation is not combat stamina. Image source is exact-species public-domain 1944×1855 full-body photo, sex unknown; verified male source preferred later.
+- **Black Bear:** American black bear mature male canon at 120 kg. `speed_mps` 13.4 is conservative amid agency claims. Bite PSI remains 0.0. Attack 56.0 / Defense 49.0 preserve absolute gap below Bison; hibernation is not combat stamina.
+- **Black Mamba:** *Dendroaspis polylepis*, representative 2.5 m / 1.6 kg adult. `speed_mps` 5.3 uses a conservative 19 km/h short-burst natural-history value rather than treating folklore as instrumented measurement. Lifespan 11.0 is an older captive record and wild longevity remains poorly known. Bite PSI stays 0.0. Attack 66.0 reflects successful venom delivery rather than mechanical force; Raw Power 8.0 and Defense 18.0 preserve the absolute mass gap. Special 94.0 is a provisional venom-specialist anchor requiring comparison with later extreme venom/electric taxa. Image candidate is exact-species 4320×2592 CC BY-SA 2.0; binary cutout pending.
 
 ## 25-animal checkpoint
 
-`audits/CHECKPOINT-025.md` found no immediate numerical inversion requiring forced correction. Main watch areas are upper-band megafauna anchors, cross-mode Stamina comparisons, and avoiding Special double-counting. Image accounting is now explicitly separate: 25 research reports complete, 0 verified committed transparent PNGs.
+`audits/CHECKPOINT-025.md` found no immediate numerical inversion requiring forced correction. Main watch areas are upper-band megafauna anchors, cross-mode Stamina comparisons, and avoiding Special double-counting. Image accounting remains explicitly separate.
 
 ## Image pipeline status
 
-African Elephant is the first legacy candidate re-audited under the strict full-body rule and now has a verified high-resolution adult-male source. Black Bear also has a verified full-body source. Actual transparent PNG creation remains blocked because connected GitHub write tools accept UTF-8 text only. No placeholder, renamed JPEG, base64 text or opaque fake PNG is permitted.
+26 research reports are complete, but **0 verified transparent PNG binaries are committed**. African Elephant has a verified high-resolution adult-male source. Black Bear and Black Mamba have verified full-body source candidates. African Lion remains under strict legacy image audit because candidate metadata is strong but whole-body visual verification has not yet been established to the standard required by `IMAGE_REQUIREMENTS.md`. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created.

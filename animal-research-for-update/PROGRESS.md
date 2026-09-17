@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 35 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 35
+- **Completed research files:** 36 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 36
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Box Jellyfish
-- **Next pending animal:** Bull Shark
-- **Latest completion:** 2026-09-17 16:01 America/Chicago
-- **Latest new-animal image status:** Box Jellyfish — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
-- **Latest legacy image audit:** Anaconda — existing USGS public-domain native-range candidate retained as unverified; a stronger 3960×2845 exact-species Commons candidate was found but strict entire-snake/adult-female framing remains unverified
-- **Next legacy image audit:** Anglerfish
+- **Most recently completed:** Bull Shark
+- **Next pending animal:** Bullet Ant
+- **Latest completion:** 2026-09-17 16:58 America/Chicago
+- **Latest new-animal image status:** Bull Shark — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
+- **Latest legacy image audit:** Anglerfish — exact-species 2048×1536 Andrew Butko museum photograph found under CC BY-SA 3.0/GFDL; it is a real photograph of *Ceratias holboelli*, but preserved-specimen/adult-female complete-anatomy suitability is not strong enough to approve as the canonical healthy-adult source
+- **Next legacy image audit:** Anteater
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -33,7 +33,7 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Alligator:** Direct bite force in newtons is strong but PSI remains 0.0 without defensible contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization. Existing USFWS source verified full-body; cutout pending.
 - **Alpaca:** Speed and bite PSI remain 0.0; Stamina 60.0 reflects altitude physiology rather than chase performance. Verified whole-body source; sex unverified, binary cutout pending.
 - **Anaconda:** Green-anaconda taxonomy remains unsettled; canonical specimen adult female. Revisit constriction/power spacing after giant snakes. Image remains strict full-body/adult-female unverified despite a 3960×2845 exact-species Commons alternative.
-- **Anglerfish:** Adult female *Ceratias holboelli*. Mass, speed, lifespan and bite PSI unresolved; normalize Special 76.0 later.
+- **Anglerfish:** Adult female *Ceratias holboelli*. Mass, speed, lifespan and bite PSI unresolved; normalize Special 76.0 later. A 2048×1536 exact-species reuse-permitted museum photograph exists, but it is a preserved specimen and is not approved as the healthy-adult source.
 - **Anteater:** Giant anteater canon. Keep speed/bite PSI 0.0 and revisit Attack 53.0 after more claw specialists.
 - **Arctic Fox:** Total length includes tail. Stamina 79.0 / Special 72.0 need later normalization.
 - **Arctic Wolf:** Traditional *Canis lupus arctos* label retained with caveat. Stamina 86.0 provisional.
@@ -60,7 +60,8 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Bobcat:** *Lynx rufus*, representative mature male 10.0 kg / 87.0 cm total length / 53.0 cm shoulder height. `speed_mps` and bite PSI remain 0.0. Attack 44.0 / Defense 29.0 preserve absolute scale while Agility 82.0 credits genuine maneuverability. Verified adult-male source; cutout pending.
 - **Bongo:** *Tragelaphus eurycerus*, representative mature male 300.0 kg / 125.0 cm shoulder / 240.0 cm total length. `speed_mps` and bite PSI remain 0.0. Horns 75-99 cm. Attack 59.0 / Defense 49.0 remain far below Bison and Black Rhinoceros.
 - **Bottlenose Dolphin:** *Tursiops truncatus*, canonical Sarasota coastal mature male 260.0 kg / 275.0 cm. Attack 55.0 / Defense 50.0 preserve gap below large marine macropredators while Agility 88.0, Intelligence 94.0, Senses 96.0 and Special 92.0 recognize maneuverability, cognition and biosonar. Bite PSI remains 0.0.
-- **Box Jellyfish:** *Chironex fleckeri*, canonical mature medusa around 2.0 kg with 30 cm bell proxy and tentacle reach up to 300 cm. `speed_mps`, `lifespan_years`, and bite PSI remain 0.0 because accessible primary evidence does not support a clean canonical maximum/lifespan and there is no bite. Attack 56.0 / Defense 10.0 / Agility 55.0 / Stamina 45.0 / Intelligence 24.0 / Special 98.0 deliberately separate extreme biochemical capability from negligible raw power and physical durability. Image remains strict adult exact-species whole-body unverified.
+- **Box Jellyfish:** *Chironex fleckeri*, canonical mature medusa around 2.0 kg with 30 cm bell proxy and tentacle reach up to 300 cm. `speed_mps`, `lifespan_years`, and bite PSI remain 0.0. Attack 56.0 / Defense 10.0 / Agility 55.0 / Stamina 45.0 / Intelligence 24.0 / Special 98.0 deliberately separate biochemical capability from raw power.
+- **Bull Shark:** *Carcharhinus leucas*, canonical adult female 111.0 kg / 284.0 cm. `speed_mps` 5.3 is an institutional short-burst estimate, not an instrumented ceiling. Peer-reviewed bite biomechanics support up to 5,914 N theoretical posterior force, but PSI remains 0.0. Attack 72.0 / Defense 52.0 / Agility 73.0 / Stamina 69.0 / Intelligence 58.0 / Special 82.0. Euryhalinity is kept primarily in Special rather than double-counted as toughness or raw power.
 
 ## 25-animal checkpoint
 
@@ -68,4 +69,4 @@ Detailed evidence remains in each animal report. Active normalization watch item
 
 ## Image pipeline status
 
-35 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+36 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 15 / 225
+- **Completed research files:** 16 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Baboon
-- **Next pending animal:** Bactrian Camel
-- **Latest completion:** 2026-09-16 20:00 America/Chicago
-- **Latest image status:** Baboon — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Bactrian Camel
+- **Next pending animal:** Badger
+- **Latest completion:** 2026-09-16 21:01 America/Chicago
+- **Latest image status:** Bactrian Camel — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -47,8 +47,9 @@ Detailed evidence and caveats remain in each completed animal report. The follow
 - **Armadillo:** Canonical North American nine-banded animal treated as *Dasypus mexicanus* under the recent taxonomic split. Canonical 5.5 kg and 75.0 cm total length. Attack 14.0 remains low despite digging strength; Defense 47.0 and Special 54.0 require later armored-taxon comparison.
 - **Army Ant:** Canon is *Eciton burchellii* major/soldier worker. Canonical 0.0000104 kg is dry mass pending strong live-mass data. Attack 1.8, Defense 0.9 and Raw Power 0.3 deliberately prevent colony feats from leaking into individual scaling. Speed and bite PSI remain 0.0.
 - **Axolotl:** Canon is *Ambystoma mexicanum*, representative wild-type adult male at 0.2 kg and 25.0 cm total length. Keep maximum swim speed and bite PSI at 0.0. Special 74.0 and Recovery 88.0 recognize real regeneration without treating delayed healing as immediate Defense. Wild population remains Critically Endangered; selected captive adult-male wild-type image still needs PNG promotion.
-- **Baboon:** Canon is olive baboon (*Papio anubis*), naturally foraging adult male at 24.0 kg. Total `length_cm` is explicitly head-body plus tail (132.0 cm). Keep maximum speed and bite PSI at 0.0: direct locomotor experiments reach 4.0 m/s but do not establish a maximum, and no defensible species-specific PSI was found. Attack 45.0, Agility 72.0 and Intelligence 78.0 should be revisited after chimpanzee/gorilla/macaque and additional carnivore anchors. The selected image is an explicitly identified adult male *P. anubis* from Serengeti, 3840×2160, CC BY-SA 3.0; transparent PNG remains pending.
+- **Baboon:** Canon is olive baboon (*Papio anubis*), naturally foraging adult male at 24.0 kg. Total `length_cm` is explicitly head-body plus tail (132.0 cm). Keep maximum speed and bite PSI at 0.0. Attack 45.0, Agility 72.0 and Intelligence 78.0 should be revisited after chimpanzee/gorilla/macaque and additional carnivore anchors. Selected adult-male image still needs PNG promotion.
+- **Bactrian Camel:** Canon is domestic *Camelus bactrianus*, not wild *Camelus ferus*. Canonical adult male is 580.0 kg, 180.0 cm shoulder height and 300.0 cm head-body length. Keep maximum speed and bite PSI at 0.0 because the 10-20 mph zoo range is not an instrumented maximum and no defensible PSI measurement was found. Stamina 90.0 is a provisional elite endurance anchor based on loaded high-altitude travel plus dehydration/thermal physiology and should be revisited after dromedary Camel, Pronghorn, Wild Horse and Reindeer. Attack 59.0 and Defense 57.0 should be normalized after Bison/Cape Buffalo/Moose/Rhinoceros. Selected 3256×2128 CC BY-SA 3.0 Wikimedia Quality Image is not sex-verified; prefer a verified adult male during final asset promotion if available.
 
 ## Image pipeline status
 
-All 15 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.
+All 16 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

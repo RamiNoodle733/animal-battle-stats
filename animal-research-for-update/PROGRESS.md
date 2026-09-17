@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 28 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 28
+- **Completed research files:** 29 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 29
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Black Rhinoceros
-- **Next pending animal:** Black Widow
-- **Latest completion:** 2026-09-17 08:58 America/Chicago
-- **Latest new-animal image status:** Black Rhinoceros — `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`
-- **Latest legacy image audit:** African Lion — verified clean 5356×3367 adult-male full-body source, cutout/commit pending
-- **Next legacy image audit:** African Wild Dog
+- **Most recently completed:** Black Widow
+- **Next pending animal:** Blue Whale
+- **Latest completion:** 2026-09-17 09:58 America/Chicago
+- **Latest new-animal image status:** Black Widow — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
+- **Latest legacy image audit:** African Wild Dog — verified 3002×2001 adult-male full-body source, cutout/commit pending
+- **Next legacy image audit:** Albatross
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -27,8 +27,8 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 Detailed evidence remains in each animal report. Active normalization watch items include:
 
 - **African Elephant:** Canon mature bull 5,500 kg. Attack 92.0 / Defense 94.0 remain provisional terrestrial-megafauna anchors. Bite PSI 0.0. Verified 6000×4000 adult-male source; binary cutout pending.
-- **African Lion:** Length conventions and bite-force models conflict. Do not treat mane as heavy armor. Legacy image audit now has a verified 5356×3367 Bernard DUPONT adult-male Kruger side-view, CC BY-SA 2.0, with full paws and tail visible. Report image section still needs safe synchronization; binary cutout pending.
-- **African Wild Dog:** Stamina 82.0 is an early endurance anchor; do not generalize all hunts as persistence chases.
+- **African Lion:** Length conventions and bite-force models conflict. Do not treat mane as heavy armor. Verified 5356×3367 Bernard DUPONT adult-male Kruger side-view, CC BY-SA 2.0, full paws/tail visible; binary cutout pending.
+- **African Wild Dog:** Stamina 82.0 remains an early endurance anchor; do not generalize all hunts as persistence chases. Legacy image source now verified: Charles J. Sharp 3002×2001 wild adult male, Okavango Delta, CC BY-SA 3.0; cutout pending.
 - **Albatross:** Wandering albatross canon. Stamina 96.0 needs normalization against later extreme migrants.
 - **Alligator:** Direct bite force in newtons is strong but PSI remains 0.0 without defensible contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization.
 - **Alpaca:** Speed and bite PSI remain 0.0; Stamina 60.0 reflects altitude physiology rather than chase performance.
@@ -53,7 +53,8 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Black Bear:** American black bear mature male canon at 120 kg. `speed_mps` 13.4 conservative amid agency claims. Bite PSI 0.0. Attack 56.0 / Defense 49.0 preserve absolute gap below Bison; hibernation is not combat stamina.
 - **Black Mamba:** *Dendroaspis polylepis*, representative 2.5 m / 1.6 kg adult. `speed_mps` 5.3 conservative natural-history value. Bite PSI 0.0. Attack 66.0 reflects venom delivery rather than mechanical force; Special 94.0 provisional venom-specialist anchor.
 - **Black Panther:** Melanistic leopard *Panthera pardus*, adult male 60 kg. Speed and bite PSI remain 0.0. Attack 59.0 / Defense 42.0 / Agility 83.0 / Stamina 61.0 / Intelligence 67.0 / Special 65.0. Melanism is habitat-dependent camouflage, not armor.
-- **Black Rhinoceros:** *Diceros bicornis*, representative mature bull 1,200 kg, 165 cm shoulder, 350 cm head-body. `speed_mps` 13.9 is a conservative 50 km/h natural-history burst estimate rather than a controlled trial; bite PSI remains 0.0. Front horn canonical recommendation 55 cm with much larger exceptional values documented. Headline ratings Attack 82.0 / Defense 76.0 / Agility 59.0 / Stamina 68.0 / Intelligence 48.0 / Special 51.0. Keep clear absolute spacing below African Elephant and above Bison in horn-backed attack and durability. Verified 3456×2168 adult-male full-body source; binary cutout pending.
+- **Black Rhinoceros:** *Diceros bicornis*, representative mature bull 1,200 kg. `speed_mps` 13.9 is a conservative natural-history burst estimate; bite PSI 0.0. Attack 82.0 / Defense 76.0. Verified adult-male full-body source; cutout pending.
+- **Black Widow:** Standardized as western black widow *Latrodectus hesperus*, mature adult female, canonical body length 1.3 cm. Representative mass and maximum speed remain unresolved rather than using ADW's implausible 25 g display value. Bite PSI 0.0. Attack 24.0 / Defense 2.0 preserve near-floor absolute physical scale; Special 92.0 reflects alpha-latrotoxin-rich venom plus silk capture without implying large-animal killing power. Revisit Special against later venomous arthropods. Current 1500×1061 female image candidate is slightly below preferred resolution and not strictly whole-body verified.
 
 ## 25-animal checkpoint
 
@@ -61,4 +62,4 @@ Detailed evidence remains in each animal report. Active normalization watch item
 
 ## Image pipeline status
 
-28 research reports are complete, but **0 verified transparent PNG binaries are committed**. Verified full-body sources now include African Elephant, African Lion, Black Bear, Black Mamba and Black Rhinoceros. Black Panther remains source-found but strict whole-body verification is pending. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record when a large historical report cannot be safely patched in place.
+29 research reports are complete, but **0 verified transparent PNG binaries are committed**. Verified full-body sources now include African Elephant, African Lion, African Wild Dog, Black Bear, Black Mamba and Black Rhinoceros. Black Panther and Black Widow remain source-found but strict whole-body verification is pending. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

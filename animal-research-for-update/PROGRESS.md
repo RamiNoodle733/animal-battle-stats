@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 33 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 33
+- **Completed research files:** 34 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 34
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Bongo
-- **Next pending animal:** Bottlenose Dolphin
-- **Latest completion:** 2026-09-17 14:00 America/Chicago
-- **Latest new-animal image status:** Bongo — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
-- **Latest legacy image audit:** Alpaca — 4288×3216 exact-species CC BY-SA 2.0 source identified; strict full-body/adult-male verification still pending
-- **Next legacy image audit:** Alpaca remains pending until a strict full-body adult candidate is verified, then Anaconda
+- **Most recently completed:** Bottlenose Dolphin
+- **Next pending animal:** Box Jellyfish
+- **Latest completion:** 2026-09-17 14:57 America/Chicago
+- **Latest new-animal image status:** Bottlenose Dolphin — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
+- **Latest legacy image audit:** Alpaca — 2798×1998 exact-species `Corazon Full.jpg`, CC BY 3.0, now verified as a full-body source; sex remains unverified and binary cutout pending
+- **Next legacy image audit:** Anaconda
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -31,7 +31,7 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **African Wild Dog:** Stamina 82.0 remains an early endurance anchor. Verified adult-male source; cutout pending.
 - **Albatross:** Wandering albatross canon. Stamina 96.0 needs later normalization. Current full-body candidate is license-blocked and must not be committed.
 - **Alligator:** Direct bite force in newtons is strong but PSI remains 0.0 without defensible contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization. Existing 3504×2336 USFWS source now verified full-body; cutout pending.
-- **Alpaca:** Speed and bite PSI remain 0.0; Stamina 60.0 reflects altitude physiology rather than chase performance. A 4288×3216 exact-species CC BY-SA 2.0 source was found, but strict full-body/adult-male verification remains pending.
+- **Alpaca:** Speed and bite PSI remain 0.0; Stamina 60.0 reflects altitude physiology rather than chase performance. `Corazon Full.jpg`, exact *Vicugna pacos*, 2798×1998 CC BY 3.0, is now a verified whole-body source; sex unverified, binary cutout pending.
 - **Anaconda:** Green-anaconda taxonomy remains unsettled; canonical specimen adult female. Revisit constriction/power spacing after giant snakes.
 - **Anglerfish:** Adult female *Ceratias holboelli*. Mass, speed, lifespan and bite PSI unresolved; normalize Special 76.0 later.
 - **Anteater:** Giant anteater canon. Keep speed/bite PSI 0.0 and revisit Attack 53.0 after more claw specialists.
@@ -58,7 +58,8 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Blue Whale:** *Balaenoptera musculus*, canonical large adult female 120,000 kg / 2,600 cm. Size 100.0 is the living body-mass ceiling. Attack 78.0 avoids converting size into fictional weaponry.
 - **Boa Constrictor:** *Boa constrictor* sensu stricto, representative adult female 12.0 kg / 270.0 cm. `speed_mps` and bite PSI remain 0.0. Attack 58.0 / Raw Power 46.0 intentionally stay below the 50 kg canonical Anaconda. Current image remains strict full-body/adult unverified.
 - **Bobcat:** *Lynx rufus*, representative mature male 10.0 kg / 87.0 cm total length / 53.0 cm shoulder height. `speed_mps` and bite PSI remain 0.0. Attack 44.0 / Defense 29.0 preserve absolute scale while Agility 82.0 credits genuine maneuverability. Verified adult-male source; cutout pending.
-- **Bongo:** *Tragelaphus eurycerus*, representative mature male 300.0 kg / 125.0 cm shoulder / 240.0 cm total length. `speed_mps` and bite PSI remain 0.0. Horns 75-99 cm. Attack 59.0 / Defense 49.0 intentionally remain far below Bison and Black Rhinoceros while preserving a major absolute gap over Alpaca. Image is exact-species male and high resolution but strict whole-body verification remains pending.
+- **Bongo:** *Tragelaphus eurycerus*, representative mature male 300.0 kg / 125.0 cm shoulder / 240.0 cm total length. `speed_mps` and bite PSI remain 0.0. Horns 75-99 cm. Attack 59.0 / Defense 49.0 remain far below Bison and Black Rhinoceros. Image exact-species male but strict whole-body verification pending.
+- **Bottlenose Dolphin:** *Tursiops truncatus*, canonical Sarasota coastal mature male 260.0 kg / 275.0 cm. Attack 55.0 / Defense 50.0 preserve the gap below large marine macropredators while Agility 88.0, Intelligence 94.0, Senses 96.0 and Special 92.0 recognize three-dimensional maneuverability, sophisticated social/foraging cognition and experimentally demonstrated biosonar. `speed_mps` 8.0 is a moderate-confidence fast-swimming natural-history value, not a controlled physiological maximum. Bite PSI remains 0.0. Image exact-species candidate is not strict whole-body verified.
 
 ## 25-animal checkpoint
 
@@ -66,4 +67,4 @@ Detailed evidence remains in each animal report. Active normalization watch item
 
 ## Image pipeline status
 
-33 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several legacy animals now have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+34 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several legacy animals now have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 21 / 225
+- **Completed research files:** 22 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Beaver
-- **Next pending animal:** Beluga Whale
-- **Latest completion:** 2026-09-17 02:01 America/Chicago
-- **Latest image status:** Beaver — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Beluga Whale
+- **Next pending animal:** Bighorn Sheep
+- **Latest completion:** 2026-09-17 02:57 America/Chicago
+- **Latest image status:** Beluga Whale — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -31,30 +31,31 @@ Do not mark an animal complete unless its research file satisfies `README.md` an
 
 ## Unresolved research conflicts / future audit notes
 
-Detailed evidence and caveats remain in each completed animal report. The following items are the active cross-roster normalization watchlist:
+Detailed evidence and caveats remain in each completed animal report. Active cross-roster normalization watch items include:
 
-- **African Elephant:** Canon is *Loxodonta africana*. Revisit representative body length and first-animal decimal anchors after more megafauna are researched. Keep bite PSI at 0.0 absent defensible evidence.
-- **African Lion:** Sources mix head-body and total length. Bite-force models differ materially, so keep PSI at 0.0 pending a force/contact-area convention. Do not treat the mane as heavy armor. Revisit ratings after other big cats and large herbivores.
-- **African Wild Dog:** Do not generalize every hunt as a long persistence chase. Keep bite PSI at 0.0. Stamina 82.0 is an early endurance anchor to revisit after more cursorial predators.
-- **Albatross:** Canon is wandering albatross (*Diomedea exulans*). Height remains undefined. Keep measured/empirical flight regimes distinct from theoretical maxima. Stamina 96.0 requires later normalization against other extreme migrants.
-- **Alligator:** Canon is American alligator (*Alligator mississippiensis*). Direct bite force is well supported in newtons, but PSI remains 0.0 without contact area. Attack 84.0 and Raw Power 82.0 should be revisited after upper mechanical-force anchors.
-- **Alpaca:** Preferred research name is *Vicugna pacos*. Speed and bite PSI remain 0.0. Stamina 60.0 reflects high-altitude physiology rather than elite chase performance.
-- **Anaconda:** Canon is green anaconda/traditional *Eunectes murinus* concept; proposed *E. akayima* split remains contested. Canonical specimen is an adult female. Speed and bite PSI remain 0.0. Revisit constriction/power spacing after other giant snakes and grapplers.
-- **Anglerfish:** Canon is adult female *Ceratias holboelli*. Mass, speed, lifespan and bite PSI remain unresolved. Special 76.0 should be normalized after more venom/electric/camouflage specialists.
-- **Anteater:** Canon is giant anteater (*Myrmecophaga tridactyla*). Total length convention should be explicit. Keep speed and bite PSI at 0.0. Attack 53.0 is based on documented claw trauma and should be revisited after more claw/grapple specialists.
-- **Arctic Fox:** Total length includes tail. Keep speed and bite PSI at 0.0. Stamina 79.0 and Special 72.0 require later normalization against other endurance and environmental specialists.
-- **Arctic Wolf:** Retain *Canis lupus arctos* as traditional High Arctic label while acknowledging subspecies uncertainty. Canonical male 40.0 kg. Keep maximum speed and bite PSI at 0.0. Stamina 86.0 is a strong endurance anchor to revisit later.
-- **Armadillo:** Canonical North American nine-banded animal treated as *Dasypus mexicanus* under the recent taxonomic split. Canonical 5.5 kg and 75.0 cm total length. Attack 14.0 remains low despite digging strength; Defense 47.0 and Special 54.0 require later armored-taxon comparison.
-- **Army Ant:** Canon is *Eciton burchellii* major/soldier worker. Canonical 0.0000104 kg is dry mass pending strong live-mass data. Attack 1.8, Defense 0.9 and Raw Power 0.3 deliberately prevent colony feats from leaking into individual scaling. Speed and bite PSI remain 0.0.
-- **Axolotl:** Canon is *Ambystoma mexicanum*, representative wild-type adult male at 0.2 kg and 25.0 cm total length. Keep maximum swim speed and bite PSI at 0.0. Special 74.0 and Recovery 88.0 recognize real regeneration without treating delayed healing as immediate Defense. Wild population remains Critically Endangered; selected captive adult-male wild-type image still needs PNG promotion.
-- **Baboon:** Canon is olive baboon (*Papio anubis*), naturally foraging adult male at 24.0 kg. Total `length_cm` is explicitly head-body plus tail (132.0 cm). Keep maximum speed and bite PSI at 0.0. Attack 45.0, Agility 72.0 and Intelligence 78.0 should be revisited after chimpanzee/gorilla/macaque and additional carnivore anchors. Selected adult-male image still needs PNG promotion.
-- **Bactrian Camel:** Canon is domestic *Camelus bactrianus*, not wild *Camelus ferus*. Canonical adult male is 580.0 kg, 180.0 cm shoulder height and 300.0 cm head-body length. Keep maximum speed and bite PSI at 0.0 because the 10-20 mph zoo range is not an instrumented maximum and no defensible PSI measurement was found. Stamina 90.0 is a provisional elite endurance anchor based on loaded high-altitude travel plus dehydration/thermal physiology and should be revisited after dromedary Camel, Pronghorn, Wild Horse and Reindeer. Attack 59.0 and Defense 57.0 should be normalized after Bison/Cape Buffalo/Moose/Rhinoceros. Selected image is not sex-verified.
-- **Badger:** Canon is European/Eurasian badger (*Meles meles*), representative adult male at 13.0 kg, 27.5 cm shoulder height and 75.0 cm head-body length. Seasonal mass variation is substantial. Keep maximum speed and bite PSI at 0.0. Attack 38.0, Defense 39.0 and Toughness 43.0 should be revisited after Wolverine, Honey Badger, Tasmanian Devil, Bobcat and Coyote. Selected image sex is not verified.
-- **Bald Eagle:** Canon is *Haliaeetus leucocephalus*, representative adult female at 5.3 kg and 91.0 cm head-to-tail length. Keep `height_cm`, maximum `speed_mps` and `bite_force_psi` at 0.0. Attack 36.0 intentionally reflects sharp talons without pound-for-pound inflation; Agility 79.0, Senses 82.0 and Stamina 75.0 require normalization against Golden Eagle, Harpy Eagle, Peregrine Falcon, Osprey and owls. Grip-pressure claims are rejected absent transparent methodology.
-- **Barn Owl:** Canon is *Tyto alba*, representative adult female at 0.35 kg and 37.0 cm body length, anchored to BTO female live-bird biometrics while retaining geographic/taxonomic size variation. Keep `height_cm`, maximum `speed_mps` and `bite_force_psi` at 0.0. Attack 13.0 deliberately preserves the huge absolute-force gap to Bald Eagle and terrestrial predators. Agility 82.0, Senses 94.0 and Special 82.0 should be normalized after Great Horned Owl, Snowy Owl, Peregrine Falcon, Golden Eagle and Harpy Eagle. Quiet flight is experimentally supported but must not be described as literally zero sound or double-counted across combat categories. Primary image is an explicitly identified adult female public-domain *T. alba* photograph; PNG promotion remains pending.
-- **Barracuda:** Canon is great barracuda (*Sphyraena barracuda*), representative mature adult at 17.0 kg and 140.0 cm TL. `speed_mps` is 6.2 based on a modern peer-reviewed muscle-physiology estimate rather than the repeated 35-36 mph popular claim; historical 12.16 m/s burst data remain conflicting context. Bite mechanics are unusually well researched in newtons, but `bite_force_psi` remains 0.0 because no defensible tooth contact area was found. Attack 48.0 and Weaponry 61.0 should be normalized after sharks, billfishes, tuna, moray eel, piranha and giant grouper. Canonical sex remains unresolved. Primary image is exact-species CC BY-SA 4.0 but requires transparent PNG promotion.
-- **Beaver:** Canon is North American beaver (*Castor canadensis*), representative adult at 23.0 kg, 40.0 cm standing height and 110.0 cm total length. Peer-reviewed jaw modeling supports roughly 550–740 N incisor force and >96% force alignment, while 2023 enamel mechanics supports genuine self-sharpening. Keep maximum `speed_mps` and `bite_force_psi` at 0.0 because measured 0.64/0.9 m/s swim values are not maxima and no defensible incisor contact-area PSI conversion was found. Attack 42.0, Intelligence 63.0 and Special 60.0 should be normalized after Capybara, Wolverine, Coyote, Bobcat, corvids, primates and additional rodents. Do not count dams/lodges as portable Defense. Primary image is exact-species CC BY-SA 2.0, sex unspecified, with PNG promotion pending.
+- **African Elephant:** Revisit representative length and early decimal anchors after more megafauna. Bite PSI remains 0.0 absent defensible evidence.
+- **African Lion:** Length conventions and bite-force models conflict. Do not treat mane as heavy armor.
+- **African Wild Dog:** Stamina 82.0 is an early endurance anchor; do not generalize all hunts as persistence chases.
+- **Albatross:** Wandering albatross canon. Stamina 96.0 needs later normalization against extreme migrants.
+- **Alligator:** Direct bite force is strong in newtons but PSI remains 0.0 without contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization.
+- **Alpaca:** Speed and bite PSI remain 0.0; Stamina 60.0 reflects altitude physiology rather than chase performance.
+- **Anaconda:** Green-anaconda taxonomy remains unsettled; canonical specimen is adult female. Revisit constriction/power spacing after giant snakes.
+- **Anglerfish:** Adult female *Ceratias holboelli*. Mass, speed, lifespan and bite PSI remain unresolved; normalize Special 76.0 later.
+- **Anteater:** Giant anteater canon. Keep speed/bite PSI 0.0 and revisit Attack 53.0 after more claw specialists.
+- **Arctic Fox:** Total length includes tail. Stamina 79.0 / Special 72.0 need later normalization.
+- **Arctic Wolf:** Traditional *Canis lupus arctos* label retained with subspecies caveat. Stamina 86.0 is provisional.
+- **Armadillo:** North American nine-banded canon treated as *Dasypus mexicanus*. Defense 47.0 / Special 54.0 need armored-taxon comparison.
+- **Army Ant:** *Eciton burchellii* major/soldier. Dry-mass baseline remains a caveat. Individual scores intentionally exclude colony-level feats.
+- **Axolotl:** Special 74.0 / Recovery 88.0 recognize regeneration without treating delayed healing as immediate Defense.
+- **Baboon:** Olive baboon adult male. Attack 45.0, Agility 72.0 and Intelligence 78.0 need primate/carnivore normalization.
+- **Bactrian Camel:** Domestic *Camelus bactrianus*. Stamina 90.0 is provisional; Attack 59.0 / Defense 57.0 need large-herbivore comparison.
+- **Badger:** European badger adult male. Seasonal mass varies; Attack 38.0 / Defense 39.0 / Toughness 43.0 need mustelid/carnivore comparison.
+- **Bald Eagle:** Adult female canon. Grip-pressure claims rejected. Agility 79.0 / Senses 82.0 / Stamina 75.0 need raptor normalization.
+- **Barn Owl:** Adult female canon. Attack 13.0 preserves absolute-force gap; Senses 94.0 / Special 82.0 need later sensory-specialist normalization.
+- **Barracuda:** Great barracuda canon. `speed_mps` 6.2 uses modern physiology estimate while historical burst data conflict. Bite PSI remains 0.0.
+- **Beaver:** North American beaver canon. Modeled incisor force is 550–740 N but PSI remains 0.0. Do not count dams/lodges as portable Defense.
+- **Beluga Whale:** Canon is *Delphinapterus leucas*, representative adult male at 1,500.0 kg and 430.0 cm. Keep `height_cm`, maximum `speed_mps` and `bite_force_psi` at 0.0. Repeated ~22 km/h speed claims were not promoted without sufficiently transparent primary maximum-speed methodology. Attack 61.0 intentionally stays below specialized macropredators despite large body mass; Defense 66.0 credits bulk/blubber without treating blubber as armor. Stamina 84.0, Intelligence 79.0, Senses 91.0 and Special 80.0 require later normalization against Orca, Bottlenose Dolphin, Narwhal, Sperm Whale, Blue Whale, Elephant Seal and other marine specialists. Cook Inlet ESA Endangered status is population-specific, not global. Selected exact-species CC BY-SA 4.0 image is captive and sex is not documented; a verified wild adult-male image would be preferable if found during production image promotion.
 
 ## Image pipeline status
 
-All 21 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.
+All 22 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

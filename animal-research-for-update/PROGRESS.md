@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 31 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 31
+- **Completed research files:** 32 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 32
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Boa Constrictor
-- **Next pending animal:** Bobcat
-- **Latest completion:** 2026-09-17 12:00 America/Chicago
-- **Latest new-animal image status:** Boa Constrictor — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
-- **Latest legacy image audit:** Albatross — full-body framing found, but WikiAves reproduction permission is not established, so candidate is `LICENSE UNVERIFIED - DO NOT COMMIT`
-- **Next legacy image audit:** Alligator
+- **Most recently completed:** Bobcat
+- **Next pending animal:** Bongo
+- **Latest completion:** 2026-09-17 13:00 America/Chicago
+- **Latest new-animal image status:** Bobcat — `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`
+- **Latest legacy image audit:** Alligator — 3504×2336 Steve Hillebrand/USFWS public-domain exact-species source verified for complete body; binary cutout pending
+- **Next legacy image audit:** Alpaca
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -29,8 +29,8 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **African Elephant:** Canon mature bull 5,500 kg. Attack 92.0 / Defense 94.0 remain provisional terrestrial-megafauna anchors. Bite PSI 0.0. Verified adult-male source; binary cutout pending.
 - **African Lion:** Length conventions and bite-force models conflict. Verified adult-male full-body source; binary cutout pending.
 - **African Wild Dog:** Stamina 82.0 remains an early endurance anchor. Verified adult-male source; cutout pending.
-- **Albatross:** Wandering albatross canon. Stamina 96.0 needs later normalization. A 2025 Mats Hildeman WikiAves image visibly satisfies complete-body framing, but WikiAves explicitly prohibits reproduction without express author permission, so it is not a committable source. Next image pass should find a reuse-permitted equivalent rather than rechecking framing.
-- **Alligator:** Direct bite force in newtons is strong but PSI remains 0.0 without defensible contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization.
+- **Albatross:** Wandering albatross canon. Stamina 96.0 needs later normalization. Current full-body candidate is license-blocked and must not be committed.
+- **Alligator:** Direct bite force in newtons is strong but PSI remains 0.0 without defensible contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization. Existing 3504×2336 USFWS source now verified full-body; cutout pending.
 - **Alpaca:** Speed and bite PSI remain 0.0; Stamina 60.0 reflects altitude physiology rather than chase performance.
 - **Anaconda:** Green-anaconda taxonomy remains unsettled; canonical specimen adult female. Revisit constriction/power spacing after giant snakes.
 - **Anglerfish:** Adult female *Ceratias holboelli*. Mass, speed, lifespan and bite PSI unresolved; normalize Special 76.0 later.
@@ -56,7 +56,8 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Black Rhinoceros:** *Diceros bicornis*, mature bull 1,200 kg. Attack 82.0 / Defense 76.0. Verified adult-male source; cutout pending.
 - **Black Widow:** Western black widow *Latrodectus hesperus*, mature female. Representative mass and maximum speed unresolved. Special 92.0 reflects venom plus silk without implying large-animal physical power.
 - **Blue Whale:** *Balaenoptera musculus*, canonical large adult female 120,000 kg / 2,600 cm. Size 100.0 is the living body-mass ceiling. Attack 78.0 avoids converting size into fictional weaponry.
-- **Boa Constrictor:** *Boa constrictor* sensu stricto, representative adult female 12.0 kg / 270.0 cm. `speed_mps` and bite PSI remain 0.0. Attack 58.0 / Raw Power 46.0 intentionally stay below the 50 kg canonical Anaconda (Attack 70.0 / Raw Power 66.0). Special 67.0 credits experimentally demonstrated circulatory constriction, heartbeat-guided pressure modulation and modular ventilation without triple-counting these as raw force. Historical sources often mix *B. constrictor* with *B. imperator*. Current 2048×1536 Commons image is exact-species but strict whole-body/adult verification remains pending.
+- **Boa Constrictor:** *Boa constrictor* sensu stricto, representative adult female 12.0 kg / 270.0 cm. `speed_mps` and bite PSI remain 0.0. Attack 58.0 / Raw Power 46.0 intentionally stay below the 50 kg canonical Anaconda. Current image remains strict full-body/adult unverified.
+- **Bobcat:** *Lynx rufus*, representative mature male 10.0 kg / 87.0 cm total length / 53.0 cm shoulder height. `speed_mps` remains 0.0 because the strongest direct chase evidence gives an average over 116 m in 12.3 s, not an instrumented maximum. Bite PSI remains 0.0. Attack 44.0 / Defense 29.0 preserve absolute scale while Agility 82.0 credits genuine maneuverability. Verified 1600×1160 wild adult-male full-body source; cutout pending.
 
 ## 25-animal checkpoint
 
@@ -64,4 +65,4 @@ Detailed evidence remains in each animal report. Active normalization watch item
 
 ## Image pipeline status
 
-31 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several legacy animals now have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+32 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several legacy animals now have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

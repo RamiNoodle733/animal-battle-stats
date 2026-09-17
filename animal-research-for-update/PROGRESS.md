@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 20 / 225
+- **Completed research files:** 21 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Barracuda
-- **Next pending animal:** Beaver
-- **Latest completion:** 2026-09-17 00:57 America/Chicago
-- **Latest image status:** Barracuda — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Beaver
+- **Next pending animal:** Beluga Whale
+- **Latest completion:** 2026-09-17 02:01 America/Chicago
+- **Latest image status:** Beaver — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -53,7 +53,8 @@ Detailed evidence and caveats remain in each completed animal report. The follow
 - **Bald Eagle:** Canon is *Haliaeetus leucocephalus*, representative adult female at 5.3 kg and 91.0 cm head-to-tail length. Keep `height_cm`, maximum `speed_mps` and `bite_force_psi` at 0.0. Attack 36.0 intentionally reflects sharp talons without pound-for-pound inflation; Agility 79.0, Senses 82.0 and Stamina 75.0 require normalization against Golden Eagle, Harpy Eagle, Peregrine Falcon, Osprey and owls. Grip-pressure claims are rejected absent transparent methodology.
 - **Barn Owl:** Canon is *Tyto alba*, representative adult female at 0.35 kg and 37.0 cm body length, anchored to BTO female live-bird biometrics while retaining geographic/taxonomic size variation. Keep `height_cm`, maximum `speed_mps` and `bite_force_psi` at 0.0. Attack 13.0 deliberately preserves the huge absolute-force gap to Bald Eagle and terrestrial predators. Agility 82.0, Senses 94.0 and Special 82.0 should be normalized after Great Horned Owl, Snowy Owl, Peregrine Falcon, Golden Eagle and Harpy Eagle. Quiet flight is experimentally supported but must not be described as literally zero sound or double-counted across combat categories. Primary image is an explicitly identified adult female public-domain *T. alba* photograph; PNG promotion remains pending.
 - **Barracuda:** Canon is great barracuda (*Sphyraena barracuda*), representative mature adult at 17.0 kg and 140.0 cm TL. `speed_mps` is 6.2 based on a modern peer-reviewed muscle-physiology estimate rather than the repeated 35-36 mph popular claim; historical 12.16 m/s burst data remain conflicting context. Bite mechanics are unusually well researched in newtons, but `bite_force_psi` remains 0.0 because no defensible tooth contact area was found. Attack 48.0 and Weaponry 61.0 should be normalized after sharks, billfishes, tuna, moray eel, piranha and giant grouper. Canonical sex remains unresolved. Primary image is exact-species CC BY-SA 4.0 but requires transparent PNG promotion.
+- **Beaver:** Canon is North American beaver (*Castor canadensis*), representative adult at 23.0 kg, 40.0 cm standing height and 110.0 cm total length. Peer-reviewed jaw modeling supports roughly 550–740 N incisor force and >96% force alignment, while 2023 enamel mechanics supports genuine self-sharpening. Keep maximum `speed_mps` and `bite_force_psi` at 0.0 because measured 0.64/0.9 m/s swim values are not maxima and no defensible incisor contact-area PSI conversion was found. Attack 42.0, Intelligence 63.0 and Special 60.0 should be normalized after Capybara, Wolverine, Coyote, Bobcat, corvids, primates and additional rodents. Do not count dams/lodges as portable Defense. Primary image is exact-species CC BY-SA 2.0, sex unspecified, with PNG promotion pending.
 
 ## Image pipeline status
 
-All 20 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.
+All 21 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

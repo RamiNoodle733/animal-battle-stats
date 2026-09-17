@@ -1,16 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 27 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 27
+- **Completed research files:** 28 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 28
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Black Panther
-- **Next pending animal:** Black Rhinoceros
-- **Latest completion:** 2026-09-17 07:58 America/Chicago
-- **Latest new-animal image status:** Black Panther — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
-- **Latest legacy image audit:** African Lion — `SOURCE FOUND - FULL-BODY NOT VERIFIED`; 12000×8000 candidate disqualified because Commons flags visible digital watermarking
+- **Most recently completed:** Black Rhinoceros
+- **Next pending animal:** Black Widow
+- **Latest completion:** 2026-09-17 08:58 America/Chicago
+- **Latest new-animal image status:** Black Rhinoceros — `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`
+- **Latest legacy image audit:** African Lion — verified clean 5356×3367 adult-male full-body source, cutout/commit pending
+- **Next legacy image audit:** African Wild Dog
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -25,8 +26,8 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 
 Detailed evidence remains in each animal report. Active normalization watch items include:
 
-- **African Elephant:** Canon mature bull 5,500 kg. Attack 92.0 / Defense 94.0 remain provisional terrestrial-megafauna anchors. Bite PSI remains 0.0. Image source upgraded to verified 6000×4000 adult male; binary cutout pending.
-- **African Lion:** Length conventions and bite-force models conflict. Do not treat mane as heavy armor. The 12000×8000 `Male lion walking.jpg` candidate is CC0 but Commons flags visible digital watermarking, so it is not acceptable under `IMAGE_REQUIREMENTS.md`. A clean, reusable, visibly complete adult-male source is still needed.
+- **African Elephant:** Canon mature bull 5,500 kg. Attack 92.0 / Defense 94.0 remain provisional terrestrial-megafauna anchors. Bite PSI 0.0. Verified 6000×4000 adult-male source; binary cutout pending.
+- **African Lion:** Length conventions and bite-force models conflict. Do not treat mane as heavy armor. Legacy image audit now has a verified 5356×3367 Bernard DUPONT adult-male Kruger side-view, CC BY-SA 2.0, with full paws and tail visible. Report image section still needs safe synchronization; binary cutout pending.
 - **African Wild Dog:** Stamina 82.0 is an early endurance anchor; do not generalize all hunts as persistence chases.
 - **Albatross:** Wandering albatross canon. Stamina 96.0 needs normalization against later extreme migrants.
 - **Alligator:** Direct bite force in newtons is strong but PSI remains 0.0 without defensible contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization.
@@ -45,13 +46,14 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Bald Eagle:** Adult female canon. Grip-pressure claims rejected. Agility 79.0 / Senses 82.0 / Stamina 75.0 need raptor normalization.
 - **Barn Owl:** Adult female canon. Attack 13.0 preserves absolute-force gap; Senses 94.0 / Special 82.0 need sensory-specialist normalization.
 - **Barracuda:** Great barracuda canon. `speed_mps` 6.2 uses modern physiology estimate while historical burst data conflict. Bite PSI 0.0.
-- **Beaver:** North American beaver. Modeled incisor force 550–740 N but PSI remains 0.0. Do not count dams/lodges as portable Defense.
+- **Beaver:** North American beaver. Modeled incisor force 550-740 N but PSI remains 0.0. Do not count dams/lodges as portable Defense.
 - **Beluga Whale:** Adult male 1,500 kg / 430 cm. Maximum speed and bite PSI remain 0.0. Stamina 84.0 / Intelligence 79.0 / Senses 91.0 / Special 80.0 need marine-specialist normalization.
 - **Bighorn Sheep:** Mature ram 110 kg. `speed_mps` 9.0 is peer-reviewed ramming approach speed, not maximum sprint. Attack 58.0 / Agility 74.0 need later ungulate comparison.
-- **Bison:** Mature bull 900 kg. `speed_mps` 15.3 uses Yellowstone 35 mph agency figure, not an instrumented trial. Attack 72.0 / Defense 68.0 need megaherbivore comparison.
-- **Black Bear:** American black bear mature male canon at 120 kg. `speed_mps` 13.4 is conservative amid agency claims. Bite PSI remains 0.0. Attack 56.0 / Defense 49.0 preserve absolute gap below Bison; hibernation is not combat stamina.
-- **Black Mamba:** *Dendroaspis polylepis*, representative 2.5 m / 1.6 kg adult. `speed_mps` 5.3 uses a conservative natural-history value. Bite PSI stays 0.0. Attack 66.0 reflects venom delivery rather than mechanical force; Special 94.0 is a provisional venom-specialist anchor.
-- **Black Panther:** Canon resolved as melanistic leopard *Panthera pardus*, matching the live profile's scientific name. Representative adult male 60.0 kg, 150.0 cm head-body, 65.0 cm shoulder. `speed_mps` and `bite_force_psi` remain 0.0 because repeated sprint and PSI claims lack adequate methodology. Headline ratings: Attack 59.0 / Defense 42.0 / Agility 83.0 / Stamina 61.0 / Intelligence 67.0 / Special 65.0. Melanism is treated as habitat-dependent camouflage, not armor or universal invisibility. Revisit after Jaguar, Tiger, Cougar, Clouded Leopard and Snow Leopard. Image candidate is exact wild melanistic *P. pardus*, 2093×1407 CC BY-SA 4.0, but strict complete-body verification remains pending.
+- **Bison:** Mature bull 900 kg. `speed_mps` 15.3 uses Yellowstone 35 mph agency figure, not instrumented trial. Attack 72.0 / Defense 68.0 need megaherbivore comparison.
+- **Black Bear:** American black bear mature male canon at 120 kg. `speed_mps` 13.4 conservative amid agency claims. Bite PSI 0.0. Attack 56.0 / Defense 49.0 preserve absolute gap below Bison; hibernation is not combat stamina.
+- **Black Mamba:** *Dendroaspis polylepis*, representative 2.5 m / 1.6 kg adult. `speed_mps` 5.3 conservative natural-history value. Bite PSI 0.0. Attack 66.0 reflects venom delivery rather than mechanical force; Special 94.0 provisional venom-specialist anchor.
+- **Black Panther:** Melanistic leopard *Panthera pardus*, adult male 60 kg. Speed and bite PSI remain 0.0. Attack 59.0 / Defense 42.0 / Agility 83.0 / Stamina 61.0 / Intelligence 67.0 / Special 65.0. Melanism is habitat-dependent camouflage, not armor.
+- **Black Rhinoceros:** *Diceros bicornis*, representative mature bull 1,200 kg, 165 cm shoulder, 350 cm head-body. `speed_mps` 13.9 is a conservative 50 km/h natural-history burst estimate rather than a controlled trial; bite PSI remains 0.0. Front horn canonical recommendation 55 cm with much larger exceptional values documented. Headline ratings Attack 82.0 / Defense 76.0 / Agility 59.0 / Stamina 68.0 / Intelligence 48.0 / Special 51.0. Keep clear absolute spacing below African Elephant and above Bison in horn-backed attack and durability. Verified 3456×2168 adult-male full-body source; binary cutout pending.
 
 ## 25-animal checkpoint
 
@@ -59,4 +61,4 @@ Detailed evidence remains in each animal report. Active normalization watch item
 
 ## Image pipeline status
 
-27 research reports are complete, but **0 verified transparent PNG binaries are committed**. African Elephant has a verified high-resolution adult-male source. Black Bear and Black Mamba have verified full-body source candidates. African Lion remains under strict legacy audit after the 12000×8000 CC0 candidate was disqualified for visible digital watermarking. Black Panther has a strong exact-taxon Commons source, but strict whole-body framing is not yet verified. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created.
+28 research reports are complete, but **0 verified transparent PNG binaries are committed**. Verified full-body sources now include African Elephant, African Lion, Black Bear, Black Mamba and Black Rhinoceros. Black Panther remains source-found but strict whole-body verification is pending. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record when a large historical report cannot be safely patched in place.

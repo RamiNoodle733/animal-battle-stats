@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 14 / 225
+- **Completed research files:** 15 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Axolotl
-- **Next pending animal:** Baboon
-- **Latest completion:** 2026-09-16 18:57 America/Chicago
-- **Latest image status:** Axolotl — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Baboon
+- **Next pending animal:** Bactrian Camel
+- **Latest completion:** 2026-09-16 20:00 America/Chicago
+- **Latest image status:** Baboon — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -46,12 +46,9 @@ Detailed evidence and caveats remain in each completed animal report. The follow
 - **Arctic Wolf:** Retain *Canis lupus arctos* as traditional High Arctic label while acknowledging subspecies uncertainty. Canonical male 40.0 kg. Keep maximum speed and bite PSI at 0.0. Stamina 86.0 is a strong endurance anchor to revisit later.
 - **Armadillo:** Canonical North American nine-banded animal treated as *Dasypus mexicanus* under the recent taxonomic split. Canonical 5.5 kg and 75.0 cm total length. Attack 14.0 remains low despite digging strength; Defense 47.0 and Special 54.0 require later armored-taxon comparison.
 - **Army Ant:** Canon is *Eciton burchellii* major/soldier worker. Canonical 0.0000104 kg is dry mass pending strong live-mass data. Attack 1.8, Defense 0.9 and Raw Power 0.3 deliberately prevent colony feats from leaking into individual scaling. Speed and bite PSI remain 0.0.
-- **Axolotl physical fields:** Canon is *Ambystoma mexicanum*, representative wild-type adult male at 0.2 kg and 25.0 cm total length. Height is not a useful standardized field. Keep maximum swim speed and bite PSI at 0.0 until defensible species-specific measurements exist.
-- **Axolotl regeneration:** Special 74.0 and Recovery 88.0 recognize genuine complex-tissue regeneration, but Defense remains only 4.5 because regeneration is time-dependent and does not prevent immediate incapacitation. Revisit Recovery after other highly regenerative roster taxa.
-- **Axolotl scaling:** Attack 2.8 and Raw Power 1.4 are deliberately near the roster floor, above individual Army Ant but vastly below small mammalian predators. Do not let famous regeneration create pound-for-pound leakage into physical scores.
-- **Axolotl conservation:** Wild population is Critically Endangered and restricted to Xochimilco despite global captive abundance. Production should refresh the current IUCN assessment during final migration.
-- **Axolotl image:** Selected real 4760×1324 photograph explicitly labeled adult male wild-type *A. mexicanum* on Wikimedia Commons, CC BY-SA 4.0. It is captive, not a verified wild Xochimilco animal. Binary transparent PNG remains pending.
+- **Axolotl:** Canon is *Ambystoma mexicanum*, representative wild-type adult male at 0.2 kg and 25.0 cm total length. Keep maximum swim speed and bite PSI at 0.0. Special 74.0 and Recovery 88.0 recognize real regeneration without treating delayed healing as immediate Defense. Wild population remains Critically Endangered; selected captive adult-male wild-type image still needs PNG promotion.
+- **Baboon:** Canon is olive baboon (*Papio anubis*), naturally foraging adult male at 24.0 kg. Total `length_cm` is explicitly head-body plus tail (132.0 cm). Keep maximum speed and bite PSI at 0.0: direct locomotor experiments reach 4.0 m/s but do not establish a maximum, and no defensible species-specific PSI was found. Attack 45.0, Agility 72.0 and Intelligence 78.0 should be revisited after chimpanzee/gorilla/macaque and additional carnivore anchors. The selected image is an explicitly identified adult male *P. anubis* from Serengeti, 3840×2160, CC BY-SA 3.0; transparent PNG remains pending.
 
 ## Image pipeline status
 
-All 14 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.
+All 15 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

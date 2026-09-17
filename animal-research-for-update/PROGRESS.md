@@ -1,14 +1,14 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 23 / 225
+- **Completed research files:** 24 / 225
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Bighorn Sheep
-- **Next pending animal:** Bison
-- **Latest completion:** 2026-09-17 04:01 America/Chicago
-- **Latest image status:** Bighorn Sheep — `SOURCE FOUND - PNG COMMIT PENDING`
+- **Most recently completed:** Bison
+- **Next pending animal:** Black Bear
+- **Latest completion:** 2026-09-17 05:01 America/Chicago
+- **Latest image status:** Bison — `SOURCE FOUND - PNG COMMIT PENDING`
 
 ## Selection rule
 
@@ -56,7 +56,8 @@ Detailed evidence and caveats remain in each completed animal report. Active cro
 - **Beaver:** North American beaver canon. Modeled incisor force is 550–740 N but PSI remains 0.0. Do not count dams/lodges as portable Defense.
 - **Beluga Whale:** Canon is *Delphinapterus leucas*, representative adult male at 1,500.0 kg and 430.0 cm. Keep `height_cm`, maximum `speed_mps` and `bite_force_psi` at 0.0. Repeated ~22 km/h speed claims were not promoted without sufficiently transparent primary maximum-speed methodology. Attack 61.0 intentionally stays below specialized macropredators despite large body mass; Defense 66.0 credits bulk/blubber without treating blubber as armor. Stamina 84.0, Intelligence 79.0, Senses 91.0 and Special 80.0 require later normalization against Orca, Bottlenose Dolphin, Narwhal, Sperm Whale, Blue Whale, Elephant Seal and other marine specialists. Cook Inlet ESA Endangered status is population-specific, not global. Selected exact-species CC BY-SA 4.0 image is captive and sex is not documented; a verified wild adult-male image would be preferable if found during production image promotion.
 - **Bighorn Sheep:** Canon is a representative mature *Ovis canadensis* ram at 110.0 kg, 100.0 cm shoulder height and 170.0 cm length. `speed_mps` 9.0 is a peer-reviewed ramming approach speed, not a proven species maximum sprint. The 3,400 N impact figure is a biomechanical estimate, not a universal collision value. Attack 58.0 / Weaponry 67.0 credit the dedicated horn-ram system while Defense 48.0 avoids turning localized head-impact protection into whole-body armor. Agility 74.0 reflects exceptional steep-rock control rather than speed. Revisit against Bison, Cape Buffalo, Elk, Moose, Mountain Goat, Musk Ox and Ibex. Selected image is a verified adult ram, public domain, 1,149×766; transparent PNG promotion remains pending.
+- **Bison:** Canon is a representative mature American bison (*Bison bison*) bull at 900.0 kg, 180.0 cm at the hump and 340.0 cm length. `speed_mps` 15.3 uses Yellowstone's 35 mph agency figure rather than a conflicting 40 mph NPS page and should not be described as instrumented maximum-speed evidence. `bite_force_psi` remains 0.0. Full-horn and horn-core measurements conflict and must not be conflated. Attack 72.0 / Defense 68.0 / Raw Power 78.0 need later normalization against Cape Buffalo, Musk Ox, Moose, Elk and Black Rhinoceros. Selected image is a 2700×1761 USDA ARS public-domain Featured Picture explicitly identified as a male *Bison bison*; transparent PNG promotion remains pending.
 
 ## Image pipeline status
 
-All 23 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.
+All 24 completed research reports contain a primary image source or candidate. Binary transparent PNG promotion remains pending where the GitHub connector cannot safely write binary assets. No placeholder or text-encoded fake PNGs are permitted. Final image promotion must follow the repository's provenance and strict asset-audit workflow.

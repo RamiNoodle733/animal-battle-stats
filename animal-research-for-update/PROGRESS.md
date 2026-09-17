@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 30 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 30
+- **Completed research files:** 31 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 31
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Blue Whale
-- **Next pending animal:** Boa Constrictor
-- **Latest completion:** 2026-09-17 11:00 America/Chicago
-- **Latest new-animal image status:** Blue Whale — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
-- **Latest legacy image audit:** Albatross — high-resolution exact-species CC BY-SA 4.0 candidate found, strict complete-wing/feet framing still pending
-- **Next legacy image audit:** Albatross
+- **Most recently completed:** Boa Constrictor
+- **Next pending animal:** Bobcat
+- **Latest completion:** 2026-09-17 12:00 America/Chicago
+- **Latest new-animal image status:** Boa Constrictor — `SOURCE FOUND - FULL-BODY NOT VERIFIED`
+- **Latest legacy image audit:** Albatross — full-body framing found, but WikiAves reproduction permission is not established, so candidate is `LICENSE UNVERIFIED - DO NOT COMMIT`
+- **Next legacy image audit:** Alligator
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -26,10 +26,10 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 
 Detailed evidence remains in each animal report. Active normalization watch items include:
 
-- **African Elephant:** Canon mature bull 5,500 kg. Attack 92.0 / Defense 94.0 remain provisional terrestrial-megafauna anchors. Bite PSI 0.0. Verified 6000×4000 adult-male source; binary cutout pending.
-- **African Lion:** Length conventions and bite-force models conflict. Do not treat mane as heavy armor. Verified 5356×3367 Bernard DUPONT adult-male Kruger side-view, CC BY-SA 2.0, full paws/tail visible; binary cutout pending.
-- **African Wild Dog:** Stamina 82.0 remains an early endurance anchor; do not generalize all hunts as persistence chases. Legacy image source now verified: Charles J. Sharp 3002×2001 wild adult male, Okavango Delta, CC BY-SA 3.0; cutout pending.
-- **Albatross:** Wandering albatross canon. Stamina 96.0 needs normalization against later extreme migrants. Image audit found Antoine Lamielle's 5568×3132 Crozet exact-species CC BY-SA 4.0 candidate, but strict whole-bird framing is not yet visually verified; a separately rendered Crozet flight image was rejected because a wing tip is clipped.
+- **African Elephant:** Canon mature bull 5,500 kg. Attack 92.0 / Defense 94.0 remain provisional terrestrial-megafauna anchors. Bite PSI 0.0. Verified adult-male source; binary cutout pending.
+- **African Lion:** Length conventions and bite-force models conflict. Verified adult-male full-body source; binary cutout pending.
+- **African Wild Dog:** Stamina 82.0 remains an early endurance anchor. Verified adult-male source; cutout pending.
+- **Albatross:** Wandering albatross canon. Stamina 96.0 needs later normalization. A 2025 Mats Hildeman WikiAves image visibly satisfies complete-body framing, but WikiAves explicitly prohibits reproduction without express author permission, so it is not a committable source. Next image pass should find a reuse-permitted equivalent rather than rechecking framing.
 - **Alligator:** Direct bite force in newtons is strong but PSI remains 0.0 without defensible contact area. Attack 84.0 / Raw Power 82.0 need upper-force normalization.
 - **Alpaca:** Speed and bite PSI remain 0.0; Stamina 60.0 reflects altitude physiology rather than chase performance.
 - **Anaconda:** Green-anaconda taxonomy remains unsettled; canonical specimen adult female. Revisit constriction/power spacing after giant snakes.
@@ -46,16 +46,17 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Bald Eagle:** Adult female canon. Grip-pressure claims rejected. Agility 79.0 / Senses 82.0 / Stamina 75.0 need raptor normalization.
 - **Barn Owl:** Adult female canon. Attack 13.0 preserves absolute-force gap; Senses 94.0 / Special 82.0 need sensory-specialist normalization.
 - **Barracuda:** Great barracuda canon. `speed_mps` 6.2 uses modern physiology estimate while historical burst data conflict. Bite PSI 0.0.
-- **Beaver:** North American beaver. Modeled incisor force 550-740 N but PSI remains 0.0. Do not count dams/lodges as portable Defense.
-- **Beluga Whale:** Adult male 1,500 kg / 430 cm. Maximum speed and bite PSI remain 0.0. Stamina 84.0 / Intelligence 79.0 / Senses 91.0 / Special 80.0 need marine-specialist normalization.
-- **Bighorn Sheep:** Mature ram 110 kg. `speed_mps` 9.0 is peer-reviewed ramming approach speed, not maximum sprint. Attack 58.0 / Agility 74.0 need later ungulate comparison.
-- **Bison:** Mature bull 900 kg. `speed_mps` 15.3 uses Yellowstone 35 mph agency figure, not instrumented trial. Attack 72.0 / Defense 68.0 need megaherbivore comparison.
-- **Black Bear:** American black bear mature male canon at 120 kg. `speed_mps` 13.4 conservative amid agency claims. Bite PSI 0.0. Attack 56.0 / Defense 49.0 preserve absolute gap below Bison; hibernation is not combat stamina.
-- **Black Mamba:** *Dendroaspis polylepis*, representative 2.5 m / 1.6 kg adult. `speed_mps` 5.3 conservative natural-history value. Bite PSI 0.0. Attack 66.0 reflects venom delivery rather than mechanical force; Special 94.0 provisional venom-specialist anchor.
-- **Black Panther:** Melanistic leopard *Panthera pardus*, adult male 60 kg. Speed and bite PSI remain 0.0. Attack 59.0 / Defense 42.0 / Agility 83.0 / Stamina 61.0 / Intelligence 67.0 / Special 65.0. Melanism is habitat-dependent camouflage, not armor.
-- **Black Rhinoceros:** *Diceros bicornis*, representative mature bull 1,200 kg. `speed_mps` 13.9 is a conservative natural-history burst estimate; bite PSI 0.0. Attack 82.0 / Defense 76.0. Verified adult-male full-body source; cutout pending.
-- **Black Widow:** Standardized as western black widow *Latrodectus hesperus*, mature adult female, canonical body length 1.3 cm. Representative mass and maximum speed remain unresolved rather than using ADW's implausible 25 g display value. Bite PSI 0.0. Attack 24.0 / Defense 2.0 preserve near-floor absolute physical scale; Special 92.0 reflects alpha-latrotoxin-rich venom plus silk capture without implying large-animal killing power. Revisit Special against later venomous arthropods. Current 1500×1061 female image candidate is slightly below preferred resolution and not strictly whole-body verified.
-- **Blue Whale:** *Balaenoptera musculus*, canonical large adult female northern blue whale at 120,000 kg and 2,600 cm. `speed_mps` 7.5 uses the best peer-reviewed racing-speed estimate found, explicitly caveated because it is not a universal instrumented maximum trial. Bite PSI and standing height remain 0.0. Size 100.0 is the living body-mass ceiling; Attack 78.0 avoids turning size into fictional weaponry, while Defense 91.0 / Raw Power 96.0 need final normalization against African Elephant, Orca, Sperm Whale and extinct marine giants. Current NOAA public-domain 1792×1128 adult source has excellent provenance but remains strict whole-body-not-verified before cutout.
+- **Beaver:** North American beaver. Modeled incisor force 550-740 N but PSI remains 0.0.
+- **Beluga Whale:** Adult male 1,500 kg / 430 cm. Maximum speed and bite PSI remain 0.0. Marine-specialist normalization pending.
+- **Bighorn Sheep:** Mature ram 110 kg. `speed_mps` 9.0 is ramming approach speed, not maximum sprint.
+- **Bison:** Mature bull 900 kg. `speed_mps` 15.3 uses Yellowstone agency figure, not instrumented trial.
+- **Black Bear:** American black bear mature male 120 kg. Bite PSI 0.0. Hibernation is not combat stamina.
+- **Black Mamba:** *Dendroaspis polylepis*, 2.5 m / 1.6 kg adult. Special 94.0 provisional venom-specialist anchor.
+- **Black Panther:** Melanistic *Panthera pardus*, adult male 60 kg. Melanism is habitat-dependent camouflage, not armor.
+- **Black Rhinoceros:** *Diceros bicornis*, mature bull 1,200 kg. Attack 82.0 / Defense 76.0. Verified adult-male source; cutout pending.
+- **Black Widow:** Western black widow *Latrodectus hesperus*, mature female. Representative mass and maximum speed unresolved. Special 92.0 reflects venom plus silk without implying large-animal physical power.
+- **Blue Whale:** *Balaenoptera musculus*, canonical large adult female 120,000 kg / 2,600 cm. Size 100.0 is the living body-mass ceiling. Attack 78.0 avoids converting size into fictional weaponry.
+- **Boa Constrictor:** *Boa constrictor* sensu stricto, representative adult female 12.0 kg / 270.0 cm. `speed_mps` and bite PSI remain 0.0. Attack 58.0 / Raw Power 46.0 intentionally stay below the 50 kg canonical Anaconda (Attack 70.0 / Raw Power 66.0). Special 67.0 credits experimentally demonstrated circulatory constriction, heartbeat-guided pressure modulation and modular ventilation without triple-counting these as raw force. Historical sources often mix *B. constrictor* with *B. imperator*. Current 2048×1536 Commons image is exact-species but strict whole-body/adult verification remains pending.
 
 ## 25-animal checkpoint
 
@@ -63,4 +64,4 @@ Detailed evidence remains in each animal report. Active normalization watch item
 
 ## Image pipeline status
 
-30 research reports are complete, but **0 verified transparent PNG binaries are committed**. Verified full-body sources include African Elephant, African Lion, African Wild Dog, Black Bear, Black Mamba and Black Rhinoceros. Black Panther, Black Widow, Blue Whale and Albatross currently have candidates that are not yet strict whole-body verified. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+31 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several legacy animals now have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

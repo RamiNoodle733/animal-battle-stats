@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 57 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 57
+- **Completed research files:** 58 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 58
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Cuttlefish
-- **Next pending animal:** Deathstalker Scorpion
-- **Latest completion:** 2026-09-18 14:03 America/Chicago
-- **Latest new-animal image status:** Cuttlefish - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *Sepia officinalis*, Diego Delso, 3868x2579, CC BY-SA 4.0. High-resolution exact-species wild source and reuse terms are strong, but explicit adulthood/sex and strict visibility of every arm/tentacle plus complete mantle-fin silhouette were not simultaneously certified.
-- **Latest legacy image audit:** Boa Constrictor - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A stronger 4928x3264 CC BY 2.0 exact-*Boa constrictor* source was found, and its Commons description discusses mature size, but the photographed individual's adulthood/sex and strict uninterrupted head-to-tail silhouette were not simultaneously verified. An ADW source explicitly labels a separate *B. constrictor* photograph adult/sexually mature, but it was not simultaneously established as a 1600+ strict full-body candidate.
-- **Next legacy image audit:** Bongo.
+- **Most recently completed:** Deathstalker Scorpion
+- **Next pending animal:** Dhole
+- **Latest completion:** 2026-09-18 15:02 America/Chicago
+- **Latest new-animal image status:** Deathstalker Scorpion - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *Leiurus quinquestriatus*, Danny S., 2212x2357, CC BY-SA 4.0. Exact species, resolution and reuse terms are strong, but Commons does not establish adulthood/sex and strict visibility of every leg tip, both pedipalps and complete telson/aculeus was not certified strongly enough to pass. An explicit 3957x2638 sub-adult female source was rejected because adulthood is mandatory.
+- **Latest legacy image audit:** Bongo - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Existing 2848x4288 Commons Quality Image is exact *Tragelaphus eurycerus*, explicitly male and CC BY-SA 3.0, but its page does not explicitly establish adulthood. A separate American Society of Mammalogists image explicitly identifies an adult male *T. e. isaaci* in side view, but reuse permission was not established, so it is not a commit candidate.
+- **Next legacy image audit:** Bottlenose Dolphin.
 - **Latest checkpoint:** `audits/CHECKPOINT-050.md`; next checkpoint at 75 completed research files.
 
 ## Selection rule
@@ -41,7 +41,8 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 - Cougar remains a mass-vs-specialization and speed-vs-agility control: canonical 70 kg adult male is Attack 55.0 / Defense 34.0 / Agility 92.0.
 - Coyote remains a generalist-success-vs-combat-power control: canonical 15 kg adult male is Attack 38.0 / Defense 25.0 / Agility 82.0 / Stamina 74.0 / Intelligence 76.0 / Special 61.0.
 - Crow remains a cognition-vs-physical-power control: canonical 0.5 kg adult male is Attack 14.0 / Defense 9.0 / Agility 82.0 / Stamina 68.0 / Intelligence 96.0 / Special 67.0.
-- **Cuttlefish is a camouflage/cognition-vs-physical-power control:** canonical 2.5 kg mature male *Sepia officinalis* is Attack 27.0 / Defense 18.0 / Agility 91.0 / Stamina 47.0 / Intelligence 92.0 / Special 93.0. Dynamic camouflage and self-control evidence raise Special/Intelligence without leaking into passive durability or raw force.
+- Cuttlefish remains a camouflage/cognition-vs-physical-power control: canonical 2.5 kg mature male *Sepia officinalis* is Attack 27.0 / Defense 18.0 / Agility 91.0 / Stamina 47.0 / Intelligence 92.0 / Special 93.0.
+- **Deathstalker Scorpion is a venom-vs-absolute-power control:** canonical 2.0 g large adult female *Leiurus quinquestriatus* is Attack 19.0 / Defense 6.0 / Agility 64.0 / Stamina 42.0 / Intelligence 20.0 / Special 96.0. Exceptional venom potency is concentrated in Abilities/Special and does not inflate Raw Power, Protection or Toughness. Mouse LD50 is not treated as a universal opponent lethal dose.
 
 ### Recent animal notes
 
@@ -51,7 +52,8 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 - **Cougar:** *Puma concolor*, mature male 70.0 kg. Attack 55.0 / Defense 34.0 / Agility 92.0 / Stamina 58.0 / Intelligence 68.0 / Special 67.0.
 - **Coyote:** *Canis latrans*, mature male 15.0 kg. Attack 38.0 / Defense 25.0 / Agility 82.0 / Stamina 74.0 / Intelligence 76.0 / Special 61.0.
 - **Crow:** *Corvus brachyrhynchos*, mature male canonical 0.5 kg. Attack 14.0 / Defense 9.0 / Agility 82.0 / Stamina 68.0 / Intelligence 96.0 / Special 67.0.
-- **Cuttlefish:** standardized to *Sepia officinalis*, robust mature temperate male canonical 2.5 kg, 40.0 cm mantle length, 50.0 cm proposed relaxed total length. Attack 27.0 / Defense 18.0 / Agility 91.0 / Stamina 47.0 / Intelligence 92.0 / Special 93.0. `speed_mps` and `bite_force_psi` remain 0.0 because no defensible species-specific values for those schema semantics were verified; `lifespan_years` is 1.5 from the well-supported 1-2 year life cycle.
+- **Cuttlefish:** *Sepia officinalis*, robust mature temperate male canonical 2.5 kg. Attack 27.0 / Defense 18.0 / Agility 91.0 / Stamina 47.0 / Intelligence 92.0 / Special 93.0.
+- **Deathstalker Scorpion:** *Leiurus quinquestriatus*, large adult female canonical 0.0020 kg and 9.0 cm total length. Attack 19.0 / Defense 6.0 / Agility 64.0 / Stamina 42.0 / Intelligence 20.0 / Special 96.0. `speed_mps`, `lifespan_years`, `height_cm`, and `bite_force_psi` remain 0.0 where the required species-specific measurement was not defensibly established.
 
 ## 50-animal checkpoint
 
@@ -59,4 +61,4 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 
 ## Image pipeline status
 
-57 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+58 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

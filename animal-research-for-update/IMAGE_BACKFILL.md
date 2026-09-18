@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 52 / 225 (through Colossal Squid). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 52. A source-photo link is not an approved PNG.
+**Research reports completed:** 53 / 225 (through Condor). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 53. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -29,10 +29,10 @@
 | Beaver | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Castor canadensis*, Courtney Celley/USFWS, 8800x5867, public domain; adulthood plus complete tail/all paws not simultaneously verified | No | Do not promote until strict adult/full-body inspection passes |
 | Beluga Whale | **REPLACEMENT SOURCE NEEDED:** exact *Delphinapterus leucas* candidates inspected; no candidate simultaneously showed complete body/flippers/flukes and explicit adulthood | No | Seek explicit adult, preferably male, clean underwater side view |
 | Bighorn Sheep | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Ovis canadensis*, NPS/Glacier, 4500x3000, CC BY 2.0; direct inspection shows complete head/horns/torso/all four legs-hooves/tail region, but adulthood is not explicit | No | Seek/verify one source simultaneously proving adult status and strict full-body framing |
-| Bison | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Bison bison* bull, Yellowstone, 2816x2120, public domain; source explicitly says bull but this run could not visually certify all four hooves and tail from the original | No | Need strict complete-body inspection before promotion |
+| Bison | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Bison bison* bull, Yellowstone, 2816x2120, public domain; strict all-hooves/tail verification remains unresolved. A separate 2592x1944 NPS rutting-bull candidate was rejected because the rear body is too close to/cropped by the frame edge. | No | Advance queue; revisit only with a clearly complete adult-bull source |
 | Black Bear | **Verified source:** 1944x1855 exact-species public-domain full-body; sex unknown | No | Binary cutout/commit pending |
 | Black Mamba | **Verified source:** 4320x2592 exact-species, CC BY-SA 2.0; complete coiled snake | No | Binary cutout/commit pending |
-| Black Panther | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** melanistic *Panthera pardus*, 2093x1407, CC BY-SA 4.0 | No | Verify paws/tail |
+| Black Panther | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** melanistic *Panthera pardus*, 2093x1407, CC BY-SA 4.0 | No | **Next legacy audit:** verify paws/tail/adulthood |
 | Black Rhinoceros | **Verified source:** 3456x2168 adult male *Diceros bicornis*, GFDL 1.2 | No | Binary cutout/commit pending |
 | Black Widow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** female *Latrodectus hesperus*, 1500x1061, CC BY 2.0 | No | Prefer larger adult-female source |
 | Blue Whale | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** NOAA adult *Balaenoptera musculus*, 1792x1128, public domain | No | Verify complete silhouette/fins |
@@ -58,17 +58,18 @@
 | Cockatoo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Cacatua galerita*, 2000x2500, CC BY-SA 3.0; tail/body complete but perch obscures feet and adulthood/sex are not explicit | No | Seek explicit adult, preferably male, with both feet visible or clean full-flight anatomy |
 | Coconut Crab | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Birgus latro*, 1915x1956, CC BY-SA 4.0; complete major silhouette but adulthood/sex not explicit | No | Seek explicit adult male with all appendages clearly visible |
 | Colossal Squid | **REPLACEMENT SOURCE NEEDED:** exact adult-scale female specimens are photographed, but available sources depict dying/dead/preserved animals; first confirmed live wild 2025 image is juvenile | No | Seek healthy adult full-body real photograph; do not substitute museum carcass |
+| Condor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult *Gymnogyps californianus*, 1584x1047, CC BY 2.0; adulthood explicit, strict foot/digit visibility not established. Higher-resolution 3326x2640 USFWS public-domain alternate lacks explicit adulthood. | No | Seek/verify one source combining explicit adult status, complete flight anatomy and 1600+ resolution |
 
 ## Image count and acceptance rule
 
-- `52` is a text-research count, not the number of valid images.
+- `53` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
 
 ## Latest findings and blockers
 
-- **2026-09-18 Bison:** Broad image search located `BisonBlackDragonCaldron.jpg`, an exact *Bison bison* bull photographed at Yellowstone. Commons explicitly describes it as a bull, provides a 2816x2120 original, and records a public-domain dedication. Source page: https://commons.wikimedia.org/wiki/File:BisonBlackDragonCaldron.jpg ; original: https://upload.wikimedia.org/wikipedia/commons/2/22/BisonBlackDragonCaldron.jpg . The available original-image fetch timed out in this run, so strict visual confirmation of the tail and all four hooves could not be completed. Status is `SOURCE FOUND - FULL-BODY NOT VERIFIED`, not promoted from metadata or dimensions alone.
-- **2026-09-18 Colossal Squid:** Te Papa documents the 2007 Ross Sea specimen as an adult-scale female near 470 kg corrected mass, but museum photographs depict a dying/dead/preserved specimen. Te Papa imagery is also marked CC BY-NC-ND. The first confirmed in-situ live *Mesonychoteuthis hamiltoni* footage announced in 2025 shows a roughly 30 cm juvenile. No source found this run simultaneously met exact species + healthy adult + full body + suitable reuse/cutout conditions. Status: `REPLACEMENT SOURCE NEEDED`.
+- **2026-09-18 Bison:** Re-reviewed the unresolved legacy entry. `BisonBlackDragonCaldron.jpg` remains an exact Yellowstone *Bison bison* bull, 2816x2120 and public domain, but strict all-hooves plus tail visibility is still not sufficiently certified. A separate NPS/Wind Cave rutting bull image at 2592x1944 was visually inspected and rejected because the rear body is too close to/cropped by the frame edge. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`, and the queue advances rather than repeatedly revisiting it.
+- **2026-09-18 Condor:** The California DFW source `Adult California condor in flight (26251613384).jpg` is exact species, explicitly adult, 1584x1047 and CC BY 2.0. It is a useful provenance anchor but misses the preferred 1600-pixel threshold by 16 pixels and does not strictly establish every foot/digit in the flight pose. A 2023 USFWS source is exact species, 3326x2640 and public domain with a clean flight silhouette, but adulthood is not explicit. Condor is therefore `SOURCE FOUND - FULL-BODY NOT VERIFIED`, not complete.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Black Bear is already source-verified, so future runs should skip source re-research unless binary tooling changes; otherwise advance to the next unreviewed/non-verified legacy candidate according to queue order.
+- **Next legacy audit:** Black Panther. Black Bear and Black Mamba are already source-verified and should be skipped unless binary tooling becomes available.

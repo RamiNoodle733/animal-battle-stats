@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 41 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 41
+- **Completed research files:** 42 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 42
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Cape Buffalo
-- **Next pending animal:** Capuchin Monkey
-- **Latest completion:** 2026-09-17 21:59 America/Chicago
-- **Latest new-animal image status:** Cape Buffalo — `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`; exact *Syncerus caffer caffer* male, Charles J. Sharp, 4992×3328, CC BY-SA 4.0; direct original inspection confirms complete head, torso, all four legs/hooves and tail in frame
-- **Latest legacy image audit:** Army Ant — several exact *Eciton burchellii* reuse-permitted photographs were inspected. The 4201×2801 La Selva source shows a complete isolated soldier-like individual but the ant occupies too few source pixels for a strong cutout; other high-resolution sources are group/trail images. No candidate was falsely promoted.
-- **Next legacy image audit:** Axolotl
+- **Most recently completed:** Capuchin Monkey
+- **Next pending animal:** Capybara
+- **Latest completion:** 2026-09-17 22:58 America/Chicago
+- **Latest new-animal image status:** Capuchin Monkey - `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact *Sapajus apella*, Basile Morin, 3935x3935, CC BY-SA 4.0. Direct inspection confirms complete head, torso, four extremities and tail, but source metadata does not establish adulthood or sex, so it is not promoted to the mandatory adult standard.
+- **Latest legacy image audit:** Axolotl - high-resolution exact-species candidates were inspected. `Axolotl Wild Type.jpg` is explicitly an adult male *Ambystoma mexicanum*, 4760x1324, CC BY-SA 4.0, but the strict all-four-limbs rule is not satisfied because the side-on pose visibly exposes only the near-side limbs. Other inspected sources were lower resolution, group images, or did not improve strict appendage visibility. Status is `REPLACEMENT SOURCE NEEDED` rather than falsely passing a strong-looking photograph.
+- **Next legacy image audit:** Baboon
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -32,10 +32,11 @@ Detailed evidence and older watch items remain in the individual animal reports 
 - Stamina normalization must continue separating pursuit endurance, migration, environmental tolerance and dehydration resistance.
 - Special must not double-count ordinary size, horns, toughness or sociality.
 - Image completion remains separate from text completion. Source verification alone does not increment the transparent-PNG count.
+- Capuchin Monkey is a key anti-compression case: high Intelligence/Agility are compatible with low absolute Attack/Defense at only about 4 kg.
 
 ### Recent animal notes
 
-- **Bongo:** *Tragelaphus eurycerus*, mature male 300 kg. Attack 59.0 / Defense 49.0; horns 75–99 cm; speed and bite PSI unresolved.
+- **Bongo:** *Tragelaphus eurycerus*, mature male 300 kg. Attack 59.0 / Defense 49.0; horns 75-99 cm; speed and bite PSI unresolved.
 - **Bottlenose Dolphin:** *Tursiops truncatus*, mature Sarasota male 260 kg. Agility 88.0 / Intelligence 94.0 / Special 92.0; bite PSI unresolved.
 - **Box Jellyfish:** *Chironex fleckeri*, mature medusa around 2 kg. Special 98.0 reflects venom system while Defense remains 10.0.
 - **Bull Shark:** *Carcharhinus leucas*, adult female 111 kg / 284 cm. Theoretical posterior bite force up to 5,914 N is not converted to PSI.
@@ -43,7 +44,8 @@ Detailed evidence and older watch items remain in the individual animal reports 
 - **Bullfrog:** *Lithobates catesbeianus*, mature territorial male 0.5 kg / 15 cm SVL. Primary dataset documented 2.2 m maximum jump; speed and bite PSI unresolved.
 - **Camel:** *Camelus dromedarius*, mature male 550 kg. Stamina 91.0; speed and bite PSI unresolved rather than copied from weak web values.
 - **Camel Spider:** *Galeodes arabs*, mature female around 5.1 cm body length. Genus-level bite test reached 2.12 N; species-specific PSI and instrumented maximum speed unresolved.
-- **Cape Buffalo:** *Syncerus caffer caffer*, mature bull 750 kg / 150 cm shoulder / 270 cm head-body. Proposed Attack 76.0 / Defense 70.0 / Agility 55.0 / Stamina 73.0 / Intelligence 56.0 / Special 52.0. Horn span 72.5–134 cm and curve length 66–116 cm. Live 92.3/91.1 Attack/Defense placeholders were independently rejected as inflated. `speed_mps` and bite PSI remain 0.0. Verified adult-male full-body source; binary cutout pending.
+- **Cape Buffalo:** *Syncerus caffer caffer*, mature bull 750 kg / 150 cm shoulder / 270 cm head-body. Attack 76.0 / Defense 70.0 / Agility 55.0 / Stamina 73.0 / Intelligence 56.0 / Special 52.0. Speed and bite PSI remain 0.0.
+- **Capuchin Monkey:** *Sapajus apella*, mature male 4.0 kg / 45.0 cm head-body. Proposed Attack 23.0 / Defense 17.0 / Agility 84.0 / Stamina 56.0 / Intelligence 92.0 / Special 72.0. Tool-choice experiments support high cognition, but physical ratings remain low on the absolute roster scale. `speed_mps` and bite PSI remain 0.0.
 
 ## 25-animal checkpoint
 
@@ -51,4 +53,4 @@ Detailed evidence and older watch items remain in the individual animal reports 
 
 ## Image pipeline status
 
-41 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+42 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

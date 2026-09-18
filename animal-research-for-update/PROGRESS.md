@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 47 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 47
+- **Completed research files:** 48 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 48
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Cheetah
-- **Next pending animal:** Chimpanzee
-- **Latest completion:** 2026-09-18 04:00 America/Chicago
-- **Latest new-animal image status:** Cheetah - `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact explicit male *Acinonyx jubatus*, Bernard DUPONT, 4206x2942, CC BY-SA 2.0. Direct inspection confirms strong body/paw detail but the tail reaches/crosses the left frame edge, so the mandatory complete-tail standard is not met. Continue seeking a reuse-permitted explicit adult male with the whole tail inside frame. Binary PNG tooling remains unavailable.
-- **Latest legacy image audit:** Barn Owl - two high-resolution exact-*Tyto alba* reuse-permitted flight candidates found: 6629x3318 CC0 and 4616x3296 CC BY 2.0. Strict adulthood plus complete wings/talons/tail visibility was not simultaneously established from the available render path, so status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Barracuda
+- **Most recently completed:** Chimpanzee
+- **Next pending animal:** Clouded Leopard
+- **Latest completion:** 2026-09-18 05:00 America/Chicago
+- **Latest new-animal image status:** Chimpanzee - `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact male *Pan troglodytes*, Hans Hillewaert, 3798x2848, CC BY-SA 3.0. Direct inspection confirms complete visible anatomy including both hands and feet, but the source does not explicitly establish adulthood. Explicit-adult alternatives found this run were obstructed by cage bars or branches/prey and were rejected for cutout use. Binary PNG tooling remains unavailable.
+- **Latest legacy image audit:** Barracuda - exact *Sphyraena barracuda* 3406x2126 CC BY-SA 4.0 underwater photograph directly inspected; complete snout, body, fins and caudal fin are inside frame, but source metadata does not explicitly establish adulthood. Status `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Next legacy image audit:** Beaver
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -30,10 +30,11 @@ Detailed evidence and older watch items remain in the individual animal reports 
 - Unsupported bite-pressure values stay at 0.0 when only force, morphology or folklore values exist; force is not converted to PSI without contact area.
 - Maximum speed stays at 0.0 where no defensible species-specific measurement or strong agency/institutional value is available; top speed is not substituted for Agility.
 - Stamina normalization must continue separating pursuit endurance, migration, environmental tolerance and dehydration resistance.
-- Special must not double-count ordinary size, horns, toughness or sociality.
+- Special must not double-count ordinary size, horns, toughness, cognition or sociality.
 - Image completion remains separate from text completion. Source verification alone does not increment the transparent-PNG count.
-- Chameleon is a useful specialization-vs-absolute-power calibration case: a roughly 45 g female can score Special 88.0 and Senses 88.0 because of ballistic tongue and visual tracking systems while remaining Attack 12.0 and Defense 8.0 on the absolute roster scale.
-- Cheetah is a key speed-vs-agility calibration case. Its directly measured wild maximum of about 25.9 m/s supports Speed 98.0, while field-measured acceleration, braking and lateral acceleration support Agility 97.0. Those values must not leak into Attack, Defense or Stamina.
+- Chameleon is a specialization-vs-absolute-power calibration case: a roughly 45 g female can score Special 88.0 while remaining Attack 12.0 and Defense 8.0.
+- Cheetah is a key speed-vs-agility case: directly measured wild maximum around 25.9 m/s supports Speed 98.0, while acceleration/braking data support Agility 97.0 without leaking into Attack/Defense/Stamina.
+- Chimpanzee is a proportional-strength and cognition calibration case. PNAS muscle work supports about 1.35x human-sized dynamic force/power, not folklore-level super strength. Group violence and tool use elevate Tactics/Intelligence but must not be double-counted as extra bodies or guaranteed weapons in solo combat.
 
 ### Recent animal notes
 
@@ -47,8 +48,9 @@ Detailed evidence and older watch items remain in the individual animal reports 
 - **Capybara:** *Hydrochoerus hydrochaeris*, dominant adult male 54.0 kg / 120.0 cm. Attack 31.0 / Defense 29.0 / Agility 65.0 / Stamina 52.0 / Intelligence 52.0 / Special 63.0.
 - **Caracal:** *Caracal caracal*, mature male 17.0 kg / 85.0 cm head-body. Attack 44.0 / Defense 25.0 / Agility 90.0 / Stamina 53.0 / Intelligence 60.0 / Special 61.0.
 - **Cassowary:** *Casuarius casuarius*, mature female 65.0 kg / 165.0 cm standing height. Attack 57.0 / Defense 39.0 / Agility 73.0 / Stamina 58.0 / Intelligence 49.0 / Special 60.0.
-- **Chameleon:** roster label resolved to *Chamaeleo chamaeleon*, healthy mature non-gravid female about 45 g. Attack 12.0 / Defense 8.0 / Agility 65.0 / Stamina 31.0 / Intelligence 48.0 / Special 88.0. Legacy 36 km/h speed and 100 PSI bite are rejected as unsupported.
-- **Cheetah:** *Acinonyx jubatus*, mature male 46.0 kg / 80.0 cm shoulder / 130.0 cm head-body. Canonical speed 25.9 m/s from instrumented wild hunting data. Attack 41.0 / Defense 24.0 / Agility 97.0 / Stamina 43.0 / Intelligence 62.0 / Special 76.0. Bite PSI remains 0.0 rather than using unsupported internet figures.
+- **Chameleon:** *Chamaeleo chamaeleon*, healthy mature non-gravid female about 45 g. Attack 12.0 / Defense 8.0 / Agility 65.0 / Stamina 31.0 / Intelligence 48.0 / Special 88.0. Legacy 36 km/h speed and 100 PSI bite rejected.
+- **Cheetah:** *Acinonyx jubatus*, mature male 46.0 kg / 80.0 cm shoulder / 130.0 cm head-body. Canonical speed 25.9 m/s from instrumented wild hunting data. Attack 41.0 / Defense 24.0 / Agility 97.0 / Stamina 43.0 / Intelligence 62.0 / Special 76.0.
+- **Chimpanzee:** *Pan troglodytes*, mature male 46.0 kg. Attack 46.0 / Defense 31.0 / Agility 83.0 / Stamina 57.0 / Intelligence 96.0 / Special 75.0. Legacy ~39.6 km/h speed and 1,300 PSI bite are rejected as unverified; speed and bite PSI remain 0.0.
 
 ## 25-animal checkpoint
 
@@ -56,4 +58,4 @@ Detailed evidence and older watch items remain in the individual animal reports 
 
 ## Image pipeline status
 
-47 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+48 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

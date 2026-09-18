@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 56 / 225 (through Crow). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 56. A source-photo link is not an approved PNG.
+**Research reports completed:** 57 / 225 (through Cuttlefish). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 57. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -36,9 +36,9 @@
 | Black Rhinoceros | **Verified source:** 3456x2168 adult male *Diceros bicornis*, GFDL 1.2 | No | Binary cutout/commit pending |
 | Black Widow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact female *Latrodectus hesperus*, 1670x1144, CC BY-SA 3.0/GFDL; egg sac observed weeks later supports reproductive maturity, but strict all-eight-leg framing not certified | No | Queue advances; revisit only with original-resolution visual certification or better explicit-adult female source |
 | Blue Whale | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult *Balaenoptera musculus*, NOAA/NMFS, 1792x1128, public domain; adulthood explicit but strict complete flipper/fluke silhouette could not be certified from available render path | No | Queue advances; revisit only with direct original-image visual inspection or stronger explicit-adult complete source |
-| Boa Constrictor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Boa constrictor*, 2048x1536, CC BY-SA 2.0 Germany | No | **Next legacy audit:** verify complete head-to-tail coil/adulthood |
+| Boa Constrictor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Boa constrictor* Commons candidate 4928x3264, CC BY 2.0; higher resolution than prior source, but photographed individual's adulthood/sex and strict complete head-to-tail silhouette were not simultaneously certified. Separate ADW *B. constrictor* source explicitly labels subject adult/sexually mature. | No | Queue advances; revisit only with one source simultaneously proving adult and strict full body |
 | Bobcat | **Verified source:** 1600x1160 wild adult male *Lynx rufus*, CC BY-SA 3.0 | No | Binary cutout/commit pending |
-| Bongo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** male *Tragelaphus eurycerus*, 2848x4288, CC BY-SA 3.0 | No | Verify hooves/tail |
+| Bongo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** male *Tragelaphus eurycerus*, 2848x4288, CC BY-SA 3.0 | No | **Next legacy audit:** verify adult status, all hooves and complete tail |
 | Bottlenose Dolphin | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Tursiops truncatus*, 3053x2212, CC BY-SA 2.0 | No | Verify rostrum/flippers/dorsal/flukes |
 | Box Jellyfish | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 900x1600 `Chironex sp.` candidate | No | Find high-resolution exact mature *C. fleckeri* |
 | Bull Shark | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Carcharhinus leucas*, 6839x4559 | No | Verify fins/caudal/adulthood/sex |
@@ -62,17 +62,18 @@
 | Cougar | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult male *Puma concolor* P-1, 1752x1177, NPS public domain; age/sex explicit, but direct visual inspection shows tail cropped at right edge | No | Seek explicit adult male with all paws and entire tail inside frame |
 | Coyote | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 2971x2377 CC BY 2.0 candidate explicitly titled Alpha Male Coyote; alternate explicit male is 6000x4000 CC BY 2.0 | No | Strictly verify adult status, all paws and full tail before cutout |
 | Crow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Corvus brachyrhynchos*, 5568x3712, CC BY 4.0 | No | Verify explicit adulthood and strict toes/tail framing before cutout |
+| Cuttlefish | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sepia officinalis*, Diego Delso, 3868x2579, CC BY-SA 4.0 | No | Explicit adulthood and strict all-arm/tentacle plus complete mantle-fin silhouette remain unresolved |
 
 ## Image count and acceptance rule
 
-- `56` is a text-research count, not the number of valid images.
+- `57` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
 
 ## Latest findings and blockers
 
-- **2026-09-18 Blue Whale:** Re-audited the oldest unresolved queue entry. `Bluewhale877.jpg` is exact *Balaenoptera musculus*, explicitly described as an adult from the eastern Pacific, 1792x1128, and public domain as NOAA/NMFS federal work. Provenance and adulthood are strong. Strict complete silhouette, including both flippers and full flukes, could not be certified through the available render path, so it remains `SOURCE FOUND - FULL-BODY NOT VERIFIED` rather than being promoted from metadata alone. Queue advances to Boa Constrictor.
-- **2026-09-18 Crow:** Exact-species TRinaud candidate is 5568x3712 and CC BY 4.0. It is high resolution and cleanly licensed, but the source does not explicitly state adulthood or sex and strict all-toes/full-tail framing was not certified, so it remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **2026-09-18 Boa Constrictor:** Audited the oldest unresolved queue entry. A stronger Commons photograph, `Boa Constrictor (16256499958).jpg`, is exact *Boa constrictor*, 4928x3264 and CC BY 2.0. Its description discusses mature female/male size but does not explicitly establish that the photographed individual is an adult or its sex, and strict complete head-to-tail visibility was not certified sufficiently to pass. A separate Animal Diversity Web *B. constrictor* photograph explicitly labels the subject `adult/sexually mature`, but this run did not simultaneously establish that image as a 1600+ strict full-body candidate. Boa therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`; queue advances to Bongo.
+- **2026-09-18 Cuttlefish:** Exact *Sepia officinalis* Diego Delso candidate is 3868x2579, a Wikimedia Commons Quality Image and CC BY-SA 4.0. It is strong for exact taxon, resolution and provenance, but explicit adulthood/sex and strict complete appendage visibility remain unresolved. A 3408x2556 Hans Hillewaert aquarium candidate was rejected as primary after visual review showed the posterior mantle reaching/leaving the frame.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Boa Constrictor.
+- **Next legacy audit:** Bongo.

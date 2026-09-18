@@ -1,66 +1,51 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 59 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 59
+- **Completed research files:** 60 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 60
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Dhole
-- **Next pending animal:** Dingo
-- **Latest completion:** 2026-09-18 16:01 America/Chicago
-- **Latest new-animal image status:** Dhole - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *Cuon alpinus*, Hans Hillewaert, 2585x3446, CC BY-SA 3.0. Direct visual inspection found a second dhole behind the foreground subject and no clean complete foreground tail, so the image fails the mandatory single-animal/full-body standard. Additional 2048-pixel wild CC BY 4.0 candidates did not simultaneously establish adulthood, sex and strict full-tail/all-paw framing.
-- **Latest legacy image audit:** Bottlenose Dolphin - `REPLACEMENT SOURCE NEEDED`. The newly inspected 2810x1873 CC BY-SA 4.0 exact-*Tursiops truncatus* Commons photograph shows only the dorsal/head region above water, with the body, flippers and flukes submerged/invisible. An ADW source explicitly labels an exact-species subject adult/sexually mature and CC BY-SA 3.0, but strict complete-body framing and original resolution were not established in this run. The old 3053x2212 candidate is not promoted without strict visual verification.
-- **Next legacy image audit:** Box Jellyfish.
+- **Most recently completed:** Dingo
+- **Next pending animal:** Donkey
+- **Latest completion:** 2026-09-18 16:57 America/Chicago
+- **Latest new-animal image status:** Dingo - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact dingo, Commons `Dingo - Katy Platt (37223135990).jpg`, 4608x3456. Direct original-image inspection confirms one animal with complete head, torso, all four legs/paws and full tail inside frame; Commons categorizes it as male and records public-domain reuse metadata. Adulthood is not explicit, so it is not promoted to verified-source/cutout-pending status.
+- **Latest legacy image audit:** Box Jellyfish - `REPLACEMENT SOURCE NEEDED`. Broad search found exact *Chironex fleckeri* real photographs, but the reusable Commons examples were only 260x260 or 800x600, with the latter museum/preserved material. The prior 900x1600 aquarium candidate is only `Chironex sp.`, not exact *C. fleckeri*. No source simultaneously met exact species, healthy mature subject, complete bell/tentacles and preferred resolution.
+- **Next legacy image audit:** Bull Shark.
 - **Latest checkpoint:** `audits/CHECKPOINT-050.md`; next checkpoint at 75 completed research files.
 
-## Selection rule
-
-On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and choose the first animal in that list without a completed staging research file. Old `DATA_PROGRESS.md` checkboxes do not count for this overhaul.
-
-## Image rule
-
-`IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Text-research completion and transparent-PNG completion are separate counts. A source URL is not a completed image. See `IMAGE_BACKFILL.md`.
+## Selection and image rules
+Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosing the first roster animal without a completed staging report. `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Research completion and image completion are separate counts. A URL, JPEG, candidate PNG, or uninspected cutout is not a completed image.
 
 ## Active normalization / uncertainty notes
+- Ratings are absolute across all 225 animals, not pound-for-pound.
+- Unsupported bite-pressure values remain 0.0. Force in newtons is never converted to PSI without defensible contact area.
+- Maximum speed remains 0.0 where no defensible species-specific measurement or strong institutional value exists. Speed is not Agility.
+- Stamina separates pursuit endurance, routine travel, migration, soaring, low metabolism and dehydration tolerance.
+- Special must not double-count ordinary size, toughness, cognition, flight or sociality.
+- Pack behavior can raise Tactics/Special contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Dingo control:** canonical 18.0 kg mature male. Attack 40.0 / Defense 24.0 / Agility 82.0 / Stamina 81.0 / Intelligence 75.0 / Special 58.0. K'gari data directly support 18.0 kg mean adult-male mass. Comparative skull modeling supports 313 N canine bite force, retained as force rather than fabricated PSI. Legacy 60 km/h is not accepted as a factual maximum without stronger measurement.
+- **Dhole control:** 18.0 kg male, Attack 42.0 / Defense 25.0 / Agility 84.0 / Stamina 86.0 / Intelligence 78.0 / Special 70.0. This keeps Dingo slightly below the more specialized cooperative pursuit hunter.
+- **Coyote control:** 15.0 kg male, Attack 38.0 / Defense 25.0 / Agility 82.0 / Stamina 74.0 / Intelligence 76.0 / Special 61.0.
+- **Cougar control:** 70.0 kg male, Attack 55.0 / Defense 34.0 / Agility 92.0, preserving the major absolute mass/weapon gap over medium canids.
+- **Crow control:** 0.5 kg male, Intelligence 96.0, preventing generic social-predator cognition from approaching experimentally exceptional corvid cognition.
 
-- Upper megafauna Attack/Defense anchors remain provisional until more rhinos, elephants, hippos and large bovids are complete.
-- Unsupported bite-pressure values stay at 0.0 when only force, morphology or folklore values exist. Force is not converted to PSI without contact area.
-- Maximum speed stays at 0.0 where no defensible species-specific measurement or strong agency/institutional value is available. Top speed is not substituted for Agility.
-- Stamina normalization must continue separating pursuit endurance, migration, soaring-assisted travel, environmental tolerance, low routine metabolism and dehydration resistance.
-- Special must not double-count ordinary size, horns, toughness, cognition, flight or sociality.
-- Image completion remains separate from text completion. Source verification alone does not increment the transparent-PNG count.
-- Chameleon remains a specialization-vs-absolute-power control: roughly 45 g, Special 88.0, Attack 12.0, Defense 8.0.
-- Cheetah remains a speed-vs-agility control: directly measured wild maximum around 25.9 m/s supports Speed 98.0 and acceleration/braking evidence supports Agility 97.0 without leakage into Attack/Defense/Stamina.
-- Chimpanzee remains a proportional-strength/cognition control: peer-reviewed muscle work supports about 1.35x human-sized dynamic force/power, not folklore-level super strength.
-- Clouded Leopard remains a proportional-specialization control: a 22 kg male receives elite Agility 94.0 and Special 80.0 for arboreal mechanics and extreme canines, while Attack remains 49.0 and Defense 27.0.
-- Cockatoo remains a force-vs-pressure and cognition-vs-physical-power control: peer-reviewed *C. galerita* bite force is retained in newtons rather than fabricated PSI, while 0.8 kg body mass keeps physical combat ratings low.
-- Coconut Crab remains a proportional-strength control: direct pinch-force measurements reached 1,765.2 N and published allometry predicts ~3,300 N at 4 kg, but canonical 3 kg animal remains Attack 39.0 / Defense 28.0.
-- Colossal Squid remains a size-vs-armor and low-metabolism-vs-stamina control: canonical 470 kg supports Attack 67.0 but soft tissue keeps Defense 43.0; giant eyes support Senses/Special, not Intelligence.
-- Condor remains a travel-endurance-vs-powered-stamina and size-vs-weaponry control: soaring-assisted distance does not become continuous muscular output, and lack of raptorial talons constrains Attack.
-- Cougar remains a mass-vs-specialization and speed-vs-agility control: canonical 70 kg adult male is Attack 55.0 / Defense 34.0 / Agility 92.0.
-- Coyote remains a generalist-success-vs-combat-power control: canonical 15 kg adult male is Attack 38.0 / Defense 25.0 / Agility 82.0 / Stamina 74.0 / Intelligence 76.0 / Special 61.0.
-- Crow remains a cognition-vs-physical-power control: canonical 0.5 kg adult male is Attack 14.0 / Defense 9.0 / Agility 82.0 / Stamina 68.0 / Intelligence 96.0 / Special 67.0.
-- Cuttlefish remains a camouflage/cognition-vs-physical-power control: canonical 2.5 kg mature male *Sepia officinalis* is Attack 27.0 / Defense 18.0 / Agility 91.0 / Stamina 47.0 / Intelligence 92.0 / Special 93.0.
-- Deathstalker Scorpion remains a venom-vs-absolute-power control: canonical 2.0 g large adult female *Leiurus quinquestriatus* is Attack 19.0 / Defense 6.0 / Agility 64.0 / Stamina 42.0 / Intelligence 20.0 / Special 96.0.
-- **Dhole is a pack-effect-vs-individual-power control:** canonical 18.0 kg mature male *Cuon alpinus* is Attack 42.0 / Defense 25.0 / Agility 84.0 / Stamina 86.0 / Intelligence 78.0 / Special 70.0. Pack hunting raises Tactics/Special contextually but does not multiply individual Raw Power, Attack or Defense.
+## Recent animals
+| Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Coconut Crab | 3.0 kg mature male | 39.0 | 28.0 | 45.0 | 50.0 | 43.0 | 78.0 |
+| Colossal Squid | 470.0 kg adult-scale female | 67.0 | 43.0 | 55.0 | 48.0 | 52.0 | 88.0 |
+| Condor | 10.0 kg mature male | 34.0 | 22.0 | 70.0 | 82.0 | 69.0 | 74.0 |
+| Cougar | 70.0 kg mature male | 55.0 | 34.0 | 92.0 | 58.0 | 68.0 | 67.0 |
+| Coyote | 15.0 kg mature male | 38.0 | 25.0 | 82.0 | 74.0 | 76.0 | 61.0 |
+| Crow | 0.5 kg mature male | 14.0 | 9.0 | 82.0 | 68.0 | 96.0 | 67.0 |
+| Cuttlefish | 2.5 kg mature male | 27.0 | 18.0 | 91.0 | 47.0 | 92.0 | 93.0 |
+| Deathstalker Scorpion | 0.002 kg adult female | 19.0 | 6.0 | 64.0 | 42.0 | 20.0 | 96.0 |
+| Dhole | 18.0 kg mature male | 42.0 | 25.0 | 84.0 | 86.0 | 78.0 | 70.0 |
+| Dingo | 18.0 kg mature male | 40.0 | 24.0 | 82.0 | 81.0 | 75.0 | 58.0 |
 
-### Recent animal notes
-
-- **Coconut Crab:** *Birgus latro*, large mature male 3.0 kg. Attack 39.0 / Defense 28.0 / Agility 45.0 / Stamina 50.0 / Intelligence 43.0 / Special 78.0.
-- **Colossal Squid:** *Mesonychoteuthis hamiltoni*, mature adult-scale female canonical 470.0 kg. Attack 67.0 / Defense 43.0 / Agility 55.0 / Stamina 48.0 / Intelligence 52.0 / Special 88.0.
-- **Condor:** *Gymnogyps californianus*, mature male 10.0 kg. Attack 34.0 / Defense 22.0 / Agility 70.0 / Stamina 82.0 / Intelligence 69.0 / Special 74.0.
-- **Cougar:** *Puma concolor*, mature male 70.0 kg. Attack 55.0 / Defense 34.0 / Agility 92.0 / Stamina 58.0 / Intelligence 68.0 / Special 67.0.
-- **Coyote:** *Canis latrans*, mature male 15.0 kg. Attack 38.0 / Defense 25.0 / Agility 82.0 / Stamina 74.0 / Intelligence 76.0 / Special 61.0.
-- **Crow:** *Corvus brachyrhynchos*, mature male canonical 0.5 kg. Attack 14.0 / Defense 9.0 / Agility 82.0 / Stamina 68.0 / Intelligence 96.0 / Special 67.0.
-- **Cuttlefish:** *Sepia officinalis*, robust mature temperate male canonical 2.5 kg. Attack 27.0 / Defense 18.0 / Agility 91.0 / Stamina 47.0 / Intelligence 92.0 / Special 93.0.
-- **Deathstalker Scorpion:** *Leiurus quinquestriatus*, large adult female canonical 0.0020 kg and 9.0 cm total length. Attack 19.0 / Defense 6.0 / Agility 64.0 / Stamina 42.0 / Intelligence 20.0 / Special 96.0.
-- **Dhole:** *Cuon alpinus*, mature male canonical 18.0 kg, 50.0 cm shoulder height and 90.0 cm head-body length. Attack 42.0 / Defense 25.0 / Agility 84.0 / Stamina 86.0 / Intelligence 78.0 / Special 70.0. `speed_mps` 15.3 uses a 55 km/h institutional value at moderate confidence; `bite_force_psi` remains 0.0 because no defensible pressure measurement was found.
-
-## 50-animal checkpoint
-
-`audits/CHECKPOINT-050.md` reviewed stat inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak-source bite claims and duplicate ability concepts. No prior numerical file required forced correction at that checkpoint. The next scheduled recalibration checkpoint is at **75 completed research files**.
+## Checkpoints
+`audits/CHECKPOINT-050.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak bite sourcing and duplicate ability concepts. No forced numerical correction was warranted then. Next checkpoint: **75 completed research files**.
 
 ## Image pipeline status
-
-59 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+60 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several older animals already have visually verified reusable full-body sources and should not be repeatedly re-researched until binary tooling changes. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNG is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 46 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 46
+- **Completed research files:** 47 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 47
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Chameleon
-- **Next pending animal:** Cheetah
-- **Latest completion:** 2026-09-18 03:00 America/Chicago
-- **Latest new-animal image status:** Chameleon - `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact *Chamaeleo chamaeleon*, Benny Trapp, 3872x2592, CC BY 3.0, Commons Featured/Quality Image. Direct inspection shows an excellent exact-species side view, but adulthood and strict visibility of every foot/digit are not established. Binary PNG tooling remains unavailable.
-- **Latest legacy image audit:** Bald Eagle - exact adult *Haliaeetus leucocephalus* public-domain USFWS flight source found, but the strongest explicitly adult flight candidate retrieved at full provenance is only 976x768, below the preferred source-resolution standard. Higher-resolution public-domain USFWS candidates exist but adulthood plus strict whole-body framing were not simultaneously verified in this run. `REPLACEMENT SOURCE NEEDED`.
-- **Next legacy image audit:** Barn Owl
+- **Most recently completed:** Cheetah
+- **Next pending animal:** Chimpanzee
+- **Latest completion:** 2026-09-18 04:00 America/Chicago
+- **Latest new-animal image status:** Cheetah - `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact explicit male *Acinonyx jubatus*, Bernard DUPONT, 4206x2942, CC BY-SA 2.0. Direct inspection confirms strong body/paw detail but the tail reaches/crosses the left frame edge, so the mandatory complete-tail standard is not met. Continue seeking a reuse-permitted explicit adult male with the whole tail inside frame. Binary PNG tooling remains unavailable.
+- **Latest legacy image audit:** Barn Owl - two high-resolution exact-*Tyto alba* reuse-permitted flight candidates found: 6629x3318 CC0 and 4616x3296 CC BY 2.0. Strict adulthood plus complete wings/talons/tail visibility was not simultaneously established from the available render path, so status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Next legacy image audit:** Barracuda
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -33,6 +33,7 @@ Detailed evidence and older watch items remain in the individual animal reports 
 - Special must not double-count ordinary size, horns, toughness or sociality.
 - Image completion remains separate from text completion. Source verification alone does not increment the transparent-PNG count.
 - Chameleon is a useful specialization-vs-absolute-power calibration case: a roughly 45 g female can score Special 88.0 and Senses 88.0 because of ballistic tongue and visual tracking systems while remaining Attack 12.0 and Defense 8.0 on the absolute roster scale.
+- Cheetah is a key speed-vs-agility calibration case. Its directly measured wild maximum of about 25.9 m/s supports Speed 98.0, while field-measured acceleration, braking and lateral acceleration support Agility 97.0. Those values must not leak into Attack, Defense or Stamina.
 
 ### Recent animal notes
 
@@ -46,7 +47,8 @@ Detailed evidence and older watch items remain in the individual animal reports 
 - **Capybara:** *Hydrochoerus hydrochaeris*, dominant adult male 54.0 kg / 120.0 cm. Attack 31.0 / Defense 29.0 / Agility 65.0 / Stamina 52.0 / Intelligence 52.0 / Special 63.0.
 - **Caracal:** *Caracal caracal*, mature male 17.0 kg / 85.0 cm head-body. Attack 44.0 / Defense 25.0 / Agility 90.0 / Stamina 53.0 / Intelligence 60.0 / Special 61.0.
 - **Cassowary:** *Casuarius casuarius*, mature female 65.0 kg / 165.0 cm standing height. Attack 57.0 / Defense 39.0 / Agility 73.0 / Stamina 58.0 / Intelligence 49.0 / Special 60.0.
-- **Chameleon:** roster label resolved to *Chamaeleo chamaeleon*, healthy mature non-gravid female about 45 g. Attack 12.0 / Defense 8.0 / Agility 65.0 / Stamina 31.0 / Intelligence 48.0 / Special 88.0. Legacy 36 km/h speed and 100 PSI bite are rejected as unsupported. Species-specific experiments support coordinated monocular/binocular tracking; chameleon biomechanics supports elastic ballistic tongue projection.
+- **Chameleon:** roster label resolved to *Chamaeleo chamaeleon*, healthy mature non-gravid female about 45 g. Attack 12.0 / Defense 8.0 / Agility 65.0 / Stamina 31.0 / Intelligence 48.0 / Special 88.0. Legacy 36 km/h speed and 100 PSI bite are rejected as unsupported.
+- **Cheetah:** *Acinonyx jubatus*, mature male 46.0 kg / 80.0 cm shoulder / 130.0 cm head-body. Canonical speed 25.9 m/s from instrumented wild hunting data. Attack 41.0 / Defense 24.0 / Agility 97.0 / Stamina 43.0 / Intelligence 62.0 / Special 76.0. Bite PSI remains 0.0 rather than using unsupported internet figures.
 
 ## 25-animal checkpoint
 
@@ -54,4 +56,4 @@ Detailed evidence and older watch items remain in the individual animal reports 
 
 ## Image pipeline status
 
-46 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+47 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

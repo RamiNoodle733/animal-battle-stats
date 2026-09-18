@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 54 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 54
+- **Completed research files:** 55 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 55
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Cougar
-- **Next pending animal:** Coyote
-- **Latest completion:** 2026-09-18 11:00 America/Chicago
-- **Latest new-animal image status:** Cougar - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact adult male *Puma concolor* P-1, 1752x1177, NPS public domain, age about five years and sex explicitly verified. Direct visual inspection rejects it for final cutout because the tail exits the right frame edge. Continue seeking a complete adult male with every paw and full tail inside frame.
-- **Latest legacy image audit:** Black Panther - `REPLACEMENT SOURCE NEEDED`. The existing exact melanistic *Panthera pardus* source is 2093x1407 and CC BY-SA 4.0, but direct visual inspection shows the tail is not visible in full, so it fails the mandatory whole-body rule. A second 2048x1536 melanistic leopard source is heavily obscured by grass and likewise unsuitable.
-- **Next legacy image audit:** Skip source-verified Black Rhinoceros; address Black Widow, the next unresolved/non-verified queue entry.
+- **Most recently completed:** Coyote
+- **Next pending animal:** Crow
+- **Latest completion:** 2026-09-18 12:08 America/Chicago
+- **Latest new-animal image status:** Coyote - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2971x2377 CC BY 2.0 candidate is explicitly titled Alpha Male Coyote, and a second 6000x4000 CC BY 2.0 candidate is explicitly male. Neither was promoted because strict adult status plus all-paws/full-tail framing was not simultaneously verified.
+- **Latest legacy image audit:** Black Widow - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact female *Latrodectus hesperus*, 1670x1144, CC BY-SA 3.0/GFDL. Reproductive maturity is strongly supported by the source note that an egg sac was observed weeks later, but strict all-eight-leg framing was not visually certified at original resolution, so it remains pending rather than falsely promoted.
+- **Next legacy image audit:** Blue Whale.
 - **Latest checkpoint:** `audits/CHECKPOINT-050.md`; next checkpoint at 75 completed research files.
 
 ## Selection rule
@@ -38,7 +38,8 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 - Coconut Crab remains a proportional-strength control: direct pinch-force measurements reached 1,765.2 N and published allometry predicts ~3,300 N at 4 kg, but canonical 3 kg animal remains Attack 39.0 / Defense 28.0.
 - Colossal Squid remains a size-vs-armor and low-metabolism-vs-stamina control: canonical 470 kg supports Attack 67.0 but soft tissue keeps Defense 43.0; giant eyes support Senses/Special, not Intelligence.
 - Condor remains a travel-endurance-vs-powered-stamina and size-vs-weaponry control: soaring-assisted distance does not become continuous muscular output, and lack of raptorial talons constrains Attack.
-- **Cougar is a mass-vs-specialization and speed-vs-agility control:** canonical 70 kg adult male is Attack 55.0 / Defense 34.0 / Agility 92.0. Its elite jumping, balance and ambush mechanics justify Agility without promoting unsupported sprint folklore; `speed_mps` and `bite_force_psi` remain 0.0.
+- Cougar remains a mass-vs-specialization and speed-vs-agility control: canonical 70 kg adult male is Attack 55.0 / Defense 34.0 / Agility 92.0.
+- **Coyote is a generalist-success-vs-combat-power control:** canonical 15 kg adult male is Attack 38.0 / Defense 25.0 / Agility 82.0 / Stamina 74.0 / Intelligence 76.0 / Special 61.0. Ecological success and urban adaptability do not become high raw power or armor. Telemetry-supported daily travel does not justify near-ceiling endurance.
 
 ### Recent animal notes
 
@@ -52,7 +53,8 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 - **Coconut Crab:** *Birgus latro*, large mature male 3.0 kg. Attack 39.0 / Defense 28.0 / Agility 45.0 / Stamina 50.0 / Intelligence 43.0 / Special 78.0.
 - **Colossal Squid:** *Mesonychoteuthis hamiltoni*, mature adult-scale female canonical 470.0 kg. Attack 67.0 / Defense 43.0 / Agility 55.0 / Stamina 48.0 / Intelligence 52.0 / Special 88.0.
 - **Condor:** *Gymnogyps californianus*, mature male 10.0 kg. Attack 34.0 / Defense 22.0 / Agility 70.0 / Stamina 82.0 / Intelligence 69.0 / Special 74.0.
-- **Cougar:** *Puma concolor*, mature male 70.0 kg, 70.0 cm shoulder height, 220.0 cm total length. Attack 55.0 / Defense 34.0 / Agility 92.0 / Stamina 58.0 / Intelligence 68.0 / Special 67.0. `speed_mps` and `bite_force_psi` remain 0.0 because no sufficiently defensible standardized maximum speed or bite pressure was verified.
+- **Cougar:** *Puma concolor*, mature male 70.0 kg. Attack 55.0 / Defense 34.0 / Agility 92.0 / Stamina 58.0 / Intelligence 68.0 / Special 67.0.
+- **Coyote:** *Canis latrans*, mature male 15.0 kg, 50.0 cm shoulder height, 100.0 cm head-body length. Attack 38.0 / Defense 25.0 / Agility 82.0 / Stamina 74.0 / Intelligence 76.0 / Special 61.0. `speed_mps` 20.1 uses an NPS 45 mph maximum at moderate confidence; `bite_force_psi` remains 0.0 because the legacy 153 PSI value was not traceable to a defensible species-specific pressure measurement.
 
 ## 50-animal checkpoint
 
@@ -60,4 +62,4 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 
 ## Image pipeline status
 
-54 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+55 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 60 / 225 (through Dingo). **Full-body transparent PNG assets verified and committed:** 0 / 60. A source-photo URL is not an approved PNG.
+**Research reports completed:** 61 / 225 (through Donkey). **Full-body transparent PNG assets verified and committed:** 0 / 61. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -41,12 +41,12 @@
 | Bobcat | VERIFIED: 1600x1160 wild adult male | No | Binary pending |
 | Bongo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 2848x4288 | No | Adult male + reusable + full body |
 | Bottlenose Dolphin | REPLACEMENT SOURCE NEEDED | No | Adult complete underwater silhouette |
-| Box Jellyfish | **REPLACEMENT SOURCE NEEDED** | No | Exact healthy mature *Chironex fleckeri*, high-res, complete bell/tentacles |
-| Bull Shark | **SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Carcharhinus leucas*, 6839x4559** | No | **NEXT LEGACY AUDIT: verify fins/caudal/adulthood/sex** |
+| Box Jellyfish | REPLACEMENT SOURCE NEEDED | No | Exact healthy mature *Chironex fleckeri*, high-res, complete bell/tentacles |
+| Bull Shark | **SOURCE FOUND - FULL-BODY NOT VERIFIED: exact live *Carcharhinus leucas*, 4000x3000 CC BY-SA 2.0; separate ADW sources explicitly adult** | No | Need one high-res source simultaneously proving adult + complete fins/caudal |
 | Bullet Ant | VERIFIED: 3456x2304 worker *Paraponera clavata* | No | Binary pending |
 | Bullfrog | VERIFIED: 4450x2967 adult male USFWS | No | Binary pending |
 | Camel | VERIFIED: *Camelus dromedarius* 3264x2448 | No | Binary pending |
-| Camel Spider | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Galeodes arabs* 1536x2048 | No | Isolated adult female |
+| Camel Spider | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Galeodes arabs* 1536x2048 | No | **NEXT LEGACY AUDIT: isolated adult female** |
 | Cape Buffalo | VERIFIED: male *Syncerus caffer caffer* 4992x3328 | No | Binary pending |
 | Capuchin Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Sapajus apella* 3935x3935 | No | Explicit adult male |
 | Capybara | VERIFIED: alpha male *Hydrochoerus hydrochaeris* 3800x2533 | No | Binary pending |
@@ -67,26 +67,28 @@
 | Deathstalker Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2212x2357 | No | Explicit adult/all appendage tips |
 | Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446; second animal/tail problem | No | Single adult male, full tail/paws |
 | Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing visually confirmed | No | Explicit adulthood; binary unavailable |
+| Donkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Equus asinus* 4928x3264 CC0 | No | Explicit adult jack + strict hoof/tail check |
 
 ## Latest findings
-### 2026-09-18 Box Jellyfish legacy audit
-Broad image and web search was not restricted to one provider. The prior 900x1600 aquarium image is only identified as `Chironex sp.`, so it fails exact-species verification. Commons has an exact *Chironex fleckeri* CC0/public-domain photograph at only **260x260**, far below the preferred usable resolution. Another exact-species Commons file is **800x600** and depicts museum material at the Grant Museum, failing the healthy living-adult requirement. A high-quality illustration was explicitly rejected because `IMAGE_REQUIREMENTS.md` requires a real photograph. Result: **REPLACEMENT SOURCE NEEDED**. The queue advances to Bull Shark rather than repeatedly revisiting this unresolved taxon next run.
+### 2026-09-18 Bull Shark legacy audit
+Broad web and image search was not restricted to one provider. Commons `Bull shark-Carcharhinus leucas (23046808936).jpg` is an exact live *Carcharhinus leucas* photograph, **4000x3000**, licensed **CC BY-SA 2.0**. Animal Diversity Web separately provides several exact-species live photographs explicitly tagged **adult/sexually mature** under CC BY-ND 3.0. This is stronger adulthood evidence than the prior metadata-only candidate, but no single high-resolution reusable source was certified in this run as simultaneously explicit adult and strictly complete from snout through caudal fin with every fin required by the image standard. Result remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not falsely promoted.
 
 Candidate pages checked:
-- https://commons.wikimedia.org/wiki/File:Chironex_fleckeri_(sea_wasp).jpg
-- https://commons.wikimedia.org/wiki/File:Medusozoa_-_Chironex_fleckeri_-_GMZ_1.jpg
-- https://commons.wikimedia.org/wiki/File:Avispa_marina.jpg
+- https://commons.wikimedia.org/wiki/File:Bull_shark-Carcharhinus_leucas_(23046808936).jpg
+- https://animaldiversity.org/collections/contributors/klaus_jost/00018292/
+- https://animaldiversity.org/collections/contributors/klaus_jost/00018185/
+- https://animaldiversity.org/collections/contributors/klaus_jost/00018251/
 
-### 2026-09-18 Dingo new-animal image
-Source page: https://commons.wikimedia.org/wiki/File:Dingo_-_Katy_Platt_(37223135990).jpg
+### 2026-09-18 Donkey new-animal image
+Source page: https://commons.wikimedia.org/wiki/File:Equus_asinus_001.JPG
 
-Original: https://upload.wikimedia.org/wikipedia/commons/f/fd/Dingo_-_Katy_Platt_%2837223135990%29.jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/7/7e/Equus_asinus_001.JPG
 
-The 4608x3456 original was opened and visually inspected. One dingo is shown with head, torso, all four legs/paws and complete tail inside the frame, with clean high-resolution cutout geometry. Commons categorizes the animal as male and records public-domain reuse metadata. The page does not explicitly establish adulthood, so status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not cutout-ready completion.
+The source page identifies an exact *Equus asinus* real photograph, **4928x3264**, under **CC0 1.0**. This comfortably meets preferred source resolution and has clear redistribution permission. However, the page does not explicitly establish adulthood or sex, and strict complete hoof/tail framing was not certified from the original during this run. An explicitly male Commons source (`Male Donkey.jpg`) is only 1289x1130 and was not preferred over the much stronger-resolution candidate. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**.
 
 ## Count and blocker
-- `60` is completed text research, not completed images.
+- `61` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - A source-verified animal is not repeatedly revisited unless new binary tooling permits actual PNG production or a clearly superior source resolves an outstanding verification issue.
-- **Next legacy audit: Bull Shark.**
+- **Next legacy audit: Camel Spider.**

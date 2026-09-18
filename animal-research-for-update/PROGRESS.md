@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 39 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 39
+- **Completed research files:** 40 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 40
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Camel
-- **Next pending animal:** Camel Spider
-- **Latest completion:** 2026-09-17 19:59 America/Chicago
-- **Latest new-animal image status:** Camel — `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`; exact *Camelus dromedarius* 3264×2448 CC BY-SA 4.0 Commons Quality Image directly checked for complete head, neck, hump/torso, all four feet and tail; exact age/sex not stated
-- **Latest legacy image audit:** Arctic Wolf — exact *Canis lupus arctos* Cephas 4876×3251 CC BY-SA 3.0 Commons Quality Image; complete head, torso, four paws and tail directly verified, but source does not state exact age/sex
-- **Next legacy image audit:** Armadillo
+- **Most recently completed:** Camel Spider
+- **Next pending animal:** Cape Buffalo
+- **Latest completion:** 2026-09-17 20:59 America/Chicago
+- **Latest new-animal image status:** Camel Spider — `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact *Galeodes arabs* 1536×2048 CC BY 4.0 field photograph directly rendered, but prey/ground overlap and pose prevent strict verification of every appendage and adult/sex status; stronger 3531×2357 exact-species CC BY-SA 4.0 alternate found but original rendering unavailable
+- **Latest legacy image audit:** Armadillo — canonical U.S./Mexican taxon is *Dasypus mexicanus* after the recent split; multiple reuse-permitted high-resolution sources found, but the 3000×2005 NASA candidate is explicitly a baby and rejected, while other adult candidates were not strictly full-body verified this run
+- **Next legacy image audit:** Army Ant
 - **Latest checkpoint:** `audits/CHECKPOINT-025.md`
 
 ## Selection rule
@@ -36,8 +36,8 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Anglerfish:** Adult female *Ceratias holboelli*. Mass, speed, lifespan and bite PSI unresolved; normalize Special 76.0 later. Reuse-permitted museum photograph exists but is a preserved specimen and is not approved as the healthy-adult source.
 - **Anteater:** Giant anteater canon. Keep speed/bite PSI 0.0 and revisit Attack 53.0 after more claw specialists. 5184×3456 CC BY-SA 2.0 exact-species source is visually full-body verified; sex unverified; binary cutout pending.
 - **Arctic Fox:** Exact adult *Vulpes lagopus* USFWS public-domain source at 5892×3913 identified, but strict complete tail/all-paws framing remains unverified.
-- **Arctic Wolf:** Traditional *Canis lupus arctos* label retained with caveat. Stamina 86.0 provisional. New 4876×3251 CC BY-SA 3.0 exact-subspecies source is directly full-body verified; exact age/sex not stated; binary cutout pending.
-- **Armadillo:** North American nine-banded canon treated as *Dasypus mexicanus*. Defense 47.0 / Special 54.0 need armored-taxon comparison.
+- **Arctic Wolf:** Traditional *Canis lupus arctos* label retained with caveat. Stamina 86.0 provisional. 4876×3251 CC BY-SA 3.0 exact-subspecies source directly full-body verified; exact age/sex not stated; binary cutout pending.
+- **Armadillo:** Canonical U.S./Mexican animal is *Dasypus mexicanus*. Defense 47.0 / Special 54.0 need armored-taxon comparison. 3000×2005 NASA public-domain source was rejected because NASA explicitly labels the specimen a baby. High-resolution adult-looking Commons candidates exist, but adulthood and complete tail/feet were not strict-verified this run.
 - **Army Ant:** *Eciton burchellii* major/soldier. Individual scores intentionally exclude colony-level feats.
 - **Axolotl:** Special 74.0 / Recovery 88.0 recognize regeneration without treating delayed healing as immediate Defense.
 - **Baboon:** Olive baboon adult male. Attack 45.0, Agility 72.0 and Intelligence 78.0 need primate/carnivore normalization.
@@ -64,7 +64,8 @@ Detailed evidence remains in each animal report. Active normalization watch item
 - **Bull Shark:** *Carcharhinus leucas*, adult female 111.0 kg / 284.0 cm. Peer-reviewed bite biomechanics support up to 5,914 N theoretical posterior force, but PSI remains 0.0. Attack 72.0 / Special 82.0.
 - **Bullet Ant:** *Paraponera clavata*, mature worker 2.2 cm. Attack 18.0 / Defense 2.0 / Special 96.0. Raw Power 0.8 preserves ant-to-vertebrate absolute gap. Verified 3456×2304 exact-species worker source; cutout pending.
 - **Bullfrog:** *Lithobates catesbeianus*, mature territorial male 0.5 kg / 15.0 cm SVL. `speed_mps` and bite PSI 0.0. Primary dataset documented a 2.2 m maximum jump. Attack 14.0 / Defense 6.0 / Agility 73.0. Verified USFWS adult-male source; cutout pending.
-- **Camel:** *Camelus dromedarius*, canonical mature male 550.0 kg / 200.0 cm shoulder / 300.0 cm head-body. `speed_mps` and bite PSI remain 0.0 because maximum-speed claims conflict and the clinical bite-pressure figure lacks sufficiently transparent primary measurement protocol. Attack 61.0 / Defense 54.0 / Agility 58.0 / Stamina 91.0 / Intelligence 52.0 / Special 78.0. Stamina is intentionally close to Bactrian Camel 90.0, with hot-desert dehydration physiology as the dromedary's specific advantage. Verified 3264×2448 full-body exact-species source; exact age/sex unverified; binary cutout pending.
+- **Camel:** *Camelus dromedarius*, mature male 550.0 kg / 200.0 cm shoulder / 300.0 cm head-body. `speed_mps` and bite PSI 0.0. Attack 61.0 / Defense 54.0 / Agility 58.0 / Stamina 91.0 / Intelligence 52.0 / Special 78.0. Verified 3264×2448 full-body exact-species source; exact age/sex unverified; binary cutout pending.
+- **Camel Spider:** *Galeodes arabs*, canonical mature female around 5.1 cm body length. Mass and instrumented maximum speed unresolved. Genus-level direct bite test measured 2.12 N maximum in sampled *Galeodes* but species-specific PSI remains 0.0. Attack 13.0 / Defense 3.0 preserve absolute scale; Agility 85.0 credits cursorial maneuverability; Special 52.0 credits malleoli and adhesive pedipalps without inventing venom. Exact-species image source found but strict full-body/adult verification remains pending.
 
 ## 25-animal checkpoint
 
@@ -72,4 +73,4 @@ Detailed evidence remains in each animal report. Active normalization watch item
 
 ## Image pipeline status
 
-39 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+40 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

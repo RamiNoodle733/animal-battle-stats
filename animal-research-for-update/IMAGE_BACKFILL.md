@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 44 / 225 (through Caracal). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 44. A source-photo link is not an approved PNG.
+**Research reports completed:** 45 / 225 (through Cassowary). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 45. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -22,7 +22,7 @@
 | Axolotl | **REPLACEMENT SOURCE NEEDED:** explicit adult male *Ambystoma mexicanum* 4760x1324 source fails all-four-limbs visibility | No | Seek explicit adult with all four limbs/feet, full gills and complete tail visible |
 | Baboon | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Papio anubis*, `Male Olive Baboon.jpg`, Ryan Harvey, 2560x1920, CC BY-SA 2.0 | No | Do not revisit until strict complete-body/adult verification or better source |
 | Bactrian Camel | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Camelus bactrianus*, Adrian Pingstone, 2240x1708, public domain; direct visual inspection confirms full head, two humps, four feet and tail, but source does not explicitly establish adulthood or sex | No | Do not infer adult/sex; seek explicit healthy adult male or revisit when stronger metadata is available |
-| Badger | Unverified | No | Audit full body/paws/tail |
+| Badger | **REPLACEMENT SOURCE NEEDED:** canonical taxon is European badger *Meles meles*. Exact-species 3460x2471 CC BY 2.0 source was visually reviewed, but full tail/all-feet plus explicit healthy-adult male status were not established | No | Seek explicit adult male *M. meles* with full tail and all four feet unobscured |
 | Bald Eagle | Unverified | No | Audit wings/talons/tail |
 | Barn Owl | Unverified | No | Audit wings/talons/tail |
 | Barracuda | Unverified | No | Audit whole head/fins/tail |
@@ -50,19 +50,22 @@
 | Capuchin Monkey | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sapajus apella*, Basile Morin, 3935x3935, CC BY-SA 4.0; complete body but adulthood/sex unstated | No | Prefer explicit healthy adult male |
 | Capybara | **Verified full-body source:** exact alpha male *Hydrochoerus hydrochaeris*, Charles J. Sharp, 3800x2533, CC BY-SA 4.0; complete head, torso and all four feet visible | No | Binary cutout/commit pending |
 | Caracal | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact wild *Caracal caracal*, dconvertini, 4949x3299, CC BY-SA 2.0; strong provenance/resolution but original could not be rendered for strict appendage/adult verification | No | Verify complete tail/paws and adulthood before cutout |
+| Cassowary | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact free-ranging *Casuarius casuarius*, Summerdrought, 2152x1614, CC BY-SA 4.0; direct inspection confirms complete visible external silhouette including both legs/feet, but adulthood and sex are not explicit in source metadata | No | Prefer explicit healthy adult female; otherwise revisit only if adulthood can be verified |
 
 ## Image count and acceptance rule
 
-- `44` is a text-research count, not the number of valid images.
+- `45` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
 
 ## Findings and blockers
 
-- **2026-09-18 Bactrian Camel:** Broad image search covered Commons and general web discovery. `Bactrian.camel.sideon.arp.jpg` is exact *Camelus bactrianus*, Adrian Pingstone, 2240x1708, public domain. Source page: https://commons.wikimedia.org/wiki/File:Bactrian.camel.sideon.arp.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/8/87/Bactrian.camel.sideon.arp.jpg . Direct visual inspection confirms the complete head, both humps, all four legs/feet and tail are inside the frame. However, the source page does not explicitly establish adulthood or sex, and the mandatory standard says adulthood is required and sex must not be inferred. It therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. This is stronger whole-body framing than the older Bernard Gagnon candidate but is not promoted to completed-source status without adult verification.
+- **2026-09-18 Badger:** The existing staging report establishes that `Badger` means European/Eurasian badger *Meles meles*, not American badger *Taxidea taxus*. Broad search reviewed Commons and web candidates. `Badger 25-07-09 closer.jpg` is exact *M. meles*, Chris Parfitt, 3460x2471, CC BY 2.0. Source page: https://commons.wikimedia.org/wiki/File:Badger_25-07-09_closer.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/4/41/Badger_25-07-09_closer.jpg . Visual inspection shows a strong real-animal photograph but does not establish the full tail/all four feet cleanly, and source metadata does not explicitly establish healthy adulthood or male sex. Another 2908x1938 CC BY 2.0 candidate is explicitly titled/source-linked as a cub and was rejected. Status is `REPLACEMENT SOURCE NEEDED`, avoiding the initially discovered wrong-species *Taxidea taxus* images.
+- **2026-09-18 Cassowary:** `Southern Cassowary 7071.jpg` is exact free-ranging *Casuarius casuarius* at Etty Bay, Queensland, Summerdrought, 2152x1614, CC BY-SA 4.0. Source page: https://commons.wikimedia.org/wiki/File:Southern_Cassowary_7071.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/5/54/Southern_Cassowary_7071.jpg . Direct inspection confirms the complete visible external silhouette, casque/head, torso and both legs/feet; the rudimentary wings are naturally concealed by plumage rather than cropped. However, the source does not explicitly establish adulthood or sex, so it remains `SOURCE FOUND - FULL-BODY NOT VERIFIED` rather than being promoted from mature-looking appearance alone.
+- **2026-09-18 Bactrian Camel:** `Bactrian.camel.sideon.arp.jpg` is exact *Camelus bactrianus*, Adrian Pingstone, 2240x1708, public domain. Source page: https://commons.wikimedia.org/wiki/File:Bactrian.camel.sideon.arp.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/8/87/Bactrian.camel.sideon.arp.jpg . Direct visual inspection confirms the complete head, both humps, all four legs/feet and tail are inside the frame. However, the source page does not explicitly establish adulthood or sex, and the mandatory standard says adulthood is required and sex must not be inferred. It therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **2026-09-18 Caracal:** `Caracal - West Coast National Park.jpg`, dconvertini, is exact wild *Caracal caracal*, 4949x3299, CC BY-SA 2.0 with Flickr review. Source page: https://commons.wikimedia.org/wiki/File:Caracal_-_West_Coast_National_Park.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/3/3f/Caracal_-_West_Coast_National_Park.jpg . The 12.7 MB original exceeded the current rendering path, so full tail/all-paw visibility and adulthood were not claimed from metadata alone. Status is `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **2026-09-18 Baboon:** `Male Olive Baboon.jpg` is exact *Papio anubis*, explicitly male, 2560x1920, Ryan Harvey, CC BY-SA 2.0. Provenance and sex are strong, but strict complete tail/all four hands-feet visibility plus adulthood was not established strongly enough. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **2026-09-18 Capybara:** `Capybara (Hydrochoerus hydrochaeris) alpha male.JPG`, Charles J. Sharp, is exact species, explicitly alpha male, 3800x2533, CC BY-SA 4.0. Direct visual inspection confirms complete head, torso and all four feet. Strong staging cutout candidate.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Badger is now the oldest unresolved image.
+- **Next legacy audit:** Bald Eagle is now the oldest unresolved image.

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 42 / 225 (through Capuchin Monkey). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 42. A source-photo link is not an approved PNG.
+**Research reports completed:** 43 / 225 (through Capybara). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 43. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -18,9 +18,9 @@
 | Arctic Fox | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 5892x3913 exact adult *Vulpes lagopus*, Lisa Hupp/USFWS, public domain | No | Need strict tail/all-paws confirmation |
 | Arctic Wolf | **FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING:** exact *Canis lupus arctos*, Cephas, 4876x3251, CC BY-SA 3.0; complete head, torso, four paws and tail | No | Binary cutout/commit pending |
 | Armadillo | **REPLACEMENT SOURCE NEEDED:** canonical U.S./Mexican taxon *Dasypus mexicanus*; 3000x2005 NASA source rejected because explicitly a baby | No | Verify high-resolution adult *D. mexicanus* |
-| Army Ant | **REPLACEMENT SOURCE NEEDED:** exact *Eciton burchellii* reuse-permitted sources audited. 4201x2801 La Selva CC BY 2.0 image directly inspected and shows a complete isolated soldier-like ant, but subject occupies too few source pixels for a high-quality cutout; alternatives are trail/group images | No | Seek isolated adult major/soldier filling substantially more of frame |
-| Axolotl | **REPLACEMENT SOURCE NEEDED:** `Axolotl Wild Type.jpg` is exact *Ambystoma mexicanum*, explicitly adult male, wild type, 4760x1324, CC BY-SA 4.0, but direct inspection shows only the near-side limbs clearly enough and therefore fails the mandatory all-four-limbs rule | No | Seek explicit adult, preferably male, with all four limbs/feet, full gills and complete tail visible |
-| Baboon | Unverified | No | Audit full body, tail, hands/feet |
+| Army Ant | **REPLACEMENT SOURCE NEEDED:** exact *Eciton burchellii* reuse-permitted sources audited; isolated candidate too low effective subject resolution | No | Seek isolated adult major/soldier filling substantially more of frame |
+| Axolotl | **REPLACEMENT SOURCE NEEDED:** explicit adult male *Ambystoma mexicanum* 4760x1324 source fails all-four-limbs visibility | No | Seek explicit adult with all four limbs/feet, full gills and complete tail visible |
+| Baboon | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Papio anubis*, `Male Olive Baboon.jpg`, Ryan Harvey, 2560x1920, CC BY-SA 2.0 | No | Do not revisit until strict complete-body/adult verification or better source |
 | Bactrian Camel | Unverified | No | Audit all four feet and full head/humps |
 | Badger | Unverified | No | Audit full body/paws/tail |
 | Bald Eagle | Unverified | No | Audit wings/talons/tail |
@@ -46,21 +46,22 @@
 | Bullfrog | **Verified source:** 4450x2967 adult male *Lithobates catesbeianus*, Sam Stukel/USFWS, public domain; complete body and limbs | No | Binary cutout/commit pending |
 | Camel | **Verified full-body source:** exact *Camelus dromedarius*, Fernando Losada Rodriguez, 3264x2448, CC BY-SA 4.0; complete head, neck, torso, feet and tail | No | Binary cutout/commit pending |
 | Camel Spider | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Galeodes arabs*, Karim Haddad, 1536x2048, CC BY 4.0; prey/ground overlap prevents strict appendage/adult verification | No | Seek isolated adult female |
-| Cape Buffalo | **Verified full-body source:** explicit male *Syncerus caffer caffer*, Charles J. Sharp, 4992x3328, CC BY-SA 4.0; direct inspection shows complete head, torso, four legs/hooves and tail | No | Binary cutout/commit pending; remove cattle egret/background only, preserve buffalo anatomy |
-| Capuchin Monkey | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sapajus apella*, Basile Morin, 3935x3935, CC BY-SA 4.0, Featured/Quality Image; direct inspection confirms complete body and tail, but source does not state adulthood or sex | No | Prefer explicit healthy adult male; otherwise retain as candidate only |
+| Cape Buffalo | **Verified full-body source:** explicit male *Syncerus caffer caffer*, Charles J. Sharp, 4992x3328, CC BY-SA 4.0; complete body | No | Binary cutout/commit pending |
+| Capuchin Monkey | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sapajus apella*, Basile Morin, 3935x3935, CC BY-SA 4.0; complete body but adulthood/sex unstated | No | Prefer explicit healthy adult male |
+| Capybara | **Verified full-body source:** exact alpha male *Hydrochoerus hydrochaeris*, Charles J. Sharp, 3800x2533, CC BY-SA 4.0; complete head, torso and all four feet visible | No | Binary cutout/commit pending |
 
 ## Image count and acceptance rule
 
-- `42` is a text-research count, not the number of valid images.
+- `43` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
 
 ## Findings and blockers
 
-- **2026-09-17 Axolotl:** Search covered Commons and broader web-image discovery. The strongest provenance candidate inspected was `Axolotl Wild Type.jpg`: exact *Ambystoma mexicanum*, explicitly an adult male in wild-type coloration, 4760x1324, Mariblubb, CC BY-SA 4.0. Source page: https://commons.wikimedia.org/wiki/File:Axolotl_Wild_Type.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/2/24/Axolotl_Wild_Type.jpg . It is excellent in taxon, age, sex and resolution, but strict visual review shows only the near-side limbs clearly; the far-side pair is occluded in the side profile. Because `IMAGE_REQUIREMENTS.md` requires all limbs/feet, it was rejected as final rather than promoted on metadata alone. `Ajolote adulto.JPG` (6000x4000, CC BY-SA 4.0) and other exact-species sources were also discovered, but none inspected this run established the full mandatory anatomy more strongly.
-- **2026-09-17 Capuchin Monkey:** `Tufted capuchin on a branch in Singapore.jpg`, Basile Morin, is exact *Sapajus apella*, 3935x3935, CC BY-SA 4.0 and a Commons Featured/Quality Image. Source page: https://commons.wikimedia.org/wiki/File:Tufted_capuchin_on_a_branch_in_Singapore.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/5/5b/Tufted_capuchin_on_a_branch_in_Singapore.jpg . Direct inspection confirms the entire head, torso, four extremities and curled tail inside frame. Source metadata does not state age or sex, so mandatory adult verification is not claimed.
-- **2026-09-17 Army Ant:** Exact *Eciton burchellii* sources were searched broadly. `Eciton burchellii (La Selva Biological Station).jpg` is 4201x2801, CC BY 2.0. Direct inspection shows one complete soldier-like ant, but effective subject resolution is too weak for the preferred staging cutout. Other large sources depict trails/groups.
-- **2026-09-17 Cape Buffalo:** `African buffalo (Syncerus caffer caffer) male with cattle egret.jpg`, Charles J. Sharp, is explicitly male, 4992x3328, CC BY-SA 4.0 and a Commons Featured/Quality/Valued image. Direct inspection confirms full body. Any future cutout must isolate only the buffalo without repainting anatomy.
+- **2026-09-18 Baboon:** Broad search covered Commons, USFWS-derived material and general web-image discovery. `Male Olive Baboon.jpg` is exact *Papio anubis*, explicitly male, 2560x1920, Ryan Harvey, CC BY-SA 2.0. Source page: https://commons.wikimedia.org/wiki/File:Male_Olive_Baboon.jpg . Original: https://live.staticflickr.com/226/476115570_50fdf78eb5_o.jpg . Provenance and sex are strong, but this run did not establish strict complete tail/all four hands-feet visibility plus adulthood from the rendered source strongly enough to pass the mandatory standard. It remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2500x1664 USFWS public-domain exact-species image was also found, but it did not provide stronger explicit sex/adult metadata.
+- **2026-09-18 Capybara:** `Capybara (Hydrochoerus hydrochaeris) alpha male.JPG`, Charles J. Sharp, is exact species, explicitly alpha male, 3800x2533, CC BY-SA 4.0. Source page: https://commons.wikimedia.org/wiki/File:Capybara_(Hydrochoerus_hydrochaeris)_alpha_male.JPG . Original: https://upload.wikimedia.org/wikipedia/commons/8/8e/Capybara_%28Hydrochoerus_hydrochaeris%29_alpha_male.JPG . Direct visual inspection confirms complete head, torso and all four feet; capybaras have no meaningful external tail to preserve. Strong staging cutout candidate.
+- **2026-09-17 Axolotl:** Strong explicit adult-male source rejected because far-side limbs are occluded under the mandatory all-limbs rule.
+- **2026-09-17 Army Ant:** Exact reuse-permitted isolated source was too weak in effective subject resolution; alternatives were groups/trails.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Baboon is now the oldest unresolved image.
+- **Next legacy audit:** Bactrian Camel is now the oldest unresolved image.

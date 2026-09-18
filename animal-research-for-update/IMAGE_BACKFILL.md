@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 49 / 225 (through Clouded Leopard). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 49. A source-photo link is not an approved PNG.
+**Research reports completed:** 50 / 225 (through Cockatoo). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 50. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -27,7 +27,7 @@
 | Barn Owl | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Tyto alba* high-resolution flight candidates | No | Verify wings/talons/tail/adulthood |
 | Barracuda | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sphyraena barracuda*, 3406x2126, CC BY-SA 4.0; silhouette complete, adulthood unstated | No | Await explicit-adult clean source/new tooling |
 | Beaver | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Castor canadensis*, Courtney Celley/USFWS, 8800x5867, public domain; very high-resolution wild source, but explicit adulthood plus complete tail/all paws were not simultaneously verified from available rendering | No | Do not promote until strict adult/full-body inspection passes |
-| Beluga Whale | Unverified | No | Audit whole whale and flukes |
+| Beluga Whale | **REPLACEMENT SOURCE NEEDED:** several exact *Delphinapterus leucas* reuse-permitted sources inspected; high-resolution surface source hides most body, 2448x3264 underwater source does not clearly expose both flippers and complete flukes, and adulthood/sex are not explicit | No | Seek explicit adult, preferably male, clean underwater side view with complete rostrum/flippers/ridge/flukes |
 | Bighorn Sheep | Unverified | No | Audit ram horns/legs/feet |
 | Bison | Unverified | No | Audit bull head/tail/all four legs |
 | Black Bear | **Verified source:** 1944x1855 exact-species public-domain full-body; sex unknown | No | Binary cutout/commit pending |
@@ -55,17 +55,18 @@
 | Cheetah | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** explicit male *Acinonyx jubatus*, 4206x2942, CC BY-SA 2.0; tail reaches frame edge | No | Seek adult male with entire tail inside |
 | Chimpanzee | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** male *Pan troglodytes*, 3798x2848, CC BY-SA 3.0; anatomy complete but adulthood not explicit | No | Seek explicit adult male clean source |
 | Clouded Leopard | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Neofelis nebulosa*, Ian Dugdale, 2048x1536, CC BY 4.0, wild Kaeng Krachan NP | No | Adulthood plus every paw/complete tail need strict verification; binary cutout unavailable |
+| Cockatoo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Cacatua galerita*, JJ Harrison, 2000x2500, CC BY-SA 3.0; tail/body complete but perch obscures feet and adulthood/sex are not explicit | No | Seek explicit adult, preferably male, with both feet visible or clean full-flight anatomy |
 
 ## Image count and acceptance rule
 
-- `49` is a text-research count, not the number of valid images.
+- `50` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
 
 ## Latest findings and blockers
 
-- **2026-09-18 Beaver:** Broad image/government search found Courtney Celley/USFWS `North American beaver (54500949156).jpg`, exact *Castor canadensis*, 8800x5867, public domain. Source page: https://commons.wikimedia.org/wiki/File:North_American_beaver_(54500949156).jpg . Original: https://live.staticflickr.com/65535/54500949156_b6a2657f3c_o.jpg . The source has excellent resolution and provenance, but the available render/search evidence did not establish explicit adulthood plus complete tail and all paws simultaneously. Status: `SOURCE FOUND - FULL-BODY NOT VERIFIED`. It is not counted as complete and no binary was created.
-- **2026-09-18 Clouded Leopard:** Ian Dugdale's wild Kaeng Krachan National Park photograph is exact *Neofelis nebulosa*, explicitly male, 2048x1536, CC BY 4.0. Source page: https://commons.wikimedia.org/wiki/File:Neofelis_nebulosa_male_in_Kaeng_Krachan_National_Park,_Thailand_3.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/7/70/Neofelis_nebulosa_male_in_Kaeng_Krachan_National_Park%2C_Thailand_3.jpg . The page establishes taxon and sex, but not explicit adulthood, and strict complete-tail/every-paw framing was not certified. Status: `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **2026-09-18 Beluga Whale:** Broad Commons/government-style search and direct visual inspection tested multiple exact *Delphinapterus leucas* candidates. `Beluga 1 1999-07-03.jpg` is 4464x3300, CC BY-SA 2.5, but direct inspection shows only the surfacing head/anterior body and therefore fails complete-body requirements. Source: https://commons.wikimedia.org/wiki/File:Beluga_1_1999-07-03.jpg ; original: https://upload.wikimedia.org/wikipedia/commons/e/ea/Beluga_1_1999-07-03.jpg . `Delphinapterus leucas underwater Vancouver Aquarium.jpg` is 2448x3264, CC BY 2.0, and shows a mostly complete underwater animal, but the angle/overlap does not clearly expose both flippers and the complete flukes, while adulthood/sex are unstated. Source: https://commons.wikimedia.org/wiki/File:Delphinapterus_leucas_underwater_Vancouver_Aquarium.jpg ; original: https://live.staticflickr.com/4103/5113635516_c3a654c2df_o.jpg . Status remains `REPLACEMENT SOURCE NEEDED` rather than passing a near-miss.
+- **2026-09-18 Cockatoo:** JJ Harrison's exact *Cacatua galerita* source is 2000x2500, CC BY-SA 3.0. Source: https://commons.wikimedia.org/wiki/File:Cacatua_galerita_2_-_Austin%27s_Ferry.jpg ; original: https://upload.wikimedia.org/wikipedia/commons/4/4a/Cacatua_galerita_2_-_Austin%27s_Ferry.jpg . Direct inspection confirms complete head, crest, torso, folded wings and tail, but the perch/foliage obscures feet and the source does not explicitly establish adulthood or sex. Status: `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Beluga Whale.
+- **Next legacy audit:** Bighorn Sheep.

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 37 / 225 (through Bullet Ant). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 37. A source-photo link is not an approved PNG.
+**Research reports completed:** 38 / 225 (through Bullfrog). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 38. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -15,8 +15,8 @@
 | Anaconda | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** USGS native-range Brazil *Eunectes murinus*, public domain; stronger 3960×2845 Commons exact-species CC BY-SA 3.0 candidate also found, but strict head-to-tail/adult-female verification remains incomplete | No | Do not revisit until new visual/binary tooling or a clearly complete source appears |
 | Anglerfish | **REPLACEMENT SOURCE NEEDED:** exact *Ceratias holboelli* 2048×1536 Andrew Butko museum photograph is CC BY-SA 3.0/GFDL and shows the specimen, but it is preserved/display material rather than a verified healthy adult live-animal photograph | No | Seek a real healthy adult-female photograph with complete lure, fins and tail |
 | Anteater | **Verified replacement source:** 5184×3456 exact *Myrmecophaga tridactyla*, Fernando Flores, CC BY-SA 2.0; visual inspection shows complete snout, torso, four feet and full bushy tail | No | Binary cutout/commit pending; sex unverified |
-| Arctic Fox | Unverified | No | Audit tail and paws next |
-| Arctic Wolf | Unverified | No | Audit paws/tail |
+| Arctic Fox | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 5892×3913 exact adult *Vulpes lagopus*, Lisa Hupp/USFWS, public domain; adulthood and provenance explicit, but strict whole-tail/all-paws framing was not established from available rendering | No | Do not revisit until a clearly rendered full-body source or binary/visual tooling improves |
+| Arctic Wolf | Unverified | No | Audit paws/tail next |
 | Armadillo | Unverified | No | Audit entire tail/feet |
 | Army Ant | Unverified | No | Audit entire single soldier, all legs/antennae |
 | Axolotl | Unverified | No | Audit head, tail, limbs/gills |
@@ -43,10 +43,11 @@
 | Box Jellyfish | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** Commons `Avispa marina.jpg`, 900×1600, CC BY-SA 2.0; metadata partly says *Chironex fleckeri* but description says `Chironex sp.` and specimen is described as tiny | No | Find high-resolution exact-species mature medusa with complete bell and tentacle tips |
 | Bull Shark | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Carcharhinus leucas* Commons candidate from San Pedro, Belize, 6839×4559 | No | Strictly verify complete snout, all fins and caudal fin plus adulthood/sex |
 | Bullet Ant | **Verified source:** 3456×2304 exact *Paraponera clavata* worker at La Selva, Geoff Gallice, CC BY 2.0; complete head, gaster, antennae and six legs visible | No | Binary cutout/commit pending |
+| Bullfrog | **Verified source:** 4450×2967 adult male *Lithobates catesbeianus*, Sam Stukel/USFWS, public domain; complete head, body, forefeet and hindfeet visually verified | No | Binary cutout/commit pending |
 
 ## Image count and acceptance rule
 
-- `37` is a text-research count, not the number of valid images.
+- `38` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
@@ -62,6 +63,7 @@
 - **2026-09-17 Anaconda:** existing USGS and 3960×2845 Commons exact-species candidates remain strict full-body/adult-female unverified.
 - **2026-09-17 Anglerfish:** broad search found very few exact-species photographs. Commons `Северная церация.jpg` is a 2048×1536 real photograph of *Ceratias holboelli* in the Saint Petersburg Zoological Museum, Andrew Butko, CC BY-SA 3.0/GFDL. The material is a preserved museum specimen rather than a verified healthy adult live animal, so it does not satisfy the mandatory source standard. Status: `REPLACEMENT SOURCE NEEDED`.
 - **2026-09-17 Anteater:** Commons `Oso hormiguero (Myrmecophaga tridactyla) (8697865538).jpg`, Fernando Flores, 5184×3456, CC BY-SA 2.0, was visually checked. The complete snout, torso, four feet and full bushy tail are inside the frame. Exact species is explicit; sex is unverified. Source page: https://commons.wikimedia.org/wiki/File:Oso_hormiguero_(Myrmecophaga_tridactyla)_(8697865538).jpg . Original photo: https://commons.wikimedia.org/wiki/Special:Redirect/file/Oso_hormiguero_(Myrmecophaga_tridactyla)_(8697865538).jpg . Status: `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. Existing report could not be safely rewritten this run because the connector returns that long legacy file truncated while updates require full-file replacement; provenance is therefore preserved here rather than risking deletion of report content.
+- **2026-09-17 Arctic Fox:** Commons `Arctic fox (51356519412).jpg` is an exact *Vulpes lagopus* photograph by Lisa Hupp/USFWS, 5892×3913, public domain. The USFWS caption explicitly identifies the animal as adult. Source page: https://commons.wikimedia.org/wiki/File:Arctic_fox_(51356519412).jpg . Original photo: https://live.staticflickr.com/65535/51356519412_4de2b346b4_o.jpg . The available search rendering did not permit strict confirmation that the complete tail and every paw are unobscured/in-frame, so status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. This animal should not be repeatedly revisited unless better visual/binary tooling or a clearly complete replacement appears.
 - **2026-09-17 Black Bear:** exact-species public-domain full-body source retained.
 - **2026-09-17 Black Mamba:** 4320×2592 exact-species complete-coil source retained.
 - **2026-09-17 Black Panther:** exact melanistic leopard candidate remains not strictly verified.
@@ -75,5 +77,6 @@
 - **2026-09-17 Box Jellyfish:** Commons exact-species choices were mostly very low resolution; current candidate is not approved under adult exact-species standard.
 - **2026-09-17 Bull Shark:** 6839×4559 exact-*Carcharhinus leucas* candidate remains complete-anatomy/adult/sex unverified.
 - **2026-09-17 Bullet Ant:** Geoff Gallice's La Selva exact-*Paraponera clavata* photograph, 3456×2304, CC BY 2.0, was visually verified as a complete worker with all six legs and both antennae in frame. Source page and direct redirect URL are recorded in `animals/bullet-ant.md`. Cutout/commit remains pending.
+- **2026-09-17 Bullfrog:** Commons `American bullfrog (51239614029).jpg`, Sam Stukel/USFWS, is a 4450×2967 public-domain exact-*Lithobates catesbeianus* adult male. Direct visual inspection confirms the complete head, torso, both forelimbs/hands and both hindlimbs/feet are in frame. Source page: https://commons.wikimedia.org/wiki/File:American_bullfrog_(51239614029).jpg . Original photo: https://live.staticflickr.com/65535/51239614029_5ff8211e93_o.jpg . Status: `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Arctic Fox is now the oldest unresolved image.
+- **Next legacy audit:** Arctic Wolf is now the oldest unresolved image.

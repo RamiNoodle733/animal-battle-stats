@@ -1,81 +1,92 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 59 / 225 (through Dhole). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 59. A source-photo link is not an approved PNG.
+**Research reports completed:** 60 / 225 (through Dingo). **Full-body transparent PNG assets verified and committed:** 0 / 60. A source-photo URL is not an approved PNG.
 
-`IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
+`IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
-| Animal | Full-body source status | Transparent PNG committed | Action |
+## Legacy queue
+| Animal | Source status | PNG | Next action |
 |---|---|---|---|
-| African Elephant | **Verified replacement source:** 6000x4000 adult male *Loxodonta africana*, Charles J. Sharp, CC BY-SA 4.0 | No | Binary cutout/commit pending |
-| African Lion | **Verified replacement source:** 5356x3367 adult male *Panthera leo melanochaita*, Bernard DUPONT, CC BY-SA 2.0; complete body | No | Binary cutout/commit pending |
-| African Wild Dog | **Verified source:** 3002x2001 adult male *Lycaon pictus*, Charles J. Sharp, CC BY-SA 3.0 | No | Binary cutout/commit pending |
-| Albatross | **LICENSE UNVERIFIED - DO NOT COMMIT:** exact *Diomedea exulans* Mats Hildeman flight photograph | No | Find reuse-permitted equivalent |
-| Alligator | **Verified source:** 3504x2336 large *Alligator mississippiensis*, Steve Hillebrand/USFWS, public domain | No | Binary cutout/commit pending |
-| Alpaca | **Verified source:** 2798x1998 *Vicugna pacos*, CC BY 3.0 | No | Binary cutout/commit pending; sex unverified |
-| Anaconda | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** USGS native-range *Eunectes murinus* candidate | No | Await clearer source/new tooling |
-| Anglerfish | **REPLACEMENT SOURCE NEEDED:** exact *Ceratias holboelli* available museum material is preserved/display material | No | Seek healthy adult female photograph |
-| Anteater | **Verified source:** 5184x3456 *Myrmecophaga tridactyla*, CC BY-SA 2.0 | No | Binary cutout/commit pending |
-| Arctic Fox | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 5892x3913 adult *Vulpes lagopus*, USFWS public domain | No | Need strict tail/all-paws confirmation |
-| Arctic Wolf | **FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING:** *Canis lupus arctos*, 4876x3251, CC BY-SA 3.0 | No | Binary cutout/commit pending |
-| Armadillo | **REPLACEMENT SOURCE NEEDED:** canonical *Dasypus mexicanus*; NASA source rejected as explicitly baby | No | Verify high-resolution adult |
-| Army Ant | **REPLACEMENT SOURCE NEEDED:** isolated *Eciton burchellii* candidate too low effective subject resolution | No | Seek isolated adult major/soldier |
-| Axolotl | **REPLACEMENT SOURCE NEEDED:** explicit adult male 4760x1324 source fails all-four-limbs visibility | No | Seek adult with all limbs/gills/tail |
-| Baboon | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** male *Papio anubis*, 2560x1920, CC BY-SA 2.0 | No | Need strict adult/full-body verification |
-| Bactrian Camel | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Camelus bactrianus*, 2240x1708, public domain | No | Seek explicit adult male |
-| Badger | **REPLACEMENT SOURCE NEEDED:** canonical *Meles meles*; reviewed source did not establish full tail/all feet plus adulthood | No | Seek explicit adult unobscured body |
-| Bald Eagle | **REPLACEMENT SOURCE NEEDED:** explicit adult source only 976x768; higher-res sources lacked simultaneous adult/full-body verification | No | Seek 1600+ adult complete view |
-| Barn Owl | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Tyto alba* high-resolution flight candidates | No | Verify wings/talons/tail/adulthood |
-| Barracuda | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sphyraena barracuda*, 3406x2126, CC BY-SA 4.0; silhouette complete, adulthood unstated | No | Await explicit-adult clean source/new tooling |
-| Beaver | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Castor canadensis*, Courtney Celley/USFWS, 8800x5867, public domain; adulthood plus complete tail/all paws not simultaneously verified | No | Do not promote until strict adult/full-body inspection passes |
-| Beluga Whale | **REPLACEMENT SOURCE NEEDED:** exact *Delphinapterus leucas* candidates inspected; no candidate simultaneously showed complete body/flippers/flukes and explicit adulthood | No | Seek explicit adult, preferably male, clean underwater side view |
-| Bighorn Sheep | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Ovis canadensis*, NPS/Glacier, 4500x3000, CC BY 2.0; complete anatomy visually present but adulthood not explicit | No | Seek source simultaneously proving adult status and strict full body |
-| Bison | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Bison bison* bull, Yellowstone, 2816x2120, public domain; strict all-hooves/tail verification unresolved | No | Revisit only with clearly complete adult-bull source |
-| Black Bear | **Verified source:** 1944x1855 exact-species public-domain full-body; sex unknown | No | Binary cutout/commit pending |
-| Black Mamba | **Verified source:** 4320x2592 exact-species, CC BY-SA 2.0; complete coiled snake | No | Binary cutout/commit pending |
-| Black Panther | **REPLACEMENT SOURCE NEEDED:** exact melanistic *Panthera pardus*, 2093x1407, CC BY-SA 4.0, visually rejected because the complete tail is not visible; 2048x1536 alternate is obscured by grass | No | Seek explicit adult male melanistic leopard with all paws and full tail unobscured |
-| Black Rhinoceros | **Verified source:** 3456x2168 adult male *Diceros bicornis*, GFDL 1.2 | No | Binary cutout/commit pending |
-| Black Widow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact female *Latrodectus hesperus*, 1670x1144, CC BY-SA 3.0/GFDL; egg sac observed weeks later supports reproductive maturity, but strict all-eight-leg framing not certified | No | Queue advances; revisit only with original-resolution visual certification or better explicit-adult female source |
-| Blue Whale | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult *Balaenoptera musculus*, NOAA/NMFS, 1792x1128, public domain; adulthood explicit but strict complete flipper/fluke silhouette could not be certified from available render path | No | Queue advances; revisit only with direct original-image visual inspection or stronger explicit-adult complete source |
-| Boa Constrictor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Boa constrictor* Commons candidate 4928x3264, CC BY 2.0; photographed individual's adulthood/sex and strict complete head-to-tail silhouette were not simultaneously certified. Separate ADW source explicitly labels subject adult/sexually mature. | No | Queue advances; revisit only with one source simultaneously proving adult and strict full body |
-| Bobcat | **Verified source:** 1600x1160 wild adult male *Lynx rufus*, CC BY-SA 3.0 | No | Binary cutout/commit pending |
-| Bongo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Tragelaphus eurycerus*, Commons Quality Image, 2848x4288, CC BY-SA 3.0. Separate ASM source explicitly identifies an adult male *T. e. isaaci* in side view, but reuse permission is not established. | No | Queue advances; seek one source simultaneously proving adult male, strict full body and reusable license |
-| Bottlenose Dolphin | **REPLACEMENT SOURCE NEEDED:** newly inspected exact *Tursiops truncatus* Commons candidate, 2810x1873, CC BY-SA 4.0, shows only head/dorsal region above water; body, flippers and flukes are submerged/invisible. ADW has an explicit adult/sexually mature exact-species CC BY-SA 3.0 image, but strict complete-body framing/original resolution was not established. | No | Queue advances; seek explicit adult, preferably male, with complete rostrum/body/both flippers/dorsal/flukes visible underwater |
-| Box Jellyfish | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 900x1600 `Chironex sp.` candidate | No | **Next legacy audit:** find high-resolution exact mature *C. fleckeri* |
-| Bull Shark | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Carcharhinus leucas*, 6839x4559 | No | Verify fins/caudal/adulthood/sex |
-| Bullet Ant | **Verified source:** 3456x2304 *Paraponera clavata* worker, CC BY 2.0 | No | Binary cutout/commit pending |
-| Bullfrog | **Verified source:** 4450x2967 adult male *Lithobates catesbeianus*, USFWS public domain | No | Binary cutout/commit pending |
-| Camel | **Verified full-body source:** *Camelus dromedarius*, 3264x2448, CC BY-SA 4.0 | No | Binary cutout/commit pending |
-| Camel Spider | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Galeodes arabs*, 1536x2048, CC BY 4.0; prey/ground overlap | No | Seek isolated adult female |
-| Cape Buffalo | **Verified full-body source:** explicit male *Syncerus caffer caffer*, 4992x3328, CC BY-SA 4.0 | No | Binary cutout/commit pending |
-| Capuchin Monkey | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Sapajus apella*, 3935x3935, CC BY-SA 4.0; adult/sex unstated | No | Prefer explicit adult male |
-| Capybara | **Verified full-body source:** exact alpha male *Hydrochoerus hydrochaeris*, 3800x2533, CC BY-SA 4.0 | No | Binary cutout/commit pending |
-| Caracal | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** wild *Caracal caracal*, 4949x3299, CC BY-SA 2.0 | No | Verify tail/paws/adulthood |
-| Cassowary | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Casuarius casuarius*, 2152x1614, CC BY-SA 4.0 | No | Prefer explicit adult female |
-| Chameleon | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Chamaeleo chamaeleon*, 3872x2592, CC BY 3.0 | No | Seek explicit adult/all digits/tail |
-| Cheetah | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** explicit male *Acinonyx jubatus*, 4206x2942, CC BY-SA 2.0; tail reaches frame edge | No | Seek adult male with entire tail inside |
-| Chimpanzee | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** male *Pan troglodytes*, 3798x2848, CC BY-SA 3.0; anatomy complete but adulthood not explicit | No | Seek explicit adult male clean source |
-| Clouded Leopard | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Neofelis nebulosa*, 2048x1536, CC BY 4.0 | No | Verify adulthood/every paw/complete tail |
-| Cockatoo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Cacatua galerita*, 2000x2500, CC BY-SA 3.0; perch obscures feet and adulthood/sex not explicit | No | Seek explicit adult with both feet or clean flight anatomy |
-| Coconut Crab | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Birgus latro*, 1915x1956, CC BY-SA 4.0; adulthood/sex not explicit | No | Seek explicit adult male with all appendages visible |
-| Colossal Squid | **REPLACEMENT SOURCE NEEDED:** adult-scale specimens available only dying/dead/preserved; first confirmed live wild 2025 image is juvenile | No | Seek healthy adult full-body photograph; do not substitute carcass |
-| Condor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult *Gymnogyps californianus*, 1584x1047, CC BY 2.0; adulthood explicit but strict foot/digit visibility unresolved | No | Seek explicit adult complete flight anatomy at 1600+ |
-| Cougar | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult male *Puma concolor* P-1, 1752x1177, NPS public domain; age/sex explicit, but direct visual inspection shows tail cropped at right edge | No | Seek explicit adult male with all paws and entire tail inside frame |
-| Coyote | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 2971x2377 CC BY 2.0 candidate explicitly titled Alpha Male Coyote; alternate explicit male is 6000x4000 CC BY 2.0 | No | Strictly verify adult status, all paws and full tail before cutout |
-| Crow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Corvus brachyrhynchos*, 5568x3712, CC BY 4.0 | No | Verify explicit adulthood and strict toes/tail framing before cutout |
-| Cuttlefish | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sepia officinalis*, Diego Delso, 3868x2579, CC BY-SA 4.0 | No | Explicit adulthood and strict all-arm/tentacle plus complete mantle-fin silhouette remain unresolved |
-| Deathstalker Scorpion | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Leiurus quinquestriatus*, Danny S., 2212x2357, CC BY-SA 4.0; separate 3957x2638 explicit sub-adult female source rejected | No | Seek explicitly adult exact-species source and certify all leg tips, pedipalps and complete telson/aculeus |
-| Dhole | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Cuon alpinus*, Hans Hillewaert, 2585x3446, CC BY-SA 3.0; visually rejected as a primary because a second dhole is behind the subject and the foreground animal's complete tail is not cleanly visible | No | Seek explicit adult male, single animal, all four paws and complete tail unobscured |
+| African Elephant | VERIFIED: 6000x4000 adult male *Loxodonta africana*, CC BY-SA 4.0 | No | Binary cutout/commit pending |
+| African Lion | VERIFIED: 5356x3367 adult male *Panthera leo melanochaita*, CC BY-SA 2.0 | No | Binary pending |
+| African Wild Dog | VERIFIED: 3002x2001 adult male *Lycaon pictus*, CC BY-SA 3.0 | No | Binary pending |
+| Albatross | LICENSE UNVERIFIED | No | Find reusable *Diomedea exulans* equivalent |
+| Alligator | VERIFIED: 3504x2336 *Alligator mississippiensis*, USFWS public domain | No | Binary pending |
+| Alpaca | VERIFIED: 2798x1998 *Vicugna pacos*, CC BY 3.0; sex unknown | No | Binary pending |
+| Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | No | Revisit with clearer adult source |
+| Anglerfish | REPLACEMENT SOURCE NEEDED | No | Healthy adult female *Ceratias holboelli* |
+| Anteater | VERIFIED: 5184x3456 *Myrmecophaga tridactyla*, CC BY-SA 2.0 | No | Binary pending |
+| Arctic Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED: 5892x3913 adult USFWS | No | Strict tail/paws check |
+| Arctic Wolf | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING: 4876x3251 | No | Binary pending |
+| Armadillo | REPLACEMENT SOURCE NEEDED: baby source rejected | No | Adult *Dasypus mexicanus* |
+| Army Ant | REPLACEMENT SOURCE NEEDED | No | Higher-effective-resolution *Eciton burchellii* major |
+| Axolotl | REPLACEMENT SOURCE NEEDED | No | Adult with all limbs/gills/tail |
+| Baboon | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Papio anubis* 2560x1920 | No | Adult/full-body proof |
+| Bactrian Camel | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2240x1708 | No | Explicit adult male |
+| Badger | REPLACEMENT SOURCE NEEDED | No | Adult *Meles meles*, all feet/tail |
+| Bald Eagle | REPLACEMENT SOURCE NEEDED | No | 1600+ explicit adult complete view |
+| Barn Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | No | Wings/talons/tail/adult check |
+| Barracuda | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3406x2126 | No | Explicit adulthood |
+| Beaver | SOURCE FOUND - FULL-BODY NOT VERIFIED: 8800x5867 USFWS | No | Adult plus tail/paws |
+| Beluga Whale | REPLACEMENT SOURCE NEEDED | No | Adult complete underwater silhouette |
+| Bighorn Sheep | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4500x3000 | No | Explicit adult + complete anatomy |
+| Bison | SOURCE FOUND - FULL-BODY NOT VERIFIED: bull 2816x2120 | No | All-hooves/tail verification |
+| Black Bear | VERIFIED: 1944x1855 public-domain full body | No | Binary pending |
+| Black Mamba | VERIFIED: 4320x2592 CC BY-SA 2.0 | No | Binary pending |
+| Black Panther | REPLACEMENT SOURCE NEEDED | No | Adult male melanistic leopard, all paws/tail |
+| Black Rhinoceros | VERIFIED: 3456x2168 adult male, GFDL 1.2 | No | Binary pending |
+| Black Widow | SOURCE FOUND - FULL-BODY NOT VERIFIED: female 1670x1144 | No | All-eight-leg certification |
+| Blue Whale | SOURCE FOUND - FULL-BODY NOT VERIFIED: explicit adult 1792x1128 NOAA | No | Complete fins/flukes verification |
+| Boa Constrictor | SOURCE FOUND - FULL-BODY NOT VERIFIED: 4928x3264 | No | One source proving adult + head-to-tail |
+| Bobcat | VERIFIED: 1600x1160 wild adult male | No | Binary pending |
+| Bongo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 2848x4288 | No | Adult male + reusable + full body |
+| Bottlenose Dolphin | REPLACEMENT SOURCE NEEDED | No | Adult complete underwater silhouette |
+| Box Jellyfish | **REPLACEMENT SOURCE NEEDED** | No | Exact healthy mature *Chironex fleckeri*, high-res, complete bell/tentacles |
+| Bull Shark | **SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Carcharhinus leucas*, 6839x4559** | No | **NEXT LEGACY AUDIT: verify fins/caudal/adulthood/sex** |
+| Bullet Ant | VERIFIED: 3456x2304 worker *Paraponera clavata* | No | Binary pending |
+| Bullfrog | VERIFIED: 4450x2967 adult male USFWS | No | Binary pending |
+| Camel | VERIFIED: *Camelus dromedarius* 3264x2448 | No | Binary pending |
+| Camel Spider | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Galeodes arabs* 1536x2048 | No | Isolated adult female |
+| Cape Buffalo | VERIFIED: male *Syncerus caffer caffer* 4992x3328 | No | Binary pending |
+| Capuchin Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Sapajus apella* 3935x3935 | No | Explicit adult male |
+| Capybara | VERIFIED: alpha male *Hydrochoerus hydrochaeris* 3800x2533 | No | Binary pending |
+| Caracal | SOURCE FOUND - FULL-BODY NOT VERIFIED: wild 4949x3299 | No | Adult/tail/paws |
+| Cassowary | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2152x1614 | No | Prefer adult female |
+| Chameleon | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3872x2592 | No | Adult/all digits/tail |
+| Cheetah | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4206x2942, tail at edge | No | Adult male, full tail inside |
+| Chimpanzee | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 3798x2848 | No | Explicit adulthood |
+| Clouded Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 2048x1536 | No | Adult/all paws/tail |
+| Cockatoo | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2000x2500 | No | Feet/adult/sex |
+| Coconut Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED: 1915x1956 | No | Adult male/all appendages |
+| Colossal Squid | REPLACEMENT SOURCE NEEDED | No | Healthy adult photo; do not use carcass |
+| Condor | SOURCE FOUND - FULL-BODY NOT VERIFIED: explicit adult 1584x1047 | No | 1600+ complete flight anatomy |
+| Cougar | SOURCE FOUND - FULL-BODY NOT VERIFIED: adult male 1752x1177, tail cropped | No | Full tail/all paws |
+| Coyote | SOURCE FOUND - FULL-BODY NOT VERIFIED: alpha male 2971x2377 | No | Adult/all paws/tail |
+| Crow | SOURCE FOUND - FULL-BODY NOT VERIFIED: 5568x3712 | No | Adult/toes/tail |
+| Cuttlefish | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3868x2579 | No | Adult/all arms/tentacles/mantle fin |
+| Deathstalker Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2212x2357 | No | Explicit adult/all appendage tips |
+| Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446; second animal/tail problem | No | Single adult male, full tail/paws |
+| Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing visually confirmed | No | Explicit adulthood; binary unavailable |
 
-## Image count and acceptance rule
+## Latest findings
+### 2026-09-18 Box Jellyfish legacy audit
+Broad image and web search was not restricted to one provider. The prior 900x1600 aquarium image is only identified as `Chironex sp.`, so it fails exact-species verification. Commons has an exact *Chironex fleckeri* CC0/public-domain photograph at only **260x260**, far below the preferred usable resolution. Another exact-species Commons file is **800x600** and depicts museum material at the Grant Museum, failing the healthy living-adult requirement. A high-quality illustration was explicitly rejected because `IMAGE_REQUIREMENTS.md` requires a real photograph. Result: **REPLACEMENT SOURCE NEEDED**. The queue advances to Bull Shark rather than repeatedly revisiting this unresolved taxon next run.
 
-- `59` is a text-research count, not the number of valid images.
-- `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
-- A verified source URL is progress but does not count as a completed PNG.
-- Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
+Candidate pages checked:
+- https://commons.wikimedia.org/wiki/File:Chironex_fleckeri_(sea_wasp).jpg
+- https://commons.wikimedia.org/wiki/File:Medusozoa_-_Chironex_fleckeri_-_GMZ_1.jpg
+- https://commons.wikimedia.org/wiki/File:Avispa_marina.jpg
 
-## Latest findings and blockers
+### 2026-09-18 Dingo new-animal image
+Source page: https://commons.wikimedia.org/wiki/File:Dingo_-_Katy_Platt_(37223135990).jpg
 
-- **2026-09-18 Bottlenose Dolphin:** Audited the oldest unresolved queue entry. `Atlantic bottlenose dolphin (Tursiops truncatus).jpg` is exact species, 2810x1873 and CC BY-SA 4.0, but direct visual inspection shows only the rostrum/head and dorsal region above the surface; the torso, pectoral flippers and flukes are submerged and invisible, so it fails the mandatory complete-silhouette rule. An Animal Diversity Web photograph is exact *T. truncatus*, explicitly adult/sexually mature and CC BY-SA 3.0, but strict complete-body framing and original resolution were not established in this run. The older 3053x2212 candidate is not promoted without visual certification. Status is `REPLACEMENT SOURCE NEEDED`; queue advances to Box Jellyfish.
-- **2026-09-18 Dhole:** New report candidate `Cuon alpinus (Dhole).jpg` is exact species, 2585x3446, Hans Hillewaert, CC BY-SA 3.0. Direct inspection confirms a second dhole behind the foreground subject and does not provide a clean complete foreground tail, so it fails the one-animal/full-body standard. Other 2048-pixel wild CC BY 4.0 candidates were discovered, but adulthood, sex and strict complete tail/all-paw framing were not simultaneously established. Status is `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Box Jellyfish.
+Original: https://upload.wikimedia.org/wikipedia/commons/f/fd/Dingo_-_Katy_Platt_%2837223135990%29.jpg
+
+The 4608x3456 original was opened and visually inspected. One dingo is shown with head, torso, all four legs/paws and complete tail inside the frame, with clean high-resolution cutout geometry. Commons categorizes the animal as male and records public-domain reuse metadata. The page does not explicitly establish adulthood, so status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not cutout-ready completion.
+
+## Count and blocker
+- `60` is completed text research, not completed images.
+- `0` remains the verified transparent-PNG count.
+- Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
+- A source-verified animal is not repeatedly revisited unless new binary tooling permits actual PNG production or a clearly superior source resolves an outstanding verification issue.
+- **Next legacy audit: Bull Shark.**

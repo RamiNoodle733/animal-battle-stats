@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 39 / 225 (through Camel). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 39. A source-photo link is not an approved PNG.
+**Research reports completed:** 40 / 225 (through Camel Spider). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 40. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -17,7 +17,7 @@
 | Anteater | **Verified replacement source:** 5184×3456 exact *Myrmecophaga tridactyla*, Fernando Flores, CC BY-SA 2.0; visual inspection shows complete snout, torso, four feet and full bushy tail | No | Binary cutout/commit pending; sex unverified |
 | Arctic Fox | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 5892×3913 exact adult *Vulpes lagopus*, Lisa Hupp/USFWS, public domain; adulthood and provenance explicit, but strict whole-tail/all-paws framing was not established from available rendering | No | Do not revisit until a clearly rendered full-body source or binary/visual tooling improves |
 | Arctic Wolf | **FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING:** exact *Canis lupus arctos*, Cephas, 4876×3251, CC BY-SA 3.0 Commons Quality Image; direct inspection shows complete head, torso, four paws and tail in frame | No | Binary cutout/commit pending; exact age/sex not stated by source |
-| Armadillo | Unverified | No | Audit entire tail/feet next |
+| Armadillo | **REPLACEMENT SOURCE NEEDED / adult candidate not yet strict-verified:** canonical U.S./Mexican taxon is now *Dasypus mexicanus*. 3000×2005 NASA public-domain Kennedy Space Center candidate was checked and explicitly describes a **baby**, so rejected. Commons has several 2000+ px *D. mexicanus* adult-looking candidates, but adulthood plus complete tail/all feet were not strict-verified this run | No | Do not use the NASA baby. Future run should verify a high-resolution adult *D. mexicanus* candidate, preferably complete side view |
 | Army Ant | Unverified | No | Audit entire single soldier, all legs/antennae |
 | Axolotl | Unverified | No | Audit head, tail, limbs/gills |
 | Baboon | Unverified | No | Audit full body, tail, hands/feet |
@@ -45,10 +45,11 @@
 | Bullet Ant | **Verified source:** 3456×2304 exact *Paraponera clavata* worker at La Selva, Geoff Gallice, CC BY 2.0; complete head, gaster, antennae and six legs visible | No | Binary cutout/commit pending |
 | Bullfrog | **Verified source:** 4450×2967 adult male *Lithobates catesbeianus*, Sam Stukel/USFWS, public domain; complete head, body, forefeet and hindfeet visually verified | No | Binary cutout/commit pending |
 | Camel | **Verified full-body source:** exact *Camelus dromedarius*, Fernando Losada Rodríguez, 3264×2448, CC BY-SA 4.0 Commons Quality Image; complete head, neck, hump/torso, four feet and tail directly inspected | No | Binary cutout/commit pending; exact age/sex not stated |
+| Camel Spider | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Galeodes arabs*, Karim Haddad, 1536×2048, CC BY 4.0; direct rendering shows real field specimen but prey/ground overlap prevents strict all-appendage/adult verification. Alternate exact-species 3531×2357 CC BY-SA 4.0 source also found but original rendering unavailable | No | Seek/verify clearly isolated adult female with every leg, pedipalp and abdomen visible |
 
 ## Image count and acceptance rule
 
-- `39` is a text-research count, not the number of valid images.
+- `40` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
@@ -57,7 +58,7 @@
 
 Earlier verified and unresolved findings remain represented in the table above. Detailed provenance is also retained in individual animal reports where safe to update.
 
-- **2026-09-17 Arctic Wolf:** Commons `Canis lupus arctos PO.jpg`, Cephas, is an exact *Canis lupus arctos* 4876×3251 CC BY-SA 3.0 Quality Image. Direct original-file inspection shows the complete head, torso, all four paws and full tail inside the frame. Source page: https://commons.wikimedia.org/wiki/File:Canis_lupus_arctos_PO.jpg . Original photo: https://upload.wikimedia.org/wikipedia/commons/4/47/Canis_lupus_arctos_PO.jpg . Source does not explicitly state age or sex, so those fields remain unknown rather than inferred. Status: `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING` for framing/provenance, with age/sex caveat retained.
-- **2026-09-17 Camel:** Commons `Camelus dromedarius.001 - Zoo Aquarium de Madrid.JPG`, Fernando Losada Rodríguez, is exact *Camelus dromedarius*, 3264×2448, CC BY-SA 4.0 and a Commons Quality Image. Direct original-file inspection confirms complete head, neck, hump/torso, all four legs/feet and tail. Source page: https://commons.wikimedia.org/wiki/File:Camelus_dromedarius.001_-_Zoo_Aquarium_de_Madrid.JPG . Original photo: https://upload.wikimedia.org/wikipedia/commons/f/f0/Camelus_dromedarius.001_-_Zoo_Aquarium_de_Madrid.JPG . Exact age and sex are not stated, so no appearance-based inference is made. Status: `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`.
+- **2026-09-17 Armadillo:** Taxonomic audit matters for image selection. The U.S./Mexican roster animal is treated in the research report as *Dasypus mexicanus*, so old South American *D. novemcinctus* photographs cannot automatically be accepted. Commons now categorizes many U.S. photographs under *D. mexicanus*. The 3000×2005 NASA/Kennedy Space Center public-domain image at https://commons.wikimedia.org/wiki/File:Armadillo_at_Kennedy_Space_Center_(KSC-07PD-2276).jpg was rejected because NASA explicitly calls the photographed animal a baby. Original: https://upload.wikimedia.org/wikipedia/commons/6/6e/Armadillo_at_Kennedy_Space_Center_%28KSC-07PD-2276%29.jpg . Several larger adult-looking reuse-permitted candidates exist in https://commons.wikimedia.org/wiki/Category:Dasypus_mexicanus but strict adulthood plus entire tail/all-feet framing was not established, so no source was falsely verified.
+- **2026-09-17 Camel Spider:** Commons `Galeodes arabs 320251111.jpg`, Karim Haddad, is exact *Galeodes arabs*, 1536×2048 and CC BY 4.0. Source page: https://commons.wikimedia.org/wiki/File:Galeodes_arabs_320251111.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/5/5c/Galeodes_arabs_320251111.jpg . Direct rendering shows a field specimen interacting with prey, but overlap and pose prevent strict confirmation of every appendage and adult/sex status. A 3531×2357 exact-species CC BY-SA 4.0 alternative exists at https://commons.wikimedia.org/wiki/File:عنكبوت_الجمل_(Galeodes_arabs).jpg but the original timed out during direct rendering, so it remains unverified rather than promoted on metadata alone.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Armadillo is now the oldest unresolved image.
+- **Next legacy audit:** Army Ant is now the oldest unresolved image.

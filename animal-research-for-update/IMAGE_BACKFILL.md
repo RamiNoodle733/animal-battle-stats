@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 51 / 225 (through Coconut Crab). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 51. A source-photo link is not an approved PNG.
+**Research reports completed:** 52 / 225 (through Colossal Squid). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 52. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -28,8 +28,8 @@
 | Barracuda | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sphyraena barracuda*, 3406x2126, CC BY-SA 4.0; silhouette complete, adulthood unstated | No | Await explicit-adult clean source/new tooling |
 | Beaver | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Castor canadensis*, Courtney Celley/USFWS, 8800x5867, public domain; adulthood plus complete tail/all paws not simultaneously verified | No | Do not promote until strict adult/full-body inspection passes |
 | Beluga Whale | **REPLACEMENT SOURCE NEEDED:** exact *Delphinapterus leucas* candidates inspected; no candidate simultaneously showed complete body/flippers/flukes and explicit adulthood | No | Seek explicit adult, preferably male, clean underwater side view |
-| Bighorn Sheep | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Ovis canadensis*, NPS/Glacier, 4500x3000, CC BY 2.0; direct inspection shows complete head/horns/torso/all four legs-hooves/tail region, but adulthood is not explicit on this source. Separate ADW Phil Myers source explicitly says male and adult/sexually mature but could not be visually verified at sufficient quality in this run | No | Seek/verify one source simultaneously proving adult status and strict full-body framing |
-| Bison | Unverified | No | Audit bull head/tail/all four legs |
+| Bighorn Sheep | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Ovis canadensis*, NPS/Glacier, 4500x3000, CC BY 2.0; direct inspection shows complete head/horns/torso/all four legs-hooves/tail region, but adulthood is not explicit | No | Seek/verify one source simultaneously proving adult status and strict full-body framing |
+| Bison | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Bison bison* bull, Yellowstone, 2816x2120, public domain; source explicitly says bull but this run could not visually certify all four hooves and tail from the original | No | Need strict complete-body inspection before promotion |
 | Black Bear | **Verified source:** 1944x1855 exact-species public-domain full-body; sex unknown | No | Binary cutout/commit pending |
 | Black Mamba | **Verified source:** 4320x2592 exact-species, CC BY-SA 2.0; complete coiled snake | No | Binary cutout/commit pending |
 | Black Panther | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** melanistic *Panthera pardus*, 2093x1407, CC BY-SA 4.0 | No | Verify paws/tail |
@@ -56,18 +56,19 @@
 | Chimpanzee | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** male *Pan troglodytes*, 3798x2848, CC BY-SA 3.0; anatomy complete but adulthood not explicit | No | Seek explicit adult male clean source |
 | Clouded Leopard | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Neofelis nebulosa*, 2048x1536, CC BY 4.0 | No | Adulthood plus every paw/complete tail need strict verification |
 | Cockatoo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Cacatua galerita*, 2000x2500, CC BY-SA 3.0; tail/body complete but perch obscures feet and adulthood/sex are not explicit | No | Seek explicit adult, preferably male, with both feet visible or clean full-flight anatomy |
-| Coconut Crab | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Birgus latro*, Lance Vanlewen, 1915x1956, CC BY-SA 4.0; direct inspection shows complete major silhouette and appendages, but adulthood/sex are not explicit | No | Seek explicit adult male with all appendages clearly visible; binary cutout unavailable |
+| Coconut Crab | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Birgus latro*, 1915x1956, CC BY-SA 4.0; complete major silhouette but adulthood/sex not explicit | No | Seek explicit adult male with all appendages clearly visible |
+| Colossal Squid | **REPLACEMENT SOURCE NEEDED:** exact adult-scale female specimens are photographed, but available sources depict dying/dead/preserved animals; first confirmed live wild 2025 image is juvenile | No | Seek healthy adult full-body real photograph; do not substitute museum carcass |
 
 ## Image count and acceptance rule
 
-- `51` is a text-research count, not the number of valid images.
+- `52` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
 
 ## Latest findings and blockers
 
-- **2026-09-18 Bighorn Sheep:** Broad search located strong exact-species male sources. NPS/Glacier `Bighorn ram (4497466833).jpg` is 4500x3000, CC BY 2.0. Source page: https://commons.wikimedia.org/wiki/File:Bighorn_ram_(4497466833).jpg ; original: https://upload.wikimedia.org/wikipedia/commons/7/76/Bighorn_ram_%284497466833%29.jpg . Direct inspection confirms the head, both horns, torso, all four legs/hooves and tail region are inside the frame with strong effective subject resolution. The source calls the animal a ram but does not explicitly label it adult. Animal Diversity Web separately provides Phil Myers' `bighorn2306` exact *Ovis canadensis* photograph with metadata `male` and `adult/sexually mature`, CC BY-NC-SA 3.0, but the image itself could not be visually verified at sufficient quality in this run. Status is therefore `SOURCE FOUND - FULL-BODY NOT VERIFIED`, not falsely promoted. The existing Bighorn research report is too large for the current text connector to safely replace without truncation, so the verified candidate URLs are preserved here rather than risking destruction of the completed report.
-- **2026-09-18 Coconut Crab:** Exact-species Lance Vanlewen Commons source is 1915x1956, CC BY-SA 4.0. Source: https://commons.wikimedia.org/wiki/File:Coconut_Crab_(Birgus_latro),_Guam.jpg ; original: https://upload.wikimedia.org/wikipedia/commons/a/aa/Coconut_Crab_%28Birgus_latro%29%2C_Guam.jpg . Direct inspection shows complete major silhouette and appendages, but adulthood and sex are not explicit, so status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **2026-09-18 Bison:** Broad image search located `BisonBlackDragonCaldron.jpg`, an exact *Bison bison* bull photographed at Yellowstone. Commons explicitly describes it as a bull, provides a 2816x2120 original, and records a public-domain dedication. Source page: https://commons.wikimedia.org/wiki/File:BisonBlackDragonCaldron.jpg ; original: https://upload.wikimedia.org/wikipedia/commons/2/22/BisonBlackDragonCaldron.jpg . The available original-image fetch timed out in this run, so strict visual confirmation of the tail and all four hooves could not be completed. Status is `SOURCE FOUND - FULL-BODY NOT VERIFIED`, not promoted from metadata or dimensions alone.
+- **2026-09-18 Colossal Squid:** Te Papa documents the 2007 Ross Sea specimen as an adult-scale female near 470 kg corrected mass, but museum photographs depict a dying/dead/preserved specimen. Te Papa imagery is also marked CC BY-NC-ND. The first confirmed in-situ live *Mesonychoteuthis hamiltoni* footage announced in 2025 shows a roughly 30 cm juvenile. No source found this run simultaneously met exact species + healthy adult + full body + suitable reuse/cutout conditions. Status: `REPLACEMENT SOURCE NEEDED`.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Bison.
+- **Next legacy audit:** Black Bear is already source-verified, so future runs should skip source re-research unless binary tooling changes; otherwise advance to the next unreviewed/non-verified legacy candidate according to queue order.

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 57 / 225 (through Cuttlefish). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 57. A source-photo link is not an approved PNG.
+**Research reports completed:** 58 / 225 (through Deathstalker Scorpion). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 58. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -38,8 +38,8 @@
 | Blue Whale | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult *Balaenoptera musculus*, NOAA/NMFS, 1792x1128, public domain; adulthood explicit but strict complete flipper/fluke silhouette could not be certified from available render path | No | Queue advances; revisit only with direct original-image visual inspection or stronger explicit-adult complete source |
 | Boa Constrictor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Boa constrictor* Commons candidate 4928x3264, CC BY 2.0; higher resolution than prior source, but photographed individual's adulthood/sex and strict complete head-to-tail silhouette were not simultaneously certified. Separate ADW *B. constrictor* source explicitly labels subject adult/sexually mature. | No | Queue advances; revisit only with one source simultaneously proving adult and strict full body |
 | Bobcat | **Verified source:** 1600x1160 wild adult male *Lynx rufus*, CC BY-SA 3.0 | No | Binary cutout/commit pending |
-| Bongo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** male *Tragelaphus eurycerus*, 2848x4288, CC BY-SA 3.0 | No | **Next legacy audit:** verify adult status, all hooves and complete tail |
-| Bottlenose Dolphin | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Tursiops truncatus*, 3053x2212, CC BY-SA 2.0 | No | Verify rostrum/flippers/dorsal/flukes |
+| Bongo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact male *Tragelaphus eurycerus*, Commons Quality Image, 2848x4288, CC BY-SA 3.0. Separate American Society of Mammalogists source explicitly identifies an adult male *T. e. isaaci* in side view, but reuse permission is not established. | No | Queue advances; retain Commons candidate but seek one source simultaneously proving adult male, strict full body and reusable license |
+| Bottlenose Dolphin | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Tursiops truncatus*, 3053x2212, CC BY-SA 2.0 | No | **Next legacy audit:** verify rostrum/flippers/dorsal/flukes and adulthood |
 | Box Jellyfish | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 900x1600 `Chironex sp.` candidate | No | Find high-resolution exact mature *C. fleckeri* |
 | Bull Shark | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Carcharhinus leucas*, 6839x4559 | No | Verify fins/caudal/adulthood/sex |
 | Bullet Ant | **Verified source:** 3456x2304 *Paraponera clavata* worker, CC BY 2.0 | No | Binary cutout/commit pending |
@@ -63,17 +63,18 @@
 | Coyote | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 2971x2377 CC BY 2.0 candidate explicitly titled Alpha Male Coyote; alternate explicit male is 6000x4000 CC BY 2.0 | No | Strictly verify adult status, all paws and full tail before cutout |
 | Crow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Corvus brachyrhynchos*, 5568x3712, CC BY 4.0 | No | Verify explicit adulthood and strict toes/tail framing before cutout |
 | Cuttlefish | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Sepia officinalis*, Diego Delso, 3868x2579, CC BY-SA 4.0 | No | Explicit adulthood and strict all-arm/tentacle plus complete mantle-fin silhouette remain unresolved |
+| Deathstalker Scorpion | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact *Leiurus quinquestriatus*, Danny S., 2212x2357, CC BY-SA 4.0; separate 3957x2638 explicit sub-adult female source rejected | No | Seek explicitly adult exact-species source and certify all leg tips, pedipalps and complete telson/aculeus |
 
 ## Image count and acceptance rule
 
-- `57` is a text-research count, not the number of valid images.
+- `58` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
 
 ## Latest findings and blockers
 
-- **2026-09-18 Boa Constrictor:** Audited the oldest unresolved queue entry. A stronger Commons photograph, `Boa Constrictor (16256499958).jpg`, is exact *Boa constrictor*, 4928x3264 and CC BY 2.0. Its description discusses mature female/male size but does not explicitly establish that the photographed individual is an adult or its sex, and strict complete head-to-tail visibility was not certified sufficiently to pass. A separate Animal Diversity Web *B. constrictor* photograph explicitly labels the subject `adult/sexually mature`, but this run did not simultaneously establish that image as a 1600+ strict full-body candidate. Boa therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`; queue advances to Bongo.
-- **2026-09-18 Cuttlefish:** Exact *Sepia officinalis* Diego Delso candidate is 3868x2579, a Wikimedia Commons Quality Image and CC BY-SA 4.0. It is strong for exact taxon, resolution and provenance, but explicit adulthood/sex and strict complete appendage visibility remain unresolved. A 3408x2556 Hans Hillewaert aquarium candidate was rejected as primary after visual review showed the posterior mantle reaching/leaving the frame.
+- **2026-09-18 Bongo:** Audited the oldest unresolved queue entry. The existing Commons candidate `Tragelaphus eurycerus (Bongo).jpg` is exact species, explicitly male, 2848x4288, a Commons Quality Image and CC BY-SA 3.0. Its page does not explicitly establish adulthood, so it cannot pass the mandatory adult rule from appearance alone. A stronger life-stage source from the American Society of Mammalogists explicitly describes a **side view of adult male** *Tragelaphus eurycerus isaaci*, but this run did not establish a redistribution license for that photograph, so it is retained only as corroborating discovery and not as a commit candidate. Bongo remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`; queue advances to Bottlenose Dolphin.
+- **2026-09-18 Deathstalker Scorpion:** New report candidate `Leiurus quinquestriatus by Danny S.-1.jpg` is exact species, 2212x2357 and CC BY-SA 4.0. It is high-resolution and visually promising, but Commons does not state adulthood or sex and strict original-resolution certification of every leg tip, both pedipalps and the complete telson/aculeus was not strong enough to pass. `Leiurusquinquestriatus.jpg`, 3957x2638 CC BY-SA 4.0, was explicitly rejected because Commons labels it a **sub-adult female**. Status is `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Bongo.
+- **Next legacy audit:** Bottlenose Dolphin.

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 54 / 225 (through Cougar). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 54. A source-photo link is not an approved PNG.
+**Research reports completed:** 55 / 225 (through Coyote). **Full-body transparent PNG assets verified and committed in this staging image directory:** 0 / 55. A source-photo link is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory. Visually inspect whole-body framing and exact taxon, replace inadequate photos, then produce a genuine alpha-transparent PNG with approved binary tools and inspect it before counting completion.
 
@@ -34,8 +34,8 @@
 | Black Mamba | **Verified source:** 4320x2592 exact-species, CC BY-SA 2.0; complete coiled snake | No | Binary cutout/commit pending |
 | Black Panther | **REPLACEMENT SOURCE NEEDED:** exact melanistic *Panthera pardus*, 2093x1407, CC BY-SA 4.0, visually rejected because the complete tail is not visible; 2048x1536 alternate is obscured by grass | No | Seek explicit adult male melanistic leopard with all paws and full tail unobscured |
 | Black Rhinoceros | **Verified source:** 3456x2168 adult male *Diceros bicornis*, GFDL 1.2 | No | Binary cutout/commit pending |
-| Black Widow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** female *Latrodectus hesperus*, 1500x1061, CC BY 2.0 | No | **Next legacy audit:** prefer larger explicit adult-female source and verify all legs |
-| Blue Whale | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** NOAA adult *Balaenoptera musculus*, 1792x1128, public domain | No | Verify complete silhouette/fins |
+| Black Widow | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact female *Latrodectus hesperus*, 1670x1144, CC BY-SA 3.0/GFDL; egg sac observed weeks later supports reproductive maturity, but strict all-eight-leg framing not certified | No | Queue advances; revisit only with original-resolution visual certification or better explicit-adult female source |
+| Blue Whale | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** NOAA adult *Balaenoptera musculus*, 1792x1128, public domain | No | **Next legacy audit:** verify complete silhouette/flippers/flukes and adulthood |
 | Boa Constrictor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** *Boa constrictor*, 2048x1536, CC BY-SA 2.0 Germany | No | Verify complete head-to-tail coil/adulthood |
 | Bobcat | **Verified source:** 1600x1160 wild adult male *Lynx rufus*, CC BY-SA 3.0 | No | Binary cutout/commit pending |
 | Bongo | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** male *Tragelaphus eurycerus*, 2848x4288, CC BY-SA 3.0 | No | Verify hooves/tail |
@@ -60,17 +60,18 @@
 | Colossal Squid | **REPLACEMENT SOURCE NEEDED:** adult-scale specimens available only dying/dead/preserved; first confirmed live wild 2025 image is juvenile | No | Seek healthy adult full-body photograph; do not substitute carcass |
 | Condor | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult *Gymnogyps californianus*, 1584x1047, CC BY 2.0; adulthood explicit but strict foot/digit visibility unresolved | No | Seek explicit adult complete flight anatomy at 1600+ |
 | Cougar | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** exact adult male *Puma concolor* P-1, 1752x1177, NPS public domain; age/sex explicit, but direct visual inspection shows tail cropped at right edge | No | Seek explicit adult male with all paws and entire tail inside frame |
+| Coyote | **SOURCE FOUND - FULL-BODY NOT VERIFIED:** 2971x2377 CC BY 2.0 candidate explicitly titled Alpha Male Coyote; alternate explicit male is 6000x4000 CC BY 2.0 | No | Strictly verify adult status, all paws and full tail before cutout |
 
 ## Image count and acceptance rule
 
-- `54` is a text-research count, not the number of valid images.
+- `55` is a text-research count, not the number of valid images.
 - `0` remains the verified image-binary count. Update it only after inspecting the committed binary and verifying complete anatomy plus genuine alpha transparency.
 - A verified source URL is progress but does not count as a completed PNG.
 - Connected GitHub `create_file`/`update_file` tools accept UTF-8 text, not PNG binary. Do not fake `.png` files.
 
 ## Latest findings and blockers
 
-- **2026-09-18 Black Panther:** Re-audited the oldest unresolved legacy candidate. `Black Panther - India.jpg` is exact melanistic *Panthera pardus*, 2093x1407 and CC BY-SA 4.0, but direct visual inspection shows the full tail is not visible. It therefore fails the mandatory whole-body standard. `Black leopard.JPG` (2048x1536, CC BY-SA 3.0) is also unsuitable because grass obscures multiple appendages/body edges. Status is now `REPLACEMENT SOURCE NEEDED`; queue advances to Black Widow because Black Rhinoceros is already source-verified.
-- **2026-09-18 Cougar:** NPS P-1 provides unusually strong provenance: exact *Puma concolor*, explicitly male, approximately five years old at initial capture, 1752x1177 and public domain. Direct inspection nevertheless shows the tail leaving the right frame edge. It is recorded as `SOURCE FOUND - FULL-BODY NOT VERIFIED`, not a completed source. A 6000x4000 exact-species female candidate was also found, but the canonical fighting sex is male and strict adult/full-tail verification was not simultaneously established.
+- **2026-09-18 Black Widow:** Re-audited the oldest unresolved queue entry. `LatrodectusHesperus 1069.JPG` is exact *Latrodectus hesperus*, explicitly female, 1670x1144 and CC BY-SA 3.0/GFDL. The source states that an egg sac was observed a few weeks after the image, strongly supporting reproductive maturity. However, strict original-resolution confirmation that all eight legs are fully inside frame was not completed, so the source remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Queue advances to Blue Whale rather than repeatedly revisiting it without better visual tooling.
+- **2026-09-18 Coyote:** Two reuse-permitted explicit-male candidates were identified. `Alpha Male Coyote by Don Green (49736243467).jpg` is 2971x2377, CC BY 2.0; `Male Coyote (40653747405).jpg` is 6000x4000, CC BY 2.0. Strict adulthood plus all-paws/full-tail framing was not simultaneously certified, so neither is promoted to a finished source.
 - **Binary blocker:** Current GitHub writer is text-only. A binary-capable Git client/codebot or image upload method is required to create/commit actual transparent PNG assets. No image is marked complete until the committed PNG exists and passes alpha plus silhouette inspection.
-- **Next legacy audit:** Black Widow. Skip Black Rhinoceros because its source is already verified unless binary tooling becomes available.
+- **Next legacy audit:** Blue Whale.

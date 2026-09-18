@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 50 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 50
+- **Completed research files:** 51 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 51
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Cockatoo
-- **Next pending animal:** Coconut Crab
-- **Latest completion:** 2026-09-18 06:57 America/Chicago
-- **Latest new-animal image status:** Cockatoo - `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact *Cacatua galerita*, JJ Harrison, 2000x2500, CC BY-SA 3.0. Direct inspection confirms head/crest/torso/wings/tail inside frame, but perch vegetation obscures feet and adulthood/sex are not explicit. Binary PNG tooling remains unavailable.
-- **Latest legacy image audit:** Beluga Whale - multiple exact *Delphinapterus leucas* reuse-permitted candidates inspected. A 4464x3300 surface image hides most of the body; a 2448x3264 underwater image does not clearly expose both flippers and complete flukes, and adulthood/sex are unstated. Status remains `REPLACEMENT SOURCE NEEDED`.
-- **Next legacy image audit:** Bighorn Sheep
+- **Most recently completed:** Coconut Crab
+- **Next pending animal:** Colossal Squid
+- **Latest completion:** 2026-09-18 08:01 America/Chicago
+- **Latest new-animal image status:** Coconut Crab - `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact *Birgus latro*, Lance Vanlewen, 1915x1956, CC BY-SA 4.0. Direct inspection shows complete major silhouette/appendages, but adulthood and sex are not explicit. Binary PNG tooling remains unavailable.
+- **Latest legacy image audit:** Bighorn Sheep - strong exact-species male candidates found. NPS/Glacier `Bighorn ram` is 4500x3000, CC BY 2.0, and direct inspection confirms head, horns, torso, all four legs/hooves and tail region inside frame, but source metadata does not explicitly establish adulthood. A separate ADW Phil Myers image explicitly labels the subject male and adult/sexually mature but was not visually available at sufficient quality in this run. Status: `SOURCE FOUND - FULL-BODY NOT VERIFIED` pending one source that simultaneously proves adult status and strict framing.
+- **Next legacy image audit:** Bison
 - **Latest checkpoint:** `audits/CHECKPOINT-050.md`
 
 ## Selection rule
@@ -35,11 +35,10 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 - Chimpanzee remains a proportional-strength/cognition case: peer-reviewed muscle work supports about 1.35x human-sized dynamic force/power, not folklore-level super strength.
 - Clouded Leopard remains a proportional-specialization case: a 22 kg male receives elite Agility 94.0 and Special 80.0 for arboreal mechanics and extreme canines, while Attack remains 49.0 and Defense 27.0 to preserve absolute size scaling.
 - Cockatoo adds another force-vs-pressure and cognition-vs-physical-power control: peer-reviewed *C. galerita* bite force is retained as 167.3 ± 24.2 N rather than fabricated PSI, while 0.8 kg body mass keeps Attack 21.0 and Defense 13.0 despite Intelligence 94.0.
+- Coconut Crab is a key proportional-strength control: direct pinch-force measurements reached 1,765.2 N and the published allometry predicts ~3,300 N at 4 kg, but the canonical 3 kg animal remains Attack 39.0 / Defense 28.0. The exceptional claw is represented mainly in Weaponry and Special rather than leaking into heavyweight whole-body power.
 
 ### Recent animal notes
 
-- **Camel:** *Camelus dromedarius*, mature male 550 kg. Stamina 91.0; speed and bite PSI unresolved.
-- **Camel Spider:** *Galeodes arabs*, mature female around 5.1 cm body length. Genus-level bite test reached 2.12 N; species-specific PSI and maximum speed unresolved.
 - **Cape Buffalo:** *Syncerus caffer caffer*, mature bull 750 kg. Attack 76.0 / Defense 70.0 / Agility 55.0 / Stamina 73.0 / Intelligence 56.0 / Special 52.0.
 - **Capuchin Monkey:** *Sapajus apella*, mature male 4.0 kg. Attack 23.0 / Defense 17.0 / Agility 84.0 / Stamina 56.0 / Intelligence 92.0 / Special 72.0.
 - **Capybara:** *Hydrochoerus hydrochaeris*, dominant adult male 54.0 kg. Attack 31.0 / Defense 29.0 / Agility 65.0 / Stamina 52.0 / Intelligence 52.0 / Special 63.0.
@@ -48,8 +47,9 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 - **Chameleon:** *Chamaeleo chamaeleon*, mature non-gravid female about 45 g. Attack 12.0 / Defense 8.0 / Agility 65.0 / Stamina 31.0 / Intelligence 48.0 / Special 88.0.
 - **Cheetah:** *Acinonyx jubatus*, mature male 46.0 kg. Attack 41.0 / Defense 24.0 / Agility 97.0 / Stamina 43.0 / Intelligence 62.0 / Special 76.0.
 - **Chimpanzee:** *Pan troglodytes*, mature male 46.0 kg. Attack 46.0 / Defense 31.0 / Agility 83.0 / Stamina 57.0 / Intelligence 96.0 / Special 75.0.
-- **Clouded Leopard:** *Neofelis nebulosa*, mature male 22.0 kg / 95.0 cm head-body / 35.0 cm shoulder. Attack 49.0 / Defense 27.0 / Agility 94.0 / Stamina 52.0 / Intelligence 64.0 / Special 80.0. Unsupported popular 40 mph speed rejected; bite-force estimates retained as force rather than fabricated PSI.
-- **Cockatoo:** standardized from generic family-level live label to Sulphur-crested Cockatoo *Cacatua galerita*, healthy mature male, 0.8 kg / 50.0 cm length / 103.0 cm average wingspan. Attack 21.0 / Defense 13.0 / Agility 86.0 / Stamina 59.0 / Intelligence 94.0 / Special 76.0. Peer-reviewed calculated bite force 167.3 ± 24.2 N retained as force; unsupported legacy 36 km/h and 100 PSI values rejected.
+- **Clouded Leopard:** *Neofelis nebulosa*, mature male 22.0 kg / 95.0 cm head-body / 35.0 cm shoulder. Attack 49.0 / Defense 27.0 / Agility 94.0 / Stamina 52.0 / Intelligence 64.0 / Special 80.0.
+- **Cockatoo:** *Cacatua galerita*, healthy mature male, 0.8 kg / 50.0 cm length / 103.0 cm average wingspan. Attack 21.0 / Defense 13.0 / Agility 86.0 / Stamina 59.0 / Intelligence 94.0 / Special 76.0.
+- **Coconut Crab:** *Birgus latro*, large mature male canonical 3.0 kg / 40.0 cm conventional body length / ~80 cm representative leg span. Attack 39.0 / Defense 28.0 / Agility 45.0 / Stamina 50.0 / Intelligence 43.0 / Special 78.0. Direct measured pinch force reaches 1,765.2 N in the PLOS sample; ~3,300 N at 4 kg is explicitly an extrapolation, not a direct measurement. Unsupported web speed claims rejected and bite PSI remains 0.0.
 
 ## 50-animal checkpoint
 
@@ -57,4 +57,4 @@ On each run, read `DATA_PROGRESS.md` for the canonical 225-animal roster and cho
 
 ## Image pipeline status
 
-50 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub write tools accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.
+51 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have verified full-body sources, while others remain pending, unsuitable or license-blocked. Current GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNGs are created. `IMAGE_BACKFILL.md` is the canonical legacy-image audit record.

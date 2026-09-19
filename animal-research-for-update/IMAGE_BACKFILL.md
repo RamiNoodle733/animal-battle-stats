@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 83 / 225 (through Goose). **Full-body transparent PNG assets verified and committed:** 0 / 83. A source-photo URL is not an approved PNG.
+**Research reports completed:** 84 / 225 (through Gorilla). **Full-body transparent PNG assets verified and committed:** 0 / 84. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -73,8 +73,8 @@ The queue retains all prior source decisions. Animals already source-verified ar
 | Donkey | LICENSE UNVERIFIED - DO NOT COMMIT | Skip |
 | Dragonfly | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Anax junius* 5184x3456 CC BY 2.0 | Audited; skip |
 | Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED: mature *E. electricus* 6016x4016 CC BY 4.0 | Audited; strict head-to-tail silhouette not certified; skip |
-| Elk | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT LEGACY AUDIT: adult/framing** |
-| Emperor Penguin | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/anatomy/license |
+| Elk | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *C. c. roosevelti* 5481x3654 CC BY-SA 4.0 | Audited; adulthood + strict hoof/tail framing unresolved; skip |
+| Emperor Penguin | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT LEGACY AUDIT: adult/anatomy/license** |
 | Emperor Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/all leg tips |
 | Emu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Binary pending |
 | Fennec Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | Skip |
@@ -93,34 +93,42 @@ The queue retains all prior source decisions. Animals already source-verified ar
 | Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex |
 | Goliath Birdeater | SOURCE FOUND - FULL-BODY NOT VERIFIED: living exact *Theraphosa blondi* 2048x1536 CC BY-SA 4.0 | Adult + every leg-tip unresolved |
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Anser anser* 2292x2292 CC BY-SA 2.5 | Full body visually verified; adulthood/sex not source-explicit |
+| Gorilla | REPLACEMENT SOURCE NEEDED: exact adult male *G. b. beringei* reusable sources found but anatomy obscured | Find unobscured 1600+ complete silverback |
 
 ## Latest findings
 
-### 2026-09-19 Electric Eel legacy audit
+### 2026-09-19 Elk legacy audit
 
-The oldest unresolved candidate was re-audited against the mandatory standard.
+The oldest unresolved candidate was re-audited and broad search found a much newer high-resolution exact-taxon male source.
 
-- **Source page:** https://commons.wikimedia.org/wiki/File:Electrophorus_electricus_in_Gdynia_Oceanarium.jpg
-- **Original file:** https://upload.wikimedia.org/wikipedia/commons/0/01/Electrophorus_electricus_in_Gdynia_Oceanarium.jpg
-- **Resolution:** 6016x4016
-- **Taxon/adulthood:** exact *Electrophorus electricus*; source explicitly calls the specimen mature and near 3 m long
-- **License:** CC BY 4.0, Oleksandr (Alex) Zakletsky
+- **Source page:** https://commons.wikimedia.org/wiki/File:Roosevelt_elk_(Cervus_canadensis_roosevelti)_male_Campbell_River.jpg
+- **Original file:** https://upload.wikimedia.org/wikipedia/commons/2/20/Roosevelt_elk_%28Cervus_canadensis_roosevelti%29_male_Campbell_River.jpg
+- **Resolution:** 5481x3654
+- **Taxon/sex:** exact *Cervus canadensis roosevelti*, source explicitly says male
+- **Date/location:** 15 July 2026, Campbell River, Vancouver Island, British Columbia
+- **Creator:** Charles J. Sharp
+- **License:** CC BY-SA 4.0; own work; Commons Quality Image
 
-This source is excellent for taxon, adulthood, resolution and provenance, but it is not promoted to `FULL-BODY SOURCE FOUND`: the accessible visual discovery/render evidence is strongly head-biased and strict complete head-to-tail silhouette cannot be certified. The separately extracted 1422x1765 derivative is explicitly a head/lateral-line crop and is unsuitable. No PNG was produced. Status remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`** and Electric Eel is now skipped pending a genuinely certified whole-animal source.
+This is a major provenance/resolution improvement over weak discovery candidates, but it is **not** promoted to full-body verified. The metadata does not explicitly establish that the photographed male is a mature adult, and strict complete-antler, all-hoof and tail visibility was not certified from an inspected original render during this run. Status remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No cutout or PNG was produced.
 
-**Next unresolved legacy audit: Elk.**
+**Next unresolved legacy audit: Emperor Penguin.**
 
-### 2026-09-19 Goose new-animal image
+### 2026-09-19 Gorilla new-animal image
 
-- **Candidate page:** https://commons.wikimedia.org/wiki/File:Greylag-Goose.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/c/c5/Greylag-Goose.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org
-- **Resolution/license:** 2292x2292, CC BY-SA 2.5
-- **Provenance:** exact *Anser anser*, Andreas Trepte, own work
+Broad search covered Commons and commercial wildlife/photographer discovery. The strongest reusable exact mountain-gorilla source with explicit adult-male status was still anatomically unsuitable.
 
-The original was visually inspected. It shows one complete unobscured goose with head, neck, torso, folded wings, tail, both legs and both feet fully inside frame. It is a strong cutout candidate. However, the source metadata does not explicitly establish adulthood or sex, and age is not inferred solely from appearance for completion purposes. Status: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. A separate 3008x2000 Commons source explicitly labels adult Greylags but includes an adult and juvenile together, so it fails the single-animal requirement. No PNG exists.
+- **Candidate page:** https://commons.wikimedia.org/wiki/File:Silver_back.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/0/00/Silver_back.jpg
+- **Resolution/license:** 1518x2278, CC BY 2.0, Flickr license reviewed on Commons
+- **Taxon:** exact *Gorilla beringei beringei*, Suza family, Volcanoes National Park, Rwanda
+- **Adult/sex:** silverback, therefore source-explicit mature male status
+- **Visual result:** seated close framing; lower limbs/feet are obscured by vegetation/body position and the complete silhouette is not available for a faithful cutout
+
+A second exact mountain-gorilla silverback source, https://commons.wikimedia.org/wiki/File:Silverback_gorilla_(290813335).jpg (1280x853, CC BY 2.0), was visually inspected and rejected because it is a group scene with the silverback heavily overlapped/obscured. Commercial discovery produced clearer full-body silverbacks, but those photographs were not redistributed because reuse permission was not established. Status: **`REPLACEMENT SOURCE NEEDED`**. No PNG exists.
 
 ## Prior decisive findings
 
+- **Electric Eel:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact mature *E. electricus* 6016x4016 CC BY 4.0, but strict complete head-to-tail silhouette not certified.
 - **Condor:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, exact adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0.
 - **Colossal Squid:** `REPLACEMENT SOURCE NEEDED`; famous Te Papa specimen is explicitly immature.
 - **Gecko:** `REPLACEMENT SOURCE NEEDED`; exact adult male museum source is only 1008x460.
@@ -129,8 +137,8 @@ The original was visually inspected. It shows one complete unobscured goose with
 
 ## Count and blocker
 
-- `83` is completed text research, not completed images.
+- `84` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Elk.**
+- **Next legacy audit: Emperor Penguin.**

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 78 / 225 (through Gibbon). **Full-body transparent PNG assets verified and committed:** 0 / 78. A source-photo URL is not an approved PNG.
+**Research reports completed:** 79 / 225 (through Gila Monster). **Full-body transparent PNG assets verified and committed:** 0 / 79. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -65,8 +65,8 @@
 | Crow | SOURCE FOUND - FULL-BODY NOT VERIFIED: 5616x3744 exact species CC BY 2.0 | No | Adult/sex + strict tail/all-toe unresolved; skip |
 | Cuttlefish | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Sepia officinalis* Ifremer 8256x5504 CC BY 4.0; explicit-adult alternate only 1280x960 | No | Skip unless adulthood + every arm/tentacle tip can be certified in a 1600+ source |
 | Deathstalker Scorpion | LICENSE UNVERIFIED - DO NOT COMMIT | No | Israeli Commons series is modern *L. hebraeus*; Egyptian adult *L. quinquestriatus* source found but reuse permission unresolved; skip |
-| Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446 | No | **NEXT LEGACY AUDIT: single adult male/full tail** |
-| Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing confirmed | No | Explicit adulthood |
+| Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446 exact *Cuon alpinus*, CC BY-SA 3.0 | No | Second dhole behind subject + foreground tail not cleanly visible; skip |
+| Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing confirmed | No | **NEXT LEGACY AUDIT: explicit adulthood + license/strict anatomy** |
 | Donkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: 4928x3264 CC0 | No | Adult jack/hooves/tail |
 | Dragonfly | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Anax junius* 1800x900 | No | Adult/all tips |
 | Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED: mature 6016x4016 | No | Strict silhouette |
@@ -85,31 +85,35 @@
 | Giant Centipede | REPLACEMENT SOURCE NEEDED: exact *Scolopendra gigantea* reusable source only 800x600 | No | Reusable 1600+ adult, all legs/antennae/terminal appendages |
 | Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED: female *Architeuthis dux* Smithsonian public-domain candidate 2912x4368 | No | Adult + strict every-arm/tentacle-tip verification |
 | Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Hylobates lar* 2048x1536 CC BY-SA 2.0 | No | Adult + unobscured upper limb/hand needed |
+| Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Heloderma suspectum* 4358x2586 CC BY-SA 4.0 | No | Adult/sex + strict every-toe/tail verification |
 
 ## Latest findings
 
-### 2026-09-19 Deathstalker Scorpion legacy audit
-The prior high-resolution Israeli Commons series was rechecked against modern taxonomy. Example page: https://commons.wikimedia.org/wiki/File:Deathstalker_(Leiurus_quinquestriatus)_9.jpg . The file is 4950x3300 and CC BY-SA 4.0, but Commons structured data now identifies the depicted animal as **Leiurus hebraeus**. The photo was taken in Israel, consistent with the taxonomic split. It must not be used as exact-*L. quinquestriatus* evidence merely because the historical filename says `quinquestriatus`.
+### 2026-09-19 Dhole legacy audit
+Candidate page: https://commons.wikimedia.org/wiki/File:Cuon_alpinus_(Dhole).jpg
 
-A much stronger biological match was found at https://arachnoboards.com/gallery/leiurus-quinquestriatus.41195/ . The page explicitly describes a **1.0 adult male Egyptian Deathstalker (*Leiurus quinquestriatus*)**, about 3 inches, with a **4896x3672** source photograph. However, the page does not establish a redistribution license. Status is therefore **LICENSE UNVERIFIED - DO NOT COMMIT**, not complete. No PNG was produced. Deathstalker should now be skipped unless a reusable exact-species adult source or new permission evidence appears.
+Original image: https://upload.wikimedia.org/wikipedia/commons/e/eb/Cuon_alpinus_%28Dhole%29.jpg
 
-Next unresolved legacy audit: **Dhole**.
+The exact-*Cuon alpinus* photograph is **2585×3446**, photographed at Port Lympne Wild Animal Park by Hans Hillewaert, and licensed **CC BY-SA 3.0**. The original/source was rechecked rather than relying on dimensions alone. The foreground dhole's head, torso and four feet are visible, but a second dhole stands directly behind it and the foreground animal's tail is not a clean, complete isolated silhouette. The image therefore fails the mandatory single-animal/full-body requirement. No superior reusable source simultaneously establishing adult status, preferred male sex and strict full tail/all paws was verified in this pass. Status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG was produced.
 
-### 2026-09-19 Gibbon new-animal image
-Candidate page: https://commons.wikimedia.org/wiki/File:White-handed_Gibbon_(Hylobates_lar)_male_(7732841908).jpg
+Next unresolved legacy audit: **Dingo**.
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/4/43/White-handed_Gibbon_%28Hylobates_lar%29_male_%287732841908%29.jpg
+### 2026-09-19 Gila Monster new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:Gila_monster_(Heloderma_suspectum).jpg
 
-This is an exact *Hylobates lar* **male**, photographed wild in Khao Yai National Park, Thailand, **2048x1536**, CC BY-SA 2.0 with Flickr license review. The original was opened directly. Head, torso, legs and feet are visible, but one upper limb/hand is obscured by the canopy/support and adulthood is not explicit in source metadata. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No staging PNG exists.
+Original image: https://upload.wikimedia.org/wikipedia/commons/c/ca/Gila_monster_%28Heloderma_suspectum%29.jpg
+
+This is an exact *Heloderma suspectum* real photograph from Burgers' Zoo, **4358×2586**, CC BY-SA 4.0. The source page resolves the original and explicitly establishes reusable licensing. However, metadata does not establish adulthood or sex, and strict visibility of every toe plus the entire tail could not be certified. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. A 2916×2189 USFWS public-domain reticulate Gila monster was also found but did not resolve the adult/sex/strict-anatomy uncertainties. No staging PNG exists.
 
 ## Prior decisive findings
 - **Condor:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, exact adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0, complete flying silhouette visually checked.
 - **Colossal Squid:** `REPLACEMENT SOURCE NEEDED`; famous Te Papa specimen is explicitly immature and 2025 live footage is juvenile.
 - **Gecko:** `REPLACEMENT SOURCE NEEDED`; exact adult male museum source is only 1008x460.
+- **Deathstalker Scorpion:** `LICENSE UNVERIFIED - DO NOT COMMIT`; reusable Israeli Commons images resolve to *L. hebraeus*, while the explicit Egyptian adult *L. quinquestriatus* source lacks verified redistribution permission.
 
 ## Count and blocker
-- `78` is completed text research, not completed images.
+- `79` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Dhole.**
+- **Next legacy audit: Dingo.**

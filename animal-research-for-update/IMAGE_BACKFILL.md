@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 64 / 225 (through Elk). **Full-body transparent PNG assets verified and committed:** 0 / 64. A source-photo URL is not an approved PNG.
+**Research reports completed:** 65 / 225 (through Emperor Penguin). **Full-body transparent PNG assets verified and committed:** 0 / 65. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -50,9 +50,9 @@
 | Cape Buffalo | VERIFIED: male 4992x3328 | No | Binary pending |
 | Capuchin Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3935x3935, whole body visually verified | No | Adult/sex unresolved; skip |
 | Capybara | VERIFIED: alpha male 3800x2533 | No | Binary pending |
-| Caracal | SOURCE FOUND - FULL-BODY NOT VERIFIED: wild exact species 4949x3299 | No | Adult and strict appendage/tail completeness unresolved; skip until stronger evidence/tooling |
-| Cassowary | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2152x1614 | No | **NEXT LEGACY AUDIT: prefer adult female, complete feet/body** |
-| Chameleon | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3872x2592 | No | Adult/digits/tail |
+| Caracal | SOURCE FOUND - FULL-BODY NOT VERIFIED: wild exact species 4949x3299 | No | Adult and strict appendage/tail completeness unresolved; skip |
+| Cassowary | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact species 6000x4000 CC BY-SA 4.0 candidate found | No | Adult/sex/full-body not all certified; skip until stronger evidence/tooling |
+| Chameleon | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3872x2592 | No | **NEXT LEGACY AUDIT: adult/digits/tail** |
 | Cheetah | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4206x2942 | No | Full tail |
 | Chimpanzee | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 3798x2848 | No | Explicit adulthood |
 | Clouded Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 2048x1536 | No | Adult/paws/tail |
@@ -71,27 +71,28 @@
 | Dragonfly | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Anax junius* 1800x900 | No | Adult/all tips |
 | Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED: mature 6016x4016 | No | Strict silhouette |
 | Elk | SOURCE FOUND - FULL-BODY NOT VERIFIED: bull 3130x2085 CC BY 2.0 | No | Adult age + strict antler/hoof/tail framing |
+| Emperor Penguin | SOURCE FOUND - FULL-BODY NOT VERIFIED: `Emperor-single hg.jpg` 3559x5310 | No | Strict anatomy/adult/sex/exact-file license confirmation |
 
 ## Latest findings
-### 2026-09-18 Caracal legacy audit
-Existing candidate remains: https://commons.wikimedia.org/wiki/File:Caracal_-_West_Coast_National_Park.jpg
+### 2026-09-18 Cassowary legacy audit
+Stronger candidate page: https://commons.wikimedia.org/wiki/File:Casuarius_casuarius_@_KL.jpg
 
-Original: https://upload.wikimedia.org/wikipedia/commons/3/3f/Caracal_-_West_Coast_National_Park.jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/ (use the Commons file page's Original file link before redistribution)
 
-Broad follow-up checked additional Commons candidates. `Caracal Caracal-001.jpg` is 3303x2202 CC BY-SA 3.0; `Caracal (Caracal caracal) (captive specimen) (45839223555).jpg` is 2923x2415 CC BY-SA 2.0; `Caracal caracal.jpg` is 3000x2000 CC BY 2.0. None supplied stronger explicit adulthood plus strict complete-body verification than the current 4949x3299 wild exact-species candidate. Caracal therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED** and should not be repeatedly revisited without materially stronger evidence or binary tooling.
+This is a real exact-*Casuarius casuarius* photograph, 6000x4000, CC BY-SA 4.0. Commons identifies it as a captive Southern Cassowary and confirms the file is a directly photographed JPEG. It does not establish adulthood or sex, and strict complete-body framing was not visually certified in this run, so it is not promoted. A separate 8688x5792 Auckland Museum exact-species CC BY 2.0 file was also checked, but it is collection material and therefore not accepted as the required healthy live adult. Cassowary remains **SOURCE FOUND - FULL-BODY NOT VERIFIED** and should be skipped unless stronger adult/full-body evidence or binary tooling appears.
 
-Next unresolved legacy audit: **Cassowary**.
+Next unresolved legacy audit: **Chameleon**.
 
-### 2026-09-18 Elk new-animal image
-Source page: https://commons.wikimedia.org/wiki/File:Bull_Elk_(14921441297).jpg
+### 2026-09-18 Emperor Penguin new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:Emperor-single_hg.jpg
 
-Original: https://upload.wikimedia.org/wikipedia/commons/8/8e/Bull_Elk_%2814921441297%29.jpg
+Direct resolver: https://commons.wikimedia.org/wiki/Special:Redirect/file/Emperor-single%20hg.jpg
 
-Exact *Cervus canadensis* bull, 3130x2085, CC BY 2.0, described as bulking for the rut with pronounced neck musculature. Strict full-body framing and formal adulthood were not simultaneously certified, so status is **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
+Commons lists the exact-species single-subject candidate at 3559x5310. Strict full-body framing, explicit adulthood, sex and exact-file reuse metadata were not all certified through the available render path, so status is **SOURCE FOUND - FULL-BODY NOT VERIFIED**. A separate 1813x2692 CC BY 2.0 Commons photograph was opened and visually checked, but it contains many background penguins and is rejected under the mandatory single-animal rule. No PNG is claimed.
 
 ## Count and blocker
-- `64` is completed text research, not completed images.
+- `65` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Cassowary.**
+- **Next legacy audit: Chameleon.**

@@ -83,7 +83,7 @@
 ### 2026-09-19 Cockatoo legacy audit
 Preferred candidate page: https://commons.wikimedia.org/wiki/File:Sulphur_Crested_Cockatoo.jpg
 
-Direct original: https://upload.wikimedia.org/wikipedia/commons/0/0e/Sulphur_Crested_Cockatoo.jpg
+Direct original: https://upload.wikimedia.org/wikipedia/commons/9/9d/Sulphur_Crested_Cockatoo.jpg
 
 The previous 2000x2500 lead has been superseded by a much stronger exact-*Cacatua galerita* source. Commons explicitly describes the subject as an **adult Sulphur-crested Cockatoo**, perched on a branch, and provides a **5472x3648** original under **CC BY-SA 4.0**. This resolves the adulthood problem and greatly improves resolution/provenance. Strict complete-body certification is still withheld because the available search rendering did not let this run reliably inspect every foot/toe, tail tip and body edge at original resolution. Status therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not complete. No PNG is claimed. Cockatoo should now be skipped unless stronger anatomy verification or binary tooling becomes available.
 

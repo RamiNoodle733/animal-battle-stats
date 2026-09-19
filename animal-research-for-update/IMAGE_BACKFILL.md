@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 84 / 225 (through Gorilla). **Full-body transparent PNG assets verified and committed:** 0 / 84. A source-photo URL is not an approved PNG.
+**Research reports completed:** 85 / 225 (through Gray Wolf). **Full-body transparent PNG assets verified and committed:** 0 / 85. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -74,8 +74,8 @@ The queue retains all prior source decisions. Animals already source-verified ar
 | Dragonfly | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Anax junius* 5184x3456 CC BY 2.0 | Audited; skip |
 | Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED: mature *E. electricus* 6016x4016 CC BY 4.0 | Audited; strict head-to-tail silhouette not certified; skip |
 | Elk | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *C. c. roosevelti* 5481x3654 CC BY-SA 4.0 | Audited; adulthood + strict hoof/tail framing unresolved; skip |
-| Emperor Penguin | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT LEGACY AUDIT: adult/anatomy/license** |
-| Emperor Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/all leg tips |
+| Emperor Penguin | SOURCE FOUND - FULL-BODY NOT VERIFIED: explicit-adult CC BY 2.0 source found but group/1400px; stronger single 1813x2692 source lacks explicit adulthood | Audited; skip |
+| Emperor Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT LEGACY AUDIT: adult/all leg tips/license** |
 | Emu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Binary pending |
 | Fennec Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | Skip |
 | Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | Continue search |
@@ -94,40 +94,51 @@ The queue retains all prior source decisions. Animals already source-verified ar
 | Goliath Birdeater | SOURCE FOUND - FULL-BODY NOT VERIFIED: living exact *Theraphosa blondi* 2048x1536 CC BY-SA 4.0 | Adult + every leg-tip unresolved |
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Anser anser* 2292x2292 CC BY-SA 2.5 | Full body visually verified; adulthood/sex not source-explicit |
 | Gorilla | REPLACEMENT SOURCE NEEDED: exact adult male *G. b. beringei* reusable sources found but anatomy obscured | Find unobscured 1600+ complete silverback |
+| Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED: male Iberian wolf 5090x3054 CC BY-SA 4.0, complete silhouette visually verified | Explicit adulthood missing; no PNG |
 
 ## Latest findings
 
-### 2026-09-19 Elk legacy audit
+### 2026-09-19 Emperor Penguin legacy audit
 
-The oldest unresolved candidate was re-audited and broad search found a much newer high-resolution exact-taxon male source.
+Broad image discovery was repeated across Commons and general web image results rather than accepting the historical candidate on metadata alone.
 
-- **Source page:** https://commons.wikimedia.org/wiki/File:Roosevelt_elk_(Cervus_canadensis_roosevelti)_male_Campbell_River.jpg
-- **Original file:** https://upload.wikimedia.org/wikipedia/commons/2/20/Roosevelt_elk_%28Cervus_canadensis_roosevelti%29_male_Campbell_River.jpg
-- **Resolution:** 5481x3654
-- **Taxon/sex:** exact *Cervus canadensis roosevelti*, source explicitly says male
-- **Date/location:** 15 July 2026, Campbell River, Vancouver Island, British Columbia
-- **Creator:** Charles J. Sharp
-- **License:** CC BY-SA 4.0; own work; Commons Quality Image
+**Explicit-adult reusable source:**
+- **Source page:** https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/0/00/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg
+- **Taxon/adulthood:** exact *Aptenodytes forsteri*; description explicitly says two adults with a juvenile
+- **Resolution:** 872x1400
+- **License:** CC BY 2.0, Ian Duffy; historical Flickr license reviewed on Commons
+- **Problem:** multi-bird scene and longest side only 1400 px, below preferred 1600+ target. It is useful adulthood evidence but not a clean primary cutout source.
 
-This is a major provenance/resolution improvement over weak discovery candidates, but it is **not** promoted to full-body verified. The metadata does not explicitly establish that the photographed male is a mature adult, and strict complete-antler, all-hoof and tail visibility was not certified from an inspected original render during this run. Status remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No cutout or PNG was produced.
+**Higher-resolution single-subject candidate inspected:**
+- **Source page:** https://commons.wikimedia.org/wiki/File:Emperor_Penguin_(Aptenodytes_Forsteri).jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/5/56/Emperor_Penguin_%28Aptenodytes_Forsteri%29.jpg
+- **Resolution:** 1813x2692
+- **License:** CC BY 2.0, Christopher Michel; Flickr license reviewed on Commons
+- **Visual result:** foreground emperor is complete in frame, but many background penguins are present and the file metadata does not explicitly establish the foreground bird's adulthood or sex. Adult plumage by appearance is not treated as mandatory age proof.
 
-**Next unresolved legacy audit: Emperor Penguin.**
+A Getty discovery result explicitly labeled a solitary adult emperor penguin and showed excellent full-body framing, but it is a commercial stock source and was not selected for redistribution. Therefore Emperor Penguin remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`** and is now skipped pending a stronger single, explicit-adult, reusable source. No PNG was produced.
 
-### 2026-09-19 Gorilla new-animal image
+**Next unresolved legacy audit: Emperor Scorpion.**
 
-Broad search covered Commons and commercial wildlife/photographer discovery. The strongest reusable exact mountain-gorilla source with explicit adult-male status was still anatomically unsuitable.
+### 2026-09-19 Gray Wolf new-animal image
 
-- **Candidate page:** https://commons.wikimedia.org/wiki/File:Silver_back.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/0/00/Silver_back.jpg
-- **Resolution/license:** 1518x2278, CC BY 2.0, Flickr license reviewed on Commons
-- **Taxon:** exact *Gorilla beringei beringei*, Suza family, Volcanoes National Park, Rwanda
-- **Adult/sex:** silverback, therefore source-explicit mature male status
-- **Visual result:** seated close framing; lower limbs/feet are obscured by vegetation/body position and the complete silhouette is not available for a faithful cutout
+The strongest visually complete reusable candidate found this run is a high-resolution Iberian wolf derivative prepared against white from a genuine photograph.
 
-A second exact mountain-gorilla silverback source, https://commons.wikimedia.org/wiki/File:Silverback_gorilla_(290813335).jpg (1280x853, CC BY 2.0), was visually inspected and rejected because it is a group scene with the silverback heavily overlapped/obscured. Commercial discovery produced clearer full-body silverbacks, but those photographs were not redistributed because reuse permission was not established. Status: **`REPLACEMENT SOURCE NEEDED`**. No PNG exists.
+- **Source page:** https://commons.wikimedia.org/wiki/File:Canis_lupus_signatus_-_01_white_background.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/8/8a/Canis_lupus_signatus_-_01_white_background.jpg
+- **Resolution:** 5090x3054
+- **Taxon/sex:** exact *Canis lupus signatus*; Commons category explicitly identifies male
+- **Creator:** Carlos Delgado
+- **License:** CC BY-SA 4.0
+- **Visual verification:** entire animal is visible with ample margin, including head, torso, all four legs and paws, and complete tail. It is a real photographic subject on an opaque white background, not a finished transparent asset.
+- **Blocker:** exact file metadata does not explicitly say adult/mature. The animal looks adult, but appearance is not used as proof under `IMAGE_REQUIREMENTS.md`.
+
+A separate 3000x1996 CC BY-SA 4.0 Commons Featured Picture by Arturo de Frias Marques explicitly describes an Iberian wolf **alpha male**, providing strong adulthood evidence, but visual inspection shows the pose/vegetation does not give as clean a complete silhouette. The white-background source therefore remains the primary candidate but status is conservatively **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. Current GitHub writers are text-only, so no transparent PNG exists.
 
 ## Prior decisive findings
 
+- **Elk:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`; 5481x3654 male Roosevelt elk CC BY-SA 4.0, adulthood/strict hoof-tail framing unresolved.
 - **Electric Eel:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`; exact mature *E. electricus* 6016x4016 CC BY 4.0, but strict complete head-to-tail silhouette not certified.
 - **Condor:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, exact adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0.
 - **Colossal Squid:** `REPLACEMENT SOURCE NEEDED`; famous Te Papa specimen is explicitly immature.
@@ -137,8 +148,8 @@ A second exact mountain-gorilla silverback source, https://commons.wikimedia.org
 
 ## Count and blocker
 
-- `84` is completed text research, not completed images.
+- `85` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Emperor Penguin.**
+- **Next legacy audit: Emperor Scorpion.**

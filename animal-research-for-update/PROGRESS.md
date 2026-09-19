@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 66 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 66
+- **Completed research files:** 67 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 67
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Emperor Scorpion
-- **Next pending animal:** Emu
-- **Latest completion:** 2026-09-18 22:58 America/Chicago
-- **Latest new-animal image status:** Emperor Scorpion - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact-*Pandinus imperator* Commons photograph at 3739x2492 is a strong reusable high-resolution candidate and visually shows the general complete silhouette, but the source does not establish adulthood/sex and strict visibility of every leg tip was not certified. No PNG claimed.
-- **Latest legacy image audit:** Chameleon - the existing 3872x2592 Benny Trapp exact-*Chamaeleo chamaeleon* candidate was re-opened visually. The tail runs out of the right edge of the frame, so it fails the mandatory complete-body standard despite excellent resolution and CC BY 3.0 provenance. Broader exact-species Commons alternatives were found, including 3008x2000 and 2048px-class photographs, but adulthood plus strict head-to-tail/all-digit framing were not simultaneously verified. Status changed to `REPLACEMENT SOURCE NEEDED`.
-- **Next legacy image audit:** Cheetah.
+- **Most recently completed:** Emu
+- **Next pending animal:** Fennec Fox
+- **Latest completion:** 2026-09-19 00:00 America/Chicago
+- **Latest new-animal image status:** Emu - `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. Exact-*Dromaius novaehollandiae* wild photograph at 5472x3648, CC BY 2.0, was opened at original resolution and visually checked. Head, body, both complete legs/feet and posterior body are inside frame. Adult status is supported by adult grey-brown plumage and absence of the striped juvenile pattern described by Australian Museum. Sex is unknown. No PNG claimed.
+- **Latest legacy image audit:** Cheetah - existing 4206x2942 Bernard DUPONT Commons candidate remains a real exact-*Acinonyx jubatus* male, CC BY-SA 2.0, and its original source/direct URL are already recorded in `animals/cheetah.md`. The source metadata verifies male identity and standing posture, but does not explicitly establish adulthood and strict complete tail/all-paw framing could not be certified through the available original-image inspection path. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`; do not repeatedly revisit unless stronger evidence or binary tooling appears.
+- **Next legacy image audit:** Chimpanzee.
 - **Latest checkpoint:** `audits/CHECKPOINT-050.md`; next checkpoint at 75 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, soaring, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack behavior can raise Tactics/Special contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Emu control:** exact *Dromaius novaehollandiae*, canonical robust mature female 57.5 kg / 175.0 cm standing height. Attack 44.0 / Defense 30.0 / Agility 72.0 / Stamina 83.0 / Intelligence 49.0 / Special 54.0. Institutional speed 13.9 m/s; bite PSI 0.0. Female mass is supported by Smithsonian sex-specific values and an adult skeletal study reporting female-biased mass. Kick force remains qualitative because no defensible peak-force measurement was located.
 - **Emperor Scorpion control:** exact *Pandinus imperator*, canonical 0.030 kg / 20.0 cm mature non-gravid female. Attack 13.0 / Defense 8.0 / Agility 42.0 / Stamina 32.0 / Intelligence 30.0 / Special 76.0. Large chelae are the primary weapon; venom is real but institutionally characterized as mild in human terms. Purified Pi1 toxin data are not treated as whole-venom sting lethality. Speed and bite PSI remain 0.0.
 - **Emperor Penguin control:** exact *Aptenodytes forsteri*, canonical robust pre-fast mature male 38.0 kg / 115.0 cm. Attack 28.0 / Defense 32.0 / Agility 68.0 / Stamina 95.0 / Intelligence 57.0 / Special 88.0.
 - **Elk control:** exact *Cervus canadensis*, canonical 320.0 kg mature hard-antler bull. Attack 62.0 / Defense 47.0 / Agility 59.0 / Stamina 71.0 / Intelligence 54.0 / Special 52.0.
@@ -39,15 +40,15 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Donkey | 150.0 kg mature standard jack | 48.0 | 38.0 | 58.0 | 77.0 | 61.0 | 60.0 |
 | Dragonfly | ~0.001 kg mature male *Anax junius* | 8.0 | 5.0 | 98.0 | 80.0 | 55.0 | 82.0 |
 | Electric Eel | 15.0 kg mature *E. electricus* | 49.0 | 29.0 | 66.0 | 58.0 | 63.0 | 98.0 |
 | Elk | 320.0 kg mature hard-antler bull | 62.0 | 47.0 | 59.0 | 71.0 | 54.0 | 52.0 |
 | Emperor Penguin | 38.0 kg robust pre-fast mature male | 28.0 | 32.0 | 68.0 | 95.0 | 57.0 | 88.0 |
 | Emperor Scorpion | 0.030 kg mature non-gravid female | 13.0 | 8.0 | 42.0 | 32.0 | 30.0 | 76.0 |
+| Emu | 57.5 kg robust mature female | 44.0 | 30.0 | 72.0 | 83.0 | 49.0 | 54.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-050.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak bite sourcing and duplicate ability concepts. Next checkpoint: **75 completed research files**.
 
 ## Image pipeline status
-66 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several older animals already have visually verified reusable full-body sources and should not be repeatedly re-researched until binary tooling changes. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNG is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+67 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several older animals already have visually verified reusable full-body sources and should not be repeatedly re-researched until binary tooling changes. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNG is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

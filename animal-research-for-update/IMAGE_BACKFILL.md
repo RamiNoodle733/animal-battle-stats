@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 62 / 225 (through Dragonfly). **Full-body transparent PNG assets verified and committed:** 0 / 62. A source-photo URL is not an approved PNG.
+**Research reports completed:** 63 / 225 (through Electric Eel). **Full-body transparent PNG assets verified and committed:** 0 / 63. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -42,15 +42,15 @@
 | Bongo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 2848x4288 | No | Adult male + reusable + full body |
 | Bottlenose Dolphin | REPLACEMENT SOURCE NEEDED | No | Adult complete underwater silhouette |
 | Box Jellyfish | REPLACEMENT SOURCE NEEDED | No | Exact healthy mature *Chironex fleckeri*, high-res, complete bell/tentacles |
-| Bull Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact live *Carcharhinus leucas*, 4000x3000 CC BY-SA 2.0; separate ADW sources explicitly adult | No | Need one high-res source simultaneously proving adult + complete fins/caudal |
+| Bull Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact live *Carcharhinus leucas*, 4000x3000 CC BY-SA 2.0 | No | Need one high-res source proving adult + complete fins/caudal |
 | Bullet Ant | VERIFIED: 3456x2304 worker *Paraponera clavata* | No | Binary pending |
 | Bullfrog | VERIFIED: 4450x2967 adult male USFWS | No | Binary pending |
 | Camel | VERIFIED: *Camelus dromedarius* 3264x2448 | No | Binary pending |
-| Camel Spider | **SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Galeodes arabs* 1536x2048, CC BY 4.0** | No | Adult/sex and every appendage tip still unverified; do not revisit unless better evidence/tooling appears |
+| Camel Spider | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Galeodes arabs* 1536x2048, CC BY 4.0 | No | Adult/sex and appendage tips unverified; skip until better evidence/tooling |
 | Cape Buffalo | VERIFIED: male *Syncerus caffer caffer* 4992x3328 | No | Binary pending |
-| Capuchin Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Sapajus apella* 3935x3935 | No | **NEXT LEGACY AUDIT: explicit adult male, all hands/feet/tail** |
+| Capuchin Monkey | **SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Sapajus apella* 3935x3935, CC BY-SA 4.0; whole body visually verified** | No | Adult/sex not source-verified; skip until materially stronger source/tooling |
 | Capybara | VERIFIED: alpha male *Hydrochoerus hydrochaeris* 3800x2533 | No | Binary pending |
-| Caracal | SOURCE FOUND - FULL-BODY NOT VERIFIED: wild 4949x3299 | No | Adult/tail/paws |
+| Caracal | SOURCE FOUND - FULL-BODY NOT VERIFIED: wild 4949x3299 | No | **NEXT LEGACY AUDIT: explicit adult, all paws/tail** |
 | Cassowary | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2152x1614 | No | Prefer adult female |
 | Chameleon | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3872x2592 | No | Adult/all digits/tail |
 | Cheetah | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4206x2942, tail at edge | No | Adult male, full tail inside |
@@ -69,27 +69,29 @@
 | Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing visually confirmed | No | Explicit adulthood; binary unavailable |
 | Donkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Equus asinus* 4928x3264 CC0 | No | Explicit adult jack + strict hoof/tail check |
 | Dragonfly | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Anax junius* 1800x900 CC BY-SA 4.0 | No | Explicit adult + strict all leg/wing tips; binary unavailable |
+| Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED: explicit mature *Electrophorus electricus* 6016x4016 CC BY 4.0 | No | Strict complete head-to-tail silhouette verification; binary unavailable |
 
 ## Latest findings
-### 2026-09-18 Camel Spider legacy audit
-Broad search checked Commons, iNaturalist-derived Commons material, ADW, National Geographic and general image results. The strongest reusable exact-species candidate remains `Galeodes arabs 320251111.jpg`: **1536x2048**, exact *Galeodes arabs*, photographed in Algeria, and reviewed on Commons as **CC BY 4.0**. The source page and direct original URL are already recorded in `animals/camel-spider.md`. This candidate reaches the preferred 1600-pixel longest-side threshold and has good provenance, but the metadata does not establish adulthood or sex and this run could not strictly certify every leg/pedipalp tip from the original at full resolution. It therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not promoted from dimensions or species ID alone.
 
-Source page: https://commons.wikimedia.org/wiki/File:Galeodes_arabs_320251111.jpg
+### 2026-09-18 Capuchin Monkey legacy audit
+The existing candidate remains the strongest reusable option: exact *Sapajus apella*, **3935x3935**, CC BY-SA 4.0, Basile Morin, with the complete head, torso, all hands/feet and full curled tail already visually verified in the research report. Its unresolved issue is mandatory adulthood, not framing. Broad follow-up search checked Commons, Flickr/general image results, zoo material and primate literature. A 6000x4000 exact-species free-use photograph was found, and peer-reviewed work provides photographs of a known fully mature 13-year-old alpha male, but no replacement simultaneously improved explicit adult-male proof, full-body anatomy, high resolution and redistribution permission. The current source therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED** because age is not source-verified. Do not repeatedly revisit it unless a materially stronger adult source appears or binary tooling becomes available.
 
-Original: https://upload.wikimedia.org/wikipedia/commons/5/5c/Galeodes_arabs_320251111.jpg
+Current source page: https://commons.wikimedia.org/wiki/File:Tufted_capuchin_on_a_branch_in_Singapore.jpg
 
-A museum-display *G. arabs* at 1780x1922 is reusable but is not a healthy living adult field photograph, so it is not preferred. ADW explicitly labels its subject adult/sexually mature but the media is an illustration and cannot satisfy the real-photo rule. Camel Spider should not be repeatedly revisited unless a clearly superior adult field source appears or binary tooling becomes available. Next unresolved legacy audit is **Capuchin Monkey**, skipping source-verified Cape Buffalo and Capybara.
+Current original: https://upload.wikimedia.org/wikipedia/commons/5/5b/Tufted_capuchin_on_a_branch_in_Singapore.jpg
 
-### 2026-09-18 Dragonfly new-animal image
-Source page: https://commons.wikimedia.org/wiki/File:1._Common_green_darner_(Anax_junius),_male,_Liberty_County.jpg
+Next unresolved legacy audit is **Caracal**, skipping source-verified Capybara.
 
-Original: https://commons.wikimedia.org/wiki/Special:Redirect/file/1._Common_green_darner_(Anax_junius),_male,_Liberty_County.jpg
+### 2026-09-18 Electric Eel new-animal image
+Source page: https://commons.wikimedia.org/wiki/File:Electrophorus_electricus_in_Gdynia_Oceanarium.jpg
 
-The source is an exact male *Anax junius* photographed at Trinity River National Wildlife Refuge, Texas, **1800x900**, licensed **CC BY-SA 4.0**. Species and sex are explicit and the source clears the preferred 1600-pixel longest-side threshold. However, explicit adulthood plus strict certification of every leg tip and all four wing tips was not completed, so status is **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
+Original: https://upload.wikimedia.org/wikipedia/commons/8/87/Electrophorus_electricus_in_Gdynia_Oceanarium.jpg
+
+This is an exact *Electrophorus electricus* photograph, **6016x4016**, CC BY 4.0, and the Commons description explicitly calls the specimen mature. That combination is substantially stronger than generic aquarium images. Strict complete head-to-tail silhouette suitability was not certified from the available render path, so status is **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
 
 ## Count and blocker
-- `62` is completed text research, not completed images.
+- `63` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - A source-verified animal is not repeatedly revisited unless new binary tooling permits actual PNG production or a clearly superior source resolves an outstanding verification issue.
-- **Next legacy audit: Capuchin Monkey.**
+- **Next legacy audit: Caracal.**

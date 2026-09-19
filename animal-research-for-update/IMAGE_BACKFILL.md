@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 70 / 225 (through Flamingo). **Full-body transparent PNG assets verified and committed:** 0 / 70. A source-photo URL is not an approved PNG.
+**Research reports completed:** 71 / 225 (through Flying Squirrel). **Full-body transparent PNG assets verified and committed:** 0 / 71. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -57,8 +57,8 @@
 | Chimpanzee | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 3798x2848 | No | Existing candidate retained; explicit-adult replacement not certified; skip |
 | Clouded Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED: 6000x4000 exact *Neofelis nebulosa*, CC BY-SA 4.0 | No | Rear paws/legs partly obscured and adulthood/sex unverified; skip |
 | Cockatoo | SOURCE FOUND - FULL-BODY NOT VERIFIED: explicit adult *Cacatua galerita* 5472x3648 CC BY-SA 4.0 | No | Adult now verified; strict feet/tail/body-edge completeness still needs original-resolution visual certification; skip |
-| Coconut Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED: 1915x1956 | No | **NEXT LEGACY AUDIT: adult male/all appendages** |
-| Colossal Squid | REPLACEMENT SOURCE NEEDED | No | Healthy adult photo |
+| Coconut Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Birgus latro* 5000x3333 CC BY-SA 4.0 | No | High-resolution wild source found; adulthood/sex/every walking-leg and antenna tip not all certified; skip |
+| Colossal Squid | REPLACEMENT SOURCE NEEDED | No | **NEXT LEGACY AUDIT: healthy adult photo** |
 | Condor | SOURCE FOUND - FULL-BODY NOT VERIFIED: adult 1584x1047 | No | 1600+ complete flight anatomy |
 | Cougar | SOURCE FOUND - FULL-BODY NOT VERIFIED: adult male 1752x1177 | No | Full tail/paws |
 | Coyote | SOURCE FOUND - FULL-BODY NOT VERIFIED: alpha male 2971x2377 | No | Adult/paws/tail |
@@ -77,28 +77,43 @@
 | Fennec Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3197x2477 CC BY 2.0 | No | Foreground full body but second fox present; adult/sex unresolved |
 | Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | No | Reusable candidates fail complete anatomy/adult proof; continue search |
 | Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Phoenicopterus roseus* 6000x4000 CC BY-SA 4.0 | No | Adult + strict feet/body-edge verification |
+| Flying Squirrel | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Pteromys volans* 2048x1365 CC BY 4.0 | No | Perched pose hides/overlaps appendages; adulthood/sex unresolved |
 
 ## Latest findings
+
+### 2026-09-19 Coconut Crab legacy audit
+Preferred candidate page: https://commons.wikimedia.org/wiki/File:Coconut_Crab_at_Christmas_Island,_Christmas_Island_National_Park.jpg
+
+Direct original: https://upload.wikimedia.org/wikipedia/commons/d/d2/Coconut_Crab_at_Christmas_Island%2C_Christmas_Island_National_Park.jpg
+
+A broader Commons audit found a much stronger high-resolution exact-*Birgus latro* lead than the prior 1915x1956 candidate: a **5000x3333** real wild photograph from Christmas Island National Park, licensed **CC BY-SA 4.0**. Commons identifies the subject as a coconut crab and the file is a directly photographed JPEG with clear reuse provenance. The source page does not establish adulthood or sex, and this run could not strictly certify every walking-leg/antenna tip for the mandatory all-appendages standard. It therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not complete. No PNG is claimed. Coconut Crab should now be skipped unless stronger age/anatomy evidence or binary tooling becomes available.
+
+Next unresolved legacy audit: **Colossal Squid**.
+
+### 2026-09-19 Flying Squirrel new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:Pteromys_volans_292232567.jpg
+
+Direct original: https://upload.wikimedia.org/wikipedia/commons/1/18/Pteromys_volans_292232567.jpg
+
+This is an exact-*Pteromys volans* real wild photograph transferred from an iNaturalist observation, **2048x1365**, with **CC BY 4.0** licensing reviewed by Commons. The original was opened visually. The squirrel is clear and much of the body and tail are visible, but the perched posture overlaps/hides some limbs and does not satisfy the strict requirement that all feet/limbs be visibly certifiable. The source also does not establish adulthood or sex. Status is therefore **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
 
 ### 2026-09-19 Cockatoo legacy audit
 Preferred candidate page: https://commons.wikimedia.org/wiki/File:Sulphur_Crested_Cockatoo.jpg
 
 Direct original: https://upload.wikimedia.org/wikipedia/commons/9/9d/Sulphur_Crested_Cockatoo.jpg
 
-The previous 2000x2500 lead has been superseded by a much stronger exact-*Cacatua galerita* source. Commons explicitly describes the subject as an **adult Sulphur-crested Cockatoo**, perched on a branch, and provides a **5472x3648** original under **CC BY-SA 4.0**. This resolves the adulthood problem and greatly improves resolution/provenance. Strict complete-body certification is still withheld because the available search rendering did not let this run reliably inspect every foot/toe, tail tip and body edge at original resolution. Status therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not complete. No PNG is claimed. Cockatoo should now be skipped unless stronger anatomy verification or binary tooling becomes available.
-
-Next unresolved legacy audit: **Coconut Crab**.
+The previous 2000x2500 lead has been superseded by a much stronger exact-*Cacatua galerita* source. Commons explicitly describes the subject as an **adult Sulphur-crested Cockatoo**, perched on a branch, and provides a **5472x3648** original under **CC BY-SA 4.0**. This resolves the adulthood problem and greatly improves resolution/provenance. Strict complete-body certification is still withheld because every foot/toe, tail tip and body edge was not reliably certified. Status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not complete. No PNG is claimed.
 
 ### 2026-09-19 Flamingo new-animal image
 Candidate page: https://commons.wikimedia.org/wiki/File:A_flamingo_standing_in_Lake_Poyrazlar.jpg
 
 Direct original: https://upload.wikimedia.org/wikipedia/commons/a/a4/A_flamingo_standing_in_Lake_Poyrazlar.jpg
 
-This is a single real photograph categorized by Commons as *Phoenicopterus roseus* in Sakarya, Turkey, with a **6000x4000** original and **CC BY-SA 4.0** reuse license. It is a strong full-body lead, but the source page does not explicitly certify adulthood or sex and the available rendering path did not permit strict original-resolution confirmation of every foot/toe and body edge. It is therefore **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
+This is a single real photograph categorized by Commons as *Phoenicopterus roseus* in Sakarya, Turkey, with a **6000x4000** original and **CC BY-SA 4.0** reuse license. It is a strong full-body lead, but the source page does not explicitly certify adulthood or sex and strict original-resolution confirmation of every foot/toe and body edge remains unresolved. It is therefore **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
 
 ## Count and blocker
-- `70` is completed text research, not completed images.
+- `71` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Coconut Crab.**
+- **Next legacy audit: Colossal Squid.**

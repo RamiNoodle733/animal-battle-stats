@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 76 / 225 (through Giant Centipede). **Full-body transparent PNG assets verified and committed:** 0 / 76. A source-photo URL is not an approved PNG.
+**Research reports completed:** 77 / 225 (through Giant Squid). **Full-body transparent PNG assets verified and committed:** 0 / 77. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -62,9 +62,9 @@
 | Condor | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING: adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0 | No | Binary pending; sex unknown |
 | Cougar | SOURCE FOUND - FULL-BODY NOT VERIFIED: P-1 adult male 1752x1177 NPS public domain | No | Adult/male verified; strict framing unresolved; skip |
 | Coyote | SOURCE FOUND - FULL-BODY NOT VERIFIED: male/“Alpha Male” 2971x2377 CC BY 2.0 | No | Strict adult+paws+tail unresolved; skip |
-| Crow | SOURCE FOUND - FULL-BODY NOT VERIFIED: 5616x3744 exact species CC BY 2.0 candidate added | No | Adult/sex + strict tail/all-toe certification unresolved; skip |
-| Cuttlefish | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3868x2579 | No | **NEXT LEGACY AUDIT: adult/all arms/mantle fin** |
-| Deathstalker Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2212x2357 | No | Adult/appendage tips |
+| Crow | SOURCE FOUND - FULL-BODY NOT VERIFIED: 5616x3744 exact species CC BY 2.0 | No | Adult/sex + strict tail/all-toe unresolved; skip |
+| Cuttlefish | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Sepia officinalis* Ifremer 8256x5504 CC BY 4.0; explicit-adult alternate only 1280x960 | No | Skip unless adulthood + every arm/tentacle tip can be certified in a 1600+ source |
+| Deathstalker Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2212x2357 | No | **NEXT LEGACY AUDIT: adult/appendage tips** |
 | Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446 | No | Single adult male/full tail |
 | Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing confirmed | No | Explicit adulthood |
 | Donkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: 4928x3264 CC0 | No | Adult jack/hooves/tail |
@@ -83,24 +83,27 @@
 | Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Gazella dorcas* 6000x4000 CC BY-SA 4.0 | No | Adult/sex/strict hoof completeness unresolved |
 | Gecko | REPLACEMENT SOURCE NEEDED: exact adult male *Gekko gecko* candidate only 1008x460 | No | Reusable 1600+ adult male, all toes + tail |
 | Giant Centipede | REPLACEMENT SOURCE NEEDED: exact *Scolopendra gigantea* reusable source only 800x600 | No | Reusable 1600+ adult, all legs/antennae/terminal appendages |
+| Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED: female *Architeuthis dux* Smithsonian public-domain candidate 2912x4368 | No | Adult + strict every-arm/tentacle-tip verification |
 
 ## Latest findings
 
-### 2026-09-19 Crow legacy audit
-Stronger candidate page: https://commons.wikimedia.org/wiki/File:These_Talons_Were_Made_For_Walkin%E2%80%99,_Baby!_(4667327337).jpg
+### 2026-09-19 Cuttlefish legacy audit
+High-resolution candidate page: https://commons.wikimedia.org/wiki/File:Seiche_(Sepia_officinalis)_(Ifremer_00646-75820).jpg
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/9/91/These_Talons_Were_Made_For_Walkin%E2%80%99%2C_Baby%21_%284667327337%29.jpg
+Original image: https://image.ifremer.fr/data/00646/75820/hd/30579.jpg
 
-This exact-*Corvus brachyrhynchos* photograph is **5616x3744**, CC BY 2.0, with Flickr provenance reviewed by Wikimedia Commons. It is substantially higher resolution than many alternatives and the framing emphasizes the feet. However, source metadata does not explicitly establish adulthood or sex, and strict complete-tail plus every-toe visibility could not be certified strongly enough to promote it. Crow therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED** and should now be skipped unless stronger evidence or binary tooling appears.
+This is an exact-*Sepia officinalis* real photograph from Ifremer, **8256x5504**, licensed **CC BY 4.0**. It greatly improves resolution and institutional provenance over the prior 3868x2579 lead. However, the source metadata does not explicitly establish adulthood, and strict visibility of all eight arms plus both feeding-tentacle tips was not certified strongly enough to satisfy `IMAGE_REQUIREMENTS.md`.
 
-Next unresolved legacy audit: **Cuttlefish**.
+Explicit-adult alternate: https://commons.wikimedia.org/wiki/File:Sepia_officinalis-f.jpg . Commons explicitly describes that animal as an **adult common cuttlefish**, but its original is only **1280x960**, below the preferred 1600+ quality threshold. Neither source simultaneously clears adult, strict full-anatomy, and preferred-resolution requirements. Status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. Cuttlefish should now be skipped unless stronger evidence or binary tooling appears.
 
-### 2026-09-19 Giant Centipede new-animal image
-Candidate page: https://commons.wikimedia.org/wiki/File:Scolopendra_gigantea_1.jpg
+Next unresolved legacy audit: **Deathstalker Scorpion**.
 
-Direct original: https://upload.wikimedia.org/wikipedia/commons/3/3f/Scolopendra_gigantea_1.jpg
+### 2026-09-19 Giant Squid new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:Female_giant_squid_NMNH.jpg
 
-The source is exact *Scolopendra gigantea* and CC BY-SA 2.0 with reviewed Flickr provenance, but the original is only **800x600** and adulthood is not explicitly documented. It therefore fails the mandatory quality/adult verification standard. Broader search found larger captive/commercial photographs, including an explicitly described adult female, but redistribution rights and/or strict framing were insufficient. Status: **REPLACEMENT SOURCE NEEDED**.
+Original image: https://upload.wikimedia.org/wikipedia/commons/6/6f/Female_giant_squid_NMNH.jpg
+
+The source is an exact *Architeuthis dux* female museum specimen photographed by the Smithsonian, **2912x4368**, and public domain in the United States as Smithsonian federal-employee work. It is a strong reusable candidate, but the metadata used in this run does not explicitly establish adulthood and strict complete visibility of every arm/tentacle tip has not been certified. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No staging PNG exists.
 
 ## Prior decisive findings
 - **Condor:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, exact adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0, complete flying silhouette visually checked.
@@ -108,8 +111,8 @@ The source is exact *Scolopendra gigantea* and CC BY-SA 2.0 with reviewed Flickr
 - **Gecko:** `REPLACEMENT SOURCE NEEDED`; exact adult male museum source is only 1008x460.
 
 ## Count and blocker
-- `76` is completed text research, not completed images.
+- `77` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Cuttlefish.**
+- **Next legacy audit: Deathstalker Scorpion.**

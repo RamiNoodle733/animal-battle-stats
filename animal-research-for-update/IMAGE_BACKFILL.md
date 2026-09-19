@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 79 / 225 (through Gila Monster). **Full-body transparent PNG assets verified and committed:** 0 / 79. A source-photo URL is not an approved PNG.
+**Research reports completed:** 80 / 225 (through Giraffe). **Full-body transparent PNG assets verified and committed:** 0 / 80. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -66,8 +66,8 @@
 | Cuttlefish | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Sepia officinalis* Ifremer 8256x5504 CC BY 4.0; explicit-adult alternate only 1280x960 | No | Skip unless adulthood + every arm/tentacle tip can be certified in a 1600+ source |
 | Deathstalker Scorpion | LICENSE UNVERIFIED - DO NOT COMMIT | No | Israeli Commons series is modern *L. hebraeus*; Egyptian adult *L. quinquestriatus* source found but reuse permission unresolved; skip |
 | Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446 exact *Cuon alpinus*, CC BY-SA 3.0 | No | Second dhole behind subject + foreground tail not cleanly visible; skip |
-| Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing confirmed | No | **NEXT LEGACY AUDIT: explicit adulthood + license/strict anatomy** |
-| Donkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: 4928x3264 CC0 | No | Adult jack/hooves/tail |
+| Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing confirmed, public-domain provenance | No | Adulthood not explicit; skip |
+| Donkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: 4928x3264 CC0 | No | **NEXT LEGACY AUDIT: adult jack/hooves/tail** |
 | Dragonfly | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Anax junius* 1800x900 | No | Adult/all tips |
 | Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED: mature 6016x4016 | No | Strict silhouette |
 | Elk | SOURCE FOUND - FULL-BODY NOT VERIFIED: bull 3130x2085 CC BY 2.0 | No | Adult age + strict framing |
@@ -86,24 +86,27 @@
 | Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED: female *Architeuthis dux* Smithsonian public-domain candidate 2912x4368 | No | Adult + strict every-arm/tentacle-tip verification |
 | Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Hylobates lar* 2048x1536 CC BY-SA 2.0 | No | Adult + unobscured upper limb/hand needed |
 | Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Heloderma suspectum* 4358x2586 CC BY-SA 4.0 | No | Adult/sex + strict every-toe/tail verification |
+| Giraffe | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Giraffa camelopardalis* legacy-label candidate 3457x4644 CC BY-SA 2.0 | No | Adult + strict all-hoof/tail verification; taxonomy concept noted |
 
 ## Latest findings
 
-### 2026-09-19 Dhole legacy audit
-Candidate page: https://commons.wikimedia.org/wiki/File:Cuon_alpinus_(Dhole).jpg
+### 2026-09-19 Dingo legacy audit
+Candidate page: https://commons.wikimedia.org/wiki/File:Dingo_-_Katy_Platt_(37223135990).jpg
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/e/eb/Cuon_alpinus_%28Dhole%29.jpg
+Original image: https://upload.wikimedia.org/wikipedia/commons/f/fd/Dingo_-_Katy_Platt_%2837223135990%29.jpg
 
-The exact-*Cuon alpinus* photograph is **2585×3446**, photographed at Port Lympne Wild Animal Park by Hans Hillewaert, and licensed **CC BY-SA 3.0**. The original/source was rechecked rather than relying on dimensions alone. The foreground dhole's head, torso and four feet are visible, but a second dhole stands directly behind it and the foreground animal's tail is not a clean, complete isolated silhouette. The image therefore fails the mandatory single-animal/full-body requirement. No superior reusable source simultaneously establishing adult status, preferred male sex and strict full tail/all paws was verified in this pass. Status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG was produced.
+The candidate remains a strong **4608x3456** single-dingo side/three-quarter photograph. Commons structured metadata identifies the subject as a dingo and places the file in **Male dingoes** and **Side views of canids**. The Flickr-origin file was reviewed by FlickreviewR; Commons records the author-applied Public Domain Mark and structured public-domain/CC0 metadata. Prior direct inspection already established that the head, torso, all four legs/paws and complete tail are inside the frame. However, neither the Commons page nor the recovered source metadata explicitly states that this individual is an adult. Because adulthood is mandatory, status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED** rather than being promoted. No PNG was produced.
 
-Next unresolved legacy audit: **Dingo**.
+Next unresolved legacy audit: **Donkey**.
 
-### 2026-09-19 Gila Monster new-animal image
-Candidate page: https://commons.wikimedia.org/wiki/File:Gila_monster_(Heloderma_suspectum).jpg
+### 2026-09-19 Giraffe new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:Giraffe_(Giraffa_camelopardalis)_male_(16465272177).jpg
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/c/ca/Gila_monster_%28Heloderma_suspectum%29.jpg
+Original image: https://upload.wikimedia.org/wikipedia/commons/4/46/Giraffe_%28Giraffa_camelopardalis%29_male_%2816465272177%29.jpg
 
-This is an exact *Heloderma suspectum* real photograph from Burgers' Zoo, **4358×2586**, CC BY-SA 4.0. The source page resolves the original and explicitly establishes reusable licensing. However, metadata does not establish adulthood or sex, and strict visibility of every toe plus the entire tail could not be certified. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. A 2916×2189 USFWS public-domain reticulate Gila monster was also found but did not resolve the adult/sex/strict-anatomy uncertainties. No staging PNG exists.
+This is a **3457x4644** real wild giraffe photograph from Kruger National Park. The page explicitly labels the subject male, Commons categorizes it under male giraffes, and Flickr licensing was independently reviewed as **CC BY-SA 2.0**. The source therefore clears sex, resolution and reuse-provenance checks. It is not promoted because adulthood is not explicit and this run could not certify every hoof plus the complete tail from the original at inspection quality. Modern taxonomy also means South African giraffes are now generally assigned to *Giraffa giraffa*, while the site still uses the older umbrella *G. camelopardalis* label; the research report records this conflict rather than hiding it. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No staging PNG exists.
+
+A second Commons candidate, `GIRAFFE FULL LENGTH.jpg`, is 3036x4796, CC BY-SA 4.0 and categorized as a male Masai giraffe. It offers strong future full-body geometry but is *G. tippelskirchi* under the modern four-species treatment, so it is not used to paper over the site's taxonomic ambiguity.
 
 ## Prior decisive findings
 - **Condor:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, exact adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0, complete flying silhouette visually checked.
@@ -112,8 +115,8 @@ This is an exact *Heloderma suspectum* real photograph from Burgers' Zoo, **4358
 - **Deathstalker Scorpion:** `LICENSE UNVERIFIED - DO NOT COMMIT`; reusable Israeli Commons images resolve to *L. hebraeus*, while the explicit Egyptian adult *L. quinquestriatus* source lacks verified redistribution permission.
 
 ## Count and blocker
-- `79` is completed text research, not completed images.
+- `80` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Dingo.**
+- **Next legacy audit: Donkey.**

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 74 / 225 (through Gazelle). **Full-body transparent PNG assets verified and committed:** 0 / 74. A source-photo URL is not an approved PNG.
+**Research reports completed:** 75 / 225 (through Gecko). **Full-body transparent PNG assets verified and committed:** 0 / 75. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -60,9 +60,9 @@
 | Coconut Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Birgus latro* 5000x3333 CC BY-SA 4.0 | No | Adult/sex/all appendages not certified; skip |
 | Colossal Squid | REPLACEMENT SOURCE NEEDED | No | Te Papa specimen explicitly immature; seek genuine adult |
 | Condor | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING: adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0 | No | Binary pending; sex unknown |
-| Cougar | SOURCE FOUND - FULL-BODY NOT VERIFIED: P-1 adult male 1752x1177 NPS public domain | No | Adult/male now verified; strict tail/all-paw framing still unresolved; skip |
-| Coyote | SOURCE FOUND - FULL-BODY NOT VERIFIED: alpha male 2971x2377 | No | **NEXT LEGACY AUDIT: adult/paws/tail** |
-| Crow | SOURCE FOUND - FULL-BODY NOT VERIFIED: 5568x3712 | No | Adult/toes/tail |
+| Cougar | SOURCE FOUND - FULL-BODY NOT VERIFIED: P-1 adult male 1752x1177 NPS public domain | No | Adult/male verified; strict framing unresolved; skip |
+| Coyote | SOURCE FOUND - FULL-BODY NOT VERIFIED: male/“Alpha Male” 2971x2377 CC BY 2.0 | No | Audit repeated once; strict adult+paws+tail certification still unresolved; skip |
+| Crow | SOURCE FOUND - FULL-BODY NOT VERIFIED: 5568x3712 | No | **NEXT LEGACY AUDIT: adult/toes/tail** |
 | Cuttlefish | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3868x2579 | No | Adult/all arms/mantle fin |
 | Deathstalker Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2212x2357 | No | Adult/appendage tips |
 | Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446 | No | Single adult male/full tail |
@@ -81,32 +81,31 @@
 | Gaboon Viper | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Bitis gabonica* 2048x1356 CC0 | No | Adult + strict head-to-tail completeness |
 | Galapagos Tortoise | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Chelonoidis porteri* 2947x1965 CC BY-SA | No | Adult/sex and strict distal-foot visibility unresolved |
 | Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED: *Gazella dorcas* 6000x4000 CC BY-SA 4.0 | No | Adult/sex/strict hoof completeness unresolved |
+| Gecko | REPLACEMENT SOURCE NEEDED: exact adult male *Gekko gecko* candidate only 1008x460 | No | Reusable 1600+ adult male, all toes + tail |
 
 ## Latest findings
 
-### 2026-09-19 Cougar legacy audit
-Existing candidate page: https://commons.wikimedia.org/wiki/File:Puma_concolor_P-1.jpg
+### 2026-09-19 Coyote legacy audit
+Existing candidate page: https://commons.wikimedia.org/wiki/File:Alpha_Male_Coyote_by_Don_Green_(49736243467).jpg
 
-Reference/adulthood page: https://www.nps.gov/articles/000/puma-profiles-p-1.htm
+Direct original recorded in `animals/coyote.md`: https://upload.wikimedia.org/wikipedia/commons/6/62/Alpha_Male_Coyote_by_Don_Green_%2849736243467%29.jpg
 
-The NPS profile establishes that P-1 was a **male** and was thought to be about **five years old** at initial capture in 2002, so the previous adulthood uncertainty is resolved. Commons identifies the 1752x1177 photograph as P-1 and marks the NPS work public domain. However, this run did not certify strict complete tail and every paw/limb edge from the original at sufficient confidence. Status therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not complete. Do not revisit unless stronger framing evidence or binary tooling appears.
+Commons categorizes the 2971x2377 source under male *Canis latrans* and the file title identifies an “Alpha Male Coyote.” Broader Commons review found many additional male sources, including 6000x4000 material. However, this run still did not establish the combination required by the strict standard: explicit healthy adulthood plus visually certified complete tail and every paw in a reusable source. The existing candidate therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. It should now be skipped rather than repeatedly revisited unless stronger evidence or binary tooling appears.
 
-Next unresolved legacy audit: **Coyote**.
+Next unresolved legacy audit: **Crow**.
 
-### 2026-09-19 Gazelle new-animal image
-Candidate page: https://commons.wikimedia.org/wiki/File:Gazelle_dorcas_dans_le_parc_national_de_Bouhedma_-_tunisie.jpg
+### 2026-09-19 Gecko new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:Tokay_gecko_(Gekko_gecko)_adult_male.jpg
 
-Direct original: https://upload.wikimedia.org/wikipedia/commons/1/14/Gazelle_dorcas_dans_le_parc_national_de_Bouhedma_-_tunisie.jpg
+The source is exact *Gekko gecko*, explicitly **adult male**, museum specimen USNM 573671, and CC BY 3.0 from a ZooKeys publication. It is only **1008x460** and was cropped from a larger scientific figure. This is excellent identity/adult/sex provenance but fails the preferred 1600+ quality target and was not accepted as the mandatory clean full-body source. Broader image search found visually complete commercial stock photos, but redistribution is not justified from those results. Status: **REPLACEMENT SOURCE NEEDED**.
 
-Exact *Gazella dorcas*, **6000x4000**, CC BY-SA 4.0, photographed in Bouhedma National Park, Tunisia. Search-result visual inspection shows a single complete-looking animal, but the source does not establish adulthood or sex and strict distal-hoof/body-edge completeness was not certified at original resolution. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. A visually stronger Flickr candidate explicitly labeled “Adult male” was also found, but Flickr marks it All Rights Reserved, so it is not redistributable and was not selected for cutout/commit.
-
-### Prior decisive findings
+## Prior decisive findings
 - **Condor:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, exact adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0, complete flying silhouette visually checked.
 - **Colossal Squid:** `REPLACEMENT SOURCE NEEDED`; famous Te Papa specimen is explicitly immature and 2025 live footage is juvenile.
 
 ## Count and blocker
-- `74` is completed text research, not completed images.
+- `75` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Coyote.**
+- **Next legacy audit: Crow.**

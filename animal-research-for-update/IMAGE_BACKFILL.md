@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 65 / 225 (through Emperor Penguin). **Full-body transparent PNG assets verified and committed:** 0 / 65. A source-photo URL is not an approved PNG.
+**Research reports completed:** 66 / 225 (through Emperor Scorpion). **Full-body transparent PNG assets verified and committed:** 0 / 66. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -51,9 +51,9 @@
 | Capuchin Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3935x3935, whole body visually verified | No | Adult/sex unresolved; skip |
 | Capybara | VERIFIED: alpha male 3800x2533 | No | Binary pending |
 | Caracal | SOURCE FOUND - FULL-BODY NOT VERIFIED: wild exact species 4949x3299 | No | Adult and strict appendage/tail completeness unresolved; skip |
-| Cassowary | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact species 6000x4000 CC BY-SA 4.0 candidate found | No | Adult/sex/full-body not all certified; skip until stronger evidence/tooling |
-| Chameleon | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3872x2592 | No | **NEXT LEGACY AUDIT: adult/digits/tail** |
-| Cheetah | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4206x2942 | No | Full tail |
+| Cassowary | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact species 6000x4000 CC BY-SA 4.0 | No | Adult/sex/full-body not all certified; skip |
+| Chameleon | REPLACEMENT SOURCE NEEDED | No | Existing 3872x2592 exact-species image has tail clipped at frame edge; find explicit adult complete head-to-tail/all-digit source |
+| Cheetah | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4206x2942 | No | **NEXT LEGACY AUDIT: full tail/adult/full paws** |
 | Chimpanzee | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 3798x2848 | No | Explicit adulthood |
 | Clouded Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 2048x1536 | No | Adult/paws/tail |
 | Cockatoo | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2000x2500 | No | Feet/adult/sex |
@@ -72,27 +72,28 @@
 | Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED: mature 6016x4016 | No | Strict silhouette |
 | Elk | SOURCE FOUND - FULL-BODY NOT VERIFIED: bull 3130x2085 CC BY 2.0 | No | Adult age + strict antler/hoof/tail framing |
 | Emperor Penguin | SOURCE FOUND - FULL-BODY NOT VERIFIED: `Emperor-single hg.jpg` 3559x5310 | No | Strict anatomy/adult/sex/exact-file license confirmation |
+| Emperor Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact species 3739x2492 | No | Adult/sex/every leg-tip certification |
 
 ## Latest findings
-### 2026-09-18 Cassowary legacy audit
-Stronger candidate page: https://commons.wikimedia.org/wiki/File:Casuarius_casuarius_@_KL.jpg
+### 2026-09-18 Chameleon legacy audit
+Existing candidate page: https://commons.wikimedia.org/wiki/File:BennyTrapp_Chamaeleo_chamaeleon_Samos_Griechenland.jpg
 
-Original: https://upload.wikimedia.org/wikipedia/commons/ (use the Commons file page's Original file link before redistribution)
+Existing direct image: https://upload.wikimedia.org/wikipedia/commons/7/78/BennyTrapp_Chamaeleo_chamaeleon_Samos_Griechenland.jpg
 
-This is a real exact-*Casuarius casuarius* photograph, 6000x4000, CC BY-SA 4.0. Commons identifies it as a captive Southern Cassowary and confirms the file is a directly photographed JPEG. It does not establish adulthood or sex, and strict complete-body framing was not visually certified in this run, so it is not promoted. A separate 8688x5792 Auckland Museum exact-species CC BY 2.0 file was also checked, but it is collection material and therefore not accepted as the required healthy live adult. Cassowary remains **SOURCE FOUND - FULL-BODY NOT VERIFIED** and should be skipped unless stronger adult/full-body evidence or binary tooling appears.
+The exact-*Chamaeleo chamaeleon* Featured/Quality Image is 3872x2592 and CC BY 3.0, but direct visual inspection shows the tail continuing through the right frame edge. It therefore fails the mandatory whole-tail requirement and is now **REPLACEMENT SOURCE NEEDED**, despite excellent image quality. Broader searching found exact-species reusable alternatives including `Chamaeleo chamaeleon.jpg` at 3008x2000 (CC BY-SA 3.0/GFDL) and several 2048px iNaturalist-to-Commons photographs, but no candidate was simultaneously verified as an adult with the complete tail and all digits visible. Do not retain the cropped Benny Trapp image as a primary completion candidate.
 
-Next unresolved legacy audit: **Chameleon**.
+Next unresolved legacy audit: **Cheetah**.
 
-### 2026-09-18 Emperor Penguin new-animal image
-Candidate page: https://commons.wikimedia.org/wiki/File:Emperor-single_hg.jpg
+### 2026-09-18 Emperor Scorpion new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:Emperor_scorpion_or_Imperial_scorpion_(Pandinus_imperator).jpg
 
-Direct resolver: https://commons.wikimedia.org/wiki/Special:Redirect/file/Emperor-single%20hg.jpg
+Direct resolver: https://commons.wikimedia.org/wiki/Special:Redirect/file/Emperor%20scorpion%20or%20Imperial%20scorpion%20%28Pandinus%20imperator%29.jpg
 
-Commons lists the exact-species single-subject candidate at 3559x5310. Strict full-body framing, explicit adulthood, sex and exact-file reuse metadata were not all certified through the available render path, so status is **SOURCE FOUND - FULL-BODY NOT VERIFIED**. A separate 1813x2692 CC BY 2.0 Commons photograph was opened and visually checked, but it contains many background penguins and is rejected under the mandatory single-animal rule. No PNG is claimed.
+This is a real exact-*Pandinus imperator* photograph at **3739x2492**. The image visibly contains the general complete scorpion silhouette and major appendages, but the file page does not establish adulthood or sex and strict visibility of every leg tip could not be certified at source resolution through the available inspection path. Status is **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
 
 ## Count and blocker
-- `65` is completed text research, not completed images.
+- `66` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Chameleon.**
+- **Next legacy audit: Cheetah.**

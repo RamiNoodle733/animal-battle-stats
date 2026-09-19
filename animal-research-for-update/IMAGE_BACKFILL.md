@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 77 / 225 (through Giant Squid). **Full-body transparent PNG assets verified and committed:** 0 / 77. A source-photo URL is not an approved PNG.
+**Research reports completed:** 78 / 225 (through Gibbon). **Full-body transparent PNG assets verified and committed:** 0 / 78. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -64,8 +64,8 @@
 | Coyote | SOURCE FOUND - FULL-BODY NOT VERIFIED: male/“Alpha Male” 2971x2377 CC BY 2.0 | No | Strict adult+paws+tail unresolved; skip |
 | Crow | SOURCE FOUND - FULL-BODY NOT VERIFIED: 5616x3744 exact species CC BY 2.0 | No | Adult/sex + strict tail/all-toe unresolved; skip |
 | Cuttlefish | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Sepia officinalis* Ifremer 8256x5504 CC BY 4.0; explicit-adult alternate only 1280x960 | No | Skip unless adulthood + every arm/tentacle tip can be certified in a 1600+ source |
-| Deathstalker Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2212x2357 | No | **NEXT LEGACY AUDIT: adult/appendage tips** |
-| Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446 | No | Single adult male/full tail |
+| Deathstalker Scorpion | LICENSE UNVERIFIED - DO NOT COMMIT | No | Israeli Commons series is modern *L. hebraeus*; Egyptian adult *L. quinquestriatus* source found but reuse permission unresolved; skip |
+| Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2585x3446 | No | **NEXT LEGACY AUDIT: single adult male/full tail** |
 | Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4608x3456, full framing confirmed | No | Explicit adulthood |
 | Donkey | SOURCE FOUND - FULL-BODY NOT VERIFIED: 4928x3264 CC0 | No | Adult jack/hooves/tail |
 | Dragonfly | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Anax junius* 1800x900 | No | Adult/all tips |
@@ -84,26 +84,23 @@
 | Gecko | REPLACEMENT SOURCE NEEDED: exact adult male *Gekko gecko* candidate only 1008x460 | No | Reusable 1600+ adult male, all toes + tail |
 | Giant Centipede | REPLACEMENT SOURCE NEEDED: exact *Scolopendra gigantea* reusable source only 800x600 | No | Reusable 1600+ adult, all legs/antennae/terminal appendages |
 | Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED: female *Architeuthis dux* Smithsonian public-domain candidate 2912x4368 | No | Adult + strict every-arm/tentacle-tip verification |
+| Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED: male *Hylobates lar* 2048x1536 CC BY-SA 2.0 | No | Adult + unobscured upper limb/hand needed |
 
 ## Latest findings
 
-### 2026-09-19 Cuttlefish legacy audit
-High-resolution candidate page: https://commons.wikimedia.org/wiki/File:Seiche_(Sepia_officinalis)_(Ifremer_00646-75820).jpg
+### 2026-09-19 Deathstalker Scorpion legacy audit
+The prior high-resolution Israeli Commons series was rechecked against modern taxonomy. Example page: https://commons.wikimedia.org/wiki/File:Deathstalker_(Leiurus_quinquestriatus)_9.jpg . The file is 4950x3300 and CC BY-SA 4.0, but Commons structured data now identifies the depicted animal as **Leiurus hebraeus**. The photo was taken in Israel, consistent with the taxonomic split. It must not be used as exact-*L. quinquestriatus* evidence merely because the historical filename says `quinquestriatus`.
 
-Original image: https://image.ifremer.fr/data/00646/75820/hd/30579.jpg
+A much stronger biological match was found at https://arachnoboards.com/gallery/leiurus-quinquestriatus.41195/ . The page explicitly describes a **1.0 adult male Egyptian Deathstalker (*Leiurus quinquestriatus*)**, about 3 inches, with a **4896x3672** source photograph. However, the page does not establish a redistribution license. Status is therefore **LICENSE UNVERIFIED - DO NOT COMMIT**, not complete. No PNG was produced. Deathstalker should now be skipped unless a reusable exact-species adult source or new permission evidence appears.
 
-This is an exact-*Sepia officinalis* real photograph from Ifremer, **8256x5504**, licensed **CC BY 4.0**. It greatly improves resolution and institutional provenance over the prior 3868x2579 lead. However, the source metadata does not explicitly establish adulthood, and strict visibility of all eight arms plus both feeding-tentacle tips was not certified strongly enough to satisfy `IMAGE_REQUIREMENTS.md`.
+Next unresolved legacy audit: **Dhole**.
 
-Explicit-adult alternate: https://commons.wikimedia.org/wiki/File:Sepia_officinalis-f.jpg . Commons explicitly describes that animal as an **adult common cuttlefish**, but its original is only **1280x960**, below the preferred 1600+ quality threshold. Neither source simultaneously clears adult, strict full-anatomy, and preferred-resolution requirements. Status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. Cuttlefish should now be skipped unless stronger evidence or binary tooling appears.
+### 2026-09-19 Gibbon new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:White-handed_Gibbon_(Hylobates_lar)_male_(7732841908).jpg
 
-Next unresolved legacy audit: **Deathstalker Scorpion**.
+Original image: https://upload.wikimedia.org/wikipedia/commons/4/43/White-handed_Gibbon_%28Hylobates_lar%29_male_%287732841908%29.jpg
 
-### 2026-09-19 Giant Squid new-animal image
-Candidate page: https://commons.wikimedia.org/wiki/File:Female_giant_squid_NMNH.jpg
-
-Original image: https://upload.wikimedia.org/wikipedia/commons/6/6f/Female_giant_squid_NMNH.jpg
-
-The source is an exact *Architeuthis dux* female museum specimen photographed by the Smithsonian, **2912x4368**, and public domain in the United States as Smithsonian federal-employee work. It is a strong reusable candidate, but the metadata used in this run does not explicitly establish adulthood and strict complete visibility of every arm/tentacle tip has not been certified. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No staging PNG exists.
+This is an exact *Hylobates lar* **male**, photographed wild in Khao Yai National Park, Thailand, **2048x1536**, CC BY-SA 2.0 with Flickr license review. The original was opened directly. Head, torso, legs and feet are visible, but one upper limb/hand is obscured by the canopy/support and adulthood is not explicit in source metadata. Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No staging PNG exists.
 
 ## Prior decisive findings
 - **Condor:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, exact adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0, complete flying silhouette visually checked.
@@ -111,8 +108,8 @@ The source is an exact *Architeuthis dux* female museum specimen photographed by
 - **Gecko:** `REPLACEMENT SOURCE NEEDED`; exact adult male museum source is only 1008x460.
 
 ## Count and blocker
-- `77` is completed text research, not completed images.
+- `78` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Deathstalker Scorpion.**
+- **Next legacy audit: Dhole.**

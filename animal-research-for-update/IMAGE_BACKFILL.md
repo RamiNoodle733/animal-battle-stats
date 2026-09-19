@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 69 / 225 (through Ferret). **Full-body transparent PNG assets verified and committed:** 0 / 69. A source-photo URL is not an approved PNG.
+**Research reports completed:** 70 / 225 (through Flamingo). **Full-body transparent PNG assets verified and committed:** 0 / 70. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -55,9 +55,9 @@
 | Chameleon | REPLACEMENT SOURCE NEEDED | No | Existing candidate has tail clipped |
 | Cheetah | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 4206x2942 CC BY-SA 2.0 | No | Adulthood + strict tail/all-paw completeness unresolved; skip |
 | Chimpanzee | SOURCE FOUND - FULL-BODY NOT VERIFIED: male 3798x2848 | No | Existing candidate retained; explicit-adult replacement not certified; skip |
-| Clouded Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED: 6000x4000 exact *Neofelis nebulosa*, CC BY-SA 4.0 | No | Strong side-view replacement found, but rear paws/legs partly obscured and adulthood/sex unverified; skip |
-| Cockatoo | SOURCE FOUND - FULL-BODY NOT VERIFIED: 2000x2500 | No | **NEXT LEGACY AUDIT: feet/adult/sex** |
-| Coconut Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED: 1915x1956 | No | Adult male/all appendages |
+| Clouded Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED: 6000x4000 exact *Neofelis nebulosa*, CC BY-SA 4.0 | No | Rear paws/legs partly obscured and adulthood/sex unverified; skip |
+| Cockatoo | SOURCE FOUND - FULL-BODY NOT VERIFIED: explicit adult *Cacatua galerita* 5472x3648 CC BY-SA 4.0 | No | Adult now verified; strict feet/tail/body-edge completeness still needs original-resolution visual certification; skip |
+| Coconut Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED: 1915x1956 | No | **NEXT LEGACY AUDIT: adult male/all appendages** |
 | Colossal Squid | REPLACEMENT SOURCE NEEDED | No | Healthy adult photo |
 | Condor | SOURCE FOUND - FULL-BODY NOT VERIFIED: adult 1584x1047 | No | 1600+ complete flight anatomy |
 | Cougar | SOURCE FOUND - FULL-BODY NOT VERIFIED: adult male 1752x1177 | No | Full tail/paws |
@@ -76,28 +76,29 @@
 | Emu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING: 5472x3648 CC BY 2.0 | No | Binary pending |
 | Fennec Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED: 3197x2477 CC BY 2.0 | No | Foreground full body but second fox present; adult/sex unresolved |
 | Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | No | Reusable candidates fail complete anatomy/adult proof; continue search |
+| Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED: exact *Phoenicopterus roseus* 6000x4000 CC BY-SA 4.0 | No | Adult + strict feet/body-edge verification |
 
 ## Latest findings
 
-### 2026-09-19 Clouded Leopard legacy audit
-New candidate page: https://commons.wikimedia.org/wiki/File:Clouded_Leopard_Neofelis_nebulosa_by_Dr_Raju_Kasambe.JPG
+### 2026-09-19 Cockatoo legacy audit
+Preferred candidate page: https://commons.wikimedia.org/wiki/File:Sulphur_Crested_Cockatoo.jpg
 
-Direct original: https://upload.wikimedia.org/wikipedia/commons/f/f4/Clouded_Leopard_Neofelis_nebulosa_by_Dr_Raju_Kasambe.JPG
+Direct original: https://upload.wikimedia.org/wikipedia/commons/0/0e/Sulphur_Crested_Cockatoo.jpg
 
-A broader search found a substantially stronger exact-*Neofelis nebulosa* side-view photograph from Aizawl Zoological Park. Commons identifies it as a directly photographed exact species, **6000x4000**, own work by Dr. Raju Kasambe, licensed **CC BY-SA 4.0**, and categorizes it as a standing side view. The original was opened and visually inspected. Head, torso and long tail are visible, but vegetation/ground positioning prevents strict certification of every rear leg/paw, and the source does not establish adulthood or sex. It therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not complete. This replaces the weaker 2048x1536 candidate as the preferred research lead. Clouded Leopard should now be skipped until stronger adult/anatomy evidence or binary tooling appears.
+The previous 2000x2500 lead has been superseded by a much stronger exact-*Cacatua galerita* source. Commons explicitly describes the subject as an **adult Sulphur-crested Cockatoo**, perched on a branch, and provides a **5472x3648** original under **CC BY-SA 4.0**. This resolves the adulthood problem and greatly improves resolution/provenance. Strict complete-body certification is still withheld because the available search rendering did not let this run reliably inspect every foot/toe, tail tip and body edge at original resolution. Status therefore remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**, not complete. No PNG is claimed. Cockatoo should now be skipped unless stronger anatomy verification or binary tooling becomes available.
 
-Next unresolved legacy audit: **Cockatoo**.
+Next unresolved legacy audit: **Coconut Crab**.
 
-### 2026-09-19 Ferret new-animal image
-Candidate page: https://commons.wikimedia.org/wiki/File:Mustela_putorius_furo_(fretka)_na_%C5%9Bniegu.JPG
+### 2026-09-19 Flamingo new-animal image
+Candidate page: https://commons.wikimedia.org/wiki/File:A_flamingo_standing_in_Lake_Poyrazlar.jpg
 
-Direct image: https://upload.wikimedia.org/wikipedia/commons/5/5b/Mustela_putorius_furo_%28fretka%29_na_%C5%9Bniegu.JPG
+Direct original: https://upload.wikimedia.org/wikipedia/commons/a/a4/A_flamingo_standing_in_Lake_Poyrazlar.jpg
 
-This is an exact domestic-ferret real photograph, **3008x2000**, licensed CC BY-SA 3.0/GFDL. The original was opened and visually inspected, but much of the animal is hidden by the snow/grass shelter, so it fails the complete-body rule. A separate **6000x4000** CC BY-SA 4.0 Commons image titled `Mustela putorius furo profile.JPG` was also opened and rejected because it is a close-up of the head/upper torso rather than a full-body animal. Commercial search results include explicit adult full-body studio photographs, but their redistribution terms are not appropriate for committing a staging asset. Status remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
+This is a single real photograph categorized by Commons as *Phoenicopterus roseus* in Sakarya, Turkey, with a **6000x4000** original and **CC BY-SA 4.0** reuse license. It is a strong full-body lead, but the source page does not explicitly certify adulthood or sex and the available rendering path did not permit strict original-resolution confirmation of every foot/toe and body edge. It is therefore **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
 
 ## Count and blocker
-- `69` is completed text research, not completed images.
+- `70` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard, or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next legacy audit: Cockatoo.**
+- **Next legacy audit: Coconut Crab.**

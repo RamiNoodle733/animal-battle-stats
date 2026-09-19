@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 70 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 70
+- **Completed research files:** 71 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 71
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Flamingo
-- **Next pending animal:** Flying Squirrel
-- **Latest completion:** 2026-09-19 03:00 America/Chicago
-- **Latest new-animal image status:** Flamingo - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *Phoenicopterus roseus* 6000x4000 CC BY-SA 4.0 single-bird source recorded; adulthood and strict foot/body-edge completeness are not certified. No PNG claimed.
-- **Latest legacy image audit:** Cockatoo - stronger exact-*Cacatua galerita* 5472x3648 CC BY-SA 4.0 source explicitly identifies the bird as adult. Strict complete feet/tail/body-edge framing remains unverified, so status stays `SOURCE FOUND - FULL-BODY NOT VERIFIED` and is skipped pending stronger visual certification/tooling.
-- **Next legacy image audit:** Coconut Crab.
+- **Most recently completed:** Flying Squirrel
+- **Next pending animal:** Gaboon Viper
+- **Latest completion:** 2026-09-19 04:01 America/Chicago
+- **Latest new-animal image status:** Flying Squirrel - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *Pteromys volans* 2048x1365 CC BY 4.0 source visually opened; exact species and provenance are strong, but the perched pose does not expose every limb/foot and adulthood/sex are not source-verified. No PNG claimed.
+- **Latest legacy image audit:** Coconut Crab - stronger exact-*Birgus latro* 5000x3333 CC BY-SA 4.0 Christmas Island source recorded. It is a high-resolution real wild photograph, but adulthood, sex, and strict visibility of every walking-leg/antenna tip are not all certified, so status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED` and is skipped pending stronger evidence/tooling.
+- **Next legacy image audit:** Colossal Squid.
 - **Latest checkpoint:** `audits/CHECKPOINT-050.md`; next checkpoint at 75 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
+- **Flying Squirrel control:** roster's broad `Pteromyini` label resolved for staging to Siberian flying squirrel *Pteromys volans*. Canonical robust mature non-pregnant female 0.16 kg / 31.0 cm total length. Attack 9.0 / Defense 8.0 / Agility 96.0 / Stamina 61.0 / Intelligence 66.0 / Special 87.0. Speed and bite PSI remain 0.0. Related *Glaucomys* glide measurements are mechanism context only and are not transferred into species factual fields.
 - **Flamingo control:** Greater Flamingo (*Phoenicopterus roseus*), canonical robust mature male 3.5 kg / 140.0 cm standing height / 165.0 cm wingspan. Attack 19.0 / Defense 14.0 / Agility 72.0 / Stamina 68.0 / Intelligence 57.0 / Special 67.0. Speed and bite PSI remain 0.0. Tall stature and flight are not treated as heavyweight power.
 - **Ferret control:** current preferred taxon *Mustela furo* (live schema uses synonym *M. putorius furo*), canonical 1.5 kg intact mature male / 50.0 cm total length. Attack 17.0 / Defense 10.0 / Agility 89.0 / Stamina 49.0 / Intelligence 67.0 / Special 57.0. Speed and bite PSI remain 0.0. Tunnel biomechanics justify maneuverability but do not inflate physical power.
 - **Fennec Fox control:** exact *Vulpes zerda*, canonical 1.5 kg mature male, 22.0 cm shoulder height / 40.0 cm head-body. Attack 15.0 / Defense 10.0 / Agility 89.0 / Stamina 67.0 / Intelligence 64.0 / Special 79.0. Speed and bite PSI remain 0.0.
@@ -43,15 +44,15 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Emperor Penguin | 38.0 kg robust pre-fast mature male | 28.0 | 32.0 | 68.0 | 95.0 | 57.0 | 88.0 |
 | Emperor Scorpion | 0.030 kg mature non-gravid female | 13.0 | 8.0 | 42.0 | 32.0 | 30.0 | 76.0 |
 | Emu | 57.5 kg robust mature female | 44.0 | 30.0 | 72.0 | 83.0 | 49.0 | 54.0 |
 | Fennec Fox | 1.5 kg mature male | 15.0 | 10.0 | 89.0 | 67.0 | 64.0 | 79.0 |
 | Ferret | 1.5 kg intact mature male | 17.0 | 10.0 | 89.0 | 49.0 | 67.0 | 57.0 |
 | Flamingo | 3.5 kg robust mature male *P. roseus* | 19.0 | 14.0 | 72.0 | 68.0 | 57.0 | 67.0 |
+| Flying Squirrel | 0.16 kg mature non-pregnant female *P. volans* | 9.0 | 8.0 | 96.0 | 61.0 | 66.0 | 87.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-050.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak bite sourcing and duplicate ability concepts. Next checkpoint: **75 completed research files**.
 
 ## Image pipeline status
-70 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several older animals already have visually verified reusable full-body sources and should not be repeatedly re-researched until binary tooling changes. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNG is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+71 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several older animals already have visually verified reusable full-body sources and should not be repeatedly re-researched until binary tooling changes. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNG is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

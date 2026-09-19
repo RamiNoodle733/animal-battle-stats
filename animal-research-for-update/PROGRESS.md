@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 75 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 75
+- **Completed research files:** 76 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 76
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Gecko (staging resolution: Tokay gecko, *Gekko gecko*)
-- **Next pending animal:** Giant Centipede
-- **Latest completion:** 2026-09-19 07:58 America/Chicago
-- **Latest new-animal image status:** Gecko - `REPLACEMENT SOURCE NEEDED`. An exact *Gekko gecko* source is unusually well proven as adult male USNM 573671 and CC BY 3.0, but it is only 1008x460 and is a crop extracted from a scientific figure. It is not accepted as the mandatory high-quality clean full-body source. Broader search found commercial full-body stock photographs but they are not selected for redistribution.
-- **Latest legacy image audit:** Coyote - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The 2971x2377 Commons candidate is explicitly categorized male and titled “Alpha Male Coyote”; Commons also contains numerous higher-resolution male candidates. This run still could not certify adulthood plus every paw and the full tail in a reusable source strongly enough to promote it. The existing candidate remains pending and should be skipped unless stronger framing evidence or binary tooling appears.
-- **Next legacy image audit:** Crow.
+- **Most recently completed:** Giant Centipede (*Scolopendra gigantea*)
+- **Next pending animal:** Giant Squid
+- **Latest completion:** 2026-09-19 09:00 America/Chicago
+- **Latest new-animal image status:** Giant Centipede - `REPLACEMENT SOURCE NEEDED`. Exact-species Commons source is reusable CC BY-SA 2.0 but only 800x600 and adulthood is not source-verified. Broader search found larger captive/commercial photographs, including an explicitly described adult female, but redistribution rights and/or strict all-appendage framing were not sufficient.
+- **Latest legacy image audit:** Crow - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A stronger 5616x3744 exact *Corvus brachyrhynchos* Commons candidate (`These Talons Were Made For Walkin’, Baby!`) is CC BY 2.0 with reviewed Flickr provenance. Its very high resolution and foot-focused framing improve the search pool, but the source does not explicitly establish adulthood/sex and strict complete tail plus every toe could not be certified strongly enough to promote it. Existing crow report candidate remains pending; do not repeatedly revisit unless stronger evidence or binary tooling appears.
+- **Next legacy image audit:** Cuttlefish.
 - **Latest checkpoint:** `audits/CHECKPOINT-075.md`; next checkpoint at 100 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
+- **Giant Centipede control:** *Scolopendra gigantea*, canonical healthy mature adult, sex unknown, 30.0 cm total length. Adult mass is left 0.0 pending a defensible dataset rather than retaining the legacy 0.05 kg placeholder. Attack 18.0 / Defense 7.0 / Agility 84.0 / Stamina 42.0 / Intelligence 24.0 / Special 94.0. Legacy 3.6 km/h and 50 PSI values rejected. Published cave-bat predation supports exceptional grappling/climbing and venom-assisted prey control without inflating absolute Raw Power.
 - **Gecko control:** generic family-level roster label resolved for staging to Tokay gecko *Gekko gecko*. Canonical robust mature male ~0.25 kg / 38.0 cm total length. Attack 12.0 / Defense 11.0 / Agility 96.0 / Stamina 44.0 / Intelligence 59.0 / Special 94.0. Legacy 100 PSI and 36 km/h values rejected. Adhesion drives Agility/Special, not Raw Power.
 - **Gazelle control:** generic roster label resolved for staging to Dorcas gazelle *Gazella dorcas*. Canonical 16.5 kg mature male / 60.0 cm shoulder / 95.5 cm head-body. Attack 32.0 / Defense 22.0 / Agility 90.0 / Stamina 73.0 / Intelligence 58.0 / Special 64.0. Unsupported internet speed maxima and bite PSI rejected.
 - **Galapagos Tortoise control:** site label *Chelonoidis niger* treated as the Galapagos giant-tortoise complex; canonical morphometric proxy healthy mature male *C. porteri*, 102.1 kg. Attack 31.0 / Defense 76.0 / Agility 17.0 / Stamina 80.0 / Intelligence 48.0 / Special 75.0.
@@ -33,22 +34,19 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - **Ferret control:** *Mustela furo*, canonical 1.5 kg intact mature male. Attack 17.0 / Defense 10.0 / Agility 89.0 / Stamina 49.0 / Intelligence 67.0 / Special 57.0.
 - **Fennec Fox control:** *Vulpes zerda*, canonical 1.5 kg mature male. Attack 15.0 / Defense 10.0 / Agility 89.0 / Stamina 67.0 / Intelligence 64.0 / Special 79.0.
 - **Emu control:** *Dromaius novaehollandiae*, canonical 57.5 kg robust mature female. Attack 44.0 / Defense 30.0 / Agility 72.0 / Stamina 83.0 / Intelligence 49.0 / Special 54.0.
-- **Emperor Penguin control:** *Aptenodytes forsteri*, canonical 38.0 kg robust pre-fast mature male. Attack 28.0 / Defense 32.0 / Agility 68.0 / Stamina 95.0 / Intelligence 57.0 / Special 88.0.
-- **Coyote control:** 15.0 kg male. Attack 38.0 / Defense 25.0 / Agility 82.0 / Stamina 74.0 / Intelligence 76.0 / Special 61.0.
-- **Cougar control:** 70.0 kg male. Attack 55.0 / Defense 34.0 / Agility 92.0 / Stamina 58.0 / Intelligence 68.0 / Special 67.0.
 
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Flamingo | 3.5 kg robust mature male *P. roseus* | 19.0 | 14.0 | 72.0 | 68.0 | 57.0 | 67.0 |
 | Flying Squirrel | 0.16 kg mature non-pregnant female *P. volans* | 9.0 | 8.0 | 96.0 | 61.0 | 66.0 | 87.0 |
 | Gaboon Viper | 7.0 kg mature female *B. gabonica* | 53.0 | 24.0 | 48.0 | 35.0 | 38.0 | 97.0 |
 | Galapagos Tortoise | 102.1 kg mature male *C. porteri* proxy | 31.0 | 76.0 | 17.0 | 80.0 | 48.0 | 75.0 |
 | Gazelle | 16.5 kg mature male *G. dorcas* | 32.0 | 22.0 | 90.0 | 73.0 | 58.0 | 64.0 |
 | Gecko | ~0.25 kg mature male *G. gecko* | 12.0 | 11.0 | 96.0 | 44.0 | 59.0 | 94.0 |
+| Giant Centipede | 30.0 cm mature adult *S. gigantea*, sex unknown | 18.0 | 7.0 | 84.0 | 42.0 | 24.0 | 94.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-075.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **100 completed research files**.
 
 ## Image pipeline status
-75 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several older animals already have visually verified reusable full-body sources and should not be repeatedly re-researched until binary tooling changes. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNG is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+76 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several older animals already have visually verified reusable full-body sources and should not be repeatedly re-researched until binary tooling changes. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only, so no fake PNG is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

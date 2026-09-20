@@ -1,89 +1,18 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 91 / 225 (through Hammerhead Shark). **Full-body transparent PNG assets verified and committed:** 0 / 91. A source-photo URL is not an approved PNG.
+**Research reports completed:** 92 / 225 (through Harpy Eagle). **Full-body transparent PNG assets verified and committed:** 0 / 92. A source-photo URL is not an approved PNG.
 
-`IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
+`IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current connected GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
-## Legacy queue
-Animals already source-verified are skipped until binary tooling becomes available. Outstanding unresolved items remain in roster order.
+## Queue policy
+Animals already source-verified or already audited are skipped until binary tooling becomes available or a materially better source resolves an outstanding verification issue. The oldest unresolved source-quality candidate is addressed each run.
+
+Earlier source-verified animals remain binary-pending as recorded in their research files and prior revisions of this ledger. Earlier audited unresolved animals retain their report status and are not repeatedly revisited. The active unresolved queue from this point is:
 
 | Animal | Current status | Next action |
 |---|---|---|
-| African Elephant | VERIFIED source | Binary pending |
-| African Lion | VERIFIED source | Binary pending |
-| African Wild Dog | VERIFIED source | Binary pending |
-| Albatross | LICENSE UNVERIFIED | Reusable adult source |
-| Alligator | VERIFIED source | Binary pending |
-| Alpaca | VERIFIED source | Binary pending |
-| Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Clearer adult source |
-| Anglerfish | REPLACEMENT SOURCE NEEDED | Adult female *Ceratias holboelli* |
-| Anteater | VERIFIED source | Binary pending |
-| Arctic Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | Tail/paws check |
-| Arctic Wolf | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Binary pending |
-| Armadillo | REPLACEMENT SOURCE NEEDED | Adult *Dasypus mexicanus* |
-| Army Ant | REPLACEMENT SOURCE NEEDED | Better *Eciton burchellii* major |
-| Axolotl | REPLACEMENT SOURCE NEEDED | Adult complete anatomy |
-| Baboon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/full-body proof |
-| Bactrian Camel | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult male |
-| Badger | REPLACEMENT SOURCE NEEDED | Adult *Meles meles* |
-| Bald Eagle | REPLACEMENT SOURCE NEEDED | 1600+ adult complete view |
-| Barn Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Anatomy/adult |
-| Barracuda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adulthood |
-| Beaver | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult + tail/paws |
-| Beluga Whale | REPLACEMENT SOURCE NEEDED | Adult complete silhouette |
-| Bighorn Sheep | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult + anatomy |
-| Bison | SOURCE FOUND - FULL-BODY NOT VERIFIED | Hooves/tail |
-| Black Bear | VERIFIED source | Binary pending |
-| Black Mamba | VERIFIED source | Binary pending |
-| Black Panther | REPLACEMENT SOURCE NEEDED | Adult male melanistic leopard |
-| Black Rhinoceros | VERIFIED source | Binary pending |
-| Black Widow | SOURCE FOUND - FULL-BODY NOT VERIFIED | All eight legs |
-| Blue Whale | SOURCE FOUND - FULL-BODY NOT VERIFIED | Fins/flukes |
-| Boa Constrictor | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult head-to-tail |
-| Bobcat | VERIFIED source | Binary pending |
-| Bongo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/full body |
-| Bottlenose Dolphin | REPLACEMENT SOURCE NEEDED | Adult silhouette |
-| Box Jellyfish | REPLACEMENT SOURCE NEEDED | Mature *Chironex fleckeri* |
-| Bull Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/fins/caudal |
-| Bullet Ant | VERIFIED source | Binary pending |
-| Bullfrog | VERIFIED source | Binary pending |
-| Camel | VERIFIED source | Binary pending |
-| Camel Spider | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Cape Buffalo | VERIFIED source | Binary pending |
-| Capuchin Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Capybara | VERIFIED source | Binary pending |
-| Caracal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Cassowary | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Chameleon | REPLACEMENT SOURCE NEEDED | Tail clipped |
-| Cheetah | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Chimpanzee | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Clouded Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Cockatoo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Coconut Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Colossal Squid | REPLACEMENT SOURCE NEEDED | Genuine adult |
-| Condor | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Binary pending |
-| Cougar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Coyote | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Crow | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Cuttlefish | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Deathstalker Scorpion | LICENSE UNVERIFIED - DO NOT COMMIT | Audited; skip |
-| Dhole | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Dingo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Donkey | LICENSE UNVERIFIED - DO NOT COMMIT | Audited; skip |
-| Dragonfly | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Elk | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Emperor Penguin | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Emperor Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit adult source only 364x484 |
-| Emu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Binary pending |
-| Fennec Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; wrong-species adult flight candidate rejected |
-| Flying Squirrel | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact *Pteromys volans* 5435x3628 candidate, adulthood/anatomy not certified |
-| Gaboon Viper | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact *B. gabonica* 2865x1714 candidate, adulthood/head-to-tail strictness unresolved |
-| Galapagos Tortoise | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; 3504x2336 reusable candidate, strict all-limbs/tail/adult-sex proof unresolved** |
-| Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
-| Gecko | REPLACEMENT SOURCE NEEDED | 1600+ adult male |
+| Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; skip unless better explicit-adult reusable source appears** |
+| Gecko | REPLACEMENT SOURCE NEEDED | **NEXT UNRESOLVED SOURCE AUDIT: 1600+ adult male** |
 | Giant Centipede | REPLACEMENT SOURCE NEEDED | 1600+ adult |
 | Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/all arm tips |
 | Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/unobscured hand |
@@ -99,42 +28,52 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/head-to-tail unresolved |
 | Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex/full-body strictness unresolved |
-| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | New research; exact species/reuse strong, current Commons file explicitly cropped and adulthood/sex unresolved |
+| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact species/reuse strong, Commons version cropped |
+| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | New research; promising complete perched source, adulthood/sex and strict original certification unresolved |
 
 ## Latest findings
-### 2026-09-20 Galapagos Tortoise legacy audit
-The existing report candidate was re-opened and visually checked rather than trusting its dimensions or historical wording:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Galapagos_giant_tortoise_Geochelone_elephantopus.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/4/42/Galapagos_giant_tortoise_Geochelone_elephantopus.jpg
-- **Resolution:** **3504x2336**
-- **Taxon:** Commons now describes the subject as a dome-shelled Galápagos giant tortoise, *Chelonoidis nigra/niger* complex
-- **Creator:** Matthew Field / Mfield
-- **Date:** 26 August 2005
-- **License:** CC BY-SA 3.0 / GFDL
-- **Visual verification:** genuine high-resolution photograph and reusable provenance are established. The animal fills the frame well and the head, shell and major limbs are visible, but the pose does not expose every limb/foot plus the tail clearly enough to certify the strict complete-anatomy cutout requirement. Source metadata also does not explicitly establish adult sex.
-- **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
-No PNG was produced. Current GitHub writer remains UTF-8 text-only. The report already records this source page and original image URL, so no redundant report rewrite was necessary.
+### 2026-09-20 Gazelle legacy audit
+The existing staging report resolves generic `Gazelle` to **Dorcas gazelle (*Gazella dorcas*)**, so image searching was constrained to that exact taxon rather than generic gazelles.
 
-**Next unresolved source-quality legacy audit: Gazelle.**
+Existing reusable candidate:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Gazelle_dorcas_dans_le_parc_national_de_Bouhedma_-_tunisie.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/1/14/Gazelle_dorcas_dans_le_parc_national_de_Bouhedma_-_tunisie.jpg
+- **Resolution:** **6000x4000**
+- **Taxon:** exact *Gazella dorcas*
+- **Creator:** Skander zarrad
+- **Location/date:** Bouhedma National Park, Tunisia; 13 July 2023
+- **License:** **CC BY-SA 4.0**
+- **Provenance:** own work; genuine JPEG photograph; Commons file page and license verified.
+- **Strict audit:** resolution and reuse rights are excellent, but the Commons metadata does not explicitly establish adulthood or sex, and the available tooling did not permit opening the original 17.17 MB binary for strict every-hoof/tail pixel-level certification. It therefore cannot be promoted merely from dimensions or the page description.
 
-### 2026-09-20 Hammerhead Shark new-animal image
-Preferred reusable provenance candidate found during broad search:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Sphyrna_mokarran_camden.jpg
-- **Original Flickr image:** https://live.staticflickr.com/2600/3913442807_c6f25fe32f_o.jpg
-- **Original resolution:** **4752x3168**; current Commons crop **3448x2557**
-- **Taxon:** exact *Sphyrna mokarran*
-- **Creator:** Jim Capaldi
-- **License:** CC BY 2.0, reviewed by Commons FlickreviewR
-- **Critical audit finding:** Commons file history explicitly says the current version was “cropped to focus on shark.” Under `IMAGE_REQUIREMENTS.md`, this is not promoted merely because the resolution is excellent. Adulthood and sex are also not explicit.
+Broad search also found a photograph explicitly captioned **“Adult male”** *Gazella dorcas* in the Negev, but Flickr marks it **All Rights Reserved**, so it is not suitable for redistribution/committed cutout despite excellent biological identification. An American Society of Mammalogists page also explicitly identifies a side-view adult male, but the current tool result does not establish a high-resolution reusable original suitable for the required 1600+ target.
+
+**Status remains:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+
+No PNG was produced. Current GitHub writer remains UTF-8 text-only. The existing Gazelle report already records the preferred Commons source page and original-image URL, so it was not rewritten redundantly.
+
+**Next unresolved source-quality legacy audit: Gecko.**
+
+### 2026-09-20 Harpy Eagle new-animal image
+Preferred reusable candidate found during broad image and Commons search:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Gavi%C3%A3o-real_%28Harpia_harpyja%29.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/7/73/Gavi%C3%A3o-real_%28Harpia_harpyja%29.jpg
+- **Resolution:** **2081x2271**
+- **Taxon:** exact *Harpia harpyja*
+- **Creator:** Luiz Fernando Matos
+- **License:** **CC BY-SA 4.0**
+- **Visual search inspection:** one perched bird is shown with head, torso, folded wings, both feet/talons and tail visible, making it substantially stronger than headshots and obstructed alternatives.
+- **Unresolved:** source metadata does not explicitly establish adulthood or sex, and the original binary could not be opened through the available image-processing path for strict pixel-level complete-body certification.
 - **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
 No PNG was produced.
 
-## Prior decisive findings
+## Recent prior decisive findings
+- **Galapagos Tortoise:** 3504x2336 reusable candidate; strict all-limbs/tail/adult-sex proof unresolved.
 - **Gaboon Viper:** exact *B. gabonica* 2865x1714 CC BY-SA 4.0 candidate; adulthood/head-to-tail strictness unresolved.
-- **Flying Squirrel:** exact *Pteromys volans* 5435x3628 CC BY-SA 4.0 source found; adulthood/all appendages unresolved.
-- **Flamingo:** misleading adult-flight Commons result resolved to Lesser Flamingo and was rejected; exact *P. roseus* candidate retained.
+- **Flying Squirrel:** exact *Pteromys volans* 5435x3628 CC BY-SA 4.0 source; adulthood/all appendages unresolved.
+- **Flamingo:** misleading adult-flight Commons result resolved to Lesser Flamingo and rejected; exact *P. roseus* candidate retained.
 - **Ferret:** high-resolution reusable exact domestic-ferret material exists, but inspected candidates obscure posterior anatomy/tail.
 - **Emperor Scorpion:** explicit adult male reusable source exists but only 364x484; stronger candidate lacks adulthood proof.
 - **Emperor Penguin:** explicit-adult reusable source is group/1400px; stronger single-subject source lacks explicit adulthood.
@@ -146,8 +85,8 @@ No PNG was produced.
 - **Donkey:** `LICENSE UNVERIFIED - DO NOT COMMIT`; explicit adult breeding jack source is All Rights Reserved.
 
 ## Count and blocker
-- `91` is completed text research, not completed images.
+- `92` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next unresolved source-quality legacy audit: Gazelle.**
+- **Next unresolved source-quality legacy audit: Gecko.**

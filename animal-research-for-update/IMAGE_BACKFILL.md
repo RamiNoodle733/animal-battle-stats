@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 89 / 225 (through Grizzly Bear). **Full-body transparent PNG assets verified and committed:** 0 / 89. A source-photo URL is not an approved PNG.
+**Research reports completed:** 90 / 225 (through Guanaco). **Full-body transparent PNG assets verified and committed:** 0 / 90. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -79,9 +79,9 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Fennec Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; wrong-species adult flight candidate rejected |
-| Flying Squirrel | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; exact *Pteromys volans* 5435x3628 candidate found, adulthood/anatomy not certified** |
-| Gaboon Viper | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
-| Galapagos Tortoise | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/feet |
+| Flying Squirrel | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact *Pteromys volans* 5435x3628 candidate, adulthood/anatomy not certified |
+| Gaboon Viper | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; exact *B. gabonica* 2865x1714 candidate, adulthood/head-to-tail strictness unresolved** |
+| Galapagos Tortoise | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
 | Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/hooves |
 | Gecko | REPLACEMENT SOURCE NEEDED | 1600+ adult male |
 | Giant Centipede | REPLACEMENT SOURCE NEEDED | 1600+ adult |
@@ -97,40 +97,44 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Feet/tail/adulthood unresolved |
 | Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/fins unresolved |
 | Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/head-to-tail unresolved |
-| Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | New research; adult/sex/full-body strictness unresolved |
+| Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
+| Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | New research; adult/sex/full-body strictness unresolved |
 
 ## Latest findings
-### 2026-09-19 Flying Squirrel legacy audit
-The existing staging report resolves generic Flying Squirrel to **Siberian/Eurasian flying squirrel (*Pteromys volans*)**, so North American *Glaucomys* search results were rejected as wrong taxon for this report.
-
-Broad re-search found a much higher-resolution reusable exact-species photograph:
-- **Source page:** https://commons.wikimedia.org/wiki/File:%D0%9B%D0%B5%D1%82%D1%8F%D0%B3%D0%B0.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/6/6f/%D0%9B%D0%B5%D1%82%D1%8F%D0%B3%D0%B0.jpg
-- **Resolution:** **5435x3628**
-- **Taxon:** *Pteromys volans*
-- **Creator:** Чеканов Павел
-- **Context:** wild animal in mixed forest, Kaluga Oblast, Russia, 6 April 2019
+### 2026-09-19 Gaboon Viper legacy audit
+Broad re-search found a stronger reusable exact-species photograph than the report's prior 2048x1356 candidate:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Gaboon_viper_(Bitis_gabonica).jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/8/86/Gaboon_viper_%28Bitis_gabonica%29.jpg
+- **Resolution:** **2865x1714**
+- **Taxon:** *Bitis gabonica*
+- **Creator:** Clément Bardot
+- **Date:** 13 September 2022
 - **License:** CC BY-SA 4.0
-- **Verification:** exact species, genuine photograph, strong resolution and reusable licensing established. Source metadata does not explicitly establish adulthood or sex, and strict visibility of all limbs/feet plus complete tail is not certified strongly enough for a cutout.
+- **Verification:** exact species, genuine photograph, adequate 2000+ resolution and reusable licensing are established. Search/preview inspection shows a coiled Gaboon viper, but source metadata does not explicitly establish adulthood or sex and strict uninterrupted head-to-tail visibility cannot be certified strongly enough for a cutout.
 - **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
-The existing report's 2048x1365 CC BY 4.0 iNaturalist/Commons candidate likewise remains noncompliant because adulthood and complete appendage visibility are unresolved. No PNG was produced and no image completion was claimed.
+Additional reusable alternatives were checked, including 3694x2770, 4340x2893 and 6000x4000 Commons files. None supplied the missing combination of explicit adulthood plus clearly certifiable complete head-to-tail anatomy. The 3460x2310 public-domain `Bitis gabonica rhinoceros.JPG` was rejected for this report because it is the western form historically called *B. g. rhinoceros* and therefore conflicts with the report's modern exact-*B. gabonica* taxonomic standard.
 
-**Next unresolved source-quality legacy audit: Gaboon Viper.**
+No PNG was produced. Current GitHub writer remains UTF-8 text-only.
 
-### 2026-09-19 Grizzly Bear new-animal image
+**Next unresolved source-quality legacy audit: Galapagos Tortoise.**
+
+### 2026-09-19 Guanaco new-animal image
 Preferred reusable candidate:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Yellowstone_grizzly.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/3/3d/Yellowstone_grizzly.jpg
-- **Resolution:** 1837x1476
-- **Taxon:** wild *Ursus arctos horribilis* in Yellowstone
-- **License:** CC BY 2.0, Flickr license reviewed by Commons
+- **Source page:** https://commons.wikimedia.org/wiki/File:Guanaco_(Lama_guanicoe)_Leona_Amarga_2.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/9/92/Guanaco_%28Lama_guanicoe%29_Leona_Amarga_2.jpg
+- **Resolution:** **5334x4000**
+- **Taxon:** *Lama guanicoe*, wild at Leona Amarga / Torres del Paine, Chile
+- **Creator:** Charles J. Sharp
+- **License:** CC BY-SA 4.0
+- **Quality:** Wikimedia Commons Featured Picture and Quality Image
 - **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`
-- **Reason pending:** adulthood, sex and strict every-paw/tail completeness are not all certified. A separate USFWS image explicitly identifies an adult male but is only 967x698 and depicts a sedated bear, so it was rejected as the primary healthy-adult presentation.
+- **Reason pending:** source metadata does not explicitly establish adulthood or sex, and strict complete-body suitability was not promoted without certifying every hoof and the full tail from the original. Exact species, provenance, resolution and reuse license are strong.
 
 No PNG was produced.
 
 ## Prior decisive findings
+- **Flying Squirrel:** exact *Pteromys volans* 5435x3628 CC BY-SA 4.0 source found; adulthood/all appendages unresolved.
 - **Flamingo:** misleading adult-flight Commons result resolved to Lesser Flamingo and was rejected; exact *P. roseus* candidate retained.
 - **Ferret:** high-resolution reusable exact domestic-ferret material exists, but inspected candidates obscure posterior anatomy/tail.
 - **Emperor Scorpion:** explicit adult male reusable source exists but only 364x484; stronger candidate lacks adulthood proof.
@@ -143,8 +147,8 @@ No PNG was produced.
 - **Donkey:** `LICENSE UNVERIFIED - DO NOT COMMIT`; explicit adult breeding jack source is All Rights Reserved.
 
 ## Count and blocker
-- `89` is completed text research, not completed images.
+- `90` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next unresolved source-quality legacy audit: Gaboon Viper.**
+- **Next unresolved source-quality legacy audit: Galapagos Tortoise.**

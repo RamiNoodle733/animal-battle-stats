@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 103 / 225 (through Ibex). **Full-body transparent PNG assets verified and committed:** 0 / 103. A source-photo URL is not an approved PNG.
+**Research reports completed:** 104 / 225 (through Iguana). **Full-body transparent PNG assets verified and committed:** 0 / 104. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -19,9 +19,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Goliath Birdeater | REPLACEMENT SOURCE NEEDED | Audited; explicit adult female reusable source only 720x525; skip unless better source appears |
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 2091x1394 CC BY-SA standing source and 2048x1536 CC0 alternative; adulthood not explicit |
 | Gorilla | REPLACEMENT SOURCE NEEDED | Audited; explicit male western lowland gorilla source is only 1174x1321; larger reusable silverback candidates do not simultaneously establish exact taxon/adulthood plus strict unobscured complete anatomy |
-| Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; 6000x4000 CC BY-SA 4.0 exact Eurasian gray wolf source and 3877x2763 wild exact-species source found; adulthood/sex plus strict complete tail/feet framing not simultaneously verified** |
-| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: verify adult, complete feet/tail/wings and reusable provenance** |
-| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/fins unresolved |
+| Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 6000x4000 CC BY-SA 4.0 exact Eurasian gray wolf source and 3877x2763 wild exact-species source; adulthood/sex plus strict complete tail/feet framing unresolved |
+| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; 6240x4160 public-domain Glacier NPS exact-species source plus NPS/USFS alternatives found; strict adult + complete feet/tail/wings not simultaneously verified** |
+| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: verify adult, sex, entire fins and head-to-tail silhouette with reusable provenance** |
 | Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/head-to-tail unresolved |
 | Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex/full-body strictness unresolved |
@@ -38,48 +38,45 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact adult female *H. maxima* complete-body source only 640x480; larger reusable candidates remain below 1600px |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female *C. crocuta*, 3639x5143 CC BY-SA 2.0; all four feet visible but tail not visibly complete and adulthood not explicit |
 | Ibex | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0 Gran Paradiso source; strict entire tail/all four feet not certified |
+| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male *I. iguana*, 2135x2848 CC BY-SA 4.0; strong near-full-body framing but adulthood and strict unobscured all-feet/tail-tip completeness unresolved |
 
-## 2026-09-20 Gray Wolf legacy audit
-Broad search covered Wikimedia Commons, USFWS-origin photographs, wild Yellowstone/Denali sources, exact-species and exact-subspecies queries, and Google-style image discovery.
+## 2026-09-20 Great Horned Owl legacy audit
+Broad search covered Wikimedia Commons, Glacier National Park/NPS, USGS, USDA Forest Service, photographer pages and Google-style image discovery.
 
-**Strongest high-resolution exact-subspecies candidate:**
-- Source page: https://commons.wikimedia.org/wiki/File:Eurasian_Grey_Wolf_(Canis_lupus_lupus)_(CWPG).jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/2/2d/Eurasian_Grey_Wolf_%28Canis_lupus_lupus%29_%28CWPG%29.jpg
-- Resolution: **6000x4000**
-- Taxon: explicitly **Eurasian gray wolf, *Canis lupus lupus***
+**Strongest reusable high-resolution candidate:**
+- Source page: https://commons.wikimedia.org/wiki/File:Great_Horned_Owl_(Bubo_virginianus)_(48920155928).jpg
+- Original: https://live.staticflickr.com/65535/48920155928_1c9e3347bc_o.jpg
+- Resolution: **6240x4160**
+- Taxon: explicitly **Great Horned Owl, *Bubo virginianus***
+- Creator/provenance: GlacierNPS, National Park Service official-duty photograph
+- License: **Public Domain** in the United States; Commons records NPS federal-work provenance and Flickr Public Domain Mark review.
+- Visual/source result: single real owl with strong perched-body framing. However, the source does not explicitly establish adulthood or sex, and the mandatory complete feet/tail/wings standard cannot be certified from the inspected presentation because the wings are folded and feet interact with the perch.
+
+**Additional official alternatives:**
+- NPS Black Canyon bird page provides an exact-species perched Great Horned Owl with visible tail and talons, but branch overlap prevents a clean strict silhouette certification.
+- USGS provides a public-domain perched Great Horned Owl, but its page itself calls species identification tentative, so it is weaker taxonomically.
+- USDA Forest Service hosts an exact-species portrait/perched photograph, but foreground vegetation/perch overlap does not improve strict full-body verification.
+- A photographer page explicitly labels an adult male *B. virginianus*, but reuse permission was not established and therefore it is not selected for redistribution.
+
+**Outcome:** Great Horned Owl remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. The audit materially improves resolution and provenance confidence but does not justify adult + unobscured complete-body certification. No PNG is claimed.
+
+**Next unresolved source-quality legacy audit: Great White Shark.**
+
+## 2026-09-20 Iguana new-animal image
+- Source page: https://commons.wikimedia.org/wiki/File:Iguana_iguana_(male_resting).jpg
+- Original image: https://upload.wikimedia.org/wikipedia/commons/4/47/Iguana_iguana_%28male_resting%29.jpg
+- Resolution: **2135x2848**
+- Taxon: exact *Iguana iguana*
+- Sex: filename identifies male; source description confirms exact species but does not explicitly state adulthood
+- Setting: Tortuguero National Park, Costa Rica
 - License: **CC BY-SA 4.0**
-- Provenance: photographer's own work at Cotswold Wildlife Park.
-- Blocker: source metadata does not explicitly establish adulthood or sex, and strict complete tail/all-feet framing was not simultaneously certified from the recovered view.
-
-**Wild exact-species alternative:**
-- Source page: https://commons.wikimedia.org/wiki/File:Gray_Wolf_-_Canis_lupus_(51545668593).jpg
-- Resolution: **3877x2763**
-- Taxon: exact *Canis lupus*, wild Junction Butte pack animal in Lamar Valley.
-- License: **CC BY-SA 2.0**, Flickr license reviewed on Commons.
-- Blocker: adulthood/sex and strict complete anatomy remain undocumented.
-
-**Additional adult-context alternative:**
-- Source page: https://commons.wikimedia.org/wiki/File:Gray_Wolf_(Canis_lupus)_(9677910158).jpg
-- Resolution: **2844x1862**, CC BY-SA 2.0.
-- Description says the wolf detoured after an **adult moose**, but that establishes the prey's adulthood, not the wolf's. It is therefore not misrepresented as an adult-verified wolf.
-
-**Outcome:** Gray Wolf remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. The audit improved resolution/provenance confidence but did not justify claiming the mandatory adult + whole-tail + all-feet standard. No PNG is claimed.
-
-**Next unresolved source-quality legacy audit: Great Horned Owl.**
-
-## 2026-09-20 Ibex new-animal image
-- Source page: https://commons.wikimedia.org/wiki/File:Capra_ibex_in_Gran_Paradiso_National_Park.jpg
-- Original image: https://upload.wikimedia.org/wikipedia/commons/f/f3/Capra_ibex_in_Gran_Paradiso_National_Park.jpg
-- Resolution: **3233x2155**
-- Taxon: exact *Capra ibex*
-- Age/sex: caption explicitly identifies an **adult male**
-- Setting: wild Gran Paradiso National Park
-- License: **CC BY-SA 4.0**
-- Visual/source result: healthy single-animal real photograph and excellent resolution/provenance, but strict visibility of the complete tail and every foot was not established strongly enough to certify the mandatory complete-body requirement.
+- Visual/source result: single real iguana, adequate resolution, long tail and body in frame, but foliage overlaps appendages and strict unobscured every-foot plus tail-tip completeness is not strong enough to certify. Adult status is also not explicit.
+- Stronger age-verification but unusable framing: the Commons featured `Iguana iguana male head.jpg` explicitly identifies an **adult male**, but it is a head portrait and is rejected under the mandatory full-body rule.
+- Additional male alternative: `Male Green Iguana Belize.jpg`, 2832x3540, CC BY-SA 4.0, exact male; it does not resolve adulthood plus strict full-body framing simultaneously.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
 
 ## Count and blocker
-- `103` is completed text research, not completed images.
+- `104` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Great Horned Owl.**
+- **Next unresolved source-quality legacy audit: Great White Shark.**

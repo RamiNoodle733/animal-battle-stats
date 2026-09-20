@@ -41,7 +41,7 @@ Broad search covered Commons, zoo/photographer pages and exact adult-female quer
 
 **Explicit adult living source:**
 - Source page: https://commons.wikimedia.org/wiki/File:THERAPHOSA_BLONDI_HEMBRA_ADULTA.jpg
-- Original image: https://upload.wikimedia.org/wikipedia/commons/2/22/THERAPHOSA_BLONDI_HEMBRA_ADULTA.jpg
+- Original image: https://upload.wikimedia.org/wikipedia/commons/c/c3/THERAPHOSA_BLONDI_HEMBRA_ADULTA.jpg
 - Identity/age/sex: file title and description explicitly identify *Theraphosa blondi*, adult female.
 - License: CC BY-SA 2.5 with Wikimedia VRT permission confirmed.
 - Resolution: only **720x525**, below the preferred 1600+ standard and poor for fine-leg/hair cutout work.
@@ -51,7 +51,7 @@ Broad search covered Commons, zoo/photographer pages and exact adult-female quer
 - https://commons.wikimedia.org/wiki/File:Theraphosa_blondi_MHNT.jpg is an explicitly female **5041x7360** specimen image, but it is a mounted museum specimen and fails the healthy living-adult requirement.
 - Adult-female molt images are high resolution but depict molts/exuviae rather than a healthy living animal and are rejected.
 
-**Outcome:** the previous candidate is not promoted. Status is **REPLACEMENT SOURCE NEEDED** because the only explicit adult-female living source recovered is too low-resolution, while the high-resolution exact-species sources do not satisfy all mandatory adult/healthy criteria. No PNG is claimed.
+**Outcome:** status is **REPLACEMENT SOURCE NEEDED** because the only explicit adult-female living source recovered is too low-resolution, while high-resolution exact-species sources do not satisfy all mandatory adult/healthy criteria. No PNG is claimed.
 
 **Next unresolved source-quality legacy audit: Goose.**
 
@@ -62,8 +62,8 @@ Broad search covered Commons, zoo/photographer pages and exact adult-female quer
 - Taxon: exact *Archilochus colubris*
 - Age/sex: metadata explicitly says **Adult / Male**
 - License: **CC BY-SA 2.0**, Commons Flickr upload-bot review confirmed
-- Visual check: single real adult bird in flight; body and tail are visible, but strict complete wing/feet visibility and an unobscured cutout silhouette are not certified strongly enough for the mandatory standard.
-- Canonical-sex caveat: the research profile uses the larger adult female; this male is therefore not ideal even if framing were resolved.
+- Visual check: single real adult bird in flight; body and tail are visible, but strict complete wing/feet visibility and an unobscured cutout silhouette are not certified strongly enough.
+- Canonical-sex caveat: the research profile uses the larger adult female; this male is not ideal even if framing were resolved.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**.
 
 ## Count and blocker

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 102 / 225 (through Hyena). **Full-body transparent PNG assets verified and committed:** 0 / 102. A source-photo URL is not an approved PNG.
+**Research reports completed:** 103 / 225 (through Ibex). **Full-body transparent PNG assets verified and committed:** 0 / 103. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -18,9 +18,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit adult male plus reusable exact-species sources, but adult + reuse + complete wings/feet/tail not simultaneous |
 | Goliath Birdeater | REPLACEMENT SOURCE NEEDED | Audited; explicit adult female reusable source only 720x525; skip unless better source appears |
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 2091x1394 CC BY-SA standing source and 2048x1536 CC0 alternative; adulthood not explicit |
-| Gorilla | REPLACEMENT SOURCE NEEDED | **Audited; explicit male western lowland gorilla source is only 1174x1321; larger reusable silverback candidates do not simultaneously establish exact taxon/adulthood plus strict unobscured complete anatomy** |
-| Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: complete adult full-body candidate** |
-| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Feet/tail/adulthood unresolved |
+| Gorilla | REPLACEMENT SOURCE NEEDED | Audited; explicit male western lowland gorilla source is only 1174x1321; larger reusable silverback candidates do not simultaneously establish exact taxon/adulthood plus strict unobscured complete anatomy |
+| Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; 6000x4000 CC BY-SA 4.0 exact Eurasian gray wolf source and 3877x2763 wild exact-species source found; adulthood/sex plus strict complete tail/feet framing not simultaneously verified** |
+| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: verify adult, complete feet/tail/wings and reusable provenance** |
 | Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/fins unresolved |
 | Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/head-to-tail unresolved |
 | Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
@@ -36,41 +36,50 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *A. caraya*, 3888x2588 CC BY-SA 2.0; full tail/all appendages not visible |
 | Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *A. colubris*, 2148x1637 CC BY-SA 2.0; strict wing/feet completeness not certified; canonical female preferred |
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact adult female *H. maxima* complete-body source only 640x480; larger reusable candidates remain below 1600px |
-| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female *C. crocuta*, 3639x5143 CC BY-SA 2.0; visual inspection shows all four feet but tail is not visibly complete and adulthood is not explicit |
+| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female *C. crocuta*, 3639x5143 CC BY-SA 2.0; all four feet visible but tail not visibly complete and adulthood not explicit |
+| Ibex | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0 Gran Paradiso source; strict entire tail/all four feet not certified |
 
-## 2026-09-20 Gorilla legacy audit
-Broad search covered Wikimedia Commons exact western-lowland-gorilla categories, silverback queries and reusable high-resolution candidates.
+## 2026-09-20 Gray Wolf legacy audit
+Broad search covered Wikimedia Commons, USFWS-origin photographs, wild Yellowstone/Denali sources, exact-species and exact-subspecies queries, and Google-style image discovery.
 
-**Strongest explicit-sex/exact-taxon candidate:**
-- Source page: https://commons.wikimedia.org/wiki/File:Gorilla_gorilla_gorilla_Nbg.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/2/2e/Gorilla_gorilla_gorilla_Nbg.jpg
-- Resolution: **1174x1321**
-- Taxon: explicitly **male western lowland gorilla, *Gorilla gorilla gorilla***
-- License: **CC BY-SA 3.0 / GFDL**
-- Framing: single silverback, body and limbs visible.
-- Blocker: below the preferred 1600px longest-side threshold, and the current cropped version does not justify lowering the mandatory image-quality standard.
+**Strongest high-resolution exact-subspecies candidate:**
+- Source page: https://commons.wikimedia.org/wiki/File:Eurasian_Grey_Wolf_(Canis_lupus_lupus)_(CWPG).jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/2/2d/Eurasian_Grey_Wolf_%28Canis_lupus_lupus%29_%28CWPG%29.jpg
+- Resolution: **6000x4000**
+- Taxon: explicitly **Eurasian gray wolf, *Canis lupus lupus***
+- License: **CC BY-SA 4.0**
+- Provenance: photographer's own work at Cotswold Wildlife Park.
+- Blocker: source metadata does not explicitly establish adulthood or sex, and strict complete tail/all-feet framing was not simultaneously certified from the recovered view.
 
-**Larger sources checked:**
-- https://commons.wikimedia.org/wiki/File:Silverback_Gorilla_01.jpg - **5184x3456**, CC BY 4.0, categorized as *Gorilla gorilla gorilla* in zoos, but description merely says “Gorilla”/silverback and the reclining pose is poor for strict unobscured limb isolation.
-- Wikimedia's western-gorilla zoo/category collections contain multiple 2000-5000px files, but the recovered metadata did not simultaneously establish exact taxon, adult male status and clean complete anatomy strongly enough to replace the existing candidate.
+**Wild exact-species alternative:**
+- Source page: https://commons.wikimedia.org/wiki/File:Gray_Wolf_-_Canis_lupus_(51545668593).jpg
+- Resolution: **3877x2763**
+- Taxon: exact *Canis lupus*, wild Junction Butte pack animal in Lamar Valley.
+- License: **CC BY-SA 2.0**, Flickr license reviewed on Commons.
+- Blocker: adulthood/sex and strict complete anatomy remain undocumented.
 
-**Outcome:** Gorilla remains **REPLACEMENT SOURCE NEEDED**. Do not use a portrait, group, reclining/obscured pose or sub-1600 source simply to close the queue. No PNG is claimed.
+**Additional adult-context alternative:**
+- Source page: https://commons.wikimedia.org/wiki/File:Gray_Wolf_(Canis_lupus)_(9677910158).jpg
+- Resolution: **2844x1862**, CC BY-SA 2.0.
+- Description says the wolf detoured after an **adult moose**, but that establishes the prey's adulthood, not the wolf's. It is therefore not misrepresented as an adult-verified wolf.
 
-**Next unresolved source-quality legacy audit: Gray Wolf.**
+**Outcome:** Gray Wolf remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. The audit improved resolution/provenance confidence but did not justify claiming the mandatory adult + whole-tail + all-feet standard. No PNG is claimed.
 
-## 2026-09-20 Hyena new-animal image
-- Source page: https://commons.wikimedia.org/wiki/File:Spotted_Hyena_(Crocuta_crocuta)_female_..._(53024319975).jpg
-- Original image: https://upload.wikimedia.org/wikipedia/commons/9/9f/Spotted_Hyena_%28Crocuta_crocuta%29_female_..._%2853024319975%29.jpg
-- Resolution: **3639x5143**
-- Taxon: exact *Crocuta crocuta*
-- Sex: explicitly **female**
-- License: **CC BY-SA 2.0**, Flickr license independently reviewed on Commons
-- Visual result: genuine single-animal photograph; head, torso and all four feet are visible, but the tail is not visibly complete. Source metadata does not explicitly establish adulthood.
-- Alternative checked: Diego Delso's **6603x4402** exact-species CC BY-SA Kruger photograph. It is high quality but does not improve the strict sex/adult/tail combination.
+**Next unresolved source-quality legacy audit: Great Horned Owl.**
+
+## 2026-09-20 Ibex new-animal image
+- Source page: https://commons.wikimedia.org/wiki/File:Capra_ibex_in_Gran_Paradiso_National_Park.jpg
+- Original image: https://upload.wikimedia.org/wikipedia/commons/f/f3/Capra_ibex_in_Gran_Paradiso_National_Park.jpg
+- Resolution: **3233x2155**
+- Taxon: exact *Capra ibex*
+- Age/sex: caption explicitly identifies an **adult male**
+- Setting: wild Gran Paradiso National Park
+- License: **CC BY-SA 4.0**
+- Visual/source result: healthy single-animal real photograph and excellent resolution/provenance, but strict visibility of the complete tail and every foot was not established strongly enough to certify the mandatory complete-body requirement.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
 
 ## Count and blocker
-- `102` is completed text research, not completed images.
+- `103` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Gray Wolf.**
+- **Next unresolved source-quality legacy audit: Great Horned Owl.**

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 90 / 225 (through Guanaco). **Full-body transparent PNG assets verified and committed:** 0 / 90. A source-photo URL is not an approved PNG.
+**Research reports completed:** 91 / 225 (through Hammerhead Shark). **Full-body transparent PNG assets verified and committed:** 0 / 91. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -80,9 +80,9 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; wrong-species adult flight candidate rejected |
 | Flying Squirrel | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact *Pteromys volans* 5435x3628 candidate, adulthood/anatomy not certified |
-| Gaboon Viper | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; exact *B. gabonica* 2865x1714 candidate, adulthood/head-to-tail strictness unresolved** |
-| Galapagos Tortoise | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
-| Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/hooves |
+| Gaboon Viper | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact *B. gabonica* 2865x1714 candidate, adulthood/head-to-tail strictness unresolved |
+| Galapagos Tortoise | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; 3504x2336 reusable candidate, strict all-limbs/tail/adult-sex proof unresolved** |
+| Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
 | Gecko | REPLACEMENT SOURCE NEEDED | 1600+ adult male |
 | Giant Centipede | REPLACEMENT SOURCE NEEDED | 1600+ adult |
 | Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/all arm tips |
@@ -98,42 +98,41 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/fins unresolved |
 | Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/head-to-tail unresolved |
 | Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | New research; adult/sex/full-body strictness unresolved |
+| Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex/full-body strictness unresolved |
+| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | New research; exact species/reuse strong, current Commons file explicitly cropped and adulthood/sex unresolved |
 
 ## Latest findings
-### 2026-09-19 Gaboon Viper legacy audit
-Broad re-search found a stronger reusable exact-species photograph than the report's prior 2048x1356 candidate:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Gaboon_viper_(Bitis_gabonica).jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/8/86/Gaboon_viper_%28Bitis_gabonica%29.jpg
-- **Resolution:** **2865x1714**
-- **Taxon:** *Bitis gabonica*
-- **Creator:** Clément Bardot
-- **Date:** 13 September 2022
-- **License:** CC BY-SA 4.0
-- **Verification:** exact species, genuine photograph, adequate 2000+ resolution and reusable licensing are established. Search/preview inspection shows a coiled Gaboon viper, but source metadata does not explicitly establish adulthood or sex and strict uninterrupted head-to-tail visibility cannot be certified strongly enough for a cutout.
+### 2026-09-20 Galapagos Tortoise legacy audit
+The existing report candidate was re-opened and visually checked rather than trusting its dimensions or historical wording:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Galapagos_giant_tortoise_Geochelone_elephantopus.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/4/42/Galapagos_giant_tortoise_Geochelone_elephantopus.jpg
+- **Resolution:** **3504x2336**
+- **Taxon:** Commons now describes the subject as a dome-shelled Galápagos giant tortoise, *Chelonoidis nigra/niger* complex
+- **Creator:** Matthew Field / Mfield
+- **Date:** 26 August 2005
+- **License:** CC BY-SA 3.0 / GFDL
+- **Visual verification:** genuine high-resolution photograph and reusable provenance are established. The animal fills the frame well and the head, shell and major limbs are visible, but the pose does not expose every limb/foot plus the tail clearly enough to certify the strict complete-anatomy cutout requirement. Source metadata also does not explicitly establish adult sex.
 - **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
-Additional reusable alternatives were checked, including 3694x2770, 4340x2893 and 6000x4000 Commons files. None supplied the missing combination of explicit adulthood plus clearly certifiable complete head-to-tail anatomy. The 3460x2310 public-domain `Bitis gabonica rhinoceros.JPG` was rejected for this report because it is the western form historically called *B. g. rhinoceros* and therefore conflicts with the report's modern exact-*B. gabonica* taxonomic standard.
+No PNG was produced. Current GitHub writer remains UTF-8 text-only. The report already records this source page and original image URL, so no redundant report rewrite was necessary.
 
-No PNG was produced. Current GitHub writer remains UTF-8 text-only.
+**Next unresolved source-quality legacy audit: Gazelle.**
 
-**Next unresolved source-quality legacy audit: Galapagos Tortoise.**
-
-### 2026-09-19 Guanaco new-animal image
-Preferred reusable candidate:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Guanaco_(Lama_guanicoe)_Leona_Amarga_2.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/9/92/Guanaco_%28Lama_guanicoe%29_Leona_Amarga_2.jpg
-- **Resolution:** **5334x4000**
-- **Taxon:** *Lama guanicoe*, wild at Leona Amarga / Torres del Paine, Chile
-- **Creator:** Charles J. Sharp
-- **License:** CC BY-SA 4.0
-- **Quality:** Wikimedia Commons Featured Picture and Quality Image
-- **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`
-- **Reason pending:** source metadata does not explicitly establish adulthood or sex, and strict complete-body suitability was not promoted without certifying every hoof and the full tail from the original. Exact species, provenance, resolution and reuse license are strong.
+### 2026-09-20 Hammerhead Shark new-animal image
+Preferred reusable provenance candidate found during broad search:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Sphyrna_mokarran_camden.jpg
+- **Original Flickr image:** https://live.staticflickr.com/2600/3913442807_c6f25fe32f_o.jpg
+- **Original resolution:** **4752x3168**; current Commons crop **3448x2557**
+- **Taxon:** exact *Sphyrna mokarran*
+- **Creator:** Jim Capaldi
+- **License:** CC BY 2.0, reviewed by Commons FlickreviewR
+- **Critical audit finding:** Commons file history explicitly says the current version was “cropped to focus on shark.” Under `IMAGE_REQUIREMENTS.md`, this is not promoted merely because the resolution is excellent. Adulthood and sex are also not explicit.
+- **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
 No PNG was produced.
 
 ## Prior decisive findings
+- **Gaboon Viper:** exact *B. gabonica* 2865x1714 CC BY-SA 4.0 candidate; adulthood/head-to-tail strictness unresolved.
 - **Flying Squirrel:** exact *Pteromys volans* 5435x3628 CC BY-SA 4.0 source found; adulthood/all appendages unresolved.
 - **Flamingo:** misleading adult-flight Commons result resolved to Lesser Flamingo and was rejected; exact *P. roseus* candidate retained.
 - **Ferret:** high-resolution reusable exact domestic-ferret material exists, but inspected candidates obscure posterior anatomy/tail.
@@ -147,8 +146,8 @@ No PNG was produced.
 - **Donkey:** `LICENSE UNVERIFIED - DO NOT COMMIT`; explicit adult breeding jack source is All Rights Reserved.
 
 ## Count and blocker
-- `90` is completed text research, not completed images.
+- `91` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next unresolved source-quality legacy audit: Galapagos Tortoise.**
+- **Next unresolved source-quality legacy audit: Gazelle.**

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 87 / 225 (through Great White Shark). **Full-body transparent PNG assets verified and committed:** 0 / 87. A source-photo URL is not an approved PNG.
+**Research reports completed:** 88 / 225 (through Green Anaconda). **Full-body transparent PNG assets verified and committed:** 0 / 88. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -78,9 +78,9 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Emperor Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit adult source only 364x484 |
 | Emu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Binary pending |
 | Fennec Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | Skip |
-| Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; skip pending explicit-adult reusable complete-body source** |
-| Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
-| Flying Squirrel | SOURCE FOUND - FULL-BODY NOT VERIFIED | Skip |
+| Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
+| Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; wrong-species adult flight candidate rejected; existing exact-species candidate retained** |
+| Flying Squirrel | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
 | Gaboon Viper | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/completeness |
 | Galapagos Tortoise | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/feet |
 | Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/hooves |
@@ -96,44 +96,48 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Gorilla | REPLACEMENT SOURCE NEEDED | Find unobscured 1600+ complete silverback |
 | Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete silhouette; explicit adulthood missing |
 | Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Feet/tail/adulthood unresolved |
-| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Public-domain 3264x2448 exact species; adult/sex and strict fin silhouette unresolved |
+| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict fin silhouette unresolved |
+| Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact species 2048x1538 CC BY 4.0; adult/sex/head-to-tail unresolved |
 
 ## Latest findings
 
-### 2026-09-19 Ferret legacy audit
+### 2026-09-19 Flamingo legacy audit
 
-Broad discovery was repeated across general web image results, Wikimedia Commons and commercial/photographer results.
+Broad re-search covered general web image discovery, Wikimedia Commons and adult-labelled sources for the report's resolved exact taxon, Greater Flamingo (*Phoenicopterus roseus*).
 
-**High-resolution reusable candidate inspected:**
-- **Source page:** https://commons.wikimedia.org/wiki/File:Ferret_(837995956).jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/2/2f/Ferret_%28837995956%29.jpg
-- **Taxon:** exact domestic ferret category, *Mustela putorius furo* / *Mustela furo*
-- **Resolution:** **3872x2592**
-- **Creator:** Sean McGrath
-- **License:** CC BY 2.0, Flickr license reviewed by Commons
-- **Visual result:** rejected as a complete-body source. Foliage and framing obscure substantial posterior anatomy/tail, so high resolution does not rescue it.
+A seemingly excellent new Commons result, `Greater Flamingo in SA.jpg`, was described as **Adult in flight**, **4148x2765**, own work by Jakdewet, and **CC BY-SA 4.0**. It would have been attractive because an adult flight photograph can expose the complete wings, legs and feet. Direct page inspection, however, revealed a decisive provenance/taxonomy failure: the title currently redirects to **`Lesser Flamingo in South Africa.jpg`**, and Commons categorizes the image under *Phoeniconaias minor*. It is therefore the wrong species for this report and was rejected rather than trusted from its misleading search title/snippet.
 
-**Explicit-adult discovery:** a commercial studio result explicitly describes a standard-color **adult male ferret**, but the image is commercial stock and was not selected for redistribution. Another adult domestic-ferret shop image gives strong side-profile framing but reuse permission is not established. These are useful discovery evidence only, not commit candidates.
+Other explicitly adult sources were found, including an ADW adult/sexually mature *P. roseus* photograph and an `Adult Flamingo at Ras Al Khor Wildlife Sanctuary` Commons file, but they either do not provide a clean complete-body terrestrial silhouette or fall below the preferred 1600-pixel quality target. Group images were also rejected under the single-animal standard.
 
-The existing 3008x2000 Commons snow photograph in `animals/ferret.md` was already visually rejected because most of the body is hidden in/behind the snow-and-grass shelter. No newly found source simultaneously establishes adult status, complete unobscured anatomy, high resolution and reusable licensing. Ferret therefore remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG was produced.
+The existing report candidate remains the stronger exact-species option:
+- **Source page:** https://commons.wikimedia.org/wiki/File:A_flamingo_standing_in_Lake_Poyrazlar.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/a/a4/A_flamingo_standing_in_Lake_Poyrazlar.jpg
+- **Resolution:** 6000x4000
+- **Taxon:** *Phoenicopterus roseus*
+- **License:** CC BY-SA 4.0
+- **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`
 
-**Next unresolved source-quality legacy audit: Flamingo.**
+The prior report already records this source page and original image URL. It is retained rather than replaced by a lower-quality or wrong-species candidate. Adulthood is not explicitly established and strict every-foot/toe completeness remains unverified, so no PNG was produced and no completion was claimed.
 
-### 2026-09-19 Great White Shark new-animal image
+**Next unresolved source-quality legacy audit: Flying Squirrel.**
 
-- **Source page:** https://commons.wikimedia.org/wiki/File:Carcharodon_carcharias.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/5/56/Carcharodon_carcharias.jpg
-- **Resolution:** **3264x2448**
-- **Taxon:** exact *Carcharodon carcharias*
-- **Creator:** Sharkdiver68 / Sharkdiver.com
-- **License:** public domain release by copyright holder
-- **Verification:** real high-resolution photograph and exact species. Source metadata does not explicitly establish adulthood or sex, and strict all-fin/tail silhouette verification was not completed through the connected image path.
-- **Status:** **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**.
+### 2026-09-19 Green Anaconda new-animal image
 
-A separate photographer/art page explicitly identifies a photographed white shark named Finn as a **4.2 m female**, but redistribution permission is not established and 4.2 m is below the preferred mature-female canonical scale. It was not selected. No PNG was produced.
+- **Source page:** https://commons.wikimedia.org/wiki/File:Eunectes_murinus_63034780.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/7/7e/Eunectes_murinus_63034780.jpg
+- **Resolution:** **2048x1538**
+- **Taxon:** exact *Eunectes murinus*
+- **Creator:** Kai Squires
+- **Provenance:** wild Ecuador iNaturalist observation imported to Commons
+- **License:** CC BY 4.0, reviewed by iNaturalistReviewBot
+- **Verification:** exact species, real photograph, adequate resolution and reusable licensing are established. Adulthood, sex and strict continuous head-to-tail visibility are not established.
+- **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+
+No PNG was produced.
 
 ## Prior decisive findings
 
+- **Ferret:** high-resolution reusable exact domestic-ferret material exists, but inspected candidates obscure posterior anatomy/tail; explicit adult studio sources lack suitable redistribution rights.
 - **Emperor Scorpion:** explicit adult male reusable source exists but only 364x484; stronger 3739x2492 candidate lacks adulthood proof.
 - **Emperor Penguin:** explicit-adult reusable source is group/1400px; stronger 1813x2692 single-subject source lacks explicit adulthood.
 - **Elk:** 5481x3654 male Roosevelt elk CC BY-SA 4.0; adulthood/strict hoof-tail framing unresolved.
@@ -145,8 +149,8 @@ A separate photographer/art page explicitly identifies a photographed white shar
 
 ## Count and blocker
 
-- `87` is completed text research, not completed images.
+- `88` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next unresolved source-quality legacy audit: Flamingo.**
+- **Next unresolved source-quality legacy audit: Flying Squirrel.**

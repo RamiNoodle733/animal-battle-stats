@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 106 / 225 (through Jackal). **Full-body transparent PNG assets verified and committed:** 0 / 106. A source-photo URL is not an approved PNG.
+**Research reports completed:** 107 / 225 (through Jaguar). **Full-body transparent PNG assets verified and committed:** 0 / 107. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -22,12 +22,12 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 6000x4000 reusable exact Eurasian gray wolf and 3877x2763 wild exact-species source; adult/sex + strict tail/feet unresolved |
 | Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 6240x4160 public-domain NPS exact-species source; strict adult + complete feet/tail/wings unresolved |
 | Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; reusable sources up to 5472x2245, including explicit male; strict adult + complete fin/head-to-tail silhouette unresolved |
-| Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run; exact-species 5184x3456 Commons field source and Smithsonian CC0 records found, but adult/sex + strict complete head-to-tail visibility are not simultaneous** |
+| Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact-species 5184x3456 Commons field source and Smithsonian CC0 records found, but adult/sex + strict complete head-to-tail visibility are not simultaneous |
 | Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex/full-body strictness unresolved |
 | Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact species/reuse strong, Commons version cropped |
-| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: promising complete perched source; verify adulthood, sex, feet/tail/wings and reusable provenance** |
-| Hedgehog | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2500x1662 reusable candidate, adulthood/all feet/tiny tail unresolved |
+| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run; stronger 5184x3456 CC BY 2.0 exact-species source found with verified original Flickr provenance, but metadata does not establish adulthood/sex and strict complete feet/tail/wings framing cannot be certified. Existing report candidate remains pending.** |
+| Hedgehog | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 2500x1662 reusable candidate; verify adulthood, all feet, tiny tail and provenance |
 | Hellbender | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult eastern hellbender, public-domain 3072x2304 USFWS source; binary cutout pending |
 | Hercules Beetle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5861x3853 exact male complete museum specimen; healthy living-adult requirement unresolved |
 | Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable exact-species standing candidate; adult/sex/toes/tail unresolved |
@@ -41,40 +41,41 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male *I. iguana*, 2135x2848 CC BY-SA 4.0; adulthood and strict all-feet/tail-tip completeness unresolved |
 | Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5910x3940 exact male reusable source has excellent framing but adulthood not explicit; explicit-adult alternative loses tail |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4524x3015 exact *L. m. mesomelas* CC BY-SA 4.0 source visually shows complete standing anatomy; adulthood and sex not explicit |
+| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male Pantanal jaguar, 4582x3054 CC BY-SA 4.0; strong walking source but adulthood and strict binary full-body certification unresolved |
 
-## 2026-09-20 Green Anaconda legacy audit
-Broad search covered Wikimedia Commons, Smithsonian Open Access, zoo/institutional pages, scientific literature imagery and Google-style image discovery.
+## 2026-09-20 Harpy Eagle legacy audit
+Broad search covered Wikimedia Commons, Flickr-origin Commons files, WikiAves, iNaturalist discovery, Smithsonian records and photographer pages.
 
-**Strong reusable field candidate:**
-- Source page: https://commons.wikimedia.org/wiki/File:Green_Anaconda_-_Parana_Madeirinha_-_AZ.JPG
-- Original/direct source: https://upload.wikimedia.org/wikipedia/commons/8/82/Green_Anaconda_-_Parana_Madeirinha_-_AZ.JPG
+**Stronger reusable candidate:**
+- Source page: https://commons.wikimedia.org/wiki/File:Harpy_Eagle_(Harpia_harpyja).jpg
+- Original/direct source: https://live.staticflickr.com/5054/5414962904_48d6ec55c9_o.jpg
 - Resolution: **5184x3456**
-- Taxon: exact green anaconda, *Eunectes murinus*
-- Context: photographed at Paraná Madeirinha/Amazonas; real field photograph; source describes a snake over four metres long.
-- Reuse: Commons Creative Commons source.
-- Visual result: high-resolution healthy living animal, but the coiled/angled framing does not allow strict certification that the entire head-to-tail silhouette is contained unobscured in the frame, and source metadata does not explicitly establish sex/adulthood under the mandatory standard.
+- Taxon: exact harpy eagle, *Harpia harpyja*
+- Photographer: Brian Gratwicke
+- Reuse: **CC BY 2.0**, with Flickr license independently reviewed by FlickreviewR on Commons
+- Result: substantially higher resolution than the existing 2081x2271 candidate and excellent provenance, but the file metadata does not explicitly establish adulthood or sex. The available source presentation also does not justify strict certification of every foot/talon, tail and folded-wing component under `IMAGE_REQUIREMENTS.md`.
 
-**Institutional alternatives:**
-- Smithsonian National Zoo record `nzp_NZP-20160216-194CTW`: exact *Eunectes murinus*, Public Domain/CC0 metadata, but available record metadata does not establish sex/adulthood and strict complete-body suitability was not verified.
-- Smithsonian National Zoo record `nzp_NZP-20130206-032CPM`: exact *Eunectes murinus*, CC0 metadata, same adult/sex/full-silhouette verification gap.
-- Scientific literature contains explicitly identified adult female *E. murinus* photographs, including a 4.76 m female and recent field studies, but those sources are not automatically redistributable image assets and therefore were not treated as staging-image permission.
+**Other discovery:**
+- WikiAves has visually excellent adult-looking full-body birds, including a source described by search metadata as an adult female, but the photographs remain photographer-controlled and are not assumed redistributable.
+- Smithsonian historical harpy-eagle material has reuse restrictions or does not solve the mandatory adult/full-body combination.
+- A 2727x2175 CC BY 2.0 wild Panama Commons photograph was also checked; it does not explicitly establish adult/sex and does not resolve the strict anatomy requirement.
 
-**Outcome:** Green Anaconda remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed. Because Grizzly Bear, Guanaco and Hammerhead Shark are already audited, **Harpy Eagle** is the next unresolved source-quality legacy audit.
+**Outcome:** Harpy Eagle remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. The higher-resolution Commons/Flickr source is recorded as the strongest new provenance lead, but it is not promoted to image-complete status. No PNG is claimed. **Hedgehog** is next in the unresolved source-quality queue.
 
-## 2026-09-20 Jackal new-animal image
-- Preferred source page: https://commons.wikimedia.org/wiki/File:Black-backed_jackal_(Canis_mesomelas_mesomelas)_2.jpg
-- Direct/original redirect: https://commons.wikimedia.org/wiki/Special:Redirect/file/Black-backed%20jackal%20(Canis%20mesomelas%20mesomelas)%202.jpg
-- Resolution: **4524x3015**
-- Taxon: exact southern black-backed jackal, *Lupulella mesomelas mesomelas* (source uses former *Canis* combination)
-- Location: Etosha National Park, Namibia
+## 2026-09-20 Jaguar new-animal image
+- Preferred source page: https://commons.wikimedia.org/wiki/File:Jaguar_(Panthera_onca_palustris)_male_Three_Brothers_River_2.jpg
+- Direct/original redirect: https://commons.wikimedia.org/wiki/Special:Redirect/file/Jaguar%20(Panthera%20onca%20palustris)%20male%20Three%20Brothers%20River%202.jpg
+- Resolution: **4582x3054**
+- Taxon: exact Pantanal jaguar, *Panthera onca* (source labels historical subspecies *P. o. palustris*)
+- Sex: **male explicitly verified**
+- Location: Three Brothers River, Mato Grosso, Pantanal, Brazil
 - Photographer: Charles J. Sharp
 - License: **CC BY-SA 4.0**
-- Visual result: excellent standing side/three-quarter real photograph with head, torso, all four legs/feet and full tail visibly inside the frame. Background is suitable for later cutout work.
-- Remaining blocker: source metadata does not explicitly say adult and does not establish sex. Under `IMAGE_REQUIREMENTS.md`, adulthood is mandatory, so the source cannot yet be promoted to full-body-source-complete status.
+- Visual/source result: strong reusable walking-series source with high resolution and excellent provenance. Search-image inspection of this series shows excellent side-profile anatomy, but adulthood is not explicit in metadata and the exact original was not available through a binary pixel-inspection workflow for strict complete-body certification.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
 
 ## Count and blocker
-- `106` is completed text research, not completed images.
+- `107` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Harpy Eagle.**
+- **Next unresolved source-quality legacy audit: Hedgehog.**

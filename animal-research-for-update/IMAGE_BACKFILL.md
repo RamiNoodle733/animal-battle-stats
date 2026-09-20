@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 94 / 225 (through Hellbender). **Full-body transparent PNG assets verified and committed:** 0 / 94. A source-photo URL is not an approved PNG.
+**Research reports completed:** 95 / 225 (through Hercules Beetle). **Full-body transparent PNG assets verified and committed:** 0 / 95. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current connected GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -10,9 +10,9 @@ Animals already source-verified or already audited are skipped until binary tool
 | Animal | Current status | Next action |
 |---|---|---|
 | Gecko | REPLACEMENT SOURCE NEEDED | Audited; explicit adult male source remains only 1008px; skip unless materially better source appears |
-| Giant Centipede | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; 4000x3000 complete-anatomy reusable source, but adulthood not explicit; skip unless adulthood is resolved** |
-| Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: adult/all arm tips** |
-| Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/unobscured hand |
+| Giant Centipede | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4000x3000 complete-anatomy reusable source, but adulthood not explicit; skip unless adulthood is resolved |
+| Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; exact female/reusable sources found, but strict adult + all-arm/tentacle-tip visibility not simultaneously verified; skip unless better source appears** |
+| Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: adult/unobscured hand** |
 | Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/toes/tail |
 | Giraffe | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/hooves/tail |
 | Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex |
@@ -29,43 +29,54 @@ Animals already source-verified or already audited are skipped until binary tool
 | Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Promising complete perched source, adulthood/sex unresolved |
 | Hedgehog | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2500x1662 reusable candidate, adulthood/all feet/tiny tail unresolved |
 | Hellbender | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult eastern hellbender, public-domain 3072x2304 USFWS source; binary cutout pending |
+| Hercules Beetle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5861x3853 exact male complete museum specimen; healthy living-adult requirement still unresolved |
 
 ## Latest findings
 
-### 2026-09-20 Giant Centipede legacy audit
-The existing staging profile resolves Giant Centipede to **Amazonian giant centipede / *Scolopendra gigantea***. Broad search reviewed Commons, GBIF/iNaturalist-derived material and other web photographs rather than restricting discovery to one provider.
+### 2026-09-20 Giant Squid legacy audit
+The existing staging profile resolves Giant Squid to **Giant Squid / *Architeuthis dux***. Broad search reviewed NOAA/Smithsonian material, Wikimedia Commons, museum collections and image-search results rather than relying on one provider.
 
-Strongest reusable candidate found:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Scolopendra_gigantea.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/8/8b/Scolopendra_gigantea.jpg
-- **Resolution:** **4000x3000**
-- **Taxon:** exact *Scolopendra gigantea*, photographed in Vieques, Puerto Rico
-- **Creator:** Katka Nemčoková
-- **License:** **CC BY-SA 3.0**
-- **Visual inspection:** original was opened and inspected. The animal is a single real centipede in a U-shaped pose with head, complete trunk, antennae, walking legs and terminal appendages inside the frame. No watermark, group, illustration or AI substitution is present.
-- **Unresolved:** source metadata does **not explicitly establish adulthood**. Because adulthood is mandatory under `IMAGE_REQUIREMENTS.md`, visual size/appearance is not used to infer adult status.
+Strong reusable candidates reviewed:
+- **NOAA specimen MOL 1130046 source page:** https://commons.wikimedia.org/wiki/File:MOL_1130046_Architeuthis_specimen.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/8/8f/MOL_1130046_Architeuthis_specimen.jpg
+- **Resolution:** **4416x3312**
+- **Taxon:** exact *Architeuthis dux*, trawled off Louisiana on 30 July 2009
+- **Sex/specimen data:** independent specimen records identify MOL 1130046 as an intact **female**, 5.9 m estimated length and 46.7 kg
+- **License:** **CC0 / Public Domain**, NOAA
+- **Problem:** the available metadata does not establish that this relatively small female was sexually mature, and the photographed arrangement does not provide sufficiently strong visual proof that every arm and both long tentacular tips are intact and individually visible.
 
-A newer 2026 zoo photograph at 1153x1792 and a 4608x3456 aquarium photograph were also found, but neither provided stronger explicit adult verification. The 4000x3000 wild source is therefore retained as the preferred candidate while adult verification remains open.
+A second stronger maturity candidate was also reviewed:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Architeuthis_dux_-_Smithsonain_Museum.JPG
+- **Original:** https://live.staticflickr.com/7025/6670824005_ab725730e9_o.jpg
+- **Displayed file:** 1333x2000 on Commons; source metadata identifies a **female**, about 10.9 m and 149.6 kg, caught off northern Spain in 2005
+- **License:** **CC BY-SA 2.0**
+- **Adult context:** Smithsonian exhibit material describes the hall as containing an adult and a juvenile; this large female is the strong adult candidate.
+- **Problem:** the museum-tank pose has arms/tentacles overlapped/coiled enough that strict visibility of all appendage tips cannot be certified for clean full-body cutout work.
 
-**Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. This is an improvement over the previous generic replacement-source state, but it is not a completed image and not yet eligible for cutout promotion. No PNG was produced because the connected GitHub writer remains text-only.
+A Smithsonian installation photograph of the male exhibit was also visually reviewed through image search. It shows many arms and suckers clearly but the crowded vertical arrangement overlaps appendages and does not solve the all-tip requirement.
 
-**Next unresolved source-quality legacy audit: Giant Squid.**
+**Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. This is not a completed image. The search established excellent exact-species, reusable, sex-documented source material but did not simultaneously satisfy adult certainty and strict clean visibility of all eight arms plus both tentacles. No PNG was produced because the connected GitHub writer remains text-only.
 
-### 2026-09-20 Hellbender new-animal image
-Preferred source:
-- **Source page:** https://www.fws.gov/media/adult-eastern-hellbender
-- **Original:** FWS page original download, **3072x2304**
-- **Taxon:** exact Eastern Hellbender, *Cryptobranchus alleganiensis alleganiensis*
-- **Adult:** explicitly verified by USFWS as "Adult hellbender in the wild in New York."
-- **Sex:** unknown, not inferred visually
-- **Creator/credit:** Ken Roblee/New York Department of Environmental Conservation
-- **License:** **Public Domain** per USFWS
-- **Visual standard:** source selection was checked for complete-animal framing rather than accepted from dimensions/search text alone.
-- **Status:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`.
+**Next unresolved source-quality legacy audit: Gibbon.**
 
-No transparent PNG is claimed. The current GitHub connector cannot write the required PNG binary, so background removal, RGBA/alpha verification and final silhouette inspection remain pending.
+### 2026-09-20 Hercules Beetle new-animal image
+Preferred documentation candidate:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Dynastes_hercules_ecuatorianus_MHNT.jpg
+- **Original:** https://upload.wikimedia.org/wikipedia/commons/0/0e/Dynastes_hercules_ecuatorianus_MHNT.jpg
+- **Resolution:** **5861x3853**
+- **Taxon:** exact *Dynastes hercules ecuatorianus*
+- **Sex:** explicitly male
+- **Size:** explicitly 15.5 cm
+- **Creator:** Didier Descouens / Muséum de Toulouse
+- **License:** **CC BY-SA 4.0**
+- **Visual standard:** featured/quality focus-stacked photograph with the complete horn-to-abdomen silhouette and six legs in frame.
+- **Blocker:** it is a mounted museum specimen, not a healthy living adult. A live Photo Ark adult male was found but is rights-managed. Therefore the mandatory healthy-adult photo standard is not yet satisfied.
+- **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+
+No transparent PNG is claimed. The current GitHub connector cannot write the required PNG binary, and the preferred source itself still fails the living/healthy subject requirement.
 
 ## Recent prior decisive findings
+- **Giant Centipede:** exact *Scolopendra gigantea* 4000x3000 CC BY-SA 3.0 source visually contains complete anatomy, but adulthood is not explicit.
 - **Gecko:** exact adult male reusable source exists but only 1008x460; high-resolution candidates lack simultaneous adult and strict full-body proof.
 - **Gazelle:** exact *Gazella dorcas* 6000x4000 CC BY-SA 4.0; adult/sex and strict hoof/tail proof unresolved.
 - **Galapagos Tortoise:** 3504x2336 reusable candidate; strict all-limbs/tail/adult-sex proof unresolved.
@@ -83,8 +94,8 @@ No transparent PNG is claimed. The current GitHub connector cannot write the req
 - **Donkey:** `LICENSE UNVERIFIED - DO NOT COMMIT`; explicit adult breeding jack source is All Rights Reserved.
 
 ## Count and blocker
-- `94` is completed text research, not completed images.
+- `95` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next unresolved source-quality legacy audit: Giant Squid.**
+- **Next unresolved source-quality legacy audit: Gibbon.**

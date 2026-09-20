@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 100 / 225 (through Hummingbird). **Full-body transparent PNG assets verified and committed:** 0 / 100. A source-photo URL is not an approved PNG.
+**Research reports completed:** 101 / 225 (through Huntsman Spider). **Full-body transparent PNG assets verified and committed:** 0 / 101. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -16,9 +16,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; reusable high-resolution and BLM public-domain sources, adulthood plus every toe/tail unresolved |
 | Giraffe | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 1712x2288 reusable bull source complete standing frame, adulthood not explicit |
 | Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit adult male plus reusable exact-species sources, but adult + reuse + complete wings/feet/tail not simultaneous |
-| Goliath Birdeater | REPLACEMENT SOURCE NEEDED | **Audited; explicit adult female reusable source is only 720x525; high-res exact-species sources do not explicitly establish healthy adulthood; skip unless better source appears** |
-| Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: adulthood/sex on existing full-body candidate** |
-| Gorilla | REPLACEMENT SOURCE NEEDED | Unobscured 1600+ complete silverback |
+| Goliath Birdeater | REPLACEMENT SOURCE NEEDED | Audited; explicit adult female reusable source only 720x525; skip unless better source appears |
+| Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; 2091x1394 CC BY-SA standing exact-species source and 2048x1536 CC0 alternative found; complete standing framing is promising but adulthood/sex are not explicit** |
+| Gorilla | REPLACEMENT SOURCE NEEDED | **NEXT UNRESOLVED SOURCE AUDIT: unobscured 1600+ complete silverback** |
 | Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete silhouette; adulthood missing |
 | Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Feet/tail/adulthood unresolved |
 | Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/fins unresolved |
@@ -35,39 +35,43 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Hornet | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0; binary cutout pending |
 | Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *A. caraya*, 3888x2588 CC BY-SA 2.0; full tail/all appendages not visible |
 | Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *A. colubris*, 2148x1637 CC BY-SA 2.0; strict wing/feet completeness not certified; canonical female preferred |
+| Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact adult female *H. maxima* complete-body CC BY-SA 3.0 source found but only 640x480; higher-res exact-species reusable candidates recovered remain below 1600px |
 
-## 2026-09-20 Goliath Birdeater legacy audit
-Broad search covered Commons, zoo/photographer pages and exact adult-female queries for *Theraphosa blondi*.
+## 2026-09-20 Goose legacy audit
+Broad search covered Wikimedia Commons quality-image collections, USFWS media and exact-species standing/full-body queries for Canada Goose (*Branta canadensis*), matching the existing roster's Goose resolution.
 
-**Explicit adult living source:**
-- Source page: https://commons.wikimedia.org/wiki/File:THERAPHOSA_BLONDI_HEMBRA_ADULTA.jpg
-- Original image: https://upload.wikimedia.org/wikipedia/commons/c/c3/THERAPHOSA_BLONDI_HEMBRA_ADULTA.jpg
-- Identity/age/sex: file title and description explicitly identify *Theraphosa blondi*, adult female.
-- License: CC BY-SA 2.5 with Wikimedia VRT permission confirmed.
-- Resolution: only **720x525**, below the preferred 1600+ standard and poor for fine-leg/hair cutout work.
+**Strongest clean standing candidate:**
+- Source page: https://commons.wikimedia.org/wiki/File:Canada_Goose_Standing.jpg
+- Original image redirect: https://commons.wikimedia.org/wiki/Special:Redirect/file/Canada_Goose_Standing.jpg
+- Resolution: **2091x1394**
+- Taxon: exact *Branta canadensis*
+- License: **CC BY-SA 3.0**
+- Framing: single standing goose, useful side/three-quarter full-body framing with feet and tail in frame.
+- Blocker: source metadata does not explicitly identify the bird as an adult or establish sex. Sex should not be inferred visually.
 
-**High-resolution alternatives checked:**
-- https://commons.wikimedia.org/wiki/File:Goliath_Tarantula_(Theraphosa_blondi)_(26062223168).jpg is exact species, wild and **4295x3071**, CC BY-SA 2.0, but metadata does not explicitly establish adulthood or sex.
-- https://commons.wikimedia.org/wiki/File:Theraphosa_blondi_MHNT.jpg is an explicitly female **5041x7360** specimen image, but it is a mounted museum specimen and fails the healthy living-adult requirement.
-- Adult-female molt images are high resolution but depict molts/exuviae rather than a healthy living animal and are rejected.
+**Other reusable candidates checked:**
+- https://commons.wikimedia.org/wiki/File:Canada_goose_(Branta_canadensis).jpg - exact species, **2048x1536**, **CC0**, Don Edwards San Francisco Bay NWR; metadata does not explicitly establish adult/sex.
+- https://commons.wikimedia.org/wiki/File:Canada_Goose_Branta_canadensis_1393.jpg - exact species, **4775x2868**, **CC BY 4.0**, Ottawa; high resolution but no explicit adult/sex metadata in the recovered file record.
+- https://commons.wikimedia.org/wiki/File:Canada_goose_(branta_canadensis).jpg - exact species, **4934x3289**, **CC BY-SA 3.0**, Charles J. Sharp; the recovered metadata categorizes a swimming bird and is less suitable for a clean complete-foot cutout than the standing candidate.
+- USFWS public-domain sources were also checked. Several are groups, broods, nests, habitat scenes or subspecies-specific images and do not improve the strict complete single-adult plus age/sex documentation combination.
 
-**Outcome:** status is **REPLACEMENT SOURCE NEEDED** because the only explicit adult-female living source recovered is too low-resolution, while high-resolution exact-species sources do not satisfy all mandatory adult/healthy criteria. No PNG is claimed.
+**Outcome:** Goose remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. The 2091x1394 standing source is the current preferred framing candidate, but mandatory adulthood is not explicitly verified. No PNG is claimed.
 
-**Next unresolved source-quality legacy audit: Goose.**
+**Next unresolved source-quality legacy audit: Gorilla.**
 
-## 2026-09-20 Hummingbird new-animal image
-- Source page: https://commons.wikimedia.org/wiki/File:Ruby-throated_Hummingbird_7377.jpg
-- Original image: https://upload.wikimedia.org/wikipedia/commons/e/e5/Ruby-throated_Hummingbird_7377.jpg
-- Resolution: **2148x1637**
-- Taxon: exact *Archilochus colubris*
-- Age/sex: metadata explicitly says **Adult / Male**
-- License: **CC BY-SA 2.0**, Commons Flickr upload-bot review confirmed
-- Visual check: single real adult bird in flight; body and tail are visible, but strict complete wing/feet visibility and an unobscured cutout silhouette are not certified strongly enough.
-- Canonical-sex caveat: the research profile uses the larger adult female; this male is not ideal even if framing were resolved.
-- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**.
+## 2026-09-20 Huntsman Spider new-animal image
+- Source page: https://commons.wikimedia.org/wiki/File:Heteropoda_maxima_f.jpg
+- Original image redirect: https://commons.wikimedia.org/wiki/Special:Redirect/file/Heteropoda_maxima_f.jpg
+- Resolution: **640x480**
+- Taxon: exact *Heteropoda maxima*
+- Age/sex: metadata explicitly identifies **adult female**
+- License: **CC BY-SA 3.0**
+- Visual/source suitability: complete spider is visible, including all eight long legs, but the source is far below the preferred 1600+ longest-side requirement and is inadequate for a high-quality fine-leg transparent cutout.
+- Alternatives: reusable exact-species Commons candidates at **738x900** and **900x817** were also found, but remain below standard and have weaker age metadata.
+- Status: **REPLACEMENT SOURCE NEEDED**. Do not promote a low-resolution image merely to close the queue.
 
 ## Count and blocker
-- `100` is completed text research, not completed images.
+- `101` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Goose.**
+- **Next unresolved source-quality legacy audit: Gorilla.**

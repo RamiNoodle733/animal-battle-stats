@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 107 / 225 (through Jaguar). **Full-body transparent PNG assets verified and committed:** 0 / 107. A source-photo URL is not an approved PNG.
+**Research reports completed:** 108 / 225 (through Japanese Macaque). **Full-body transparent PNG assets verified and committed:** 0 / 108. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -26,10 +26,10 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex/full-body strictness unresolved |
 | Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact species/reuse strong, Commons version cropped |
-| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run; stronger 5184x3456 CC BY 2.0 exact-species source found with verified original Flickr provenance, but metadata does not establish adulthood/sex and strict complete feet/tail/wings framing cannot be certified. Existing report candidate remains pending.** |
-| Hedgehog | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 2500x1662 reusable candidate; verify adulthood, all feet, tiny tail and provenance |
-| Hellbender | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult eastern hellbender, public-domain 3072x2304 USFWS source; binary cutout pending |
-| Hercules Beetle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5861x3853 exact male complete museum specimen; healthy living-adult requirement unresolved |
+| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5184x3456 CC BY 2.0 exact-species source with verified Flickr provenance; adult/sex and strict feet/tail/wings unresolved |
+| Hedgehog | REPLACEMENT SOURCE NEEDED | **Audited this run; 2500x1662 featured exact-species source visually fails strict anatomy because feet/legs are obscured and tail is not visible. Reusable alternatives up to 4250x2833 found, but no candidate simultaneously verifies adult + complete anatomy.** |
+| Hellbender | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult eastern hellbender, public-domain 3072x2304 USFWS source; binary cutout pending; skip while writer is text-only |
+| Hercules Beetle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 5861x3853 exact male complete museum specimen; healthy living-adult requirement unresolved |
 | Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable exact-species standing candidate; adult/sex/toes/tail unresolved |
 | Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4475x3042 exact-species CC BY-SA 2.0 male; adulthood/strict feet-tail unresolved |
 | Hornet | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0; binary cutout pending |
@@ -42,40 +42,41 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5910x3940 exact male reusable source has excellent framing but adulthood not explicit; explicit-adult alternative loses tail |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4524x3015 exact *L. m. mesomelas* CC BY-SA 4.0 source visually shows complete standing anatomy; adulthood and sex not explicit |
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male Pantanal jaguar, 4582x3054 CC BY-SA 4.0; strong walking source but adulthood and strict binary full-body certification unresolved |
+| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3860x5156 exact-species CC BY 2.0 Ueno Zoo source visually inspected; tail hidden and both rear feet not cleanly visible; adult/sex not explicit |
 
-## 2026-09-20 Harpy Eagle legacy audit
-Broad search covered Wikimedia Commons, Flickr-origin Commons files, WikiAves, iNaturalist discovery, Smithsonian records and photographer pages.
+## 2026-09-20 Hedgehog legacy audit
+Broad search covered Wikimedia Commons, Google-style image discovery, Finnish Biodiversity Information Facility results, zoo/species pages and high-resolution exact-species Commons alternatives.
 
-**Stronger reusable candidate:**
-- Source page: https://commons.wikimedia.org/wiki/File:Harpy_Eagle_(Harpia_harpyja).jpg
-- Original/direct source: https://live.staticflickr.com/5054/5414962904_48d6ec55c9_o.jpg
-- Resolution: **5184x3456**
-- Taxon: exact harpy eagle, *Harpia harpyja*
-- Photographer: Brian Gratwicke
-- Reuse: **CC BY 2.0**, with Flickr license independently reviewed by FlickreviewR on Commons
-- Result: substantially higher resolution than the existing 2081x2271 candidate and excellent provenance, but the file metadata does not explicitly establish adulthood or sex. The available source presentation also does not justify strict certification of every foot/talon, tail and folded-wing component under `IMAGE_REQUIREMENTS.md`.
+**Previously queued candidate inspected:**
+- Source page: https://commons.wikimedia.org/wiki/File:West_European_Hedgehog_(Erinaceus_europaeus)2.jpg
+- Original resolution: **2500x1662**
+- Taxon: exact European hedgehog, *Erinaceus europaeus*
+- Provenance: photographed in Emmerdennen, Emmen, Netherlands; reusable Commons file derived from the uploader's own work
+- Visual result: real single healthy-looking hedgehog with excellent image quality, but the lower body is embedded in leaf litter/vegetation, feet and portions of the legs are obscured, and the tiny tail is not visible. This fails the mandatory complete-anatomy standard.
 
-**Other discovery:**
-- WikiAves has visually excellent adult-looking full-body birds, including a source described by search metadata as an adult female, but the photographs remain photographer-controlled and are not assumed redistributable.
-- Smithsonian historical harpy-eagle material has reuse restrictions or does not solve the mandatory adult/full-body combination.
-- A 2727x2175 CC BY 2.0 wild Panama Commons photograph was also checked; it does not explicitly establish adult/sex and does not resolve the strict anatomy requirement.
+**Broader alternatives checked:**
+- https://commons.wikimedia.org/wiki/File:Erinaceus_europaceus.jpg - **4250x2833**, exact species, CC BY-SA 3.0/GFDL; high resolution but source metadata does not establish adulthood and search inspection does not establish every foot plus tail.
+- https://commons.wikimedia.org/wiki/File:Erinaceus_europaeus_-_Stacheligel.jpg - **3352x2104**, exact species, reusable; no explicit adulthood and strict full-body certification unresolved.
+- https://commons.wikimedia.org/wiki/File:Erinaceus-europaeus_1.jpg - **2576x1932**, exact species, CC BY-SA 2.0 DE; strict adult/full anatomy unresolved.
+- A studio-like full-body stock candidate with visible feet was discovered through broad image search, but redistribution permission is commercial/stock-controlled rather than a compatible open license and the tail is not clearly visible, so it was not adopted.
 
-**Outcome:** Harpy Eagle remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. The higher-resolution Commons/Flickr source is recorded as the strongest new provenance lead, but it is not promoted to image-complete status. No PNG is claimed. **Hedgehog** is next in the unresolved source-quality queue.
+**Outcome:** Hedgehog is changed to **REPLACEMENT SOURCE NEEDED**. The old 2500x1662 candidate is not retained as primary because visual inspection proves it is cropped/obscured for the mandatory anatomy standard. No PNG is claimed. **Hercules Beetle** is the next unresolved source-quality audit because Hellbender is already full-body source-verified and only awaits binary cutout tooling.
 
-## 2026-09-20 Jaguar new-animal image
-- Preferred source page: https://commons.wikimedia.org/wiki/File:Jaguar_(Panthera_onca_palustris)_male_Three_Brothers_River_2.jpg
-- Direct/original redirect: https://commons.wikimedia.org/wiki/Special:Redirect/file/Jaguar%20(Panthera%20onca%20palustris)%20male%20Three%20Brothers%20River%202.jpg
-- Resolution: **4582x3054**
-- Taxon: exact Pantanal jaguar, *Panthera onca* (source labels historical subspecies *P. o. palustris*)
-- Sex: **male explicitly verified**
-- Location: Three Brothers River, Mato Grosso, Pantanal, Brazil
-- Photographer: Charles J. Sharp
-- License: **CC BY-SA 4.0**
-- Visual/source result: strong reusable walking-series source with high resolution and excellent provenance. Search-image inspection of this series shows excellent side-profile anatomy, but adulthood is not explicit in metadata and the exact original was not available through a binary pixel-inspection workflow for strict complete-body certification.
-- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG is claimed.
+## 2026-09-20 Japanese Macaque new-animal image
+- Preferred source page: https://commons.wikimedia.org/wiki/File:Japanese_Macaque,_Ueno_Zoo,_Tokyo,_Japan.jpg
+- Original/direct source: https://live.staticflickr.com/65535/40080220013_98b5a1c6e4_o.jpg
+- Flickr page: https://www.flickr.com/photos/wwarby/40080220013
+- Resolution: **3860x5156** current Commons file after crop
+- Taxon: exact Japanese macaque, *Macaca fuscata*
+- Photographer: William Warby
+- Location: Ueno Zoo, Tokyo, Japan
+- License: **CC BY 2.0**, independently confirmed by Commons FlickreviewR
+- Visual/source result: 1920px rendition was directly inspected. The image is a genuine single-animal photograph with excellent resolution and clear head/torso/forelimbs. However, the short tail is hidden and both rear feet are not cleanly visible, so it fails strict full-body certification. Source metadata does not explicitly state adulthood or sex.
+- Additional source checked: https://commons.wikimedia.org/wiki/File:Japanese_Macaque_Fuscata_Image_370.jpg is **4288x2848**, CC BY-SA 3.0 and explicitly identifies the alpha male at Jigokudani, but it is a head-focused image and cannot satisfy complete-body requirements.
+- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. Continue searching for a high-resolution explicit adult, preferably male, with all hands/feet and the entire short tail visible. No PNG is claimed.
 
 ## Count and blocker
-- `107` is completed text research, not completed images.
+- `108` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Hedgehog.**
+- **Next unresolved source-quality legacy audit: Hercules Beetle.**

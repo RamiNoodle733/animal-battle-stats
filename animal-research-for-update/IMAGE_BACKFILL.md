@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 98 / 225 (through Hornet). **Full-body transparent PNG assets verified and committed:** 0 / 98. A source-photo URL is not an approved PNG.
+**Research reports completed:** 99 / 225 (through Howler Monkey). **Full-body transparent PNG assets verified and committed:** 0 / 99. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current connected GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -14,9 +14,9 @@ Animals already source-verified or already audited are skipped until binary tool
 | Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact female/reusable sources found, but strict adult + all-arm/tentacle-tip visibility not simultaneously verified; skip unless better source appears |
 | Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact *Hylobates lar* reusable 4000x3085 source found, but explicit adulthood/sex and strict unobscured hands/feet are not simultaneously verified; skip unless better source appears |
 | Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; reusable exact-species high-resolution and BLM public-domain sources found; skip unless materially better source appears |
-| Giraffe | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; 1712x2288 reusable source explicitly identifies a bull *G. c. giraffa* and shows complete standing framing, but adulthood is not explicit; skip unless age is resolved** |
-| Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: adult/sex/full wings-feet-tail** |
-| Goliath Birdeater | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/every leg-tip |
+| Giraffe | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 1712x2288 reusable bull source has complete standing framing, but adulthood is not explicit; skip unless age is resolved |
+| Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; explicit adult male source plus reusable 2000px exact-species sources found, but adult + reusable + strict full wings/feet/tail framing not simultaneously verified; skip unless better source appears** |
+| Goliath Birdeater | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT: adult/every leg-tip** |
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Full body visually verified; adulthood/sex not explicit |
 | Gorilla | REPLACEMENT SOURCE NEEDED | Unobscured 1600+ complete silverback |
 | Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete silhouette; adulthood missing |
@@ -33,60 +33,63 @@ Animals already source-verified or already audited are skipped until binary tool
 | Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2592x1944 reusable exact-species land-standing candidate; adult/sex/toes/tail strictness unresolved |
 | Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4475x3042 exact-species CC BY-SA 2.0 single male; adulthood/strict feet-tail verification unresolved |
 | Hornet | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0, complete subject visually checked; binary cutout pending |
+| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *A. caraya*, 3888x2588 CC BY-SA 2.0; adult/sex explicit but full tail/all appendages not visible |
 
 ## Latest findings
 
-### 2026-09-20 Giraffe legacy audit
-The staging profile uses the legacy site concept *Giraffa camelopardalis* sensu lato and a mature bull as the canonical fighting specimen. Broad searching included Commons, general image search and exact male/bull queries rather than relying on the previous candidate.
+### 2026-09-20 Golden Eagle legacy audit
+The staged Golden Eagle profile uses *Aquila chrysaetos* and correctly selects a mature female as the stronger canonical sex because golden eagles show reversed sexual size dimorphism. Broad searching included Commons, Flickr, Audubon/Cornell-style bird sources and exact adult-sex queries.
 
-Strongest replacement candidate:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Giraffe_standing.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/9/9f/Giraffe_standing.jpg
-- **Resolution:** **1712x2288**
-- **Identity:** explicitly described as a **bull** *Giraffa camelopardalis giraffa* in natural environment, South Africa.
-- **Creator:** Miroslav Duchacek.
-- **License:** **CC BY-SA 3.0 / GFDL**.
-- **Visual quality:** full standing animal with head, torso, all four legs/hooves and tail inside the frame; suitable resolution and simple natural background for future cutout.
-- **Remaining blocker:** the file explicitly verifies male sex but does not explicitly state adult age. A bull is strongly suggestive of maturity, but IMAGE_REQUIREMENTS requires adulthood rather than inference, so status is not promoted to completed-source status.
+Strong explicit-adult discovery:
+- **Source page:** https://www.flickr.com/photos/65771669@N07/39918347401/
+- **Identity:** explicitly captioned **Adult male golden eagle (*Aquila chrysaetos*)** by photographer Jon David Nelson.
+- **Age/sex:** explicit adult male.
+- **Reuse:** page says `Some rights reserved`, but the accessible page does not expose enough license detail here to promote it as a redistribution-ready source.
+- **Full-body:** strict full wings/feet/tail framing was not simultaneously certified from the accessible page.
 
-A second 2641x2925 Commons photograph titled `South African Giraffe, Bull.JPG` also explicitly identifies a bull and has reusable CC BY-SA 3.0 provenance, but tall grass obscures portions of the lower legs, making the standing source preferable for cutout work.
+Strong reusable exact-species alternative:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Golden_Eagle_(Aquila_chrysaetos)_(50350784957).jpg
+- **Original Commons file:** https://upload.wikimedia.org/wikipedia/commons/7/70/Golden_Eagle_%28Aquila_chrysaetos%29_%2850350784957%29.jpg
+- **Resolution:** 2000x1500 on Commons; metadata records a larger 5472x3648 camera original.
+- **License:** CC BY-SA 2.0, FlickrReview-confirmed.
+- **Identity:** exact *Aquila chrysaetos* in Pakistan.
+- **Remaining blocker:** source does not explicitly state adult age/sex, so even promising full-subject framing cannot satisfy the mandatory adult standard.
 
-**Outcome:** materially stronger full-body male candidate recorded. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED` solely because adulthood is not explicit. No PNG is claimed.
+The existing report candidate `Golden_Eagle_in_flight_-_5.jpg` is not replaced merely for novelty. None of the newly inspected sources simultaneously improves all mandatory dimensions: exact species, explicit adult, preferably canonical female, strict complete anatomy and reusable provenance.
 
-**Next unresolved source-quality legacy audit: Golden Eagle.**
+**Outcome:** status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG is claimed.
 
-### 2026-09-20 Hornet new-animal image
-Preferred candidate:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Queen_of_Vespa_crabro.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/d/d5/Queen_of_Vespa_crabro.jpg
-- **Resolution:** **2048x1536**
-- **Taxon:** exact *Vespa crabro*
-- **Caste/sex:** explicitly a **queen**, therefore adult female
-- **Creator:** Whitesachem
-- **License:** **CC BY-SA 4.0**
-- **Visual check:** single living queen, complete head and abdomen, antennae, wings and limbs inside frame; no watermark or group subject. Some legs overlap naturally in the resting pose, but no appendage is edge-cropped.
-- **Status:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`.
+**Next unresolved source-quality legacy audit: Goliath Birdeater.**
 
-No transparent PNG is claimed because the connected GitHub writer accepts UTF-8 text, not PNG binary.
+### 2026-09-20 Howler Monkey new-animal image
+Preferred identity reference:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Black_Howler_Monkey_(adult_male)_4.jpg
+- **Original image:** https://live.staticflickr.com/1017/668025754_29f4abe265_o.jpg
+- **Resolution:** **3888x2588**
+- **Taxon:** exact *Alouatta caraya*
+- **Age/sex:** explicitly **adult male**
+- **Creator:** Ryan E. Poplin
+- **License:** **CC BY-SA 2.0**, verified by the Commons Flickr upload/review record
+- **Visual check:** healthy-looking single adult male, but the framing does not certify the entire tail and every appendage. It therefore fails the mandatory complete-anatomy requirement.
+- **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+
+A source photograph with excellent species/adult/sex provenance is not treated as finished merely because it is high resolution. No transparent PNG is claimed because there is not yet a compliant complete-body source and the connected GitHub writer is text-only.
 
 ## Recent prior decisive findings
+- **Giraffe:** reusable 1712x2288 source explicitly identifies a bull and shows complete standing framing, but adulthood is not explicit.
 - **Gila Monster:** reusable exact-species high-resolution and BLM public-domain sources found, but adulthood plus strict every-toe/complete-tail framing not simultaneously verified.
 - **Gibbon:** exact *Hylobates lar* reusable 4000x3085 source found; adult/sex and strict hands/feet unresolved.
 - **Giant Squid:** exact reusable NOAA/Smithsonian female sources found, but strict adult plus all arm/tentacle-tip visibility not simultaneously verified.
 - **Giant Centipede:** exact *Scolopendra gigantea* 4000x3000 CC BY-SA 3.0 source visually contains complete anatomy, but adulthood is not explicit.
 - **Gecko:** exact adult male reusable source exists but only 1008x460; high-resolution candidates lack simultaneous adult and strict full-body proof.
-- **Gazelle:** exact *Gazella dorcas* 6000x4000 CC BY-SA 4.0; adult/sex and strict hoof/tail proof unresolved.
-- **Galapagos Tortoise:** 3504x2336 reusable candidate; strict all-limbs/tail/adult-sex proof unresolved.
-- **Gaboon Viper:** exact *B. gabonica* 2865x1714 CC BY-SA 4.0 candidate; adulthood/head-to-tail strictness unresolved.
-- **Flying Squirrel:** exact *Pteromys volans* 5435x3628 CC BY-SA 4.0 source; adulthood/all appendages unresolved.
 - **Condor:** `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`, exact adult *Vultur gryphus* 2403x1570 CC BY-SA 2.0.
 - **Colossal Squid:** `REPLACEMENT SOURCE NEEDED`; famous Te Papa specimen is explicitly immature.
 - **Deathstalker Scorpion:** `LICENSE UNVERIFIED - DO NOT COMMIT`; exact adult source lacks verified redistribution permission.
 - **Donkey:** `LICENSE UNVERIFIED - DO NOT COMMIT`; explicit adult breeding jack source is All Rights Reserved.
 
 ## Count and blocker
-- `98` is completed text research, not completed images.
+- `99` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next unresolved source-quality legacy audit: Golden Eagle.**
+- **Next unresolved source-quality legacy audit: Goliath Birdeater.**

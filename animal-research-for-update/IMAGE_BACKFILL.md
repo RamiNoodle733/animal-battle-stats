@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 92 / 225 (through Harpy Eagle). **Full-body transparent PNG assets verified and committed:** 0 / 92. A source-photo URL is not an approved PNG.
+**Research reports completed:** 93 / 225 (through Hedgehog). **Full-body transparent PNG assets verified and committed:** 0 / 93. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current connected GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -11,9 +11,8 @@ Earlier source-verified animals remain binary-pending as recorded in their resea
 
 | Animal | Current status | Next action |
 |---|---|---|
-| Gazelle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; skip unless better explicit-adult reusable source appears** |
-| Gecko | REPLACEMENT SOURCE NEEDED | **NEXT UNRESOLVED SOURCE AUDIT: 1600+ adult male** |
-| Giant Centipede | REPLACEMENT SOURCE NEEDED | 1600+ adult |
+| Gecko | REPLACEMENT SOURCE NEEDED | **Audited; explicit adult male source remains only 1008px; skip unless materially better source appears** |
+| Giant Centipede | REPLACEMENT SOURCE NEEDED | **NEXT UNRESOLVED SOURCE AUDIT: 1600+ adult** |
 | Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/all arm tips |
 | Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/unobscured hand |
 | Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/toes/tail |
@@ -30,46 +29,46 @@ Earlier source-verified animals remain binary-pending as recorded in their resea
 | Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex/full-body strictness unresolved |
 | Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact species/reuse strong, Commons version cropped |
 | Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | New research; promising complete perched source, adulthood/sex and strict original certification unresolved |
+| Hedgehog | SOURCE FOUND - FULL-BODY NOT VERIFIED | New research; 2500x1662 exact-species reusable candidate, adulthood/all feet/tiny tail unresolved |
 
 ## Latest findings
 
-### 2026-09-20 Gazelle legacy audit
-The existing staging report resolves generic `Gazelle` to **Dorcas gazelle (*Gazella dorcas*)**, so image searching was constrained to that exact taxon rather than generic gazelles.
+### 2026-09-20 Gecko legacy audit
+The staging report resolves generic `Gecko` to **Tokay Gecko (*Gekko gecko*)**, so broad image discovery was constrained to that exact taxon.
 
-Existing reusable candidate:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Gazelle_dorcas_dans_le_parc_national_de_Bouhedma_-_tunisie.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/1/14/Gazelle_dorcas_dans_le_parc_national_de_Bouhedma_-_tunisie.jpg
-- **Resolution:** **6000x4000**
-- **Taxon:** exact *Gazella dorcas*
-- **Creator:** Skander zarrad
-- **Location/date:** Bouhedma National Park, Tunisia; 13 July 2023
-- **License:** **CC BY-SA 4.0**
-- **Provenance:** own work; genuine JPEG photograph; Commons file page and license verified.
-- **Strict audit:** resolution and reuse rights are excellent, but the Commons metadata does not explicitly establish adulthood or sex, and the available tooling did not permit opening the original 17.17 MB binary for strict every-hoof/tail pixel-level certification. It therefore cannot be promoted merely from dimensions or the page description.
+The strongest biologically verified existing source remains:
+- **Source page:** https://commons.wikimedia.org/wiki/File:Tokay_gecko_(Gekko_gecko)_adult_male.jpg
+- **Original:** https://upload.wikimedia.org/wikipedia/commons/6/67/Tokay_gecko_%28Gekko_gecko%29_adult_male.jpg
+- **Resolution:** **1008x460**
+- **Taxon:** exact *Gekko gecko*
+- **Adult/sex:** explicitly **adult male**, USNM 573671, SVL 142 mm, TL 236 mm
+- **License:** **CC BY 3.0**
+- **Problem:** below the mandatory preferred 1600px threshold and extracted/cropped from a scientific figure; not a strong clean staging cutout source.
 
-Broad search also found a photograph explicitly captioned **“Adult male”** *Gazella dorcas* in the Negev, but Flickr marks it **All Rights Reserved**, so it is not suitable for redistribution/committed cutout despite excellent biological identification. An American Society of Mammalogists page also explicitly identifies a side-view adult male, but the current tool result does not establish a high-resolution reusable original suitable for the required 1600+ target.
+Broad search reviewed the Commons *Gekko gecko* category and other web sources. Reusable exact-species files exist at 1987x1486, 2048px, 2648x2232, 3024x4032, 3615x2180, 4096x2334, 4608x3456 and 6235x4157, and a 3168x4752 Pixabay exact-species photograph was also found. However, the recovered metadata did not explicitly establish adulthood for those high-resolution candidates, and strict complete head-to-tail plus every-toe visibility was not simultaneously verified. Commercial listings explicitly identify adult males but do not establish redistribution rights appropriate for committing a cutout.
 
-**Status remains:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+**Status remains:** `REPLACEMENT SOURCE NEEDED`. No lower-quality or adulthood-unknown image was promoted merely to advance the queue. No PNG was produced because the connected GitHub writer remains text-only.
 
-No PNG was produced. Current GitHub writer remains UTF-8 text-only. The existing Gazelle report already records the preferred Commons source page and original-image URL, so it was not rewritten redundantly.
+**Next unresolved source-quality legacy audit: Giant Centipede.**
 
-**Next unresolved source-quality legacy audit: Gecko.**
+### 2026-09-20 Hedgehog new-animal image
+The staging profile resolves generic `Hedgehog` / production `Erinaceinae` to **Western European Hedgehog (*Erinaceus europaeus*)**.
 
-### 2026-09-20 Harpy Eagle new-animal image
-Preferred reusable candidate found during broad image and Commons search:
-- **Source page:** https://commons.wikimedia.org/wiki/File:Gavi%C3%A3o-real_%28Harpia_harpyja%29.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/7/73/Gavi%C3%A3o-real_%28Harpia_harpyja%29.jpg
-- **Resolution:** **2081x2271**
-- **Taxon:** exact *Harpia harpyja*
-- **Creator:** Luiz Fernando Matos
-- **License:** **CC BY-SA 4.0**
-- **Visual search inspection:** one perched bird is shown with head, torso, folded wings, both feet/talons and tail visible, making it substantially stronger than headshots and obstructed alternatives.
-- **Unresolved:** source metadata does not explicitly establish adulthood or sex, and the original binary could not be opened through the available image-processing path for strict pixel-level complete-body certification.
+Preferred reusable candidate:
+- **Source page:** https://commons.wikimedia.org/wiki/File:West_European_Hedgehog_(Erinaceus_europaeus)1.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/8/82/West_European_Hedgehog_%28Erinaceus_europaeus%291.jpg
+- **Resolution:** **2500x1662**
+- **Taxon:** exact *E. europaeus*
+- **Creator:** Hrald
+- **License:** **CC BY-SA 3.0 / GFDL**
+- **Provenance:** own-work wild photograph from Emmerdennen, Netherlands.
+- **Unresolved:** metadata does not explicitly state adulthood or sex, and strict visibility of every foot plus the very short tail could not be certified. Since adulthood is mandatory, this remains a candidate only.
 - **Status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
 No PNG was produced.
 
 ## Recent prior decisive findings
+- **Gazelle:** exact *Gazella dorcas* 6000x4000 CC BY-SA 4.0; adult/sex and strict hoof/tail proof unresolved.
 - **Galapagos Tortoise:** 3504x2336 reusable candidate; strict all-limbs/tail/adult-sex proof unresolved.
 - **Gaboon Viper:** exact *B. gabonica* 2865x1714 CC BY-SA 4.0 candidate; adulthood/head-to-tail strictness unresolved.
 - **Flying Squirrel:** exact *Pteromys volans* 5435x3628 CC BY-SA 4.0 source; adulthood/all appendages unresolved.
@@ -85,8 +84,8 @@ No PNG was produced.
 - **Donkey:** `LICENSE UNVERIFIED - DO NOT COMMIT`; explicit adult breeding jack source is All Rights Reserved.
 
 ## Count and blocker
-- `92` is completed text research, not completed images.
+- `93` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next unresolved source-quality legacy audit: Gecko.**
+- **Next unresolved source-quality legacy audit: Giant Centipede.**

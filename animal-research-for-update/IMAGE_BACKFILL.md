@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 86 / 225 (through Great Horned Owl). **Full-body transparent PNG assets verified and committed:** 0 / 86. A source-photo URL is not an approved PNG.
+**Research reports completed:** 87 / 225 (through Great White Shark). **Full-body transparent PNG assets verified and committed:** 0 / 87. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are all required before image completion. Current GitHub write actions are UTF-8 text-only, so verified source photos remain pending rather than being faked as PNGs.
 
@@ -75,11 +75,11 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Electric Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Elk | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
 | Emperor Penguin | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Emperor Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit adult source only 364x484, high-res source lacks adulthood proof |
-| Emu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Binary pending; skip while writer is text-only |
+| Emperor Scorpion | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit adult source only 364x484 |
+| Emu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Binary pending |
 | Fennec Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | Skip |
-| Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
-| Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/feet |
+| Ferret | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited; skip pending explicit-adult reusable complete-body source** |
+| Flamingo | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT** |
 | Flying Squirrel | SOURCE FOUND - FULL-BODY NOT VERIFIED | Skip |
 | Gaboon Viper | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/completeness |
 | Galapagos Tortoise | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/feet |
@@ -95,50 +95,46 @@ Animals already source-verified are skipped until binary tooling becomes availab
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Full body visually verified; adulthood/sex not explicit |
 | Gorilla | REPLACEMENT SOURCE NEEDED | Find unobscured 1600+ complete silverback |
 | Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete silhouette; explicit adulthood missing |
-| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3600x2400 flight source; feet/tail/adulthood unresolved |
+| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Feet/tail/adulthood unresolved |
+| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Public-domain 3264x2448 exact species; adult/sex and strict fin silhouette unresolved |
 
 ## Latest findings
 
-### 2026-09-19 Emperor Scorpion legacy audit
+### 2026-09-19 Ferret legacy audit
 
-Broad discovery was repeated across general web image results, Wikimedia Commons, Smithsonian and specialist pages.
+Broad discovery was repeated across general web image results, Wikimedia Commons and commercial/photographer results.
 
-**Explicit-adult reusable source:**
-- **Source page:** https://commons.wikimedia.org/wiki/File:Adult_Male_Emperor_scorpion.jpeg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/f/f7/Adult_Male_Emperor_scorpion.jpeg
-- **Taxon/adulthood/sex:** exact *Pandinus imperator*; description explicitly says **adult male**
-- **Resolution:** only **364x484**
-- **License:** CC BY-SA 3.0 (also offered under GFDL), uploader A007932008
-- **Decision:** rejected as primary because it is far below the preferred 1600+ quality target despite excellent provenance.
+**High-resolution reusable candidate inspected:**
+- **Source page:** https://commons.wikimedia.org/wiki/File:Ferret_(837995956).jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/2/2f/Ferret_%28837995956%29.jpg
+- **Taxon:** exact domestic ferret category, *Mustela putorius furo* / *Mustela furo*
+- **Resolution:** **3872x2592**
+- **Creator:** Sean McGrath
+- **License:** CC BY 2.0, Flickr license reviewed by Commons
+- **Visual result:** rejected as a complete-body source. Foliage and framing obscure substantial posterior anatomy/tail, so high resolution does not rescue it.
 
-**Existing high-resolution candidate:**
-- **Source page:** https://commons.wikimedia.org/wiki/File:Emperor_scorpion_or_Imperial_scorpion_(Pandinus_imperator).jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/8/8f/Emperor_scorpion_or_Imperial_scorpion_%28Pandinus_imperator%29.jpg
-- **Resolution:** **3739x2492**
-- **Creator:** Mike Baird
-- **License:** reusable Commons/Flickr Creative Commons source
-- **Problem:** source metadata does not explicitly establish adulthood or sex, and strict visibility of every leg tip cannot be certified. It remains a candidate, not a finished asset.
+**Explicit-adult discovery:** a commercial studio result explicitly describes a standard-color **adult male ferret**, but the image is commercial stock and was not selected for redistribution. Another adult domestic-ferret shop image gives strong side-profile framing but reuse permission is not established. These are useful discovery evidence only, not commit candidates.
 
-A Smithsonian *P. imperator* object is public domain but is a collection/education object rather than the required healthy living adult photograph. Commercial studio sources show excellent complete anatomy but are not selected for redistribution. Therefore Emperor Scorpion remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG was produced.
+The existing 3008x2000 Commons snow photograph in `animals/ferret.md` was already visually rejected because most of the body is hidden in/behind the snow-and-grass shelter. No newly found source simultaneously establishes adult status, complete unobscured anatomy, high resolution and reusable licensing. Ferret therefore remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG was produced.
 
-**Next legacy item, Emu, is already source-verified and binary-pending, so it should not be repeatedly re-researched while GitHub writing remains text-only. Next unresolved source-quality audit: Ferret.**
+**Next unresolved source-quality legacy audit: Flamingo.**
 
-### 2026-09-19 Great Horned Owl new-animal image
+### 2026-09-19 Great White Shark new-animal image
 
-- **Source page:** https://commons.wikimedia.org/wiki/File:Great_Horned_Owl_in_Flight_C_9508.jpg
-- **Original image:** https://upload.wikimedia.org/wikipedia/commons/9/97/Great_Horned_Owl_in_Flight_C_9508.jpg
-- **Resolution:** **3600x2400**
-- **Taxon:** exact *Bubo virginianus*
-- **Creator:** Peter K Burian
-- **License:** CC BY-SA 4.0
-- **Visual inspection:** real photograph; both wings and wing tips are fully inside the frame. Feet/talons are tucked or obscured and the tail/body silhouette is not clean enough for strict complete-anatomy certification.
-- **Age/sex:** not explicit.
+- **Source page:** https://commons.wikimedia.org/wiki/File:Carcharodon_carcharias.jpg
+- **Original image:** https://upload.wikimedia.org/wikipedia/commons/5/56/Carcharodon_carcharias.jpg
+- **Resolution:** **3264x2448**
+- **Taxon:** exact *Carcharodon carcharias*
+- **Creator:** Sharkdiver68 / Sharkdiver.com
+- **License:** public domain release by copyright holder
+- **Verification:** real high-resolution photograph and exact species. Source metadata does not explicitly establish adulthood or sex, and strict all-fin/tail silhouette verification was not completed through the connected image path.
 - **Status:** **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**.
 
-A separate USGS/Commons source is **3321x2476**, public-domain/CC0 metadata and explicitly identifies a **female**, but it is a nest portrait with the lower body and feet obscured. It was not promoted merely because sex and provenance are strong. No PNG was produced.
+A separate photographer/art page explicitly identifies a photographed white shark named Finn as a **4.2 m female**, but redistribution permission is not established and 4.2 m is below the preferred mature-female canonical scale. It was not selected. No PNG was produced.
 
 ## Prior decisive findings
 
+- **Emperor Scorpion:** explicit adult male reusable source exists but only 364x484; stronger 3739x2492 candidate lacks adulthood proof.
 - **Emperor Penguin:** explicit-adult reusable source is group/1400px; stronger 1813x2692 single-subject source lacks explicit adulthood.
 - **Elk:** 5481x3654 male Roosevelt elk CC BY-SA 4.0; adulthood/strict hoof-tail framing unresolved.
 - **Electric Eel:** exact mature *E. electricus* 6016x4016 CC BY 4.0; strict complete head-to-tail silhouette not certified.
@@ -149,8 +145,8 @@ A separate USGS/Commons source is **3321x2476**, public-domain/CC0 metadata and 
 
 ## Count and blocker
 
-- `86` is completed text research, not completed images.
+- `87` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64 text, opaque checkerboard or fake `.png` is created.
 - Source-verified animals are skipped until new binary tooling permits actual PNG production or a superior source resolves an outstanding verification issue.
-- **Next unresolved source-quality legacy audit: Ferret.**
+- **Next unresolved source-quality legacy audit: Flamingo.**

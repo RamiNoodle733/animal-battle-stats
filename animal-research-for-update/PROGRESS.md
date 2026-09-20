@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 92 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 92
+- **Completed research files:** 93 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 93
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Harpy Eagle (*Harpia harpyja*)
-- **Next pending animal:** Hedgehog
-- **Latest completion:** 2026-09-20 01:00 America/Chicago
-- **Latest new-animal image status:** Harpy Eagle - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact-*H. harpyja* 2081x2271 CC BY-SA 4.0 Commons photograph is a strong visibly complete perched-bird candidate, but adulthood/sex are not explicit and strict original-binary full-body certification could not be completed. No PNG completion claimed.
-- **Latest legacy image audit:** Gazelle / Dorcas gazelle (*Gazella dorcas*) - existing 6000x4000 CC BY-SA 4.0 Commons source has excellent exact-species provenance and resolution. A separate photographer source explicitly identifies an adult male but is All Rights Reserved. Existing reusable candidate remains `SOURCE FOUND - FULL-BODY NOT VERIFIED` because source metadata does not explicitly establish adulthood/sex and strict every-hoof/tail certification remains unresolved.
-- **Next legacy image audit:** Gecko.
+- **Most recently completed:** Hedgehog, resolved to Western European Hedgehog (*Erinaceus europaeus*)
+- **Next pending animal:** Hellbender
+- **Latest completion:** 2026-09-20 02:00 America/Chicago
+- **Latest new-animal image status:** Hedgehog - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact-*E. europaeus* 2500x1662 CC BY-SA 3.0/GFDL Commons photograph is a strong reusable wild candidate, but source metadata does not explicitly establish adulthood and strict every-foot/tiny-tail visibility could not be certified. No PNG completion claimed.
+- **Latest legacy image audit:** Gecko / Tokay Gecko (*Gekko gecko*) - broad search found numerous 1600-6235 px exact-species reusable photographs, but no candidate recovered in this run combined explicit adulthood, canonical male preference, strict complete head-to-tail/toe visibility, and 1600+ resolution. The existing explicit adult male source remains only 1008x460 and is a crop from a scientific figure. Status remains `REPLACEMENT SOURCE NEEDED`.
+- **Next legacy image audit:** Giant Centipede.
 - **Latest checkpoint:** `audits/CHECKPOINT-075.md`; next checkpoint at 100 completed research files.
 
 ## Selection and image rules
@@ -25,6 +25,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
 - **Duplicate-roster control:** `Anaconda` and `Green Anaconda` currently both resolve to *Eunectes murinus* / the green-anaconda complex. Their scores must remain effectively normalized until the roster explicitly assigns distinct taxa or merges the duplicate concept.
+- **Hedgehog control:** production label Erinaceinae resolved in staging to *Erinaceus europaeus*. Canonical healthy mature male 1.0 kg / 25.0 cm. `speed_mps` 2.7 (moderate-low confidence institutional sprint), `lifespan_years` 2.5, `bite_force_psi` 0.0. Attack 11.0 / Defense 43.0 / Agility 41.0 / Stamina 52.0 / Intelligence 38.0 / Special 69.0. Roughly 5,000 spines and muscular curling raise Protection/Special but must not leak into Raw Power or Attack.
 - **Harpy Eagle control:** exact *Harpia harpyja*. Canonical healthy mature female 8.0 kg / 100.0 cm body length / ~200.0 cm wingspan. `speed_mps` 0.0, `lifespan_years` 30.0, `bite_force_psi` 0.0. Attack 44.0 / Defense 19.0 / Agility 91.0 / Stamina 60.0 / Intelligence 65.0 / Special 79.0. Talon length 12.5-13 cm is an upper-end weapon dimension, not a representative value for every individual. Popular grip-pressure and 80 km/h claims are not promoted as canonical measurements.
 - **Hammerhead Shark control:** ambiguous family-level production label resolved to Great Hammerhead *Sphyrna mokarran*. Canonical healthy mature female 230.0 kg / 400.0 cm. Attack 74.0 / Defense 55.0 / Agility 84.0 / Stamina 82.0 / Intelligence 63.0 / Special 92.0.
 - **Guanaco control:** exact *Lama guanicoe*. Canonical mature territorial male 120.0 kg. Attack 38.0 / Defense 35.0 / Agility 63.0 / Stamina 78.0 / Intelligence 58.0 / Special 45.0.
@@ -35,12 +36,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Guanaco | 120.0 kg mature territorial male *L. guanicoe* | 38.0 | 35.0 | 63.0 | 78.0 | 58.0 | 45.0 |
 | Hammerhead Shark | 230.0 kg mature female *S. mokarran* | 74.0 | 55.0 | 84.0 | 82.0 | 63.0 | 92.0 |
 | Harpy Eagle | 8.0 kg mature female *H. harpyja* | 44.0 | 19.0 | 91.0 | 60.0 | 65.0 | 79.0 |
+| Hedgehog | 1.0 kg mature male *E. europaeus* | 11.0 | 43.0 | 41.0 | 52.0 | 38.0 | 69.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-075.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **100 completed research files**.
 
 ## Image pipeline status
-92 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard, or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+93 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard, or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

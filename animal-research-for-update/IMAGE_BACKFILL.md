@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 112 / 225 (through Kiwi). **Full-body transparent PNG assets verified and committed:** 0 / 112. A source-photo URL is not an approved PNG.
+**Research reports completed:** 113 / 225 (through Koala). **Full-body transparent PNG assets verified and committed:** 0 / 113. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -33,9 +33,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 3648x2736 CC BY-SA 3.0 Tanzania terrestrial source, adult/sex and strict tail/feet unresolved; explicit-male sources submerged |
 | Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; stronger 6830x3842 CC BY-SA 4.0 exact-species Kruger male still loses rear body/tail at frame edge |
 | Hornet | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0; binary cutout pending |
-| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** exact adult male *Alouatta caraya*, 3888x2588 CC BY-SA 2.0 with verified Flickr provenance; tail/complete appendages are not visible, and a 4000x3000 wild male alternative also does not establish strict full anatomy |
-| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact adult male *A. colubris*, 2148x1637 CC BY-SA 2.0; strict wing/feet completeness not certified; canonical female preferred |
-| Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact adult female *H. maxima* complete-body source only 640x480; larger reusable candidates remain below 1600px |
+| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact adult male *Alouatta caraya* 3888x2588 CC BY-SA 2.0, but tail/complete appendages not visible |
+| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** exact female *Archilochus colubris* 6000x4000 USFWS Public Domain source plus 4288x2848 and 2593x2593 reusable female alternatives; adulthood and strict simultaneous wing/feet/tail completeness not certified |
+| Huntsman Spider | REPLACEMENT SOURCE NEEDED | **NEXT UNRESOLVED SOURCE AUDIT:** exact adult female *H. maxima* complete-body source only 640x480; search broadly for 1600px+ exact adult replacement |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female *C. crocuta*, 3639x5143 CC BY-SA 2.0; all four feet visible but tail not visibly complete and adulthood not explicit |
 | Ibex | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0; strict entire tail/all four feet not certified |
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male *I. iguana*, 2135x2848 CC BY-SA 4.0; adulthood and strict all-feet/tail-tip completeness unresolved |
@@ -47,39 +47,37 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6049x4037 CC BY-SA 2.0 exact female from Kaeng Krachan, Thailand; adulthood and strict entire head-to-tail silhouette not verified; adult male preferred |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2586x1708 exact large male *P. camtschaticus* CC BY 2.0 / NOAA provenance; direct inspection shows clipped appendage tips; 3000x2003 public-domain USFWS alternative lacks adult/sex verification |
 | Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | 1964x1473 wild exact *Apteryx australis* CC BY-SA 2.5 Stewart Island source; adulthood/sex and strict every-toe visibility unresolved; canonical female preferred |
+| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2407x3496 exact male *P. cinereus* CC BY-SA 3.0; direct inspection shows tree/body overlap prevents strict every-foot/digit certification and adulthood is not explicit |
 
-## 2026-09-20 Howler Monkey legacy audit
-Broad search covered Wikimedia Commons, wild field photographs, zoo photographs and photographer-origin files.
+## 2026-09-20 Hummingbird legacy audit
+Broad search covered Commons, USFWS-origin photography and multiple reusable female Ruby-throated Hummingbird sources.
 
 **Primary audited candidate:**
-- Source page: https://commons.wikimedia.org/wiki/File:Black_Howler_Monkey_(adult_male)_4.jpg
-- Original image URL: https://live.staticflickr.com/1017/668025754_29f4abe265_o.jpg
-- Resolution: **3888x2588**
-- Taxon: exact *Alouatta caraya*.
-- Adult/sex: **adult male explicitly stated** by the source.
-- Provenance/license: Ryan E. Poplin; Flickr origin; **CC BY-SA 2.0**, with Commons provenance.
-- Visual/strictness result: source metadata is excellent for exact taxon, adulthood, sex, resolution and reuse, but the arboreal pose does not provide a strict complete-body silhouette with the entire prehensile tail and every appendage clearly visible. It cannot be promoted under `IMAGE_REQUIREMENTS.md`.
+- Source page: https://commons.wikimedia.org/wiki/File:Ruby-throated_hummingbird_(53753091374).jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/f/fc/Ruby-throated_hummingbird_%2853753091374%29.jpg
+- Resolution: **6000x4000** Commons file; metadata records a 9504x6336 source image before derivative/export processing.
+- Taxon/sex: exact Ruby-throated Hummingbird, *Archilochus colubris*; **female explicitly stated**.
+- Provenance/license: Courtney Celley / U.S. Fish and Wildlife Service Midwest Region; federal employee work; **Public Domain**. Commons also records Flickr origin and successful license review.
+- Visual/strictness result: excellent provenance and resolution, but the perched pose does not establish strict complete wings plus every foot/appendage under the mandatory full-body rule, and adulthood is not explicitly stated in metadata.
 
-**Additional high-resolution male checked:**
-- Source page: https://commons.wikimedia.org/wiki/File:Alouatta_caraya_male.JPG
-- Resolution: **4000x3000**
-- Taxon/sex: exact *A. caraya*, male explicitly stated, photographed wild in a semideciduous forest remnant at Ilha Solteira, Brazil.
-- License: **CC BY-SA 3.0**, own work by Miguelrangeljr.
-- Limitation: source does not explicitly establish adulthood, and strict full tail/all-hand/all-foot visibility is not simultaneously established.
+**Other reusable females checked:**
+- https://commons.wikimedia.org/wiki/File:RubyThroatedHummingbird.jpg - exact female, **4288x2848**, own work by Joe Schneid; high-resolution feeding photograph. Adult status is not explicit and flower/flight pose does not resolve strict every-appendage visibility.
+- https://commons.wikimedia.org/wiki/File:Female_Ruby_Throated_Hummingbird.jpg - exact female, **2593x2593**, CC BY-SA 4.0 quality image. Adult status is not explicit and strict full anatomy is not simultaneously established.
+- https://commons.wikimedia.org/wiki/File:Female_Ruby-Throated_Hummingbird.jpg - exact female, **2592x1944**, reusable CC BY-SA 3.0/GFDL; perched/feeding pose still does not satisfy the strict whole-body test.
 
-**Outcome:** Howler Monkey remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion is claimed. The next unresolved source-quality audit is Hummingbird.
+**Outcome:** Hummingbird remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. The 6000x4000 USFWS Public Domain file replaces weaker candidates as the preferred provenance/resolution lead, but it is not a completed source under `IMAGE_REQUIREMENTS.md`. No PNG completion is claimed. The next unresolved source-quality audit is Huntsman Spider.
 
-## 2026-09-20 Kiwi new-animal image
-- Source page: https://commons.wikimedia.org/wiki/File:Tokoeka.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/9/9e/Tokoeka.jpg
-- Resolution: **1964x1473**
-- Taxon: exact wild southern brown kiwi / tokoeka, *Apteryx australis*, Stewart Island, New Zealand.
-- Provenance/license: Glen Fergus own work, **CC BY-SA 2.5**.
-- Visual result: useful whole-bird framing and adequate resolution, but vegetation/pose prevents strict certification of every toe/foot edge. Source metadata does not explicitly establish adulthood or sex; canonical female remains preferred.
+## 2026-09-20 Koala new-animal image
+- Source page: https://commons.wikimedia.org/wiki/File:Friendly_Male_Koala.JPG
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/e/ef/Friendly_Male_Koala.JPG
+- Resolution: **2407x3496**
+- Taxon/sex: exact *Phascolarctos cinereus*, **male explicitly stated**.
+- Provenance/license: Quartl, own work, **CC BY-SA 3.0**.
+- Visual result: direct inspection confirms a real high-resolution male photograph with head, torso and much of the limbs visible, but tree/body overlap obscures strict certification of every foot/digit and the vestigial tail region. Source metadata does not explicitly establish adulthood.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG binary is claimed or fabricated.
 
 ## Count and blocker
-- `112` is completed text research, not completed images.
+- `113` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Hummingbird.**
+- **Next unresolved source-quality legacy audit: Huntsman Spider.**

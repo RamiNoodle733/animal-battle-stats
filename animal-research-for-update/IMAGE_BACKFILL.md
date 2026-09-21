@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 123 / 225 (through Macaw). **Full-body transparent PNG assets verified and committed:** 0 / 123. A source-photo URL is not an approved PNG.
+**Research reports completed:** 124 / 225 (through Magpie). **Full-body transparent PNG assets verified and committed:** 0 / 124. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -44,9 +44,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5472x3648 exact male Pantanal; adulthood/strict tail-feet unresolved |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult-male source too small; larger sources fail strictness |
 | Kangaroo | REPLACEMENT SOURCE NEEDED | Exact adult male ADW visually complete but only ~600px; high-res candidate lacks explicit adulthood |
-| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited this run; 6049x4037 exact female CC BY-SA 2.0, but adulthood and complete head-to-tail silhouette remain unverified |
-| King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** explicit male source clips appendage tips |
-| Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact species; adulthood/sex/every-toe unresolved |
+| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6049x4037 exact female CC BY-SA 2.0; adulthood and complete coiled tail unresolved |
+| King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit large male source clips appendage tips; adult-male alternative only 1451x1200 and also clips legs |
+| Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact species; adulthood/sex/every-toe unresolved |
 | Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male; tree overlap blocks feet/digits; adulthood not explicit |
 | Komodo Dragon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Wild exact species; adulthood/sex/all-toe/tail-tip unresolved |
 | Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x6000 exact species; perch obscures feet; adulthood/sex not explicit |
@@ -57,25 +57,36 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 exact species, complete standing animal; adulthood/sex not explicit |
 | Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5040x3224 exact species; shelter obscures anatomy |
 | Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5184x3456 exact male; resting pose/adulthood prevent certification |
-| Macaw | REPLACEMENT SOURCE NEEDED | 3000x2083 exact *Ara macao* CC BY-SA 4.0 candidate visually rejected as close-up; broader high-res search did not verify adult + complete feet/tail simultaneously |
+| Macaw | REPLACEMENT SOURCE NEEDED | 3000x2083 exact *Ara macao* candidate visually rejected as close-up |
+| Magpie | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5820x4160 exact *Pica pica*, CC BY-SA 4.0; adult/sex and strict tail-tip completeness unresolved |
 
-## 2026-09-21 King Cobra legacy audit
-Broad discovery rechecked Commons and related web-image sources. The strongest existing candidate remains the exact female *Ophiophagus hannah* photographed in Kaeng Krachan National Park, Thailand. Commons provides a **6049x4037** original, explicitly identifies the specimen as **female**, and records **CC BY-SA 2.0** licensing with Flickr license review.
+## 2026-09-21 King Crab legacy audit
+Broad discovery rechecked Commons, NOAA/USFWS, ARMS and photographer material for Red King Crab, *Paralithodes camtschaticus*. The existing NOAA `fish1740` source remains useful because it explicitly identifies a **large male**, but direct framing clips multiple appendage tips and therefore fails the mandatory whole-animal rule.
 
-Source page: https://commons.wikimedia.org/wiki/File:Ophiophagus_hannah,_King_cobra_(female)_-_Kaeng_Krachan_National_Park_(25458697183).jpg
+Existing source page: https://commons.wikimedia.org/wiki/File:Fish1740_-_Flickr_-_NOAA_Photo_Library.jpg
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/1/10/Ophiophagus_hannah%2C_King_cobra_%28female%29_-_Kaeng_Krachan_National_Park_%2825458697183%29.jpg
+Existing original image: https://upload.wikimedia.org/wikipedia/commons/1/19/Fish1740_-_Flickr_-_NOAA_Photo_Library.jpg
 
-The metadata does **not** explicitly establish adulthood. More importantly for a long coiled snake, this run could not certify that the entire head-to-tail silhouette, including the actual tail tip through the coils, is visible and unobscured. Dimensions and sex metadata alone do not satisfy the mandatory visual standard. **Result: `SOURCE FOUND - FULL-BODY NOT VERIFIED`.** Next unresolved legacy audit: **King Crab**.
+A second biologically strong source from red-king-crab researcher Bradley G. Stevens / Arctic Register of Marine Species explicitly identifies an **adult male** and shows a dorsal specimen, but the available image is only **1451x1200** and visual discovery shows walking-leg tips clipped at the frame. It is therefore not a replacement.
 
-## 2026-09-21 Macaw new-animal image
-The roster name was resolved to Scarlet Macaw, *Ara macao*. A 3000x2083 CC BY-SA 4.0 Commons photograph by Bramans was downloaded through the original-file path and visually inspected. It is an exact-species real photograph, but inspection shows a close-up dominated by the head and upper body. Feet, full tail and complete silhouette are absent. It is therefore rejected rather than promoted merely because it is high resolution.
+Adult-male source page: https://www.marinespecies.org/arms/aphia.php?p=image&pic=141783
 
-Source page: https://commons.wikimedia.org/wiki/File:Scarlet_macaw_(Ara_scarlatta,_Ara_macao).jpg
+A **3000x2003 public-domain USFWS** exact-species image was also verified through both Commons and FWS, but its metadata does not establish adulthood/sex, so it cannot solve the current strictness problem merely by being higher resolution.
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/c/ca/Scarlet_macaw_%28Ara_scarlatta%2C_Ara_macao%29.jpg
+USFWS source page: https://www.fws.gov/media/red-king-crab
 
-Additional broad search found multiple 3000-6000px exact-species Commons sources, including Peru and zoo photographs, but no inspected candidate in this run simultaneously established adulthood and strict complete head/body/feet/tail framing. **Result: `REPLACEMENT SOURCE NEEDED`.** No PNG completion claimed.
+Commons provenance page: https://commons.wikimedia.org/wiki/File:Red_king_crab_paralithodes_camtschaticus.jpg
+
+Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed. Next unresolved legacy audit: **Kiwi**.
+
+## 2026-09-21 Magpie new-animal image
+The roster name is resolved to Eurasian Magpie, *Pica pica*. Broad discovery found a reusable **5820x4160 CC BY-SA 4.0** exact-species photograph by Jules Verne Times Two. The original was directly inspected rather than judged from dimensions or search snippets. It shows a single standing bird with head, torso and both legs/feet visible, but the long tail passes behind the body/stump region and strict tail-tip completeness cannot be certified. The page also does not explicitly establish adulthood or sex.
+
+Source page: https://commons.wikimedia.org/wiki/File:Eurasian_magpie_(Pica_pica)_standing_on_a_tree_stump,_Skansen,_Stockholm,_Sweden_julesvernex2-2.jpg
+
+Original image: https://upload.wikimedia.org/wikipedia/commons/c/cc/Eurasian_magpie_%28Pica_pica%29_standing_on_a_tree_stump%2C_Skansen%2C_Stockholm%2C_Sweden_julesvernex2-2.jpg
+
+Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -84,7 +95,7 @@ Additional broad search found multiple 3000-6000px exact-species Commons sources
 - Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `123` is completed text research, not completed images.
+- `124` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: King Crab.**
+- **Next unresolved source-quality legacy audit: Kiwi.**

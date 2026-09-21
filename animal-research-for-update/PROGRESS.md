@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 132 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 132
+- **Completed research files:** 133 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 133
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Megalodon (†*Otodus megalodon*)
-- **Next pending animal:** Monarch Butterfly
-- **Latest completion:** 2026-09-21 16:57 America/Chicago
-- **Latest new-animal image status:** Megalodon - `REPLACEMENT SOURCE NEEDED`. The mandatory real-photograph adult standard is structurally impossible for a species extinct about 3.6 Ma; illustrations, reconstructions, renders and AI images are not substituted. No PNG completion claimed.
-- **Latest legacy image audit:** Llama - `LICENSE UNVERIFIED - DO NOT COMMIT`. A 3436x2290 exact adult male full-body commercial source was found, but repository redistribution rights were not acquired; the reusable high-resolution candidate still lacks explicit adulthood/sex.
-- **Next legacy image audit:** Lobster. Hellbender, Hornet, Ibex, Kudu and Lionfish are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Monarch Butterfly (*Danaus plexippus*)
+- **Next pending animal:** Mongoose
+- **Latest completion:** 2026-09-21 18:01 America/Chicago
+- **Latest new-animal image status:** Monarch Butterfly - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2592x1944 public-domain USFWS exact adult male was visually inspected; body, wings and antennae are complete, but perched legs/feet overlap foliage and fail strict all-appendage certification. No PNG completion claimed.
+- **Latest legacy image audit:** Lobster - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A stronger 1752x1188 NOAA/Rick Wahle reusable source explicitly verifies adulthood, but direct visual review shows walking legs/appendage endpoints obscured by claws/substrate.
+- **Next legacy image audit:** Lynx. Hellbender, Hornet, Ibex, Kudu and Lionfish are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-125.md`; next checkpoint at 150 completed research files.
 
 ## Selection and image rules
@@ -24,8 +24,9 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Monarch Butterfly control:** *Danaus plexippus*, healthy mature eastern North American migratory adult male, ~0.0005 kg / 9.5 cm wingspan / 0.0 m/s unresolved maximum / 0.7 y migratory-generation longevity / 0.0 PSI. Attack 1.0 / Defense 15.0 / Agility 82.0 / Stamina 90.0 / Intelligence 43.0 / Special 89.0. Migration and cardenolide biology do not inflate physical attack. Navigation is treated primarily as Senses/Special rather than broad cognition.
 - **Megalodon control:** †*Otodus megalodon*, extinct large mature IRSNB P 9893 individual, sex unknown, ~30,000 kg / 1,640 cm / 0.0 m/s unresolved maximum / 46.0 y fossil growth-band benchmark / 0.0 PSI. Attack 100.0 / Defense 96.0 / Agility 58.0 / Stamina 92.0 / Intelligence 58.0 / Special 88.0. The better-constrained 16.4 m Belgian individual is canonical rather than the 24.3 m / 94 t current extreme. Modeled bite force is recorded as force evidence, never fabricated PSI.
-- **Meerkat control:** *Suricata suricatta*, healthy mature male, ~0.75 kg / 50.0 cm total including tail / 0.0 m/s unresolved maximum / 10.0 y / 0.0 PSI. Attack 18.0 / Defense 17.0 / Agility 82.0 / Stamina 65.0 / Intelligence 88.0 / Special 78.0. Teaching and predator/urgency-coded alarm calls support high cognition/tactics, while sub-kilogram mass keeps physical scores low.
+- **Meerkat control:** *Suricata suricatta*, healthy mature male, ~0.75 kg / 50.0 cm total including tail / 0.0 m/s unresolved maximum / 10.0 y / 0.0 PSI. Attack 18.0 / Defense 17.0 / Agility 82.0 / Stamina 65.0 / Intelligence 88.0 / Special 78.0.
 - **Marlin control:** Blue Marlin *Makaira nigricans*, healthy mature female, 250.0 kg / 300.0 cm / 0.0 m/s unresolved maximum / 20.0 y / 0.0 PSI. Attack 58.0 / Defense 41.0 / Agility 78.0 / Stamina 90.0 / Intelligence 62.0 / Special 70.0.
 - **Mantis Shrimp control:** Peacock Mantis Shrimp *Odontodactylus scyllarus*, mature large male, 0.08 kg / 15.0 cm / 0.0 m/s / 6.0 y / 0.0 PSI. Attack 34.0 / Defense 24.0 / Agility 84.0 / Stamina 50.0 / Intelligence 68.0 / Special 97.0.
 - **Manta Ray control:** Giant Oceanic Manta *Mobula birostris*, mature female, 1400.0 kg / 500.0 cm disc width / 0.0 m/s / 45.0 y / 0.0 PSI. Attack 42.0 / Defense 57.0 / Agility 72.0 / Stamina 89.0 / Intelligence 76.0 / Special 70.0.
@@ -50,12 +51,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Marlin | 250.0 kg mature female *M. nigricans* | 58.0 | 41.0 | 78.0 | 90.0 | 62.0 | 70.0 |
 | Meerkat | 0.75 kg mature male *S. suricatta* | 18.0 | 17.0 | 82.0 | 65.0 | 88.0 | 78.0 |
 | Megalodon | ~30,000 kg mature †*O. megalodon* IRSNB P 9893, sex unknown | 100.0 | 96.0 | 58.0 | 92.0 | 58.0 | 88.0 |
+| Monarch Butterfly | 0.0005 kg mature migratory male *D. plexippus* | 1.0 | 15.0 | 82.0 | 90.0 | 43.0 | 89.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-125.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **150 completed research files**.
 
 ## Image pipeline status
-132 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu and Lionfish have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+133 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu and Lionfish have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.

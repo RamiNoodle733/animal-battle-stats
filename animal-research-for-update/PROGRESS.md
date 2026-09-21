@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 125 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 125
+- **Completed research files:** 126 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 126
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Manatee / West Indian Manatee (*Trichechus manatus*)
-- **Next pending animal:** Mandrill
-- **Latest completion:** 2026-09-21 10:00 America/Chicago
-- **Latest new-animal image status:** Manatee - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact Florida manatee *T. m. latirostris*, 3000x2008, public-domain USFWS. Species/provenance are strong; adulthood and sex are not explicit, so no PNG completion is claimed.
-- **Latest legacy image audit:** Kiwi - North Island Brown Kiwi *Apteryx mantelli*. 4608x3456 CC BY 2.0 exact-species Commons candidate has strong resolution/reuse but lacks explicit adult/sex metadata. New Zealand Birds Online provides explicit adult CC-BY 4.0 images, but strict high-resolution original plus every-foot/toe verification was not simultaneously established. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Koala. Hellbender, Hornet, Ibex and Kudu remain source-verified cutout/commit pending while the GitHub writer is text-only.
+- **Most recently completed:** Mandrill (*Mandrillus sphinx*)
+- **Next pending animal:** Maned Wolf
+- **Latest completion:** 2026-09-21 11:00 America/Chicago
+- **Latest new-animal image status:** Mandrill - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2048x1536 CC BY-SA 3.0 source explicitly identifies a named alpha male and has adequate resolution, but strict whole-body anatomy was not visually certified. A separate 3799x2848 alpha-male Commons source was visually inspected and rejected as a close portrait. No PNG completion claimed.
+- **Latest legacy image audit:** Koala - 2407x3496 CC BY-SA 3.0 exact male *Phascolarctos cinereus* source visually inspected. Tree/branch overlap hides the lower body/feet, so it fails mandatory whole-body framing and is not promoted.
+- **Next legacy image audit:** Komodo Dragon. Hellbender, Hornet, Ibex and Kudu remain source-verified cutout/commit pending while the GitHub writer is text-only.
 - **Latest checkpoint:** `audits/CHECKPOINT-125.md`; next checkpoint at 150 completed research files.
 
 ## Selection and image rules
@@ -24,9 +24,10 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
-- **Manatee control:** West Indian Manatee *Trichechus manatus*, healthy mature female, 500.0 kg / 300.0 cm / 6.7 m/s very-short burst / 55.0 y representative lifespan / 0.0 PSI. Attack 36.0 / Defense 50.0 / Agility 48.0 / Stamina 78.0 / Intelligence 58.0 / Special 77.0. Large mass is not treated as weaponry; telemetry-backed migration supports Stamina while low metabolic output limits high-output interpretation. Whole-body vibrissal hydrodynamic sensing drives Special/Senses.
-- **Magpie control:** Eurasian Magpie *Pica pica*, healthy mature male, 0.23 kg / 48.0 cm total length / 0.0 m/s unresolved maximum / 5.0 y representative lifespan / 0.0 PSI. Attack 15.0 / Defense 12.0 / Agility 84.0 / Stamina 61.0 / Intelligence 91.0 / Special 58.0. Elite cognition is supported by species-specific cache-memory, object-permanence and retrieval-learning experiments but is deliberately prevented from inflating absolute physical power.
-- **Macaw control:** Scarlet Macaw *Ara macao*, mature adult, 1.2 kg. Attack 24.0 / Defense 17.0 / Agility 86.0 / Stamina 65.0 / Intelligence 86.0 / Special 64.0.
+- **Mandrill control:** *Mandrillus sphinx*, healthy fully mature male, 32.0 kg / 72.0 cm head-body / 0.0 m/s unresolved maximum / 20.0 y representative wild lifespan / 0.0 PSI. Attack 47.0 / Defense 34.0 / Agility 76.0 / Stamina 60.0 / Intelligence 82.0 / Special 61.0. ~45 mm male canines are treated as real weaponry, but unsupported 400 PSI and 40 km/h internet values are rejected. Tool modification and conflict-assessment evidence support Intelligence without inflating physical power.
+- **Manatee control:** West Indian Manatee *Trichechus manatus*, healthy mature female, 500.0 kg. Attack 36.0 / Defense 50.0 / Agility 48.0 / Stamina 78.0 / Intelligence 58.0 / Special 77.0.
+- **Magpie control:** Eurasian Magpie *Pica pica*, mature male 0.23 kg. Attack 15.0 / Defense 12.0 / Agility 84.0 / Stamina 61.0 / Intelligence 91.0 / Special 58.0.
+- **Macaw control:** Scarlet Macaw *Ara macao*, mature adult 1.2 kg. Attack 24.0 / Defense 17.0 / Agility 86.0 / Stamina 65.0 / Intelligence 86.0 / Special 64.0.
 - **Lynx control:** Eurasian lynx *Lynx lynx*, mature male 24.0 kg. Attack 48.0 / Defense 31.0 / Agility 85.0 / Stamina 68.0 / Intelligence 67.0 / Special 66.0.
 - **Lobster control:** American lobster *Homarus americanus*, mature hard-shell male 1.0 kg. Attack 28.0 / Defense 36.0 / Agility 35.0 / Stamina 57.0 / Intelligence 48.0 / Special 60.0.
 - **Llama control:** *Lama glama*, mature intact male 150.0 kg. Attack 40.0 / Defense 36.0 / Agility 60.0 / Stamina 77.0 / Intelligence 60.0 / Special 54.0.
@@ -43,12 +44,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Macaw | 1.2 kg mature adult *A. macao* | 24.0 | 17.0 | 86.0 | 65.0 | 86.0 | 64.0 |
 | Magpie | 0.23 kg mature male *P. pica* | 15.0 | 12.0 | 84.0 | 61.0 | 91.0 | 58.0 |
 | Manatee | 500.0 kg mature female *T. manatus* | 36.0 | 50.0 | 48.0 | 78.0 | 58.0 | 77.0 |
+| Mandrill | 32.0 kg mature male *M. sphinx* | 47.0 | 34.0 | 76.0 | 60.0 | 82.0 | 61.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-125.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **150 completed research files**.
 
 ## Image pipeline status
-125 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex and Kudu have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+126 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex and Kudu have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

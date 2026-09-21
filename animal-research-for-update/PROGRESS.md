@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 118 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 118
+- **Completed research files:** 119 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 119
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Leopard (*Panthera pardus*)
-- **Next pending animal:** Lionfish
-- **Latest completion:** 2026-09-21 02:57 America/Chicago
-- **Latest new-animal image status:** Leopard - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact male 4355x2630 CC BY-SA 2.0 Commons/Flickr source was directly inspected and has complete head, torso, four legs/feet and tail, but adulthood is not explicit. No PNG completion claimed.
-- **Latest legacy image audit:** Impala - 5910x3940 exact male *Aepyceros melampus*, CC BY-SA 4.0 Commons Quality Image, with excellent complete standing anatomy. Adulthood is not explicit, while the explicit-adult reusable alternative is only 769x654, so status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Jackal. Hellbender, Hornet, Ibex and Kudu are source-verified and remain cutout/commit pending while the writer is text-only.
+- **Most recently completed:** Lionfish / Red lionfish (*Pterois volitans*)
+- **Next pending animal:** Llama
+- **Latest completion:** 2026-09-21 04:02 America/Chicago
+- **Latest new-animal image status:** Lionfish - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *P. volitans* 3332x2432 Public Domain Commons photograph has a complete visible fish silhouette, but adulthood and sex are not explicit. No PNG completion claimed.
+- **Latest legacy image audit:** Jackal - roster taxon confirmed as black-backed jackal *Lupulella mesomelas*. Broad search found multiple high-resolution exact-species reusable full-body candidates, but adulthood and canonical male sex are not explicitly established together with strict whole-body framing. Existing candidate remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Next legacy image audit:** Jaguar. Hellbender, Hornet, Ibex and Kudu are source-verified and remain cutout/commit pending while the writer is text-only.
 - **Latest checkpoint:** `audits/CHECKPOINT-100.md`; next checkpoint at 125 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
+- **Lionfish control:** red lionfish *Pterois volitans*, healthy fully mature male, 0.5 kg / 38.0 cm total length. `height_cm` 0.0 as inapplicable, `speed_mps` 0.0, `lifespan_years` 15.0, `bite_force_psi` 0.0. Attack 25.0 / Defense 38.0 / Agility 52.0 / Stamina 55.0 / Intelligence 58.0 / Special 87.0. Venom is primarily a passive spine defense, so it must not inflate Attack or Raw Power as if actively injected by a bite.
 - **Leopard control:** *Panthera pardus*, healthy fully mature male 60.0 kg / 65.0 cm shoulder / 150.0 cm head-body. `speed_mps` 0.0; `lifespan_years` 12.0; `bite_force_psi` 0.0. Attack 60.0 / Defense 43.0 / Agility 84.0 / Stamina 62.0 / Intelligence 68.0 / Special 63.0. Must remain physically near Black Panther because that roster entry is a melanistic leopard; final normalization should revisit their one-point editorial differences.
 - **Leatherback Sea Turtle control:** *Dermochelys coriacea*, healthy fully mature adult female 400.0 kg / approximately 190.0 cm total length. Attack 35.0 / Defense 60.0 / Agility 59.0 / Stamina 95.0 / Intelligence 49.0 / Special 89.0.
 - **Kudu control:** Greater Kudu *Tragelaphus strepsiceros*, healthy fully mature male 230.0 kg / 145.0 cm shoulder / 220.0 cm head-body. Attack 58.0 / Defense 43.0 / Agility 72.0 / Stamina 60.0 / Intelligence 49.0 / Special 61.0.
@@ -42,12 +43,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Kudu | 230.0 kg mature male *T. strepsiceros* | 58.0 | 43.0 | 72.0 | 60.0 | 49.0 | 61.0 |
 | Leatherback Sea Turtle | 400.0 kg mature female *D. coriacea* | 35.0 | 60.0 | 59.0 | 95.0 | 49.0 | 89.0 |
 | Leopard | 60.0 kg mature male *P. pardus* | 60.0 | 43.0 | 84.0 | 62.0 | 68.0 | 63.0 |
+| Lionfish | 0.5 kg mature male *P. volitans* | 25.0 | 38.0 | 52.0 | 55.0 | 58.0 | 87.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-100.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **125 completed research files**.
 
 ## Image pipeline status
-118 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have reusable full-body source candidates, including Hellbender, Hornet, Ibex and Kudu, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+119 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have reusable full-body source candidates, including Hellbender, Hornet, Ibex and Kudu, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

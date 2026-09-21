@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 126 / 225 (through Mandrill). **Full-body transparent PNG assets verified and committed:** 0 / 126. A source-photo URL is not an approved PNG.
+**Research reports completed:** 127 / 225 (through Maned Wolf). **Full-body transparent PNG assets verified and committed:** 0 / 127. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -47,9 +47,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6049x4037 exact female CC BY-SA 2.0; adulthood and complete coiled tail unresolved |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit large male source clips appendage tips |
 | Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; high-res exact-species and explicit-adult sources not yet simultaneous with strict anatomy |
-| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** 2407x3496 exact male CC BY-SA 3.0 visually fails because branch/tree overlap hides feet/lower anatomy; adulthood also not explicit |
-| Komodo Dragon | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** wild exact species; adulthood/sex/all-toe/tail-tip unresolved |
-| Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x6000 exact species; perch obscures feet; adulthood/sex not explicit |
+| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 2407x3496 exact male source has branch-obscured lower anatomy |
+| Komodo Dragon | REPLACEMENT SOURCE NEEDED | **AUDITED:** 2250x3000 reusable source explicitly says adult but visual inspection shows rear body/tail cropped; broad Commons search did not yet verify adult + complete anatomy simultaneously |
+| Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 4000x6000 exact species; perch obscures feet; adulthood/sex not explicit |
 | Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 3008x2000 CC BY-SA 2.0 |
 | Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3264x2122 exact species; adult/sex/flipper/tail unresolved |
 | Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male; full anatomy visually confirmed, adulthood not explicit |
@@ -61,33 +61,34 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Magpie | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5820x4160 exact *Pica pica*; adult/sex and strict tail-tip completeness unresolved |
 | Manatee | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3000x2008 PD exact Florida manatee; adult/sex metadata unresolved |
 | Mandrill | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 named alpha male CC BY-SA 3.0; strict hands/feet/short-tail completeness not visually certified |
+| Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3008x2000 exact species CC BY-SA 2.0 side view; adulthood/sex and strict tail/feet completeness unresolved |
 
-## 2026-09-21 Koala legacy audit
-Broad search rechecked exact *Phascolarctos cinereus* male sources rather than accepting a generic koala thumbnail. The strongest sex-explicit reusable source inspected was **Friendly Male Koala.JPG**, 2407x3496, CC BY-SA 3.0, photographed at Billabong Koala and Aussie Wildlife Park.
+## 2026-09-21 Komodo Dragon legacy audit
+Broad image search covered Commons, general image search and high-resolution wild Komodo National Park material. The strongest maturity-explicit reusable source found was **Adult Komodo.jpg**, exact *Varanus komodoensis*, **2250x3000**, CC BY-SA 3.0/GFDL, with metadata explicitly stating **adult**.
 
-Source page: https://commons.wikimedia.org/wiki/File:Friendly_Male_Koala.JPG
+Source page: https://commons.wikimedia.org/wiki/File:Adult_Komodo.jpg
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/e/ef/Friendly_Male_Koala.JPG
+Original image: https://upload.wikimedia.org/wikipedia/commons/4/4b/Adult_Komodo.jpg
 
-Direct visual inspection rejects it for the mandatory full-body standard: the animal is seated in a tree and branches/trunk obscure the lower body and feet/digits. The metadata verifies male sex but does not explicitly verify adulthood. Larger generic koala sources were also found, but they did not simultaneously solve adult/male provenance and complete unobscured anatomy. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed. Next unresolved legacy audit: **Komodo Dragon**.
+The original was visually inspected rather than accepted from metadata. It fails `IMAGE_REQUIREMENTS.md`: the photograph is framed vertically around the head/front body and the rear body/tail are outside the frame. The Commons Komodo National Park category was also searched broadly and contains many 3000-6000px exact-species photographs, but no inspected candidate in this run simultaneously established adulthood and strict complete head-to-tail/all-toes framing. Status is therefore tightened to **`REPLACEMENT SOURCE NEEDED`**. No PNG completion claimed. Next unresolved legacy audit: **Kookaburra**.
 
-## 2026-09-21 Mandrill new-animal image
-A reusable exact-species source, **Mandrill 01.jpg**, identifies a named alpha male *Mandrillus sphinx* (Yoda) at Jerusalem Biblical Zoo. It is **2048x1536**, CC BY-SA 3.0, and therefore meets the preferred minimum resolution while strongly establishing sex and mature social status.
+## 2026-09-21 Maned Wolf new-animal image
+A reusable exact-species side-view candidate, **Maned wolf (Chrysocyon brachyurus) (92775757).jpg**, is **3008x2000**, CC BY-SA 2.0, originally posted by Pascal Vuylsteker to Flickr and license-reviewed on Commons.
 
-Source page: https://commons.wikimedia.org/wiki/File:Mandrill_01.jpg
+Source page: https://commons.wikimedia.org/wiki/File:Maned_wolf_(Chrysocyon_brachyurus)_(92775757).jpg
 
-Original image: https://commons.wikimedia.org/wiki/Special:Redirect/file/Mandrill%2001.jpg
+Original image: https://live.staticflickr.com/39/92775757_c059ff861e_o.jpg
 
-Strict visual certification of the complete head, torso, both hands, both feet and the entire short tail was not established, so it remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. A second Commons alpha-male source at **3799x2848** was opened at original resolution and visibly rejected because it is a close portrait cropping the body and limbs. No PNG completion claimed.
+The source has strong taxon, resolution and reuse provenance, but its metadata does not explicitly establish adulthood or sex, and strict visibility of every foot and the complete tail endpoint was not certified. A separate Animal Diversity Web image explicitly marks its *C. brachyurus* subject as **adult/sexually mature**, but it is CC BY-NC-SA 3.0 and did not provide a clearly superior high-resolution strict-complete-body candidate in this run. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
 - Hornet: exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0.
 - Ibex: exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0.
-- Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
+- Kudu: explicit adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `126` is completed text research, not completed images.
+- `127` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Komodo Dragon.**
+- **Next unresolved source-quality legacy audit: Kookaburra.**

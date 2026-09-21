@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 121 / 225 (through Lobster). **Full-body transparent PNG assets verified and committed:** 0 / 121. A source-photo URL is not an approved PNG.
+**Research reports completed:** 122 / 225 (through Lynx). **Full-body transparent PNG assets verified and committed:** 0 / 122. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -42,9 +42,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5910x3940 exact male, complete anatomy; adulthood not explicit |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact black-backed jackal sources, adulthood/canonical male/full-body strictness not simultaneous |
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5472x3648 exact male Pantanal source, adulthood/strict tail-feet unresolved |
-| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** explicit adult-male source is only 337x335; 4288x2848 alpha-male source is a head portrait; 2664x4000 CC0 exact-species source lacks explicit adulthood/sex and does not resolve strict full-body verification |
-| Kangaroo | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** every foot/tail endpoint and adulthood not strict |
-| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female; adulthood and entire head-tail silhouette not verified |
+| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult-male source too small; larger sources fail strictness |
+| Kangaroo | REPLACEMENT SOURCE NEEDED | Audited this run; ADW exact adult/sexually mature male is visually complete but only 600px displayed; existing 3648x2736 candidate lacks explicit adulthood and strict feet/tail verification |
+| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact female; adulthood and entire head-tail silhouette not verified |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit male source clips appendage tips |
 | Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact species; adulthood/sex/every-toe unresolved |
 | Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male; tree overlap blocks every-foot/digit certification; adulthood not explicit |
@@ -55,27 +55,25 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male *P. pardus*, CC BY-SA 2.0; full anatomy visually confirmed, adulthood not explicit |
 | Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3332x2432 exact *P. volitans* Public Domain photo with complete visible fish silhouette; adulthood and sex not explicit |
 | Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 exact *Lama glama* CC BY-SA 3.0 zoo photo, visually complete standing animal; adulthood and sex not explicit |
-| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5040x3224 exact *H. americanus* CC BY 2.0 source; direct inspection shows rock/shelter obscuring body and appendages; adulthood/sex not explicit |
+| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5040x3224 exact *H. americanus* CC BY 2.0 source; rock/shelter obscures body and appendages |
+| Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5184x3456 exact male *Lynx lynx*, CC BY-SA 4.0; resting pose and non-explicit adulthood prevent strict certification |
 
-## 2026-09-21 Japanese Macaque legacy audit
-Broad search covered Commons and general web-image discovery with emphasis on exact *Macaca fuscata*, adult male metadata and complete anatomy. Three useful source classes were checked:
+## 2026-09-21 Kangaroo legacy audit
+Broad search covered general image discovery, Commons-style sources and Animal Diversity Web. The strongest newly verified identity/life-stage lead is David Blank's University of Michigan Animal Diversity Web photograph `macropusrufusmale2`: exact red kangaroo (*Macropus rufus* / *Osphranter rufus*), explicitly **adult/sexually mature** and **male**, with the tail specifically tagged in the metadata. The displayed source photograph was visually inspected and clearly shows one complete standing animal: head, torso, both forelimbs, both hind limbs/feet and the complete tail are inside frame. Source page: https://animaldiversity.org/collections/contributors/david_blank/macropusrufusmale2/ ; displayed image URL: https://animaldiversity.org/collections/contributors/david_blank/macropusrufusmale2/medium.jpg . License: CC BY-NC-SA 3.0 with photographer credit required.
 
-- `Macaca fuscata.jpg` explicitly identifies an **adult male**, but the original is only **337x335**, far below the preferred 1600+ threshold and not suitable as the primary source.
-- `Japanese Macaque Fuscata Image 370.jpg` is **4288x2848**, CC BY-SA 3.0 and explicitly identifies the troop's alpha male, but Commons categorizes it as a head image and the framing is a portrait rather than mandatory whole-body anatomy.
-- `Macaca fuscata Japanese macaque.jpg` is **2664x4000**, exact species and unusually permissive **CC0**, but the source metadata does not establish adulthood or sex. It therefore cannot replace the existing candidate as a strictly verified canonical adult-male full-body source.
+However, the accessible displayed image is only about 600 pixels wide, far below the preferred 1600+ requirement and materially weaker for cutout production than the existing 3648x2736 Commons candidate. The existing high-resolution candidate still lacks explicit adulthood and strict feet/tail verification. Neither source simultaneously satisfies high-resolution quality, explicit adulthood/male identity and strict complete-body requirements. The audit therefore does **not** promote a source to cutout-ready status.
 
-The existing Japanese Macaque report already records a reusable candidate page/direct URL and a truthful `SOURCE FOUND - FULL-BODY NOT VERIFIED` status. No weaker or cropped candidate is promoted merely for resolution. No PNG completion is claimed.
+**Result:** `REPLACEMENT SOURCE NEEDED`. Next unresolved legacy audit: **King Cobra**.
 
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Source-quality audit advances to **Kangaroo**.
-
-## 2026-09-21 Lobster new-animal image
-- Resolved taxon: American lobster, *Homarus americanus*.
-- Source page: https://commons.wikimedia.org/wiki/File:American_lobster,_Homarus_americanus_in_Newfoundland,_Canada_(21184223265).jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/2/2b/American_lobster%2C_Homarus_americanus_in_Newfoundland%2C_Canada_%2821184223265%29.jpg
-- Resolution: **5040x3224** JPEG.
-- Provenance: Derek Keats photograph transferred from Flickr; **CC BY 2.0**, independently license-reviewed by Commons.
-- Visual result: exact-species real animal, but direct inspection shows the lobster partly inside a rocky shelter with substantial body/appendage overlap. It fails the mandatory complete-body standard despite excellent resolution and provenance.
-- Adult/sex verification: not explicit.
+## 2026-09-21 Lynx new-animal image
+- Resolved taxon: Eurasian lynx, *Lynx lynx*.
+- Source page: https://commons.wikimedia.org/wiki/File:Male_Lynx_lynx_resting_in_tree.jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/6/6b/Male_Lynx_lynx_resting_in_tree.jpg
+- Resolution: **5184x3456** JPEG.
+- Provenance: Nicolas BALDECK / MediAtta, own work, **CC BY-SA 4.0**.
+- Sex: explicitly male.
+- Adult verification: not explicit.
+- Visual suitability: exact-species real photograph and high resolution, but the resting tree pose does not establish strict complete visibility of all feet/underside/appendages.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
@@ -85,7 +83,7 @@ The existing Japanese Macaque report already records a reusable candidate page/d
 - Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `121` is completed text research, not completed images.
+- `122` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Kangaroo.**
+- **Next unresolved source-quality legacy audit: King Cobra.**

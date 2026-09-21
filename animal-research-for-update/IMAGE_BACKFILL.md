@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 122 / 225 (through Lynx). **Full-body transparent PNG assets verified and committed:** 0 / 122. A source-photo URL is not an approved PNG.
+**Research reports completed:** 123 / 225 (through Macaw). **Full-body transparent PNG assets verified and committed:** 0 / 123. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -9,72 +9,73 @@ Animals already source-verified or audited are skipped until binary tooling beco
 
 | Animal | Current status | Next action |
 |---|---|---|
-| Gecko | REPLACEMENT SOURCE NEEDED | Audited; explicit adult male source remains only 1008px |
-| Giant Centipede | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4000x3000 reusable source, adulthood not explicit |
-| Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult + every arm/tentacle tip unresolved |
-| Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex and strict hands/feet unresolved |
-| Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adulthood plus every toe/tail unresolved |
-| Giraffe | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; reusable bull source, adulthood not explicit |
-| Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult + reuse + complete anatomy not simultaneous |
-| Goliath Birdeater | REPLACEMENT SOURCE NEEDED | Audited; explicit adult female reusable source only 720x525 |
-| Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adulthood not explicit |
-| Gorilla | REPLACEMENT SOURCE NEEDED | Audited; explicit male source too small; larger sources fail simultaneous strictness |
-| Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex + strict tail/feet unresolved |
-| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 6240x4160 public-domain NPS source; adult + complete anatomy unresolved |
-| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit male source; strict adult + all fins/head-tail unresolved |
-| Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex + complete head-tail visibility not simultaneous |
+| Gecko | REPLACEMENT SOURCE NEEDED | Explicit adult male source remains only 1008px |
+| Giant Centipede | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 reusable source; adulthood not explicit |
+| Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult + every arm/tentacle tip unresolved |
+| Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict hands/feet unresolved |
+| Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood plus every toe/tail unresolved |
+| Giraffe | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable bull source; adulthood not explicit |
+| Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult + reuse + complete anatomy not simultaneous |
+| Goliath Birdeater | REPLACEMENT SOURCE NEEDED | Explicit adult female reusable source only 720x525 |
+| Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood not explicit |
+| Gorilla | REPLACEMENT SOURCE NEEDED | Explicit male source too small; larger sources fail strictness |
+| Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex + strict tail/feet unresolved |
+| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6240x4160 PD NPS; adult + complete anatomy unresolved |
+| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit male; strict adult + all fins/head-tail unresolved |
+| Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex + complete head-tail not simultaneous |
 | Grizzly Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; skip |
-| Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex/full-body strictness unresolved |
-| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact species/reuse strong, Commons version cropped |
-| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex and strict feet/tail/wings unresolved |
-| Hedgehog | REPLACEMENT SOURCE NEEDED | Audited; featured source fails strict anatomy |
-| Hellbender | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult, public-domain 3072x2304 USFWS; binary cutout pending |
-| Hercules Beetle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/imago; strict all-six-feet/appendage tips unresolved |
-| Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex and strict tail/feet unresolved |
-| Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit male still loses rear body/tail at frame edge |
+| Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/full-body strictness unresolved |
+| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact species/reuse strong; Commons version cropped |
+| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict feet/tail/wings unresolved |
+| Hedgehog | REPLACEMENT SOURCE NEEDED | Featured source fails strict anatomy |
+| Hellbender | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult, PD 3072x2304 USFWS; binary cutout pending |
+| Hercules Beetle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/imago; all-six-feet/appendage tips unresolved |
+| Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict tail/feet unresolved |
+| Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit male loses rear body/tail at frame edge |
 | Hornet | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0 |
-| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact adult male, tail/complete appendages not visible |
-| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 6000x4000 Public Domain female; adulthood/strict anatomy unresolved |
-| Huntsman Spider | REPLACEMENT SOURCE NEEDED | Audited; exact adult female *Heteropoda maxima* remains only 640x480 |
-| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit female source loses tail/rear silhouette at frame edge; adulthood not explicit |
-| Ibex | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0; binary cutout pending |
-| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4320x2432 exact *I. iguana*, explicit large adult male; strict tail/all-feet not certified |
-| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5910x3940 exact male, complete anatomy; adulthood not explicit |
-| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact black-backed jackal sources, adulthood/canonical male/full-body strictness not simultaneous |
-| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5472x3648 exact male Pantanal source, adulthood/strict tail-feet unresolved |
-| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult-male source too small; larger sources fail strictness |
-| Kangaroo | REPLACEMENT SOURCE NEEDED | Audited this run; ADW exact adult/sexually mature male is visually complete but only 600px displayed; existing 3648x2736 candidate lacks explicit adulthood and strict feet/tail verification |
-| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact female; adulthood and entire head-tail silhouette not verified |
-| King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit male source clips appendage tips |
+| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male; tail/appendages incomplete |
+| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6000x4000 PD female; adulthood/strict anatomy unresolved |
+| Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact adult female *Heteropoda maxima* only 640x480 |
+| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit female loses tail/rear silhouette; adulthood not explicit |
+| Ibex | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0 |
+| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4320x2432 explicit large adult male; strict tail/all-feet not certified |
+| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5910x3940 exact male, complete anatomy; adulthood not explicit |
+| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact black-backed jackal; adulthood/male/full-body not simultaneous |
+| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5472x3648 exact male Pantanal; adulthood/strict tail-feet unresolved |
+| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult-male source too small; larger sources fail strictness |
+| Kangaroo | REPLACEMENT SOURCE NEEDED | Exact adult male ADW visually complete but only ~600px; high-res candidate lacks explicit adulthood |
+| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited this run; 6049x4037 exact female CC BY-SA 2.0, but adulthood and complete head-to-tail silhouette remain unverified |
+| King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** explicit male source clips appendage tips |
 | Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact species; adulthood/sex/every-toe unresolved |
-| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male; tree overlap blocks every-foot/digit certification; adulthood not explicit |
-| Komodo Dragon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Wild exact-species candidate; adulthood/sex and strict all-toe/tail-tip completeness unresolved |
-| Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact *D. novaeguineae*, 4000x6000 CC BY-SA; perch obscures feet/toes and adulthood/sex are not explicit |
-| Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male *T. strepsiceros*, 3008x2000 CC BY-SA 2.0; binary cutout pending |
-| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3264x2122 exact-species CC BY-SA 2.0; strict adult/sex and complete flipper/tail visibility unresolved |
-| Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male *P. pardus*, CC BY-SA 2.0; full anatomy visually confirmed, adulthood not explicit |
-| Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3332x2432 exact *P. volitans* Public Domain photo with complete visible fish silhouette; adulthood and sex not explicit |
-| Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 exact *Lama glama* CC BY-SA 3.0 zoo photo, visually complete standing animal; adulthood and sex not explicit |
-| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5040x3224 exact *H. americanus* CC BY 2.0 source; rock/shelter obscures body and appendages |
-| Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5184x3456 exact male *Lynx lynx*, CC BY-SA 4.0; resting pose and non-explicit adulthood prevent strict certification |
+| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male; tree overlap blocks feet/digits; adulthood not explicit |
+| Komodo Dragon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Wild exact species; adulthood/sex/all-toe/tail-tip unresolved |
+| Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x6000 exact species; perch obscures feet; adulthood/sex not explicit |
+| Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 3008x2000 CC BY-SA 2.0 |
+| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3264x2122 exact species; adult/sex/flipper/tail unresolved |
+| Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male; full anatomy visually confirmed, adulthood not explicit |
+| Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3332x2432 exact species PD; adulthood/sex not explicit |
+| Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 exact species, complete standing animal; adulthood/sex not explicit |
+| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5040x3224 exact species; shelter obscures anatomy |
+| Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5184x3456 exact male; resting pose/adulthood prevent certification |
+| Macaw | REPLACEMENT SOURCE NEEDED | 3000x2083 exact *Ara macao* CC BY-SA 4.0 candidate visually rejected as close-up; broader high-res search did not verify adult + complete feet/tail simultaneously |
 
-## 2026-09-21 Kangaroo legacy audit
-Broad search covered general image discovery, Commons-style sources and Animal Diversity Web. The strongest newly verified identity/life-stage lead is David Blank's University of Michigan Animal Diversity Web photograph `macropusrufusmale2`: exact red kangaroo (*Macropus rufus* / *Osphranter rufus*), explicitly **adult/sexually mature** and **male**, with the tail specifically tagged in the metadata. The displayed source photograph was visually inspected and clearly shows one complete standing animal: head, torso, both forelimbs, both hind limbs/feet and the complete tail are inside frame. Source page: https://animaldiversity.org/collections/contributors/david_blank/macropusrufusmale2/ ; displayed image URL: https://animaldiversity.org/collections/contributors/david_blank/macropusrufusmale2/medium.jpg . License: CC BY-NC-SA 3.0 with photographer credit required.
+## 2026-09-21 King Cobra legacy audit
+Broad discovery rechecked Commons and related web-image sources. The strongest existing candidate remains the exact female *Ophiophagus hannah* photographed in Kaeng Krachan National Park, Thailand. Commons provides a **6049x4037** original, explicitly identifies the specimen as **female**, and records **CC BY-SA 2.0** licensing with Flickr license review.
 
-However, the accessible displayed image is only about 600 pixels wide, far below the preferred 1600+ requirement and materially weaker for cutout production than the existing 3648x2736 Commons candidate. The existing high-resolution candidate still lacks explicit adulthood and strict feet/tail verification. Neither source simultaneously satisfies high-resolution quality, explicit adulthood/male identity and strict complete-body requirements. The audit therefore does **not** promote a source to cutout-ready status.
+Source page: https://commons.wikimedia.org/wiki/File:Ophiophagus_hannah,_King_cobra_(female)_-_Kaeng_Krachan_National_Park_(25458697183).jpg
 
-**Result:** `REPLACEMENT SOURCE NEEDED`. Next unresolved legacy audit: **King Cobra**.
+Original image: https://upload.wikimedia.org/wikipedia/commons/1/10/Ophiophagus_hannah%2C_King_cobra_%28female%29_-_Kaeng_Krachan_National_Park_%2825458697183%29.jpg
 
-## 2026-09-21 Lynx new-animal image
-- Resolved taxon: Eurasian lynx, *Lynx lynx*.
-- Source page: https://commons.wikimedia.org/wiki/File:Male_Lynx_lynx_resting_in_tree.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/6/6b/Male_Lynx_lynx_resting_in_tree.jpg
-- Resolution: **5184x3456** JPEG.
-- Provenance: Nicolas BALDECK / MediAtta, own work, **CC BY-SA 4.0**.
-- Sex: explicitly male.
-- Adult verification: not explicit.
-- Visual suitability: exact-species real photograph and high resolution, but the resting tree pose does not establish strict complete visibility of all feet/underside/appendages.
-- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion claimed.
+The metadata does **not** explicitly establish adulthood. More importantly for a long coiled snake, this run could not certify that the entire head-to-tail silhouette, including the actual tail tip through the coils, is visible and unobscured. Dimensions and sex metadata alone do not satisfy the mandatory visual standard. **Result: `SOURCE FOUND - FULL-BODY NOT VERIFIED`.** Next unresolved legacy audit: **King Crab**.
+
+## 2026-09-21 Macaw new-animal image
+The roster name was resolved to Scarlet Macaw, *Ara macao*. A 3000x2083 CC BY-SA 4.0 Commons photograph by Bramans was downloaded through the original-file path and visually inspected. It is an exact-species real photograph, but inspection shows a close-up dominated by the head and upper body. Feet, full tail and complete silhouette are absent. It is therefore rejected rather than promoted merely because it is high resolution.
+
+Source page: https://commons.wikimedia.org/wiki/File:Scarlet_macaw_(Ara_scarlatta,_Ara_macao).jpg
+
+Original image: https://upload.wikimedia.org/wikipedia/commons/c/ca/Scarlet_macaw_%28Ara_scarlatta%2C_Ara_macao%29.jpg
+
+Additional broad search found multiple 3000-6000px exact-species Commons sources, including Peru and zoo photographs, but no inspected candidate in this run simultaneously established adulthood and strict complete head/body/feet/tail framing. **Result: `REPLACEMENT SOURCE NEEDED`.** No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -83,7 +84,7 @@ However, the accessible displayed image is only about 600 pixels wide, far below
 - Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `122` is completed text research, not completed images.
+- `123` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: King Cobra.**
+- **Next unresolved source-quality legacy audit: King Crab.**

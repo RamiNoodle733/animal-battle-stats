@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 119 / 225 (through Lionfish). **Full-body transparent PNG assets verified and committed:** 0 / 119. A source-photo URL is not an approved PNG.
+**Research reports completed:** 120 / 225 (through Llama). **Full-body transparent PNG assets verified and committed:** 0 / 120. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -40,9 +40,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Ibex | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0; binary cutout pending |
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4320x2432 exact *I. iguana*, explicit large adult male; strict tail/all-feet not certified |
 | Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5910x3940 exact male, complete anatomy; adulthood not explicit |
-| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** exact black-backed jackal sources with excellent complete anatomy and 3832-5956px options found, but adulthood and canonical male sex are not explicitly established together; prior candidate remains truthful |
-| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact male Pantanal source; adulthood/strict completeness unresolved |
-| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Tail hidden/rear feet unclear; adult/sex not explicit |
+| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact black-backed jackal sources, adulthood/canonical male/full-body strictness not simultaneous |
+| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** 5472x3648 CC BY-SA 2.0 exact male Pantanal walking source improves resolution, but adulthood is not explicit and strict complete tail/feet framing cannot be certified from source metadata alone |
+| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** tail hidden/rear feet unclear; adult/sex not explicit |
 | Kangaroo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Every foot/tail endpoint and adulthood not strict |
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female; adulthood and entire head-tail silhouette not verified |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit male source clips appendage tips |
@@ -54,22 +54,23 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3264x2122 exact-species CC BY-SA 2.0; strict adult/sex and complete flipper/tail visibility unresolved |
 | Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male *P. pardus*, CC BY-SA 2.0; full anatomy visually confirmed, adulthood not explicit |
 | Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3332x2432 exact *P. volitans* Public Domain photo with complete visible fish silhouette; adulthood and sex not explicit |
+| Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 exact *Lama glama* CC BY-SA 3.0 zoo photo, visually complete standing animal; adulthood and sex not explicit |
 
-## 2026-09-21 Jackal legacy audit
-The roster Jackal is **black-backed jackal, *Lupulella mesomelas***, so golden-jackal (*Canis aureus*) sources were explicitly rejected as wrong species even when labeled adult male.
+## 2026-09-21 Jaguar legacy audit
+Broad search covered Commons, general web image discovery and Pantanal male sources. A strong exact-species source is Bernard Dupont's `Jaguar (Panthera onca) male walking along the river bank ... (28544269923).jpg`: **5472x3648**, CC BY-SA 2.0, Flickr license independently reviewed by Commons, explicitly male, photographed at Rio São Lourenço in the Pantanal. Source page: https://commons.wikimedia.org/wiki/File:Jaguar_(Panthera_onca)_male_walking_along_the_river_bank_..._(28544269923).jpg . Original: https://upload.wikimedia.org/wikipedia/commons/9/91/Jaguar_%28Panthera_onca%29_male_walking_along_the_river_bank_..._%2828544269923%29.jpg .
 
-Broad search covered general web-image discovery and Wikimedia Commons quality-image collections. Multiple strong exact-species reusable photographs exist, including 3832x2555 and 5956x3971 images, and the existing 4524x3015 Charles J. Sharp source remains an unusually clean full-body standing candidate. However, the searched source metadata does not explicitly establish adulthood and canonical male sex while also satisfying strict whole-body framing. Therefore the existing report's source is not falsely upgraded.
+This is higher resolution than the existing 4582x3054 Charles J. Sharp male candidate and has excellent provenance, but Commons does not explicitly label the specimen adult. Strict complete tail and all-foot framing also cannot be certified from metadata alone, so the mandatory adult/full-body standard is not falsely upgraded. The existing Jaguar report remains truthful at `SOURCE FOUND - FULL-BODY NOT VERIFIED`; no PNG completion is claimed.
 
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The source-quality audit advances to Jaguar. No PNG completion claimed.
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Source-quality audit advances to Japanese Macaque.
 
-## 2026-09-21 Lionfish new-animal image
-- Source page: https://commons.wikimedia.org/wiki/File:Lionfish.JPG
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/3/3d/Lionfish.JPG
-- Resolution: **3332x2432** JPEG.
-- Taxon: exact red lionfish *Pterois volitans*.
-- Provenance: real photograph released to the **Public Domain** by photographer Albert Kok.
-- Visual result: the fish silhouette is fully contained in the inspected preview, including head, torso, caudal fin and extended major fins/spines.
-- Adult/sex verification: neither adulthood nor sex is explicit in source metadata. Because adulthood is mandatory, this cannot be promoted to full-body-source-complete status.
+## 2026-09-21 Llama new-animal image
+- Source page: https://commons.wikimedia.org/wiki/File:Zoo_Llama.jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/0/0c/Zoo_Llama.jpg
+- Resolution: **4000x3000** JPEG.
+- Taxon: exact domestic llama *Lama glama*.
+- Provenance: real photograph, own work by Commons user Woodlot; **CC BY-SA 3.0 / GFDL**.
+- Visual result: inspected search image shows a single standing llama with head, torso, four legs/feet and tail region inside the frame.
+- Adult/sex verification: source metadata does not explicitly establish adulthood or sex. A separate explicitly male Commons image is only 1447x1062 and includes a Labrador, so it is rejected for the primary image standard.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
@@ -79,7 +80,7 @@ Broad search covered general web-image discovery and Wikimedia Commons quality-i
 - Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `119` is completed text research, not completed images.
+- `120` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Jaguar.**
+- **Next unresolved source-quality legacy audit: Japanese Macaque.**

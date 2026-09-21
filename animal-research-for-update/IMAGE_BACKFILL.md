@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 117 / 225 (through Leatherback Sea Turtle). **Full-body transparent PNG assets verified and committed:** 0 / 117. A source-photo URL is not an approved PNG.
+**Research reports completed:** 118 / 225 (through Leopard). **Full-body transparent PNG assets verified and committed:** 0 / 118. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -38,9 +38,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Audited; exact adult female *Heteropoda maxima* remains only 640x480 |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit female source loses tail/rear silhouette at frame edge; adulthood not explicit |
 | Ibex | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0; binary cutout pending |
-| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** stronger 4320x2432 exact *Iguana iguana* source explicitly says large adult male, CC BY-SA 3.0; strict complete tail/all-feet framing still not visually certified |
-| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** strong male framing, adulthood not explicit; adult alternative loses tail |
-| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete standing anatomy; adulthood/sex not explicit |
+| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4320x2432 exact *I. iguana*, explicit large adult male; strict tail/all-feet not certified |
+| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** 5910x3940 exact male, CC BY-SA 4.0, excellent complete standing anatomy; adulthood not explicit, so mandatory adult verification remains unresolved |
+| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** complete standing anatomy; adulthood/sex not explicit |
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male Pantanal source; adulthood/strict completeness unresolved |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Tail hidden/rear feet unclear; adult/sex not explicit |
 | Kangaroo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Every foot/tail endpoint and adulthood not strict |
@@ -51,29 +51,31 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Komodo Dragon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Wild exact-species candidate; adulthood/sex and strict all-toe/tail-tip completeness unresolved |
 | Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact *D. novaeguineae*, 4000x6000 CC BY-SA; perch obscures feet/toes and adulthood/sex are not explicit |
 | Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male *T. strepsiceros*, 3008x2000 CC BY-SA 2.0; binary cutout pending |
-| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | New 3264x2122 exact-species CC BY-SA 2.0 source; strict adult/sex and complete flipper/tail visibility unresolved |
+| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3264x2122 exact-species CC BY-SA 2.0; strict adult/sex and complete flipper/tail visibility unresolved |
+| Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male *P. pardus*, CC BY-SA 2.0; direct visual check confirms full anatomy, but adulthood is not explicit |
 
-## 2026-09-21 Iguana legacy audit
-Broad search covered general web image discovery and Wikimedia Commons for exact *Iguana iguana*, explicit mature male status, reusable provenance, high resolution and strict whole-body framing.
+## 2026-09-21 Impala legacy audit
+Broad search covered general image discovery, Wikimedia Commons and explicit-adult alternatives for *Aepyceros melampus*.
 
-**Stronger adult-male source:**
-- Source page: https://commons.wikimedia.org/wiki/File:Adult_Male_Iguana.JPG
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/3/35/Adult_Male_Iguana.JPG
-- Resolution: **4320x2432** JPEG.
-- Taxon/adult/sex: Commons structured data depicts green iguana, and the creator's description explicitly says **Large Adult Male Iguana**, photographed in João Pessoa, Brazil.
-- Provenance: own work by Hugo L. D. de S. Cavalcante, **CC BY-SA 3.0**.
-- Audit result: this materially resolves the previous adulthood uncertainty and is stronger than the prior candidates on specimen identity. Strict whole-body certification is still withheld because this run could not inspect the original binary at sufficient fidelity to prove that the complete tail tip and all feet/digits are simultaneously inside frame.
-- Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. Do not cut out or count as complete until the original is visually checked under `IMAGE_REQUIREMENTS.md`.
+**Best reusable candidate:**
+- Source page: https://commons.wikimedia.org/wiki/File:Impala_(Aepyceros_melampus)_male_Kruger.jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/c/cb/Impala_%28Aepyceros_melampus%29_male_Kruger.jpg
+- Resolution: **5910x3940** JPEG.
+- Taxon/sex: exact *Aepyceros melampus*; male is explicit in caption and structured data.
+- Provenance: own work by Charles J. Sharp, **CC BY-SA 4.0**; Commons Quality Image.
+- Visual result: excellent single-animal standing side profile with horns, head, torso, all four legs/hooves and tail inside the frame.
+- Adult verification: source does not explicitly say adult. A separate Commons source explicitly says adult male black-faced impala, but is only 769x654 and therefore materially below the preferred quality target. Stock sources explicitly labeled adult exist at high resolution but are not appropriate for redistribution without licensing purchase.
+- Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED** because exact adulthood remains mandatory and unresolved. Do not count as completed image.
 
-## 2026-09-21 Leatherback Sea Turtle new-animal image
-- Preferred source page: https://commons.wikimedia.org/wiki/File:Leatherback_Sea_Turtle_(Dermochelys_coriacea)_(10630312543).jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/0/0f/Leatherback_Sea_Turtle_%28Dermochelys_coriacea%29_%2810630312543%29.jpg
-- Resolution: **3264x2122** JPEG.
-- Taxon: exact *Dermochelys coriacea*.
-- Provenance/license: Bernard DUPONT, Flickr source independently reviewed by Commons, **CC BY-SA 2.0**.
-- Adult/sex: nesting-beach context makes an adult female plausible, but the source metadata does not explicitly state adult or sex, so neither is marked verified.
-- Strict anatomy: complete head-to-tail and all four flipper endpoints were not certified from the available inspection path.
-- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion is claimed.
+## 2026-09-21 Leopard new-animal image
+- Source page: https://commons.wikimedia.org/wiki/File:Leopard_(Panthera_pardus)_male_..._(51890626416).jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/7/78/Leopard_%28Panthera_pardus%29_male_..._%2851890626416%29.jpg
+- Resolution: **4355x2630** JPEG.
+- Taxon/sex: exact African leopard *Panthera pardus*; male is explicit in the filename/category.
+- Provenance: Bernard DUPONT / Flickr, independently license-reviewed by Commons, **CC BY-SA 2.0**.
+- Visual result: direct original-image inspection confirms the head, complete torso, all four legs/feet and entire tail are inside frame in a clean side-profile walking pose.
+- Adult verification: not explicit in source metadata, so the source cannot yet receive `FULL-BODY SOURCE FOUND` status under the mandatory standard.
+- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -82,7 +84,7 @@ Broad search covered general web image discovery and Wikimedia Commons for exact
 - Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `117` is completed text research, not completed images.
+- `118` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Impala.**
+- **Next unresolved source-quality legacy audit: Jackal.**

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 114 / 225 (through Komodo Dragon). **Full-body transparent PNG assets verified and committed:** 0 / 114. A source-photo URL is not an approved PNG.
+**Research reports completed:** 115 / 225 (through Kookaburra). **Full-body transparent PNG assets verified and committed:** 0 / 115. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -35,9 +35,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Hornet | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0 |
 | Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact adult male, tail/complete appendages not visible |
 | Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 6000x4000 Public Domain female; adulthood/strict anatomy unresolved |
-| Huntsman Spider | REPLACEMENT SOURCE NEEDED | **Audited this run:** exact adult female *Heteropoda maxima* remains only 640x480; larger candidates fail exact adult/taxon/reuse verification |
-| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact female *C. crocuta* source exists; search for explicit adult + strict tail/all-feet completeness |
-| Ibex | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male; strict tail/all four feet not certified |
+| Huntsman Spider | REPLACEMENT SOURCE NEEDED | Audited; exact adult female *Heteropoda maxima* remains only 640x480 |
+| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** explicit female 4912x3055 CC BY-SA source inspected; tail/rear silhouette is lost at frame edge and adulthood is not explicit |
+| Ibex | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact adult male exists; seek strict tail/all-four-feet completeness |
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male; adulthood and strict all-feet/tail completeness unresolved |
 | Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Strong male framing, adulthood not explicit; adult alternative loses tail |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete standing anatomy; adulthood/sex not explicit |
@@ -49,36 +49,35 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact species; adulthood/sex/every-toe unresolved |
 | Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male; tree overlap blocks every-foot/digit certification; adulthood not explicit |
 | Komodo Dragon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Wild exact-species candidate; adulthood/sex and strict all-toe/tail-tip completeness unresolved; explicit-male alternatives are young |
+| Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact *D. novaeguineae*, 4000x6000 CC BY-SA; perch obscures feet/toes and adulthood/sex are not explicit |
 
-## 2026-09-20 Huntsman Spider legacy audit
-Broad search covered general web image search, Wikimedia Commons, BOLD-linked material and commercial/exotic-animal listings.
+## 2026-09-20 Hyena legacy audit
+Broad search covered general web image search and Wikimedia Commons with emphasis on exact *Crocuta crocuta*, the stronger female sex, reusable provenance, high resolution and strict complete anatomy.
 
-**Best exact adult candidate remains:**
-- Source page: https://commons.wikimedia.org/wiki/File:Heteropoda_maxima_f.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/8/82/Heteropoda_maxima_f.jpg
-- Resolution: **640x480**
-- Taxon/sex/age: exact *Heteropoda maxima*, **adult female explicitly stated**.
-- Source/provenance: Commons file derived from BOLD Systems; author M. Sajjad Mirza / National Institute for Biotechnology and Genetic Engineering, Pakistan.
-- Result: exact adult and sex are unusually strong, but 640px is far below the preferred 1600+ standard and does not support a high-quality site cutout.
+**Best explicit-female candidate inspected:**
+- Source page: https://commons.wikimedia.org/wiki/File:Spotted_Hyena_(Crocuta_crocuta)_female_..._(52772009649).jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/3/3c/Spotted_Hyena_%28Crocuta_crocuta%29_female_..._%2852772009649%29.jpg
+- Resolution: **4912x3055**
+- Taxon/sex: exact *Crocuta crocuta*, **female explicitly identified** by source metadata/categories.
+- Provenance: Bernard DUPONT, Flickr source independently reviewed by Commons; **CC BY-SA 2.0**.
+- Visual inspection: head, torso and four legs/feet are visible, but the rear silhouette reaches the right frame edge and the tail is not visibly complete. The source also does not explicitly establish adulthood.
+- Result: strong sex/provenance/resolution candidate, but it fails mandatory complete-tail framing and strict adult verification. It is not promoted to full-body verified status.
 
-**Other candidates checked:**
-- `Heteropoda maxima.jpg` on Commons is reusable CC BY 2.0 but only **900x817** and does not explicitly establish adult female status.
-- A 3000x3000 commercial listing found through broad image search is explicitly **female subadult** and identified as *Heteropoda cf. maxima*, so it fails both mandatory adulthood and exact-taxon certainty.
-- Other larger web results lacked sufficiently clear reuse permission, adult verification, or exact-species certainty. They were not promoted merely for resolution.
+**Other candidates checked:** Commons exact-species files at 6000x3220, 4596x2978, 5472x3648 and other high resolutions have strong reusable provenance, but available metadata does not simultaneously establish canonical female sex, adulthood and strict head-to-tail/all-feet completeness. Stock results with attractive side profiles were not selected because watermarked/commercial previews are unsuitable for redistribution.
 
-**Outcome:** Huntsman Spider remains **REPLACEMENT SOURCE NEEDED**. The old 640x480 adult-female file is retained as a taxonomic/sex reference but not as an acceptable primary cutout source. No PNG completion is claimed. The next unresolved legacy audit is Hyena.
+**Outcome:** Hyena remains **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion is claimed. The next unresolved legacy source audit is Ibex.
 
-## 2026-09-20 Komodo Dragon new-animal image
-- Preferred source page: https://commons.wikimedia.org/wiki/File:Varanus_komodoensis,_Komodo_Island,_Indonesia,_20250822_1324_2788.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/3/31/Varanus_komodoensis%2C_Komodo_Island%2C_Indonesia%2C_20250822_1324_2788.jpg
-- Taxon: exact *Varanus komodoensis*, wild Komodo Island photograph.
-- Visual/search result: useful broad body framing, but strict adulthood, sex and every toe/tail-tip visibility are not all certified from source metadata/inspection.
-- Rejected explicit-male alternative: https://commons.wikimedia.org/wiki/File:Raja_the_Komodo_dragon_(Varanus_komodoensis)_in_Perth_Zoo,_February_2021_01.jpg is **3264x2448**, CC BY-SA 4.0 and explicitly male, but the metadata explicitly calls Raja **young**, so it fails the adult requirement.
-- Stock-photo results with attractive full-body framing were not selected because previews/watermarks or redistribution terms are unsuitable for this staging asset workflow.
-- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG binary is claimed or fabricated.
+## 2026-09-20 Kookaburra new-animal image
+- Preferred source page: https://commons.wikimedia.org/wiki/File:Laughing_Kookaburra_(Dacelo_novaeguineae)_(CWPG).jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/9/95/Laughing_Kookaburra_%28Dacelo_novaeguineae%29_%28CWPG%29.jpg
+- Resolution: **4000x6000** JPEG.
+- Taxon: exact Laughing Kookaburra, *Dacelo novaeguineae*.
+- Provenance/license: own work by Vauxford, **CC BY-SA 4.0**.
+- Visual inspection: head, torso, folded wings and complete tail are well inside the frame, but the branch/perch obscures the feet and toes. Source metadata does not explicitly establish adulthood or sex.
+- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. A source URL is not counted as a completed image and no PNG binary is claimed.
 
 ## Count and blocker
-- `114` is completed text research, not completed images.
+- `115` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Hyena.**
+- **Next unresolved source-quality legacy audit: Ibex.**

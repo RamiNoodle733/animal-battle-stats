@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 116 / 225 (through Kudu). **Full-body transparent PNG assets verified and committed:** 0 / 116. A source-photo URL is not an approved PNG.
+**Research reports completed:** 117 / 225 (through Leatherback Sea Turtle). **Full-body transparent PNG assets verified and committed:** 0 / 117. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -37,9 +37,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 6000x4000 Public Domain female; adulthood/strict anatomy unresolved |
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Audited; exact adult female *Heteropoda maxima* remains only 640x480 |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit female source loses tail/rear silhouette at frame edge; adulthood not explicit |
-| Ibex | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | **Verified this run:** exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0; full silhouette, all four legs/hooves and short tail visually present; binary cutout pending |
-| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact male; seek explicit adulthood plus strict all-feet/tail completeness |
-| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Strong male framing, adulthood not explicit; adult alternative loses tail |
+| Ibex | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0; binary cutout pending |
+| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** stronger 4320x2432 exact *Iguana iguana* source explicitly says large adult male, CC BY-SA 3.0; strict complete tail/all-feet framing still not visually certified |
+| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** strong male framing, adulthood not explicit; adult alternative loses tail |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete standing anatomy; adulthood/sex not explicit |
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male Pantanal source; adulthood/strict completeness unresolved |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Tail hidden/rear feet unclear; adult/sex not explicit |
@@ -50,33 +50,39 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male; tree overlap blocks every-foot/digit certification; adulthood not explicit |
 | Komodo Dragon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Wild exact-species candidate; adulthood/sex and strict all-toe/tail-tip completeness unresolved |
 | Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact *D. novaeguineae*, 4000x6000 CC BY-SA; perch obscures feet/toes and adulthood/sex are not explicit |
-| Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | **New this run:** explicit adult male *T. strepsiceros*, 3008x2000 CC BY-SA 2.0; full head/body/legs/hooves/tail/horns visually verified; binary cutout pending |
+| Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male *T. strepsiceros*, 3008x2000 CC BY-SA 2.0; binary cutout pending |
+| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | New 3264x2122 exact-species CC BY-SA 2.0 source; strict adult/sex and complete flipper/tail visibility unresolved |
 
-## 2026-09-21 Ibex legacy audit
-Broad search covered general web image discovery and Wikimedia Commons for exact *Capra ibex*, explicit mature male status, reusable provenance, high resolution and strict whole-body framing.
+## 2026-09-21 Iguana legacy audit
+Broad search covered general web image discovery and Wikimedia Commons for exact *Iguana iguana*, explicit mature male status, reusable provenance, high resolution and strict whole-body framing.
 
-**Verified full-body source:**
-- Source page: https://commons.wikimedia.org/wiki/File:Capra_ibex_in_Gran_Paradiso_National_Park.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/f/f3/Capra_ibex_in_Gran_Paradiso_National_Park.jpg
-- Resolution: **3233x2155** JPEG.
-- Taxon/adult/sex: exact *Capra ibex*; Commons caption explicitly says **adult male**.
-- Provenance: own work by Irene Vercellino, **CC BY-SA 4.0**.
-- Visual inspection: complete horn tips, head, torso, all four legs and hooves, and the short tail are inside the frame. No appendage is clipped by the image boundary. Terrain/grass does not prevent recognition of the hoof silhouettes.
-- Result: **FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING**. The source meets the mandatory source-photo standard. It is not counted as a completed image because no transparent PNG binary has been created or committed.
+**Stronger adult-male source:**
+- Source page: https://commons.wikimedia.org/wiki/File:Adult_Male_Iguana.JPG
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/3/35/Adult_Male_Iguana.JPG
+- Resolution: **4320x2432** JPEG.
+- Taxon/adult/sex: Commons structured data depicts green iguana, and the creator's description explicitly says **Large Adult Male Iguana**, photographed in João Pessoa, Brazil.
+- Provenance: own work by Hugo L. D. de S. Cavalcante, **CC BY-SA 3.0**.
+- Audit result: this materially resolves the previous adulthood uncertainty and is stronger than the prior candidates on specimen identity. Strict whole-body certification is still withheld because this run could not inspect the original binary at sufficient fidelity to prove that the complete tail tip and all feet/digits are simultaneously inside frame.
+- Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. Do not cut out or count as complete until the original is visually checked under `IMAGE_REQUIREMENTS.md`.
 
-This materially upgrades Ibex from `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The source page and original image URL were already recorded in `animals/ibex.md`; this audit resolves the prior strict whole-body/adulthood uncertainty. The connected writer remains text-only, so the PNG step is still blocked.
+## 2026-09-21 Leatherback Sea Turtle new-animal image
+- Preferred source page: https://commons.wikimedia.org/wiki/File:Leatherback_Sea_Turtle_(Dermochelys_coriacea)_(10630312543).jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/0/0f/Leatherback_Sea_Turtle_%28Dermochelys_coriacea%29_%2810630312543%29.jpg
+- Resolution: **3264x2122** JPEG.
+- Taxon: exact *Dermochelys coriacea*.
+- Provenance/license: Bernard DUPONT, Flickr source independently reviewed by Commons, **CC BY-SA 2.0**.
+- Adult/sex: nesting-beach context makes an adult female plausible, but the source metadata does not explicitly state adult or sex, so neither is marked verified.
+- Strict anatomy: complete head-to-tail and all four flipper endpoints were not certified from the available inspection path.
+- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion is claimed.
 
-## 2026-09-21 Kudu new-animal image
-- Preferred source page: https://commons.wikimedia.org/wiki/File:Tragelaphus_strepsiceros_-Chobe_River_front,_Botswana-8.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/b/b6/Tragelaphus_strepsiceros_-Chobe_River_front%2C_Botswana-8.jpg
-- Resolution: **3008x2000** JPEG.
-- Taxon/adult/sex: exact Greater Kudu *Tragelaphus strepsiceros*; source description explicitly identifies an **adult male**.
-- Provenance/license: Joachim Huber, originally Flickr, Commons-verified **CC BY-SA 2.0**.
-- Visual inspection: complete head, torso, four legs and hooves, tail, and horn silhouette are inside the frame. The animal is isolated enough against open ground/water for a future faithful cutout.
-- Status: **FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING**. No PNG completion is claimed.
+## Source-verified cutout backlog
+- Hellbender: exact adult, public-domain 3072x2304 USFWS source.
+- Hornet: exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0.
+- Ibex: exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0.
+- Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `116` is completed text research, not completed images.
+- `117` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Iguana.**
+- **Next unresolved source-quality legacy audit: Impala.**

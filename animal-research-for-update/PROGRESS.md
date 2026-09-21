@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 128 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 128
+- **Completed research files:** 129 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 129
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Manta Ray / Giant Oceanic Manta Ray (*Mobula birostris*)
-- **Next pending animal:** Mantis Shrimp
-- **Latest completion:** 2026-09-21 13:00 America/Chicago
-- **Latest new-animal image status:** Manta Ray - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2048x1536 CC BY-SA 4.0 exact-*M. birostris* source was visually inspected; the tail endpoint reaches the frame boundary and adulthood/sex are not explicit. No PNG completion claimed.
-- **Latest legacy image audit:** Kookaburra - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Existing high-resolution reusable source still obscures feet and lacks explicit adulthood. An explicit-adult ADW source did not resolve strict high-resolution complete anatomy, and an explicit-adult Flickr source is All Rights Reserved.
-- **Next legacy image audit:** Leatherback Sea Turtle. Kudu is already source-verified and joins Hellbender, Hornet and Ibex in cutout/commit pending status while the GitHub writer is text-only.
+- **Most recently completed:** Mantis Shrimp / Peacock Mantis Shrimp (*Odontodactylus scyllarus*)
+- **Next pending animal:** Marlin
+- **Latest completion:** 2026-09-21 14:01 America/Chicago
+- **Latest new-animal image status:** Mantis Shrimp - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 4964x4964 CC BY-SA 4.0 exact-*O. scyllarus* Commons featured photograph was visually inspected, but the animal is emerging from a burrow and the abdomen, telson and multiple appendages are obscured. No PNG completion claimed.
+- **Latest legacy image audit:** Leatherback Sea Turtle - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Broad search found an explicit-adult 1784x1168 public-domain NOAA/Commons source and several larger reusable exact-species sources, but strict complete visibility of all flippers and tail endpoint could not be simultaneously certified. Existing 3264x2122 candidate remains unpromoted.
+- **Next legacy image audit:** Leopard. Kudu is already source-verified and joins Hellbender, Hornet and Ibex in cutout/commit pending status while the GitHub writer is text-only.
 - **Latest checkpoint:** `audits/CHECKPOINT-125.md`; next checkpoint at 150 completed research files.
 
 ## Selection and image rules
@@ -24,8 +24,9 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
-- **Manta Ray control:** giant oceanic manta *Mobula birostris*, healthy mature female, 1400.0 kg / 500.0 cm canonical disc width / 0.0 m/s unresolved maximum / 45.0 y / 0.0 PSI. Attack 42.0 / Defense 57.0 / Agility 72.0 / Stamina 89.0 / Intelligence 76.0 / Special 70.0. Mass is not converted into predator-level Attack: this giant planktivore lacks a sting or purpose-built killing bite. Telemetry supports >200 km movement in six days and 1,082 m depth, while mirror cognition remains suggestive rather than proven self-awareness.
-- **Maned Wolf control:** *Chrysocyon brachyurus*, healthy mature male, 23.0 kg / 90.0 cm shoulder / 130.0 cm head-body / 0.0 m/s unresolved maximum / 13.0 y representative lifespan / 0.0 PSI. Attack 35.0 / Defense 27.0 / Agility 78.0 / Stamina 72.0 / Intelligence 67.0 / Special 65.0. Peer-reviewed jaw modeling gives 246 N canine and 384 N carnassial occlusion forces, but these are not converted to PSI. Long legs and large ears drive grassland maneuverability/sensing, not inflated absolute power.
+- **Mantis Shrimp control:** peacock mantis shrimp *Odontodactylus scyllarus*, healthy mature large male, 0.08 kg / 15.0 cm / 0.0 m/s unresolved whole-body maximum / 6.0 y low-moderate-confidence lifespan / 0.0 PSI. Attack 34.0 / Defense 24.0 / Agility 84.0 / Stamina 50.0 / Intelligence 68.0 / Special 97.0. Measured raptorial impacts reach 400-1501 N and club speed 12-23 m/s, but these are localized appendage mechanics and do not leak into whole-body speed or large-animal Raw Power. Polarization vision and cavitation justify elite Special.
+- **Manta Ray control:** giant oceanic manta *Mobula birostris*, healthy mature female, 1400.0 kg / 500.0 cm canonical disc width / 0.0 m/s unresolved maximum / 45.0 y / 0.0 PSI. Attack 42.0 / Defense 57.0 / Agility 72.0 / Stamina 89.0 / Intelligence 76.0 / Special 70.0.
+- **Maned Wolf control:** *Chrysocyon brachyurus*, healthy mature male, 23.0 kg / 90.0 cm shoulder / 130.0 cm head-body / 0.0 m/s unresolved maximum / 13.0 y / 0.0 PSI. Attack 35.0 / Defense 27.0 / Agility 78.0 / Stamina 72.0 / Intelligence 67.0 / Special 65.0.
 - **Mandrill control:** *Mandrillus sphinx*, healthy fully mature male, 32.0 kg. Attack 47.0 / Defense 34.0 / Agility 76.0 / Stamina 60.0 / Intelligence 82.0 / Special 61.0.
 - **Manatee control:** West Indian Manatee *Trichechus manatus*, healthy mature female, 500.0 kg. Attack 36.0 / Defense 50.0 / Agility 48.0 / Stamina 78.0 / Intelligence 58.0 / Special 77.0.
 - **Magpie control:** Eurasian Magpie *Pica pica*, mature male 0.23 kg. Attack 15.0 / Defense 12.0 / Agility 84.0 / Stamina 61.0 / Intelligence 91.0 / Special 58.0.
@@ -46,12 +47,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Mandrill | 32.0 kg mature male *M. sphinx* | 47.0 | 34.0 | 76.0 | 60.0 | 82.0 | 61.0 |
 | Maned Wolf | 23.0 kg mature male *C. brachyurus* | 35.0 | 27.0 | 78.0 | 72.0 | 67.0 | 65.0 |
 | Manta Ray | 1400.0 kg mature female *M. birostris* | 42.0 | 57.0 | 72.0 | 89.0 | 76.0 | 70.0 |
+| Mantis Shrimp | 0.08 kg mature large male *O. scyllarus* | 34.0 | 24.0 | 84.0 | 50.0 | 68.0 | 97.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-125.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **150 completed research files**.
 
 ## Image pipeline status
-128 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex and Kudu have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+129 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex and Kudu have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

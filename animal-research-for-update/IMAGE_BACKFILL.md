@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 129 / 225 (through Mantis Shrimp). **Full-body transparent PNG assets verified and committed:** 0 / 129. A source-photo URL is not an approved PNG.
+**Research reports completed:** 130 / 225 (through Marlin). **Full-body transparent PNG assets verified and committed:** 0 / 130. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -51,9 +51,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Komodo Dragon | REPLACEMENT SOURCE NEEDED | Audited; explicit-adult reusable source crops rear body/tail |
 | Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult and strict complete anatomy unresolved |
 | Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 3008x2000 CC BY-SA 2.0 |
-| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** explicit-adult 1784x1168 PD NOAA source found; strict all-flipper/tail completeness not certified; larger candidates lack simultaneous adult/full-body verification |
-| Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 4355x2630 exact male; full anatomy visually confirmed, adulthood not explicit |
-| Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3332x2432 exact species PD; adulthood/sex not explicit |
+| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit-adult 1784x1168 PD NOAA source still lacks strict all-flipper/tail certification |
+| Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** reusable 4355x2630 exact male is whole-body but adulthood unstated; explicit-adult alternatives fail reuse/anatomy/resolution combination |
+| Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 3332x2432 exact species PD; adulthood/sex not explicit |
 | Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 exact species, complete standing animal; adulthood/sex not explicit |
 | Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5040x3224 exact species; shelter obscures anatomy |
 | Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5184x3456 exact male; resting pose/adulthood prevent certification |
@@ -62,24 +62,21 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Manatee | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3000x2008 PD exact Florida manatee; adult/sex metadata unresolved |
 | Mandrill | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 named alpha male CC BY-SA 3.0; strict hands/feet/short-tail completeness not visually certified |
 | Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3008x2000 exact species CC BY-SA 2.0 side view; adulthood/sex and strict tail/feet completeness unresolved |
-| Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 exact *Mobula birostris* CC BY-SA 4.0; visually inspected but tail endpoint/adulthood unresolved |
-| Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4964x4964 exact *O. scyllarus* CC BY-SA 4.0 featured photo; visually rejected for final use because burrow obscures abdomen/telson/appendages; adult/sex not explicit |
+| Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 exact *Mobula birostris* CC BY-SA 4.0; tail endpoint/adulthood unresolved |
+| Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4964x4964 exact *O. scyllarus* CC BY-SA 4.0; burrow obscures abdomen/telson/appendages |
+| Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4608x3357 exact *M. nigricans* PD NOAA; adulthood/sex not explicit; strict anatomy not certified |
 
-## 2026-09-21 Leatherback Sea Turtle legacy audit
-Broad search covered Wikimedia Commons, NOAA/USFWS material, Flickr-derived Commons files and general image discovery. The existing 3264x2122 Bernard Dupont CC BY-SA 2.0 candidate remains a useful exact-species source but still does not simultaneously establish explicit adulthood/sex and strict visibility of all flippers plus tail endpoint.
+## 2026-09-21 Leopard legacy audit
+Broad search covered Commons, Flickr, photographer and commercial image sources. The retained 4355x2630 CC BY-SA 2.0 exact male *Panthera pardus* candidate remains the best reusable whole-body source, but its metadata does not explicitly establish adulthood.
 
-A stronger maturity-explicit source was found: **LeatherbackTurtle.jpg**, 1784x1168, explicitly described as an **adult *Dermochelys coriacea*** at Las Baulas National Marine Park, Costa Rica, sourced from NOAA and public domain as a U.S. federal work. Source page: https://commons.wikimedia.org/wiki/File:LeatherbackTurtle.jpg . Original image: https://upload.wikimedia.org/wikipedia/commons/9/9b/LeatherbackTurtle.jpg . This clears the preferred 1600px threshold and has strong adult/reuse provenance, but strict complete visibility of all four flippers and the tail endpoint could not be certified in this run, so it is not promoted to full-body verified status.
+A Commons source explicitly labeled **adult leopard** was found at 1367x1620 under CC BY 2.0: https://commons.wikimedia.org/wiki/File:Panthera_pardus_-Vumbura_Plains,_Botswana_-adult-8.jpg . Its original is https://live.staticflickr.com/6012/5906015496_caebde2ae9_o.jpg . It clears 1600px only narrowly and its tree-resting pose does not improve strict whole-body anatomy enough to replace the retained candidate.
 
-Additional larger reusable exact-species sources were checked, including 5184x3456 CC BY-SA 2.0 `Leatherback Sea Turtle (17665415746).jpg`, but adulthood and complete anatomy were not simultaneously explicit. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed. Next unresolved legacy audit: **Leopard**.
+A stronger metadata match exists commercially at AfriPics: an explicitly **adult male** *P. pardus* side-view image, 5760x3840, https://www.afripics.com/image/detail/side-view-of-an-adult-male-leopard-panthera-pardus-on-the-move . It is a licensed commercial photograph and redistribution permission for this project was not established, so it was not downloaded, redistributed or promoted. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. Next unresolved legacy audit: **Lionfish**.
 
-## 2026-09-21 Mantis Shrimp new-animal image
-A high-resolution featured photograph was inspected: **Camarón mantis (Odontodactylus scyllarus), Anilao, Filipinas, 2023-08-24, DD 164.jpg**, 4964x4964, exact species, photographed by Diego Delso and licensed CC BY-SA 4.0.
+## 2026-09-21 Marlin new-animal image
+Primary candidate: **Atlantic blue marlin.jpg**, 4608x3357, exact *Makaira nigricans*, NOAA public-domain U.S. federal work. Source page: https://commons.wikimedia.org/wiki/File:Atlantic_blue_marlin.jpg . Original image: https://upload.wikimedia.org/wikipedia/commons/9/92/Atlantic_blue_marlin.jpg . The source is high-resolution and reusable, but it does not explicitly establish adulthood or sex, and strict complete-fin/tail-tip certification was not promoted this run.
 
-Source page: https://commons.wikimedia.org/wiki/File:Camar%C3%B3n_mantis_(Odontodactylus_scyllarus),_Anilao,_Filipinas,_2023-08-24,_DD_164.jpg
-
-Original image: https://upload.wikimedia.org/wikipedia/commons/6/63/Camar%C3%B3n_mantis_%28Odontodactylus_scyllarus%29%2C_Anilao%2C_Filipinas%2C_2023-08-24%2C_DD_164.jpg
-
-Visual inspection rejects it as a finished source: the animal is looking outward from a burrow, leaving the abdomen, telson and multiple limbs hidden. Adulthood and sex are not explicit. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
+Alternate candidate: IFREMER **Marlin bleu (Makaira nigricans) (Ifremer 00761-87302).jpg**, 4032x3024, CC BY 4.0. Source page: https://commons.wikimedia.org/wiki/File:Marlin_bleu_(Makaira_nigricans)_(Ifremer_00761-87302).jpg . Original image: https://upload.wikimedia.org/wikipedia/commons/8/8b/Marlin_bleu_%28Makaira_nigricans%29_%28Ifremer_00761-87302%29.jpg . IFREMER notes an associated background-free PNG dataset, but adulthood and sex remain unstated. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -88,7 +85,7 @@ Visual inspection rejects it as a finished source: the animal is looking outward
 - Kudu: explicit adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `129` is completed text research, not completed images.
+- `130` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Leopard.**
+- **Next unresolved source-quality legacy audit: Lionfish.**

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 120 / 225 (through Llama). **Full-body transparent PNG assets verified and committed:** 0 / 120. A source-photo URL is not an approved PNG.
+**Research reports completed:** 121 / 225 (through Lobster). **Full-body transparent PNG assets verified and committed:** 0 / 121. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -41,9 +41,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4320x2432 exact *I. iguana*, explicit large adult male; strict tail/all-feet not certified |
 | Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5910x3940 exact male, complete anatomy; adulthood not explicit |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; exact black-backed jackal sources, adulthood/canonical male/full-body strictness not simultaneous |
-| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** 5472x3648 CC BY-SA 2.0 exact male Pantanal walking source improves resolution, but adulthood is not explicit and strict complete tail/feet framing cannot be certified from source metadata alone |
-| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** tail hidden/rear feet unclear; adult/sex not explicit |
-| Kangaroo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Every foot/tail endpoint and adulthood not strict |
+| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5472x3648 exact male Pantanal source, adulthood/strict tail-feet unresolved |
+| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** explicit adult-male source is only 337x335; 4288x2848 alpha-male source is a head portrait; 2664x4000 CC0 exact-species source lacks explicit adulthood/sex and does not resolve strict full-body verification |
+| Kangaroo | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** every foot/tail endpoint and adulthood not strict |
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female; adulthood and entire head-tail silhouette not verified |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit male source clips appendage tips |
 | Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact species; adulthood/sex/every-toe unresolved |
@@ -55,22 +55,27 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male *P. pardus*, CC BY-SA 2.0; full anatomy visually confirmed, adulthood not explicit |
 | Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3332x2432 exact *P. volitans* Public Domain photo with complete visible fish silhouette; adulthood and sex not explicit |
 | Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 exact *Lama glama* CC BY-SA 3.0 zoo photo, visually complete standing animal; adulthood and sex not explicit |
+| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5040x3224 exact *H. americanus* CC BY 2.0 source; direct inspection shows rock/shelter obscuring body and appendages; adulthood/sex not explicit |
 
-## 2026-09-21 Jaguar legacy audit
-Broad search covered Commons, general web image discovery and Pantanal male sources. A strong exact-species source is Bernard Dupont's `Jaguar (Panthera onca) male walking along the river bank ... (28544269923).jpg`: **5472x3648**, CC BY-SA 2.0, Flickr license independently reviewed by Commons, explicitly male, photographed at Rio São Lourenço in the Pantanal. Source page: https://commons.wikimedia.org/wiki/File:Jaguar_(Panthera_onca)_male_walking_along_the_river_bank_..._(28544269923).jpg . Original: https://upload.wikimedia.org/wikipedia/commons/9/91/Jaguar_%28Panthera_onca%29_male_walking_along_the_river_bank_..._%2828544269923%29.jpg .
+## 2026-09-21 Japanese Macaque legacy audit
+Broad search covered Commons and general web-image discovery with emphasis on exact *Macaca fuscata*, adult male metadata and complete anatomy. Three useful source classes were checked:
 
-This is higher resolution than the existing 4582x3054 Charles J. Sharp male candidate and has excellent provenance, but Commons does not explicitly label the specimen adult. Strict complete tail and all-foot framing also cannot be certified from metadata alone, so the mandatory adult/full-body standard is not falsely upgraded. The existing Jaguar report remains truthful at `SOURCE FOUND - FULL-BODY NOT VERIFIED`; no PNG completion is claimed.
+- `Macaca fuscata.jpg` explicitly identifies an **adult male**, but the original is only **337x335**, far below the preferred 1600+ threshold and not suitable as the primary source.
+- `Japanese Macaque Fuscata Image 370.jpg` is **4288x2848**, CC BY-SA 3.0 and explicitly identifies the troop's alpha male, but Commons categorizes it as a head image and the framing is a portrait rather than mandatory whole-body anatomy.
+- `Macaca fuscata Japanese macaque.jpg` is **2664x4000**, exact species and unusually permissive **CC0**, but the source metadata does not establish adulthood or sex. It therefore cannot replace the existing candidate as a strictly verified canonical adult-male full-body source.
 
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Source-quality audit advances to Japanese Macaque.
+The existing Japanese Macaque report already records a reusable candidate page/direct URL and a truthful `SOURCE FOUND - FULL-BODY NOT VERIFIED` status. No weaker or cropped candidate is promoted merely for resolution. No PNG completion is claimed.
 
-## 2026-09-21 Llama new-animal image
-- Source page: https://commons.wikimedia.org/wiki/File:Zoo_Llama.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/0/0c/Zoo_Llama.jpg
-- Resolution: **4000x3000** JPEG.
-- Taxon: exact domestic llama *Lama glama*.
-- Provenance: real photograph, own work by Commons user Woodlot; **CC BY-SA 3.0 / GFDL**.
-- Visual result: inspected search image shows a single standing llama with head, torso, four legs/feet and tail region inside the frame.
-- Adult/sex verification: source metadata does not explicitly establish adulthood or sex. A separate explicitly male Commons image is only 1447x1062 and includes a Labrador, so it is rejected for the primary image standard.
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Source-quality audit advances to **Kangaroo**.
+
+## 2026-09-21 Lobster new-animal image
+- Resolved taxon: American lobster, *Homarus americanus*.
+- Source page: https://commons.wikimedia.org/wiki/File:American_lobster,_Homarus_americanus_in_Newfoundland,_Canada_(21184223265).jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/2/2b/American_lobster%2C_Homarus_americanus_in_Newfoundland%2C_Canada_%2821184223265%29.jpg
+- Resolution: **5040x3224** JPEG.
+- Provenance: Derek Keats photograph transferred from Flickr; **CC BY 2.0**, independently license-reviewed by Commons.
+- Visual result: exact-species real animal, but direct inspection shows the lobster partly inside a rocky shelter with substantial body/appendage overlap. It fails the mandatory complete-body standard despite excellent resolution and provenance.
+- Adult/sex verification: not explicit.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
@@ -80,7 +85,7 @@ This is higher resolution than the existing 4582x3054 Charles J. Sharp male cand
 - Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `120` is completed text research, not completed images.
+- `121` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Japanese Macaque.**
+- **Next unresolved source-quality legacy audit: Kangaroo.**

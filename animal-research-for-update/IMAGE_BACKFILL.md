@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 127 / 225 (through Maned Wolf). **Full-body transparent PNG assets verified and committed:** 0 / 127. A source-photo URL is not an approved PNG.
+**Research reports completed:** 128 / 225 (through Manta Ray). **Full-body transparent PNG assets verified and committed:** 0 / 128. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -48,10 +48,10 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit large male source clips appendage tips |
 | Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; high-res exact-species and explicit-adult sources not yet simultaneous with strict anatomy |
 | Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 2407x3496 exact male source has branch-obscured lower anatomy |
-| Komodo Dragon | REPLACEMENT SOURCE NEEDED | **AUDITED:** 2250x3000 reusable source explicitly says adult but visual inspection shows rear body/tail cropped; broad Commons search did not yet verify adult + complete anatomy simultaneously |
-| Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 4000x6000 exact species; perch obscures feet; adulthood/sex not explicit |
+| Komodo Dragon | REPLACEMENT SOURCE NEEDED | Audited; explicit-adult reusable source crops rear body/tail |
+| Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** existing 4000x6000 reusable source obscures feet and lacks explicit adulthood; explicit-adult alternatives found but are unsuitable/licensing-limited |
 | Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 3008x2000 CC BY-SA 2.0 |
-| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3264x2122 exact species; adult/sex/flipper/tail unresolved |
+| Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 3264x2122 exact species; adult/sex/flipper/tail unresolved |
 | Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male; full anatomy visually confirmed, adulthood not explicit |
 | Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3332x2432 exact species PD; adulthood/sex not explicit |
 | Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 exact species, complete standing animal; adulthood/sex not explicit |
@@ -62,24 +62,25 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Manatee | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3000x2008 PD exact Florida manatee; adult/sex metadata unresolved |
 | Mandrill | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 named alpha male CC BY-SA 3.0; strict hands/feet/short-tail completeness not visually certified |
 | Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3008x2000 exact species CC BY-SA 2.0 side view; adulthood/sex and strict tail/feet completeness unresolved |
+| Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 exact *Mobula birostris* CC BY-SA 4.0; visually inspected but tail endpoint/adulthood unresolved |
 
-## 2026-09-21 Komodo Dragon legacy audit
-Broad image search covered Commons, general image search and high-resolution wild Komodo National Park material. The strongest maturity-explicit reusable source found was **Adult Komodo.jpg**, exact *Varanus komodoensis*, **2250x3000**, CC BY-SA 3.0/GFDL, with metadata explicitly stating **adult**.
+## 2026-09-21 Kookaburra legacy audit
+Broad search covered Wikimedia Commons, Animal Diversity Web, Australian Museum, Flickr and general image discovery. The existing report's 4000x6000 CC BY-SA 4.0 exact-*Dacelo novaeguineae* source remains unsuitable for completion because the perch obscures the feet/toes and adulthood is not explicit.
 
-Source page: https://commons.wikimedia.org/wiki/File:Adult_Komodo.jpg
+A stronger maturity-explicit source was found at Animal Diversity Web: James Dowling-Healey's exact-species photograph is explicitly tagged **adult/sexually mature** and is licensed CC BY-NC-SA 3.0, but it did not resolve the strict high-resolution complete-feet requirement. Source page: https://animaldiversity.org/collections/contributors/james_dowlinghealey/Kookaburra/
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/4/4b/Adult_Komodo.jpg
+An explicitly titled adult exact-species Flickr photograph by David Tattersley was also found, but Flickr marks it **All rights reserved**, so it cannot be redistributed as the staging asset. Source page: https://www.flickr.com/photos/129081014@N03/53328669632/ . The visible direct image endpoint was https://live.staticflickr.com/65535/53328669632_2bd1068dac.jpg, but reuse is not authorized.
 
-The original was visually inspected rather than accepted from metadata. It fails `IMAGE_REQUIREMENTS.md`: the photograph is framed vertically around the head/front body and the rear body/tail are outside the frame. The Commons Komodo National Park category was also searched broadly and contains many 3000-6000px exact-species photographs, but no inspected candidate in this run simultaneously established adulthood and strict complete head-to-tail/all-toes framing. Status is therefore tightened to **`REPLACEMENT SOURCE NEEDED`**. No PNG completion claimed. Next unresolved legacy audit: **Kookaburra**.
+A 5525x3517 featured/quality Commons exact-species photograph (https://commons.wikimedia.org/wiki/File:Dacelo_novaeguineae_-_Vogelpark_Steinen_01.jpg) is reusable under CC BY-SA 3.0, but Commons itself categorizes it among captive heads and it does not solve the whole-body requirement. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed. Next unresolved legacy audit: **Leatherback Sea Turtle**; Kudu is already source-verified and remains cutout/commit pending.
 
-## 2026-09-21 Maned Wolf new-animal image
-A reusable exact-species side-view candidate, **Maned wolf (Chrysocyon brachyurus) (92775757).jpg**, is **3008x2000**, CC BY-SA 2.0, originally posted by Pascal Vuylsteker to Flickr and license-reviewed on Commons.
+## 2026-09-21 Manta Ray new-animal image
+The retained candidate is **Mobula birostris 427433779.jpg**, exact giant oceanic manta ray, 2048x1536, CC BY-SA 4.0, sourced from iNaturalist and license-reviewed on Wikimedia Commons.
 
-Source page: https://commons.wikimedia.org/wiki/File:Maned_wolf_(Chrysocyon_brachyurus)_(92775757).jpg
+Source page: https://commons.wikimedia.org/wiki/File:Mobula_birostris_427433779.jpg
 
-Original image: https://live.staticflickr.com/39/92775757_c059ff861e_o.jpg
+Original image: https://upload.wikimedia.org/wikipedia/commons/5/5d/Mobula_birostris_427433779.jpg
 
-The source has strong taxon, resolution and reuse provenance, but its metadata does not explicitly establish adulthood or sex, and strict visibility of every foot and the complete tail endpoint was not certified. A separate Animal Diversity Web image explicitly marks its *C. brachyurus* subject as **adult/sexually mature**, but it is CC BY-NC-SA 3.0 and did not provide a clearly superior high-resolution strict-complete-body candidate in this run. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
+The original was visually inspected. Both broad pectoral fins and the cephalic region are visible, but the long tail reaches the lower frame boundary and its endpoint cannot be certified as complete; adulthood and sex are not explicit in metadata. A second 2048x1536 CC BY 4.0 candidate, `Mobula birostris 179661782.jpg`, was also visually inspected and rejected because a pectoral tip is clipped at the top edge. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -88,7 +89,7 @@ The source has strong taxon, resolution and reuse provenance, but its metadata d
 - Kudu: explicit adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `127` is completed text research, not completed images.
+- `128` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Kookaburra.**
+- **Next unresolved source-quality legacy audit: Leatherback Sea Turtle.**

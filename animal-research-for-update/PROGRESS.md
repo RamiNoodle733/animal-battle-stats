@@ -1,18 +1,18 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 124 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 124
+- **Completed research files:** 125 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 125
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Magpie / Eurasian Magpie (*Pica pica*)
-- **Next pending animal:** Manatee
-- **Latest completion:** 2026-09-21 09:00 America/Chicago
-- **Latest new-animal image status:** Magpie - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *Pica pica*, 5820x4160, CC BY-SA 4.0. Original visually inspected; adult/sex metadata and strict long-tail endpoint completeness remain unresolved. No PNG completion claimed.
-- **Latest legacy image audit:** King Crab - Red King Crab *Paralithodes camtschaticus*. Existing large-male NOAA source still clips appendage tips. An explicitly adult-male Bradley G. Stevens/ARMS alternative is only 1451x1200 and also clips walking-leg tips. A 3000x2003 public-domain USFWS source lacks adult/sex metadata. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Kiwi. Hellbender, Hornet, Ibex and Kudu remain source-verified cutout/commit pending while the GitHub writer is text-only.
-- **Latest checkpoint:** `audits/CHECKPOINT-100.md`; next checkpoint at 125 completed research files.
+- **Most recently completed:** Manatee / West Indian Manatee (*Trichechus manatus*)
+- **Next pending animal:** Mandrill
+- **Latest completion:** 2026-09-21 10:00 America/Chicago
+- **Latest new-animal image status:** Manatee - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact Florida manatee *T. m. latirostris*, 3000x2008, public-domain USFWS. Species/provenance are strong; adulthood and sex are not explicit, so no PNG completion is claimed.
+- **Latest legacy image audit:** Kiwi - North Island Brown Kiwi *Apteryx mantelli*. 4608x3456 CC BY 2.0 exact-species Commons candidate has strong resolution/reuse but lacks explicit adult/sex metadata. New Zealand Birds Online provides explicit adult CC-BY 4.0 images, but strict high-resolution original plus every-foot/toe verification was not simultaneously established. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Next legacy image audit:** Koala. Hellbender, Hornet, Ibex and Kudu remain source-verified cutout/commit pending while the GitHub writer is text-only.
+- **Latest checkpoint:** `audits/CHECKPOINT-125.md`; next checkpoint at 150 completed research files.
 
 ## Selection and image rules
 Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosing the first roster animal without a completed staging report. `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Research completion and image completion are separate counts. A URL, JPEG, candidate PNG or uninspected cutout is not a completed image.
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
+- **Manatee control:** West Indian Manatee *Trichechus manatus*, healthy mature female, 500.0 kg / 300.0 cm / 6.7 m/s very-short burst / 55.0 y representative lifespan / 0.0 PSI. Attack 36.0 / Defense 50.0 / Agility 48.0 / Stamina 78.0 / Intelligence 58.0 / Special 77.0. Large mass is not treated as weaponry; telemetry-backed migration supports Stamina while low metabolic output limits high-output interpretation. Whole-body vibrissal hydrodynamic sensing drives Special/Senses.
 - **Magpie control:** Eurasian Magpie *Pica pica*, healthy mature male, 0.23 kg / 48.0 cm total length / 0.0 m/s unresolved maximum / 5.0 y representative lifespan / 0.0 PSI. Attack 15.0 / Defense 12.0 / Agility 84.0 / Stamina 61.0 / Intelligence 91.0 / Special 58.0. Elite cognition is supported by species-specific cache-memory, object-permanence and retrieval-learning experiments but is deliberately prevented from inflating absolute physical power.
 - **Macaw control:** Scarlet Macaw *Ara macao*, mature adult, 1.2 kg. Attack 24.0 / Defense 17.0 / Agility 86.0 / Stamina 65.0 / Intelligence 86.0 / Special 64.0.
 - **Lynx control:** Eurasian lynx *Lynx lynx*, mature male 24.0 kg. Attack 48.0 / Defense 31.0 / Agility 85.0 / Stamina 68.0 / Intelligence 67.0 / Special 66.0.
@@ -42,12 +43,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Lynx | 24.0 kg mature male *L. lynx* | 48.0 | 31.0 | 85.0 | 68.0 | 67.0 | 66.0 |
 | Macaw | 1.2 kg mature adult *A. macao* | 24.0 | 17.0 | 86.0 | 65.0 | 86.0 | 64.0 |
 | Magpie | 0.23 kg mature male *P. pica* | 15.0 | 12.0 | 84.0 | 61.0 | 91.0 | 58.0 |
+| Manatee | 500.0 kg mature female *T. manatus* | 36.0 | 50.0 | 48.0 | 78.0 | 58.0 | 77.0 |
 
 ## Checkpoints
-`audits/CHECKPOINT-100.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **125 completed research files**.
+`audits/CHECKPOINT-125.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **150 completed research files**.
 
 ## Image pipeline status
-124 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex and Kudu have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+125 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex and Kudu have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

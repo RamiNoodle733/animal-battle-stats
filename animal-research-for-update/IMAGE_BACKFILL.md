@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 131 / 225 (through Meerkat). **Full-body transparent PNG assets verified and committed:** 0 / 131. A source-photo URL is not an approved PNG.
+**Research reports completed:** 132 / 225 (through Megalodon). **Full-body transparent PNG assets verified and committed:** 0 / 132. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -53,9 +53,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 3008x2000 CC BY-SA 2.0 |
 | Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit-adult 1784x1168 PD NOAA source still lacks strict all-flipper/tail certification |
 | Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; reusable 4355x2630 exact male is whole-body but adulthood unstated |
-| Lionfish | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | **AUDITED:** USGS/NOAA public-domain source explicitly adult, ~250 mm TL; full silhouette visible; binary cutout pending |
-| Llama | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 4000x3000 exact species, complete standing animal; adulthood/sex not explicit |
-| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5040x3224 exact species; shelter obscures anatomy |
+| Lionfish | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | USGS/NOAA PD source explicitly adult, ~250 mm TL; full silhouette visible |
+| Llama | LICENSE UNVERIFIED - DO NOT COMMIT | **AUDITED:** 3436x2290 exact adult male full-body commercial source found; repository redistribution right not acquired. Reusable 4000x3000 source lacks explicit adulthood/sex. |
+| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 5040x3224 exact species; shelter obscures anatomy |
 | Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5184x3456 exact male; resting pose/adulthood prevent certification |
 | Macaw | REPLACEMENT SOURCE NEEDED | 3000x2083 exact *Ara macao* candidate visually rejected as close-up |
 | Magpie | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5820x4160 exact *Pica pica*; adult/sex and strict tail-tip completeness unresolved |
@@ -66,12 +66,16 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4964x4964 exact *O. scyllarus* CC BY-SA 4.0; burrow obscures abdomen/telson/appendages |
 | Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4608x3357 exact *M. nigricans* PD NOAA; adulthood/sex not explicit; strict anatomy not certified |
 | Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3648x4642 exact *S. suricatta* CC BY-SA 4.0 sentinel; adulthood/sex and strict toe/tail-tip certification unresolved |
+| Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied; no illustration/render/AI substitute accepted |
+
+## 2026-09-21 Llama legacy audit
+The existing 4000x3000 exact-*Lama glama* standing candidate remains visually useful but does not explicitly establish adulthood or sex. Broader search found a materially stronger metadata match at Depositphotos: **Adult male white Llama (Lama glama) full body**, offered up to **3436x2290**. Source page: https://depositphotos.com/photo/llama-37271063.html . The page explicitly states adult, male, exact species and full body, but it is a commercial stock asset and repository redistribution rights have not been acquired in this workflow. A preview or watermarked stock image must not be committed. Result: **`LICENSE UNVERIFIED - DO NOT COMMIT`** for the stronger candidate, while the older reusable source remains adulthood-unverified. This audit does not count as a completed image. Next unresolved legacy audit: **Lobster**.
+
+## 2026-09-21 Megalodon new-animal image
+`IMAGE_REQUIREMENTS.md` requires a real photograph of a healthy adult and explicitly rejects illustrations, AI images and 3D renders. †*Otodus megalodon* became extinct approximately 3.6 million years ago, so no compliant real adult photograph exists. Scientific reconstructions, fossil teeth and skeletal material are useful evidence but cannot truthfully satisfy the current image rule. Result: **`REPLACEMENT SOURCE NEEDED`** with a structural extinct-taxon policy blocker. No fake photographic source or PNG completion is claimed.
 
 ## 2026-09-21 Lionfish legacy audit
-A stronger government source replaces the previous adulthood-unverified Commons candidate. USGS publishes a photograph by NOAA National Ocean Service ecologist James Morris, Jr. and explicitly describes the subject as an **adult lionfish, approximately 250 mm total length**. Source page: https://www.usgs.gov/media/images/lionfish-0 . Direct original link exposed by the USGS page: https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/lionfishadult_MorrisLG.jpg . The page marks the photograph **Public Domain**. Visual review shows the complete fish silhouette, including head, body, caudal fin and extended major fins/spines. Sex is not supplied. Result advances to **`FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`**. Current GitHub writer remains text-only, so no transparent PNG is fabricated. Next unresolved legacy audit: **Llama**.
-
-## 2026-09-21 Meerkat new-animal image
-Primary candidate: **Meerkat (Suricata suricatta) sentinel.jpg**, 3648x4642, exact *Suricata suricatta*, photographed 22 August 2026 at Kalahari Trails & Meerkat Sanctuary by Bernard DUPONT. Source page: https://commons.wikimedia.org/wiki/File:Meerkat_(Suricata_suricatta)_sentinel.jpg . Original image: https://upload.wikimedia.org/wikipedia/commons/0/0b/Meerkat_%28Suricata_suricatta%29_sentinel.jpg . License: CC BY-SA 4.0, independently Flickr-reviewed by Wikimedia Commons. The upright image is visually promising for complete-body extraction, but adulthood and sex are not explicit and strict toe/tail-tip certification was not promoted. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
+A stronger government source replaces the previous adulthood-unverified Commons candidate. USGS publishes a photograph by NOAA National Ocean Service ecologist James Morris, Jr. and explicitly describes the subject as an **adult lionfish, approximately 250 mm total length**. Source page: https://www.usgs.gov/media/images/lionfish-0 . Direct original link exposed by the USGS page: https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/lionfishadult_MorrisLG.jpg . The page marks the photograph **Public Domain**. Visual review shows the complete fish silhouette, including head, body, caudal fin and extended major fins/spines. Sex is not supplied. Result advances to **`FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`**. Current GitHub writer remains text-only, so no transparent PNG is fabricated.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -81,7 +85,8 @@ Primary candidate: **Meerkat (Suricata suricatta) sentinel.jpg**, 3648x4642, exa
 - Lionfish: explicitly adult ~250 mm lionfish, public-domain USGS/NOAA source; complete silhouette visually verified.
 
 ## Count and blocker
-- `131` is completed text research, not completed images.
+- `132` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Llama.**
+- Megalodon exposes a separate policy blocker: an extinct animal cannot have a real adult photograph under the current mandatory image standard.
+- **Next unresolved source-quality legacy audit: Lobster.**

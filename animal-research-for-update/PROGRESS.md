@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 113 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 113
+- **Completed research files:** 114 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 114
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Koala (*Phascolarctos cinereus*)
-- **Next pending animal:** Komodo Dragon
-- **Latest completion:** 2026-09-20 22:01 America/Chicago
-- **Latest new-animal image status:** Koala - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Preferred reusable candidate is `Friendly Male Koala.JPG`, exact *P. cinereus*, explicitly male, 2407x3496, CC BY-SA 3.0. Direct visual inspection shows substantial body framing, but tree/body overlap prevents strict certification of every foot/digit and the vestigial tail region; adulthood is not explicit. No PNG completion claimed.
-- **Latest legacy image audit:** Hummingbird - stronger 6000x4000 Public Domain USFWS exact female Ruby-throated Hummingbird (*Archilochus colubris*) found, plus several reusable female alternatives. Sex, taxon, resolution and provenance are strong, but adulthood is not explicit and perched/feeding poses do not simultaneously establish strict wing/feet/tail completeness under the mandatory rule.
-- **Next legacy image audit:** Huntsman Spider. Hellbender and Hornet are already source-verified and remain cutout/commit pending while the writer is text-only.
+- **Most recently completed:** Komodo Dragon (*Varanus komodoensis*)
+- **Next pending animal:** Kookaburra
+- **Latest completion:** 2026-09-20 22:57 America/Chicago
+- **Latest new-animal image status:** Komodo Dragon - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Preferred wild exact-species Commons source has useful full-animal framing, but adulthood/sex and strict every-toe/tail-tip completeness are not simultaneously certified. Explicitly male 3264x2448 Raja sources were rejected because metadata identifies him as young. No PNG completion claimed.
+- **Latest legacy image audit:** Huntsman Spider - broad search again found the exact *Heteropoda maxima* adult-female Commons/BOLD source, but its original is only 640x480. Other larger web candidates were either subadult, taxonomically qualified (`cf. maxima`), weakly licensed, or lacked explicit adulthood. Status remains `REPLACEMENT SOURCE NEEDED` rather than weakening the mandatory standard.
+- **Next legacy image audit:** Hyena. Hellbender and Hornet are already source-verified and remain cutout/commit pending while the writer is text-only.
 - **Latest checkpoint:** `audits/CHECKPOINT-100.md`; next checkpoint at 125 completed research files.
 
 ## Selection and image rules
@@ -24,8 +24,9 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
-- **Koala control:** *Phascolarctos cinereus*, healthy fully mature southern male 12.0 kg / 78.0 cm head-body length. `height_cm` 0.0; `speed_mps` 8.3 from Queensland Government's up-to-30-km/h disturbed bounding gallop; `lifespan_years` 15.0; `bite_force_psi` 0.0. Attack 28.0 / Defense 23.0 / Agility 54.0 / Stamina 32.0 / Intelligence 49.0 / Special 62.0. Strong arboreal grip and claws do not erase low absolute mass or low-energy physiology; Eucalyptus detoxification and low-frequency bellowing are concentrated in Special rather than physical scores.
-- **Kiwi control:** southern brown kiwi / tokoeka *Apteryx australis*, healthy fully mature female 3.1 kg / 45.0 cm. `height_cm` 0.0; `speed_mps` 0.0; `lifespan_years` 45.0; `bite_force_psi` 0.0. Attack 22.0 / Defense 20.0 / Agility 55.0 / Stamina 62.0 / Intelligence 51.0 / Special 78.0.
+- **Komodo Dragon control:** *Varanus komodoensis*, healthy fully mature male 85.0 kg / 259.0 cm total length. `height_cm` 0.0; `speed_mps` 5.6 from Smithsonian's brief 20 km/h upper value; `lifespan_years` 30.0; `bite_force_psi` 0.0. Attack 62.0 / Defense 44.0 / Agility 59.0 / Stamina 53.0 / Intelligence 63.0 / Special 88.0. Cutting/pulling mechanics and venom are separated from unsupported crushing-bite mythology; adult cranial osteoderms improve Defense without being treated as full-body armor.
+- **Koala control:** *Phascolarctos cinereus*, healthy fully mature southern male 12.0 kg / 78.0 cm head-body length. Attack 28.0 / Defense 23.0 / Agility 54.0 / Stamina 32.0 / Intelligence 49.0 / Special 62.0.
+- **Kiwi control:** southern brown kiwi / tokoeka *Apteryx australis*, healthy fully mature female 3.1 kg / 45.0 cm. Attack 22.0 / Defense 20.0 / Agility 55.0 / Stamina 62.0 / Intelligence 51.0 / Special 78.0.
 - **King Crab control:** red king crab *Paralithodes camtschaticus*, healthy hard-shelled mature male 3.1 kg / 17.4 cm carapace length. Attack 30.0 / Defense 44.0 / Agility 26.0 / Stamina 55.0 / Intelligence 31.0 / Special 49.0.
 - **King Cobra control:** Northern King Cobra *Ophiophagus hannah* sensu stricto, healthy mature male 8.0 kg / 360.0 cm total length. Attack 59.0 / Defense 25.0 / Agility 76.0 / Stamina 52.0 / Intelligence 58.0 / Special 94.0.
 - **Kangaroo control:** red kangaroo *Osphranter rufus*, healthy fully mature male 80.0 kg. Attack 52.0 / Defense 38.0 / Agility 80.0 / Stamina 86.0 / Intelligence 51.0 / Special 68.0.
@@ -41,12 +42,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| King Crab | 3.1 kg mature male *P. camtschaticus* | 30.0 | 44.0 | 26.0 | 55.0 | 31.0 | 49.0 |
 | Kiwi | 3.1 kg mature female *A. australis* | 22.0 | 20.0 | 55.0 | 62.0 | 51.0 | 78.0 |
 | Koala | 12.0 kg southern mature male *P. cinereus* | 28.0 | 23.0 | 54.0 | 32.0 | 49.0 | 62.0 |
+| Komodo Dragon | 85.0 kg mature male *V. komodoensis* | 62.0 | 44.0 | 59.0 | 53.0 | 63.0 | 88.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-100.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **125 completed research files**.
 
 ## Image pipeline status
-113 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+114 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

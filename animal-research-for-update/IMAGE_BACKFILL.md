@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 124 / 225 (through Magpie). **Full-body transparent PNG assets verified and committed:** 0 / 124. A source-photo URL is not an approved PNG.
+**Research reports completed:** 125 / 225 (through Manatee). **Full-body transparent PNG assets verified and committed:** 0 / 125. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -46,8 +46,8 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Kangaroo | REPLACEMENT SOURCE NEEDED | Exact adult male ADW visually complete but only ~600px; high-res candidate lacks explicit adulthood |
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6049x4037 exact female CC BY-SA 2.0; adulthood and complete coiled tail unresolved |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit large male source clips appendage tips; adult-male alternative only 1451x1200 and also clips legs |
-| Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact species; adulthood/sex/every-toe unresolved |
-| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male; tree overlap blocks feet/digits; adulthood not explicit |
+| Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4608x3456 reusable exact-species source lacks explicit adult/sex; NZ Birds Online has explicit adult CC-BY 4.0 sources but strict full-body/original-resolution verification remains unresolved |
+| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact male; tree overlap blocks feet/digits; adulthood not explicit |
 | Komodo Dragon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Wild exact species; adulthood/sex/all-toe/tail-tip unresolved |
 | Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x6000 exact species; perch obscures feet; adulthood/sex not explicit |
 | Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 3008x2000 CC BY-SA 2.0 |
@@ -59,34 +59,33 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5184x3456 exact male; resting pose/adulthood prevent certification |
 | Macaw | REPLACEMENT SOURCE NEEDED | 3000x2083 exact *Ara macao* candidate visually rejected as close-up |
 | Magpie | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5820x4160 exact *Pica pica*, CC BY-SA 4.0; adult/sex and strict tail-tip completeness unresolved |
+| Manatee | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3000x2008 PD exact Florida manatee; adult/sex metadata unresolved |
 
-## 2026-09-21 King Crab legacy audit
-Broad discovery rechecked Commons, NOAA/USFWS, ARMS and photographer material for Red King Crab, *Paralithodes camtschaticus*. The existing NOAA `fish1740` source remains useful because it explicitly identifies a **large male**, but direct framing clips multiple appendage tips and therefore fails the mandatory whole-animal rule.
+## 2026-09-21 Kiwi legacy audit
+Broad discovery rechecked exact North Island Brown Kiwi, *Apteryx mantelli*, across Commons and New Zealand conservation/bird references rather than accepting a generic kiwi.
 
-Existing source page: https://commons.wikimedia.org/wiki/File:Fish1740_-_Flickr_-_NOAA_Photo_Library.jpg
+A strong reusable Commons source is **4608x3456**, CC BY 2.0, photographed at Rainbow Springs Kiwi Wildlife Park in Rotorua. Commons independently reviewed the original Flickr license. It is exact *A. mantelli* and high resolution, but the page does not explicitly establish adulthood or sex, so dimensions and taxon alone cannot promote it.
 
-Existing original image: https://upload.wikimedia.org/wikipedia/commons/1/19/Fish1740_-_Flickr_-_NOAA_Photo_Library.jpg
+Source page: https://commons.wikimedia.org/wiki/File:Apteryx_mantelli_-Rotorua,_North_Island,_New_Zealand-8a.jpg
 
-A second biologically strong source from red-king-crab researcher Bradley G. Stevens / Arctic Register of Marine Species explicitly identifies an **adult male** and shows a dorsal specimen, but the available image is only **1451x1200** and visual discovery shows walking-leg tips clipped at the frame. It is therefore not a replacement.
+Original image: https://upload.wikimedia.org/wikipedia/commons/0/02/Apteryx_mantelli_-Rotorua%2C_North_Island%2C_New_Zealand-8a.jpg
 
-Adult-male source page: https://www.marinespecies.org/arms/aphia.php?p=image&pic=141783
+New Zealand Birds Online provides stronger biological metadata. Its *A. mantelli* account explicitly labels multiple photographs as **Adult**, including a Rotorua Department of Conservation photograph, and licenses the lead adult image CC-BY 4.0. The account also confirms the species has no tail, so strict anatomy for this bird means bill/head/body plus both legs, feet and toes, not a nonexistent tail. However, the available discovery path did not permit strict inspection of a sufficiently large original adult image to certify every toe/foot and source resolution simultaneously.
 
-A **3000x2003 public-domain USFWS** exact-species image was also verified through both Commons and FWS, but its metadata does not establish adulthood/sex, so it cannot solve the current strictness problem merely by being higher resolution.
+Adult-reference page: https://www.nzbirdsonline.org.nz/species/north-island-brown-kiwi
 
-USFWS source page: https://www.fws.gov/media/red-king-crab
+An explicitly male five-year-old public-domain *A. mantelli* source also exists on Commons (`TeTuatahianui.jpg`), but its original is only 994x1325 and the nest pose is unsuitable for the mandatory full-body standard.
 
-Commons provenance page: https://commons.wikimedia.org/wiki/File:Red_king_crab_paralithodes_camtschaticus.jpg
+Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. This is a real audit advance: exact taxon, reusable high-resolution candidates and explicit-adult references exist, but the strict full-body adult high-resolution combination is not yet verified. No PNG completion claimed. Next unresolved legacy audit: **Koala**.
 
-Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed. Next unresolved legacy audit: **Kiwi**.
+## 2026-09-21 Manatee new-animal image
+The roster name is resolved to West Indian Manatee, *Trichechus manatus*, with Florida manatee *T. m. latirostris* as the image candidate. A **3000x2008 public-domain USFWS** real photograph by Keith Ramos shows an exact Florida manatee swimming at Crystal River National Wildlife Refuge. Provenance, species identification and reuse status are strong.
 
-## 2026-09-21 Magpie new-animal image
-The roster name is resolved to Eurasian Magpie, *Pica pica*. Broad discovery found a reusable **5820x4160 CC BY-SA 4.0** exact-species photograph by Jules Verne Times Two. The original was directly inspected rather than judged from dimensions or search snippets. It shows a single standing bird with head, torso and both legs/feet visible, but the long tail passes behind the body/stump region and strict tail-tip completeness cannot be certified. The page also does not explicitly establish adulthood or sex.
+Source page: https://commons.wikimedia.org/wiki/File:Florida_Manatee_FWS_28.jpg
 
-Source page: https://commons.wikimedia.org/wiki/File:Eurasian_magpie_(Pica_pica)_standing_on_a_tree_stump,_Skansen,_Stockholm,_Sweden_julesvernex2-2.jpg
+Original image: https://upload.wikimedia.org/wikipedia/commons/7/79/Florida_Manatee_FWS_28.jpg
 
-Original image: https://upload.wikimedia.org/wikipedia/commons/c/cc/Eurasian_magpie_%28Pica_pica%29_standing_on_a_tree_stump%2C_Skansen%2C_Stockholm%2C_Sweden_julesvernex2-2.jpg
-
-Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
+The source does not explicitly establish adulthood or sex. Because the canonical combat specimen is an adult female and `IMAGE_REQUIREMENTS.md` requires a healthy adult, the source remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`** rather than being promoted from resolution/provenance alone. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -95,7 +94,7 @@ Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
 - Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `124` is completed text research, not completed images.
+- `125` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Kiwi.**
+- **Next unresolved source-quality legacy audit: Koala.**

@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 131 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 131
+- **Completed research files:** 132 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 132
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Meerkat (*Suricata suricatta*)
-- **Next pending animal:** Megalodon
-- **Latest completion:** 2026-09-21 16:01 America/Chicago
-- **Latest new-animal image status:** Meerkat - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3648x4642 exact-*S. suricatta* CC BY-SA 4.0 sentinel photograph was found with reviewed Flickr provenance; adulthood/sex and strict toe/tail-tip completeness remain unresolved. No PNG completion claimed.
-- **Latest legacy image audit:** Lionfish - `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. USGS explicitly describes the public-domain NOAA photograph as an adult lionfish about 250 mm TL; the complete fish silhouette is visible. Binary cutout remains blocked by the text-only GitHub writer.
-- **Next legacy image audit:** Llama. Hellbender, Hornet, Ibex, Kudu and Lionfish are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Megalodon (†*Otodus megalodon*)
+- **Next pending animal:** Monarch Butterfly
+- **Latest completion:** 2026-09-21 16:57 America/Chicago
+- **Latest new-animal image status:** Megalodon - `REPLACEMENT SOURCE NEEDED`. The mandatory real-photograph adult standard is structurally impossible for a species extinct about 3.6 Ma; illustrations, reconstructions, renders and AI images are not substituted. No PNG completion claimed.
+- **Latest legacy image audit:** Llama - `LICENSE UNVERIFIED - DO NOT COMMIT`. A 3436x2290 exact adult male full-body commercial source was found, but repository redistribution rights were not acquired; the reusable high-resolution candidate still lacks explicit adulthood/sex.
+- **Next legacy image audit:** Lobster. Hellbender, Hornet, Ibex, Kudu and Lionfish are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-125.md`; next checkpoint at 150 completed research files.
 
 ## Selection and image rules
@@ -20,10 +20,11 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Active normalization / uncertainty notes
 - Ratings are absolute across all 225 animals, not pound-for-pound.
 - Unsupported bite-pressure values remain 0.0. Force is never converted to PSI without defensible contact area.
-- Maximum speed remains 0.0 where no defensible species-specific maximum exists. Observed or anecdotal dash speed is not silently promoted to a physiological ceiling, and speed is not Agility.
+- Maximum speed remains 0.0 where no defensible species-specific maximum exists. Observed or modeled cruise speed is not silently promoted to a physiological ceiling, and speed is not Agility.
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Megalodon control:** †*Otodus megalodon*, extinct large mature IRSNB P 9893 individual, sex unknown, ~30,000 kg / 1,640 cm / 0.0 m/s unresolved maximum / 46.0 y fossil growth-band benchmark / 0.0 PSI. Attack 100.0 / Defense 96.0 / Agility 58.0 / Stamina 92.0 / Intelligence 58.0 / Special 88.0. The better-constrained 16.4 m Belgian individual is canonical rather than the 24.3 m / 94 t current extreme. Modeled bite force is recorded as force evidence, never fabricated PSI.
 - **Meerkat control:** *Suricata suricatta*, healthy mature male, ~0.75 kg / 50.0 cm total including tail / 0.0 m/s unresolved maximum / 10.0 y / 0.0 PSI. Attack 18.0 / Defense 17.0 / Agility 82.0 / Stamina 65.0 / Intelligence 88.0 / Special 78.0. Teaching and predator/urgency-coded alarm calls support high cognition/tactics, while sub-kilogram mass keeps physical scores low.
 - **Marlin control:** Blue Marlin *Makaira nigricans*, healthy mature female, 250.0 kg / 300.0 cm / 0.0 m/s unresolved maximum / 20.0 y / 0.0 PSI. Attack 58.0 / Defense 41.0 / Agility 78.0 / Stamina 90.0 / Intelligence 62.0 / Special 70.0.
 - **Mantis Shrimp control:** Peacock Mantis Shrimp *Odontodactylus scyllarus*, mature large male, 0.08 kg / 15.0 cm / 0.0 m/s / 6.0 y / 0.0 PSI. Attack 34.0 / Defense 24.0 / Agility 84.0 / Stamina 50.0 / Intelligence 68.0 / Special 97.0.
@@ -49,12 +50,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Mantis Shrimp | 0.08 kg mature large male *O. scyllarus* | 34.0 | 24.0 | 84.0 | 50.0 | 68.0 | 97.0 |
 | Marlin | 250.0 kg mature female *M. nigricans* | 58.0 | 41.0 | 78.0 | 90.0 | 62.0 | 70.0 |
 | Meerkat | 0.75 kg mature male *S. suricatta* | 18.0 | 17.0 | 82.0 | 65.0 | 88.0 | 78.0 |
+| Megalodon | ~30,000 kg mature †*O. megalodon* IRSNB P 9893, sex unknown | 100.0 | 96.0 | 58.0 | 92.0 | 58.0 | 88.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-125.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **150 completed research files**.
 
 ## Image pipeline status
-131 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu and Lionfish have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+132 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu and Lionfish have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.

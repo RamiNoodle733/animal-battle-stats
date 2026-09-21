@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 119 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 119
+- **Completed research files:** 120 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 120
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Lionfish / Red lionfish (*Pterois volitans*)
-- **Next pending animal:** Llama
-- **Latest completion:** 2026-09-21 04:02 America/Chicago
-- **Latest new-animal image status:** Lionfish - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *P. volitans* 3332x2432 Public Domain Commons photograph has a complete visible fish silhouette, but adulthood and sex are not explicit. No PNG completion claimed.
-- **Latest legacy image audit:** Jackal - roster taxon confirmed as black-backed jackal *Lupulella mesomelas*. Broad search found multiple high-resolution exact-species reusable full-body candidates, but adulthood and canonical male sex are not explicitly established together with strict whole-body framing. Existing candidate remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Jaguar. Hellbender, Hornet, Ibex and Kudu are source-verified and remain cutout/commit pending while the writer is text-only.
+- **Most recently completed:** Llama (*Lama glama*)
+- **Next pending animal:** Lobster
+- **Latest completion:** 2026-09-21 05:02 America/Chicago
+- **Latest new-animal image status:** Llama - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *Lama glama* 4000x3000 CC BY-SA 3.0 Commons zoo photograph is visually complete in the inspected search image, but adulthood and sex are not explicit. No PNG completion claimed.
+- **Latest legacy image audit:** Jaguar - broad search found a 5472x3648 CC BY-SA 2.0 exact male Pantanal walking source with reviewed Flickr provenance, but adulthood is not explicit and strict complete anatomy cannot be certified from metadata alone. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Next legacy image audit:** Japanese Macaque. Hellbender, Hornet, Ibex and Kudu are source-verified and remain cutout/commit pending while the writer is text-only.
 - **Latest checkpoint:** `audits/CHECKPOINT-100.md`; next checkpoint at 125 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates pursuit endurance, routine travel, migration, low metabolism and environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics or contextual Special but does not multiply one individual's Raw Power, Attack or Defense.
+- **Llama control:** domestic *Lama glama*, healthy fully mature intact male, 150.0 kg / 121.0 cm shoulder / 160.0 cm head-body. `speed_mps` 0.0; `lifespan_years` 20.0; `bite_force_psi` 0.0. Attack 40.0 / Defense 36.0 / Agility 60.0 / Stamina 77.0 / Intelligence 60.0 / Special 54.0. Male fighting teeth, neck wrestling and guard behavior are real, but must not inflate this domestic herbivore toward dedicated predator weapon scores.
 - **Lionfish control:** red lionfish *Pterois volitans*, healthy fully mature male, 0.5 kg / 38.0 cm total length. `height_cm` 0.0 as inapplicable, `speed_mps` 0.0, `lifespan_years` 15.0, `bite_force_psi` 0.0. Attack 25.0 / Defense 38.0 / Agility 52.0 / Stamina 55.0 / Intelligence 58.0 / Special 87.0. Venom is primarily a passive spine defense, so it must not inflate Attack or Raw Power as if actively injected by a bite.
 - **Leopard control:** *Panthera pardus*, healthy fully mature male 60.0 kg / 65.0 cm shoulder / 150.0 cm head-body. `speed_mps` 0.0; `lifespan_years` 12.0; `bite_force_psi` 0.0. Attack 60.0 / Defense 43.0 / Agility 84.0 / Stamina 62.0 / Intelligence 68.0 / Special 63.0. Must remain physically near Black Panther because that roster entry is a melanistic leopard; final normalization should revisit their one-point editorial differences.
 - **Leatherback Sea Turtle control:** *Dermochelys coriacea*, healthy fully mature adult female 400.0 kg / approximately 190.0 cm total length. Attack 35.0 / Defense 60.0 / Agility 59.0 / Stamina 95.0 / Intelligence 49.0 / Special 89.0.
@@ -43,12 +44,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Leatherback Sea Turtle | 400.0 kg mature female *D. coriacea* | 35.0 | 60.0 | 59.0 | 95.0 | 49.0 | 89.0 |
 | Leopard | 60.0 kg mature male *P. pardus* | 60.0 | 43.0 | 84.0 | 62.0 | 68.0 | 63.0 |
 | Lionfish | 0.5 kg mature male *P. volitans* | 25.0 | 38.0 | 52.0 | 55.0 | 58.0 | 87.0 |
+| Llama | 150.0 kg mature intact male *L. glama* | 40.0 | 36.0 | 60.0 | 77.0 | 60.0 | 54.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-100.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **125 completed research files**.
 
 ## Image pipeline status
-119 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have reusable full-body source candidates, including Hellbender, Hornet, Ibex and Kudu, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+120 research reports are complete, but **0 verified transparent PNG binaries are committed**. Several animals have reusable full-body source candidates, including Hellbender, Hornet, Ibex and Kudu, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

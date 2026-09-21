@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 110 / 225 (through King Cobra). **Full-body transparent PNG assets verified and committed:** 0 / 110. A source-photo URL is not an approved PNG.
+**Research reports completed:** 111 / 225 (through King Crab). **Full-body transparent PNG assets verified and committed:** 0 / 111. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -30,10 +30,10 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Hedgehog | REPLACEMENT SOURCE NEEDED | Audited; featured source visually fails strict anatomy; alternatives still fail adult + complete anatomy verification |
 | Hellbender | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult eastern hellbender, public-domain 3072x2304 USFWS source; binary cutout pending; skip while writer is text-only |
 | Hercules Beetle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4000x2248 CC BY 2.0 exact living adult/imago; strict all-six-feet/appendage-tip visibility unresolved |
-| Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** 3648x2736 CC BY-SA 3.0 Tanzania standing exact-species source visually shows a single near-complete animal; adulthood and sex are not explicit and tail/feet strictness remains insufficient. Explicit-male 5472x3648 CC BY-SA 2.0 Kruger sources are high resolution but show the animal largely submerged, so they fail full-body anatomy. |
-| Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 4475x3042 exact-species CC BY-SA 2.0 male; adulthood/strict feet-tail unresolved |
+| Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 3648x2736 CC BY-SA 3.0 Tanzania terrestrial source, adult/sex and strict tail/feet unresolved; explicit-male sources submerged |
+| Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** stronger 6830x3842 CC BY-SA 4.0 exact-species Kruger photo is explicitly categorized male, but direct inspection shows rear body/tail outside frame; mandatory complete anatomy fails |
 | Hornet | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult queen *Vespa crabro*, 2048x1536 CC BY-SA 4.0; binary cutout pending |
-| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *A. caraya*, 3888x2588 CC BY-SA 2.0; full tail/all appendages not visible |
+| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact adult male *A. caraya*, 3888x2588 CC BY-SA 2.0; full tail/all appendages not visible |
 | Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male *A. colubris*, 2148x1637 CC BY-SA 2.0; strict wing/feet completeness not certified; canonical female preferred |
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact adult female *H. maxima* complete-body source only 640x480; larger reusable candidates remain below 1600px |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female *C. crocuta*, 3639x5143 CC BY-SA 2.0; all four feet visible but tail not visibly complete and adulthood not explicit |
@@ -44,39 +44,50 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male Pantanal jaguar, 4582x3054 CC BY-SA 4.0; strong walking source but adulthood and strict binary full-body certification unresolved |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3860x5156 exact-species CC BY 2.0 Ueno Zoo source visually inspected; tail hidden and both rear feet not cleanly visible; adult/sex not explicit |
 | Kangaroo | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3648x2736 exact red kangaroo CC BY 2.0 source visually inspected; every foot/tail endpoint and adulthood not strictly verified |
-| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6049x4037 CC BY-SA 2.0 exact female from Kaeng Krachan, Thailand, within modern *O. hannah* range; adulthood and strict entire head-to-tail silhouette not verified; adult male preferred |
+| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6049x4037 CC BY-SA 2.0 exact female from Kaeng Krachan, Thailand; adulthood and strict entire head-to-tail silhouette not verified; adult male preferred |
+| King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2586x1708 exact large male *P. camtschaticus* CC BY 2.0 / NOAA provenance; direct inspection shows clipped appendage tips; 3000x2003 public-domain USFWS alternative lacks adult/sex verification |
 
-## 2026-09-20 Hippopotamus legacy audit
-Broad search covered Wikimedia Commons category inventories, wild Kruger/Tanzania sources, explicit-male sources, photographer/Flickr provenance and general web-image discovery.
+## 2026-09-20 Honey Badger legacy audit
+Broad search covered Commons, photographer-origin files, Kruger wildlife photographs and high-resolution reusable alternatives.
 
-**Best complete-anatomy candidate checked:**
-- Source page: https://commons.wikimedia.org/wiki/File:Hippopotamus_amphibius_in_Tanzania_4041_Nevit.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/7/72/Hippopotamus_amphibius_in_Tanzania_4041_Nevit.jpg
-- Resolution: **3648x2736**
-- Taxon: exact *Hippopotamus amphibius*
-- Provenance/license: Nevit Dilmen own work, **CC BY-SA 3.0**
-- Visual result: single standing/grazing animal in side profile with the overall body and four limbs represented. The tiny tail/feet are not cleanly enough exposed for mandatory strict certification, and source metadata does not explicitly establish adulthood or sex.
+**Strongest new candidate checked:**
+- Source page: https://commons.wikimedia.org/wiki/File:Honey_Badger.jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/4/42/Honey_Badger.jpg
+- Resolution: **6830x3842**
+- Taxon: exact *Mellivora capensis*, photographed at Satara Camp, Kruger National Park, South Africa.
+- Sex: Commons categorizes the image under **Mustelidae (male)**.
+- Provenance/license: Sumeet Moghe own work, **CC BY-SA 4.0**.
+- Visual result: excellent sharp high-resolution walking photograph with head, forequarters and feet visible, but the rear body continues out of the left edge and the complete tail is absent. It therefore fails the mandatory entire-animal requirement despite being stronger in resolution and sex metadata than the prior candidate.
+- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion claimed.
+
+**Other reusable alternatives checked:**
+- https://commons.wikimedia.org/wiki/File:Honey_Badger_(Mellivora_capensis)_(17181070118).jpg — 4933x3223, CC BY-SA 2.0, exact species and verified Flickr license, but adulthood/sex and strict complete anatomy are not established.
+- https://commons.wikimedia.org/wiki/File:Honigdachs,_honey_badger_(Mellivora_capensis).jpg — 4422x3134, CC BY-SA 4.0, exact species in Central Kalahari; source does not explicitly establish adulthood/sex and strict whole-body anatomy was not certified.
+
+**Outcome:** no checked source simultaneously establishes a healthy adult preferred male and strict complete head-to-tail/all-feet anatomy. Keep Honey Badger pending. Because Hellbender and Hornet already have source-verified cutout candidates and binary tooling remains unavailable, **Howler Monkey** is next in the unresolved source-quality queue.
+
+## 2026-09-20 King Crab new-animal image
+- Source page: https://commons.wikimedia.org/wiki/File:Fish1740_-_Flickr_-_NOAA_Photo_Library.jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/1/19/Fish1740_-_Flickr_-_NOAA_Photo_Library.jpg
+- Resolution: **2586x1708**
+- Taxon: exact red king crab *Paralithodes camtschaticus*.
+- Sex: **male explicitly stated**; description calls it a large male.
+- Locality: Kola Bay, Barents Sea, Russia, 32 m depth.
+- Provenance/license: NOAA Photo Library / Dr. Aleksey Zuyev; Commons records **CC BY 2.0** with independent Flickr review and also NOAA public-domain provenance.
+- Visual result: genuine high-resolution in-situ photograph, but direct inspection shows several long appendages extending through the frame boundary. It fails the mandatory whole-body rule and is not eligible for cutout completion.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**.
 
-**Explicit-male alternatives checked:**
-- https://commons.wikimedia.org/wiki/File:Hippo_(Hippopotamus_amphibius)_male_..._(52516064386).jpg - 5472x3648, CC BY-SA 2.0, Flickr license independently reviewed, explicitly male, but direct visual inspection shows the animal largely submerged with body/legs/feet/tail absent from view.
-- https://commons.wikimedia.org/wiki/File:Hippo_(Hippopotamus_amphibius)_male_..._(52516608673).jpg - 5472x3648, same strong male/reuse provenance; likewise not a strict whole-body terrestrial source.
-- https://commons.wikimedia.org/wiki/File:Hippo_(Hippopotamus_amphibius)_grazing_(12033127823).jpg - 4000x3000, CC BY-SA 2.0, reusable wild Kruger source; sex/adulthood not explicit.
+**Alternate exact-species reusable source:**
+- Source page: https://commons.wikimedia.org/wiki/File:Red_king_crab_paralithodes_camtschaticus.jpg
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/4/49/Red_king_crab_paralithodes_camtschaticus.jpg
+- Resolution: **3000x2003**
+- Provenance/license: Haddock L / U.S. Fish and Wildlife Service, **Public Domain**.
+- Limitation: metadata does not establish adulthood or sex, so it cannot displace the preferred fighting-sex source without further verification.
 
-**Outcome:** high-resolution exact-species and explicit-male sources exist, but no candidate checked in this run simultaneously establishes healthy adult, preferred male, and strict complete anatomy. No PNG completion is claimed. **Honey Badger** is next in the unresolved source-quality queue.
-
-## 2026-09-20 King Cobra new-animal image
-- Source page: https://commons.wikimedia.org/wiki/File:Ophiophagus_hannah,_King_cobra_(female)_-_Kaeng_Krachan_National_Park_(25458697183).jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/1/10/Ophiophagus_hannah%2C_King_cobra_%28female%29_-_Kaeng_Krachan_National_Park_%2825458697183%29.jpg
-- Resolution: **6049x4037**
-- Taxon/locality: king cobra from Kaeng Krachan National Park, Thailand. This locality falls within *O. hannah* sensu stricto under the 2024 revision, avoiding Western Ghats/Sundaic images now assigned to other *Ophiophagus* species.
-- Sex: **female explicitly stated by source**; canonical larger fighting specimen is male, so a verified adult male remains preferred.
-- License: **CC BY-SA 2.0**, independently reviewed by Commons FlickreviewR 2.
-- Verification result: high-resolution real wild exact-taxon photograph with strong provenance, but source does not explicitly establish adulthood and strict entire head-to-tail visibility could not be certified from accessible inspection.
-- Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No transparent PNG is claimed.
+**Outcome:** image requirement remains pending. No PNG binary is claimed or fabricated.
 
 ## Count and blocker
-- `110` is completed text research, not completed images.
+- `111` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Honey Badger.**
+- **Next unresolved source-quality legacy audit: Howler Monkey.**

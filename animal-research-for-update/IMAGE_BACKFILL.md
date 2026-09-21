@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 118 / 225 (through Leopard). **Full-body transparent PNG assets verified and committed:** 0 / 118. A source-photo URL is not an approved PNG.
+**Research reports completed:** 119 / 225 (through Lionfish). **Full-body transparent PNG assets verified and committed:** 0 / 119. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -39,9 +39,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; explicit female source loses tail/rear silhouette at frame edge; adulthood not explicit |
 | Ibex | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0; binary cutout pending |
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 4320x2432 exact *I. iguana*, explicit large adult male; strict tail/all-feet not certified |
-| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** 5910x3940 exact male, CC BY-SA 4.0, excellent complete standing anatomy; adulthood not explicit, so mandatory adult verification remains unresolved |
-| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** complete standing anatomy; adulthood/sex not explicit |
-| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact male Pantanal source; adulthood/strict completeness unresolved |
+| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5910x3940 exact male, complete anatomy; adulthood not explicit |
+| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | **Audited this run:** exact black-backed jackal sources with excellent complete anatomy and 3832-5956px options found, but adulthood and canonical male sex are not explicitly established together; prior candidate remains truthful |
+| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** exact male Pantanal source; adulthood/strict completeness unresolved |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Tail hidden/rear feet unclear; adult/sex not explicit |
 | Kangaroo | SOURCE FOUND - FULL-BODY NOT VERIFIED | Every foot/tail endpoint and adulthood not strict |
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact female; adulthood and entire head-tail silhouette not verified |
@@ -52,29 +52,24 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact *D. novaeguineae*, 4000x6000 CC BY-SA; perch obscures feet/toes and adulthood/sex are not explicit |
 | Kudu | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male *T. strepsiceros*, 3008x2000 CC BY-SA 2.0; binary cutout pending |
 | Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3264x2122 exact-species CC BY-SA 2.0; strict adult/sex and complete flipper/tail visibility unresolved |
-| Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male *P. pardus*, CC BY-SA 2.0; direct visual check confirms full anatomy, but adulthood is not explicit |
+| Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4355x2630 exact male *P. pardus*, CC BY-SA 2.0; full anatomy visually confirmed, adulthood not explicit |
+| Lionfish | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3332x2432 exact *P. volitans* Public Domain photo with complete visible fish silhouette; adulthood and sex not explicit |
 
-## 2026-09-21 Impala legacy audit
-Broad search covered general image discovery, Wikimedia Commons and explicit-adult alternatives for *Aepyceros melampus*.
+## 2026-09-21 Jackal legacy audit
+The roster Jackal is **black-backed jackal, *Lupulella mesomelas***, so golden-jackal (*Canis aureus*) sources were explicitly rejected as wrong species even when labeled adult male.
 
-**Best reusable candidate:**
-- Source page: https://commons.wikimedia.org/wiki/File:Impala_(Aepyceros_melampus)_male_Kruger.jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/c/cb/Impala_%28Aepyceros_melampus%29_male_Kruger.jpg
-- Resolution: **5910x3940** JPEG.
-- Taxon/sex: exact *Aepyceros melampus*; male is explicit in caption and structured data.
-- Provenance: own work by Charles J. Sharp, **CC BY-SA 4.0**; Commons Quality Image.
-- Visual result: excellent single-animal standing side profile with horns, head, torso, all four legs/hooves and tail inside the frame.
-- Adult verification: source does not explicitly say adult. A separate Commons source explicitly says adult male black-faced impala, but is only 769x654 and therefore materially below the preferred quality target. Stock sources explicitly labeled adult exist at high resolution but are not appropriate for redistribution without licensing purchase.
-- Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED** because exact adulthood remains mandatory and unresolved. Do not count as completed image.
+Broad search covered general web-image discovery and Wikimedia Commons quality-image collections. Multiple strong exact-species reusable photographs exist, including 3832x2555 and 5956x3971 images, and the existing 4524x3015 Charles J. Sharp source remains an unusually clean full-body standing candidate. However, the searched source metadata does not explicitly establish adulthood and canonical male sex while also satisfying strict whole-body framing. Therefore the existing report's source is not falsely upgraded.
 
-## 2026-09-21 Leopard new-animal image
-- Source page: https://commons.wikimedia.org/wiki/File:Leopard_(Panthera_pardus)_male_..._(51890626416).jpg
-- Original image URL: https://upload.wikimedia.org/wikipedia/commons/7/78/Leopard_%28Panthera_pardus%29_male_..._%2851890626416%29.jpg
-- Resolution: **4355x2630** JPEG.
-- Taxon/sex: exact African leopard *Panthera pardus*; male is explicit in the filename/category.
-- Provenance: Bernard DUPONT / Flickr, independently license-reviewed by Commons, **CC BY-SA 2.0**.
-- Visual result: direct original-image inspection confirms the head, complete torso, all four legs/feet and entire tail are inside frame in a clean side-profile walking pose.
-- Adult verification: not explicit in source metadata, so the source cannot yet receive `FULL-BODY SOURCE FOUND` status under the mandatory standard.
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The source-quality audit advances to Jaguar. No PNG completion claimed.
+
+## 2026-09-21 Lionfish new-animal image
+- Source page: https://commons.wikimedia.org/wiki/File:Lionfish.JPG
+- Original image URL: https://upload.wikimedia.org/wikipedia/commons/3/3d/Lionfish.JPG
+- Resolution: **3332x2432** JPEG.
+- Taxon: exact red lionfish *Pterois volitans*.
+- Provenance: real photograph released to the **Public Domain** by photographer Albert Kok.
+- Visual result: the fish silhouette is fully contained in the inspected preview, including head, torso, caudal fin and extended major fins/spines.
+- Adult/sex verification: neither adulthood nor sex is explicit in source metadata. Because adulthood is mandatory, this cannot be promoted to full-body-source-complete status.
 - Status: **SOURCE FOUND - FULL-BODY NOT VERIFIED**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
@@ -84,7 +79,7 @@ Broad search covered general image discovery, Wikimedia Commons and explicit-adu
 - Kudu: exact adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 
 ## Count and blocker
-- `118` is completed text research, not completed images.
+- `119` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- **Next unresolved source-quality legacy audit: Jackal.**
+- **Next unresolved source-quality legacy audit: Jaguar.**

@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 134 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 134
+- **Completed research files:** 135 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 135
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Mongoose, resolved to Javan Mongoose (*Urva javanica*; live legacy name *Herpestes javanicus*)
-- **Next pending animal:** Monitor Lizard
-- **Latest completion:** 2026-09-21 19:02 America/Chicago
-- **Latest new-animal image status:** Mongoose - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2000x963 CC BY 2.0 exact-labelled *H. javanicus* photograph was directly inspected; the animal is alone with a strong head-to-tail side silhouette, but adulthood/sex are not explicit and every foot/digit cannot be strictly certified. No PNG completion claimed.
-- **Latest legacy image audit:** Lynx - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The 5184x3456 CC BY-SA 4.0 exact male *Lynx lynx* source was directly inspected; tree branches obscure substantial anatomy and adulthood is not explicit.
-- **Next legacy image audit:** Macaw. Hellbender, Hornet, Ibex, Kudu and Lionfish are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Monitor Lizard, resolved to Asian/Common Water Monitor (*Varanus salvator*)
+- **Next pending animal:** Moose
+- **Latest completion:** 2026-09-21 20:00 America/Chicago
+- **Latest new-animal image status:** Monitor Lizard - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3968x1984 CC BY 4.0 exact *V. salvator* photograph was directly inspected and shows a strong complete side silhouette including all limbs and tail tip, but metadata does not explicitly establish adulthood or sex. No PNG completion claimed.
+- **Latest legacy image audit:** Macaw - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. EcoRegistros photo 593996 explicitly verifies an adult wild *Ara macao*, but strict tail/feet completeness and redistribution permission are unresolved; reusable high-resolution alternatives did not simultaneously establish adulthood and strict anatomy.
+- **Next legacy image audit:** Magpie. Hellbender, Hornet, Ibex, Kudu and Lionfish are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-125.md`; next checkpoint at 150 completed research files.
 
 ## Selection and image rules
@@ -20,11 +20,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Active normalization / uncertainty notes
 - Ratings are absolute across all 225 animals, not pound-for-pound.
 - Unsupported bite-pressure values remain 0.0. Force is never converted to PSI without defensible contact area.
-- Maximum speed remains 0.0 where no defensible species-specific maximum exists. Observed or modeled cruise speed is not silently promoted to a physiological ceiling, and speed is not Agility.
+- Maximum speed remains 0.0 where no defensible species-specific maximum exists. Observed or modeled cruise/sustainable speed is not silently promoted to a physiological ceiling, and speed is not Agility.
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
-- **Mongoose control:** Javan Mongoose *Urva javanica* (live roster legacy name *Herpestes javanicus*), healthy mature male, 0.8 kg / 36.0 cm head-body / 0.0 m/s unresolved maximum / 8.0 y provisional longevity / 0.0 PSI. Attack 20.0 / Defense 16.0 / Agility 86.0 / Stamina 62.0 / Intelligence 64.0 / Special 66.0. Taxonomic confusion with *U. auropunctata* is explicitly controlled; classic island-introduction and venom-resistance claims are not silently transferred to exact *U. javanica*. Molecular mongoose alpha-neurotoxin resistance is retained with an exact-species caveat.
+- **Monitor Lizard control:** Asian/Common Water Monitor *Varanus salvator*, healthy fully mature large male, 20.0 kg / 45.0 cm provisional standing height / 200.0 cm total length / 0.0 m/s unresolved maximum / 15.0 y / 0.0 PSI. Attack 48.0 / Defense 35.0 / Agility 73.0 / Stamina 57.0 / Intelligence 64.0 / Special 67.0. Controlled treadmill work supports only 0.5 km/h maximum sustainable speed and rapid fatigue above it, not a top-speed field. Family association with Komodo dragons is not used to import venom, bite or durability values.
+- **Mongoose control:** Javan Mongoose *Urva javanica* (live roster legacy name *Herpestes javanicus*), healthy mature male, 0.8 kg / 36.0 cm head-body / 0.0 m/s unresolved maximum / 8.0 y provisional longevity / 0.0 PSI. Attack 20.0 / Defense 16.0 / Agility 86.0 / Stamina 62.0 / Intelligence 64.0 / Special 66.0. Taxonomic confusion with *U. auropunctata* is explicitly controlled.
 - **Monarch Butterfly control:** *Danaus plexippus*, healthy mature eastern North American migratory adult male, ~0.0005 kg / 9.5 cm wingspan / 0.0 m/s unresolved maximum / 0.7 y migratory-generation longevity / 0.0 PSI. Attack 1.0 / Defense 15.0 / Agility 82.0 / Stamina 90.0 / Intelligence 43.0 / Special 89.0.
 - **Megalodon control:** †*Otodus megalodon*, extinct large mature IRSNB P 9893 individual, sex unknown, ~30,000 kg / 1,640 cm / 0.0 m/s unresolved maximum / 46.0 y fossil growth-band benchmark / 0.0 PSI. Attack 100.0 / Defense 96.0 / Agility 58.0 / Stamina 92.0 / Intelligence 58.0 / Special 88.0.
 - **Meerkat control:** *Suricata suricatta*, healthy mature male, ~0.75 kg / 50.0 cm total including tail / 0.0 m/s unresolved maximum / 10.0 y / 0.0 PSI. Attack 18.0 / Defense 17.0 / Agility 82.0 / Stamina 65.0 / Intelligence 88.0 / Special 78.0.
@@ -52,12 +53,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Megalodon | ~30,000 kg mature †*O. megalodon* IRSNB P 9893, sex unknown | 100.0 | 96.0 | 58.0 | 92.0 | 58.0 | 88.0 |
 | Monarch Butterfly | 0.0005 kg mature migratory male *D. plexippus* | 1.0 | 15.0 | 82.0 | 90.0 | 43.0 | 89.0 |
 | Mongoose | 0.8 kg mature male *U. javanica* | 20.0 | 16.0 | 86.0 | 62.0 | 64.0 | 66.0 |
+| Monitor Lizard | 20.0 kg mature male *V. salvator* | 48.0 | 35.0 | 73.0 | 57.0 | 64.0 | 67.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-125.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **150 completed research files**.
 
 ## Image pipeline status
-134 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu and Lionfish have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+135 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu and Lionfish have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.

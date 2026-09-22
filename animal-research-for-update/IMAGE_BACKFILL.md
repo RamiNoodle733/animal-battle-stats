@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 150 / 225 (through Osprey). **Full-body transparent PNG assets verified and committed:** 0 / 150. A source-photo URL is not an approved PNG.
+**Research reports completed:** 151 / 225 (through Ostrich). **Full-body transparent PNG assets verified and committed:** 0 / 151. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -14,9 +14,9 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | AUDITED: exact *Hylobates lar* male 2048x1536 CC BY-SA 2.0 source is reusable and sex-verified, but foliage/branches obscure substantial anatomy |
 | Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | AUDITED: 4358x2586 CC BY-SA 4.0 exact-species photo has an obscured limb/foot and adulthood/sex are not explicit |
 | Giraffe | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | AUDITED: explicit adult male, 2500x2500, CC BY 2.0; original visually inspected and complete head/body/four legs/hooves/tail are visible; binary cutout tooling unavailable |
-| Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** exact *Aquila chrysaetos* 3244x2317 CC BY 4.0 real photograph has excellent provenance and was photographed at very close range, but source metadata does not explicitly establish adulthood/sex and strict all-talon/foot visibility was not certified |
-| Goliath Birdeater | REPLACEMENT SOURCE NEEDED | **NEXT PRACTICAL SOURCE AUDIT:** explicit adult female reusable source only 720x525; seek high-resolution adult with all legs visible |
-| Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood not explicit |
+| Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | AUDITED: exact *Aquila chrysaetos* 3244x2317 CC BY 4.0 real photograph has excellent provenance, but adulthood/sex and strict all-talon visibility are unresolved |
+| Goliath Birdeater | LICENSE UNVERIFIED - DO NOT COMMIT | **AUDITED:** Spider Farm exact *Theraphosa blondi* page explicitly identifies an adult female and its real-photo candidate visibly presents the complete spider, but commercial reuse permission is not established and the surfaced image is below preferred resolution. Reusable 4295x3071 Commons alternative lacks explicit adulthood |
+| Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT PRACTICAL SOURCE AUDIT:** adulthood not explicit |
 | Gorilla | REPLACEMENT SOURCE NEEDED | Explicit male source too small; larger sources fail strictness |
 | Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex + strict tail/feet unresolved |
 | Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6240x4160 PD NPS; adult + complete anatomy unresolved |
@@ -58,27 +58,37 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Orangutan | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5568x3712 CC BY-SA 2.0 exact mature male *P. pygmaeus*; strict all-hand/foot/body silhouette not verified |
 | Orca | LICENSE UNVERIFIED - DO NOT COMMIT | Complete-body large-male photographer source found but redistribution permission not established; reusable USFWS male source is mostly submerged |
 | Osprey | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5469x3646 CC BY-SA 4.0 exact *P. h. carolinensis* in flight; original directly inspected, but adulthood/sex are not explicit and tucked feet prevent strict all-appendage verification |
+| Ostrich | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4222x3185 CC BY-SA 3.0/GFDL exact *S. camelus* male; complete anatomy visually confirmed but adulthood is not explicit |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied; structural blocker |
 
-## 2026-09-22 Golden Eagle legacy audit
-Broad discovery included Google-style web/image search, Wikimedia Commons, USGS/USFWS, Cornell imagery and photographer/Flickr sources. A strong reusable candidate is Caroline Legg's exact-*Aquila chrysaetos* photograph, **3244x2317**, CC BY 4.0, photographed 2 September 2025 and license-reviewed by FlickreviewR. The source page describes a real close-range bird and Commons confirms direct photographic provenance. However, neither adulthood nor sex is explicit in the source metadata, and the available inspection path did not certify every foot/talon unobscured under the strict retroactive standard. It therefore remains a candidate, not a completed source-stage verification.
+## 2026-09-22 Goliath Birdeater legacy audit
+Broad discovery covered Google-style image search, Wikimedia Commons, iNaturalist-derived Commons files, scientific/educational photography and specialist keeper/commercial pages. A materially better life-stage candidate was found on Spider Farm: the page explicitly identifies **Theraphosa blondi, adult female**, and the surfaced real photograph visibly shows the complete spider with abdomen, carapace and all eight legs within frame. However, the page does not grant redistribution permission, and the surfaced image is below the project's preferred 1600+ pixel target. It therefore cannot be committed or promoted.
 
-Source page: https://commons.wikimedia.org/wiki/File:Golden_Eagle_-_Aquila_chrysaetos.jpg
-Original: https://upload.wikimedia.org/wikipedia/commons/4/48/Golden_Eagle_-_Aquila_chrysaetos.jpg
-License/resolution: CC BY 4.0, 3244x2317
-Adult/sex: not explicit
+Source page: https://spiderfarm.co.uk/shop/p/theraphosa-blondi-goliath-birdeater-adult-female
+Surfaced direct photo URL: https://spiderfarm.co.uk/shop/p/theraphosa-blondi-goliath-birdeater-adult-female (site-served image; no separately licensed original URL established)
+Adult/sex: explicitly adult female
+Visual result: complete-body candidate, all eight legs visible in surfaced photograph
+License: commercial page, redistribution permission not established
+Result: **LICENSE UNVERIFIED - DO NOT COMMIT**
+
+A reusable high-resolution alternative was also verified on Commons: Bernard Dupont's exact-*T. blondi* wild photograph from French Guiana is **4295x3071**, CC BY-SA 2.0, with FlickreviewR-confirmed licensing. It is a much stronger resolution/provenance source, but its metadata does not explicitly establish adulthood or sex, so it cannot replace the explicit-adult candidate under the mandatory standard.
+
+Reusable alternative page: https://commons.wikimedia.org/wiki/File:Goliath_Tarantula_(Theraphosa_blondi)_(26062223168).jpg
+Reusable alternative original: https://upload.wikimedia.org/wikipedia/commons/6/6b/Goliath_Tarantula_%28Theraphosa_blondi%29_%2826062223168%29.jpg
+Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED** for adulthood
+Next practical unresolved legacy audit: **Goose**.
+
+## 2026-09-22 Ostrich new-animal image
+DickDaniels' exact-*Struthio camelus* male photograph from a South African ostrich farm is **4222x3185**, CC BY-SA 3.0/GFDL. Direct visual inspection confirms complete head/neck/body, both full legs and feet/toes, and tail/plumage within frame. The source explicitly verifies male sex but does not explicitly label the bird adult. Under the mandatory adult rule, complete framing alone is insufficient for promotion to cutout-ready.
+
+Source page: https://commons.wikimedia.org/wiki/File:Ostrich_male_RWD.jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/8/83/Ostrich_male_RWD.jpg
+License/resolution: CC BY-SA 3.0 / GFDL, 4222x3185
+Adult/sex: adulthood not explicit / male explicit
+Visual result: complete anatomy and excellent cutout framing
 Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED**
-Next practical unresolved legacy audit: **Goliath Birdeater**.
 
-## 2026-09-22 Osprey new-animal image
-The strongest reusable candidate found is Charles J. Sharp's exact North American osprey *Pandion haliaetus carolinensis* photographed in flight at Tofino, Vancouver Island, **5469x3646**, CC BY-SA 4.0. The original was directly opened and inspected. Head, torso, both wings and tail are entirely inside frame and image quality/background are excellent for a future cutout. However, the feet are tucked/partly hidden by the body and source metadata does not explicitly establish adulthood or sex. Under `IMAGE_REQUIREMENTS.md`, this is not enough for strict full-body verification.
-
-Source page: https://commons.wikimedia.org/wiki/File:Osprey_(Pandion_haliaetus_carolinensis)_in_flight_Tofino.jpg
-Original: https://upload.wikimedia.org/wikipedia/commons/d/dc/Osprey_%28Pandion_haliaetus_carolinensis%29_in_flight_Tofino.jpg
-License/resolution: CC BY-SA 4.0, 5469x3646
-Adult/sex: not explicit / unknown
-Visual result: complete major flying silhouette, but strict feet/talons not fully visible
-Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED**
+A separate MSD Veterinary Manual page explicitly documents an adult male *S. c. camelus*, but this run did not establish a reusable original that simultaneously satisfies the strict full-body and provenance requirements: https://www.msdvetmanual.com/multimedia/image/adult-male-ostrich-struthio-camelus-camelus
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -90,12 +100,12 @@ Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED**
 - Giraffe: explicit adult male, 2500x2500 CC BY 2.0; complete body visually verified.
 
 ## Recently audited, skip until materially better source or binary tooling
-Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat have all been source-audited and remain pending under their recorded strictness blockers.
+Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat have all been source-audited and remain pending under their recorded strictness blockers.
 
 ## Count and blockers
-- `150` is completed text research, not completed images.
+- `151` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon exposes a structural rule conflict because an extinct animal cannot have a real adult photograph.
 - Giant Squid remains a practical photography blocker because reusable adult museum specimens exist but the mandatory healthy-living-adult whole-body photograph remains unresolved.
-- **Next practical unresolved source-quality legacy audit: Goliath Birdeater.**
+- **Next practical unresolved source-quality legacy audit: Goose.**

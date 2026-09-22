@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 133 / 225 (through Monarch Butterfly). **Full-body transparent PNG assets verified and committed:** 0 / 133. A source-photo URL is not an approved PNG.
+**Research reports completed:** 134 / 225 (through Mongoose). **Full-body transparent PNG assets verified and committed:** 0 / 134. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -55,25 +55,26 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; reusable 4355x2630 exact male is whole-body but adulthood unstated |
 | Lionfish | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | USGS/NOAA PD source explicitly adult, ~250 mm TL; full silhouette visible |
 | Llama | LICENSE UNVERIFIED - DO NOT COMMIT | Audited; 3436x2290 exact adult male full-body commercial source; reuse right not acquired |
-| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** reusable 1752x1188 NOAA/Rick Wahle source explicitly adult; visual review shows walking legs/appendages obscured by claws/substrate, so strict whole-body rule still fails |
-| Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 5184x3456 exact male; resting pose/adulthood prevent certification |
-| Macaw | REPLACEMENT SOURCE NEEDED | 3000x2083 exact *Ara macao* candidate visually rejected as close-up |
+| Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 1752x1188 NOAA/Rick Wahle adult has obscured appendages |
+| Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** 5184x3456 reusable exact male *Lynx lynx* source is resting in a tree; pose/branches prevent strict all-feet/tail certification and adulthood is not explicit |
+| Macaw | REPLACEMENT SOURCE NEEDED | **NEXT UNRESOLVED SOURCE AUDIT:** 3000x2083 exact *Ara macao* candidate previously rejected as close-up |
 | Magpie | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5820x4160 exact *Pica pica*; adult/sex and strict tail-tip completeness unresolved |
 | Manatee | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3000x2008 PD exact Florida manatee; adult/sex metadata unresolved |
-| Mandrill | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 named alpha male CC BY-SA 3.0; strict hands/feet/short-tail completeness not visually certified |
-| Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3008x2000 exact species CC BY-SA 2.0 side view; adulthood/sex and strict tail/feet completeness unresolved |
+| Mandrill | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 named alpha male CC BY-SA 3.0; strict hands/feet/short-tail completeness not certified |
+| Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3008x2000 exact species CC BY-SA 2.0; adulthood/sex and strict tail/feet unresolved |
 | Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 exact *Mobula birostris* CC BY-SA 4.0; tail endpoint/adulthood unresolved |
-| Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4964x4964 exact *O. scyllarus* CC BY-SA 4.0; burrow obscures abdomen/telson/appendages |
-| Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4608x3357 exact *M. nigricans* PD NOAA; adulthood/sex not explicit; strict anatomy not certified |
-| Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3648x4642 exact *S. suricatta* CC BY-SA 4.0 sentinel; adulthood/sex and strict toe/tail-tip certification unresolved |
-| Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied; no illustration/render/AI substitute accepted |
-| Monarch Butterfly | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2592x1944 PD USFWS exact adult male; direct visual review shows wings/body/antennae complete but perched legs/feet overlap foliage and cannot all be certified |
+| Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4964x4964 exact *O. scyllarus*; burrow obscures abdomen/telson/appendages |
+| Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4608x3357 exact *M. nigricans* PD NOAA; adulthood/sex not explicit |
+| Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3648x4642 exact *S. suricatta*; adulthood/sex and strict toe/tail-tip unresolved |
+| Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied |
+| Monarch Butterfly | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2592x1944 PD USFWS exact adult male; legs/feet overlap foliage |
+| Mongoose | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2000x963 exact-labelled *H. javanicus* CC BY 2.0; visually strong complete silhouette, but adulthood/sex not explicit and every foot/digit cannot be certified |
 
-## 2026-09-21 Lobster legacy audit
-Broader searching found a stronger adulthood-verified candidate than the old 5040x3224 Derek Keats image. Wikimedia Commons hosts NOAA Photo Library image `R0023623`, credited to Rick Wahle, and explicitly describes the subject as **an adult American lobster, *Homarus americanus*** resting on the seafloor in Rhode Island. It is **1752x1188**, CC BY 2.0 with Flickr license review, and NOAA provenance is additionally recorded. Source page: https://commons.wikimedia.org/wiki/File:R0023623_-_Flickr_-_NOAA_Photo_Library.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/c/c9/R0023623_-_Flickr_-_NOAA_Photo_Library.jpg . Direct visual review confirms a real adult and both large claws, antennae, body and tail region, but several walking legs and appendage endpoints are obscured by the claws/substrate. It therefore remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`** rather than being cut out. The source improves adulthood provenance but does not satisfy strict complete anatomy. Next unresolved legacy audit: **Lynx**.
+## 2026-09-21 Lynx legacy audit
+The oldest unresolved legacy candidate was re-audited broadly. The strongest sex-verified reusable source remains Wikimedia Commons `Male Lynx lynx resting in tree.jpg`, an exact male Eurasian lynx photographed at Alpenzoo Innsbruck, **5184x3456**, CC BY-SA 4.0. Source page: https://commons.wikimedia.org/wiki/File:Male_Lynx_lynx_resting_in_tree.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/7/7c/Male_Lynx_lynx_resting_in_tree.jpg . The metadata explicitly verifies male sex and exact species, but not adulthood. More importantly, the resting/tree pose does not allow strict certification of all feet, digits and the complete short tail without obstruction. Broader Commons quality-image searching found many high-resolution exact-species photographs, but no candidate in this run simultaneously established adult status, preferred male sex, reuse permission and strict complete anatomy. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. Next unresolved legacy audit: **Macaw**.
 
-## 2026-09-21 Monarch Butterfly new-animal image
-A reusable high-resolution exact-species male source was inspected directly. Wikimedia Commons file `Male monarch butterfly on green plant danaus plexippus.jpg` is **2592x1944**, sourced to the U.S. Fish and Wildlife Service and marked public domain. Source page: https://commons.wikimedia.org/wiki/File:Male_monarch_butterfly_on_green_plant_danaus_plexippus.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/c/c7/Male_monarch_butterfly_on_green_plant_danaus_plexippus.jpg . The complete head, body silhouette, antennae and folded wings are inside frame, but the legs/feet contact and overlap the plant and cannot all be certified as unobscured under the mandatory rule. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
+## 2026-09-21 Mongoose new-animal image
+Wikimedia Commons `Small asian mongoose.jpg` was inspected at its original **2000x963** resolution. Source page: https://commons.wikimedia.org/wiki/File:Small_asian_mongoose.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/0/01/Small_asian_mongoose.jpg . Commons identifies the subject as *Herpestes javanicus* and records reviewed CC BY 2.0 Flickr provenance. The animal is shown alone in a useful side view, with the head, torso, legs and long tail inside frame and the tail tip visible. However, the metadata does not explicitly establish adulthood or sex, and the pose does not permit strict certification of every foot/digit. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -83,8 +84,8 @@ A reusable high-resolution exact-species male source was inspected directly. Wik
 - Lionfish: explicitly adult ~250 mm lionfish, public-domain USGS/NOAA source; complete silhouette visually verified.
 
 ## Count and blocker
-- `133` is completed text research, not completed images.
+- `134` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon exposes a separate policy blocker: an extinct animal cannot have a real adult photograph under the current mandatory image standard.
-- **Next unresolved source-quality legacy audit: Lynx.**
+- **Next unresolved source-quality legacy audit: Macaw.**

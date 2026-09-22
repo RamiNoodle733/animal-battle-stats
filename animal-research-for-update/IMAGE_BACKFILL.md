@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 134 / 225 (through Mongoose). **Full-body transparent PNG assets verified and committed:** 0 / 134. A source-photo URL is not an approved PNG.
+**Research reports completed:** 135 / 225 (through Monitor Lizard). **Full-body transparent PNG assets verified and committed:** 0 / 135. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -56,9 +56,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Lionfish | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | USGS/NOAA PD source explicitly adult, ~250 mm TL; full silhouette visible |
 | Llama | LICENSE UNVERIFIED - DO NOT COMMIT | Audited; 3436x2290 exact adult male full-body commercial source; reuse right not acquired |
 | Lobster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 1752x1188 NOAA/Rick Wahle adult has obscured appendages |
-| Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** 5184x3456 reusable exact male *Lynx lynx* source is resting in a tree; pose/branches prevent strict all-feet/tail certification and adulthood is not explicit |
-| Macaw | REPLACEMENT SOURCE NEEDED | **NEXT UNRESOLVED SOURCE AUDIT:** 3000x2083 exact *Ara macao* candidate previously rejected as close-up |
-| Magpie | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5820x4160 exact *Pica pica*; adult/sex and strict tail-tip completeness unresolved |
+| Lynx | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 5184x3456 reusable exact male has branch-obscured anatomy and adulthood unstated |
+| Macaw | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** exact *Ara macao* adult wild record found, but tail/feet strictness and reuse license are unresolved; reusable high-res alternatives do not explicitly verify adulthood |
+| Magpie | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 5820x4160 exact *Pica pica*; adult/sex and strict tail-tip completeness unresolved |
 | Manatee | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3000x2008 PD exact Florida manatee; adult/sex metadata unresolved |
 | Mandrill | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 named alpha male CC BY-SA 3.0; strict hands/feet/short-tail completeness not certified |
 | Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3008x2000 exact species CC BY-SA 2.0; adulthood/sex and strict tail/feet unresolved |
@@ -68,13 +68,14 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3648x4642 exact *S. suricatta*; adulthood/sex and strict toe/tail-tip unresolved |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied |
 | Monarch Butterfly | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2592x1944 PD USFWS exact adult male; legs/feet overlap foliage |
-| Mongoose | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2000x963 exact-labelled *H. javanicus* CC BY 2.0; visually strong complete silhouette, but adulthood/sex not explicit and every foot/digit cannot be certified |
+| Mongoose | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2000x963 exact-labelled *H. javanicus* CC BY 2.0; visually strong silhouette, but adulthood/sex and every foot/digit unresolved |
+| Monitor Lizard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3968x1984 exact *V. salvator* CC BY 4.0; visually complete head-to-tail/all limbs, but adulthood and sex are not stated |
 
-## 2026-09-21 Lynx legacy audit
-The oldest unresolved legacy candidate was re-audited broadly. The strongest sex-verified reusable source remains Wikimedia Commons `Male Lynx lynx resting in tree.jpg`, an exact male Eurasian lynx photographed at Alpenzoo Innsbruck, **5184x3456**, CC BY-SA 4.0. Source page: https://commons.wikimedia.org/wiki/File:Male_Lynx_lynx_resting_in_tree.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/6/6b/Male_Lynx_lynx_resting_in_tree.jpg . The metadata explicitly verifies male sex and exact species, but not adulthood. Direct visual inspection confirms the tree branches obscure substantial anatomy, so strict all-feet/digits/tail certification fails. Broader Commons quality-image searching found many high-resolution exact-species photographs, but no candidate in this run simultaneously established adult status, preferred male sex, reuse permission and strict complete anatomy. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. Next unresolved legacy audit: **Macaw**.
+## 2026-09-21 Macaw legacy audit
+Broad searching found a materially better age-verified lead at EcoRegistros: photograph ID 593996, exact Scarlet Macaw *Ara macao*, explicitly marked **Adulto**, wild/native, photographed at Yana Yacu, Loreto, Peru on 2017-07-06 by Pablo Barrera. Source page: https://www.ecoregistros.org/site/imagen.php?id=593996 . Direct displayed photo: https://ecoregistros.org/site/images/dataimages/2024/07/30/593996/4.-Yana-Yacu47.jpg . The photograph shows a perched adult, but strict tail endpoint/feet completeness is not sufficient for mandatory verification and the page does not establish a redistribution license compatible with committing a derived asset. Reusable Commons alternatives were also searched, including a 777x1450 CC BY 2.0 file explicitly titled full length and multiple 3000-5000px exact-species files, but adulthood plus strict complete anatomy plus reuse permission were not simultaneously established. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. Next unresolved legacy audit: **Magpie**.
 
-## 2026-09-21 Mongoose new-animal image
-Wikimedia Commons `Small asian mongoose.jpg` was inspected at its original **2000x963** resolution. Source page: https://commons.wikimedia.org/wiki/File:Small_asian_mongoose.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/0/01/Small_asian_mongoose.jpg . Commons identifies the subject as *Herpestes javanicus* and records reviewed CC BY 2.0 Flickr provenance. The animal is shown alone in a useful side view, with the head, torso, legs and long tail inside frame and the tail tip visible. However, the metadata does not explicitly establish adulthood or sex, and the pose does not permit strict certification of every foot/digit. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
+## 2026-09-21 Monitor Lizard new-animal image
+Wikimedia Commons `Varanus Salvator (Malaysia).jpg` was inspected at the original **3968x1984** resolution. Source page: https://commons.wikimedia.org/wiki/File:Varanus_Salvator_(Malaysia).jpg . Original: https://upload.wikimedia.org/wikipedia/commons/7/7b/Varanus_Salvator_%28Malaysia%29.jpg . It is an exact *Varanus salvator* photograph licensed CC BY 4.0. Direct inspection shows one animal in a clean side view with head, trunk, all four limbs/feet and tail tip inside the frame. However, metadata does not explicitly establish adulthood or sex. An independent ADW source explicitly marks its photographed *V. salvator* as adult/sexually mature, but that image is small and less suitable. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -84,8 +85,8 @@ Wikimedia Commons `Small asian mongoose.jpg` was inspected at its original **200
 - Lionfish: explicitly adult ~250 mm lionfish, public-domain USGS/NOAA source; complete silhouette visually verified.
 
 ## Count and blocker
-- `134` is completed text research, not completed images.
+- `135` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon exposes a separate policy blocker: an extinct animal cannot have a real adult photograph under the current mandatory image standard.
-- **Next unresolved source-quality legacy audit: Macaw.**
+- **Next unresolved source-quality legacy audit: Magpie.**

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 141 / 225 (through Narwhal). **Full-body transparent PNG assets verified and committed:** 0 / 141. A source-photo URL is not an approved PNG.
+**Research reports completed:** 142 / 225 (through Nautilus). **Full-body transparent PNG assets verified and committed:** 0 / 142. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -63,9 +63,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Mandrill | LICENSE UNVERIFIED - DO NOT COMMIT | Audited: reusable alpha-male source is cropped; complete commercial sources lack redistribution permission |
 | Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; reusable 3008x2000 exact side view remains strong; adult status and strict feet/tail unresolved |
 | Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited 2048x1536 exact *Mobula birostris*, CC BY 4.0; adulthood and strict tail-end certification unresolved |
-| Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** 5290x3527 CC BY-SA 4.0 exact *O. scyllarus* is explicitly Commons-valued as whole body with all leg types visible; adulthood is not explicit |
-| Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 4608x3357 exact *M. nigricans* PD NOAA; adulthood/sex not explicit |
-| Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3648x4642 exact species; adulthood/sex and toe/tail-tip unresolved |
+| Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited 5290x3527 CC BY-SA 4.0 exact *O. scyllarus* whole-body source; adulthood not explicit |
+| Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** 4608x3357 exact *M. nigricans* PD NOAA source is high-resolution and visually whole-fish; adulthood/sex not explicit |
+| Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 3648x4642 exact species; adulthood/sex and toe/tail-tip unresolved |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied |
 | Monarch Butterfly | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2592x1944 PD USFWS exact adult male; legs/feet overlap foliage |
 | Mongoose | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2000x963 exact-labelled *H. javanicus*; adulthood/sex and digits unresolved |
@@ -75,19 +75,26 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Mountain Goat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2663x1804 PD exact male USFWS; lower limbs/feet obscured and adulthood unstated |
 | Musk Ox | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6000x4000 CC BY-SA 4.0 exact male; adulthood and strict hoof/tail visibility not certified |
 | Naked Mole Rat | SOURCE FOUND - FULL-BODY NOT VERIFIED | Smithsonian PD exact-species source; adulthood and strict rear-body/tail completeness unresolved |
-| Narwhal | REPLACEMENT SOURCE NEEDED | New-animal audit: no reusable single healthy adult male source simultaneously verifies complete tusk/body/flippers/flukes and adulthood |
+| Narwhal | REPLACEMENT SOURCE NEEDED | No reusable single healthy adult male source simultaneously verifies complete tusk/body/flippers/flukes and adulthood |
+| Nautilus | LICENSE UNVERIFIED - DO NOT COMMIT | ADW exact adult/sexually mature real photo requires permission; reusable 3264x2448 Commons source lacks explicit adulthood |
 
-## 2026-09-22 Mantis Shrimp legacy audit
-Broad image discovery found a materially stronger source than the previous burrow-obscured candidate: Cédric Péneau's **5290x3527** wild *Odontodactylus scyllarus* photograph from Réunion. Wikimedia Commons VRT verified permission and publishes it under **CC BY-SA 4.0**. Commons' valued-image review explicitly scoped it as **"Wild peacock mantis shrimp (Odontodactylus scyllarus), whole body"** and states that it displays the whole body and all different types of legs. Direct visual inspection is consistent with a complete animal: eyes, antennae, raptorial appendages, walking appendages, abdomen and terminal tail fan are in frame. This resolves the prior complete-anatomy problem. However, neither the file metadata nor the valued-image review explicitly establishes that the photographed individual is an **adult**, which remains mandatory under `IMAGE_REQUIREMENTS.md`. It therefore remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**, not cutout-ready.
+## 2026-09-22 Marlin legacy audit
+The existing NOAA/Wikimedia candidate was rechecked rather than replaced with a weaker source. `Atlantic blue marlin.jpg` is a **4608x3357** real photograph explicitly identified as *Makaira nigricans* and is public domain as a NOAA U.S. federal work. Direct visual review shows a single fish with the bill, head, trunk, dorsal/pectoral/pelvic/anal fin structures and complete caudal fin within the frame, making it substantially stronger on anatomy than many legacy candidates. However, neither NOAA/Florida Museum provenance nor Commons metadata explicitly establishes that the photographed individual is an **adult**, and sex is unknown. Since adulthood is mandatory, status remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`** rather than cutout-ready.
 
-Source page: https://commons.wikimedia.org/wiki/File:Odontodactylus_scyllarus_R%C3%A9union.jpg
-Original: https://upload.wikimedia.org/wikipedia/commons/1/1e/Odontodactylus_scyllarus_R%C3%A9union.jpg
-License: CC BY-SA 4.0, Wikimedia VRT permission confirmed
-Resolution: 5290x3527
-Result: full-body framing verified, adulthood not verified, no PNG completion claimed. **Next unresolved legacy audit: Marlin.**
+Source page: https://commons.wikimedia.org/wiki/File:Atlantic_blue_marlin.jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/9/92/Atlantic_blue_marlin.jpg
+License: public domain, NOAA U.S. federal work
+Resolution: 4608x3357
+Result: whole-fish framing visually verified; exact species and reuse verified; adulthood/sex unresolved; no PNG completion claimed. **Next unresolved legacy audit: Meerkat.**
 
-## 2026-09-22 Narwhal new-animal image
-Search covered NOAA, Wikimedia Commons, museum/government sources, photographer pages and general image discovery. Public-domain NOAA/Laidre aerial sources are reusable but depict pods/groups, which violates the one-animal requirement. `Narwhal satellite.jpg` is a 2160x2880 public-domain NOAA photograph explicitly identifying a male captured for satellite tagging, but its capture context and framing are unsuitable for a clean healthy free-swimming complete-body cutout. `Narwhal_1_1995-06-10.jpg` is 2868x2040 and reusable under CC BY-SA 2.5, but adulthood/sex and strict tusk/body completeness are not simultaneously established. Several striking photographer images either show groups, clip anatomy, or lack confirmed redistribution rights. Result: **`REPLACEMENT SOURCE NEEDED`**. No binary PNG is created.
+## 2026-09-22 Nautilus new-animal image
+Broad discovery covered NOAA, ADW, Smithsonian, Commons, aquarium and photographer sources. The strongest **adult-verified** source is John White's ADW live *Nautilus pompilius* photograph, which explicitly labels the specimen **adult/sexually mature**. ADW also explicitly states that the resource may not be downloaded or used without copyright-holder permission except educational fair use, so it cannot be redistributed as the staged asset. A separate Aquarium Finisterrae exact-species photograph is **3264x2448** and reusable under **CC BY-SA 4.0**, but its metadata does not establish adulthood. NOAA's American Samoa exact-species photograph has excellent agency provenance but likewise does not establish adulthood or strict completeness of the numerous tentacles. Result: **`LICENSE UNVERIFIED - DO NOT COMMIT`** for the adult-verified primary candidate. No binary PNG is created.
+
+Adult-verified source page: https://animaldiversity.org/collections/contributors/john_white/john_white_fish/nautilus_pompilius/
+Reusable alternate: https://commons.wikimedia.org/wiki/File:Nautilus_pompilius.006_-_Aquarium_Finisterrae.JPG
+Reusable alternate original: https://upload.wikimedia.org/wikipedia/commons/8/82/Nautilus_pompilius.006_-_Aquarium_Finisterrae.JPG
+Alternate license/resolution: CC BY-SA 4.0, 3264x2448
+Result: exact species and adulthood exist in the adult-verified source, but redistribution permission is absent; reusable high-res source does not explicitly establish adulthood. No PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -97,8 +104,8 @@ Search covered NOAA, Wikimedia Commons, museum/government sources, photographer 
 - Lionfish: explicitly adult ~250 mm lionfish, public-domain USGS/NOAA source; complete silhouette visually verified.
 
 ## Count and blocker
-- `141` is completed text research, not completed images.
+- `142` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon exposes a separate policy blocker: an extinct animal cannot have a real adult photograph under the current mandatory image standard.
-- **Next unresolved source-quality legacy audit: Marlin.**
+- **Next unresolved source-quality legacy audit: Meerkat.**

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 138 / 225 (through Mountain Goat). **Full-body transparent PNG assets verified and committed:** 0 / 138. A source-photo URL is not an approved PNG.
+**Research reports completed:** 139 / 225 (through Musk Ox). **Full-body transparent PNG assets verified and committed:** 0 / 139. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -60,9 +60,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Macaw | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult exact-species source found; tail/feet strictness and reuse unresolved |
 | Magpie | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited 5152x3864 CC BY-SA 4.0 exact *Pica pica*; grass overlaps feet/toes and adulthood/sex unstated |
 | Manatee | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 3000x2008 PD exact Florida manatee remains best; strict complete anatomy/adult unresolved |
-| Mandrill | LICENSE UNVERIFIED - DO NOT COMMIT | **AUDITED:** reusable 3799x2848 alpha-male Commons source is a cropped portrait; visibly complete adult-male commercial sources found but redistribution rights not established |
-| Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 3008x2000 exact species; adulthood/sex and strict tail/feet unresolved |
-| Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 exact *Mobula birostris*; tail endpoint/adulthood unresolved |
+| Mandrill | LICENSE UNVERIFIED - DO NOT COMMIT | Audited: reusable alpha-male source is cropped; complete commercial sources lack redistribution permission |
+| Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** reusable 3008x2000 exact side view remains strong; adult status and strict feet/tail not simultaneously verified |
+| Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 2048x1536 exact *Mobula birostris*; tail endpoint/adulthood unresolved |
 | Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4964x4964 exact *O. scyllarus*; burrow obscures anatomy |
 | Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4608x3357 exact *M. nigricans* PD NOAA; adulthood/sex not explicit |
 | Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3648x4642 exact species; adulthood/sex and toe/tail-tip unresolved |
@@ -70,17 +70,22 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Monarch Butterfly | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2592x1944 PD USFWS exact adult male; legs/feet overlap foliage |
 | Mongoose | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2000x963 exact-labelled *H. javanicus*; adulthood/sex and digits unresolved |
 | Monitor Lizard | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3968x1984 exact *V. salvator* visually complete; adulthood/sex unstated |
-| Moose | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2670x1502 CC BY-SA 4.0 exact *A. alces* male; feet/hooves partly submerged/obscured and adulthood unstated |
-| Moray Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 CC0 exact *Gymnothorax javanicus*; strict head-to-tail silhouette and adulthood/sex not verified |
-| Mountain Goat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2663x1804 PD exact *O. americanus* male USFWS; lying pose obscures lower limbs/feet and adulthood is unstated |
+| Moose | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2670x1502 CC BY-SA 4.0 exact male; feet/hooves partly obscured and adulthood unstated |
+| Moray Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 CC0 exact *G. javanicus*; strict head-tail silhouette/adult unresolved |
+| Mountain Goat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2663x1804 PD exact male USFWS; lower limbs/feet obscured and adulthood unstated |
+| Musk Ox | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6000x4000 CC BY-SA 4.0 exact male; adulthood and strict hoof/tail visibility not certified |
 
-## 2026-09-21 Mandrill legacy audit
-The previously noted Commons source `Mandrillus sphinx (alpha male).jpg` was checked at its original **3799x2848** resolution. Source page: https://commons.wikimedia.org/wiki/File:Mandrillus_sphinx_(alpha_male).jpg . Original: https://upload.wikimedia.org/wikipedia/commons/f/f7/Mandrillus_sphinx_%28alpha_male%29.jpg . Metadata explicitly identifies an alpha male and permits reuse under CC BY-SA 3.0, but visual inspection shows a portrait crop: the frame contains the head and upper body, not the complete torso, limbs, hands/feet and rump. It therefore fails `IMAGE_REQUIREMENTS.md` despite excellent resolution and sex metadata.
+## 2026-09-22 Maned Wolf legacy audit
+The existing reusable candidate remains `Maned wolf (Chrysocyon brachyurus) (92775757).jpg`, exact species, **3008x2000**, CC BY-SA 2.0 with Flickr license review on Commons. Its report already records the source page and original URL. A second image in the same series, `92776571`, is also 3008x2000 and CC BY-SA 2.0. Commons categorizes the series as side views, but neither file metadata explicitly establishes adulthood or sex, and this run did not certify every foot plus the complete tail endpoint.
 
-Broad image search also found multiple clearly complete adult-male photographs with all major limbs visible, including high-resolution Getty/iStock candidates. Those are commercial images; this run did not establish repository redistribution rights, so none were downloaded or committed. A Commons file explicitly captioned `Adult male mandrill with colorful rump` is reusable under CC BY 2.0 but only about 1586 px in its original historic form (a later Commons revision reports 2304x1198) and strict whole-body anatomy was not established from the available view. Result: **`LICENSE UNVERIFIED - DO NOT COMMIT`** for the best visibly complete commercial candidate, while the reusable alpha-male portrait is rejected as the primary candidate. Next unresolved legacy audit: **Maned Wolf**.
+Fresh broad search found Animal Diversity Web exact-species photographs explicitly tagged **adult/sexually mature**, including James Dowling-Healey's `Manedwolf` and `manedwolf11`, under CC BY-NC-SA 3.0. These resolve adulthood but the available page evidence did not simultaneously establish a 1600+ original and strict complete-body anatomy. A GBIF/Plazi taxonomic treatment also exposes a CC BY captive-adult photograph from a Smithsonian contribution, but again did not establish a better strict full-body asset in this run. Therefore the primary candidate is not replaced merely to gain an adulthood label at the cost of framing/resolution certainty. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. Next unresolved legacy audit: **Manta Ray**.
 
-## 2026-09-21 Mountain Goat new-animal image
-Selected discovery candidate: `Male mountain goat animal oreamnos americanus.jpg`, exact *Oreamnos americanus* male, **2663x1804**, public domain, Grickson Dave / U.S. Fish and Wildlife Service. Source page: https://commons.wikimedia.org/wiki/File:Male_mountain_goat_animal_oreamnos_americanus.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/6/66/Male_mountain_goat_animal_oreamnos_americanus.jpg . The original was visually inspected. Head, horns and torso are fully in frame, but the goat is lying in grass and its lower limbs/feet are hidden; the metadata says male but does not explicitly establish adulthood. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. It is not eligible for cutout promotion and no PNG completion is claimed.
+Primary source page: https://commons.wikimedia.org/wiki/File:Maned_wolf_(Chrysocyon_brachyurus)_(92775757).jpg
+Primary original URL: https://live.staticflickr.com/39/92775757_c059ff861e_o.jpg
+Adult-verification alternative: https://www.animaldiversity.org/collections/contributors/james_dowlinghealey/Manedwolf/
+
+## 2026-09-22 Musk Ox new-animal image
+Selected candidate: `Muskox (Ovibos moschatus) male Dovrefjell 11.jpg`, exact *Ovibos moschatus* **male**, **6000x4000**, Charles J. Sharp, CC BY-SA 4.0. Commons also marks it as a quality image. Source page: https://commons.wikimedia.org/wiki/File:Muskox_(Ovibos_moschatus)_male_Dovrefjell_11.jpg . Original: https://upload.wikimedia.org/wikipedia/commons/e/ed/Muskox_%28Ovibos_moschatus%29_male_Dovrefjell_11.jpg . The metadata securely establishes exact species, sex, resolution and reuse rights. It does not explicitly say adult, and the long coat makes strict certification of every hoof and the short hidden tail endpoint especially difficult. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**. No PNG completion is claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -90,8 +95,8 @@ Selected discovery candidate: `Male mountain goat animal oreamnos americanus.jpg
 - Lionfish: explicitly adult ~250 mm lionfish, public-domain USGS/NOAA source; complete silhouette visually verified.
 
 ## Count and blocker
-- `138` is completed text research, not completed images.
+- `139` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon exposes a separate policy blocker: an extinct animal cannot have a real adult photograph under the current mandatory image standard.
-- **Next unresolved source-quality legacy audit: Maned Wolf.**
+- **Next unresolved source-quality legacy audit: Manta Ray.**

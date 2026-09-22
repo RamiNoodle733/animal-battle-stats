@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 136 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 136
+- **Completed research files:** 137 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 137
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Moose (*Alces alces*, broad roster treatment)
-- **Next pending animal:** Moray Eel
-- **Latest completion:** 2026-09-21 20:58 America/Chicago
-- **Latest new-animal image status:** Moose - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2670x1502 CC BY-SA 4.0 exact *Alces alces* male photograph was inspected at original resolution. Body and antler rack are fully framed, but lowest feet/hooves are partly submerged or obscured and metadata does not explicitly establish adulthood. No PNG completion claimed.
-- **Latest legacy image audit:** Magpie - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 5152x3864 CC BY-SA 4.0 exact *Pica pica* source was inspected. Head/body/tail and both legs are visible, but grass overlaps feet/toes and adulthood/sex are not explicit.
-- **Next legacy image audit:** Manatee. Hellbender, Hornet, Ibex, Kudu and Lionfish are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Moray Eel (Giant Moray, *Gymnothorax javanicus*)
+- **Next pending animal:** Mountain Goat
+- **Latest completion:** 2026-09-21 22:00 America/Chicago
+- **Latest new-animal image status:** Moray Eel - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2048x1536 CC0 exact *G. javanicus* source with reviewed iNaturalist provenance was retained as the best lightweight candidate, but the entire head-to-tail silhouette, adulthood and sex are not simultaneously verified. Broader Commons results were mostly crevice-emergence photographs with substantial body length hidden. No PNG completion claimed.
+- **Latest legacy image audit:** Manatee - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The existing 3000x2008 public-domain Keith Ramos/USFWS exact Florida manatee remains stronger than alternatives checked. A 3533x2353 Jim Reid/USFWS source is reusable and high-resolution but visibly loses the tail at the frame edge. Other sources were groups, calves, low resolution or similarly cropped. Adult/sex metadata also remains unresolved.
+- **Next legacy image audit:** Mandrill. Hellbender, Hornet, Ibex, Kudu and Lionfish are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-125.md`; next checkpoint at 150 completed research files.
 
 ## Selection and image rules
@@ -24,7 +24,8 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
-- **Moose control:** broad-roster *Alces alces*, healthy prime mature bull in hard-antler rut condition, 550.0 kg / 200.0 cm shoulder / 300.0 cm total length / 15.6 m/s secondary-source maximum / 15.0 y / 0.0 PSI. Attack 69.0 / Defense 50.0 / Agility 58.0 / Stamina 70.0 / Intelligence 55.0 / Special 60.0. Taxonomic conflict with North American *Alces americanus* is explicitly retained. Speed is moderate-confidence because no instrumented sprint trial was recovered.
+- **Moray Eel control:** Giant Moray *Gymnothorax javanicus*, healthy large mature adult of unknown sex, 25.0 kg / 220.0 cm / 0.0 m/s unsupported maximum / 39.0 y demonstrated age / 0.0 PSI. Attack 49.0 / Defense 32.0 / Agility 74.0 / Stamina 51.0 / Intelligence 70.0 / Special 86.0. Canonical mass is moderate-confidence because 30 kg is a published maximum and no strong adult mean was recovered. Cooperative hunting raises Tactics/Intelligence without multiplying individual physical power; pharyngeal-jaw kinematics are grounded in moray-family experiments and are not misrepresented as direct *G. javanicus* measurements.
+- **Moose control:** broad-roster *Alces alces*, healthy prime mature bull in hard-antler rut condition, 550.0 kg / 200.0 cm shoulder / 300.0 cm total length / 15.6 m/s secondary-source maximum / 15.0 y / 0.0 PSI. Attack 69.0 / Defense 50.0 / Agility 58.0 / Stamina 70.0 / Intelligence 55.0 / Special 60.0.
 - **Monitor Lizard control:** Asian/Common Water Monitor *Varanus salvator*, mature large male, 20.0 kg / 200.0 cm. Attack 48.0 / Defense 35.0 / Agility 73.0 / Stamina 57.0 / Intelligence 64.0 / Special 67.0.
 - **Mongoose control:** Javan Mongoose *Urva javanica*, mature male, 0.8 kg. Attack 20.0 / Defense 16.0 / Agility 86.0 / Stamina 62.0 / Intelligence 64.0 / Special 66.0.
 - **Monarch Butterfly control:** *Danaus plexippus*, mature migratory male, ~0.0005 kg. Attack 1.0 / Defense 15.0 / Agility 82.0 / Stamina 90.0 / Intelligence 43.0 / Special 89.0.
@@ -41,12 +42,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Mongoose | 0.8 kg mature male *U. javanica* | 20.0 | 16.0 | 86.0 | 62.0 | 64.0 | 66.0 |
 | Monitor Lizard | 20.0 kg mature male *V. salvator* | 48.0 | 35.0 | 73.0 | 57.0 | 64.0 | 67.0 |
 | Moose | 550.0 kg prime mature bull *A. alces* | 69.0 | 50.0 | 58.0 | 70.0 | 55.0 | 60.0 |
+| Moray Eel | 25.0 kg large mature *G. javanicus*, sex unknown | 49.0 | 32.0 | 74.0 | 51.0 | 70.0 | 86.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-125.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **150 completed research files**.
 
 ## Image pipeline status
-136 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu and Lionfish have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+137 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu and Lionfish have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.

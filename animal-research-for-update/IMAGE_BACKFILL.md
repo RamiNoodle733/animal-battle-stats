@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 143 / 225 (through Ocelot). **Full-body transparent PNG assets verified and committed:** 0 / 143. A source-photo URL is not an approved PNG.
+**Research reports completed:** 144 / 225 (through Octopus). **Full-body transparent PNG assets verified and committed:** 0 / 144. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -9,8 +9,8 @@ Animals already source-verified or audited are skipped until binary tooling beco
 
 | Animal | Current status | Next action |
 |---|---|---|
-| Gecko | REPLACEMENT SOURCE NEEDED | **NEXT PRACTICAL SOURCE AUDIT:** explicit adult male source remains only 1008px |
-| Giant Centipede | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x3000 reusable source; adulthood not explicit |
+| Gecko | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Adult male exact species, all anatomy visible; 1008x460 and regenerated tail make higher-res intact-tail replacement desirable, but source is usable if no stronger source emerges |
+| Giant Centipede | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT PRACTICAL SOURCE AUDIT:** 4000x3000 reusable source; adulthood not explicit |
 | Giant Squid | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult + every arm/tentacle tip unresolved |
 | Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict hands/feet unresolved |
 | Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood plus every toe/tail unresolved |
@@ -65,7 +65,7 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited 2048x1536 exact *Mobula birostris*, CC BY 4.0; adulthood and strict tail-end certification unresolved |
 | Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited 5290x3527 CC BY-SA 4.0 exact *O. scyllarus* whole-body source; adulthood not explicit |
 | Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited 4608x3357 exact *M. nigricans* PD NOAA source; whole fish visible, adulthood/sex not explicit |
-| Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** ADW exact-species source explicitly adult/sexually mature and CC BY-NC-SA 3.0, but grass/pose obscures tail/feet; high-res Commons source lacks explicit adulthood |
+| Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | ADW adult exact source has obscured tail/feet; high-res Commons source lacks explicit adulthood |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied; skip as structural blocker |
 | Monarch Butterfly | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2592x1944 PD USFWS exact adult male; legs/feet overlap foliage |
 | Mongoose | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2000x963 exact-labelled *H. javanicus*; adulthood/sex and digits unresolved |
@@ -78,24 +78,27 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Narwhal | REPLACEMENT SOURCE NEEDED | No reusable single healthy adult male source simultaneously verifies complete tusk/body/flippers/flukes and adulthood |
 | Nautilus | LICENSE UNVERIFIED - DO NOT COMMIT | ADW exact adult/sexually mature real photo requires permission; reusable 3264x2448 Commons source lacks explicit adulthood |
 | Ocelot | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3658x2400 PD USFWS exact species; lying pose obscures strict rear/tail/limb completeness and adulthood/sex unstated |
+| Octopus | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1366 CC BY 4.0 exact *E. dofleini*; adulthood/sex and strict all-eight-arm-tip visibility unresolved |
 
-## 2026-09-22 Meerkat legacy audit
-Broad searching covered Wikimedia Commons, Animal Diversity Web, wildlife photographers and commercial libraries. The most useful new verification is an **exact-species live *Suricata suricatta*** ADW photograph explicitly tagged **adult/sexually mature**, licensed **CC BY-NC-SA 3.0**. Visual inspection of adult-verified ADW candidates shows grass/pose obscuring the tail and/or feet, so they do not satisfy the strict whole-body rule. A separate **2604x3709 CC BY-SA 4.0** Commons photograph is high resolution and reusable, but its metadata does not explicitly establish adulthood and its pose does not improve strict anatomy enough to override that gap. Rights-managed 5K commercial sources advertise full-body framing but cannot be redistributed under the current provenance rule. Result remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**.
+## 2026-09-22 Gecko legacy audit
+Broad discovery covered Wikimedia Commons, the underlying ZooKeys scientific figure, Smithsonian records, Flickr, commercial photography and general image search. The strongest provenance candidate remains Mark O'Shea's **exact adult male *Gekko gecko*** from Same, Timor-Leste, museum voucher **USNM 573671**, explicitly measured at **142 mm SVL and 236 mm total length**. Commons licenses the extracted photograph **CC BY 3.0**.
 
-Adult-verified source page: https://animaldiversity.org/collections/contributors/james_dowlinghealey/meerkat2/
-Adult-verified license: CC BY-NC-SA 3.0
-High-resolution reusable alternate: https://commons.wikimedia.org/wiki/File:Suricata_suricatta_(Meerkat).jpg
-Alternate original: https://upload.wikimedia.org/wikipedia/commons/c/c2/Suricata_suricatta_%28Meerkat%29.jpg
-Alternate license/resolution: CC BY-SA 4.0, 2604x3709
-Result: adulthood is verified on the ADW candidate but strict complete anatomy is not; high-resolution reusable candidate lacks explicit adulthood. No PNG completion claimed. **Next practical unresolved legacy audit: Gecko.** Megalodon is skipped because a real adult photograph is impossible for an extinct species under the current mandatory standard.
+The original 1008x460 image was directly opened and visually inspected. The complete head, torso, all four limbs and feet/digits, and the entire tail are inside frame. The source paper/Commons metadata explicitly verifies adult and male. The tail is regenerated, and 1008 pixels is below the preferred 1600-pixel longest-side target, so a higher-resolution adult male with intact tail would still be preferable. However, `IMAGE_REQUIREMENTS.md` says not to sacrifice complete anatomy merely for resolution, and the current candidate now satisfies exact taxon + explicit adulthood + explicit fighting sex + complete visible body + reusable provenance. Status is upgraded to **`FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`**. No PNG completion is claimed because the connected GitHub writer cannot write binary images.
 
-## 2026-09-22 Ocelot new-animal image
-Broad discovery covered USFWS, Commons, ADW-style sources, photographer pages and commercial image search. The best provenance candidate is Tom Smylie's **3658x2400 public-domain USFWS** exact-*Leopardus pardalis* photograph. The original was visually inspected: it is a real photograph with strong resolution and clean provenance, but the lying pose overlaps limbs and does not expose a strictly certifiable complete tail/rear silhouette; metadata also does not explicitly establish adulthood or sex. A **4767x3674 CC BY 2.0** Itatiba Zoo alternative is high-resolution and exact species but likewise does not simultaneously resolve adulthood, sex and strict complete anatomy. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**.
+Source page: https://commons.wikimedia.org/wiki/File:Tokay_gecko_(Gekko_gecko)_adult_male.jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/5/55/Tokay_gecko_%28Gekko_gecko%29_adult_male.jpg
+License/resolution: CC BY 3.0, 1008x460
+Adult/sex: explicitly adult male, USNM 573671
+Visual result: strict complete body visible; regenerated tail and sub-preferred resolution noted
+Result: **FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING**
+Next practical unresolved legacy audit: **Giant Centipede**.
 
-Source page: https://commons.wikimedia.org/wiki/File:Ocelot.jpg
-Original: https://upload.wikimedia.org/wikipedia/commons/2/28/Ocelot.jpg
-License/resolution: public domain USFWS, 3658x2400
-Result: exact species/reuse/high resolution verified; adulthood, sex and strict complete-body anatomy unresolved; no PNG completion claimed.
+## 2026-09-22 Octopus new-animal image
+Broad searching covered Commons, iNaturalist-backed Commons media, NOAA imagery, aquarium sources and general image search. The selected candidate is Erin McKittrick's exact *Enteroctopus dofleini* photograph, **2048x1366**, reviewed by Commons' iNaturalist import workflow and licensed **CC BY 4.0**. It is a real wild photograph with strong reuse provenance. Strict adult status, sex and visibility of every arm tip are not simultaneously established, so it remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`** rather than being falsely promoted.
+
+Source page: https://commons.wikimedia.org/wiki/File:Enteroctopus_dofleini_189957195.jpg
+License/resolution: CC BY 4.0, 2048x1366
+Result: exact species/reuse/high resolution verified; adult/sex/all-eight-arm-tip completeness unresolved; no PNG completion claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -103,10 +106,11 @@ Result: exact species/reuse/high resolution verified; adulthood, sex and strict 
 - Ibex: exact adult male *Capra ibex*, 3233x2155 CC BY-SA 4.0.
 - Kudu: explicit adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 - Lionfish: explicitly adult ~250 mm lionfish, public-domain USGS/NOAA source; complete silhouette visually verified.
+- Gecko: explicit adult male *Gekko gecko*, 1008x460 CC BY 3.0; complete body visually verified, regenerated tail and lower-than-preferred resolution documented.
 
 ## Count and blocker
-- `143` is completed text research, not completed images.
+- `144` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon exposes a separate policy blocker: an extinct animal cannot have a real adult photograph under the current mandatory image standard.
-- **Next practical unresolved source-quality legacy audit: Gecko.**
+- **Next practical unresolved source-quality legacy audit: Giant Centipede.**

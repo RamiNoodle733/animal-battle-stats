@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 155 / 225 (through Pelican). **Full-body transparent PNG assets verified and committed:** 0 / 155. A source-photo URL is not an approved PNG.
+**Research reports completed:** 156 / 225 (through Peregrine Falcon). **Full-body transparent PNG assets verified and committed:** 0 / 156. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -19,9 +19,9 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult source hides one foot |
 | Gorilla | REPLACEMENT SOURCE NEEDED | Exact adult male mountain-gorilla sources remain seated/foliage-obscured or cropped |
 | Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable complete male source lacks explicit adulthood |
-| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** excellent 6240x4160 public-domain NPS exact-species source found; adulthood/sex and strict feet/tail silhouette are not established |
-| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT PRACTICAL SOURCE AUDIT:** explicit male; strict adult + all fins/head-tail unresolved |
-| Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex + complete head-tail not simultaneous |
+| Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Excellent public-domain NPS source; adulthood/sex and strict feet/tail silhouette unresolved |
+| Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** many high-resolution reusable exact-species sources; no candidate simultaneously verifies healthy adulthood, preferred fighting sex and strict complete silhouette |
+| Green Anaconda | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT PRACTICAL SOURCE AUDIT:** adult/sex + complete head-tail not simultaneous |
 | Guanaco | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex/full-body strictness unresolved |
 | Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact species/reuse strong; candidate cropped |
 | Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict feet/tail/wings unresolved |
@@ -62,32 +62,35 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Otter | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult source has obscured anatomy |
 | Pangolin | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact high-res reusable source; adulthood/sex and original-image inspection unresolved |
 | Peacock | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable source hides feet/lower legs |
-| Pelican | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEW:** explicit adult 3254x2169 reusable source has submerged feet/legs |
+| Pelican | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult reusable source has submerged feet/legs |
+| Peregrine Falcon | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEW:** reusable USFWS female source; adulthood and strict every-foot/toe/tail visibility unresolved |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-22 Great Horned Owl legacy audit
-Broad discovery covered Commons, National Park Service / federal imagery, USGS and commercial photographer results. A materially stronger provenance candidate was found from Glacier National Park Service: **6240x4160**, exact *Bubo virginianus*, real photograph, public domain as a U.S. National Park Service work.
+## 2026-09-22 Great White Shark legacy audit
+Broad discovery covered Commons, photographer pages and general web image search. Commons contains many high-resolution real *Carcharodon carcharias* photographs, including 3264x2448 public-domain Sharkdiver imagery and multiple 4000-5000+ px CC BY-SA sources. A photographer page for **Cal Ripfin** explicitly identifies an **adult male** white shark and provides a side-view image, but redistribution permission was not established. A separate photographer/gallery source explicitly identifies a 4.2 m female, but reuse permission likewise remains unresolved and the individual is below the preferred mature-female canonical scale.
 
-Source page: https://commons.wikimedia.org/wiki/File:Great_Horned_Owl_(Bubo_virginianus)_(48920155928).jpg
-Original: https://upload.wikimedia.org/wikipedia/commons/a/ac/Great_Horned_Owl_%28Bubo_virginianus%29_%2848920155928%29.jpg
-License: public domain, U.S. National Park Service
-Metadata result: exact species, excellent resolution and reusable provenance; source does **not** explicitly establish adult life stage or sex.
-Visual/strict-anatomy result: the source is not promoted because strict complete visibility of both feet/talons and the full tail silhouette could not be certified from the accessible inspection path. A museum-mount image was rejected because it is not a healthy living animal. Commercial standing/perched photographs show promising complete anatomy but cannot replace the reusable candidate without established redistribution rights.
+Primary reusable candidate retained:
+Source page: https://commons.wikimedia.org/wiki/File:Carcharodon_carcharias.jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/5/56/Carcharodon_carcharias.jpg
+License: Public domain release by Sharkdiver68
+Resolution: 3264x2448
+Metadata result: exact species, real photograph, high resolution, reusable provenance; adulthood and sex not explicitly established.
+Visual/strict-anatomy result: candidate appears substantially complete, but this run did not certify every fin and the full tail silhouette at original resolution. It is not promoted from metadata alone.
+Adult-male comparator: https://www.flickr.com/photos/sharkpix/15446229133
 Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED**.
-Next practical audit: **Great White Shark**.
+Next practical audit: **Green Anaconda**.
 
-## 2026-09-22 Pelican new-animal image
-The strongest provenance candidate found is Becky Matsubara's **3254x2169 CC BY 2.0** exact American White Pelican photograph. The Commons/Flickr title explicitly identifies the bird as a **non-breeding adult**. The original was opened and visually inspected: head, full bill, neck, torso, folded wings and tail are visible, but the swimming pose submerges the legs and feet. It therefore fails the mandatory complete-anatomy rule despite strong life-stage and licensing evidence.
+## 2026-09-22 Peregrine Falcon new-animal image
+The strongest provenance candidate found is a U.S. Fish and Wildlife Service photograph explicitly titled **Female Peregrine Falcon**, exact *Falco peregrinus*, 1795x2111. Commons records CC BY 2.0 and federal USFWS provenance. The candidate is a standing/perched female rather than a headshot, but strict complete visibility of every foot/toe and the full tail silhouette was not certified and the metadata does not explicitly state adult life stage.
 
-Source page: https://commons.wikimedia.org/wiki/File:American_White_Pelican,_non-breeding_adult_(38164183581).jpg
-Original: https://upload.wikimedia.org/wikipedia/commons/b/ba/American_White_Pelican%2C_non-breeding_adult_%2838164183581%29.jpg
-License: CC BY 2.0
-Adult: explicitly verified
-Sex: unknown
-Visual result: feet/legs hidden by water
+Source page: https://commons.wikimedia.org/wiki/File:Female_Peregrine_Falcon,_Missisquoi_NWR_(7160631835).jpg
+Original: https://live.staticflickr.com/7216/7160631835_ab1d2223d1_o.jpg
+License: CC BY 2.0 / USFWS federal-work provenance
+Sex: female explicitly verified
+Adult: not explicitly verified
 Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED**
 
-A second USFWS source, `Adult American white pelican in flight (9688520370).jpg`, is explicitly adult, exact species, 2722x1310 and CC BY 2.0, but strict visibility of every appendage was not established, so it was not promoted merely because it is an in-flight photograph.
+A second Commons photograph, https://commons.wikimedia.org/wiki/File:Peregrine_falcon_portrait.jpg, explicitly identifies an **adult female *F. p. calidus*** and is 1547x2010 under CC BY-SA 4.0, but it is a portrait-framed source and was not substituted as strict full-body evidence.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -99,12 +102,12 @@ A second USFWS source, `Adult American white pelican in flight (9688520370).jpg`
 - Giraffe: explicit adult male, 2500x2500 CC BY 2.0; complete body verified.
 
 ## Recently audited, skip until materially better source or binary tooling
-Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `155` is completed text research, not completed images.
+- `156` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Great White Shark.**
+- **Next practical unresolved source-quality legacy audit: Green Anaconda.**

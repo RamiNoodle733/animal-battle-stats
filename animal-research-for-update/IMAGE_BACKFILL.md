@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 140 / 225 (through Naked Mole Rat). **Full-body transparent PNG assets verified and committed:** 0 / 140. A source-photo URL is not an approved PNG.
+**Research reports completed:** 141 / 225 (through Narwhal). **Full-body transparent PNG assets verified and committed:** 0 / 141. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -62,9 +62,9 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Manatee | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; 3000x2008 PD exact Florida manatee remains best; strict complete anatomy/adult unresolved |
 | Mandrill | LICENSE UNVERIFIED - DO NOT COMMIT | Audited: reusable alpha-male source is cropped; complete commercial sources lack redistribution permission |
 | Maned Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; reusable 3008x2000 exact side view remains strong; adult status and strict feet/tail unresolved |
-| Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** 2048x1536 exact *Mobula birostris*, CC BY 4.0; silhouette is visible but adulthood and strict tail-end certification remain unresolved |
-| Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 4964x4964 exact *O. scyllarus*; burrow obscures anatomy |
-| Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4608x3357 exact *M. nigricans* PD NOAA; adulthood/sex not explicit |
+| Manta Ray | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited 2048x1536 exact *Mobula birostris*, CC BY 4.0; adulthood and strict tail-end certification unresolved |
+| Mantis Shrimp | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** 5290x3527 CC BY-SA 4.0 exact *O. scyllarus* is explicitly Commons-valued as whole body with all leg types visible; adulthood is not explicit |
+| Marlin | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT UNRESOLVED SOURCE AUDIT:** 4608x3357 exact *M. nigricans* PD NOAA; adulthood/sex not explicit |
 | Meerkat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3648x4642 exact species; adulthood/sex and toe/tail-tip unresolved |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied |
 | Monarch Butterfly | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2592x1944 PD USFWS exact adult male; legs/feet overlap foliage |
@@ -74,22 +74,20 @@ Animals already source-verified or audited are skipped until binary tooling beco
 | Moray Eel | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2048x1536 CC0 exact *G. javanicus*; strict head-tail silhouette/adult unresolved |
 | Mountain Goat | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2663x1804 PD exact male USFWS; lower limbs/feet obscured and adulthood unstated |
 | Musk Ox | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6000x4000 CC BY-SA 4.0 exact male; adulthood and strict hoof/tail visibility not certified |
-| Naked Mole Rat | SOURCE FOUND - FULL-BODY NOT VERIFIED | Smithsonian PD exact-species source has strong provenance/simple background; adulthood and strict rear-body/tail completeness unresolved |
+| Naked Mole Rat | SOURCE FOUND - FULL-BODY NOT VERIFIED | Smithsonian PD exact-species source; adulthood and strict rear-body/tail completeness unresolved |
+| Narwhal | REPLACEMENT SOURCE NEEDED | New-animal audit: no reusable single healthy adult male source simultaneously verifies complete tusk/body/flippers/flukes and adulthood |
 
-## 2026-09-22 Manta Ray legacy audit
-The existing exact-species candidate was rechecked against the mandatory standard. `Mobula birostris 179661576.jpg` is **2048x1536**, exact *Mobula birostris*, photographed by Dan Bender, and its iNaturalist-origin license was reviewed before Commons publication under **CC BY 4.0**. Direct visual inspection confirms a single real manta with both broad pectoral fins, cephalic region and a long trailing tail visible against open water. However, the source metadata does not establish that the individual is an adult, and the distant/low-contrast tail endpoint cannot be certified strongly enough for the strict full-body rule. It therefore remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**, not a cutout-ready source.
+## 2026-09-22 Mantis Shrimp legacy audit
+Broad image discovery found a materially stronger source than the previous burrow-obscured candidate: Cédric Péneau's **5290x3527** wild *Odontodactylus scyllarus* photograph from Réunion. Wikimedia Commons VRT verified permission and publishes it under **CC BY-SA 4.0**. Commons' valued-image review explicitly scoped it as **"Wild peacock mantis shrimp (Odontodactylus scyllarus), whole body"** and states that it displays the whole body and all different types of legs. Direct visual inspection is consistent with a complete animal: eyes, antennae, raptorial appendages, walking appendages, abdomen and terminal tail fan are in frame. This resolves the prior complete-anatomy problem. However, neither the file metadata nor the valued-image review explicitly establishes that the photographed individual is an **adult**, which remains mandatory under `IMAGE_REQUIREMENTS.md`. It therefore remains **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**, not cutout-ready.
 
-Source page: https://commons.wikimedia.org/wiki/File:Mobula_birostris_179661576.jpg
-Original: https://upload.wikimedia.org/wikipedia/commons/d/d1/Mobula_birostris_179661576.jpg
-License: CC BY 4.0
-Result: no PNG completion claimed. **Next unresolved legacy audit: Mantis Shrimp.**
+Source page: https://commons.wikimedia.org/wiki/File:Odontodactylus_scyllarus_R%C3%A9union.jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/1/1e/Odontodactylus_scyllarus_R%C3%A9union.jpg
+License: CC BY-SA 4.0, Wikimedia VRT permission confirmed
+Resolution: 5290x3527
+Result: full-body framing verified, adulthood not verified, no PNG completion claimed. **Next unresolved legacy audit: Marlin.**
 
-## 2026-09-22 Naked Mole Rat new-animal image
-Broad search covered Smithsonian Open Access, Wikimedia Commons, PBS Photo Ark, American Society of Mammalogists and general image discovery. The best provenance candidate is Smithsonian National Zoo record `NZP-20111005-162MM-000001`, an exact *Heterocephalus glaber* real photograph credited to Mehgan Murphy and released in the public domain / Smithsonian Open Access with CC0 metadata. Its simple black background would be favorable for later cutout work. The accessible presentation does not establish adulthood and does not allow strict certification of the entire rear body/tail. A reusable **1864x1472** CC BY-SA 2.0 wild Kenya Commons photograph was directly inspected and rejected because the animal is substantially obscured inside a burrow. PBS Photo Ark results provide cleaner studio imagery but reviewed frames crop the rear body/tail and redistribution rights were not established. Result: **`SOURCE FOUND - FULL-BODY NOT VERIFIED`**.
-
-Source page: https://www.si.edu/object/naked-mole-rat%3Anzp_NZP-20111005-162MM-000001
-Original image service URL: https://ids.si.edu/ids/deliveryService?id=NZP-20111005-162MM-000001
-Rejected reusable alternative: https://commons.wikimedia.org/wiki/File:Naked_Mole_Rat_(Heterocephalus_glaber)_(7662741774).jpg
+## 2026-09-22 Narwhal new-animal image
+Search covered NOAA, Wikimedia Commons, museum/government sources, photographer pages and general image discovery. Public-domain NOAA/Laidre aerial sources are reusable but depict pods/groups, which violates the one-animal requirement. `Narwhal satellite.jpg` is a 2160x2880 public-domain NOAA photograph explicitly identifying a male captured for satellite tagging, but its capture context and framing are unsuitable for a clean healthy free-swimming complete-body cutout. `Narwhal_1_1995-06-10.jpg` is 2868x2040 and reusable under CC BY-SA 2.5, but adulthood/sex and strict tusk/body completeness are not simultaneously established. Several striking photographer images either show groups, clip anatomy, or lack confirmed redistribution rights. Result: **`REPLACEMENT SOURCE NEEDED`**. No binary PNG is created.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -99,8 +97,8 @@ Rejected reusable alternative: https://commons.wikimedia.org/wiki/File:Naked_Mol
 - Lionfish: explicitly adult ~250 mm lionfish, public-domain USGS/NOAA source; complete silhouette visually verified.
 
 ## Count and blocker
-- `140` is completed text research, not completed images.
+- `141` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon exposes a separate policy blocker: an extinct animal cannot have a real adult photograph under the current mandatory image standard.
-- **Next unresolved source-quality legacy audit: Mantis Shrimp.**
+- **Next unresolved source-quality legacy audit: Marlin.**

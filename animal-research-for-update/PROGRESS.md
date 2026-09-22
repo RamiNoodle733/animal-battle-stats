@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 148 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 148
+- **Completed research files:** 149 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 149
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Orca / Killer Whale (*Orcinus orca*)
-- **Next pending animal:** Oryx
-- **Latest completion:** 2026-09-22 09:00 America/Chicago
-- **Latest new-animal image status:** Orca - `LICENSE UNVERIFIED - DO NOT COMMIT`. A visually complete large-male underwater photograph from George Karbus/Nikonistas was found, but redistribution permission was not established. The reusable 1632x1104 USFWS public-domain male photograph was directly inspected and rejected for strict cutout use because most of the body is submerged/obscured.
-- **Latest legacy image audit:** Gila Monster - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 4358x2586 CC BY-SA 4.0 exact-*Heloderma suspectum* Burgers' Zoo photograph was directly inspected at 1280px preview. Head, torso, tail and most limbs are in frame, but at least one limb/foot is obscured by the body and adulthood/sex are not explicitly documented, so it does not meet the mandatory strict standard.
-- **Next legacy image audit:** Giraffe. Megalodon remains a structural blocker because the mandatory real-adult-photograph requirement cannot be satisfied for an extinct species. Hellbender, Hornet, Ibex, Kudu, Lionfish and Gecko are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Oryx / Gemsbok (*Oryx gazella*)
+- **Next pending animal:** Osprey
+- **Latest completion:** 2026-09-22 10:00 America/Chicago
+- **Latest new-animal image status:** Oryx - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Charles J. Sharp's exact-*Oryx gazella* male source is 5466x3644, CC BY-SA 4.0, and Commons featured/quality/valued; the 18.3 MB original could not be directly inspected through the connected browser and adulthood is not explicit, so strict full-body completion is not claimed.
+- **Latest legacy image audit:** Giraffe - `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. Eric Gropp's explicit adult-male 2500x2500 CC BY 2.0 Kruger photograph was directly inspected at original resolution. Head, torso, all four legs/hooves and complete tail are visible.
+- **Next legacy image audit:** Golden Eagle. Megalodon remains a structural blocker because the mandatory real-adult-photograph requirement cannot be satisfied for an extinct species. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko and Giraffe are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-125.md`; next checkpoint at 150 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Pack/flock/colony behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Oryx control:** Gemsbok *Oryx gazella*, healthy prime mature territorial male, 230.0 kg / 123.0 cm shoulder / 190.0 cm body length / 15.6 m/s institutional maximum / 18.0 y wild average / 0.0 PSI. Attack 60.0 / Defense 49.0 / Agility 66.0 / Stamina 82.0 / Intelligence 61.0 / Special 81.0. Representative male horn length is treated around 90 cm while preserving the much broader published 60-150 cm range. Heat/water physiology is supported by free-ranging biologger work; it does not imply unlimited endurance.
 - **Orca control:** *Orcinus orca*, healthy prime fully mature male, 5000.0 kg / 650.0 cm / 15.6 m/s agency-reported maximum / 50.0 y mature-male upper-normal longevity / 0.0 PSI. Attack 94.0 / Defense 78.0 / Agility 84.0 / Stamina 88.0 / Intelligence 99.0 / Special 94.0. Ecotype variation is explicit. Group hunting informs tactics/intelligence but does not multiply individual raw power. The legacy 19,000 PSI field is rejected as unsupported.
 - **Orangutan control:** Bornean Orangutan *Pongo pygmaeus*, healthy prime fully flanged mature male, 90.0 kg / 97.0 cm institutional male body size / 0.0 cm standardized head-body length unresolved / 0.0 m/s unsupported maximum / 50.0 y upper wild longevity / 0.0 PSI. Attack 57.0 / Defense 43.0 / Agility 75.0 / Stamina 63.0 / Intelligence 96.0 / Special 68.0.
 - **Opossum control:** Virginia Opossum *Didelphis virginiana*, healthy prime mature male, 2.8 kg / 70.2 cm total length / 0.0 m/s unsupported maximum / 2.0 y normal wild lifespan / 0.0 PSI. Attack 25.0 / Defense 28.0 / Agility 71.0 / Stamina 56.0 / Intelligence 59.0 / Special 90.0.
@@ -46,12 +47,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Opossum | 2.8 kg prime mature male *D. virginiana* | 25.0 | 28.0 | 71.0 | 56.0 | 59.0 | 90.0 |
 | Orangutan | 90.0 kg fully flanged mature male *P. pygmaeus* | 57.0 | 43.0 | 75.0 | 63.0 | 96.0 | 68.0 |
 | Orca | 5000.0 kg prime mature male *O. orca* | 94.0 | 78.0 | 84.0 | 88.0 | 99.0 | 94.0 |
+| Oryx | 230.0 kg prime territorial male *O. gazella* | 60.0 | 49.0 | 66.0 | 82.0 | 61.0 | 81.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-125.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **150 completed research files**.
 
 ## Image pipeline status
-148 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu, Lionfish and Gecko have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+149 research reports are complete, but **0 verified transparent PNG binaries are committed**. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko and Giraffe have reusable full-body source candidates, but current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. Megalodon additionally exposes a structural rule conflict for extinct animals because the mandatory standard requires a real photograph of an adult. `IMAGE_BACKFILL.md` remains the legacy audit queue.

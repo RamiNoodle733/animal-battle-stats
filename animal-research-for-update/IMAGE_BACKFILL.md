@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 148 / 225 (through Orca). **Full-body transparent PNG assets verified and committed:** 0 / 148. A source-photo URL is not an approved PNG.
+**Research reports completed:** 149 / 225 (through Oryx). **Full-body transparent PNG assets verified and committed:** 0 / 149. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -12,9 +12,9 @@ Animals already source-verified or source-audited are skipped until binary tooli
 |---|---|---|
 | Giant Squid | REPLACEMENT SOURCE NEEDED | Preserved adult female museum specimen fails healthy-living-adult standard; seek living adult with all arms/tentacles visible |
 | Gibbon | SOURCE FOUND - FULL-BODY NOT VERIFIED | AUDITED: exact *Hylobates lar* male 2048x1536 CC BY-SA 2.0 source is reusable and sex-verified, but foliage/branches obscure substantial anatomy |
-| Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** 4358x2586 CC BY-SA 4.0 exact-species Burgers' Zoo photo is high-resolution and reusable, but direct inspection shows at least one limb/foot obscured by the body; adulthood and sex are also not explicit |
-| Giraffe | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT PRACTICAL SOURCE AUDIT:** reusable bull source; adulthood not explicit |
-| Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult + reuse + complete anatomy not simultaneous |
+| Gila Monster | SOURCE FOUND - FULL-BODY NOT VERIFIED | AUDITED: 4358x2586 CC BY-SA 4.0 exact-species photo has an obscured limb/foot and adulthood/sex are not explicit |
+| Giraffe | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | **AUDITED:** explicit adult male, 2500x2500, CC BY 2.0; original visually inspected and complete head/body/four legs/hooves/tail are visible; binary cutout tooling unavailable |
+| Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT PRACTICAL SOURCE AUDIT:** adult + reuse + complete anatomy not simultaneous |
 | Goliath Birdeater | REPLACEMENT SOURCE NEEDED | Explicit adult female reusable source only 720x525 |
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood not explicit |
 | Gorilla | REPLACEMENT SOURCE NEEDED | Explicit male source too small; larger sources fail strictness |
@@ -59,32 +59,26 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Orca | LICENSE UNVERIFIED - DO NOT COMMIT | Complete-body large-male photographer source found but redistribution permission not established; reusable USFWS male source is mostly submerged |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species: mandatory real-photo adult standard cannot be satisfied; structural blocker |
 
-## 2026-09-22 Gila Monster legacy audit
-Broad discovery checked Google-style image search, Wikimedia Commons, zoo pages and photographer sources for exact *Heloderma suspectum*. The strongest reusable high-resolution candidate located is Theo Kruse / Burgers' Zoo's **4358x2586** real photograph, licensed **CC BY-SA 4.0**. The 1280px Commons preview was directly inspected. The animal's head, torso and full tail are inside the frame and image quality is strong, but the curled pose hides at least one limb/foot behind the body, so strict complete anatomy cannot be certified. Commons identifies exact species and zoo provenance but does not explicitly document adulthood or sex.
+## 2026-09-22 Giraffe legacy audit
+Broad discovery included Google-style image search, Wikimedia Commons, ADW and photographer sources. The strongest source is Eric Gropp's **Adult male giraffe**, a **2500x2500** CC BY 2.0 photograph from Kruger Park. Commons explicitly labels the subject **adult male** and Flickr license review confirms CC BY 2.0. The original was directly opened and visually inspected: head/ossicones, neck, torso, all four legs and hooves, and the complete tail/tuft are within frame; no other animal obscures the subject. This satisfies source-stage exact adult/full-body framing and exceeds the preferred 2000 px threshold.
 
-Source page: https://commons.wikimedia.org/wiki/File:Gila_monster_(Heloderma_suspectum).jpg
-Original: https://upload.wikimedia.org/wikipedia/commons/c/ca/Gila_monster_%28Heloderma_suspectum%29.jpg
-License/resolution: CC BY-SA 4.0, 4358x2586
-Adult/sex: not explicitly documented
-Visual result: exact species, high resolution and reusable, but strict all-limb/all-foot visibility fails
+Source page: https://commons.wikimedia.org/wiki/File:Adult_male_giraffe_(23584986409).jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/f/f2/Adult_male_giraffe_%2823584986409%29.jpg
+License/resolution: CC BY 2.0, 2500x2500
+Adult/sex: explicit adult male
+Visual result: complete body visibly framed, including all four hooves and tail
+Result: **FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING**
+Blocker: connected GitHub writer accepts UTF-8 text, not PNG binary. No fake cutout created.
+Next practical unresolved legacy audit: **Golden Eagle**.
+
+## 2026-09-22 Oryx new-animal image
+Broad discovery included Google-style search, Commons, institutional pages and photographer sources. Charles J. Sharp's Etosha **Gemsbok (*Oryx gazella*) male** is an exceptionally strong provenance candidate: exact species and sex are explicit, resolution is **5466x3644**, license is **CC BY-SA 4.0**, and Commons assesses it as featured, quality and valued imagery. The connected browser could not retrieve the 18.3 MB original for direct full-resolution inspection, and the metadata does not explicitly state adulthood. Strict all-hoof/tail completeness is therefore not claimed from metadata or thumbnails alone.
+
+Source page: https://commons.wikimedia.org/wiki/File:Gemsbok_(Oryx_gazella)_male.jpg
+Original: https://upload.wikimedia.org/wikipedia/commons/f/f3/Gemsbok_%28Oryx_gazella%29_male.jpg
+License/resolution: CC BY-SA 4.0, 5466x3644
+Adult/sex: male explicit; adulthood not explicit
 Result: **SOURCE FOUND - FULL-BODY NOT VERIFIED**
-Next practical unresolved legacy audit: **Giraffe**.
-
-## 2026-09-22 Orca new-animal image
-Broad discovery included Commons, USFWS/government material, editorial photography and photographer pages. The strongest visibly complete candidate is George Karbus's underwater large-male orca photograph published by Nikonistas. The whole head-to-fluke silhouette, dorsal fin and pectoral fins are visible in the candidate, but no redistribution license was established, so it is not eligible for commit.
-
-Source page: https://www.nikonistas.com/digital/notices/2020/03/geaorge-karbus-vida-salvaje-9057.php
-Original: https://www.nikonistas.com/digital/img2/2020/03/george-karbus_nikon-special-project-_00009_1800x1200.jpg
-License: unverified for redistribution
-Adult/sex: described as a large male; exact age not independently documented
-Visual result: visibly complete animal, but provenance does not establish reusable licensing
-Result: **LICENSE UNVERIFIED - DO NOT COMMIT**
-
-A fallback Commons source explicitly titled **Male killer whale (*Orcinus orca*)**, 1632x1104, is a USFWS public-domain photograph. Direct inspection shows the whale at the surface with most of its body submerged/obscured, so it fails the mandatory whole-body requirement despite excellent reuse rights.
-
-Fallback source page: https://commons.wikimedia.org/wiki/File:Male_killer_whale_orcinus_orca.jpg
-Fallback original: https://upload.wikimedia.org/wikipedia/commons/a/a2/Male_killer_whale_orcinus_orca.jpg
-Fallback result: rejected for strict full-body cutout.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -93,14 +87,15 @@ Fallback result: rejected for strict full-body cutout.
 - Kudu: explicit adult male *Tragelaphus strepsiceros*, 3008x2000 CC BY-SA 2.0.
 - Lionfish: explicitly adult ~250 mm lionfish, public-domain USGS/NOAA source; complete silhouette visually verified.
 - Gecko: explicit adult male *Gekko gecko*, 1008x460 CC BY 3.0; complete body visually verified, regenerated tail and lower-than-preferred resolution documented.
+- Giraffe: explicit adult male, 2500x2500 CC BY 2.0; complete body visually verified.
 
 ## Recently audited, skip until materially better source or binary tooling
-Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat have all been source-audited and remain pending under their recorded strictness blockers.
+Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat have all been source-audited and remain pending under their recorded strictness blockers.
 
 ## Count and blockers
-- `148` is completed text research, not completed images.
+- `149` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon exposes a structural rule conflict because an extinct animal cannot have a real adult photograph.
 - Giant Squid remains a practical photography blocker because reusable adult museum specimens exist but the mandatory healthy-living-adult whole-body photograph remains unresolved.
-- **Next practical unresolved source-quality legacy audit: Giraffe.**
+- **Next practical unresolved source-quality legacy audit: Golden Eagle.**

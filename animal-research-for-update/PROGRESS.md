@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 153 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 153
+- **Completed research files:** 154 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 154
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Pangolin / Sunda Pangolin (*Manis javanica*)
-- **Next pending animal:** Peacock
-- **Latest completion:** 2026-09-22 14:00 America/Chicago
-- **Latest new-animal image status:** Pangolin - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Exact *M. javanica* 5154x3437 CC BY-SA 4.0 source has strong provenance, but adulthood/sex are unstated and the 11.72 MB original could not be fetched through the visual-inspection path. No PNG was claimed.
-- **Latest legacy image audit:** Gorilla / mountain gorilla (*Gorilla beringei beringei*) - `REPLACEMENT SOURCE NEEDED`. A 1552x1632 CC BY 2.0 source explicitly identifies an adult male, but direct original-image inspection shows lower limbs/hands/feet obscured by seated posture and vegetation. Western-lowland silverback alternatives were rejected as wrong taxon.
-- **Next legacy image audit:** Gray Wolf. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko and Giraffe remain source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Peacock / Indian Peafowl (*Pavo cristatus*)
+- **Next pending animal:** Pelican
+- **Latest completion:** 2026-09-22 15:00 America/Chicago
+- **Latest new-animal image status:** Peacock - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Reusable exact-*P. cristatus* 4608x2583 CC BY-SA 4.0 photograph was directly inspected, but the rock/pose obscures feet/lower legs. Explicit-adult male Flickr/Macaulay alternatives were found but redistribution permission is absent or not established, so no PNG was claimed.
+- **Latest legacy image audit:** Gray Wolf (*Canis lupus*) - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The existing 5090x3054 CC BY-SA 4.0 male Iberian-wolf source remains visually complete but adulthood is not explicit. A newly checked 3000x2004 public-domain USFWS gray-wolf image was directly inspected and rejected because the snow/body framing hides the lower body/feet/tail. A 5365x3552 commercial source explicitly labels an adult full-body wolf but is rights-managed, so it cannot replace the reusable candidate.
+- **Next legacy image audit:** Great Horned Owl. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko and Giraffe remain source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-150.md`; next checkpoint at 175 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Peacock control:** Indian Peafowl *Pavo cristatus*, healthy prime mature breeding male, 5.0 kg / 220.0 cm including train / 0.0 m/s unsupported maximum / 18.0 y / 0.0 PSI unresolved. Attack 29.0 / Defense 19.0 / Agility 70.0 / Stamina 58.0 / Intelligence 64.0 / Special 62.0. The 2.2 m visual silhouette is mostly ornament and is not allowed to inflate absolute power.
 - **Pangolin control:** Sunda pangolin *Manis javanica*, healthy prime mature male, 7.0 kg / 110.0 cm total length / 0.0 m/s unsupported maximum / 0.0 y unresolved species-specific lifespan / 0.0 PSI (edentulous). Attack 28.0 / Defense 66.0 / Agility 59.0 / Stamina 50.0 / Intelligence 54.0 / Special 88.0. Scale armor and curling drive Defense/Special without leaking proportional digging strength into Attack.
 - **Otter control:** *Lontra canadensis*, mature male 12.0 kg. Attack 35.0 / Defense 29.0 / Agility 91.0 / Stamina 76.0 / Intelligence 78.0 / Special 77.0.
 - **Ostrich control:** *Struthio camelus*, mature male 130.0 kg. Attack 58.0 / Defense 37.0 / Agility 83.0 / Stamina 89.0 / Intelligence 52.0 / Special 64.0.
@@ -37,12 +38,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Ostrich | 130.0 kg mature male *S. camelus* | 58.0 | 37.0 | 83.0 | 89.0 | 52.0 | 64.0 |
 | Otter | 12.0 kg mature male *L. canadensis* | 35.0 | 29.0 | 91.0 | 76.0 | 78.0 | 77.0 |
 | Pangolin | 7.0 kg mature male *M. javanica* | 28.0 | 66.0 | 59.0 | 50.0 | 54.0 | 88.0 |
+| Peacock | 5.0 kg mature male *P. cristatus* | 29.0 | 19.0 | 70.0 | 58.0 | 64.0 | 62.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-150.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **175 completed research files**.
 
 ## Image pipeline status
-153 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+154 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

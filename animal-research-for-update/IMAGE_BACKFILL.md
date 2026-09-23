@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 177 / 225 (through Reindeer). **Full-body transparent PNG assets verified and committed:** 0 / 177. A source-photo URL is not an approved PNG.
+**Research reports completed:** 178 / 225 (through Reticulated Python). **Full-body transparent PNG assets verified and committed:** 0 / 178. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -41,9 +41,9 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Kangaroo | REPLACEMENT SOURCE NEEDED | Strong reusable large-male source found, but vegetation hides feet/lower legs and tail |
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable sources do not simultaneously establish adult, exact post-2024 taxon and strict complete tail |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit large-male NOAA source and high-res Commons source both fail strict appendage framing |
-| Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** no better reusable healthy-living adult source found; museum mount rejected; living high-quality source all-rights-reserved |
-| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT:** branch-obscured lower anatomy |
-| Komodo Dragon | REPLACEMENT SOURCE NEEDED | Explicit-adult reusable source crops rear body/tail |
+| Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited 2026-09-23; no better reusable healthy-living adult source found |
+| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** reusable male source inspected; adulthood and unobstructed lower appendages unresolved |
+| Komodo Dragon | REPLACEMENT SOURCE NEEDED | **NEXT:** explicit-adult reusable source crops rear body/tail |
 | Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult and strict anatomy unresolved |
 | Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult; all-flipper/tail strictness unresolved |
 | Leopard | SOURCE FOUND - FULL-BODY NOT VERIFIED | Whole-body male; adulthood unstated |
@@ -86,31 +86,45 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Red-tailed Hawk | REPLACEMENT SOURCE NEEDED | Explicit three-year-old female reusable source is cropped portrait |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 Kiwi legacy audit
-Roster Kiwi resolves to Southern Brown Kiwi / Tokoeka, ***Apteryx australis***, with a healthy adult female preferred because females are larger.
+## 2026-09-23 Koala legacy audit
+Roster Koala resolves to ***Phascolarctos cinereus***. Adult males are the larger/stronger fighting sex and are preferred for the image.
 
-Fresh broad search checked Wikimedia Commons, Animal Diversity Web, Flickr/eBird-style discovery and photographer pages.
+Fresh broad search checked Commons, Google-style web/image discovery, government/conservation pages, Flickr and photographer/stock sources.
 
-- Existing staging candidate remains: https://commons.wikimedia.org/wiki/File:Tokoeka.jpg, original https://upload.wikimedia.org/wikipedia/commons/9/9e/Tokoeka.jpg. It is a reusable wild exact-species photograph, but adulthood/sex are not explicit and strict every-toe visibility remains uncertified.
-- Animal Diversity Web provides an exact *A. australis* image explicitly tagged **adult/sexually mature**, under CC BY-NC-SA 3.0, but it does not resolve the strict framing/quality combination strongly enough to replace the current primary candidate.
-- Wikimedia Commons `File:Apteryx australis (brown kiwi).jpg` is **2838x1915, CC BY 2.0**, exact species and high resolution, but the source explicitly says it is a **museum mount** at the Field Museum. It fails the mandatory healthy living adult requirement and was rejected despite its strong license/resolution.
-  - Page: https://commons.wikimedia.org/wiki/File:Apteryx_australis_(brown_kiwi).jpg
-  - Original: https://live.staticflickr.com/8468/8365396516_e5d9b0427c_o.jpg
-- A visually strong living wild South Island brown kiwi photograph from Stewart Island was also found on Flickr, but it is marked **All rights reserved**, so it cannot be redistributed as a cutout without permission.
+Strongest reusable candidate inspected:
+- Source page: https://commons.wikimedia.org/wiki/File:Friendly_Male_Koala.JPG
+- Original: https://upload.wikimedia.org/wikipedia/commons/e/ef/Friendly_Male_Koala.JPG
+- **2407x3496**, **CC BY-SA 3.0**, photographer Quartl, Billabong Koala and Wildlife Park, New South Wales.
+- Source explicitly identifies the subject as a **male *Phascolarctos cinereus***.
+- Direct original-image inspection confirms the head and torso are fully in frame and the limbs are substantially visible, but branches overlap the lower body/feet. More importantly, the source metadata does not explicitly establish adulthood.
 
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The existing reusable wild candidate remains primary. No PNG created. **Koala is next practical unresolved legacy audit.**
+Additional candidates:
+- https://www.flickr.com/photos/kristianbell/24766187351/ explicitly identifies a wild **adult male** koala off the Great Ocean Road. This resolves age/sex but redistribution permission was not established during the run, so it was not selected for a redistributable cutout.
+- https://commons.wikimedia.org/wiki/File:A364,_Lone_Pine_Koala_Sanctuary,_Queensland,_Australia,_koala,_2007.png explicitly identifies an **adult male**, but the available file is only 534x800 and is therefore materially weaker than the preferred 1600+/2000+ target.
+- Commercial adult-male photographs were found at much higher resolution, but they are not suitable for unlicensed redistribution.
 
-## 2026-09-23 Reindeer new-animal image audit
-Roster Reindeer resolves to ***Rangifer tarandus***, with a healthy prime adult male preferred.
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The 2407x3496 reusable male source is a useful provenance upgrade, but adulthood and strict unobstructed appendage visibility are not simultaneously verified. No PNG created. **Komodo Dragon is next practical unresolved legacy audit.**
+
+## 2026-09-23 Reticulated Python new-animal image audit
+Roster Reticulated Python resolves to ***Malayopython reticulatus***, with a healthy prime adult female preferred because females attain larger body sizes.
 
 Best reusable candidate found:
-- Source page: https://commons.wikimedia.org/wiki/File:Carib%C3%BA_(Rangifer_tarandus),_Parque_nacional_y_reserva_Denali,_Alaska,_Estados_Unidos,_2017-08-30,_DD_40.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/8/81/Carib%C3%BA_%28Rangifer_tarandus%29%2C_Parque_nacional_y_reserva_Denali%2C_Alaska%2C_Estados_Unidos%2C_2017-08-30%2C_DD_40.jpg
-- **5908x3939**, **CC BY-SA 4.0**, Diego Delso, Commons **Quality Image**, wild Denali National Park animal.
-- Direct visual inspection confirms head, torso, all four legs/feet, rump/tail and complete visible antler rack are inside the frame.
-- Source metadata does **not** explicitly establish adulthood or sex. Because both sexes can grow antlers, sex was not inferred from the rack.
+- Source page: https://commons.wikimedia.org/wiki/File:Reticulated_python_MP1.JPG
+- Original: https://upload.wikimedia.org/wikipedia/commons/4/4d/Reticulated_python_MP1.JPG
+- **3504x2336**, **public domain**, exact species, explicitly a **female**, photographed by Mark Patterson.
+- The source explicitly states the animal was **2 years old and 3 m long**. That does not establish the mandatory healthy adult criterion, and the coiled pose does not permit strict certification of the entire head-to-tail silhouette.
 
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Excellent anatomy/resolution/license, but age/sex metadata is insufficient for promotion under the mandatory standard. No PNG created.
+Adult alternatives:
+- https://www.flickr.com/photos/gondwanareptileproductions/36905670662/ explicitly identifies a wild **adult female** reticulated python from primary rainforest on Pulau Tioman, Malaysia. Age, sex and exact taxon are strong, but reuse permission and strict complete-body framing were not simultaneously verified.
+- https://www.flickr.com/photos/96574168@N02/18448244089 explicitly identifies a wild **adult** *Malayopython reticulatus* from Tioman Island, but sex and redistribution permission remain unresolved.
+
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No candidate simultaneously satisfied adult + preferred sex + strict complete silhouette + reusable provenance. No PNG created.
+
+## Prior 2026-09-23 Kiwi audit summary
+The existing reusable wild *Apteryx australis* candidate remains primary. A 2838x1915 CC BY 2.0 exact-species image was rejected because it is a museum mount, and a strong living wild source was all-rights-reserved. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+
+## Prior 2026-09-23 Reindeer image audit summary
+The primary candidate remains a 5908x3939 CC BY-SA 4.0 Commons Quality Image of wild *Rangifer tarandus* in Denali. Complete visible anatomy was inspected, but adulthood and sex are not explicit. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -126,9 +140,9 @@ Best reusable candidate found:
 - Pufferfish: exact *Arothron hispidus*, 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette verified.
 
 ## Count and blockers
-- `177` is completed text research, not completed images.
+- `178` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Koala.**
+- **Next practical unresolved source-quality legacy audit: Komodo Dragon.**

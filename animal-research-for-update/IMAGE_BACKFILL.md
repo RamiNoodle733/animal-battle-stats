@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 166 / 225 (through Puffin). **Full-body transparent PNG assets verified and committed:** 0 / 166. A source-photo URL is not an approved PNG.
+**Research reports completed:** 167 / 225 (through Python). **Full-body transparent PNG assets verified and committed:** 0 / 167. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -30,8 +30,8 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5472x3648 reusable exact-species male; adulthood and strict complete tail/all-feet visibility not certified |
 | Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6830x3842 reusable exact-species male; adulthood and strict tail/all-feet visibility remain uncertified |
 | Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2177x2903 reusable source clips hand/lower body/tail |
-| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** complete 2048x1539 reusable male hovering source visually verified, but adulthood not explicit; explicit-adult source is perched/branch-obscured |
-| Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact adult female source too small |
+| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete 2048x1539 reusable male hovering source visually verified, but adulthood not explicit |
+| Huntsman Spider | REPLACEMENT SOURCE NEEDED | **AUDITED 2026-09-23:** exact *Heteropoda maxima* explicit adult-female reusable source is only 640x480; no materially better 1600+ adult source recovered |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Rear/tail silhouette incomplete |
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit large adult male; strict tail/all-feet not certified |
 | Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete male anatomy; adulthood not explicit |
@@ -74,46 +74,49 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Pronghorn | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 5071x3581 reusable Quality Image; binary tooling unavailable |
 | Pufferfish | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact *A. hispidus*, 6069x4046 reusable Featured/Quality Image; complete silhouette visually verified; binary tooling unavailable |
 | Puffin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4926x3286 exact *F. a. arctica* flight image has complete silhouette and reusable license; adulthood/sex not explicit |
+| Python | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5446x3631 reusable exact-species candidate is high quality but coiled/vegetation-obscured; explicit 23-year-old 6000x4000 source is a body close-up |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 Hummingbird legacy audit
-The staging Hummingbird resolves to Ruby-throated Hummingbird, *Archilochus colubris*. Females average slightly heavier, but the existing legacy image search was centered on the readily sex-verified male and no stronger fighting-sex requirement is established in the prior report.
+## 2026-09-23 Huntsman Spider legacy audit
+The staging Huntsman Spider resolves to Giant Huntsman Spider, ***Heteropoda maxima***, not the much more widely photographed *Heteropoda venatoria*. This distinction was rechecked before accepting any candidate.
 
-Best new framing candidate inspected:
-- Source page: https://commons.wikimedia.org/wiki/File:Archilochus_colubris-male_hovering.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/2/22/Archilochus_colubris-male_hovering.jpg
-- Resolution: 2048x1539
-- License: CC BY 4.0
-- Exact taxon: *Archilochus colubris*
-- Sex: male
-- Context: hovering in Kings County, Canada
-- Photographer: Blake Ross / iNaturalist source
+Existing strongest age/sex source remains:
+- Source page: https://commons.wikimedia.org/wiki/File:Heteropoda_maxima_f.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/7/72/Heteropoda_maxima_f.jpg
+- Resolution: 640x480
+- License: CC BY-SA 3.0
+- Exact taxon: *Heteropoda maxima*
+- Age/sex: explicitly **adult female**
 
-**Visual audit:** the direct original was opened. Bill, head, torso, both wings, tail and visible feet are inside frame with an unusually clean blurred background. It is an excellent cutout candidate and meets the preferred 2000+ longest-dimension target. However, the source metadata says male but does not explicitly certify adulthood. Under the mandatory rule, mature appearance cannot substitute for documented age.
+The complete spider is visible, but the 640x480 original is far below the preferred 1600+ longest dimension and is weak for faithful isolation of eight fine distal legs. Other reusable Commons exact-species files remain only 738x900 or 900x817 and do not improve the adult-metadata plus resolution combination.
+
+Broad image search surfaced a clean 1500x2000 CC BY-SA 4.0 female *Heteropoda venatoria*. It was **rejected as the wrong species** despite better resolution and framing. Commercial/editorial *H. maxima* images were not promoted without suitable reuse provenance and explicit adulthood. Status therefore remains `REPLACEMENT SOURCE NEEDED`. No PNG was created. **Hyena is next.**
+
+## 2026-09-23 Python new-animal image audit
+The Python roster entry resolves to reticulated python, ***Malayopython reticulatus***.
+
+Primary reusable candidate inspected:
+- Source page: https://commons.wikimedia.org/wiki/File:RETICULATED_PYTHON.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/b/bc/RETICULATED_PYTHON.jpg
+- Resolution: 5446x3631
+- License: CC BY-SA 4.0
+- Exact taxon: *Malayopython reticulatus*
+- Location: Misamis Oriental, Philippines
+- Photographer: Kirkamon A. Cabello
+
+**Visual audit:** a 3840-pixel rendering was directly opened. The photograph is sharp, high-resolution and exact-species, but the snake is tightly coiled around branches and foliage. The complete body path and tail endpoint cannot be certified, so it fails the strict whole-animal silhouette rule. Metadata does not explicitly establish adulthood or sex.
 
 Explicit-adult comparison source:
-- Source page: https://commons.wikimedia.org/wiki/File:Ruby-throated_Hummingbird_Archilochus_colubris_moulting_male,_eastern_Ontario_8635.jpg
-- Original available from that Commons page
-- Resolution: 1600x1154
+- Source page: https://commons.wikimedia.org/wiki/File:Reptilarium_du_Larzac_-_Malayopython_reticulatus_07.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/6/67/Reptilarium_du_Larzac_-_Malayopython_reticulatus_07.jpg
+- Resolution: 6000x4000
 - License: CC BY-SA 4.0
-- Metadata explicitly says **adult male in moult**.
+- Exact taxon: *Malayopython reticulatus*
+- Age: explicitly **23 years old**
 
-The explicit-adult source is perched on a branch and does not provide the same clean strict all-appendage silhouette. Therefore Hummingbird remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`; no source is promoted merely by combining age metadata from one photograph with anatomy from another. No PNG was created. **Huntsman Spider** is next.
+**Visual audit:** a 3840-pixel rendering was directly opened. It is a tight close-up of the snake's patterned trunk, with neither whole head-to-tail anatomy nor a usable complete silhouette. It proves that an adult reusable high-resolution source exists, but not one meeting the framing requirement.
 
-## 2026-09-23 Puffin new-animal image
-The roster Puffin resolves to Atlantic Puffin, *Fratercula arctica*.
-
-Candidate inspected:
-- Source page: https://commons.wikimedia.org/wiki/File:Atlantic_puffin_(Fratercula_arctica_arctica)_in_flight_Flatey.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/a/ae/Atlantic_puffin_%28Fratercula_arctica_arctica%29_in_flight_Flatey.jpg
-- Resolution: 4926x3286
-- License: CC BY-SA 4.0
-- Exact taxon: *Fratercula arctica arctica*
-- Location: Flatey Island, western Iceland
-- Photographer: Charles J. Sharp
-- Commons assessment: Quality Image and Valued Image
-
-**Visual audit:** the original was directly opened. Complete bill/head, torso, tail, both wings and both feet are inside frame; the bird is isolated against sky and carries fish. Framing and resolution are excellent for a future cutout. Source metadata does not explicitly certify adulthood or sex, so the status is truthfully `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Current GitHub actions cannot commit binary PNGs, so no cutout or alpha completion is claimed.
+Status is therefore `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No web JPG is called a finished PNG and no binary is fabricated.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -129,12 +132,12 @@ Candidate inspected:
 - Pufferfish: exact *Arothron hispidus*, adult-context 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette visually verified; sex unknown.
 
 ## Recently audited, skip until materially better source or binary tooling
-Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `166` is completed text research, not completed images.
+- `167` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Huntsman Spider.**
+- **Next practical unresolved source-quality legacy audit: Hyena.**

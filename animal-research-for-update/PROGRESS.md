@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 162 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 162
+- **Completed research files:** 163 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 163
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Praying Mantis / Chinese Mantis (*Tenodera sinensis*)
-- **Next pending animal:** Proboscis Monkey
-- **Latest completion:** 2026-09-22 23:02 America/Chicago
-- **Latest new-animal image status:** Praying Mantis - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 5184x3456 CC BY-SA 3.0 Commons source explicitly identifies an adult female *T. sinensis* and was opened directly. Head, body and major limbs are in frame, but branch overlap prevents strict certification of every foot/appendage endpoint. A separate 3954x2438 reusable adult source was rejected because an appendage is clipped. No PNG is claimed.
-- **Latest legacy image audit:** Hercules Beetle (*Dynastes hercules*) - `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. A 4000x2248 CC BY 2.0 live male Commons/Flickr photograph documents that the male had just emerged after a two-year development period. Broad search also found higher-detail specimen images, but dead/pinned specimens do not satisfy the healthy-living-adult standard. The live source is preferred for provenance and life status; binary cutout tooling remains unavailable.
-- **Next legacy image audit:** Hippopotamus. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco and Hercules Beetle are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Proboscis Monkey (*Nasalis larvatus*)
+- **Next pending animal:** Pronghorn
+- **Latest completion:** 2026-09-23 00:00 America/Chicago
+- **Latest new-animal image status:** Proboscis Monkey - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3600x2700 CC BY-SA 2.0 Commons/Flickr photograph explicitly identifies a male *N. larvatus*. Exact taxon, sex, resolution, real-photo provenance and reuse license are established, but strict complete-body visibility and adulthood were not established strongly enough to certify the mandatory standard. No PNG is claimed.
+- **Latest legacy image audit:** Hippopotamus (*Hippopotamus amphibius*) - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 5472x3648 CC BY-SA 2.0 Commons/Flickr photograph explicitly identifies a male and provides the original-photo URL. It is a strong high-resolution reusable candidate, but source metadata does not explicitly establish adulthood and strict complete tail/all-feet visibility could not be certified, so it is not promoted to cutout-ready status.
+- **Next legacy image audit:** Honey Badger. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco and Hercules Beetle are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-150.md`; next checkpoint at 175 completed research files.
 
 ## Selection and image rules
@@ -24,8 +24,9 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
-- **Praying Mantis control:** Chinese mantis *Tenodera sinensis*, healthy prime adult female, 0.006 kg / 10.0 cm body length / 0.0 m/s unsupported maximum / 0.4 y adult lifespan / 0.0 PSI unsupported. Attack 12.0 / Defense 9.0 / Agility 80.0 / Stamina 43.0 / Intelligence 48.0 / Special 84.0. Motion-based stereopsis and raptorial capture raise Senses/Special without leaking proportional insect performance into absolute Attack.
-- **Porcupine control:** North American porcupine *Erethizon dorsatum*, healthy prime mature male, 10.5 kg / 80.0 cm total length / 0.0 m/s unsupported maximum / 15.0 y moderate-confidence representative / 0.0 PSI unsupported. Attack 35.0 / Defense 67.0 / Agility 48.0 / Stamina 64.0 / Intelligence 51.0 / Special 92.0.
+- **Proboscis Monkey control:** *Nasalis larvatus*, healthy prime adult male, 21.2 kg / 75.5 cm head-body dimension / 142.0 cm proposed total length / 0.0 m/s unsupported maximum / 20.0 y moderate-low confidence / 0.0 PSI unsupported. Attack 34.0 / Defense 31.0 / Agility 85.0 / Stamina 69.0 / Intelligence 74.0 / Special 84.0. Low observed aggression constrains Attack/Ferocity; arboreal plus aquatic mobility raises Agility/Special without proportional-strength leakage.
+- **Praying Mantis control:** Chinese mantis *Tenodera sinensis*, healthy prime adult female, 0.006 kg / 10.0 cm body length / 0.0 m/s unsupported maximum / 0.4 y adult lifespan / 0.0 PSI unsupported. Attack 12.0 / Defense 9.0 / Agility 80.0 / Stamina 43.0 / Intelligence 48.0 / Special 84.0.
+- **Porcupine control:** North American porcupine *Erethizon dorsatum*, healthy prime mature male, 10.5 kg / 80.0 cm total length / 0.0 m/s unsupported maximum / 15.0 y / 0.0 PSI unsupported. Attack 35.0 / Defense 67.0 / Agility 48.0 / Stamina 64.0 / Intelligence 51.0 / Special 92.0.
 - **Polar Bear control:** *Ursus maritimus*, healthy prime mature male, 500.0 kg / 140.0 cm shoulder / 260.0 cm total length / 8.9 m/s conservative short sprint / 18.0 y / 0.0 PSI unsupported. Attack 78.0 / Defense 72.0 / Agility 62.0 / Stamina 88.0 / Intelligence 73.0 / Special 77.0.
 - **Poison Dart Frog control:** Golden Poison Frog *Phyllobates terribilis*, healthy prime wild adult female, 0.006 kg / 5.2 cm SVL / 0.0 m/s unsupported maximum / 10.0 y / 0.0 PSI. Attack 6.0 / Defense 43.0 / Agility 76.0 / Stamina 44.0 / Intelligence 36.0 / Special 99.0.
 - **Platypus control:** *Ornithorhynchus anatinus*, healthy prime mature male, 1.7 kg / 50.0 cm total length / 0.0 m/s unsupported maximum / 12.5 y / 0.0 PSI. Attack 31.0 / Defense 22.0 / Agility 80.0 / Stamina 73.0 / Intelligence 61.0 / Special 94.0.
@@ -46,12 +47,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Polar Bear | 500.0 kg prime mature male *U. maritimus* | 78.0 | 72.0 | 62.0 | 88.0 | 73.0 | 77.0 |
 | Porcupine | 10.5 kg mature male *E. dorsatum* | 35.0 | 67.0 | 48.0 | 64.0 | 51.0 | 92.0 |
 | Praying Mantis | 0.006 kg adult female *T. sinensis* | 12.0 | 9.0 | 80.0 | 43.0 | 48.0 | 84.0 |
+| Proboscis Monkey | 21.2 kg adult male *N. larvatus* | 34.0 | 31.0 | 85.0 | 69.0 | 74.0 | 84.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-150.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **175 completed research files**.
 
 ## Image pipeline status
-162 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+163 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

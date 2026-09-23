@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 170 / 225 (through Raccoon). **Full-body transparent PNG assets verified and committed:** 0 / 170. A source-photo URL is not an approved PNG.
+**Research reports completed:** 171 / 225 (through Rattlesnake). **Full-body transparent PNG assets verified and committed:** 0 / 171. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -34,8 +34,8 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact *Heteropoda maxima* adult-female source only 640x480 |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3106x2397 reusable female; adulthood and strict tail/all-foot visibility unresolved |
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4320x2432 reusable explicit large adult male; strict complete tail/every-foot framing not certified |
-| Impala | REPLACEMENT SOURCE NEEDED | **AUDITED 2026-09-23:** explicit adult-male CC0 source is 1153x1881 and all four feet are visible, but the tail is hidden; larger reusable male sources inspected still fail strict complete anatomy/adulthood simultaneously |
-| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood/male/full-body not simultaneous |
+| Impala | REPLACEMENT SOURCE NEEDED | Explicit adult-male CC0 source has all four feet but hidden tail; larger male sources fail strict anatomy |
+| Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** new 5404x3603 CC BY-SA 4.0 Featured/Quality exact-species side view has grass-obscured feet/lower legs and adulthood/sex unstated; existing cleaner 4524x3015 candidate remains preferable but adulthood unstated |
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Male; adulthood/strict tail-feet unresolved |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult-male source too small |
 | Kangaroo | REPLACEMENT SOURCE NEEDED | Explicit adult male source too small |
@@ -78,41 +78,35 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Quokka | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3959x2969 reusable source; adulthood/sex and strict tail/all-foot completeness unresolved |
 | Quoll | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5472x3648 wild CC BY-SA 3.0 exact species; adulthood/sex and strict complete tail/every-foot visibility unresolved |
 | Raccoon | LICENSE UNVERIFIED - DO NOT COMMIT | UF/IFAS explicitly adult male source is visually full-body at 2048px render, but redistribution permission is not established; reusable Commons alternative is branch-obscured |
+| Rattlesnake | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4643x3257 reusable exact *C. atrox* source visually complete including rattle; adulthood/sex not explicit |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 Impala legacy audit
-The staging Impala is *Aepyceros melampus*, with a fully mature male as the canonical fighting specimen.
+## 2026-09-23 Jackal legacy audit
+The staging Jackal resolves to black-backed jackal, ***Lupulella mesomelas***, with a healthy mature male as the canonical fighter.
 
-Explicit-adult reusable candidate checked:
-- Source page: https://commons.wikimedia.org/wiki/File:Adult_impala_male.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/a/a7/Adult_impala_male.jpg
-- Resolution: **1153x1881**
-- License: **CC0 1.0**, Commons-reviewed Pixabay provenance
-- Exact taxon/sex/age: description explicitly says **Impala (*Aepyceros melampus*): Adult impala male**
-- Visual result: all four legs and feet are inside the frame, but the tail is not visibly separable/complete, so it fails the mandatory whole-tail rule.
+New broad-search candidate checked:
+- Source page: https://commons.wikimedia.org/wiki/File:Chacal_de_lomo_negro_(Lupulella_mesomelas),_reserva_natural_Mas%C3%A1i_Mara,_Kenia,_2024-05-20,_DD_07.jpg
+- Original file: https://upload.wikimedia.org/wikipedia/commons/5/5f/Chacal_de_lomo_negro_%28Lupulella_mesomelas%29%2C_reserva_natural_Mas%C3%A1i_Mara%2C_Kenia%2C_2024-05-20%2C_DD_07.jpg
+- Resolution: **5404x3603**
+- License: **CC BY-SA 4.0**, Diego Delso; Commons Featured Picture and Quality Image
+- Exact taxon: *Lupulella mesomelas schmidti*
+- Visual result: direct 3840px inspection shows a high-quality side-profile animal with head, torso and tail in frame, but tall grass crosses/obscures the feet and lower legs. The source does not explicitly state adulthood or sex.
 
-A second reusable male photograph, `Aepyceros melampus mâle.jpg`, was also checked at its **3082x2505** original. Its source explicitly identifies a male and the license is CC BY-SA 3.0/GFDL, but direct visual inspection shows the lower feet are cropped by the frame, so it is not a valid replacement. The existing 5910x3940 Kruger male candidate remains unable to establish explicit adulthood plus strict complete anatomy simultaneously. Status is therefore tightened to `REPLACEMENT SOURCE NEEDED`, not complete. No PNG was created. **Jackal is next.**
+The existing report's 4524x3015 Charles J. Sharp candidate remains cleaner for cutout work because its whole standing silhouette was previously visually verified, but its metadata also does not explicitly establish adulthood. An American Society of Mammalogists page was found that explicitly describes a standing **adult** black-backed jackal, but this run did not establish a reusable original high-resolution image/license superior to the existing candidate. Status therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG was created. **Jaguar is next.**
 
-## 2026-09-23 Raccoon new-animal image audit
-The roster Raccoon resolves to northern/common raccoon, ***Procyon lotor***.
+## 2026-09-23 Rattlesnake new-animal image audit
+The roster Rattlesnake resolves to western diamond-backed rattlesnake, ***Crotalus atrox***.
 
-Strong age/sex/anatomy candidate:
-- Source page: https://ask.ifas.ufl.edu/publication/UW033
-- Direct image: https://ask.ifas.ufl.edu/image/UW033/14595775/5173054/5173054-2048.webp
-- Source authority: University of Florida IFAS Extension
-- Exact taxon: *Procyon lotor*
-- Age/sex: Figure 1 explicitly says **adult male**
-- Visual result: direct inspection shows head, torso, all four legs/feet and ringed tail within frame
-- Blocker: the publication page does not state a reuse license for this photograph, so it is **not redistributed or committed**.
+Primary reusable candidate:
+- Source page: https://commons.wikimedia.org/wiki/File:Western_Diamondback_Rattlesnake_(Crotalus_atrox).jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/0/0c/Western_Diamondback_Rattlesnake_%28Crotalus_atrox%29.jpg
+- Resolution: **4643x3257**
+- License: **CC BY 2.0**, Peter Paplanus; Flickr license reviewed by Commons
+- Source description: exact *C. atrox*, described as a **large and healthy snake**; a juvenile was separately encountered at another densite
+- Visual result: direct 3840px inspection shows the complete coiled body, head and rattle inside frame with no anatomical clipping
+- Blocker: the photographed individual's adulthood and sex are not explicitly stated. The description strongly suggests a mature animal but `IMAGE_REQUIREMENTS.md` makes adulthood mandatory, so it is not promoted to verified-full-body status.
 
-Reusable alternative checked:
-- Source page: https://commons.wikimedia.org/wiki/File:Procyon_lotor_(raccoon,_procione).jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/a/ab/Procyon_lotor_%28raccoon%2C_procione%29.jpg
-- Resolution: **3000x1999**
-- License: **CC BY-SA 4.0**
-- Visual result: branches cross/obscure the animal and strict foot/body isolation fails; adulthood/sex are unstated.
-
-Status: `LICENSE UNVERIFIED - DO NOT COMMIT`. The UF/IFAS candidate is excellent evidence of the desired framing, but permission must be resolved or a comparably clear reusable adult source found. No PNG was created.
+A separate Flickr source explicitly identifies an **adult male** *C. atrox* from southern Arizona, but it is all-rights-reserved and therefore not a redistribution candidate. ADW/USFWS also has a public-domain image record explicitly marked adult/sexually mature, but the original/full-body framing could not be retrieved and visually certified in this run. Status: `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG was created.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -128,12 +122,12 @@ Status: `LICENSE UNVERIFIED - DO NOT COMMIT`. The UF/IFAS candidate is excellent
 - Pufferfish: exact *Arothron hispidus*, 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette verified.
 
 ## Recently audited, skip until materially better source or binary tooling
-Impala, Iguana, Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Jackal, Impala, Iguana, Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `170` is completed text research, not completed images.
+- `171` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Jackal.**
+- **Next practical unresolved source-quality legacy audit: Jaguar.**

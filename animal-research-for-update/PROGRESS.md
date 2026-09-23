@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 178 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 178
+- **Completed research files:** 179 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 179
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Reticulated Python - *Malayopython reticulatus*
-- **Next pending animal:** Rhinoceros
-- **Latest completion:** 2026-09-23 15:04 America/Chicago
-- **Latest new-animal image status:** Reticulated Python - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3504x2336 public-domain Commons source is exact species and explicitly a female, but the subject is stated to be two years old and the coiled pose does not satisfy strict adult/whole-silhouette verification. A wild adult-female Flickr source was also located, but reuse permission and strict complete-body framing were not simultaneously established. No PNG is claimed.
-- **Latest legacy image audit:** Koala (*Phascolarctos cinereus*). A 2407x3496 CC BY-SA 3.0 Commons source explicitly identifies a male and was directly inspected at original resolution. The animal is substantially visible, including head, torso and limbs, but the source does not explicitly establish adulthood and branches overlap the lower-body/foot silhouette. A separate Flickr source explicitly identifies a wild adult male, but redistribution permission was not established. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Komodo Dragon. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle, Pronghorn and Pufferfish are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Rhinoceros - Southern white rhinoceros (*Ceratotherium simum simum*)
+- **Next pending animal:** Ring-tailed Lemur
+- **Latest completion:** 2026-09-23 16:02 America/Chicago
+- **Latest new-animal image status:** Rhinoceros - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3798x2848 CC BY-SA 3.0 exact-species male Commons source was opened at original resolution; head, torso and horns are visible but foreground vegetation overlaps the lower feet, and adulthood is not explicit. A separate 6000x4000 CC BY-SA 4.0 Commons Quality Image explicitly identifies an adult southern white rhinoceros, but sex and strict complete-body silhouette were not simultaneously verified. No PNG is claimed.
+- **Latest legacy image audit:** Komodo Dragon (*Varanus komodoensis*). A 2250x3000 CC BY-SA 3.0 Commons source explicitly identifies an adult and was opened at original resolution, but the tail/body extend out of frame and the complete silhouette fails the mandatory standard. Status remains `REPLACEMENT SOURCE NEEDED`.
+- **Next legacy image audit:** Kookaburra. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle, Pronghorn and Pufferfish are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-175.md`; next checkpoint at 200 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 - Stamina separates sustained movement from burst speed, fasting tolerance and passive environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Rhinoceros control:** roster generic resolved to southern white rhinoceros *Ceratotherium simum simum*, healthy prime mature male, 2300.0 kg / 180.0 cm shoulder / 380.0 cm head-body / 11.1 m/s short gallop / 40.0 y / 0.0 PSI. Attack 86.0 / Defense 82.0 / Agility 56.0 / Stamina 73.0 / Intelligence 49.0 / Special 53.0. It is intentionally above the 1200 kg Black Rhinoceros in absolute Attack/Defense while slightly lower in Agility; horn/mass are not double-counted into Special.
 - **Reticulated Python control:** *Malayopython reticulatus*, healthy prime adult female, 50.0 kg / 500.0 cm total length / 0.0 m/s unresolved maximum / 20.0 y / 0.0 PSI. Attack 72.0 / Defense 47.0 / Agility 52.0 / Stamina 52.0 / Intelligence 44.0 / Special 82.0. Direct constriction-pressure evidence supports Attack/Abilities; infrared labial pits support Senses/Special; fasting tolerance is not inflated into aerobic Stamina.
 - **Reindeer control:** *Rangifer tarandus*, healthy prime adult male, 170.0 kg / 120.0 cm shoulder / 200.0 cm head-body / 0.0 m/s unresolved maximum / 15.0 y / 0.0 PSI. Attack 55.0 / Defense 46.0 / Agility 66.0 / Stamina 93.0 / Intelligence 50.0 / Special 80.0.
 - **Red-tailed Hawk control:** *Buteo jamaicensis*, healthy prime adult female, 1.2 kg / 58.0 cm total length / ~125 cm wingspan context / 0.0 m/s unresolved maximum / 20.0 y / 0.0 PSI. Attack 35.0 / Defense 23.0 / Agility 90.0 / Stamina 74.0 / Intelligence 65.0 / Special 74.0.
@@ -38,12 +39,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Red-tailed Hawk | 1.2 kg adult female *B. jamaicensis* | 35.0 | 23.0 | 90.0 | 74.0 | 65.0 | 74.0 |
 | Reindeer | 170.0 kg adult male *R. tarandus* | 55.0 | 46.0 | 66.0 | 93.0 | 50.0 | 80.0 |
 | Reticulated Python | 50.0 kg adult female *M. reticulatus* | 72.0 | 47.0 | 52.0 | 52.0 | 44.0 | 82.0 |
+| Rhinoceros | 2300.0 kg adult male *C. s. simum* | 86.0 | 82.0 | 56.0 | 73.0 | 49.0 | 53.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-175.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. The sampled control chain found no prior staging score requiring correction. Next checkpoint: **200 completed research files**.
 
 ## Image pipeline status
-178 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+179 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

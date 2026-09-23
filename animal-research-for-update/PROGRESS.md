@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 163 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 163
+- **Completed research files:** 164 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 164
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Proboscis Monkey (*Nasalis larvatus*)
-- **Next pending animal:** Pronghorn
-- **Latest completion:** 2026-09-23 00:00 America/Chicago
-- **Latest new-animal image status:** Proboscis Monkey - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3600x2700 CC BY-SA 2.0 Commons/Flickr photograph explicitly identifies a male *N. larvatus*. Exact taxon, sex, resolution, real-photo provenance and reuse license are established, but strict complete-body visibility and adulthood were not established strongly enough to certify the mandatory standard. No PNG is claimed.
-- **Latest legacy image audit:** Hippopotamus (*Hippopotamus amphibius*) - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 5472x3648 CC BY-SA 2.0 Commons/Flickr photograph explicitly identifies a male and provides the original-photo URL. It is a strong high-resolution reusable candidate, but source metadata does not explicitly establish adulthood and strict complete tail/all-feet visibility could not be certified, so it is not promoted to cutout-ready status.
-- **Next legacy image audit:** Honey Badger. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco and Hercules Beetle are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Pronghorn (*Antilocapra americana*)
+- **Next pending animal:** Pufferfish
+- **Latest completion:** 2026-09-23 00:57 America/Chicago
+- **Latest new-animal image status:** Pronghorn - `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. A 5071x3581 Commons Quality Image explicitly identifies an adult male *A. americana*. Exact taxon, adulthood, canonical fighting sex, high resolution, reusable CC BY-SA provenance and whole-body framing are established. Current GitHub writer is text-only, so no PNG/alpha completion is claimed.
+- **Latest legacy image audit:** Honey Badger (*Mellivora capensis*) - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 6830x3842 CC BY-SA 4.0 Commons photograph explicitly categorizes the subject as male and materially improves resolution/provenance, but adulthood and strict complete tail/all-feet visibility could not be certified simultaneously.
+- **Next legacy image audit:** Howler Monkey. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle and Pronghorn are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-150.md`; next checkpoint at 175 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Pronghorn control:** *Antilocapra americana*, healthy prime adult male, 51.0 kg / 95.0 cm shoulder / 140.0 cm length / 24.6 m/s sourced maximum / 9.0 y / 0.0 PSI unsupported. Attack 47.0 / Defense 34.0 / Agility 94.0 / Stamina 96.0 / Intelligence 60.0 / Special 84.0. Extreme speed and endurance are kept in locomotor categories rather than leaking into Attack; 25–41 cm pronged horns support moderate offense but mass remains only ~51 kg.
 - **Proboscis Monkey control:** *Nasalis larvatus*, healthy prime adult male, 21.2 kg / 75.5 cm head-body dimension / 142.0 cm proposed total length / 0.0 m/s unsupported maximum / 20.0 y moderate-low confidence / 0.0 PSI unsupported. Attack 34.0 / Defense 31.0 / Agility 85.0 / Stamina 69.0 / Intelligence 74.0 / Special 84.0. Low observed aggression constrains Attack/Ferocity; arboreal plus aquatic mobility raises Agility/Special without proportional-strength leakage.
 - **Praying Mantis control:** Chinese mantis *Tenodera sinensis*, healthy prime adult female, 0.006 kg / 10.0 cm body length / 0.0 m/s unsupported maximum / 0.4 y adult lifespan / 0.0 PSI unsupported. Attack 12.0 / Defense 9.0 / Agility 80.0 / Stamina 43.0 / Intelligence 48.0 / Special 84.0.
 - **Porcupine control:** North American porcupine *Erethizon dorsatum*, healthy prime mature male, 10.5 kg / 80.0 cm total length / 0.0 m/s unsupported maximum / 15.0 y / 0.0 PSI unsupported. Attack 35.0 / Defense 67.0 / Agility 48.0 / Stamina 64.0 / Intelligence 51.0 / Special 92.0.
@@ -47,12 +48,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Porcupine | 10.5 kg mature male *E. dorsatum* | 35.0 | 67.0 | 48.0 | 64.0 | 51.0 | 92.0 |
 | Praying Mantis | 0.006 kg adult female *T. sinensis* | 12.0 | 9.0 | 80.0 | 43.0 | 48.0 | 84.0 |
 | Proboscis Monkey | 21.2 kg adult male *N. larvatus* | 34.0 | 31.0 | 85.0 | 69.0 | 74.0 | 84.0 |
+| Pronghorn | 51.0 kg adult male *A. americana* | 47.0 | 34.0 | 94.0 | 96.0 | 60.0 | 84.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-150.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **175 completed research files**.
 
 ## Image pipeline status
-163 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+164 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

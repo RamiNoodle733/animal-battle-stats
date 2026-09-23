@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 158 / 225 (through Platypus). **Full-body transparent PNG assets verified and committed:** 0 / 158. A source-photo URL is not an approved PNG.
+**Research reports completed:** 159 / 225 (through Poison Dart Frog). **Full-body transparent PNG assets verified and committed:** 0 / 159. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -22,9 +22,9 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Excellent public-domain NPS source; adulthood/sex and strict feet/tail silhouette unresolved |
 | Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Audited; adult/sex + strict silhouette + reusable provenance unresolved simultaneously |
 | Green Anaconda | LICENSE UNVERIFIED - DO NOT COMMIT | Explicit adult male source is all-rights-reserved; preferred adult-female full-body reusable source unresolved |
-| Guanaco | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | **AUDITED:** exact adult, 3648x2736 reusable source; complete anatomy visually verified; binary tooling unavailable |
-| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT PRACTICAL SOURCE AUDIT:** exact species/reuse strong; prior candidate cropped |
-| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict feet/tail/wings unresolved |
+| Guanaco | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult, 3648x2736 reusable source; complete anatomy visually verified; binary tooling unavailable |
+| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED:** reusable 3008x2000 exact-species source has complete silhouette but adulthood/sex unstated; adult ADW source requires permission; NOAA adult CC source could not be visually inspected |
+| Harpy Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT PRACTICAL SOURCE AUDIT:** adult/sex and strict feet/tail/wings unresolved |
 | Hedgehog | REPLACEMENT SOURCE NEEDED | Featured source fails strict anatomy |
 | Hercules Beetle | SOURCE FOUND - FULL-BODY NOT VERIFIED | All-six-feet/appendage tips unresolved |
 | Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict tail/feet unresolved |
@@ -65,38 +65,51 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Pelican | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult reusable source has submerged feet/legs |
 | Peregrine Falcon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable USFWS female source; adulthood and strict every-foot/toe/tail visibility unresolved |
 | Piranha | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6000x4000 reusable exact-species lateral source; adulthood/sex and original strict all-fin inspection unresolved |
-| Platypus | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEW:** 4000x4000 exact-species reusable source visually complete; adulthood/sex not explicit |
+| Platypus | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x4000 exact-species reusable source visually complete; adulthood/sex not explicit |
+| Poison Dart Frog | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEW:** exact *P. terribilis* 3000x2158 reusable source visually complete; adulthood/sex unstated |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-22 Guanaco legacy audit
-Broad discovery covered general image search and Wikimedia Commons. The existing report uses a mature territorial male as the combat specimen because males are the primary fighting sex, but guanacos have little consistent body-size sexual dimorphism. `IMAGE_REQUIREMENTS.md` says verified sex is preferred rather than mandatory where genuinely unconfirmed.
+## 2026-09-22 Hammerhead Shark legacy audit
+The staging Hammerhead Shark is exact-species **Great Hammerhead, *Sphyrna mokarran***. Broad discovery covered Google-style search, Wikimedia Commons, NOAA, ADW and institutional shark sources.
 
-A materially stronger source was found and opened at original resolution:
-- Source page: https://commons.wikimedia.org/wiki/File:Lama_guanicoe_(AU)-left_01.JPG
-- Original: https://upload.wikimedia.org/wikipedia/commons/f/f5/Lama_guanicoe_%28AU%29-left_01.JPG
-- Resolution: 3648x2736
-- Source description: **adult guanaco**, photographed on Península Valdés, Patagonia, Argentina
-- License: CC BY-SA 3.0 (also offered under compatible earlier CC BY-SA versions/GFDL)
-- Photographer: Gagea
-- Exact taxon: *Lama guanicoe*
-- Sex: unknown, not inferred from appearance
+### Reusable complete-silhouette candidate
+- Source page: https://commons.wikimedia.org/wiki/File:Great_hammerhead_georgia.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/d/d7/Great_hammerhead_georgia.jpg
+- Resolution: 3008x2000
+- License: CC BY 2.0
+- Photographer: Jake Mohan
+- Exact taxon: *Sphyrna mokarran*
 
-**Visual inspection:** the original photograph clearly contains one adult animal with the entire head, ears, neck, torso, all four legs, all four hooves and the complete tail inside the frame. No appendage is clipped, no other animal overlaps it, and foreground vegetation does not hide the required anatomy. The subject is large enough for a practical cutout. This is a stronger mandatory-standard candidate than the previous Leona Amarga source because adulthood is explicit and full-body anatomy has now been directly inspected.
+**Visual inspection:** the original was opened directly. The entire cephalofoil/head, trunk, tall first dorsal fin, visible paired fins and complete caudal peduncle/tail are inside the frame without clipping. It is a strong isolation silhouette. However, the Commons metadata does not explicitly establish adulthood or sex, so the strict adult requirement remains unresolved.
 
-Result: `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. No PNG was created because the connected GitHub writer is text-only. The next practical unresolved source-quality audit is **Hammerhead Shark**.
+### Adult-verified alternatives
+ADW provides an exact-*S. mokarran* photograph explicitly tagged `adult/sexually mature`, but its conditions say it may not be downloaded/used without permission beyond educational fair use:
+- https://animaldiversity.org/collections/contributors/cary_wien/IMG_5390/
 
-## 2026-09-22 Platypus new-animal image
+A NOAA Technical Memorandum also captions an **adult great hammerhead shark (*Sphyrna mokarran*)** and credits A. Kok under CC BY-SA 3.0:
+- https://repository.library.noaa.gov/view/noaa/21991/noaa_21991_DS1.pdf
+
+The NOAA PDF was too large for the available direct visual-inspection path in this run, so its figure was not promoted solely from caption metadata.
+
+Result: `SOURCE FOUND - FULL-BODY NOT VERIFIED`. This is a material improvement over relying on a cropped candidate, but no source yet simultaneously satisfies explicit adulthood, preferred sex, strict visual full-body verification and reusable provenance. No PNG was created. **Harpy Eagle** is the next practical unresolved source-quality audit.
+
+## 2026-09-22 Poison Dart Frog new-animal image
+The broad roster label was resolved for research to Golden Poison Frog, *Phyllobates terribilis*.
+
 Primary reusable candidate:
-- Source page: https://commons.wikimedia.org/wiki/File:Duck-billed_platypus_(Ornithorhynchus_anatinus)_diving_Scottsdale.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/b/b4/Duck-billed_platypus_%28Ornithorhynchus_anatinus%29_diving_Scottsdale.jpg
-- Resolution: 4000x4000
-- License: CC BY-SA 4.0
-- Photographer: Charles J. Sharp
-- Metadata: exact *Ornithorhynchus anatinus*, wild real photograph, Commons Quality Image.
+- Source page: https://commons.wikimedia.org/wiki/File:Schrecklicher_Pfeilgiftfrosch_Phyllobates_terribilis.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/5/56/Schrecklicher_Pfeilgiftfrosch_Phyllobates_terribilis.jpg
+- Resolution: 3000x2158
+- License: CC BY 3.0
+- Photographer: Holger Krisp
+- Exact taxon: *Phyllobates terribilis*
+- Commons assessment: Quality Image
 
-**Visual inspection:** original image directly inspected. Bill/head, torso, broad tail, both forelimbs and both hind limbs/feet are all visible inside the frame. The silhouette is not clipped and is suitable for isolation. However, the source metadata does not explicitly establish adulthood or sex. Because adulthood is mandatory, the truthful status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED` rather than promoting it solely from appearance.
+**Visual inspection:** the frog's head, torso, both forelimbs/hands and both hind limbs/feet are visible inside the frame without clipping. The photograph is high-resolution and suitable for isolation. Commons does not explicitly state adulthood or sex, so adulthood cannot be inferred from appearance.
 
-No PNG was created. Current GitHub writer remains text-only.
+An exact-species Flickr alternative by John P. Clare explicitly states that the photographed frog is an **adult captive-bred** animal from Tesoros de Colombia, but its license is CC BY-NC-ND 2.0. Because a background-removal cutout is a derivative for redistribution purposes, that image is not suitable for the staging PNG. ADW also has an explicitly adult exact-species photograph but requires permission from the copyright holder.
+
+Result: `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG was created because adult verification and reusable full-body provenance are not yet simultaneous, and the connected GitHub writer is text-only.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -109,12 +122,12 @@ No PNG was created. Current GitHub writer remains text-only.
 - Guanaco: explicit adult *Lama guanicoe*, 3648x2736 CC BY-SA 3.0/GFDL; complete anatomy visually verified; sex unknown.
 
 ## Recently audited, skip until materially better source or binary tooling
-Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `158` is completed text research, not completed images.
+- `159` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Hammerhead Shark.**
+- **Next practical unresolved source-quality legacy audit: Harpy Eagle.**

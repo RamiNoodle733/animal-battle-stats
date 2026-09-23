@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 158 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 158
+- **Completed research files:** 159 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 159
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Platypus (*Ornithorhynchus anatinus*)
-- **Next pending animal:** Poison Dart Frog
-- **Latest completion:** 2026-09-22 18:58 America/Chicago
-- **Latest new-animal image status:** Platypus - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 4000x4000 CC BY-SA 4.0 Charles J. Sharp exact-species Commons Quality Image was opened at original resolution and visually confirms the bill/head, torso, broad tail, both forelimbs and both hind limbs/feet inside the frame. Source metadata does not explicitly establish adulthood or sex, so strict adult verification remains unresolved and no PNG is claimed.
-- **Latest legacy image audit:** Guanaco (*Lama guanicoe*) - `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. A 3648x2736 Commons photograph explicitly describes an adult guanaco, is licensed CC BY-SA 3.0/GFDL, and the original was directly inspected: head, neck, torso, all four legs/hooves and complete tail are visible without clipping. Sex is unknown, but sex is preferred rather than mandatory where genuinely unconfirmed. Binary cutout/commit tooling remains unavailable.
-- **Next legacy image audit:** Hammerhead Shark. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe and Guanaco are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Poison Dart Frog, resolved to Golden Poison Frog (*Phyllobates terribilis*)
+- **Next pending animal:** Polar Bear
+- **Latest completion:** 2026-09-22 19:57 America/Chicago
+- **Latest new-animal image status:** Poison Dart Frog - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3000x2158 CC BY 3.0 exact-*Phyllobates terribilis* Commons Quality Image was directly inspected and contains the complete visible frog silhouette, but its metadata does not explicitly establish adulthood or sex. A separate Flickr image explicitly identifies an adult exact-species frog but is CC BY-NC-ND 2.0 and therefore unsuitable for a redistributed background-removal derivative.
+- **Latest legacy image audit:** Hammerhead Shark (*Sphyrna mokarran*) - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3008x2000 CC BY 2.0 Commons exact-species aquarium photograph was directly inspected and clearly shows the entire head-to-tail silhouette and visible fins, but the source does not explicitly establish adulthood or sex. An ADW photograph explicitly verifies an adult/sexually mature *S. mokarran* but requires permission, and a NOAA technical memorandum labels an Albert Kok image as an adult under CC BY-SA while the available PDF image could not be directly inspected in this run. No PNG is claimed.
+- **Next legacy image audit:** Harpy Eagle. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe and Guanaco are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-150.md`; next checkpoint at 175 completed research files.
 
 ## Selection and image rules
@@ -24,7 +24,8 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
-- **Platypus control:** *Ornithorhynchus anatinus*, healthy prime mature male, 1.7 kg / 50.0 cm total length / 0.0 m/s unsupported maximum / 12.5 y / 0.0 PSI. Attack 31.0 / Defense 22.0 / Agility 80.0 / Stamina 73.0 / Intelligence 61.0 / Special 94.0. Male venom-spur and electroreception evidence support very high Special, but tiny absolute body size and rearward spur delivery keep Attack low.
+- **Poison Dart Frog control:** roster family label `Dendrobatidae` resolved to Golden Poison Frog *Phyllobates terribilis*, healthy prime wild adult female, 0.006 kg / 5.2 cm SVL / 0.0 m/s unsupported maximum / 10.0 y / 0.0 PSI. Attack 6.0 / Defense 43.0 / Agility 76.0 / Stamina 44.0 / Intelligence 36.0 / Special 99.0. Passive diet-derived batrachotoxin is concentrated in Special and deterrent Defense, not inflated into active Attack or Raw Power.
+- **Platypus control:** *Ornithorhynchus anatinus*, healthy prime mature male, 1.7 kg / 50.0 cm total length / 0.0 m/s unsupported maximum / 12.5 y / 0.0 PSI. Attack 31.0 / Defense 22.0 / Agility 80.0 / Stamina 73.0 / Intelligence 61.0 / Special 94.0.
 - **Piranha control:** Red-bellied piranha *Pygocentrus nattereri*, healthy prime sexually mature adult, 1.2 kg / 30.0 cm total length / 0.0 m/s unsupported maximum / 10.0 y / 0.0 PSI unresolved. Attack 37.0 / Defense 20.0 / Agility 82.0 / Stamina 55.0 / Intelligence 59.0 / Special 67.0.
 - **Peregrine Falcon control:** *Falco peregrinus*, mature female 1.0 kg. Attack 34.0 / Defense 18.0 / Agility 96.0 / Stamina 78.0 / Intelligence 70.0 / Special 93.0.
 - **Pelican control:** American White Pelican *Pelecanus erythrorhynchos*, mature male 6.9 kg. Attack 28.0 / Defense 22.0 / Agility 72.0 / Stamina 84.0 / Intelligence 64.0 / Special 73.0.
@@ -41,12 +42,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Peregrine Falcon | 1.0 kg mature female *F. peregrinus* | 34.0 | 18.0 | 96.0 | 78.0 | 70.0 | 93.0 |
 | Piranha | 1.2 kg mature *P. nattereri* | 37.0 | 20.0 | 82.0 | 55.0 | 59.0 | 67.0 |
 | Platypus | 1.7 kg mature male *O. anatinus* | 31.0 | 22.0 | 80.0 | 73.0 | 61.0 | 94.0 |
+| Poison Dart Frog | 0.006 kg wild mature female *P. terribilis* | 6.0 | 43.0 | 76.0 | 44.0 | 36.0 | 99.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-150.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **175 completed research files**.
 
 ## Image pipeline status
-158 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+159 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

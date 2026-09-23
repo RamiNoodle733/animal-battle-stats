@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 173 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 173
+- **Completed research files:** 174 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 174
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Red Fox - *Vulpes vulpes*
-- **Next pending animal:** Red Panda
-- **Latest completion:** 2026-09-23 09:59 America/Chicago
-- **Latest new-animal image status:** Red Fox - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 4380x3041 CC BY 2.0 Commons/Flickr exact-*Vulpes vulpes* male photograph was directly inspected. Head, torso and tail are clear, but grass obscures lower hind-limb/foot anatomy and adulthood is not explicit. No PNG is claimed.
-- **Latest legacy image audit:** Japanese Macaque / *Macaca fuscata*. Broad search found a new 2664x4000 CC0 exact-species source, but direct inspection shows a close portrait with the body cropped. A 4288x2848 CC BY-SA 3.0 source explicitly identifies the alpha male, but direct inspection is also a head/shoulder portrait. The existing explicit-adult-male 337x335 source remains too small. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Kangaroo. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle, Pronghorn and Pufferfish are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Red Panda - *Ailurus fulgens* (Himalayan red panda under the two-species interpretation)
+- **Next pending animal:** Red-Eyed Tree Frog
+- **Latest completion:** 2026-09-23 10:59 America/Chicago
+- **Latest new-animal image status:** Red Panda - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. An 8640x5420 CC BY-SA 4.0 Commons photograph categorized as Himalayan *Ailurus fulgens fulgens* was directly inspected. It is high-resolution and reusable, but foliage/branch overlap prevents strict feet/lower-appendage verification and adulthood is not explicit. An ADW adult/sexually-mature alternative is reusable but lower-resolution and does not improve strict anatomy enough. No PNG is claimed.
+- **Latest legacy image audit:** Kangaroo / Red Kangaroo (*Osphranter rufus* / *Macropus rufus*). Museums Victoria provides a 2801x2886 CC BY 4.0 photograph explicitly described as a large male and reusable without permission. Direct inspection shows foreground vegetation hides the feet/lower hind limbs and the tail is not visible, so it fails strict whole-body requirements. Status remains `REPLACEMENT SOURCE NEEDED`.
+- **Next legacy image audit:** King Cobra. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle, Pronghorn and Pufferfish are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-150.md`; next checkpoint at 175 completed research files.
 
 ## Selection and image rules
@@ -24,11 +24,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed, fasting tolerance and passive environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
-- **Red Fox control:** *Vulpes vulpes*, healthy prime adult male, 7.2 kg / 40.0 cm shoulder / 105.0 cm representative length / 13.3 m/s synthesis maximum / 3.0 y wild-average lifespan / 0.0 PSI unsupported. Attack 28.0 / Defense 25.0 / Agility 82.0 / Stamina 67.0 / Intelligence 73.0 / Special 78.0. Directional mousing bias is peer-reviewed, but the proposed magnetoreceptive range-finder mechanism remains explicitly hypothetical. Predator reputation does not leak into physical power.
-- **Raven control:** Common Raven *Corvus corax*, healthy prime northern adult male, 1.3 kg / 63.0 cm body length / 11.1 m/s directly observed GPS movement rate / 21.0 y longevity context / 0.0 PSI unsupported. Attack 17.0 / Defense 18.0 / Agility 89.0 / Stamina 87.0 / Intelligence 95.0 / Special 67.0. Future planning, cache strategy and cooperation are experimentally supported, but cognition does not leak into physical Attack and flight does not double-count Defense.
-- **Rattlesnake control:** Western diamond-backed rattlesnake *Crotalus atrox*, healthy prime adult male, 2.5 kg / 120.0 cm total length / 0.0 m/s unresolved travel maximum / 20.0 y / 0.0 PSI unsupported. Attack 58.0 / Defense 32.0 / Agility 72.0 / Stamina 45.0 / Intelligence 43.0 / Special 94.0. Experimental strike work supports ~3 m/s short-range strike velocity and >160 m/s² acceleration, but this is not entered as travel speed. Venom-delivery mechanics and thermal-pit function are directly supported by peer-reviewed experiments.
-- **Raccoon control:** *Procyon lotor*, healthy prime adult male, 6.5 kg / 27.0 cm shoulder / 88.0 cm total length / 6.7 m/s secondary-synthesis maximum / 5.0 y adult-representative lifespan / 0.0 PSI unsupported. Attack 30.0 / Defense 29.0 / Agility 74.0 / Stamina 59.0 / Intelligence 76.0 / Special 68.0. Direct modern experiments support behavioral flexibility and repeated innovation; tactile specialization is peer-reviewed. Cognition and dexterity do not leak into Raw Power or armor.
-- **Quoll control:** Spotted-tailed quoll *Dasyurus maculatus*, southern *D. m. maculatus*, healthy prime adult male, 3.5 kg / 105.0 cm proposed representative total length / 0.0 m/s unresolved maximum / 4.0 y / 0.0 PSI unsupported. Attack 32.0 / Defense 22.0 / Agility 77.0 / Stamina 64.0 / Intelligence 55.0 / Special 60.0. Relatively high bite performance and rigid skull are peer-reviewed but remain constrained by 3.5 kg absolute scale. Arboreal anatomy drives Agility rather than inflating Attack.
+- **Red Panda control:** Himalayan red panda *Ailurus fulgens*, healthy prime adult, 5.0 kg / 60.0 cm head-body / 102.0 cm total derived / 0.0 m/s unresolved maximum / 10.0 y representative wild lifespan / 0.0 PSI unsupported. Attack 24.0 / Defense 24.0 / Agility 77.0 / Stamina 49.0 / Intelligence 58.0 / Special 67.0. Peer-reviewed gait work supports substrate-sensitive arboreal stability and anatomical work supports the false-thumb grip. These positional adaptations do not leak into Raw Power or armor. The report explicitly distinguishes Himalayan *A. fulgens* from Chinese *A. styani* under the 2020 genomic two-species model while noting inconsistent institutional adoption.
+- **Red Fox control:** *Vulpes vulpes*, healthy prime adult male, 7.2 kg / 40.0 cm shoulder / 105.0 cm representative length / 13.3 m/s synthesis maximum / 3.0 y wild-average lifespan / 0.0 PSI unsupported. Attack 28.0 / Defense 25.0 / Agility 82.0 / Stamina 67.0 / Intelligence 73.0 / Special 78.0. Directional mousing bias is peer-reviewed, but the proposed magnetoreceptive range-finder mechanism remains explicitly hypothetical.
+- **Raven control:** Common Raven *Corvus corax*, healthy prime northern adult male, 1.3 kg / 63.0 cm body length / 11.1 m/s directly observed GPS movement rate / 21.0 y longevity context / 0.0 PSI unsupported. Attack 17.0 / Defense 18.0 / Agility 89.0 / Stamina 87.0 / Intelligence 95.0 / Special 67.0.
+- **Rattlesnake control:** Western diamond-backed rattlesnake *Crotalus atrox*, healthy prime adult male, 2.5 kg / 120.0 cm total length / 0.0 m/s unresolved travel maximum / 20.0 y / 0.0 PSI unsupported. Attack 58.0 / Defense 32.0 / Agility 72.0 / Stamina 45.0 / Intelligence 43.0 / Special 94.0.
+- **Raccoon control:** *Procyon lotor*, healthy prime adult male, 6.5 kg / 27.0 cm shoulder / 88.0 cm total length / 6.7 m/s secondary-synthesis maximum / 5.0 y adult-representative lifespan / 0.0 PSI unsupported. Attack 30.0 / Defense 29.0 / Agility 74.0 / Stamina 59.0 / Intelligence 76.0 / Special 68.0.
+- **Quoll control:** Spotted-tailed quoll *Dasyurus maculatus*, healthy prime adult male, 3.5 kg / 105.0 cm proposed representative total length / 0.0 m/s / 4.0 y / 0.0 PSI. Attack 32.0 / Defense 22.0 / Agility 77.0 / Stamina 64.0 / Intelligence 55.0 / Special 60.0.
 - **Quokka control:** *Setonix brachyurus*, healthy prime adult male, 3.5 kg / 49.0 cm head-body / ~77.0 cm nose-to-tail / 0.0 m/s / 10.0 y / 0.0 PSI. Attack 18.0 / Defense 18.0 / Agility 73.0 / Stamina 56.0 / Intelligence 49.0 / Special 48.0.
 - **Python control:** Reticulated python *Malayopython reticulatus*, healthy prime adult female, 50.0 kg / 500.0 cm / 0.0 m/s / 20.0 y / 0.0 PSI. Attack 72.0 / Defense 47.0 / Agility 52.0 / Stamina 52.0 / Intelligence 44.0 / Special 82.0.
 - **Puffin control:** Atlantic Puffin *Fratercula arctica*, healthy prime adult male, 0.50 kg / 29.0 cm / 0.0 m/s / 30.0 y / 0.0 PSI. Attack 19.0 / Defense 21.0 / Agility 78.0 / Stamina 87.0 / Intelligence 59.0 / Special 76.0.
@@ -43,12 +44,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Rattlesnake | 2.5 kg adult male *C. atrox* | 58.0 | 32.0 | 72.0 | 45.0 | 43.0 | 94.0 |
 | Raven | 1.3 kg adult male *C. corax* | 17.0 | 18.0 | 89.0 | 87.0 | 95.0 | 67.0 |
 | Red Fox | 7.2 kg adult male *V. vulpes* | 28.0 | 25.0 | 82.0 | 67.0 | 73.0 | 78.0 |
+| Red Panda | 5.0 kg adult *A. fulgens* | 24.0 | 24.0 | 77.0 | 49.0 | 58.0 | 67.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-150.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **175 completed research files**.
 
 ## Image pipeline status
-173 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+174 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

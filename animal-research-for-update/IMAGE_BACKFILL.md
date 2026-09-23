@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 167 / 225 (through Python). **Full-body transparent PNG assets verified and committed:** 0 / 167. A source-photo URL is not an approved PNG.
+**Research reports completed:** 168 / 225 (through Quokka). **Full-body transparent PNG assets verified and committed:** 0 / 168. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -31,8 +31,8 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6830x3842 reusable exact-species male; adulthood and strict tail/all-feet visibility remain uncertified |
 | Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2177x2903 reusable source clips hand/lower body/tail |
 | Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete 2048x1539 reusable male hovering source visually verified, but adulthood not explicit |
-| Huntsman Spider | REPLACEMENT SOURCE NEEDED | **AUDITED 2026-09-23:** exact *Heteropoda maxima* explicit adult-female reusable source is only 640x480; no materially better 1600+ adult source recovered |
-| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Rear/tail silhouette incomplete |
+| Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact *Heteropoda maxima* explicit adult-female reusable source is only 640x480 |
+| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** 3106x2397 reusable exact-*Crocuta crocuta* source explicitly identifies female; adulthood and strict tail/all-foot visibility not simultaneously certified |
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit large adult male; strict tail/all-feet not certified |
 | Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete male anatomy; adulthood not explicit |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood/male/full-body not simultaneous |
@@ -75,48 +75,36 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Pufferfish | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact *A. hispidus*, 6069x4046 reusable Featured/Quality Image; complete silhouette visually verified; binary tooling unavailable |
 | Puffin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4926x3286 exact *F. a. arctica* flight image has complete silhouette and reusable license; adulthood/sex not explicit |
 | Python | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5446x3631 reusable exact-species candidate is high quality but coiled/vegetation-obscured; explicit 23-year-old 6000x4000 source is a body close-up |
+| Quokka | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3959x2969 reusable exact-species source; adulthood/sex and strict tail/all-foot completeness not certified |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 Huntsman Spider legacy audit
-The staging Huntsman Spider resolves to Giant Huntsman Spider, ***Heteropoda maxima***, not the much more widely photographed *Heteropoda venatoria*. This distinction was rechecked before accepting any candidate.
+## 2026-09-23 Hyena legacy audit
+The staging Hyena resolves to Spotted Hyena, ***Crocuta crocuta***, for which the canonical fighting sex is female.
 
-Existing strongest age/sex source remains:
-- Source page: https://commons.wikimedia.org/wiki/File:Heteropoda_maxima_f.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/7/72/Heteropoda_maxima_f.jpg
-- Resolution: 640x480
-- License: CC BY-SA 3.0
-- Exact taxon: *Heteropoda maxima*
-- Age/sex: explicitly **adult female**
+Best newly documented reusable sex-matched candidate:
+- Source page: https://commons.wikimedia.org/wiki/File:Spotted_Hyena_(Crocuta_crocuta)_female_..._(51264291174).jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/a/aa/Spotted_Hyena_%28Crocuta_crocuta%29_female_..._%2851264291174%29.jpg
+- Resolution: 3106x2397
+- License: CC BY-SA 2.0, Flickr license reviewed by Commons
+- Exact taxon: *Crocuta crocuta*
+- Sex: explicitly **female** in source title
+- Location: Kruger National Park, South Africa
 
-The complete spider is visible, but the 640x480 original is far below the preferred 1600+ longest dimension and is weak for faithful isolation of eight fine distal legs. Other reusable Commons exact-species files remain only 738x900 or 900x817 and do not improve the adult-metadata plus resolution combination.
+This is a major provenance/sex improvement over an unspecified candidate, and reuse permission is clear. However, the source metadata does not explicitly say adult, and the available image-inspection path did not establish strict visibility of the entire tail plus every foot strongly enough to satisfy `IMAGE_REQUIREMENTS.md`. A separate 6000x3220 Commons Featured/Quality Image has excellent species/resolution provenance but likewise lacks explicit age/sex. A USGS source explicitly labels an adult hyena but does not provide the preferred high-resolution, sex-matched complete-silhouette combination. Status therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`, not complete. No PNG was created. **Iguana is next.**
 
-Broad image search surfaced a clean 1500x2000 CC BY-SA 4.0 female *Heteropoda venatoria*. It was **rejected as the wrong species** despite better resolution and framing. Commercial/editorial *H. maxima* images were not promoted without suitable reuse provenance and explicit adulthood. Status therefore remains `REPLACEMENT SOURCE NEEDED`. No PNG was created. **Hyena is next.**
+## 2026-09-23 Quokka new-animal image audit
+The Quokka roster entry resolves to ***Setonix brachyurus***.
 
-## 2026-09-23 Python new-animal image audit
-The Python roster entry resolves to reticulated python, ***Malayopython reticulatus***.
+Primary reusable candidate:
+- Source page: https://commons.wikimedia.org/wiki/File:Setonix_brachyurus_(39991867361).jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/8/88/Setonix_brachyurus_%2839991867361%29.jpg
+- Resolution: 3959x2969
+- License: CC BY 2.0, Flickr license reviewed by Commons
+- Exact taxon: *Setonix brachyurus*
+- Location: Rottnest Island, Western Australia
+- Photographer: Donald Hobern
 
-Primary reusable candidate inspected:
-- Source page: https://commons.wikimedia.org/wiki/File:RETICULATED_PYTHON.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/b/bc/RETICULATED_PYTHON.jpg
-- Resolution: 5446x3631
-- License: CC BY-SA 4.0
-- Exact taxon: *Malayopython reticulatus*
-- Location: Misamis Oriental, Philippines
-- Photographer: Kirkamon A. Cabello
-
-**Visual audit:** a 3840-pixel rendering was directly opened. The photograph is sharp, high-resolution and exact-species, but the snake is tightly coiled around branches and foliage. The complete body path and tail endpoint cannot be certified, so it fails the strict whole-animal silhouette rule. Metadata does not explicitly establish adulthood or sex.
-
-Explicit-adult comparison source:
-- Source page: https://commons.wikimedia.org/wiki/File:Reptilarium_du_Larzac_-_Malayopython_reticulatus_07.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/6/67/Reptilarium_du_Larzac_-_Malayopython_reticulatus_07.jpg
-- Resolution: 6000x4000
-- License: CC BY-SA 4.0
-- Exact taxon: *Malayopython reticulatus*
-- Age: explicitly **23 years old**
-
-**Visual audit:** a 3840-pixel rendering was directly opened. It is a tight close-up of the snake's patterned trunk, with neither whole head-to-tail anatomy nor a usable complete silhouette. It proves that an adult reusable high-resolution source exists, but not one meeting the framing requirement.
-
-Status is therefore `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No web JPG is called a finished PNG and no binary is fabricated.
+The candidate is a genuine high-resolution exact-species photograph with reusable provenance. Source metadata does not explicitly state adulthood or sex, and strict complete tail/all-foot visibility was not certified through the available inspection path. It therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No web JPEG is called a finished PNG and no binary is fabricated.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -132,12 +120,12 @@ Status is therefore `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No web JPG is calle
 - Pufferfish: exact *Arothron hispidus*, adult-context 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette visually verified; sex unknown.
 
 ## Recently audited, skip until materially better source or binary tooling
-Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `167` is completed text research, not completed images.
+- `168` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Hyena.**
+- **Next practical unresolved source-quality legacy audit: Iguana.**

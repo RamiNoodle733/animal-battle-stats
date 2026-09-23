@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 165 / 225 (through Pufferfish). **Full-body transparent PNG assets verified and committed:** 0 / 165. A source-photo URL is not an approved PNG.
+**Research reports completed:** 166 / 225 (through Puffin). **Full-body transparent PNG assets verified and committed:** 0 / 166. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -29,8 +29,8 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Hercules Beetle | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Live newly emerged male, 4000x2248 CC BY 2.0; binary tooling unavailable |
 | Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5472x3648 reusable exact-species male; adulthood and strict complete tail/all-feet visibility not certified |
 | Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6830x3842 reusable exact-species male; adulthood and strict tail/all-feet visibility remain uncertified |
-| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** new 2177x2903 CC BY 4.0 exact-species image rejected because right hand is clipped and lower body/tail are incomplete; adult-male full-body source remains unresolved |
-| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/strict anatomy unresolved |
+| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2177x2903 reusable source clips hand/lower body/tail |
+| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** complete 2048x1539 reusable male hovering source visually verified, but adulthood not explicit; explicit-adult source is perched/branch-obscured |
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact adult female source too small |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Rear/tail silhouette incomplete |
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit large adult male; strict tail/all-feet not certified |
@@ -70,41 +70,50 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Polar Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult-male public-domain source too distant; higher-res male alternative lacks explicit adulthood |
 | Porcupine | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable source has branch-obscured legs/feet and adulthood/sex unstated |
 | Praying Mantis | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult female 5184x3456 reusable source; branch overlap prevents strict all-appendage certification |
-| Proboscis Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3600x2700 CC BY-SA 2.0 exact-species male; strict full-body/adulthood not certified |
-| Pronghorn | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 5071x3581 CC BY-SA Quality Image; binary tooling unavailable |
-| Pufferfish | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact *A. hispidus*, 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete silhouette visually verified; binary tooling unavailable |
+| Proboscis Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3600x2700 reusable exact-species male; strict full-body/adulthood not certified |
+| Pronghorn | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Explicit adult male, 5071x3581 reusable Quality Image; binary tooling unavailable |
+| Pufferfish | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact *A. hispidus*, 6069x4046 reusable Featured/Quality Image; complete silhouette visually verified; binary tooling unavailable |
+| Puffin | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4926x3286 exact *F. a. arctica* flight image has complete silhouette and reusable license; adulthood/sex not explicit |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 Howler Monkey legacy audit
-The staging Howler Monkey resolves to red howler *Alouatta seniculus*, with adult male preferred because males are larger.
+## 2026-09-23 Hummingbird legacy audit
+The staging Hummingbird resolves to Ruby-throated Hummingbird, *Archilochus colubris*. Females average slightly heavier, but the existing legacy image search was centered on the readily sex-verified male and no stronger fighting-sex requirement is established in the prior report.
 
-New reusable candidate inspected:
-- Source page: https://commons.wikimedia.org/wiki/File:Mono_aullador_rojo.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/4/41/Mono_aullador_rojo.jpg
-- Resolution: 2177x2903
+Best new framing candidate inspected:
+- Source page: https://commons.wikimedia.org/wiki/File:Archilochus_colubris-male_hovering.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/2/22/Archilochus_colubris-male_hovering.jpg
+- Resolution: 2048x1539
 - License: CC BY 4.0
-- Exact taxon: *Alouatta seniculus*
-- Context: rescued/protected individual at Taricaya Ecological Reserve, Peru
-- Photographer: Chanson seche
+- Exact taxon: *Archilochus colubris*
+- Sex: male
+- Context: hovering in Kings County, Canada
+- Photographer: Blake Ross / iNaturalist source
 
-**Audit:** The source is genuine, reusable, exact-species and high enough resolution, but direct visual inspection rejects it as the primary candidate: the right hand is clipped at the image edge and the lower body plus long prehensile tail are not completely visible. It fails the mandatory whole-anatomy standard. Another reusable Commons *A. seniculus* source is only 640x489. Search also surfaced explicit adult-male commercial photographs, but redistribution permission is not established. Howler Monkey therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG was created. **Hummingbird** is the next practical unresolved legacy audit.
+**Visual audit:** the direct original was opened. Bill, head, torso, both wings, tail and visible feet are inside frame with an unusually clean blurred background. It is an excellent cutout candidate and meets the preferred 2000+ longest-dimension target. However, the source metadata says male but does not explicitly certify adulthood. Under the mandatory rule, mature appearance cannot substitute for documented age.
 
-## 2026-09-23 Pufferfish new-animal image
-The roster Pufferfish is resolved to white-spotted puffer *Arothron hispidus*. No fighting sex is selected because meaningful sexual size dimorphism was not established.
-
-Accepted full-body source:
-- Source page: https://commons.wikimedia.org/wiki/File:Pez_globo_(Arothron_hispidus),_Anilao,_Filipinas,_2023-08-24,_DD_53.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/8/82/Pez_globo_%28Arothron_hispidus%29%2C_Anilao%2C_Filipinas%2C_2023-08-24%2C_DD_53.jpg
-- Resolution: 6069x4046
+Explicit-adult comparison source:
+- Source page: https://commons.wikimedia.org/wiki/File:Ruby-throated_Hummingbird_Archilochus_colubris_moulting_male,_eastern_Ontario_8635.jpg
+- Original available from that Commons page
+- Resolution: 1600x1154
 - License: CC BY-SA 4.0
-- Exact taxon: *Arothron hispidus*
-- Adult context: Commons description explicitly describes adult behavior; mature-form individual shown
-- Sex: unknown, not inferred visually
-- Location: Anilao, Philippines
-- Photographer: Diego Delso
-- Commons assessment: Featured Picture and Quality Image
+- Metadata explicitly says **adult male in moult**.
 
-**Audit:** A 3840 px rendering was directly inspected. The complete head, body, caudal peduncle and tail are inside frame; pectoral, dorsal and anal fins are visible without anatomical clipping. The subject is large and isolated enough for a clean cutout. Exact species, reusable provenance and high resolution are established. This is `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. Current GitHub writes are text-only, so no binary PNG, RGBA decoding or alpha verification is claimed.
+The explicit-adult source is perched on a branch and does not provide the same clean strict all-appendage silhouette. Therefore Hummingbird remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`; no source is promoted merely by combining age metadata from one photograph with anatomy from another. No PNG was created. **Huntsman Spider** is next.
+
+## 2026-09-23 Puffin new-animal image
+The roster Puffin resolves to Atlantic Puffin, *Fratercula arctica*.
+
+Candidate inspected:
+- Source page: https://commons.wikimedia.org/wiki/File:Atlantic_puffin_(Fratercula_arctica_arctica)_in_flight_Flatey.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/a/ae/Atlantic_puffin_%28Fratercula_arctica_arctica%29_in_flight_Flatey.jpg
+- Resolution: 4926x3286
+- License: CC BY-SA 4.0
+- Exact taxon: *Fratercula arctica arctica*
+- Location: Flatey Island, western Iceland
+- Photographer: Charles J. Sharp
+- Commons assessment: Quality Image and Valued Image
+
+**Visual audit:** the original was directly opened. Complete bill/head, torso, tail, both wings and both feet are inside frame; the bird is isolated against sky and carries fish. Framing and resolution are excellent for a future cutout. Source metadata does not explicitly certify adulthood or sex, so the status is truthfully `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Current GitHub actions cannot commit binary PNGs, so no cutout or alpha completion is claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -115,17 +124,17 @@ Accepted full-body source:
 - Gecko: explicit adult male *Gekko gecko*, 1008x460 CC BY 3.0; complete body verified, regenerated tail documented.
 - Giraffe: explicit adult male, 2500x2500 CC BY 2.0; complete body verified.
 - Guanaco: explicit adult *Lama guanicoe*, 3648x2736 CC BY-SA 3.0/GFDL; complete anatomy visually verified; sex unknown.
-- Hercules Beetle: live newly emerged male *Dynastes hercules*, 4000x2248 CC BY 2.0; full-body source accepted pending binary cutout/commit tooling.
-- Pronghorn: explicit adult male *Antilocapra americana*, 5071x3581 CC BY-SA 4.0 Quality Image; full-body source accepted pending binary cutout/commit tooling.
+- Hercules Beetle: live newly emerged male *Dynastes hercules*, 4000x2248 CC BY 2.0.
+- Pronghorn: explicit adult male *Antilocapra americana*, 5071x3581 CC BY-SA 4.0 Quality Image.
 - Pufferfish: exact *Arothron hispidus*, adult-context 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette visually verified; sex unknown.
 
 ## Recently audited, skip until materially better source or binary tooling
-Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `165` is completed text research, not completed images.
+- `166` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Hummingbird.**
+- **Next practical unresolved source-quality legacy audit: Huntsman Spider.**

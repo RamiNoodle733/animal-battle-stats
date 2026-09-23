@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 169 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 169
+- **Completed research files:** 170 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 170
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Quoll, resolved to Spotted-tailed Quoll — *Dasyurus maculatus*
-- **Next pending animal:** Raccoon
-- **Latest completion:** 2026-09-23 06:00 America/Chicago
-- **Latest new-animal image status:** Quoll - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A wild exact-*Dasyurus maculatus* 5472x3648 CC BY-SA 3.0 photograph from Barren Grounds Nature Reserve has strong species/provenance/resolution, but source metadata does not explicitly establish adulthood or sex and strict complete tail/every-foot visibility was not certified. No PNG was created.
-- **Latest legacy image audit:** Iguana / Green Iguana (*Iguana iguana*). A newly found 4320x2432 CC BY-SA 3.0 Commons source explicitly identifies a **large adult male**, resolving the age/sex/provenance weakness of the previous primary candidate. However, strict complete tail and every-foot framing could not be visually certified through the available inspection path, so status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED` rather than complete.
-- **Next legacy image audit:** Impala. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle, Pronghorn and Pufferfish are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Raccoon / Northern raccoon — *Procyon lotor*
+- **Next pending animal:** Rattlesnake
+- **Latest completion:** 2026-09-23 07:00 America/Chicago
+- **Latest new-animal image status:** Raccoon - `LICENSE UNVERIFIED - DO NOT COMMIT`. UF/IFAS explicitly labels a 2048px-rendered source as an adult male *Procyon lotor*, and direct inspection shows the whole animal including all feet and tail. The publication page does not establish redistribution permission, so no cutout is committed. A 3000x1999 CC BY-SA 4.0 Commons alternative is branch-obscured and age/sex unstated.
+- **Latest legacy image audit:** Impala / *Aepyceros melampus*. The explicit-adult-male 1153x1881 CC0 source was directly inspected and all four feet are visible, but the tail is not visibly complete. A 3082x2505 reusable male alternative crops the feet. Status is `REPLACEMENT SOURCE NEEDED` rather than complete.
+- **Next legacy image audit:** Jackal. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle, Pronghorn and Pufferfish are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-150.md`; next checkpoint at 175 completed research files.
 
 ## Selection and image rules
@@ -24,6 +24,7 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed and passive environmental tolerance.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Raccoon control:** *Procyon lotor*, healthy prime adult male, 6.5 kg / 27.0 cm shoulder / 88.0 cm total length / 6.7 m/s secondary-synthesis maximum / 5.0 y adult-representative lifespan / 0.0 PSI unsupported. Attack 30.0 / Defense 29.0 / Agility 74.0 / Stamina 59.0 / Intelligence 76.0 / Special 68.0. Direct modern experiments support behavioral flexibility and repeated innovation; tactile specialization is peer-reviewed. Cognition and dexterity do not leak into Raw Power or armor.
 - **Quoll control:** Spotted-tailed quoll *Dasyurus maculatus*, southern *D. m. maculatus*, healthy prime adult male, 3.5 kg / 105.0 cm proposed representative total length / 0.0 m/s unresolved maximum / 4.0 y / 0.0 PSI unsupported. Attack 32.0 / Defense 22.0 / Agility 77.0 / Stamina 64.0 / Intelligence 55.0 / Special 60.0. Relatively high bite performance and rigid skull are peer-reviewed but remain constrained by 3.5 kg absolute scale. Arboreal anatomy drives Agility rather than inflating Attack.
 - **Quokka control:** *Setonix brachyurus*, healthy prime adult male, 3.5 kg / 49.0 cm head-body / ~77.0 cm nose-to-tail / 0.0 m/s / 10.0 y / 0.0 PSI. Attack 18.0 / Defense 18.0 / Agility 73.0 / Stamina 56.0 / Intelligence 49.0 / Special 48.0.
 - **Python control:** Reticulated python *Malayopython reticulatus*, healthy prime adult female, 50.0 kg / 500.0 cm / 0.0 m/s / 20.0 y / 0.0 PSI. Attack 72.0 / Defense 47.0 / Agility 52.0 / Stamina 52.0 / Intelligence 44.0 / Special 82.0.
@@ -39,12 +40,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Python | 50.0 kg adult female *M. reticulatus* | 72.0 | 47.0 | 52.0 | 52.0 | 44.0 | 82.0 |
 | Quokka | 3.5 kg adult male *S. brachyurus* | 18.0 | 18.0 | 73.0 | 56.0 | 49.0 | 48.0 |
 | Quoll | 3.5 kg adult male *D. maculatus* | 32.0 | 22.0 | 77.0 | 64.0 | 55.0 | 60.0 |
+| Raccoon | 6.5 kg adult male *P. lotor* | 30.0 | 29.0 | 74.0 | 59.0 | 76.0 | 68.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-150.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **175 completed research files**.
 
 ## Image pipeline status
-169 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+170 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

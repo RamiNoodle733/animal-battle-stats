@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 174 / 225 (through Red Panda). **Full-body transparent PNG assets verified and committed:** 0 / 174. A source-photo URL is not an approved PNG.
+**Research reports completed:** 175 / 225 (through Red-Eyed Tree Frog). **Full-body transparent PNG assets verified and committed:** 0 / 175. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -38,8 +38,8 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5404x3603 reusable side view has grass-obscured feet/lower legs and adulthood/sex unstated |
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4777x3185 reusable wild Pantanal male; adulthood and strict complete-tail/every-foot framing uncertified |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult-male source only 337x335; high-resolution alternatives are cropped portraits |
-| Kangaroo | REPLACEMENT SOURCE NEEDED | **AUDITED 2026-09-23:** strong reusable large-male source found, but vegetation hides feet/lower legs and tail is not visible; strict full body fails |
-| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Female; adulthood/complete coiled tail unresolved |
+| Kangaroo | REPLACEMENT SOURCE NEEDED | Strong reusable large-male source found, but vegetation hides feet/lower legs and tail is not visible |
+| King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** reusable/public-domain sources do not simultaneously establish adult, exact post-2024 taxon and strict complete tail; explicit 3.5 m adult series is copyrighted |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit large male clips appendage tips |
 | Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult and strict anatomy not simultaneous |
 | Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Branch-obscured lower anatomy |
@@ -82,36 +82,39 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Raven | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6493x4329 reusable exact *C. corax*; adulthood/sex and strict feet/tail certification unresolved |
 | Red Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4380x3041 reusable male; grass obscures lower hind-foot anatomy and adulthood not explicit |
 | Red Panda | SOURCE FOUND - FULL-BODY NOT VERIFIED | 8640x5420 CC BY-SA 4.0 Himalayan source inspected; foliage/branch obscures feet/lower anatomy and adulthood unstated |
+| Red-Eyed Tree Frog | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3000x1783 CC BY 2.0 exact-species source has complete visible anatomy, but adulthood/sex unstated; explicit adult-female source is ND |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 Kangaroo legacy audit
-The staging Kangaroo resolves to Red Kangaroo, ***Osphranter rufus*** / ***Macropus rufus***, with a fully mature adult male as canonical fighter.
+## 2026-09-23 King Cobra legacy audit
+The historical King Cobra entry was written before the 2024 revision of the *Ophiophagus hannah* species complex, so exact post-revision taxon provenance matters in addition to age and framing.
 
-Best newly located reusable candidate:
-- Source page: https://collections.museumsvictoria.com.au/species/8422
-- Direct large-image endpoint: https://collections.museumsvictoria.com.au/species/8422/media/966835/large
-- Resolution: **2801x2886**
-- Creator: Wayne Longmore / NW Longmore, Museums Victoria
-- License: **CC BY 4.0**, reuse explicitly permitted by Museums Victoria
-- Metadata: described as a **large male red kangaroo** at Neds Corner, Victoria
-- Visual inspection: exact species and excellent adult-male body condition, but dense foreground vegetation hides both feet/lower hind limbs and the tail is not visible. It therefore fails the strict whole-body rule despite strong provenance and adequate resolution.
+Sources checked:
+- Wikimedia Commons `Ophiophagus hannah.jpg`: https://commons.wikimedia.org/wiki/File:Ophiophagus_hannah.jpg
+  - Original: https://upload.wikimedia.org/wikipedia/commons/6/6d/Ophiophagus_hannah.jpg
+  - 2376x1934, public domain, exact legacy label, but metadata does not establish adulthood/sex or locality sufficient to resolve the revised species complex. Available views also do not establish a strict complete head-to-tail silhouette.
+- Ecology Asia King Cobra species-complex page: https://www.ecologyasia.com/verts/snakes/king_cobra.htm
+  - Explicitly documents Figs. 1-4 as a **large 3.5 m** king cobra at Taman Negara, Pahang, Peninsular Malaysia, and discusses the 2024 four-species revision.
+  - This strongly establishes adult size and locality, but the site states text/photos copyright © Ecology Asia/Nick Baker. Redistribution/cutout permission is not established, and the series does not provide a clean reusable strict whole-body candidate.
+- USFWS Commons 4896x3264 public-domain source `King cobra (37090441494).jpg` was checked but is a trafficking seizure and is categorized/extracted as a juvenile, so it is rejected for the adult requirement.
 
-Other sources checked include ADW adult/sexually mature male photographs under CC BY-NC-SA 3.0 and a 2000x1330 Commons male/female photograph. None simultaneously improves strict single-animal complete anatomy, resolution and framing enough to replace the current status. Commercial adult-male full-body sources were not selected because redistribution requires a paid/unclear license.
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG created. **King Crab is next practical unresolved legacy audit.**
 
-**Result:** `REPLACEMENT SOURCE NEEDED`. No PNG created. **King Cobra is next practical unresolved legacy audit.**
+## 2026-09-23 Red-Eyed Tree Frog new-animal image audit
+Roster Red-Eyed Tree Frog resolves to ***Agalychnis callidryas***, with a healthy adult female preferred because females are larger.
 
-## 2026-09-23 Red Panda new-animal image audit
-Roster Red Panda is treated as Himalayan ***Ailurus fulgens*** under the two-species interpretation.
+Primary reusable candidate:
+- Source page: https://commons.wikimedia.org/wiki/File:Red_Eyed_Treefrog_Agalychnis_callidryas.jpg
+- Original image: https://upload.wikimedia.org/wikipedia/commons/9/93/Red_Eyed_Treefrog_Agalychnis_callidryas.jpg
+- Resolution: **3000x1783**
+- License: **CC BY 2.0**, Flickr license reviewed by Commons
+- Visual inspection: exact-species real photograph on a clean white background. Head, torso, all four limbs and all feet/toes are visible inside the frame without clipping. This is excellent cutout geometry.
+- Blocker: source metadata does not explicitly state adulthood or sex, and adulthood is mandatory rather than inferred from appearance.
 
-Primary candidate:
-- Source page: https://commons.wikimedia.org/wiki/File:Red_Panda_full_body_2024.jpg
-- Original image: https://upload.wikimedia.org/wikipedia/commons/1/16/Red_Panda_full_body_2024.jpg
-- Resolution: **8640x5420**
-- License: **CC BY-SA 4.0**
-- Taxon: Commons category *Ailurus fulgens fulgens*; Nepal provenance
-- Visual inspection: real high-resolution photograph and much of the animal is visible, but foreground foliage/branch overlap prevents strict verification of feet/lower appendages; adulthood and sex are not explicit.
+Adult-female alternative:
+- https://www.flickr.com/photos/johnclare/14420902589
+- Explicitly labeled **Adult female**, but licensed **CC BY-NC-ND 2.0**. The NoDerivatives condition prevents redistributing a background-removed derivative, so it is not an acceptable cutout source.
 
-An Animal Diversity Web alternative explicitly labels the animal adult/sexually mature and is reusable under CC BY-NC-SA 3.0, but its standing pose still does not provide a superior strict tail/feet cutout and is much lower resolution.
+A 3560x3544 Commons Featured Picture explicitly identifies a female, but direct inspection shows branch overlap and less clean strict appendage isolation than the primary white-background source.
 
 **Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG created.
 
@@ -129,12 +132,12 @@ An Animal Diversity Web alternative explicitly labels the animal adult/sexually 
 - Pufferfish: exact *Arothron hispidus*, 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette verified.
 
 ## Recently audited, skip until materially better source or binary tooling
-Kangaroo, Japanese Macaque, Jaguar, Jackal, Impala, Iguana, Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+King Cobra, Kangaroo, Japanese Macaque, Jaguar, Jackal, Impala, Iguana, Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `174` is completed text research, not completed images.
+- `175` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: King Cobra.**
+- **Next practical unresolved source-quality legacy audit: King Crab.**

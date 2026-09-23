@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 169 / 225 (through Quoll). **Full-body transparent PNG assets verified and committed:** 0 / 169. A source-photo URL is not an approved PNG.
+**Research reports completed:** 170 / 225 (through Raccoon). **Full-body transparent PNG assets verified and committed:** 0 / 170. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -33,8 +33,8 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete 2048x1539 reusable male source; adulthood not explicit |
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact *Heteropoda maxima* adult-female source only 640x480 |
 | Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3106x2397 reusable female; adulthood and strict tail/all-foot visibility unresolved |
-| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** 4320x2432 CC BY-SA 3.0 source explicitly says large adult male; strict complete tail/every-foot framing not certified |
-| Impala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete male anatomy; adulthood not explicit |
+| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4320x2432 reusable explicit large adult male; strict complete tail/every-foot framing not certified |
+| Impala | REPLACEMENT SOURCE NEEDED | **AUDITED 2026-09-23:** explicit adult-male CC0 source is 1153x1881 and all four feet are visible, but the tail is hidden; larger reusable male sources inspected still fail strict complete anatomy/adulthood simultaneously |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood/male/full-body not simultaneous |
 | Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Male; adulthood/strict tail-feet unresolved |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult-male source too small |
@@ -77,36 +77,42 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Python | SOURCE FOUND - FULL-BODY NOT VERIFIED | High-res source coiled/obscured; explicit 23-year-old source is close-up |
 | Quokka | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3959x2969 reusable source; adulthood/sex and strict tail/all-foot completeness unresolved |
 | Quoll | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5472x3648 wild CC BY-SA 3.0 exact species; adulthood/sex and strict complete tail/every-foot visibility unresolved |
+| Raccoon | LICENSE UNVERIFIED - DO NOT COMMIT | UF/IFAS explicitly adult male source is visually full-body at 2048px render, but redistribution permission is not established; reusable Commons alternative is branch-obscured |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 Iguana legacy audit
-The staging Iguana resolves to Green Iguana, ***Iguana iguana***, with a mature male as the canonical fighting specimen.
+## 2026-09-23 Impala legacy audit
+The staging Impala is *Aepyceros melampus*, with a fully mature male as the canonical fighting specimen.
 
-Strong new age/sex/provenance candidate:
-- Source page: https://commons.wikimedia.org/wiki/File:Adult_Male_Iguana.JPG
-- Original: https://upload.wikimedia.org/wikipedia/commons/3/35/Adult_Male_Iguana.JPG
-- Resolution: **4320x2432**
-- License: **CC BY-SA 3.0**
-- Exact taxon: Commons categorizes the photograph as *Iguana iguana*
-- Age/sex: description explicitly says **Large Adult Male Iguana**
-- Location: João Pessoa, Brazil
-- Photographer: Hugo L. D. de S. Cavalcante
+Explicit-adult reusable candidate checked:
+- Source page: https://commons.wikimedia.org/wiki/File:Adult_impala_male.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/a/a7/Adult_impala_male.jpg
+- Resolution: **1153x1881**
+- License: **CC0 1.0**, Commons-reviewed Pixabay provenance
+- Exact taxon/sex/age: description explicitly says **Impala (*Aepyceros melampus*): Adult impala male**
+- Visual result: all four legs and feet are inside the frame, but the tail is not visibly separable/complete, so it fails the mandatory whole-tail rule.
 
-This materially improves the previous candidate's unresolved adulthood. However, the available image-inspection path did not certify the entire tail plus every foot/appendage strongly enough to satisfy the mandatory strict standard. It is therefore retained as `SOURCE FOUND - FULL-BODY NOT VERIFIED`, not promoted to complete. The prior 2135x2848 male-resting source remains a secondary candidate because vegetation overlaps anatomy and adulthood is unstated. No PNG was created. **Impala is next.**
+A second reusable male photograph, `Aepyceros melampus mâle.jpg`, was also checked at its **3082x2505** original. Its source explicitly identifies a male and the license is CC BY-SA 3.0/GFDL, but direct visual inspection shows the lower feet are cropped by the frame, so it is not a valid replacement. The existing 5910x3940 Kruger male candidate remains unable to establish explicit adulthood plus strict complete anatomy simultaneously. Status is therefore tightened to `REPLACEMENT SOURCE NEEDED`, not complete. No PNG was created. **Jackal is next.**
 
-## 2026-09-23 Quoll new-animal image audit
-The roster Quoll is resolved to Spotted-tailed Quoll, ***Dasyurus maculatus***.
+## 2026-09-23 Raccoon new-animal image audit
+The roster Raccoon resolves to northern/common raccoon, ***Procyon lotor***.
 
-Primary reusable candidate:
-- Source page: https://commons.wikimedia.org/wiki/File:Tiger_Quoll_6178.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/6/69/Tiger_Quoll_6178.jpg
-- Resolution: **5472x3648**
-- License: **CC BY-SA 3.0**
-- Exact taxon: *Dasyurus maculatus*
-- Context: wild photograph, Barren Grounds Nature Reserve, New South Wales
-- Photographer: JJ Harrison
+Strong age/sex/anatomy candidate:
+- Source page: https://ask.ifas.ufl.edu/publication/UW033
+- Direct image: https://ask.ifas.ufl.edu/image/UW033/14595775/5173054/5173054-2048.webp
+- Source authority: University of Florida IFAS Extension
+- Exact taxon: *Procyon lotor*
+- Age/sex: Figure 1 explicitly says **adult male**
+- Visual result: direct inspection shows head, torso, all four legs/feet and ringed tail within frame
+- Blocker: the publication page does not state a reuse license for this photograph, so it is **not redistributed or committed**.
 
-The source has excellent exact-species provenance, reuse permission and resolution. Source metadata does not explicitly establish adulthood or sex, and strict complete tail plus every-foot visibility was not certified strongly enough through the available inspection path. Status is therefore `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 2500x1667 Bonorong CC BY-SA 3.0 exact-species source was visually inspected but branch/tail framing was not superior. No PNG was created.
+Reusable alternative checked:
+- Source page: https://commons.wikimedia.org/wiki/File:Procyon_lotor_(raccoon,_procione).jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/a/ab/Procyon_lotor_%28raccoon%2C_procione%29.jpg
+- Resolution: **3000x1999**
+- License: **CC BY-SA 4.0**
+- Visual result: branches cross/obscure the animal and strict foot/body isolation fails; adulthood/sex are unstated.
+
+Status: `LICENSE UNVERIFIED - DO NOT COMMIT`. The UF/IFAS candidate is excellent evidence of the desired framing, but permission must be resolved or a comparably clear reusable adult source found. No PNG was created.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -122,12 +128,12 @@ The source has excellent exact-species provenance, reuse permission and resoluti
 - Pufferfish: exact *Arothron hispidus*, 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette verified.
 
 ## Recently audited, skip until materially better source or binary tooling
-Iguana, Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Impala, Iguana, Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `169` is completed text research, not completed images.
+- `170` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Impala.**
+- **Next practical unresolved source-quality legacy audit: Jackal.**

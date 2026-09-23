@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 172 / 225 (through Raven). **Full-body transparent PNG assets verified and committed:** 0 / 172. A source-photo URL is not an approved PNG.
+**Research reports completed:** 173 / 225 (through Red Fox). **Full-body transparent PNG assets verified and committed:** 0 / 173. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -36,8 +36,8 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4320x2432 reusable explicit large adult male; strict complete tail/every-foot framing not certified |
 | Impala | REPLACEMENT SOURCE NEEDED | Explicit adult-male CC0 source has all four feet but hidden tail; larger male sources fail strict anatomy |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5404x3603 reusable side view has grass-obscured feet/lower legs and adulthood/sex unstated |
-| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** 4777x3185 CC BY-SA 4.0 Commons Quality Image explicitly identifies a wild Pantanal male; adulthood and strict complete-tail/every-foot framing remain uncertified |
-| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult-male source too small |
+| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4777x3185 CC BY-SA 4.0 Commons Quality Image explicitly identifies a wild Pantanal male; adulthood and strict complete-tail/every-foot framing remain uncertified |
+| Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** explicit adult-male source is only 337x335; new 2664x4000 CC0 and 4288x2848 alpha-male sources are high resolution but direct inspection shows cropped portrait framing |
 | Kangaroo | REPLACEMENT SOURCE NEEDED | Explicit adult male source too small |
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Female; adulthood/complete coiled tail unresolved |
 | King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit large male clips appendage tips |
@@ -80,31 +80,30 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Raccoon | LICENSE UNVERIFIED - DO NOT COMMIT | UF/IFAS explicitly adult male source is visually full-body at 2048px render, but redistribution permission is not established; reusable Commons alternative is branch-obscured |
 | Rattlesnake | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4643x3257 reusable exact *C. atrox* source visually complete including rattle; adulthood/sex not explicit |
 | Raven | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6493x4329 reusable Featured/Quality exact *C. corax* source; adulthood/sex and strict feet/tail certification unresolved |
+| Red Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4380x3041 reusable exact-species male source directly inspected; grass obscures lower hind-foot anatomy and adulthood is not explicit |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 Jaguar legacy audit
-The staging Jaguar is ***Panthera onca***, with a healthy fully mature Pantanal male as the canonical fighter.
+## 2026-09-23 Japanese Macaque legacy audit
+The staging Japanese Macaque is ***Macaca fuscata*** and uses a fully mature mainland adult male as the canonical fighting specimen.
 
-Stronger reusable candidate checked:
-- Source page: https://commons.wikimedia.org/wiki/File:Jaguar_(Panthera_onca_palustris)_male_Three_Brothers_River_5.jpg
-- Original file: https://upload.wikimedia.org/wikipedia/commons/e/e9/Jaguar_%28Panthera_onca_palustris%29_male_Three_Brothers_River_5.jpg
-- Resolution: **4777x3185**
-- License: **CC BY-SA 4.0**, Charles J. Sharp; Commons Quality Image
-- Exact taxon: *Panthera onca*, photographed in the Pantanal; Commons labels the individual male
-- Visual/source result: strong wild side-view male with high resolution and reusable provenance. The source does not explicitly state that the individual is an adult, and strict complete tail plus every foot was not certified strongly enough to meet `IMAGE_REQUIREMENTS.md`.
+Sources checked broadly:
+- Existing explicit-adult-male source: https://commons.wikimedia.org/wiki/File:Macaca_fuscata.jpg , original 337x335, CC BY-SA 3.0/GFDL. Taxon, adulthood and sex are explicit, but resolution is far below the preferred standard.
+- New high-resolution CC0 candidate: https://commons.wikimedia.org/wiki/File:Macaca_fuscata_Japanese_macaque.jpg , original https://upload.wikimedia.org/wikipedia/commons/2/2f/Macaca_fuscata_Japanese_macaque.jpg , **2664x4000**, CC0. Direct visual inspection shows a close portrait with the lower body and limbs cropped, so it fails the full-body requirement.
+- New explicit-male candidate: https://commons.wikimedia.org/wiki/File:Japanese_Macaque_Fuscata_Image_370.jpg , original https://upload.wikimedia.org/wikipedia/commons/2/28/Japanese_Macaque_Fuscata_Image_370.jpg , **4288x2848**, CC BY-SA 3.0. Commons explicitly describes the animal as the group's alpha male, but direct visual inspection shows a head/shoulder portrait, not a full-body animal.
+- A Joel Sartore Photo Ark source explicitly describes a male and full-length framing, but it is rights-managed and therefore cannot be redistributed without a license.
 
-Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The source is materially useful for future cutout work, but no PNG is created. The connected writer cannot write binary image data. **Japanese Macaque is next.**
+**Result:** no replacement met exact species + adult male + strict complete anatomy + adequate resolution + reusable provenance simultaneously. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG is created. **Kangaroo is next.**
 
-## 2026-09-23 Raven new-animal image audit
-The roster Raven resolves to Common Raven, ***Corvus corax***.
+## 2026-09-23 Red Fox new-animal image audit
+The roster Red Fox resolves to ***Vulpes vulpes***.
 
 Primary reusable candidate:
-- Source page: https://commons.wikimedia.org/wiki/File:Corvus_corax_clarionensis,_Point_Reyes_National_Seashore.jpg
-- Original file: https://upload.wikimedia.org/wikipedia/commons/4/4e/Corvus_corax_clarionensis%2C_Point_Reyes_National_Seashore.jpg
-- Resolution: **6493x4329**
-- License: **CC BY-SA 4.0**, Frank Schulenburg; Commons Featured Picture and Quality Image
-- Exact taxon: *Corvus corax* North American population
-- Source result: high-resolution lateral exact-species photograph with excellent provenance. The metadata does not explicitly establish adulthood or sex, and strict complete feet/tail visibility was not certified strongly enough for mandatory full-body status.
+- Source page: https://commons.wikimedia.org/wiki/File:Fox_Trot_(50446799762).jpg
+- Original file: https://upload.wikimedia.org/wikipedia/commons/2/2f/Fox_Trot_%2850446799762%29.jpg
+- Resolution: **4380x3041**
+- License: **CC BY 2.0**, Charlie Marshall; Flickr license reviewed by Commons/FlickreviewR
+- Exact taxon: *Vulpes vulpes*; Commons categorizes the individual as male
+- Visual result: direct inspection shows a strong lateral running pose with complete head, torso and tail, but grass overlaps/obscures the lower hind-limb/foot area. Source metadata does not explicitly establish adulthood.
 
 Status: `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG was created.
 
@@ -122,12 +121,12 @@ Status: `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG was created.
 - Pufferfish: exact *Arothron hispidus*, 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette verified.
 
 ## Recently audited, skip until materially better source or binary tooling
-Jaguar, Jackal, Impala, Iguana, Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Japanese Macaque, Jaguar, Jackal, Impala, Iguana, Hyena, Huntsman Spider, Hummingbird, Howler Monkey, Honey Badger, Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `172` is completed text research, not completed images.
+- `173` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Japanese Macaque.**
+- **Next practical unresolved source-quality legacy audit: Kangaroo.**

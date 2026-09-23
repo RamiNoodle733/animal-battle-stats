@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 176 / 225 (through Red-tailed Hawk). **Full-body transparent PNG assets verified and committed:** 0 / 176. A source-photo URL is not an approved PNG.
+**Research reports completed:** 177 / 225 (through Reindeer). **Full-body transparent PNG assets verified and committed:** 0 / 177. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -17,7 +17,7 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Golden Eagle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adulthood/sex and strict talon visibility unresolved |
 | Goliath Birdeater | LICENSE UNVERIFIED - DO NOT COMMIT | Adult full-body commercial source lacks redistribution permission |
 | Goose | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult source hides one foot |
-| Gorilla | REPLACEMENT SOURCE NEEDED | Adult male mountain-gorilla sources remain seated/obscured/cropped |
+| Gorilla | REPLACEMENT SOURCE NEEDED | Adult male sources remain seated/obscured/cropped |
 | Gray Wolf | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable complete male source lacks explicit adulthood |
 | Great Horned Owl | SOURCE FOUND - FULL-BODY NOT VERIFIED | Public-domain NPS source; adulthood/sex and strict feet/tail unresolved |
 | Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex + strict silhouette + reusable provenance unresolved simultaneously |
@@ -29,20 +29,20 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Hercules Beetle | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Live newly emerged male, 4000x2248 CC BY 2.0 |
 | Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | 5472x3648 reusable male; adulthood and strict tail/all-feet not certified |
 | Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6830x3842 reusable male; adulthood and strict tail/all-feet uncertified |
-| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | 2177x2903 reusable source clips hand/lower body/tail |
-| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete 2048x1539 reusable male source; adulthood not explicit |
+| Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable source clips hand/lower body/tail |
+| Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Complete reusable male source; adulthood not explicit |
 | Huntsman Spider | REPLACEMENT SOURCE NEEDED | Exact *Heteropoda maxima* adult-female source only 640x480 |
-| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3106x2397 reusable female; adulthood and strict tail/all-foot visibility unresolved |
-| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4320x2432 reusable explicit large adult male; strict complete tail/every-foot framing not certified |
-| Impala | REPLACEMENT SOURCE NEEDED | Explicit adult-male CC0 source has all four feet but hidden tail |
+| Hyena | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable female; adulthood and strict tail/all-foot visibility unresolved |
+| Iguana | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable explicit large adult male; strict complete tail/every-foot framing not certified |
+| Impala | REPLACEMENT SOURCE NEEDED | Explicit adult-male source has all four feet but hidden tail |
 | Jackal | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable side view has grass-obscured feet/lower legs and adulthood/sex unstated |
-| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable wild Pantanal male; adulthood and strict complete-tail/every-foot framing uncertified |
+| Jaguar | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable wild male; adulthood and strict complete-tail/every-foot framing uncertified |
 | Japanese Macaque | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult-male source only 337x335; high-resolution alternatives are cropped portraits |
 | Kangaroo | REPLACEMENT SOURCE NEEDED | Strong reusable large-male source found, but vegetation hides feet/lower legs and tail |
 | King Cobra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable sources do not simultaneously establish adult, exact post-2024 taxon and strict complete tail |
-| King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** explicit large-male NOAA source remains strongest age/sex lead but appendage framing fails; new 5184x3888 CC BY-SA 4.0 exact-species Commons series also clips/obscures appendages |
-| Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult and strict anatomy not simultaneous |
-| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | Branch-obscured lower anatomy |
+| King Crab | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit large-male NOAA source and high-res Commons source both fail strict appendage framing |
+| Kiwi | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** no better reusable healthy-living adult source found; museum mount rejected; living high-quality source all-rights-reserved |
+| Koala | SOURCE FOUND - FULL-BODY NOT VERIFIED | **NEXT:** branch-obscured lower anatomy |
 | Komodo Dragon | REPLACEMENT SOURCE NEEDED | Explicit-adult reusable source crops rear body/tail |
 | Kookaburra | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult and strict anatomy unresolved |
 | Leatherback Sea Turtle | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult; all-flipper/tail strictness unresolved |
@@ -64,9 +64,9 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Peacock | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable source hides feet/lower legs |
 | Pelican | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult reusable source has submerged feet/legs |
 | Peregrine Falcon | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable USFWS female source; adulthood and strict feet/toes/tail unresolved |
-| Piranha | SOURCE FOUND - FULL-BODY NOT VERIFIED | 6000x4000 reusable lateral source; adulthood/sex/all-fin inspection unresolved |
-| Platypus | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x4000 reusable source visually complete; adulthood/sex not explicit |
-| Poison Dart Frog | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact *P. terribilis* reusable source visually complete; adulthood/sex unstated |
+| Piranha | SOURCE FOUND - FULL-BODY NOT VERIFIED | High-res reusable lateral source; adulthood/sex/all-fin inspection unresolved |
+| Platypus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable source visually complete; adulthood/sex not explicit |
+| Poison Dart Frog | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact reusable source visually complete; adulthood/sex unstated |
 | Polar Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult-male public-domain source too distant; high-res male alternative lacks explicit adulthood |
 | Porcupine | SOURCE FOUND - FULL-BODY NOT VERIFIED | Branch-obscured legs/feet and adulthood/sex unstated |
 | Praying Mantis | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult female reusable source; branch overlap blocks strict appendage certification |
@@ -81,40 +81,36 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Rattlesnake | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable exact *C. atrox* visually complete including rattle; adulthood/sex not explicit |
 | Raven | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable exact *C. corax*; adulthood/sex and strict feet/tail certification unresolved |
 | Red Fox | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable male; grass obscures lower hind-foot anatomy and adulthood not explicit |
-| Red Panda | SOURCE FOUND - FULL-BODY NOT VERIFIED | CC BY-SA 4.0 Himalayan source inspected; foliage/branch obscures feet/lower anatomy and adulthood unstated |
+| Red Panda | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable Himalayan source; foliage/branch obscures lower anatomy and adulthood unstated |
 | Red-Eyed Tree Frog | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable exact-species source has complete visible anatomy, but adulthood/sex unstated |
-| Red-tailed Hawk | REPLACEMENT SOURCE NEEDED | **NEW 2026-09-23:** 3314x2836 CC BY 3.0 exact-species three-year-old female is a cropped portrait; needs strict full-body adult-female reusable source |
+| Red-tailed Hawk | REPLACEMENT SOURCE NEEDED | Explicit three-year-old female reusable source is cropped portrait |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-23 King Crab legacy audit
-Roster King Crab is Red King Crab, ***Paralithodes camtschaticus***, with a large mature male preferred.
+## 2026-09-23 Kiwi legacy audit
+Roster Kiwi resolves to Southern Brown Kiwi / Tokoeka, ***Apteryx australis***, with a healthy adult female preferred because females are larger.
 
-Fresh sources checked:
-- NOAA Photo Library/Flickr explicit large male: https://www.flickr.com/photos/noaaphotolib/5114731688/
-  - Exact species and **large male** explicitly stated, Barents Sea, photographed by Dr. Aleksey Zuyev.
-  - Strong biological provenance, but the available framing does not satisfy strict visibility of every appendage tip.
-- New Wikimedia Commons exact-species series: https://commons.wikimedia.org/wiki/File:King_crab_front_view_Paralithodes_camtschaticus_05.jpg
-  - Original: https://upload.wikimedia.org/wikipedia/commons/9/91/King_crab_front_view_Paralithodes_camtschaticus_05.jpg
-  - **5184x3888**, real photograph, **CC BY-SA 4.0**.
-  - Direct visual inspection confirms exact species but the close frontal composition crops/obscures major walking appendages and therefore fails `IMAGE_REQUIREMENTS.md`.
-- Bradley G. Stevens, PhD, red king crab gallery: https://bgstevens9.wixsite.com/crabman/king-crabs
-  - Explicit adult-male and adult-female photographs exist, but the page is copyrighted and no reusable license for derivative cutouts is established.
+Fresh broad search checked Wikimedia Commons, Animal Diversity Web, Flickr/eBird-style discovery and photographer pages.
 
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG created. **Kiwi is next practical unresolved legacy audit.**
+- Existing staging candidate remains: https://commons.wikimedia.org/wiki/File:Tokoeka.jpg, original https://upload.wikimedia.org/wikipedia/commons/9/9e/Tokoeka.jpg. It is a reusable wild exact-species photograph, but adulthood/sex are not explicit and strict every-toe visibility remains uncertified.
+- Animal Diversity Web provides an exact *A. australis* image explicitly tagged **adult/sexually mature**, under CC BY-NC-SA 3.0, but it does not resolve the strict framing/quality combination strongly enough to replace the current primary candidate.
+- Wikimedia Commons `File:Apteryx australis (brown kiwi).jpg` is **2838x1915, CC BY 2.0**, exact species and high resolution, but the source explicitly says it is a **museum mount** at the Field Museum. It fails the mandatory healthy living adult requirement and was rejected despite its strong license/resolution.
+  - Page: https://commons.wikimedia.org/wiki/File:Apteryx_australis_(brown_kiwi).jpg
+  - Original: https://live.staticflickr.com/8468/8365396516_e5d9b0427c_o.jpg
+- A visually strong living wild South Island brown kiwi photograph from Stewart Island was also found on Flickr, but it is marked **All rights reserved**, so it cannot be redistributed as a cutout without permission.
 
-## 2026-09-23 Red-tailed Hawk new-animal image audit
-Roster Red-tailed Hawk resolves to ***Buteo jamaicensis***, with an adult female preferred because females are larger.
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The existing reusable wild candidate remains primary. No PNG created. **Koala is next practical unresolved legacy audit.**
 
-Best explicit age/sex reusable source found:
-- Source page: https://commons.wikimedia.org/wiki/File:Buteo_jamaicensis_(J._F._Gmelin,_1788).jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/0/0c/Buteo_jamaicensis_%28J._F._Gmelin%2C_1788%29.jpg
-- **3314x2836**, **CC BY 3.0**.
-- Metadata explicitly identifies a **female, three years old**, exact *B. jamaicensis*.
-- Direct inspection rejects it for production because the lower body, feet and tail are outside the frame.
+## 2026-09-23 Reindeer new-animal image audit
+Roster Reindeer resolves to ***Rangifer tarandus***, with a healthy prime adult male preferred.
 
-Broader image search found additional adult-looking and full-length candidates, including Audubon, Cornell/eBird and commercial photography, but no candidate in this run simultaneously established explicit adulthood, preferred female sex, reusable derivative permission, high resolution and strict complete feet/tail anatomy. Sex was not inferred from appearance.
+Best reusable candidate found:
+- Source page: https://commons.wikimedia.org/wiki/File:Carib%C3%BA_(Rangifer_tarandus),_Parque_nacional_y_reserva_Denali,_Alaska,_Estados_Unidos,_2017-08-30,_DD_40.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/8/81/Carib%C3%BA_%28Rangifer_tarandus%29%2C_Parque_nacional_y_reserva_Denali%2C_Alaska%2C_Estados_Unidos%2C_2017-08-30%2C_DD_40.jpg
+- **5908x3939**, **CC BY-SA 4.0**, Diego Delso, Commons **Quality Image**, wild Denali National Park animal.
+- Direct visual inspection confirms head, torso, all four legs/feet, rump/tail and complete visible antler rack are inside the frame.
+- Source metadata does **not** explicitly establish adulthood or sex. Because both sexes can grow antlers, sex was not inferred from the rack.
 
-**Result:** `REPLACEMENT SOURCE NEEDED`. No PNG created.
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Excellent anatomy/resolution/license, but age/sex metadata is insufficient for promotion under the mandatory standard. No PNG created.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -130,9 +126,9 @@ Broader image search found additional adult-looking and full-length candidates, 
 - Pufferfish: exact *Arothron hispidus*, 6069x4046 CC BY-SA 4.0 Featured/Quality Image; complete head-to-tail/all-fin silhouette verified.
 
 ## Count and blockers
-- `176` is completed text research, not completed images.
+- `177` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Kiwi.**
+- **Next practical unresolved source-quality legacy audit: Koala.**

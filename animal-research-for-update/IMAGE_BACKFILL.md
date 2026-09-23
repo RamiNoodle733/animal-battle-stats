@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 162 / 225 (through Praying Mantis). **Full-body transparent PNG assets verified and committed:** 0 / 162. A source-photo URL is not an approved PNG.
+**Research reports completed:** 163 / 225 (through Proboscis Monkey). **Full-body transparent PNG assets verified and committed:** 0 / 163. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -23,11 +23,11 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Great White Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex + strict silhouette + reusable provenance unresolved simultaneously |
 | Green Anaconda | LICENSE UNVERIFIED - DO NOT COMMIT | Explicit adult male source is all-rights-reserved; preferred adult-female full-body reusable source unresolved |
 | Guanaco | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Exact adult, 3648x2736 reusable source; complete anatomy visually verified; binary tooling unavailable |
-| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable complete silhouette lacks explicit adulthood/sex; adult alternatives unresolved |
-| Harpy Eagle | LICENSE UNVERIFIED - DO NOT COMMIT | Explicit adult-female full-length sources found, but reusable adult source with strict full anatomy not established |
-| Hedgehog | REPLACEMENT SOURCE NEEDED | 5184x2074 reusable source has grass-obscured feet/lower anatomy; adulthood unstated |
-| Hercules Beetle | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | **AUDITED:** live newly emerged male, 4000x2248 CC BY 2.0 source; binary tooling unavailable |
-| Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/sex and strict tail/feet unresolved |
+| Hammerhead Shark | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable complete silhouette lacks explicit adulthood/sex |
+| Harpy Eagle | LICENSE UNVERIFIED - DO NOT COMMIT | Explicit adult-female full-length sources found, but reusable strict full-anatomy source unresolved |
+| Hedgehog | REPLACEMENT SOURCE NEEDED | Reusable source has grass-obscured feet/lower anatomy; adulthood unstated |
+| Hercules Beetle | FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING | Live newly emerged male, 4000x2248 CC BY 2.0; binary tooling unavailable |
+| Hippopotamus | SOURCE FOUND - FULL-BODY NOT VERIFIED | **AUDITED 2026-09-23:** 5472x3648 reusable exact-species male; adulthood and strict complete tail/all-feet visibility not certified |
 | Honey Badger | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit male loses rear body/tail at frame edge |
 | Howler Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact adult male; tail/appendages incomplete |
 | Hummingbird | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult/strict anatomy unresolved |
@@ -68,38 +68,37 @@ Animals already source-verified or source-audited are skipped until binary tooli
 | Platypus | SOURCE FOUND - FULL-BODY NOT VERIFIED | 4000x4000 exact-species reusable source visually complete; adulthood/sex not explicit |
 | Poison Dart Frog | SOURCE FOUND - FULL-BODY NOT VERIFIED | Exact *P. terribilis* 3000x2158 reusable source visually complete; adulthood/sex unstated |
 | Polar Bear | SOURCE FOUND - FULL-BODY NOT VERIFIED | Adult-male public-domain source too distant; higher-res male alternative lacks explicit adulthood |
-| Porcupine | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3779x2521 reusable source has branch-obscured legs/feet and adulthood/sex unstated |
+| Porcupine | SOURCE FOUND - FULL-BODY NOT VERIFIED | Reusable source has branch-obscured legs/feet and adulthood/sex unstated |
 | Praying Mantis | SOURCE FOUND - FULL-BODY NOT VERIFIED | Explicit adult female 5184x3456 reusable source; branch overlap prevents strict all-appendage certification |
+| Proboscis Monkey | SOURCE FOUND - FULL-BODY NOT VERIFIED | 3600x2700 CC BY-SA 2.0 exact-species male; strict full-body/adulthood not certified |
 | Megalodon | REPLACEMENT SOURCE NEEDED | Extinct species structural blocker |
 
-## 2026-09-22 Hercules Beetle legacy audit
-The staging Hercules Beetle resolves to *Dynastes hercules*, with a large adult male preferred because the male's paired horns are the fighting apparatus. Broad discovery covered Google-style image search, Wikimedia Commons, live-beetle sellers/keepers, museum specimens and photographer sources.
+## 2026-09-23 Hippopotamus legacy audit
+The staging Hippopotamus resolves to *Hippopotamus amphibius*. A large male is preferred because males are the primary territorial fighting sex.
 
-Best reusable living candidate:
-- Source page: https://commons.wikimedia.org/wiki/File:Hercules_beetle_(Dynastes_hercules).jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/5/58/Hercules_beetle_%28Dynastes_hercules%29.jpg
-- Resolution: 4000x2248
-- License: CC BY 2.0, Flickr license verified by Commons
-- Exact taxon: *Dynastes hercules*
-- Sex/life stage: male; source caption says that after two years of waiting he had just emerged as a beetle, establishing the adult stage rather than a larva or pupa.
+Strong reusable candidate:
+- Source page: https://commons.wikimedia.org/wiki/File:Hippo_(Hippopotamus_amphibius)_male_..._(52516608673).jpg
+- Original: https://live.staticflickr.com/65535/52516608673_df43d50e61_o.jpg
+- Resolution: 5472x3648
+- License: CC BY-SA 2.0, Flickr license verified by Commons
+- Exact taxon: *Hippopotamus amphibius*
+- Sex: male explicitly stated by source
+- Location: Kruger National Park, South Africa
 
-**Visual/source audit:** this is a live photographed male rather than a pinned museum specimen and is the preferred provenance candidate. The source is high resolution and reusable. Other Commons results include exceptionally detailed 5861x3853 and 3388x1365 male museum/specimen photographs, but the mandatory rule calls for a healthy adult animal, so dead/pinned specimen imagery is not promoted merely for cleaner isolation. Commercial live-adult images were also found, but reuse terms were weaker or unclear.
+**Audit:** This materially improves provenance, sex and resolution over an unspecified generic hippo candidate. However, the metadata does not explicitly say adult, and strict complete-body visibility of tail and every foot could not be certified from the available inspection path. It therefore remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`, not cutout-ready and not complete. No PNG was created. **Honey Badger** is the next practical unresolved legacy audit.
 
-Result: `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. No PNG was created because the connected GitHub writer cannot commit binary image data. **Hippopotamus** is the next practical unresolved source-quality audit.
-
-## 2026-09-22 Praying Mantis new-animal image
-The new animal resolves to Chinese mantis, *Tenodera sinensis*, canonical adult female.
+## 2026-09-23 Proboscis Monkey new-animal image
+The new animal resolves to *Nasalis larvatus*, canonical adult male.
 
 Primary candidate:
-- Source page: https://commons.wikimedia.org/wiki/File:Tenodera_sinensis_56543.JPG
-- Original: https://upload.wikimedia.org/wikipedia/commons/3/36/Tenodera_sinensis_56543.JPG
-- Resolution: 5184x3456
-- License: CC BY-SA 3.0
-- Source metadata: explicitly **adult female Tenodera sinensis**
+- Source page: https://commons.wikimedia.org/wiki/File:Proboscis_Monkey_(Nasalis_larvatus)_male_(8216806391).jpg
+- Original: https://live.staticflickr.com/8483/8216806391_db9579286e_o.jpg
+- Resolution: 3600x2700
+- License: CC BY-SA 2.0, Flickr license reviewed by Commons
+- Exact taxon: *Nasalis larvatus*
+- Sex: male explicitly identified
 
-The original image was opened visually. It is a real, high-resolution exact-species adult female photograph. The head, body and major legs are within frame, but the branch overlaps the mantis and prevents strict certification of every foot/appendage endpoint. A separate 3954x2438 Commons featured adult photograph by Luc Viatour was also inspected; it is reusable but clips a raptorial appendage at the frame edge. Neither is falsely promoted to a finished asset.
-
-Result: `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG was created.
+Exact species, sex, high resolution, real-photograph provenance and compatible reuse are verified. Strict full-body visibility and adulthood are not sufficiently established, so the result is `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG is claimed.
 
 ## Source-verified cutout backlog
 - Hellbender: exact adult, public-domain 3072x2304 USFWS source.
@@ -113,12 +112,12 @@ Result: `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG was created.
 - Hercules Beetle: live newly emerged male *Dynastes hercules*, 4000x2248 CC BY 2.0; full-body source accepted pending binary cutout/commit tooling.
 
 ## Recently audited, skip until materially better source or binary tooling
-Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
+Hippopotamus, Hercules Beetle, Hedgehog, Harpy Eagle, Hammerhead Shark, Guanaco, Green Anaconda, Great White Shark, Great Horned Owl, Gray Wolf, Gorilla, Goose, Goliath Birdeater, Golden Eagle, Giraffe, Gila Monster, Gibbon, Giant Centipede, Okapi, Octopus, Ocelot, Mantis Shrimp, Marlin, Meerkat, Maned Wolf, Manta Ray, Manatee, Magpie, Moose, Moray Eel, Mountain Goat, Musk Ox and Naked Mole Rat remain pending under their recorded blockers.
 
 ## Count and blockers
-- `162` is completed text research, not completed images.
+- `163` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because reusable preserved-adult images do not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Hippopotamus.**
+- **Next practical unresolved source-quality legacy audit: Honey Badger.**

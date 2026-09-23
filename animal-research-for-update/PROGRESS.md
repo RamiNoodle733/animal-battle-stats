@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 165 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 165
+- **Completed research files:** 166 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 166
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Pufferfish — White-spotted Puffer (*Arothron hispidus*)
-- **Next pending animal:** Puffin
-- **Latest completion:** 2026-09-23 01:58 America/Chicago
-- **Latest new-animal image status:** Pufferfish - `FULL-BODY SOURCE FOUND - CUTOUT/COMMIT PENDING`. A 6069x4046 Commons Featured Picture / Quality Image of exact-species *A. hispidus* was inspected at 3840 px: complete head-to-tail silhouette and all visible fins are inside frame. Commons describes adult life history for the depicted species/source context; sex is unknown. CC BY-SA 4.0 permits derivative cutout work. Current GitHub writer is text-only, so no PNG/alpha completion is claimed.
-- **Latest legacy image audit:** Howler Monkey (*Alouatta seniculus*) - remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A new 2177x2903 CC BY 4.0 exact-species rescue-center photograph was inspected and rejected as a primary replacement because the right hand is clipped and the lower body/tail are not completely visible. A separate 640x489 reusable exact-species source is too small. The existing adult-male candidate therefore remains unresolved.
-- **Next legacy image audit:** Hummingbird. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle, Pronghorn and Pufferfish are source-verified and awaiting binary cutout/commit tooling.
+- **Most recently completed:** Puffin — Atlantic Puffin (*Fratercula arctica*)
+- **Next pending animal:** Python
+- **Latest completion:** 2026-09-23 03:02 America/Chicago
+- **Latest new-animal image status:** Puffin - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 4926x3286 CC BY-SA 4.0 Quality/Valued Image of exact *Fratercula arctica arctica* was opened at original resolution. The entire flight silhouette is visible, including bill/head, trunk, both wings, tail and feet. Source metadata does not explicitly certify adulthood or sex, so it is not promoted to full-body-source-complete status. Current GitHub writer is text-only, so no PNG/alpha completion is claimed.
+- **Latest legacy image audit:** Hummingbird, resolved in staging to Ruby-throated Hummingbird (*Archilochus colubris*), remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A reusable 2048x1539 CC BY 4.0 male hovering source was directly inspected and has an excellent complete flight silhouette, but its metadata does not explicitly establish adulthood. An explicit adult-male 1600x1154 CC BY-SA source exists, but the perched/branch pose does not provide a cleaner strict all-appendage silhouette. No PNG was created.
+- **Next legacy image audit:** Huntsman Spider. Megalodon remains a structural extinct-photo blocker. Hellbender, Hornet, Ibex, Kudu, Lionfish, Gecko, Giraffe, Guanaco, Hercules Beetle, Pronghorn and Pufferfish are source-verified and awaiting binary cutout/commit tooling.
 - **Latest checkpoint:** `audits/CHECKPOINT-150.md`; next checkpoint at 175 completed research files.
 
 ## Selection and image rules
@@ -24,8 +24,9 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 - Stamina separates sustained movement from burst speed.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
+- **Puffin control:** Atlantic Puffin *Fratercula arctica*, healthy prime adult male, 0.50 kg / 29.0 cm body length / 0.0 m/s unresolved top speed / 30.0 y / 0.0 PSI unsupported. Attack 19.0 / Defense 21.0 / Agility 78.0 / Stamina 87.0 / Intelligence 59.0 / Special 76.0. Published 64 km/h migration speed is retained as sustained-flight context only, not mislabeled as maximum speed. Wing-propelled underwater flight raises Agility/Special, while long migrations and aerobic flight musculature independently support Stamina.
 - **Pufferfish control:** White-spotted Puffer *Arothron hispidus*, healthy wild adult, sex unknown, 1.5 kg / 45.0 cm TL / 0.0 m/s unsupported maximum / 15.0 y low-confidence captive-derived lifespan / 0.0 PSI unsupported. Attack 23.0 / Defense 56.0 / Agility 72.0 / Stamina 44.0 / Intelligence 47.0 / Special 97.0. TTX is a passive tissue/skin deterrent rather than injected venom, so it raises Defense/Special without inflating Attack; inflation is mechanically strong but metabolically costly and is not treated as armor.
-- **Pronghorn control:** *Antilocapra americana*, healthy prime adult male, 51.0 kg / 95.0 cm shoulder / 140.0 cm length / 24.6 m/s sourced maximum / 9.0 y / 0.0 PSI unsupported. Attack 47.0 / Defense 34.0 / Agility 94.0 / Stamina 96.0 / Intelligence 60.0 / Special 84.0. Extreme speed and endurance are kept in locomotor categories rather than leaking into Attack; 25–41 cm pronged horns support moderate offense but mass remains only ~51 kg.
+- **Pronghorn control:** *Antilocapra americana*, healthy prime adult male, 51.0 kg / 95.0 cm shoulder / 140.0 cm length / 24.6 m/s sourced maximum / 9.0 y / 0.0 PSI unsupported. Attack 47.0 / Defense 34.0 / Agility 94.0 / Stamina 96.0 / Intelligence 60.0 / Special 84.0.
 - **Proboscis Monkey control:** *Nasalis larvatus*, healthy prime adult male, 21.2 kg / 75.5 cm head-body dimension / 142.0 cm proposed total length / 0.0 m/s unsupported maximum / 20.0 y moderate-low confidence / 0.0 PSI unsupported. Attack 34.0 / Defense 31.0 / Agility 85.0 / Stamina 69.0 / Intelligence 74.0 / Special 84.0.
 - **Praying Mantis control:** Chinese mantis *Tenodera sinensis*, healthy prime adult female, 0.006 kg / 10.0 cm body length / 0.0 m/s unsupported maximum / 0.4 y adult lifespan / 0.0 PSI unsupported. Attack 12.0 / Defense 9.0 / Agility 80.0 / Stamina 43.0 / Intelligence 48.0 / Special 84.0.
 - **Porcupine control:** North American porcupine *Erethizon dorsatum*, healthy prime mature male, 10.5 kg / 80.0 cm total length / 0.0 m/s unsupported maximum / 15.0 y / 0.0 PSI unsupported. Attack 35.0 / Defense 67.0 / Agility 48.0 / Stamina 64.0 / Intelligence 51.0 / Special 92.0.
@@ -42,12 +43,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores its old checkmarks, choosi
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Proboscis Monkey | 21.2 kg adult male *N. larvatus* | 34.0 | 31.0 | 85.0 | 69.0 | 74.0 | 84.0 |
 | Pronghorn | 51.0 kg adult male *A. americana* | 47.0 | 34.0 | 94.0 | 96.0 | 60.0 | 84.0 |
 | Pufferfish | 1.5 kg adult *A. hispidus*, sex unknown | 23.0 | 56.0 | 72.0 | 44.0 | 47.0 | 97.0 |
+| Puffin | 0.50 kg adult male *F. arctica* | 19.0 | 21.0 | 78.0 | 87.0 | 59.0 | 76.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-150.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. No prior staging score required correction. Next checkpoint: **175 completed research files**.
 
 ## Image pipeline status
-165 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+166 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

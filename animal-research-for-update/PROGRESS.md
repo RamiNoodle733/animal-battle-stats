@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 194 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 194
+- **Completed research files:** 195 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 195
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Sloth / Pale-throated Three-toed Sloth (*Bradypus tridactylus*)
-- **Next pending animal:** Sloth Bear
-- **Latest completion:** 2026-09-24 07:00 America/Chicago
-- **Latest new-animal image status:** Sloth - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3231×2122 CC BY-SA 2.0 exact-*Bradypus tridactylus* source explicitly identifies a male, but source metadata does not explicitly establish adulthood and the current tool path could not certify every distal limb/claw and complete silhouette at original resolution. No PNG is claimed.
-- **Latest legacy image audit:** Ostrich (*Struthio camelus*). A 3621×3648 CC BY-SA 2.0 wild Karoo National Park source explicitly identifies a male and has excellent provenance, but the original binary timed out during strict visual inspection and adulthood is not explicit. Status `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Otter. Source-verified animals awaiting binary cutout/commit tooling remain separate from unresolved source-quality cases.
+- **Most recently completed:** Sloth Bear (*Melursus ursinus*)
+- **Next pending animal:** Snapping Turtle
+- **Latest completion:** 2026-09-24 07:58 America/Chicago
+- **Latest new-animal image status:** Sloth Bear - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3802×2535 CC BY-SA 4.0 wild Sri Lankan *M. u. inornatus* source explicitly identifies a male and was visually inspected, but one rear limb/foot is substantially self-occluded and adulthood is not explicit. A separate ADW exact-species CC BY 3.0 source explicitly says adult/sexually mature, but strict full-body framing could not be visually verified. No PNG is claimed.
+- **Latest legacy image audit:** Otter / North American River Otter (*Lontra canadensis*). Existing ADW source is exact species, live, explicitly adult/sexually mature and CC BY-NC-SA 3.0, but current direct-image tooling cannot certify complete all-feet/head-to-tail framing. Status `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Next legacy image audit:** Pangolin. Source-verified animals awaiting binary cutout/commit tooling remain separate from unresolved source-quality cases.
 - **Latest checkpoint:** `audits/CHECKPOINT-175.md`; next checkpoint at 200 completed research files.
 
 ## Selection and image rules
@@ -20,17 +20,18 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 ## Active normalization / uncertainty notes
 - Ratings are absolute across all 225 animals, not pound-for-pound.
 - Unsupported bite-pressure values remain 0.0. Force or oral suction pressure is never converted to PSI without defensible contact area.
-- Maximum speed remains 0.0 where no defensible species-specific maximum exists. Experimental velocity ranges are not silently promoted to top speed. Speed is not Agility.
-- Stamina separates sustained movement and repeated diving from burst speed, fasting tolerance, passive environmental tolerance and current-assisted displacement.
-- Special must not double-count ordinary size, toughness, cognition, flight or sociality.
+- Maximum speed remains 0.0 where no defensible species-specific maximum exists. Qualitative statements such as “faster than a human” are not silently converted into m/s. Speed is not Agility.
+- Stamina separates sustained movement from burst speed, fasting tolerance and passive environmental tolerance.
+- Special must not double-count ordinary size, toughness, cognition or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
 - Generic roster labels must be resolved to an explicit taxon before physical fields and image requirements can be scientifically coherent.
-- **Sloth control:** roster taxon explicitly *Bradypus tridactylus*, healthy prime adult male, 4.5 kg / 60.0 cm head-body / standardized height unresolved / standardized maximum speed unresolved / provisional 20.0 y low-confidence / 0.0 PSI unresolved. Hayssen's species synthesis documents male dorsal speculum, claw-dominated same-sex aggression, swimming and suspensory behavior while warning that older literature often confuses *B. tridactylus* with *B. variegatus*. Attack 22.0 / Defense 25.0 / Agility 34.0 / Stamina 32.0 / Intelligence 42.0 / Special 55.0.
-- **Skunk control:** *Mephitis mephitis*, healthy prime adult male, 4.5 kg / 70.0 cm total length / unresolved standardized height and top speed / 3.0 y / 0.0 PSI unresolved. Institutional sources place directional musk range around 3.0-3.7 m and document ocular pain/temporary blindness. Attack 23.0 / Defense 34.0 / Agility 53.0 / Stamina 57.0 / Intelligence 58.0 / Special 93.0.
-- **Siberian Tiger control:** Amur population of *Panthera tigris*, traditionally *P. t. altaica*; healthy prime adult male, 190.0 kg / 105.0 cm shoulder / 290.0 cm total length / provisional 16.7 m/s institutional sprint estimate / 14.0 y / 0.0 PSI unresolved. Hartstone-Rose et al. modeled *P. tigris* canine force at 703.74 kgf (~6.90 kN), retained only as modeled force. Attack 84.0 / Defense 61.0 / Agility 84.0 / Stamina 62.0 / Intelligence 66.0 / Special 61.0. Taxonomic subspecies treatment remains under review by IUCN CatSG.
-- **Shoebill control:** *Balaeniceps rex*, healthy prime adult male, 5.4 kg / 130.0 cm standing height / unresolved standardized top speed / 35.0 y / 0.0 PSI unresolved. Bill about 30.5 cm long × 12.7 cm wide. Attack 34.0 / Defense 21.0 / Agility 62.0 / Stamina 56.0 / Intelligence 55.0 / Special 67.0.
-- **Serval control:** *Leptailurus serval*, healthy prime adult male, 14.0 kg / 60.0 cm shoulder / 90.0 cm head-body / unresolved standardized top speed / 10.0 y / 0.0 PSI unresolved. Hartstone-Rose et al. anatomically modeled canine bite force at 68.05 kgf (~667 N), retained only as modeled force. Attack 41.0 / Defense 24.0 / Agility 92.0 / Stamina 51.0 / Intelligence 61.0 / Special 70.0.
-- **Secretary Bird control:** *Sagittarius serpentarius*, healthy prime adult male, 4.0 kg / 130.0 cm standing height / 130.0 cm bill-to-tail / unresolved standardized top speed / 15.0 y / 0.0 PSI unresolved. Direct strike study measured about 195 N peak foot-strike force with ~15 ms contact in one trained male. Attack 36.0 / Defense 27.0 / Agility 83.0 / Stamina 84.0 / Intelligence 61.0 / Special 88.0.
+- **Sloth Bear control:** *Melursus ursinus*, healthy prime mainland adult male, 120.0 kg / 80.0 cm shoulder / 175.0 cm length / standardized maximum speed unresolved / 26.0 y / 0.0 PSI unresolved. Male mass ranges conflict modestly across ADW/San Diego/IBA, so 120 kg avoids upper extremes. Front claws about 8 cm. Sharp et al. (2024) analyzed 43 tiger interactions: 86% ended without contact, while four bears were killed, supporting high defensive ferocity without tiger-equivalent offense. Attack 65.0 / Defense 57.0 / Agility 55.0 / Stamina 63.0 / Intelligence 59.0 / Special 65.0.
+- **Sloth control:** *Bradypus tridactylus*, healthy prime adult male, 4.5 kg / 60.0 cm head-body / standardized height and maximum speed unresolved / provisional 20.0 y low-confidence / 0.0 PSI unresolved. Attack 22.0 / Defense 25.0 / Agility 34.0 / Stamina 32.0 / Intelligence 42.0 / Special 55.0.
+- **Skunk control:** *Mephitis mephitis*, healthy prime adult male, 4.5 kg / 70.0 cm total length / unresolved standardized height and top speed / 3.0 y / 0.0 PSI unresolved. Attack 23.0 / Defense 34.0 / Agility 53.0 / Stamina 57.0 / Intelligence 58.0 / Special 93.0.
+- **Siberian Tiger control:** Amur population of *Panthera tigris*, healthy prime adult male, 190.0 kg / 105.0 cm shoulder / 290.0 cm total length / provisional 16.7 m/s institutional sprint estimate / 14.0 y / 0.0 PSI unresolved. Attack 84.0 / Defense 61.0 / Agility 84.0 / Stamina 62.0 / Intelligence 66.0 / Special 61.0.
+- **Shoebill control:** *Balaeniceps rex*, healthy prime adult male, 5.4 kg / 130.0 cm standing height / unresolved standardized top speed / 35.0 y / 0.0 PSI unresolved. Attack 34.0 / Defense 21.0 / Agility 62.0 / Stamina 56.0 / Intelligence 55.0 / Special 67.0.
+- **Serval control:** *Leptailurus serval*, healthy prime adult male, 14.0 kg / 60.0 cm shoulder / 90.0 cm head-body / unresolved standardized top speed / 10.0 y / 0.0 PSI unresolved. Attack 41.0 / Defense 24.0 / Agility 92.0 / Stamina 51.0 / Intelligence 61.0 / Special 70.0.
+- **Secretary Bird control:** *Sagittarius serpentarius*, healthy prime adult male, 4.0 kg / 130.0 cm standing height / 130.0 cm bill-to-tail / unresolved standardized top speed / 15.0 y / 0.0 PSI unresolved. Attack 36.0 / Defense 27.0 / Agility 83.0 / Stamina 84.0 / Intelligence 61.0 / Special 88.0.
 - **Seal control:** *Phoca vitulina*, healthy prime adult male, 105.0 kg / 175.0 cm total length / unresolved standardized top speed / 27.0 y / 0.0 PSI unresolved. Attack 44.0 / Defense 48.0 / Agility 82.0 / Stamina 82.0 / Intelligence 74.0 / Special 84.0.
 - **Sea Otter control:** *Enhydra lutris*, healthy prime adult male, 36.0 kg / 130.0 cm total length / 2.5 m/s institutional underwater maximum / 18.0 y / 0.0 PSI unresolved. Attack 40.0 / Defense 37.0 / Agility 86.0 / Stamina 79.0 / Intelligence 87.0 / Special 89.0.
 - **Sea Lion control:** *Zalophus californianus*, healthy prime adult male, 300.0 kg / 240.0 cm nose-to-tail / 11.2 m/s institutional swim maximum / 25.0 y / 0.0 PSI unresolved. Attack 55.0 / Defense 49.0 / Agility 84.0 / Stamina 84.0 / Intelligence 78.0 / Special 72.0.
@@ -41,13 +42,13 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Shoebill | 5.4 kg adult male *B. rex* | 34.0 | 21.0 | 62.0 | 56.0 | 55.0 | 67.0 |
 | Siberian Tiger | 190.0 kg adult male Amur *P. tigris* | 84.0 | 61.0 | 84.0 | 62.0 | 66.0 | 61.0 |
 | Skunk | 4.5 kg adult male *M. mephitis* | 23.0 | 34.0 | 53.0 | 57.0 | 58.0 | 93.0 |
 | Sloth | 4.5 kg adult male *B. tridactylus* | 22.0 | 25.0 | 34.0 | 32.0 | 42.0 | 55.0 |
+| Sloth Bear | 120.0 kg adult male *M. ursinus* | 65.0 | 57.0 | 55.0 | 63.0 | 59.0 | 65.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-175.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. Next checkpoint: **200 completed research files**.
 
 ## Image pipeline status
-194 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+195 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

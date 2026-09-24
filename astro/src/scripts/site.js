@@ -1,6 +1,7 @@
 // Behaviour shared by every screen: HUD menus, quick search, sound effects,
 // 3D card tilt and the signed-in player chip. Plain DOM, no framework.
 import { sfx, isSoundOn, setSound } from './sfx.js';
+import './track.js';
 
 let indexPromise = null;
 

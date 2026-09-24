@@ -5,6 +5,7 @@ import engine from '../../../js/battle-engine.js';
 import { loadAnimalIndex, escapeHtml, toast } from './site.js';
 import { sfx, shake } from './sfx.js';
 import { mountComments } from './comments.js';
+import { trackFight } from './track.js';
 
 // The engine is a UMD file shared with the server build: bundlers hand back
 // its CommonJS export, plain browsers get the global.
@@ -267,6 +268,7 @@ async function fight() {
     if (!a || !b) return;
     state.fighting = true;
     fightButton.disabled = true;
+    trackFight(a.n, b.n);
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const beat = reduced ? 250 : 520;
     const hp = { a: 100, b: 100 };

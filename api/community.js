@@ -273,17 +273,23 @@ function buildOwnerEventDetails(event) {
         language: safe.language || null,
         sessionPseudonym: safe.sessionHash || null,
         locationKey: event.locationKey || null,
-        discordDelivery: event.discordDelivery ? {
-            status: event.discordDelivery.status || null,
-            eventId: event.discordDelivery.eventId || null,
-            messageId: event.discordDelivery.messageId || null,
-            attempts: Number(event.discordDelivery.attempts) || 0,
-            lastAttemptAt: event.discordDelivery.lastAttemptAt || null,
-            nextAttemptAt: event.discordDelivery.nextAttemptAt || null,
-            sentAt: event.discordDelivery.sentAt || null,
-            lastError: event.discordDelivery.lastError || null
-        } : null,
+        discordDelivery: serializeDelivery(event.discordDelivery),
+        slackDelivery: serializeDelivery(event.slackDelivery),
         details
+    };
+}
+
+function serializeDelivery(delivery) {
+    if (!delivery) return null;
+    return {
+        status: delivery.status || null,
+        eventId: delivery.eventId || null,
+        messageId: delivery.messageId || null,
+        attempts: Number(delivery.attempts) || 0,
+        lastAttemptAt: delivery.lastAttemptAt || null,
+        nextAttemptAt: delivery.nextAttemptAt || null,
+        sentAt: delivery.sentAt || null,
+        lastError: delivery.lastError || null
     };
 }
 
@@ -360,7 +366,7 @@ async function handleAdminAnalytics(req, res) {
     const events = await SiteActivity.find(query)
         .sort({ _id: -1 })
         .limit(limit + 1)
-        .select('occurredAt eventType username visitorHash page locationKey locationRaw city region country coordinates device browser os screenSize language metadata discordDelivery')
+        .select('occurredAt eventType username visitorHash page locationKey locationRaw city region country coordinates device browser os screenSize language metadata discordDelivery slackDelivery')
         .lean();
 
     const hasMore = events.length > limit;
@@ -433,11 +439,12 @@ async function handleDiscordRetryCron(req, res) {
     }
     if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
 
-    const [discord, geolocations] = await Promise.all([
+    const [notifications, geolocations] = await Promise.all([
         retryDueDiscordDeliveries({ limit: 50 }),
         repairGeolocationBatch({ limit: 25 })
     ]);
-    return res.status(200).json({ success: true, data: { discord, geolocations } });
+    // "discord" kept as the key for existing cron dashboards; it covers Slack too.
+    return res.status(200).json({ success: true, data: { discord: notifications, geolocations } });
 }
 
 module.exports = async function handler(req, res) {

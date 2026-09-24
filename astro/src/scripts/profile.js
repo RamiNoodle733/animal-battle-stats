@@ -2,6 +2,7 @@
 // the shared session check); /profile/<username> shows anyone's public card.
 import { loadAnimalIndex, escapeHtml, toast } from './site.js';
 import { sfx } from './sfx.js';
+import { trackLogout } from './track.js';
 
 const root = document.querySelector('[data-profile]');
 const $ = (selector) => root.querySelector(selector);
@@ -193,6 +194,7 @@ $('[data-p-prestige-btn]').addEventListener('click', async () => {
     loadOwn();
 });
 $('[data-p-logout]').addEventListener('click', async () => {
+    await trackLogout();
     await api('action=logout', { method: 'POST', body: {} });
     try { localStorage.removeItem('auth_token'); localStorage.removeItem('user'); } catch { /* private mode */ }
     location.href = '/';

@@ -251,6 +251,10 @@ Defines:
 | `VERCEL_PREVIEW_ORIGINS` | No | Comma-separated exact Vercel preview origins allowed for credentialed APIs |
 | `ALLOW_VERCEL_PREVIEW_ORIGINS` | No | Set to `true` only when every `*.vercel.app` preview for this project should be allowed |
 | `NODE_ENV` | No | Environment (development/production) |
+| `DISCORD_WEBHOOK_URL` | No | Discord channel webhook for the site activity feed (visits, sign-ups, votes, comments, tournaments) |
+| `SLACK_WEBHOOK_URL` | No | Slack incoming webhook (`https://hooks.slack.com/services/...`) that receives the same activity feed |
+| `CRON_SECRET` | No | Authorizes the daily `/api/cron/discord-retry` job that retries failed Discord and Slack deliveries |
+| `APP_URL` | No | Overrides the base URL for email and sign-in links (production defaults to the project's production domain) |
 
 ### Battle Points Shop (Coming Soon)
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-24",
+  "updatedAt": "2026-09-24",
   "entries": [
     {
       "animal": "Yak",
@@ -55,120 +55,6 @@
             "src": "/images/animals/optimized/yak-bdcc998cd5a2-960.webp",
             "width": 960,
             "bytes": 60764
-          }
-        ]
-      }
-    },
-    {
-      "animal": "Piranha",
-      "scientificName": "Pygocentrus nattereri",
-      "status": "active",
-      "sourceTitle": "File:Pygocentrus nattereri - Karlsruhe Zoo 01.jpg",
-      "sourcePage": "https://commons.wikimedia.org/wiki/File%3APygocentrus_nattereri_-_Karlsruhe_Zoo_01.jpg",
-      "creator": "H. Zell",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "sourceWidth": 6000,
-      "sourceHeight": 4000,
-      "selectionNotes": "Featured real photograph with a clear lateral view of the correct species.",
-      "asset": "/images/animals/piranha.png?v=a8f74973c4a9",
-      "assetSha256": "a8f74973c4a93b67dbbb46f49c67e34eafc3232eac1d86bdcc17d5188439cf50",
-      "assetWidth": 960,
-      "assetHeight": 640,
-      "activatedAt": "2026-08-24",
-      "backgroundRemoval": "Adobe Photoshop API select-subject cutout",
-      "reviewStatus": "first-pass-reviewed",
-      "reviewNotes": "Correct real animal and transparent background verified; minor natural edge color may remain.",
-      "variants": {
-        "avif": [
-          {
-            "src": "/images/animals/optimized/piranha-a8f74973c4a9-320.avif",
-            "width": 320,
-            "bytes": 10268
-          },
-          {
-            "src": "/images/animals/optimized/piranha-a8f74973c4a9-640.avif",
-            "width": 640,
-            "bytes": 34394
-          },
-          {
-            "src": "/images/animals/optimized/piranha-a8f74973c4a9-960.avif",
-            "width": 960,
-            "bytes": 68226
-          }
-        ],
-        "webp": [
-          {
-            "src": "/images/animals/optimized/piranha-a8f74973c4a9-320.webp",
-            "width": 320,
-            "bytes": 11946
-          },
-          {
-            "src": "/images/animals/optimized/piranha-a8f74973c4a9-640.webp",
-            "width": 640,
-            "bytes": 41540
-          },
-          {
-            "src": "/images/animals/optimized/piranha-a8f74973c4a9-960.webp",
-            "width": 960,
-            "bytes": 82960
-          }
-        ]
-      }
-    },
-    {
-      "animal": "Baboon",
-      "scientificName": "Papio anubis",
-      "status": "active",
-      "sourceTitle": "File:060 Olive baboon walking at Queen Elizabeth National Park Photo by Giles Laurent.jpg",
-      "sourcePage": "https://commons.wikimedia.org/wiki/File%3A060_Olive_baboon_walking_at_Queen_Elizabeth_National_Park_Photo_by_Giles_Laurent.jpg",
-      "creator": "Giles Laurent",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "sourceWidth": 6877,
-      "sourceHeight": 4585,
-      "selectionNotes": "Real full-body olive baboon photograph with a clean silhouette.",
-      "asset": "/images/animals/baboon.png?v=ed6363c2304a",
-      "assetSha256": "ed6363c2304afe4c6c108f4ceca003a952905d8caef1c5e4ad00719dee2447a1",
-      "assetWidth": 960,
-      "assetHeight": 640,
-      "activatedAt": "2026-08-24",
-      "backgroundRemoval": "Adobe Photoshop API select-subject cutout",
-      "reviewStatus": "first-pass-reviewed",
-      "reviewNotes": "Correct real animal and transparent background verified; minor natural edge color may remain.",
-      "variants": {
-        "avif": [
-          {
-            "src": "/images/animals/optimized/baboon-ed6363c2304a-320.avif",
-            "width": 320,
-            "bytes": 8448
-          },
-          {
-            "src": "/images/animals/optimized/baboon-ed6363c2304a-640.avif",
-            "width": 640,
-            "bytes": 25246
-          },
-          {
-            "src": "/images/animals/optimized/baboon-ed6363c2304a-960.avif",
-            "width": 960,
-            "bytes": 50349
-          }
-        ],
-        "webp": [
-          {
-            "src": "/images/animals/optimized/baboon-ed6363c2304a-320.webp",
-            "width": 320,
-            "bytes": 11594
-          },
-          {
-            "src": "/images/animals/optimized/baboon-ed6363c2304a-640.webp",
-            "width": 640,
-            "bytes": 35774
-          },
-          {
-            "src": "/images/animals/optimized/baboon-ed6363c2304a-960.webp",
-            "width": 960,
-            "bytes": 70884
           }
         ]
       }

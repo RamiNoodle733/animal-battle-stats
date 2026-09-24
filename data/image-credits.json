@@ -1,4 +1,1765 @@
 {
   "schemaVersion": 1,
-  "animals": {}
+  "animals": {
+    "african-elephant": {
+      "title": "178 Male African bush elephant in Etosha National Park Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "african-lion": {
+      "title": "Lion (Panthera leo) old male Chobe.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Lion_(Panthera_leo)_old_male_Chobe.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "african-wild-dog": {
+      "title": "African wild dog (Lycaon pictus pictus).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:African_wild_dog_(Lycaon_pictus_pictus).jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "albatross": {
+      "title": "Diomedea exulans in flight - SE Tasmania.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Diomedea_exulans_in_flight_-_SE_Tasmania.jpg",
+      "artist": "JJ Harrison ( https://tiny.jjharrison.com.au/t/fCEqOJC1cJUcoIOa )",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "alpaca": {
+      "title": "Dülmen, Börnste, Alpakas -- 2020 -- 5462.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen%2C_B%C3%B6rnste%2C_Alpakas_--_2020_--_5462.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "anaconda": {
+      "title": "Green Anaconda - Parana Madeirinha - AZ.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Green_Anaconda_-_Parana_Madeirinha_-_AZ.JPG",
+      "artist": "Tserres34",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "anglerfish": {
+      "title": "Северная церапия (cropped).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_%D1%86%D0%B5%D1%80%D0%B0%D0%BF%D0%B8%D1%8F_(cropped).jpg",
+      "artist": "Andrey Butko",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "anteater": {
+      "title": "Oso hormiguero (Myrmecophaga tridactyla) (8697865538).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Oso_hormiguero_(Myrmecophaga_tridactyla)_(8697865538).jpg",
+      "artist": "Fernando Flores from Caracas, Venezuela",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "arctic-fox": {
+      "title": "Vulpes lagopus in Iceland (cropped 3).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Vulpes_lagopus_in_Iceland_(cropped_3).jpg",
+      "artist": "Jonatan Pie ( unsplash.com/@r3dmax )",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "arctic-wolf": {
+      "title": "Loup arctique DSCF2720.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Loup_arctique_DSCF2720.jpg",
+      "artist": "Musicaline",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "armadillo": {
+      "title": "Nine-banded armadillo merritt island nwr 1.22.24 DSC 3255-topaz-denoiseraw-sharpen.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nine-banded_armadillo_merritt_island_nwr_1.22.24_DSC_3255-topaz-denoiseraw-sharpen.jpg",
+      "artist": "lwolfartist",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "army-ant": {
+      "title": "Eciton burchellii (14336577830).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Eciton_burchellii_(14336577830).jpg",
+      "artist": "Graham Wise from Brisbane, Australia",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "axolotl": {
+      "title": "Ambystoma mexicanum (6337857516).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ambystoma_mexicanum_(6337857516).jpg",
+      "artist": "Ruben Undheim from Trondheim, Norway",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "baboon": {
+      "title": "Chacma Baboon (Papio ursinus) male ... (52793102716).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Chacma_Baboon_(Papio_ursinus)_male_..._(52793102716).jpg",
+      "artist": "Bernard DUPONT from FRANCE",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "bactrian-camel": {
+      "title": "Конырат, верблюд (3).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%BE%D0%BD%D1%8B%D1%80%D0%B0%D1%82%2C_%D0%B2%D0%B5%D1%80%D0%B1%D0%BB%D1%8E%D0%B4_(3).jpg",
+      "artist": "Nikolai Bulykin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "badger": {
+      "title": "Foraging Badger1 (cropped).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Foraging_Badger1_(cropped).jpg",
+      "artist": "Charlie Marshall",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "bald-eagle": {
+      "title": "This is Cheyenne, a seven-year-old female bald eagle, who appeared as part of a presentation by HawkQuest, a nonprofit environmental-education organization that employs birds of prey such as hawks, LCCN2015633472.tif",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:This_is_Cheyenne%2C_a_seven-year-old_female_bald_eagle%2C_who_appeared_as_part_of_a_presentation_by_HawkQuest%2C_a_nonprofit_environmental-education_organization_that_employs_birds_of_prey_such_as_hawks%2C_LCCN2015633472.tif",
+      "artist": "Carol M. Highsmith",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "barn-owl": {
+      "title": "Tyto alba tylluan wen.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tyto_alba_tylluan_wen.jpg",
+      "artist": "Alun Williams333",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "barracuda": {
+      "title": "Gran barracuda (Sphyraena barracuda), Yeda, Arabia Saudita, 2025-05-20, DD 118.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Gran_barracuda_(Sphyraena_barracuda)%2C_Yeda%2C_Arabia_Saudita%2C_2025-05-20%2C_DD_118.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "bighorn-sheep": {
+      "title": "Bighorn sheep ram in winter (53481643872).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bighorn_sheep_ram_in_winter_(53481643872).jpg",
+      "artist": "YellowstoneNPS",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "bison": {
+      "title": "European bison (Bison bonasus) male Białowieza.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:European_bison_(Bison_bonasus)_male_Bia%C5%82owieza.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "black-bear": {
+      "title": "Olympic black bear (Ursus americanus altifrontalis) male Whistler.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Olympic_black_bear_(Ursus_americanus_altifrontalis)_male_Whistler.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "black-mamba": {
+      "title": "Black Mamba At Kandt House Museum Rwanda 1.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Black_Mamba_At_Kandt_House_Museum_Rwanda_1.jpg",
+      "artist": "Adygrafix250",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "black-panther": {
+      "title": "Melanistic leopard at Tadoba.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Melanistic_leopard_at_Tadoba.jpg",
+      "artist": "Atul.rewild",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "black-rhinoceros": {
+      "title": "Diceros bicornis - profile - Etosha 2014.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Diceros_bicornis_-_profile_-_Etosha_2014.jpg",
+      "artist": "Yathin S Krishnappa",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "black-widow": {
+      "title": "Adult Female Black Widow.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Adult_Female_Black_Widow.jpg",
+      "artist": "Shenrich91",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "blue-whale": {
+      "title": "Blue Whale 001 body bw.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Blue_Whale_001_body_bw.jpg",
+      "artist": "NOAA Fisheries ( TBjornstad 11:17, 18 April 2007 (UTC))",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "boa-constrictor": {
+      "title": "Boa constrictor Gallion Guyane.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Boa_constrictor_Gallion_Guyane.jpg",
+      "artist": "Arnaud Aury",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "bobcat": {
+      "title": "This kitty climbed into my swimming pool enclosure on Christmas Eve morning - Flickr - TonySprezzatura.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:This_kitty_climbed_into_my_swimming_pool_enclosure_on_Christmas_Eve_morning_-_Flickr_-_TonySprezzatura.jpg",
+      "artist": "Paul Danese",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "bottlenose-dolphin": {
+      "title": "Dolphin salto qtl1.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Dolphin_salto_qtl1.jpg",
+      "artist": "Quartl",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "box-jellyfish": {
+      "title": "Tripedalia-cystophora-Bielecki.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tripedalia-cystophora-Bielecki.jpg",
+      "artist": "Jan Bielecki",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "bull-shark": {
+      "title": "Bullshark Bahamas2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bullshark_Bahamas2.jpg",
+      "artist": "Albert Kok~enwiki",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "bullet-ant": {
+      "title": "Paraponera clavata (14336838450).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Paraponera_clavata_(14336838450).jpg",
+      "artist": "Graham Wise from Brisbane, Australia",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "bullfrog": {
+      "title": "American bullfrog (51239614029).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:American_bullfrog_(51239614029).jpg",
+      "artist": "USFWS Mountain Prairie",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "camel": {
+      "title": "Camelus dromedarius.001 - Zoo Aquarium de Madrid.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Camelus_dromedarius.001_-_Zoo_Aquarium_de_Madrid.JPG",
+      "artist": "Fernando Losada Rodríguez",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "camel-spider": {
+      "title": "Solifugae Solpugidae - Jerrymunglum female Dorsal aspect.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Solifugae_Solpugidae_-_Jerrymunglum_female_Dorsal_aspect.JPG",
+      "artist": "JonRichfield",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "cape-buffalo": {
+      "title": "029 African buffalo in the Serengeti National Park Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:029_African_buffalo_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "capuchin-monkey": {
+      "title": "Tufted capuchin on a branch in Singapore.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tufted_capuchin_on_a_branch_in_Singapore.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "capybara": {
+      "title": "046 Capybara by the river in Encontro das Águas State Park Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:046_Capybara_by_the_river_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "caracal": {
+      "title": "Caracl (01), Paris, décembre 2013.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Caracl_(01)%2C_Paris%2C_d%C3%A9cembre_2013.jpg",
+      "artist": "Habib M'henni",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "cassowary": {
+      "title": "Casuarius casuarius (6547872533).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Casuarius_casuarius_(6547872533).jpg",
+      "artist": "Donald Hobern from Copenhagen, Denmark",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "chameleon": {
+      "title": "Parson's chameleon (Calumma parsonii cristifer) female Andasibe 2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Parson's_chameleon_(Calumma_parsonii_cristifer)_female_Andasibe_2.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "cheetah": {
+      "title": "Cheetah Male (Acinonyx jubatus) (6856968798).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Cheetah_Male_(Acinonyx_jubatus)_(6856968798).jpg",
+      "artist": "Bernard DUPONT from FRANCE",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "chimpanzee": {
+      "title": "016 Alpha male chimpanzee walking at Kibale forest National Park Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:016_Alpha_male_chimpanzee_walking_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "clouded-leopard": {
+      "title": "Neofelis nebulosa male in Kaeng Krachan National Park, Thailand.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Neofelis_nebulosa_male_in_Kaeng_Krachan_National_Park%2C_Thailand.jpg",
+      "artist": "Ian Dugdale",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "coconut-crab": {
+      "title": "Kepiting kenari, yg hidup di darat bebatuan. adanya di simpu, yg populasinya uda mulai punah. - panoramio.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Kepiting_kenari%2C_yg_hidup_di_darat_bebatuan._adanya_di_simpu%2C_yg_populasinya_uda_mulai_punah._-_panoramio.jpg",
+      "artist": "Dani Albakia",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "condor": {
+      "title": "Andean condor (Vultur gryphus) male Farellones.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Andean_condor_(Vultur_gryphus)_male_Farellones.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "cougar": {
+      "title": "Adult Male Florida Panther on Florida Panther National Wildlife Refuge (26366571604).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Adult_Male_Florida_Panther_on_Florida_Panther_National_Wildlife_Refuge_(26366571604).jpg",
+      "artist": "USFWS/Southeast",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "coyote": {
+      "title": "Alpha Male Coyote by Don Green (49736243467).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Alpha_Male_Coyote_by_Don_Green_(49736243467).jpg",
+      "artist": "Channel City Camera Club from Santa Barbara, US",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "crow": {
+      "title": "2014-04-29 01 Northwestern crow (Corvus brachyrhynchos caurinus).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:2014-04-29_01_Northwestern_crow_(Corvus_brachyrhynchos_caurinus).jpg",
+      "artist": "Gordon Leggett",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "cuttlefish": {
+      "title": "Sepia común (Sepia officinalis), franja marina Teno-Rasca, Tenerife, España, 2022-01-09, DD 24.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sepia_com%C3%BAn_(Sepia_officinalis)%2C_franja_marina_Teno-Rasca%2C_Tenerife%2C_Espa%C3%B1a%2C_2022-01-09%2C_DD_24.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "deathstalker-scorpion": {
+      "title": "Deathstalker (Leiurus quinquestriatus) 9.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Deathstalker_(Leiurus_quinquestriatus)_9.jpg",
+      "artist": "מינוזיג",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "dhole": {
+      "title": "Dhole(Asiatic wild dog).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Dhole(Asiatic_wild_dog).jpg",
+      "artist": "Davidvraju",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "donkey": {
+      "title": "Сарыбулак, осёл.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B0%D1%80%D1%8B%D0%B1%D1%83%D0%BB%D0%B0%D0%BA%2C_%D0%BE%D1%81%D1%91%D0%BB.jpg",
+      "artist": "Nikolai Bulykin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "dragonfly": {
+      "title": "Crocothemis erythraea in Nepal.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Crocothemis_erythraea_in_Nepal.jpg",
+      "artist": "Mildeep",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "electric-eel": {
+      "title": "Gymnote 1005984.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Gymnote_1005984.jpg",
+      "artist": "G.Garitan",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "elk": {
+      "title": "Elk in Velvet with Cowbirds (94f43bbb-155d-4519-3e7a-712f84227462).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Elk_in_Velvet_with_Cowbirds_(94f43bbb-155d-4519-3e7a-712f84227462).jpg",
+      "artist": "NPS Photo",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "emperor-penguin": {
+      "title": "Emperor-single hg.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Emperor-single_hg.jpg",
+      "artist": "Hannes Grobe/AWI",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "emperor-scorpion": {
+      "title": "Pandinus imperator 2009 G1.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pandinus_imperator_2009_G1.jpg",
+      "artist": "George Chernilevsky",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "emu": {
+      "title": "Emu 1 - Tidbinbilla.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Emu_1_-_Tidbinbilla.jpg",
+      "artist": "JJ Harrison ( https://www.jjharrison.com.au/ )",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "fennec-fox": {
+      "title": "Fennec Fox Vulpes zerda.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Fennec_Fox_Vulpes_zerda.jpg",
+      "artist": "Drew Avery",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "ferret": {
+      "title": "Jake 0314.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Jake_0314.jpg",
+      "artist": "Luciano Bernardi",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "flamingo": {
+      "title": "Flamenco común (Phoenicopterus roseus), parque nacional de Amboseli, Kenia, 2024-05-22, DD 35.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Flamenco_com%C3%BAn_(Phoenicopterus_roseus)%2C_parque_nacional_de_Amboseli%2C_Kenia%2C_2024-05-22%2C_DD_35.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "flying-squirrel": {
+      "title": "Glaucomys sabrinus 248041894.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Glaucomys_sabrinus_248041894.jpg",
+      "artist": "Henrique Pacheco",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "gaboon-viper": {
+      "title": "Bitis gabonica rhinoceros (6).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bitis_gabonica_rhinoceros_(6).jpg",
+      "artist": "TimVickers",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "galapagos-tortoise": {
+      "title": "Galapagos giant tortoise Geochelone elephantopus.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Galapagos_giant_tortoise_Geochelone_elephantopus.jpg",
+      "artist": "Mfield , Matthew Field, http://www.photography.mattfield.com",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "gazelle": {
+      "title": "Maroccan dorcas gazelle (Gazella dorcas massaesyla).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Maroccan_dorcas_gazelle_(Gazella_dorcas_massaesyla).jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "giant-centipede": {
+      "title": "Scolopendra gigantea.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Scolopendra_gigantea.jpg",
+      "artist": "Katka Nemčoková",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "giant-squid": {
+      "title": "MOL 1130046 Architeuthis specimen.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:MOL_1130046_Architeuthis_specimen.jpg",
+      "artist": "NOAA; \"creator\" given as Paul Greenhall , Smithsonian Institution",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "gibbon": {
+      "title": "Male Hoolock Gibbon West Garo Oct24 A7CR 03491.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Male_Hoolock_Gibbon_West_Garo_Oct24_A7CR_03491.jpg",
+      "artist": "Timothy A. Gonsalves",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "gila-monster": {
+      "title": "Gila monster (Heloderma suspectum).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Gila_monster_(Heloderma_suspectum).jpg",
+      "artist": "Theo Kruse / Burgers' Zoo",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "giraffe": {
+      "title": "Giraffa camelopardalis angolensis.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Giraffa_camelopardalis_angolensis.jpg",
+      "artist": "Hans Hillewaert",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "golden-eagle": {
+      "title": "015 Wild Golden Eagle in flight at Pfyn-Finges (Switzerland) Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "goliath-birdeater": {
+      "title": "Theraphosa blondi MHNT.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Theraphosa_blondi_MHNT.jpg",
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "goose": {
+      "title": "Χήνα 4565.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:%CE%A7%CE%AE%CE%BD%CE%B1_4565.JPG",
+      "artist": "C messier",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "gorilla": {
+      "title": "Male Gorilla gorilla gorilla Apenheul 2023 02.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Male_Gorilla_gorilla_gorilla_Apenheul_2023_02.jpg",
+      "artist": "Tuxyso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "gray-wolf": {
+      "title": "Canis lupus signatus - 01 white background.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Canis_lupus_signatus_-_01_white_background.jpg",
+      "artist": "Carlos Delgado",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "great-horned-owl": {
+      "title": "Bubo bubo sibiricus - 01.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bubo_bubo_sibiricus_-_01.JPG",
+      "artist": "Carlos Delgado",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "great-white-shark": {
+      "title": "La Marca Invisible – Tiburón blanco con mordida de cookie-cutter por Gerardo del Villar.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:La_Marca_Invisible_%E2%80%93_Tibur%C3%B3n_blanco_con_mordida_de_cookie-cutter_por_Gerardo_del_Villar.jpg",
+      "artist": "Gerardo del Villar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "green-anaconda": {
+      "title": "Sucuri verde.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sucuri_verde.jpg",
+      "artist": "MKAMPIS",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "grizzly-bear": {
+      "title": "Kamchatka Brown Bear near Dvuhyurtochnoe on 2015-07-23.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Kamchatka_Brown_Bear_near_Dvuhyurtochnoe_on_2015-07-23.jpg",
+      "artist": "Robert F. Tobler",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "guanaco": {
+      "title": "Guanaco (Lama guanicoe) Leona Amarga.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Guanaco_(Lama_guanicoe)_Leona_Amarga.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "hammerhead-shark": {
+      "title": "Sphyrna mokarran camden.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sphyrna_mokarran_camden.jpg",
+      "artist": "Jim Capaldi from Springfield, USA",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "harpy-eagle": {
+      "title": "Gavião-real (Harpia harpyja).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Gavi%C3%A3o-real_(Harpia_harpyja).jpg",
+      "artist": "Luiz Fernando Matos",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "hedgehog": {
+      "title": "Erinaceus roumanicus 2020 G2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Erinaceus_roumanicus_2020_G2.jpg",
+      "artist": "George Chernilevsky",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "hellbender": {
+      "title": "Schlammteufel (Cryptobranchus alleganiensis), schwimmend.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Schlammteufel_(Cryptobranchus_alleganiensis)%2C_schwimmend.jpg",
+      "artist": "Peter Paplanus",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "hercules-beetle": {
+      "title": "Dynastes hercules ecuatorianus MHNT.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Dynastes_hercules_ecuatorianus_MHNT.jpg",
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "hippopotamus": {
+      "title": "Hipopótamo (Hippopotamus amphibius), parque nacional de Chobe, Botsuana, 2018-07-28, DD 82.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Hipop%C3%B3tamo_(Hippopotamus_amphibius)%2C_parque_nacional_de_Chobe%2C_Botsuana%2C_2018-07-28%2C_DD_82.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "honey-badger": {
+      "title": "Honey Badger.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Honey_Badger.jpg",
+      "artist": "Sumeet Moghe",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "hornet": {
+      "title": "Frelon europeen.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Frelon_europeen.jpg",
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "hummingbird": {
+      "title": "Bee hummingbird (Mellisuga helenae) female in flight.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bee_hummingbird_(Mellisuga_helenae)_female_in_flight.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "huntsman-spider": {
+      "title": "Sparassidae Palystes castaneus mature female 9923s.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sparassidae_Palystes_castaneus_mature_female_9923s.jpg",
+      "artist": "JonRichfield",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "hyena": {
+      "title": "Spotted Hyena (Crocuta crocuta) female ... (52772009649).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Spotted_Hyena_(Crocuta_crocuta)_female_..._(52772009649).jpg",
+      "artist": "Bernard DUPONT from FRANCE",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "ibex": {
+      "title": "Zoo des Marécottes - Bouquetin.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Zoo_des_Mar%C3%A9cottes_-_Bouquetin.jpg",
+      "artist": "Christian David",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "iguana": {
+      "title": "Intellagama Lesueurii andrewmercer img30828.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Intellagama_Lesueurii_andrewmercer_img30828.jpg",
+      "artist": "Andrew Mercer (www.baldwhiteguy.co.nz)",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "impala": {
+      "title": "Impala (Aepyceros melampus) male Kruger 2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Impala_(Aepyceros_melampus)_male_Kruger_2.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "jackal": {
+      "title": "013 Black-backed jackal in the Ngorongoro Crater Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:013_Black-backed_jackal_in_the_Ngorongoro_Crater_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "jaguar": {
+      "title": "Jaguar (Panthera onca palustris) male Three Brothers River.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Jaguar_(Panthera_onca_palustris)_male_Three_Brothers_River.JPG",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "japanese-macaque": {
+      "title": "Japanese Macaque, Ueno Zoo, Tokyo, Japan.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Japanese_Macaque%2C_Ueno_Zoo%2C_Tokyo%2C_Japan.jpg",
+      "artist": "William Warby",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "kangaroo": {
+      "title": "Macropus rufus.002 - Zoo Aquarium de Madrid.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Macropus_rufus.002_-_Zoo_Aquarium_de_Madrid.JPG",
+      "artist": "Fernando Losada Rodríguez",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "king-cobra": {
+      "title": "King of the snake world.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:King_of_the_snake_world.jpg",
+      "artist": "Drishtant Bidari",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "king-crab": {
+      "title": "Lithodes confundens male dorsal plate black background.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Lithodes_confundens_male_dorsal_plate_black_background.jpg",
+      "artist": "Gustavo A. Lovrich",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "koala": {
+      "title": "Koala in Zoo Duisburg.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Koala_in_Zoo_Duisburg.jpg",
+      "artist": "Till Niermann",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "komodo-dragon": {
+      "title": "Varanus komodoensis, Komodo Island, Indonesia, 20250822 1324 2788.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Varanus_komodoensis%2C_Komodo_Island%2C_Indonesia%2C_20250822_1324_2788.jpg",
+      "artist": "Jakub Hałun",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "kookaburra": {
+      "title": "Laughing Kookaburra. (Dacelo novaeguineae) (9572638199).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Laughing_Kookaburra._(Dacelo_novaeguineae)_(9572638199).jpg",
+      "artist": "Bernard Spragg. NZ from Christchurch, New Zealand",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "kudu": {
+      "title": "Tragelaphus strepsiceros.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tragelaphus_strepsiceros.jpg",
+      "artist": "Hans Hillewaert",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "leatherback-sea-turtle": {
+      "title": "Leatherback sea turtle on the beach Tinglar (5839996429).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Leatherback_sea_turtle_on_the_beach_Tinglar_(5839996429).jpg",
+      "artist": "U.S. Fish and Wildlife Service Southeast Region",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "leopard": {
+      "title": "Male leopard - Mara.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Male_leopard_-_Mara.jpg",
+      "artist": "Sumeet Moghe",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "lionfish": {
+      "title": "Common lion fish Pterois volitans.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Common_lion_fish_Pterois_volitans.jpg",
+      "artist": "Michael Gäbler",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "lynx": {
+      "title": "Boreal lynx walking.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Boreal_lynx_walking.jpg",
+      "artist": "Joselodos",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "macaw": {
+      "title": "Scharlachara (Ara macao).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Scharlachara_(Ara_macao).jpg",
+      "artist": "Dr. Thomas Liptak",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "magpie": {
+      "title": "Common magpie (Pica pica).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Common_magpie_(Pica_pica).jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "manatee": {
+      "title": "Florida Manatee FWS 28.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Florida_Manatee_FWS_28.jpg",
+      "artist": "Keith Ramos / USFWS",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "mandrill": {
+      "title": "Mandrill at SF Zoo.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Mandrill_at_SF_Zoo.jpg",
+      "artist": "Sanjay Acharya",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "maned-wolf": {
+      "title": "Maehnenwolf Chrysocyon brachyurus Tierpark Hellabrunn-3.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Maehnenwolf_Chrysocyon_brachyurus_Tierpark_Hellabrunn-3.jpg",
+      "artist": "Rufus46",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "manta-ray": {
+      "title": "Manta melanistic.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Manta_melanistic.jpg",
+      "artist": "Stevelaycock21",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "mantis-shrimp": {
+      "title": "Odontodactylus scyllarus Réunion.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Odontodactylus_scyllarus_R%C3%A9union.jpg",
+      "artist": "Cédric Péneau",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "meerkat": {
+      "title": "Standing meerkat looking behind.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Standing_meerkat_looking_behind.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "megalodon": {
+      "title": "Lateral view of otouds megalodon.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Lateral_view_of_otouds_megalodon.png",
+      "artist": "EvolutionIncarnate",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "monarch-butterfly": {
+      "title": "Male monarch butterfly (Danaus plexippus), about to take first flight.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Male_monarch_butterfly_(Danaus_plexippus)%2C_about_to_take_first_flight.jpg",
+      "artist": "Avenue",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "mongoose": {
+      "title": "Indian grey mongoose in Rabindra Sarobar January 2024 by Tisha Mukherjee 02.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Indian_grey_mongoose_in_Rabindra_Sarobar_January_2024_by_Tisha_Mukherjee_02.jpg",
+      "artist": "Tisha Mukherjee",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "monitor-lizard": {
+      "title": "Varanus salvator - 01.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Varanus_salvator_-_01.jpg",
+      "artist": "Carlos Delgado",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "moray-eel": {
+      "title": "Morena gigante (Gymnothorax javanicus), parque nacional Ras Muhammad, Egipto, 2022-03-27, DD 56.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Morena_gigante_(Gymnothorax_javanicus)%2C_parque_nacional_Ras_Muhammad%2C_Egipto%2C_2022-03-27%2C_DD_56.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "mountain-goat": {
+      "title": "Mountain Goat on Mount Brown.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Mountain_Goat_on_Mount_Brown.jpg",
+      "artist": "23dww01",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "musk-ox": {
+      "title": "Muskox Dalton Highway.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Muskox_Dalton_Highway.jpg",
+      "artist": "Naturedata",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "naked-mole-rat": {
+      "title": "Naked Mole-rat (2011) by Mehgan Murphy. Original from Smithsonian's National Zoo. Digitally enhanced by rawpixel. (51128460864).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Naked_Mole-rat_(2011)_by_Mehgan_Murphy._Original_from_Smithsonian's_National_Zoo._Digitally_enhanced_by_rawpixel._(51128460864).jpg",
+      "artist": "Rawpixel Ltd",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "narwhal": {
+      "title": "Нарвал в российской Арктике.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B0%D1%80%D0%B2%D0%B0%D0%BB_%D0%B2_%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B9_%D0%90%D1%80%D0%BA%D1%82%D0%B8%D0%BA%D0%B5.jpg",
+      "artist": "пресс-служба ПАО \"Газпром нефть\"",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "nautilus": {
+      "title": "Nautilus pompilius 3.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nautilus_pompilius_3.jpg",
+      "artist": "Hans Hillewaert",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "ocelot": {
+      "title": "048 Ocelot in Encontro das Águas State Park Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:048_Ocelot_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "octopus": {
+      "title": "Octopus vulgaris 03.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Octopus_vulgaris_03.jpg",
+      "artist": "H. Zell",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "okapi": {
+      "title": "Saint-Aignan (Loir-et-Cher). Okapi.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Saint-Aignan_(Loir-et-Cher)._Okapi.jpg",
+      "artist": "Daniel Jolivet",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "opossum": {
+      "title": "Opossum 2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Opossum_2.jpg",
+      "artist": "Cody Pope",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+      "modified": "Background removed and cropped"
+    },
+    "orangutan": {
+      "title": "Male Orangutan - Rusti (9165300228).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Male_Orangutan_-_Rusti_(9165300228).jpg",
+      "artist": "Daniel Ramirez from Honolulu, USA",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "orca": {
+      "title": "Killerwhales jumping.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Killerwhales_jumping.jpg",
+      "artist": "Robert Pittman",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "oryx": {
+      "title": "110 Male Gemsbok in the Kalahari Desert of Namibia Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:110_Male_Gemsbok_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "osprey": {
+      "title": "Balbuzard pecheur Lac de Tunis.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Balbuzard_pecheur_Lac_de_Tunis.jpg",
+      "artist": "El Golli Mohamed",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "ostrich": {
+      "title": "Ostrich male RWD.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ostrich_male_RWD.jpg",
+      "artist": "DickDaniels ( http://theworldbirds.org/ )",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "pangolin": {
+      "title": "Manis javanica 544775179.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Manis_javanica_544775179.jpg",
+      "artist": "Ian Dugdale",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "peacock": {
+      "title": "099 Indian peafowl in Jim Corbett National Park Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:099_Indian_peafowl_in_Jim_Corbett_National_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "pelican": {
+      "title": "Pelecanus erythrorhynchos at Las Gallinas Wildlife Ponds.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pelecanus_erythrorhynchos_at_Las_Gallinas_Wildlife_Ponds.jpg",
+      "artist": "Frank Schulenburg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "peregrine-falcon": {
+      "title": "Falco peregrinus - 01.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Falco_peregrinus_-_01.jpg",
+      "artist": "Carlos Delgado",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "piranha": {
+      "title": "Pygocentrus nattereri - Karlsruhe Zoo 01.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pygocentrus_nattereri_-_Karlsruhe_Zoo_01.jpg",
+      "artist": "H. Zell",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "platypus": {
+      "title": "Duck-billed platypus (Ornithorhynchus anatinus) Scottsdale 3.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Duck-billed_platypus_(Ornithorhynchus_anatinus)_Scottsdale_3.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "poison-dart-frog": {
+      "title": "Schrecklicher Pfeilgiftfrosch Phyllobates terribilis.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Schrecklicher_Pfeilgiftfrosch_Phyllobates_terribilis.jpg",
+      "artist": "Holger Krisp",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "polar-bear": {
+      "title": "Polar bear after unlucky hunt for a seal.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Polar_bear_after_unlucky_hunt_for_a_seal.jpg",
+      "artist": "Andreas Weith",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "porcupine": {
+      "title": "Erethizon dorsatum - Prince Rupert.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Erethizon_dorsatum_-_Prince_Rupert.jpg",
+      "artist": "The Cosmonaut",
+      "license": "CC BY-SA 2.5 ca",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+      "modified": "Background removed and cropped"
+    },
+    "praying-mantis": {
+      "title": "European praying mantis (Mantis religiosa) green female Dobruja.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:European_praying_mantis_(Mantis_religiosa)_green_female_Dobruja.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "snow-leopard": {
+      "title": "Snow Leopard Looking Hungry (12785272055).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Snow_Leopard_Looking_Hungry_(12785272055).jpg",
+      "artist": "Eric Kilby from Somerville, MA, USA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "alligator": {
+      "title": "Crocodiles in Hamat Gader 02.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Crocodiles_in_Hamat_Gader_02.jpg",
+      "artist": "Staselnik",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "beaver": {
+      "title": "Beaver (48876665228).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Beaver_(48876665228).jpg",
+      "artist": "GrandTetonNPS",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "beluga-whale": {
+      "title": "Beluga 5 (32453588256).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Beluga_5_(32453588256).jpg",
+      "artist": "daryl_mitchell",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "cockatoo": {
+      "title": "Triton cockatoo (Cacatua galerita triton), Gembira Loka Zoo, Yogyakarta, 2015-03-15 04.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Triton_cockatoo_(Cacatua_galerita_triton)%2C_Gembira_Loka_Zoo%2C_Yogyakarta%2C_2015-03-15_04.jpg",
+      "artist": "Crisco 1492",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "dingo": {
+      "title": "Dingo of Fraser Island.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Dingo_of_Fraser_Island.jpg",
+      "artist": "Newretreads",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "gecko": {
+      "title": "Tokay gecko (Gekko gecko).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tokay_gecko_(Gekko_gecko).jpg",
+      "artist": "MH Herpetology",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "howler-monkey": {
+      "title": "Walking Alouatta palliata, Costa Rica.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Walking_Alouatta_palliata%2C_Costa_Rica.JPG",
+      "artist": "Steven G. Johnson",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "kiwi": {
+      "title": "Apteryx owenii - Museum of New Zealand Te Papa Tongarewa - Wellington, NZ - DSC09564.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Apteryx_owenii_-_Museum_of_New_Zealand_Te_Papa_Tongarewa_-_Wellington%2C_NZ_-_DSC09564.jpg",
+      "artist": "Daderot",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "llama": {
+      "title": "Llama walking on the mountain.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Llama_walking_on_the_mountain.jpg",
+      "artist": "Joselodos",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "lobster": {
+      "title": "Boqueria, Barcelona (P1170745).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Boqueria%2C_Barcelona_(P1170745).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "marlin": {
+      "title": "Marlin bleu (Makaira nigricans) (Ifremer 00761-87302).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Marlin_bleu_(Makaira_nigricans)_(Ifremer_00761-87302).jpg",
+      "artist": "Hugues Evano (IFREMER, Délégation océan Indien (DOI), Département Ressources Biologiques et Environnement (RBE), F-97420 Le Port, France)",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "moose": {
+      "title": "Bull Moose (50437399781).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bull_Moose_(50437399781).jpg",
+      "artist": "Larry Lamsa",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "otter": {
+      "title": "Otter Pose (8524517410).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Otter_Pose_(8524517410).jpg",
+      "artist": "Peter Trimming from Croydon, England",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "proboscis-monkey": {
+      "title": "Proboscis monkey (Nasalis larvatus) male Labuk Bay.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Proboscis_monkey_(Nasalis_larvatus)_male_Labuk_Bay.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "pronghorn": {
+      "title": "Pronghorn Yellowstone.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pronghorn_Yellowstone.jpg",
+      "artist": "Thomas Wolf , www.foto-tw.de",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "pufferfish": {
+      "title": "Pez globo (Arothron hispidus), parque nacional Ras Muhammad, Egipto, 2022-03-26, DD 137.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pez_globo_(Arothron_hispidus)%2C_parque_nacional_Ras_Muhammad%2C_Egipto%2C_2022-03-26%2C_DD_137.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "puffin": {
+      "title": "Puffin Latrabjarg Iceland.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Puffin_Latrabjarg_Iceland.jpg",
+      "artist": "Boaworm",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "python": {
+      "title": "RETICULATED PYTHON.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:RETICULATED_PYTHON.jpg",
+      "artist": "Kirkamon A. Cabello",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "quokka": {
+      "title": "Setonix brachyurus (39094035665).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Setonix_brachyurus_(39094035665).jpg",
+      "artist": "Donald Hobern from Copenhagen, Denmark",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "quoll": {
+      "title": "Tiger Quoll 6178.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tiger_Quoll_6178.jpg",
+      "artist": "JJ Harrison",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "raccoon": {
+      "title": "Raccoon in Central Park (35264).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Raccoon_in_Central_Park_(35264).jpg",
+      "artist": "Rhododendrites",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "rattlesnake": {
+      "title": "Cascavel - crotalus durissus.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Cascavel_-_crotalus_durissus.jpg",
+      "artist": "Renato Augusto Martins",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "raven": {
+      "title": "Rabe am Streicher.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Rabe_am_Streicher.jpg",
+      "artist": "Kletteronkel",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "red-eyed-tree-frog": {
+      "title": "Red eyed tree frog edit2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Red_eyed_tree_frog_edit2.jpg",
+      "artist": "Careyjamesbalboa (Carey James Balboa)",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "red-fox": {
+      "title": "Vulpes vulpes Mallnitz 01.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg",
+      "artist": "Uoaei1",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "red-panda": {
+      "title": "Red Panda (25193861686).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Red_Panda_(25193861686).jpg",
+      "artist": "Mathias Appel",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "red-tailed-hawk": {
+      "title": "20250101 red tailed hawk hockanum river linear trail PD209981.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:20250101_red_tailed_hawk_hockanum_river_linear_trail_PD209981.jpg",
+      "artist": "Paul Danese",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "reindeer": {
+      "title": "Caribú (Rangifer tarandus), Parque nacional y reserva Denali, Alaska, Estados Unidos, 2017-08-30, DD 40.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Carib%C3%BA_(Rangifer_tarandus)%2C_Parque_nacional_y_reserva_Denali%2C_Alaska%2C_Estados_Unidos%2C_2017-08-30%2C_DD_40.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "reticulated-python": {
+      "title": "Reticulated python MP1.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Reticulated_python_MP1.JPG",
+      "artist": "BurmesePython at English Wikipedia",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "rhinoceros": {
+      "title": "109 Male White rhinoceros walking in the Kalahari Desert of Namibia Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "ring-tailed-lemur": {
+      "title": "Ring-tailed lemur (Lemur catta) Vakona.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ring-tailed_lemur_(Lemur_catta)_Vakona.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sable-antelope": {
+      "title": "Sable antelope (Hippotragus niger) adult male.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sable_antelope_(Hippotragus_niger)_adult_male.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sailfish": {
+      "title": "Voilier de l'Indo-Pacifique (Istiophorus platypterus) (Ifremer 00761-87277).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Voilier_de_l'Indo-Pacifique_(Istiophorus_platypterus)_(Ifremer_00761-87277).jpg",
+      "artist": "Fanchon Varenne (IFREMER, Délégation océan Indien (DOI), Département Ressources Biologiques et Environnement (RBE), F-97420 Le Port, France)",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "salamander": {
+      "title": "Hynobius fossigenus.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Hynobius_fossigenus.png",
+      "artist": "Hisanori Okamiya, Hirotaka Sugawara, Masahiro Nagano, Nikolay A. Poyarkov",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sawfish": {
+      "title": "Pristis pristis townsville.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pristis_pristis_townsville.jpg",
+      "artist": "Simon Fraser University - University Communications",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sea-lion": {
+      "title": "Southern sea lion, L'Oceanogràfic (1).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Southern_sea_lion%2C_L'Oceanogr%C3%A0fic_(1).jpg",
+      "artist": "Katie Chan",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sea-otter": {
+      "title": "Northern Sea Otter (Enhydra lutris kenyoni) - Flickr - Gregory \"Slobirdr\" Smith.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Northern_Sea_Otter_(Enhydra_lutris_kenyoni)_-_Flickr_-_Gregory_%22Slobirdr%22_Smith.jpg",
+      "artist": "Gregory \"Slobirdr\" Smith",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "seal": {
+      "title": "Harbor seal hauled out on the rocks, Children's Pool Beach, San Diego, California.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Harbor_seal_hauled_out_on_the_rocks%2C_Children's_Pool_Beach%2C_San_Diego%2C_California.jpg",
+      "artist": "Christian David",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "secretary-bird": {
+      "title": "Secretary bird Mara for WC.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Secretary_bird_Mara_for_WC.jpg",
+      "artist": "Sumeet Moghe",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "serval": {
+      "title": "Servalcropped.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Servalcropped.png",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "shoebill": {
+      "title": "Balaeniceps rex.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Balaeniceps_rex.jpg",
+      "artist": "Hans Hillewaert",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "skunk": {
+      "title": "Striped Skunk (Mephitis mephitis) DSC 0030.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Striped_Skunk_(Mephitis_mephitis)_DSC_0030.jpg",
+      "artist": "Dan & Lin Dzurisin",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sloth": {
+      "title": "Hoffmann's two-toed sloth (Choloepus hoffmanni) male 1.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Hoffmann's_two-toed_sloth_(Choloepus_hoffmanni)_male_1.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sloth-bear": {
+      "title": "Sri Lankan sloth bear (Melursus ursinus inornatus) male 3.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sri_Lankan_sloth_bear_(Melursus_ursinus_inornatus)_male_3.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "snapping-turtle": {
+      "title": "Common Snapping Turtle white background (2).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Common_Snapping_Turtle_white_background_(2).jpg",
+      "artist": "USFWS Mountain Prairie",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "snowy-owl": {
+      "title": "Schneeeule Bubo scandiacus Grugapark 2013.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Schneeeule_Bubo_scandiacus_Grugapark_2013.jpg",
+      "artist": "Tuxyso",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "spectacled-bear": {
+      "title": "Tremarctos ornatus in Jardim Zoológico de Curitiba.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tremarctos_ornatus_in_Jardim_Zool%C3%B3gico_de_Curitiba.jpg",
+      "artist": "Wilfredor",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "spider-monkey": {
+      "title": "Central american spider monkey natural lodge caño negro 4.17.25 monkeys DSC 9525-topaz-rawdenoise.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Central_american_spider_monkey_natural_lodge_ca%C3%B1o_negro_4.17.25_monkeys_DSC_9525-topaz-rawdenoise.jpg",
+      "artist": "lwolfartist",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "stag-beetle": {
+      "title": "20200529 Lucanus cervus 02.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:20200529_Lucanus_cervus_02.jpg",
+      "artist": "Flocci Nivis",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "stingray": {
+      "title": "Ocellated Eagle Ray(Aetobatus Ocellatus) or Whitespotted Eagle Ray, Sydney SEALIFE Aquarium (Ank Kumar, Infosys Limited) 10.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ocellated_Eagle_Ray(Aetobatus_Ocellatus)_or_Whitespotted_Eagle_Ray%2C_Sydney_SEALIFE_Aquarium_(Ank_Kumar%2C_Infosys_Limited)_10.jpg",
+      "artist": "Ank Kumar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "stoat": {
+      "title": "Mustela erminea nippon on backpack.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Mustela_erminea_nippon_on_backpack.jpg",
+      "artist": "Alpsdake",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "stork": {
+      "title": "White stork (Ciconia ciconia) in flight.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:White_stork_(Ciconia_ciconia)_in_flight.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sugar-glider": {
+      "title": "Petaurus breviceps (sugar glider).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Petaurus_breviceps_(sugar_glider).jpg",
+      "artist": "Inconnu(e)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sun-bear": {
+      "title": "Sun bear (Helarctos malayanus euryspilus) Sepilok.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sun_bear_(Helarctos_malayanus_euryspilus)_Sepilok.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "swan": {
+      "title": "Mute swan (16116).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Mute_swan_(16116).jpg",
+      "artist": "Rhododendrites",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "swordfish": {
+      "title": "Swordfish - Biblical Museum of Natural History 2023-08-28 IZE-152.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Swordfish_-_Biblical_Museum_of_Natural_History_2023-08-28_IZE-152.jpg",
+      "artist": "MathKnight and Dr. Zachi Evenor",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "tapir": {
+      "title": "Tapirus terrestris por Luiz Alves (05).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tapirus_terrestris_por_Luiz_Alves_(05).jpg",
+      "artist": "@LuizAlves1990",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "tarantula-hawk": {
+      "title": "Avispa cazadora de tarantulas, genero Pepsis.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Avispa_cazadora_de_tarantulas%2C_genero_Pepsis.jpg",
+      "artist": "Rodrigomacrophoto",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "tasmanian-devil": {
+      "title": "Healesville Sarcophilus harrisii in Healesville Sanctuary 03.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Healesville_Sarcophilus_harrisii_in_Healesville_Sanctuary_03.jpg",
+      "artist": "Ymblanter",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "tiger-shark": {
+      "title": "Tigershark2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tigershark2.jpg",
+      "artist": "albert kok",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "toucan": {
+      "title": "Tucano parque das aves 2015.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tucano_parque_das_aves_2015.jpg",
+      "artist": "Julio Cesar R. Lopes",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "tuna": {
+      "title": "Pacific bluefin tuna.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pacific_bluefin_tuna.jpg",
+      "artist": "aes256",
+      "license": "CC BY 2.1 jp",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.1/",
+      "modified": "Background removed and cropped"
+    },
+    "vulture": {
+      "title": "Griffon vulture takeoff.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Griffon_vulture_takeoff.jpg",
+      "artist": "Artemy Voikhansky",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "wallaby": {
+      "title": "Wallabia bicolor Jenolan Caves.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Wallabia_bicolor_Jenolan_Caves.jpg",
+      "artist": "Toby Hudson",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "walrus": {
+      "title": "Pacific Walrus - Bull (8247646168).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pacific_Walrus_-_Bull_(8247646168).jpg",
+      "artist": "Joel Garlich-Miller, U.S. Fish and Wildlife Service",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "warthog": {
+      "title": "Nolan warthog (Phacochoerus africanus africanus).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nolan_warthog_(Phacochoerus_africanus_africanus).jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "wild-boar": {
+      "title": "Dzik na Czerwonych Makach w Krakowie, 20241127 1059 2815.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Dzik_na_Czerwonych_Makach_w_Krakowie%2C_20241127_1059_2815.jpg",
+      "artist": "Jakub Hałun",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "wild-horse": {
+      "title": "Urwildpferd Tennenlohe SK DSC 0013.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Urwildpferd_Tennenlohe_SK_DSC_0013.jpg",
+      "artist": "Simon Koopmann",
+      "license": "CC BY-SA 3.0 de",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "wildebeest": {
+      "title": "Makalali Game Reserve (ZA), Gnu -- 2024 -- 1777.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Makalali_Game_Reserve_(ZA)%2C_Gnu_--_2024_--_1777.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "wolverine": {
+      "title": "Wolverine in field.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Wolverine_in_field.jpg",
+      "artist": "Susanne Nilsson",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "wombat": {
+      "title": "Wilsons Promontory National Park (AU), Tidal River (village), Wombat -- 2019 -- 1602.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Wilsons_Promontory_National_Park_(AU)%2C_Tidal_River_(village)%2C_Wombat_--_2019_--_1602.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "zebra": {
+      "title": "Burchell's zebra (Equus quagga burchellii) 2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Burchell's_zebra_(Equus_quagga_burchellii)_2.jpg",
+      "artist": "Charles J. Sharp",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    }
+  }
 }

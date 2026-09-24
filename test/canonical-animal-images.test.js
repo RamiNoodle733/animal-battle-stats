@@ -39,13 +39,13 @@ test('animals without active replacements remain unchanged', () => {
 
 test('mongoose-like documents are serialized before an active override', () => {
     const document = {
-        name: 'Piranha',
-        image: '/images/animals/piranha.jpg',
+        name: 'Saltwater Crocodile',
+        image: '/images/animals/saltwater-crocodile.jpg',
         toObject() {
-            return { _id: 'piranha-id', name: this.name, image: this.image };
+            return { _id: 'crocodile-id', name: this.name, image: this.image };
         }
     };
     const result = applyCanonicalAnimalImage(document);
     assert.deepEqual(Object.keys(result).sort(), ['_id', 'image', 'imageSet', 'name']);
-    assert.equal(result.image, '/images/animals/piranha.png?v=a8f74973c4a9');
+    assert.equal(result.image, '/images/animals/saltwater-crocodile.png?v=817a66c488be');
 });

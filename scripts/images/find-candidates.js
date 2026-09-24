@@ -205,21 +205,50 @@ function isUsable(file) {
     return true;
 }
 
+// Hand-tuned searches for animals where the automatic search found the wrong
+// subject (a wrong Wikidata match, a place named after the animal, fruit for
+// "kiwi"). Categories are Commons species categories; deepcat includes their
+// subcategories (males, in the wild, by country).
+const OVERRIDES = {
+    alligator: ['deepcat:"Alligator mississippiensis" filew:>1500', '"American alligator" filew:>1500 -river -refuge'],
+    beaver: ['incategory:"Castor canadensis" filew:>1500', 'incategory:"Castor fiber" filew:>1500', '"beaver" on land filew:>1500 -lodge -dam'],
+    'beluga-whale': ['incategory:"Delphinapterus leucas" filew:>1200', 'incategory:"Delphinapterus leucas in captivity" filew:>1200', '"Delphinapterus leucas" -Airbus -A300 filew:>1200'],
+    bongo: ['deepcat:"Tragelaphus eurycerus" filew:>1500', '"bongo" antelope filew:>1500'],
+    cockatoo: ['deepcat:"Cacatua galerita" filew:>1500', '"sulphur-crested cockatoo" filew:>1500'],
+    dingo: ['deepcat:"Canis lupus dingo" filew:>1500', '"dingo" Australia filew:>1500 -dog'],
+    gecko: ['deepcat:"Gekko gecko" filew:>1500', '"tokay gecko" filew:>1500'],
+    'howler-monkey': ['deepcat:"Alouatta caraya" male filew:>1500', '"black howler" male filew:>1500', 'deepcat:"Alouatta" male filew:>1500'],
+    kiwi: ['deepcat:"Apteryx" filew:>1200', '"kiwi" Apteryx bird filew:>1200'],
+    llama: ['deepcat:"Lama glama" standing filew:>1500', '"llama" standing filew:>1500'],
+    lobster: ['deepcat:"Homarus americanus" filew:>1500', '"American lobster" live filew:>1500', 'deepcat:"Homarus gammarus" filew:>1500'],
+    marlin: ['deepcat:"Makaira nigricans" filew:>1200', '"blue marlin" filew:>1200', 'deepcat:"Istiompax indica" filew:>1200'],
+    moose: ['deepcat:"Alces alces" bull filew:>1500', '"bull moose" filew:>1500', 'deepcat:"Alces alces" male standing filew:>1500'],
+    otter: ['deepcat:"Lontra canadensis" filew:>1500', '"river otter" filew:>1500'],
+    swordfish: ['incategory:"Xiphias gladius" filew:>1000', '"Xiphias gladius" NOAA', '"Xiphias gladius" -food -dish -cooked filew:>1000'],
+    orca: ['incategory:"Orcinus orca breaching" filew:>1500', '"killer whale" breaching filew:>1500', '"Killerwhales jumping"', 'incategory:"Orcinus orca jumping" filew:>1200'],
+    tuna: ['deepcat:"Thunnus thynnus" filew:>1200', '"bluefin tuna" filew:>1200', 'deepcat:"Thunnus albacares" filew:>1200']
+};
+
 async function candidatesFor(animal, profile, qid) {
     const scientific = animal.scientific_name;
     const binomial = scientific.split(' ').slice(0, 2).join(' ');
     const preferredSex = profile?.specimenSex === 'female' ? 'female' : profile?.specimenSex === 'male' ? 'male' : 'any';
     const sexWord = preferredSex === 'female' ? 'female' : preferredSex === 'male' ? 'male' : '';
     const queries = [];
-    if (qid) {
+    const override = OVERRIDES[slugify(animal.name)];
+    if (override) {
+        queries.push(...override.map((query) => [query, 50]));
+    } else if (qid) {
         queries.push([`haswbstatement:P180=${qid} filew:>1000`, 50]);
         queries.push([`haswbstatement:P180=${qid} incategory:"Quality images"`, 30]);
         if (sexWord) queries.push([`haswbstatement:P180=${qid} ${sexWord} filew:>1000`, 30]);
     }
-    queries.push([`incategory:"${binomial}" filew:>1000`, 40]);
-    queries.push([`"${binomial}" filew:>1000`, 30]);
-    if (sexWord) queries.push([`"${animal.name}" ${sexWord} filew:>1000`, 25]);
-    queries.push([`"${animal.name}" filew:>1200`, 25]);
+    if (!override) {
+        queries.push([`incategory:"${binomial}" filew:>1000`, 40]);
+        queries.push([`"${binomial}" filew:>1000`, 30]);
+        if (sexWord) queries.push([`"${animal.name}" ${sexWord} filew:>1000`, 25]);
+        queries.push([`"${animal.name}" filew:>1200`, 25]);
+    }
 
     const seen = new Map();
     for (const [query, max] of queries) {

@@ -55,6 +55,19 @@ function stableJson(value) {
     return `${JSON.stringify(value, null, 2)}\n`;
 }
 
+// Animal images are served with a one-year immutable cache, so their URLs
+// carry a content hash: replacing a cutout changes the URL everywhere.
+function versionImage(record) {
+    let asset = String(record.image || '').split(/[?#]/, 1)[0];
+    // A transparent PNG cutout at the conventional path replaces older JPEG photos.
+    const cutout = `/images/animals/${slugify(record.name)}.png`;
+    if (asset !== cutout && fs.existsSync(path.join(ROOT, cutout.slice(1)))) asset = cutout;
+    const file = path.join(ROOT, asset.replace(/^\/+/, ''));
+    if (!asset.startsWith('/images/animals/') || !fs.existsSync(file)) return record;
+    const hash = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 12);
+    return { ...record, image: `${asset}?v=${hash}` };
+}
+
 function round1(value) {
     return Math.round(Number(value) * 10) / 10;
 }
@@ -214,7 +227,7 @@ function main() {
     for (const legacy of legacyAnimals) {
         const slug = slugify(legacy.name);
         if (!researchFiles.has(slug)) {
-            canonical.push({ ...legacy, research_status: 'legacy', research_updated: null });
+            canonical.push(versionImage({ ...legacy, research_status: 'legacy', research_updated: null }));
             profiles[slug] = { name: legacy.name, status: 'legacy' };
             report.legacy += 1;
             report.animals[slug] = { status: 'legacy' };
@@ -226,7 +239,7 @@ function main() {
         const profile = parseResearchProfile(markdown, { slug });
         const problems = validateProfile(profile);
         if (problems.length) {
-            canonical.push({ ...legacy, research_status: 'legacy', research_updated: null });
+            canonical.push(versionImage({ ...legacy, research_status: 'legacy', research_updated: null }));
             profiles[slug] = { name: legacy.name, status: 'legacy' };
             report.rejected += 1;
             report.animals[slug] = { status: 'rejected', problems, warnings: profile.warnings };
@@ -237,7 +250,7 @@ function main() {
         const researchedAt = commitDates.get(slug)
             || (previous && previous.contentHash === contentHash && previous.researchedAt)
             || today;
-        canonical.push(buildCanonicalRecord(legacy, profile, researchedAt, overrides[legacy.name]));
+        canonical.push(versionImage(buildCanonicalRecord(legacy, profile, researchedAt, overrides[legacy.name])));
         profiles[slug] = buildProfileEntry(legacy, profile, { slug, contentHash, researchedAt });
         report.researched += 1;
         report.animals[slug] = profile.warnings.length

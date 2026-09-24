@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.1.0 — 2026-09-24
+
+- Replaced 216 animal images with real photographs of adult animals from Wikimedia Commons, cut out and credited (photographer and license on `/credits` and each animal's Sources tab). Image URLs carry a content hash so replacements reach every visitor.
+- Rebuilt Tournament as a game screen: bracket size and division, pick-the-winner fights with stats odds and fan picks, stats pick and round sim, champion podium with recap, and a battle ratings leaderboard. Ranked brackets for signed-in players go through the server-owned bracket API.
+- Fixed ranked tournament completions being rejected whenever the second-listed animal won a first-round fight.
+- Rebuilt Community as a hub: arena discussion with replies and votes, animal comment feed, fan favorites, player leaderboard, site numbers and a Roblox game panel.
+- Rebuilt log in, sign up, password reset and profile (level, XP, BattlePoints, profile animal picker, notification settings, Google link); public player cards at `/profile/<username>`.
+- Added Talk tabs with comment threads to every animal page and Versus matchup.
+- Generated 1200×630 social preview cards for every animal, matchup and section.
+- Added IndexNow (`npm run seo:indexnow`) and a data handoff note for the Roblox game (`docs/SITE_DATA_FOR_ROBLOX.md`).
+
+## 3.0.0 — 2026-09-24
+
+- Redesigned the site as a game: fitted screens without page scrolling, holo animal cards, Injustice-style segmented stat meters, biome arenas, 3D card tilt, synthesized sound effects and the Roblox game's icon set.
+- Imported the automated research profiles (199 animals) into the canonical catalogue, with sources, abilities and derived ratings; 0 speed or bite force now means "no reliable measurement".
+- New Versus screen with animated fights, tier lists, stat leaderboards, 600+ static matchup pages, a Roblox game page, llms.txt and structured data for search and AI assistants.
+- Retired Battle Lab (`/battle` redirects to Versus).
+
 ## 2.21.3 — 2026-09-14
 
 - Repair the four-button Home grid, short-phone footer clearance, and mobile animation frame skipping.

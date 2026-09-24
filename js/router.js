@@ -21,7 +21,7 @@
  * Scripts/styles are injected once and cached for repeat navigations.
  */
 const CHART_JS_URL = 'https://cdn.jsdelivr.net/npm/chart.js';
-const ASSET_REVISION = '3.0.0';
+const ASSET_REVISION = '3.1.0';
 const LEGACY_APP_ROUTES = /^\/(tournament|community|profile|login|signup|forgot-password|reset-password|battlepoints)(\/|$)/;
 
 function versionedAsset(path) {

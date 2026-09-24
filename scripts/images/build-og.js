@@ -449,15 +449,6 @@ async function pool(items, size, worker) {
     }));
 }
 
-function fileStamp(relative) {
-    const file = sourceFile(relative);
-    try {
-        const stat = fs.statSync(file);
-        return `${stat.size}:${Math.round(stat.mtimeMs)}`;
-    } catch {
-        return 'missing';
-    }
-}
 
 async function main() {
     if (!fs.existsSync(jobsFile)) {
@@ -484,13 +475,14 @@ async function main() {
     };
 
     for (const animal of jobs.animals) {
-        queue(`${animal.slug}.jpg`, [animal, jobs.total, fileStamp(animal.image)], (file) => animalCard(animal, jobs.total, file));
+        // animal.image carries a content hash (?v=), so a new photo re-renders its cards.
+        queue(`${animal.slug}.jpg`, [animal, jobs.total], (file) => animalCard(animal, jobs.total, file));
     }
     for (const pair of jobs.pairs) {
         const a = bySlug.get(pair.a);
         const b = bySlug.get(pair.b);
         if (!a || !b) continue;
-        queue(`vs/${pair.slug}.jpg`, [pair, a, b, fileStamp(a.image), fileStamp(b.image)], (file) => versusCard(a, b, pair.oddsA, file));
+        queue(`vs/${pair.slug}.jpg`, [pair, a, b], (file) => versusCard(a, b, pair.oddsA, file));
     }
     for (const page of jobs.pages) {
         if (page.kind === 'versus') {
@@ -498,8 +490,7 @@ async function main() {
             const b = bySlug.get(page.b);
             if (a && b) queue(`${page.file}.jpg`, [page, a, b], (file) => versusCard(a, b, page.oddsA, file, page.title));
         } else {
-            const stamps = (page.lineup || []).map((slug) => fileStamp(bySlug.get(slug)?.image));
-            queue(`${page.file}.jpg`, [page, stamps, (page.lineup || []).map((slug) => bySlug.get(slug))], (file) => sectionCard(page, bySlug, file));
+            queue(`${page.file}.jpg`, [page, (page.lineup || []).map((slug) => bySlug.get(slug))], (file) => sectionCard(page, bySlug, file));
         }
     }
 

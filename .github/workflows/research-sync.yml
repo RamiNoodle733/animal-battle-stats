@@ -1,0 +1,78 @@
+name: Research sync
+
+# The research automation commits many times a day, and research-only commits
+# skip Vercel deploys (scripts/vercel-ignore-research.js). Once a day this job
+# imports finished research into the site catalogue and commits the result;
+# that commit touches site data, so Vercel deploys it.
+
+on:
+  schedule:
+    - cron: '23 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: research-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # Full history: research dates come from each profile's commit date.
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Import research and commit changes
+        id: sync
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898283+github-actions[bot]@users.noreply.github.com'
+          files=(animal_stats.json data/animal-profiles.json data/research-import-report.json)
+          # Research commits land often; regenerate on the latest main before each push attempt.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            node scripts/research/import-research.js
+            if git diff --quiet -- "${files[@]}"; then
+              echo 'Site data already matches the research.'
+              exit 0
+            fi
+            researched=$(node -p "require('./data/research-import-report.json').researched")
+            git add -- "${files[@]}"
+            git commit -m "data: sync research profiles (${researched} researched)"
+            if git push origin HEAD:main; then
+              echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            sleep $((attempt * 20))
+          done
+          echo 'Could not push the research sync after 3 attempts.' >&2
+          exit 1
+
+      # Once the new data is live, point IndexNow engines (Bing, and through it
+      # ChatGPT search and Copilot) at the pages that changed.
+      - name: Notify search engines after deploy
+        if: steps.sync.outputs.sha != ''
+        shell: bash
+        env:
+          SHA: ${{ steps.sync.outputs.sha }}
+        run: |
+          for i in $(seq 1 40); do
+            if curl -fsS https://animalbattlestats.com/version.json | grep -q "$SHA"; then
+              node scripts/seo/indexnow.mjs
+              exit 0
+            fi
+            sleep 30
+          done
+          echo 'Deploy did not go live within 20 minutes; skipping IndexNow.'

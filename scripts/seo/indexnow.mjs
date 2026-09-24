@@ -24,12 +24,22 @@ if (keyCheck.trim() !== KEY) throw new Error('The IndexNow key file is not live 
 console.log(`${urls.length} URLs to submit${args.has('--dry-run') ? ' (dry run)' : ''}.`);
 if (!urls.length || args.has('--dry-run')) process.exit(0);
 
+// A key file deployed moments ago can still be rejected (403) while the
+// engines verify it, so one retry follows a short wait.
+async function submit(urlList) {
+    for (let attempt = 1; attempt <= 2; attempt += 1) {
+        const response = await fetch('https://api.indexnow.org/indexnow', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            body: JSON.stringify({ host: new URL(SITE).host, key: KEY, keyLocation: `${SITE}/${KEY}.txt`, urlList })
+        });
+        console.log(`IndexNow: ${response.status} ${response.statusText} for ${urlList.length} URLs`);
+        if (response.status !== 403 || attempt === 2) return response.status < 400;
+        await new Promise((resolve) => setTimeout(resolve, 30000));
+    }
+    return false;
+}
+
 for (let start = 0; start < urls.length; start += 10000) {
-    const response = await fetch('https://api.indexnow.org/indexnow', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-        body: JSON.stringify({ host: new URL(SITE).host, key: KEY, keyLocation: `${SITE}/${KEY}.txt`, urlList: urls.slice(start, start + 10000) })
-    });
-    console.log(`IndexNow: ${response.status} ${response.statusText} for ${Math.min(10000, urls.length - start)} URLs`);
-    if (response.status >= 400) process.exitCode = 1;
+    if (!await submit(urls.slice(start, start + 10000))) process.exitCode = 1;
 }

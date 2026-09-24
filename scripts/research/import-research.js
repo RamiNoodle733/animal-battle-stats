@@ -234,7 +234,8 @@ function main() {
             continue;
         }
 
-        const markdown = fs.readFileSync(path.join(RESEARCH_DIR, `${slug}.md`), 'utf8');
+        // Normalized so Windows checkouts (CRLF) and CI (LF) hash the same text.
+        const markdown = fs.readFileSync(path.join(RESEARCH_DIR, `${slug}.md`), 'utf8').replace(/\r\n?/g, '\n');
         const contentHash = crypto.createHash('sha256').update(markdown).digest('hex').slice(0, 16);
         const profile = parseResearchProfile(markdown, { slug });
         const problems = validateProfile(profile);

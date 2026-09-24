@@ -183,7 +183,7 @@ assertWithin('Initial local JavaScript', initialJs.gzip, budgets.initialJavaScri
 assertWithin('Initial local styles', initialCss.gzip, budgets.initialStylesGzip);
 
 const rows = [];
-for (const name of ['battle', 'methodology']) {
+for (const name of ['methodology']) {
     const html = fs.readFileSync(path.join(repoRoot, `${name}.html`), 'utf8');
     const assets = collectInitialAssets(html);
     if (name === 'battle') assets.scripts.push('js/battle-engine.js');

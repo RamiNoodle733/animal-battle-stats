@@ -1,6 +1,6 @@
 {
-  "researched": 198,
-  "legacy": 27,
+  "researched": 199,
+  "legacy": 26,
   "rejected": 0,
   "animals": {
     "african-elephant": {
@@ -598,7 +598,7 @@
       "status": "researched"
     },
     "spectacled-bear": {
-      "status": "legacy"
+      "status": "researched"
     },
     "spider-monkey": {
       "status": "legacy"

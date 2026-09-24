@@ -30759,7 +30759,139 @@
     },
     "spectacled-bear": {
       "name": "Spectacled Bear",
-      "status": "legacy"
+      "status": "researched",
+      "researchedAt": "2026-09-24",
+      "sourceFile": "animal-research-for-update/animals/spectacled-bear.md",
+      "contentHash": "0a9028dd9e224153",
+      "scientificName": "Tremarctos ornatus",
+      "specimen": "Cuvier, 1825), Ursidae\n- Living/extinct: Living\n- Canonical fighter: healthy prime adult male, 115.",
+      "specimenSex": "male",
+      "extinct": false,
+      "summary": "The spectacled bear is a strongly dimorphic Andean ursid whose prime males average around 115 kg. Curved claws, a robust skull and plant-processing jaws make it dangerous at close range, while unusually strong climbing ability lets it exploit steep forest and trees better than most bears. Its ABS profile emphasizes balanced ursid strength and terrain mobility rather than exaggerated predator ferocity.",
+      "narrative": [
+        "A spectacled bear is best understood as a mountain-climbing generalist, not a miniature brown bear and not a giant herbivore. Its combat package begins with enough mass to dominate many medium animals, then adds the leverage and grip of bear forequarters. The same curved claws used to climb trunks and dismantle bromeliads can rake or hold an opponent. A stout skull and broad chewing apparatus provide a credible bite, but the available biomechanical value is force in newtons, not PSI.",
+        "Terrain changes the matchup. On open ground, a 115 kg male has no verified exceptional sprint speed. In steep forest or trees, it becomes harder to pursue and can use climbing routes unavailable to many similarly sized opponents. This vertical competence raises Agility, while Attack remains well below dedicated large-prey killers.",
+        "The mostly vegetarian diet also matters for calibration. Powerful jaws do not automatically imply high predatory Attack. Jaw anatomy is substantially shaped by fibrous plant foods. Likewise, shy behavior is not weakness: a cornered bear remains dangerous, but normal ecology does not justify inflated Ferocity."
+      ],
+      "sections": {
+        "habitat": "The Andean bear is the only living bear native to South America. The 2021 Mammalian Species synthesis places it across the tropical Andes of Venezuela, Colombia, Ecuador, Peru, Bolivia and northern Argentina. It uses dry scrub, coastal dry forest, montane humid forest, cloud forest, elfin forest, oak forest, páramo and high-altitude grassland. Reported elevations extend roughly from 200 to 4,170 m.",
+        "range": "",
+        "diet": "It is among the most plant-oriented bears. The International Association for Bear Research and Management summarizes plant matter at up to about 90% of diet, with bromeliads and palms especially important and fruit used seasonally. It also consumes invertebrates, small vertebrates, carrion and occasional livestock. Smithsonian lists fruits, bromeliads, berries, grasses, bulbs, cactus flowers and small animals.",
+        "ecology": "",
+        "social": "Adults are predominantly solitary except females with cubs and temporary mating associations. Aggregations can occur at concentrated food sources. Home ranges overlap. Published estimates vary greatly by site and method, including male ranges around 6.6-7.4 km² in Bolivia and much larger values in Ecuador. These should not be collapsed into one universal home-range value.",
+        "reproduction": "Females commonly raise one or two cubs. Delayed implantation contributes to variable gestation timing. The species does not normally hibernate.",
+        "conservation": "The modern species synthesis records the Andean bear as Vulnerable, with a decreasing population. Major threats are habitat loss and fragmentation, illegal killing and human-bear conflict. The species is listed in CITES Appendix I.",
+        "adaptations": "Strong curved claws and forequarters for climbing and tearing vegetation.\nAnkle anatomy suited to strong inversion during climbing.\nDense coarse fur for montane environments.\nRobust skull and grinding/cutting dentition for tough plant material.\nFlexible diet across heterogeneous Andean habitats.",
+        "humanInteraction": "The bear is generally shy, but its size and weapons demand respect. Agricultural expansion brings bears into maize fields and livestock areas, where retaliatory killing is a major conservation problem. Occasional livestock attacks should not be generalized into routine predatory behavior."
+      },
+      "conservationStatus": "Vulnerable",
+      "funFacts": [
+        "It is the only living bear species native to South America.",
+        "It is the sole living species of the genus Tremarctos.",
+        "Facial markings can help distinguish individuals.",
+        "Some individuals do not have complete \"spectacles.\"",
+        "Bears build branch platforms in trees for feeding and resting.",
+        "The species occurs above 4,000 m.",
+        "It does not normally hibernate.",
+        "Paddington Bear is famously described as coming from Peru and is associated with this South American bear."
+      ],
+      "abilities": [
+        {
+          "name": "Canopy Grappler",
+          "description": "powerful forelimbs, curved claws, ankle mobility and strong climbing behavior let a large male reposition vertically and exploit steep substrates."
+        },
+        {
+          "name": "Fiber-Crusher Jaws",
+          "description": "a wide dense skull, enlarged molars and relatively large zygomaticomandibularis support tough-plant processing and a stout close-range bite, grounded in the 607.52 N canine-tip force rather than fabricated PSI."
+        }
+      ],
+      "traits": [
+        {
+          "name": "Andean Platform Builder",
+          "description": "the bear breaks and arranges branches into arboreal feeding/resting platforms."
+        },
+        {
+          "name": "Spectacle Signature",
+          "description": "cream facial, throat and chest markings vary strongly among individuals; some bears lack a complete eye-ring pattern."
+        }
+      ],
+      "combat": {
+        "weapons": "The close-range system is forelimb/claw control plus biting. A 115 kg male can grapple, rake or swat with powerful forequarters and curved claws, then bite at clinch distance. The measured/modelled canine-tip force is meaningful but moderate for a bear. This is not a pursuit predator, so the same musculature used to climb and tear fibrous plants should not be mistaken for specialized macropredatory killing performance.",
+        "weaknesses": [
+          "Moderate size by bear standards.",
+          "No armor, venom, chemical weapon or exceptional verified sprint system.",
+          "Bite is not exceptional among bears.",
+          "Mostly herbivorous ecology means less routine killing practice than large felids.",
+          "Climbing skill must not be double-counted as raw power."
+        ],
+        "goodMatchups": [],
+        "badMatchups": []
+      },
+      "derivedSubstats": [],
+      "facts": {
+        "weight_kg": 115,
+        "height_cm": 80,
+        "length_cm": 165,
+        "speed_mps": 0,
+        "lifespan_years": 20,
+        "bite_force_psi": 0
+      },
+      "unverifiedFacts": [
+        "speed_mps",
+        "bite_force_psi"
+      ],
+      "sources": [
+        {
+          "title": "Vela-Vargas et al. 2021, Mammalian Species",
+          "url": "https://academic.oup.com/mspecies/article/53/1006/78/6321968",
+          "supports": "Taxonomy, morphology, 119-174 cm length, habitat, skull, 607.52 ± 143.77 N canine-tip force, conservation",
+          "confidence": "High peer-reviewed synthesis; bite is force, not PSI"
+        },
+        {
+          "title": "International Association for Bear Research and Management",
+          "url": "https://www.bearbiology.org/the-eight-bear-species/tremarctos-ornatus-andean-bear/",
+          "supports": "Diet up to ~90% plants, home ranges, movement, conflict",
+          "confidence": "High-moderate specialist authority; some movement samples small"
+        },
+        {
+          "title": "Smithsonian National Zoo",
+          "url": "https://nationalzoo.si.edu/animals/andean-bear",
+          "supports": "Habitat, diet, climbing, platforms, longevity",
+          "confidence": "High-moderate institutional account"
+        },
+        {
+          "title": "Animal Diversity Web",
+          "url": "https://animaldiversity.org/accounts/Tremarctos_ornatus/",
+          "supports": "Solitary behavior, olfaction, diet, ~20 y wild estimate, 36.7 y captive record",
+          "confidence": "Moderate-high; wild lifespan uncertain"
+        },
+        {
+          "title": "SIB Argentina / Parques Nacionales",
+          "url": "https://sib.gob.ar/especies/tremarctos-ornatus",
+          "supports": "Taxonomy, 120-180 cm, 65-175 kg, robust legs/claws",
+          "confidence": "High-moderate government biodiversity system"
+        },
+        {
+          "title": "Commons, Sarah Stierch male",
+          "url": "https://commons.wikimedia.org/wiki/File:Tremarctos_ornatus_-_San_Diego_Zoo_-_June_2025_-_Sarah_Stierch.jpg",
+          "supports": "Exact species, male, 3000×2250, CC0",
+          "confidence": "High provenance, fails full-body framing; adulthood not explicit"
+        },
+        {
+          "title": "Commons, wild Chingaza bear",
+          "url": "https://commons.wikimedia.org/wiki/File:Oso_frontino_-_Tremarctos_ornatus.jpg",
+          "supports": "Exact species, wild location, 3456×5184, CC BY 4.0",
+          "confidence": "High provenance, legs obscured; adult/sex unverified"
+        }
+      ],
+      "imageLead": {
+        "status": "SOURCE FOUND - FULL-BODY NOT VERIFIED",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Tremarctos_ornatus_-_San_Diego_Zoo_-_June_2025_-_Sarah_Stierch.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Tremarctos_ornatus_-_San_Diego_Zoo_-_June_2025_-_Sarah_Stierch.jpg",
+        "license": "CC0 1.0",
+        "sex": "male verified by Commons caption",
+        "notes": "Direct inspection of the 3000×2250 exact-species male source shows trunks/vegetation and the foreground ledge obscure the lower body and limbs, so it is not a compliant full-body cutout source. A 3456×5184 wild Chingaza CC BY 4.0 source was also inspected and rejected because vegetation hides most limbs. No candidate found in this run simultaneously establishes adult male, complete anatomy, high resolution and reusable provenance. No PNG is created or claimed."
+      }
     },
     "spider-monkey": {
       "name": "Spider Monkey",

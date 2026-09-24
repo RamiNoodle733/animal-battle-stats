@@ -13999,8 +13999,8 @@
     "_id": "692f75f3274f411ced1e133a",
     "name": "Spectacled Bear",
     "__v": 0,
-    "agility": 28.2,
-    "attack": 77.2,
+    "agility": 64,
+    "attack": 62,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -14014,55 +14014,55 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Tank",
     "createdAt": "2025-12-02T23:27:49.018Z",
-    "defense": 81.3,
-    "description": "A Medium creature found in Varied.",
+    "defense": 55,
+    "description": "The spectacled bear is a strongly dimorphic Andean ursid whose prime males average around 115 kg.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 80,
     "image": "/images/animals/spectacled-bear.png",
-    "intelligence": 46.5,
+    "intelligence": 61,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
+    "length_cm": 165,
+    "lifespan_years": 20,
     "scientific_name": "Tremarctos ornatus",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Canopy Grappler",
+      "Fiber-Crusher Jaws"
     ],
-    "speed_mps": 10,
-    "stamina": 70.5,
+    "speed_mps": 0,
+    "stamina": 62,
     "substats": {
-      "raw_power": 83.5,
-      "maneuverability": 22.3,
-      "endurance": 54.3,
-      "recovery": 24.3,
-      "tactics": 65.4,
-      "senses": 66.8,
-      "ferocity": 85,
-      "weaponry": 63.3,
-      "protection": 62.8,
-      "toughness": 72.6,
-      "speed": 20.5,
-      "abilities": 28.1
+      "raw_power": 62,
+      "maneuverability": 65,
+      "endurance": 62,
+      "recovery": 55,
+      "tactics": 60,
+      "senses": 62,
+      "ferocity": 52,
+      "weaponry": 61,
+      "protection": 43,
+      "toughness": 59,
+      "speed": 48,
+      "abilities": 63
     },
     "type": "Mammal",
     "unique_traits": [
-      "Distinctive appearance",
-      "Adapted to environment"
+      "Andean Platform Builder",
+      "Spectacle Signature"
     ],
-    "updatedAt": "2025-12-02T23:28:23.455Z",
-    "weight_kg": 120,
-    "special": 78.4,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-24T00:00:00.000Z",
+    "weight_kg": 115,
+    "special": 58,
+    "research_status": "researched",
+    "research_updated": "2026-09-24"
   },
   {
     "_id": "692f75f3274f411ced1e133b",

@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 193 / 225 (through Skunk). **Full-body transparent PNG assets verified and committed:** 0 / 193. A source-photo URL is not an approved PNG.
+**Research reports completed:** 194 / 225 (through Sloth). **Full-body transparent PNG assets verified and committed:** 0 / 194. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -8,7 +8,38 @@
 Animals already source-verified are skipped until binary tooling becomes available. The oldest unresolved source-quality candidate is addressed each run. `REPLACEMENT SOURCE NEEDED`, `SOURCE FOUND - FULL-BODY NOT VERIFIED`, and licensing blockers remain unresolved until a genuinely better source is found.
 
 ## Active unresolved source-quality queue
-Giant Squid; Gibbon; Gila Monster; Golden Eagle; Goliath Birdeater; Goose; Gorilla; Gray Wolf; Great Horned Owl; Great White Shark; Green Anaconda; Hammerhead Shark; Harpy Eagle; Hedgehog; Hippopotamus; Honey Badger; Howler Monkey; Hummingbird; Huntsman Spider; Hyena; Iguana; Impala; Jackal; Jaguar; Japanese Macaque; Kangaroo; King Cobra; King Crab; Kiwi; Koala; Komodo Dragon; Kookaburra; Leatherback Sea Turtle; Leopard; Llama; Lobster; Lynx; Macaw; Mandrill; Narwhal; Nautilus; Opossum; Orangutan; Orca; **Osprey**; **Ostrich (NEXT)**; Otter; Pangolin; Peacock; Pelican; Peregrine Falcon; Piranha; Platypus; Poison Dart Frog; Polar Bear; Porcupine; Praying Mantis; Proboscis Monkey; Puffin; Python; Quokka; Quoll; Raccoon; Rattlesnake; Raven; Red Fox; Red Panda; Red-Eyed Tree Frog; Red-tailed Hawk; Sailfish; Salamander; Saltwater Crocodile; Sawfish; Sea Lion; Sea Otter; Seal; Secretary Bird; Serval; Shoebill; Siberian Tiger; Skunk; Megalodon.
+Giant Squid; Gibbon; Gila Monster; Golden Eagle; Goliath Birdeater; Goose; Gorilla; Gray Wolf; Great Horned Owl; Great White Shark; Green Anaconda; Hammerhead Shark; Harpy Eagle; Hedgehog; Hippopotamus; Honey Badger; Howler Monkey; Hummingbird; Huntsman Spider; Hyena; Iguana; Impala; Jackal; Jaguar; Japanese Macaque; Kangaroo; King Cobra; King Crab; Kiwi; Koala; Komodo Dragon; Kookaburra; Leatherback Sea Turtle; Leopard; Llama; Lobster; Lynx; Macaw; Mandrill; Narwhal; Nautilus; Opossum; Orangutan; Orca; Osprey; **Ostrich**; **Otter (NEXT)**; Pangolin; Peacock; Pelican; Peregrine Falcon; Piranha; Platypus; Poison Dart Frog; Polar Bear; Porcupine; Praying Mantis; Proboscis Monkey; Puffin; Python; Quokka; Quoll; Raccoon; Rattlesnake; Raven; Red Fox; Red Panda; Red-Eyed Tree Frog; Red-tailed Hawk; Sailfish; Salamander; Saltwater Crocodile; Sawfish; Sea Lion; Sea Otter; Seal; Secretary Bird; Serval; Shoebill; Siberian Tiger; Skunk; Sloth; Megalodon.
+
+## 2026-09-24 Ostrich legacy audit
+Roster Ostrich is exact species ***Struthio camelus*** and the canonical research specimen is a prime adult male.
+
+Broad search included Google-style image discovery, Wikimedia Commons male categories, wild-national-park photographs and commercial/photographer discovery leads. A particularly strong reusable source is:
+
+- Source page: https://commons.wikimedia.org/wiki/File:Common_Ostrich_(Struthio_camelus)_male_(32682739181).jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/7/7f/Common_Ostrich_%28Struthio_camelus%29_male_%2832682739181%29.jpg
+- **3621×3648**, exact *Struthio camelus*, explicitly male.
+- Wild provenance: Potlekkertjie Loop, Karoo National Park, Western Cape, South Africa.
+- Photographer: Bernard DUPONT.
+- License: **CC BY-SA 2.0**, independently reviewed by FlickreviewR.
+- Commons confirms exact species, male sex, original dimensions, photographer, location and reuse license.
+- The current image-fetch path timed out on the original binary, so strict visual confirmation of the entire head, neck, torso, both legs, both feet/toes, wing/body outline and tail could not be completed. Source metadata also does not explicitly state adulthood.
+
+Additional exact-male reusable candidates were found at 3745×3648, 4222×3185, 2378×3568 and larger dimensions, but this run did not promote any candidate without the mandatory visual distal-anatomy check and explicit/plausibly verifiable adulthood.
+
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. This is a strong high-resolution wild male reusable lead, but the full-body and adult requirements are not both verified. No cutout or PNG is claimed. The existing `animals/ostrich.md` payload is too large for the current connector to return untruncated, so a safe whole-file rewrite to insert the candidate URLs was not attempted. The provenance is recorded here rather than risking corruption. **Otter is next practical unresolved legacy audit.**
+
+## 2026-09-24 Sloth new-animal image audit
+Roster Sloth is exact species ***Bradypus tridactylus***, pale-throated three-toed sloth.
+
+Strongest reusable lead:
+- Source page: https://commons.wikimedia.org/wiki/File:Pale-throated_Sloth_(Bradypus_tridactylus)_male_(10628624664).jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/0/06/Pale-throated_Sloth_%28Bradypus_tridactylus%29_male_%2810628624664%29.jpg
+- **3231×2122**, exact *Bradypus tridactylus*, explicitly male.
+- Provenance: Route de Mana, French Guiana; Bernard DUPONT; scanned slide from 1998.
+- License: **CC BY-SA 2.0**, Flickr license independently reviewed by FlickreviewR.
+- Exact species, sex, dimensions and license are strong. However, current tooling did not provide a reliable strict original-resolution visual check of every distal limb/claw and the complete body silhouette, and source metadata does not explicitly establish adulthood.
+
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG created or claimed.
 
 ## 2026-09-24 Osprey legacy audit
 Roster Osprey is exact species ***Pandion haliaetus***. Females are generally larger, but this run found an unusually well-documented reusable male source and assessed it strictly rather than inferring sex from plumage.
@@ -25,22 +56,7 @@ Broad search included Google-style image discovery, Wikimedia Commons, governmen
 - Direct visual inspection of the original confirms a healthy-looking perched adult with head, torso and wings inside frame. However, the perch/needles overlap the feet and lower tail region, preventing the clean all-appendage silhouette required by `IMAGE_REQUIREMENTS.md`.
 - Longest dimension is 1627 px, just above the preferred minimum but below the 2000+ target.
 
-### Other discovery results
-Flying osprey photographs with fully spread wings and extended talons were found through broad image search and Commons, but the inspected/discovered alternatives did not simultaneously improve on explicit adulthood, exact species, reuse license, single-subject framing and complete unoccluded anatomy. Generic flight images cannot be promoted merely because their silhouette looks cleaner when adult status or reuse provenance is unresolved.
-
-**Result:** `REPLACEMENT SOURCE NEEDED`. The 4-year-old male source is excellent for age/sex/provenance but fails the strict complete-foot/tail isolation standard. No cutout or PNG is claimed. **Ostrich is next practical unresolved legacy audit.**
-
-## 2026-09-24 Skunk new-animal image audit
-Roster Skunk is exact species ***Mephitis mephitis***.
-
-Strongest reusable lead:
-- Source page: https://commons.wikimedia.org/wiki/File:Striped_Skunk_(Mephitis_mephitis)_DSC_0030.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/0/0c/Striped_Skunk_%28Mephitis_mephitis%29_DSC_0030.jpg
-- **4288×2848**, real exact-species photograph by Dan & Lin Dzurisin.
-- License: **CC BY 2.0**, Flickr license verified when uploaded to Commons.
-- Direct visual inspection confirms the head, torso and complete tail are in frame. Snow overlaps the distal feet, and source metadata does not explicitly establish adulthood or sex.
-
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Strong high-resolution reusable lead, but strict distal-foot visibility plus adulthood/sex are not simultaneously verified. No PNG created or claimed.
+**Result:** `REPLACEMENT SOURCE NEEDED`.
 
 ## Recent unresolved audits retained
 - **Orca:** 1632×1104 public-domain USFWS source explicitly identifies a male, but water hides ventral body, pectoral fins and flukes. `REPLACEMENT SOURCE NEEDED`.
@@ -68,6 +84,7 @@ Strongest reusable lead:
 - **Shoebill:** 1438×2126 CC BY 3.0 exact-species photo has directly verified complete framing, but source metadata does not explicitly establish adulthood or sex. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Siberian Tiger:** 4928×3264 CC0 exact-population lead has excellent reuse provenance but current fetch could not render oversized original for strict inspection and metadata lacks explicit adulthood/sex. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Skunk:** 4288×2848 CC BY 2.0 exact-species source has complete head/body/tail but snow overlaps distal feet and adulthood/sex are not explicit. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Sloth:** 3231×2122 CC BY-SA 2.0 exact-*B. tridactylus* male source has strong provenance but adulthood and strict complete-body framing are not simultaneously verified. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
 ## Source-verified cutout backlog
 These have already passed source/full-body review and should not be repeatedly re-researched while GitHub binary writing remains unavailable:
@@ -84,10 +101,10 @@ These have already passed source/full-body review and should not be repeatedly r
 - Pufferfish: exact *Arothron hispidus*, 6069×4046 CC BY-SA 4.0 Featured/Quality Image.
 
 ## Structural and tooling blockers
-- `193` is completed text research, not completed images.
+- `194` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
-- The legacy Orangutan research file is large enough that the current connector truncates its fetched UTF-8 payload before a safe full-file replacement can be constructed. Its audit remains recorded here.
+- The legacy Orangutan and Ostrich research files are large enough that the current connector truncates their fetched UTF-8 payload before a safe full-file replacement can be constructed. Their latest audits remain recorded here.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because available preserved-adult imagery does not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Ostrich.**
+- **Next practical unresolved source-quality legacy audit: Otter.**

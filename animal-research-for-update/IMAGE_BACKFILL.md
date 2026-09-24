@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 197 / 225 (through Snow Leopard). **Full-body transparent PNG assets verified and committed:** 0 / 197. A source-photo URL is not an approved PNG.
+**Research reports completed:** 198 / 225 (through Snowy Owl). **Full-body transparent PNG assets verified and committed:** 0 / 198. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -8,33 +8,39 @@
 Animals already source-verified are skipped until binary tooling becomes available. The oldest unresolved source-quality candidate is addressed each run. `REPLACEMENT SOURCE NEEDED`, `SOURCE FOUND - FULL-BODY NOT VERIFIED`, and licensing blockers remain unresolved until a genuinely better source is found.
 
 ## Active unresolved source-quality queue
-Giant Squid; Gibbon; Gila Monster; Golden Eagle; Goliath Birdeater; Goose; Gorilla; Gray Wolf; Great Horned Owl; Great White Shark; Green Anaconda; Hammerhead Shark; Harpy Eagle; Hedgehog; Hippopotamus; Honey Badger; Howler Monkey; Hummingbird; Huntsman Spider; Hyena; Iguana; Impala; Jackal; Jaguar; Japanese Macaque; Kangaroo; King Cobra; King Crab; Kiwi; Koala; Komodo Dragon; Kookaburra; Leatherback Sea Turtle; Leopard; Llama; Lobster; Lynx; Macaw; Mandrill; Narwhal; Nautilus; Opossum; Orangutan; Orca; Osprey; Ostrich; Otter; Pangolin; **Peacock**; **Pelican (NEXT)**; Peregrine Falcon; Piranha; Platypus; Poison Dart Frog; Polar Bear; Porcupine; Praying Mantis; Proboscis Monkey; Puffin; Python; Quokka; Quoll; Raccoon; Rattlesnake; Raven; Red Fox; Red Panda; Red-Eyed Tree Frog; Red-tailed Hawk; Sailfish; Salamander; Saltwater Crocodile; Sawfish; Sea Lion; Sea Otter; Seal; Secretary Bird; Serval; Shoebill; Siberian Tiger; Skunk; Sloth; Sloth Bear; Snapping Turtle; Snow Leopard; Megalodon.
+Giant Squid; Gibbon; Gila Monster; Golden Eagle; Goliath Birdeater; Goose; Gorilla; Gray Wolf; Great Horned Owl; Great White Shark; Green Anaconda; Hammerhead Shark; Harpy Eagle; Hedgehog; Hippopotamus; Honey Badger; Howler Monkey; Hummingbird; Huntsman Spider; Hyena; Iguana; Impala; Jackal; Jaguar; Japanese Macaque; Kangaroo; King Cobra; King Crab; Kiwi; Koala; Komodo Dragon; Kookaburra; Leatherback Sea Turtle; Leopard; Llama; Lobster; Lynx; Macaw; Mandrill; Narwhal; Nautilus; Opossum; Orangutan; Orca; Osprey; Ostrich; Otter; Pangolin; Peacock; **Pelican**; **Peregrine Falcon (NEXT)**; Piranha; Platypus; Poison Dart Frog; Polar Bear; Porcupine; Praying Mantis; Proboscis Monkey; Puffin; Python; Quokka; Quoll; Raccoon; Rattlesnake; Raven; Red Fox; Red Panda; Red-Eyed Tree Frog; Red-tailed Hawk; Sailfish; Salamander; Saltwater Crocodile; Sawfish; Sea Lion; Sea Otter; Seal; Secretary Bird; Serval; Shoebill; Siberian Tiger; Skunk; Sloth; Sloth Bear; Snapping Turtle; Snow Leopard; Snowy Owl; Megalodon.
 
-## 2026-09-24 Peacock legacy audit
-Roster Peacock is **Indian Peafowl, *Pavo cristatus***, with the adult male/peacock as the relevant fighting-sex and visually distinctive specimen.
+## 2026-09-24 Pelican legacy audit
+Roster Pelican was already resolved by the staging report to **American White Pelican, *Pelecanus erythrorhynchos***, with a mature male as canonical fighter because males average larger.
 
-Broad search covered Google-style image discovery, Wikimedia Commons, Smithsonian material, museum records and zoo sources. The strongest reusable live-animal lead inspected this run was:
-- Source page: https://commons.wikimedia.org/wiki/File:Peacock_side_flat.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/8/80/Peacock_side_flat.jpg
-- **2896×1936** real photograph, exact *Pavo cristatus*, Smithsonian National Zoological Park.
-- Male display category; photographer Laura Wolf.
-- **CC BY 2.0**, Flickr license reviewed by FlickreviewR 2.
+Broad discovery covered Google-style image search, Wikimedia Commons, USFWS/Flickr, photographer galleries and Animal Diversity Web. A materially stronger source than the prior swimming candidate was found:
+- Source page: https://commons.wikimedia.org/wiki/File:Adult_American_white_pelican_in_flight_(9688520370).jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/a/a7/Adult_American_white_pelican_in_flight_%289688520370%29.jpg
+- **2722×1310** exact-species real photograph in flight at Sonny Bono NWR.
+- Source title explicitly says **Adult American white pelican in flight**.
+- Mark Stewart / USFWS Pacific Southwest Region.
+- Commons records both **CC BY 2.0** Flickr verification and USFWS public-domain provenance.
 
-Direct visual inspection shows that the display train exits the left/top frame and sweeps across/obscures lower anatomy; only one leg is cleanly evident. It therefore fails the mandatory entire-animal/all-feet/complete-train standard. Other high-resolution Commons male sources were found, including 3266×2832 CC BY-SA 4.0 and 3024×4032 CC0 files, but metadata did not establish a strict adult complete-body side view and some search metadata was noisy/mislabeled. A Museums Victoria adult-male taxidermy record is well documented and CC BY, but IMAGE_REQUIREMENTS requires a healthy living adult photograph, so taxidermy is not eligible.
+This is substantially better provenance/anatomy geometry than the old swimming candidate because flight can expose wings, feet and tail. However, the original 2722×1310 binary timed out through the current image fetch, so strict pixel-level confirmation that every wingtip, foot/toe and tail feather remains inside the frame could not be completed. Under `IMAGE_REQUIREMENTS.md`, metadata, title and dimensions alone are insufficient.
 
-**Result:** `REPLACEMENT SOURCE NEEDED`. No PNG created or claimed. **Pelican is next practical unresolved legacy audit.**
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG created or claimed. The existing `pelican.md` is oversized/truncated by the connector when fetched whole, so a safe full-file rewrite was not attempted; the new source page and original URL are preserved here rather than risking loss of report content. **Peregrine Falcon is next practical unresolved legacy audit.**
 
-## 2026-09-24 Snow Leopard new-animal image audit
-Roster Snow Leopard is exact species ***Panthera uncia***; canonical research specimen is a healthy prime adult male.
+## 2026-09-24 Snowy Owl new-animal image audit
+Roster Snowy Owl is exact species ***Bubo scandiacus***. Because females are about 29% heavier by mass in a long Saskatchewan field dataset, the canonical fighter is a healthy adult female.
 
-Three reusable Commons sources were checked:
-1. https://commons.wikimedia.org/wiki/File:Snow_Leopard_in_captive,_full_body.jpg — **800×800**, CC BY 2.5, Commons category identifies male. Direct inspection shows head, torso and feet, but the long tail is hidden/not visibly complete. Adulthood is not explicitly documented. Despite the filename, this is not strict full-body under the project standard.
-2. https://commons.wikimedia.org/wiki/File:Snow_Leopard_Walking_in_the_Snow_(12033065055).jpg — **7360×4912**, CC BY-SA 2.0, Flickr license reviewed. Direct 1280 px inspection shows the tail exiting the right edge and snow obscuring distal feet.
-3. https://commons.wikimedia.org/wiki/File:Snow_Leopard_from_the_Side_(6975081195).jpg — **3773×2511**, CC BY-SA 2.0, but direct inspection reveals a close portrait with body/appendages outside the usable frame.
+Strong reusable candidate:
+- Source page: https://commons.wikimedia.org/wiki/File:%D0%91%D0%B5%D0%BB%D0%B0%D1%8F_%D1%81%D0%BE%D0%B2%D0%B0_%D0%B1%D0%BB%D0%B8%D0%B7_%D0%BA%D0%BE%D1%80%D0%B4%D0%BE%D0%BD%D0%B0_%22%D0%A1%D0%BE%D0%BC%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%22.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/3/30/%D0%91%D0%B5%D0%BB%D0%B0%D1%8F_%D1%81%D0%BE%D0%B2%D0%B0_%D0%B1%D0%BB%D0%B8%D0%B7_%D0%BA%D0%BE%D1%80%D0%B4%D0%BE%D0%BD%D0%B0_%22%D0%A1%D0%BE%D0%BC%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%22.jpg
+- **4608×3456**, wild Wrangel Island real photograph.
+- Commons explicitly captions the specimen **adult female**.
+- **CC BY-SA 4.0**, photographer/uploader's own work.
 
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The first source is retained in the animal report as the strongest male-provenance lead, with the failure explicitly documented. No cutout or PNG is claimed.
+The original was directly inspected. Head, torso, folded wings and tail are fully visible, but rocks/vegetation obscure the distal feet. It therefore fails the strict complete-anatomy requirement despite excellent taxon, sex, adulthood, resolution and licensing provenance. A separate 2592×3888 CC BY 2.0 female zoo source was found but does not establish a better strict complete-body silhouette.
+
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG created or claimed.
 
 ## Recent unresolved audits retained
+- **Peacock:** 2896×1936 CC BY 2.0 Smithsonian male source has train leaving frame/obscuring lower anatomy. `REPLACEMENT SOURCE NEEDED`.
 - **Pangolin:** 1920×1280 CC BY 4.0 exact *Manis javanica* source has strong provenance but tail reaches/exits frame and adulthood/sex are unverified. `REPLACEMENT SOURCE NEEDED`.
 - **Otter:** exact adult/sexually mature *Lontra canadensis* ADW source is CC BY-NC-SA 3.0 but strict all-feet/head-to-tail framing remains unverified. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Ostrich:** 3621×3648 CC BY-SA 2.0 wild exact-*Struthio camelus* male; original binary timed out and adulthood is not explicit. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
@@ -66,6 +72,7 @@ Three reusable Commons sources were checked:
 - **Sloth:** 3231×2122 CC BY-SA 2.0 exact-*B. tridactylus* male source has strong provenance but adulthood and strict complete-body framing are not simultaneously verified. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Sloth Bear:** 3802×2535 CC BY-SA 4.0 wild male *M. u. inornatus* has one rear limb/foot substantially self-occluded; separate ADW source verifies adulthood but not strict framing. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Snapping Turtle:** 5055×2528 public-domain-marked USFWS exact-species male lead has excellent provenance, but strict all-feet/complete-tail framing and literal adulthood were not simultaneously verified. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Snow Leopard:** adult-male provenance candidates remain cropped/obscured, including hidden tail or snow-covered feet. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
 ## Source-verified cutout backlog
 These have already passed source/full-body review and should not be repeatedly re-researched while GitHub binary writing remains unavailable:
@@ -82,10 +89,10 @@ These have already passed source/full-body review and should not be repeatedly r
 - Pufferfish: exact *Arothron hispidus*, 6069×4046 CC BY-SA 4.0 Featured/Quality Image.
 
 ## Structural and tooling blockers
-- `197` is completed text research, not completed images.
+- `198` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Some oversized legacy research files can be truncated by the connector, so image provenance is retained here when a safe full-file rewrite is not possible.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because available preserved-adult imagery does not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Pelican.**
+- **Next practical unresolved source-quality legacy audit: Peregrine Falcon.**

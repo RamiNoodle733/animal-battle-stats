@@ -39,7 +39,9 @@
     "assets:promote": "node scripts/assets/animal-image-pipeline.js promote",
     "assets:sync-images": "node scripts/assets/animal-image-pipeline.js sync",
     "assets:source": "node scripts/assets/animal-image-pipeline.js source",
-    "assets:generate-silhouettes": "node scripts/assets/generate-silhouettes.js"
+    "assets:generate-silhouettes": "node scripts/assets/generate-silhouettes.js",
+    "research:import": "node scripts/research/import-research.js",
+    "research:check": "node scripts/research/import-research.js --check"
   },
   "keywords": [
     "animals",

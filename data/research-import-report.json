@@ -1,0 +1,682 @@
+{
+  "researched": 197,
+  "legacy": 28,
+  "rejected": 0,
+  "animals": {
+    "african-elephant": {
+      "status": "researched"
+    },
+    "african-lion": {
+      "status": "researched"
+    },
+    "african-wild-dog": {
+      "status": "researched"
+    },
+    "albatross": {
+      "status": "researched"
+    },
+    "alligator": {
+      "status": "researched"
+    },
+    "alpaca": {
+      "status": "researched"
+    },
+    "anaconda": {
+      "status": "researched"
+    },
+    "anglerfish": {
+      "status": "researched"
+    },
+    "anteater": {
+      "status": "researched"
+    },
+    "arctic-fox": {
+      "status": "researched"
+    },
+    "arctic-wolf": {
+      "status": "researched"
+    },
+    "armadillo": {
+      "status": "researched"
+    },
+    "army-ant": {
+      "status": "researched"
+    },
+    "axolotl": {
+      "status": "researched"
+    },
+    "baboon": {
+      "status": "researched"
+    },
+    "bactrian-camel": {
+      "status": "researched"
+    },
+    "badger": {
+      "status": "researched"
+    },
+    "bald-eagle": {
+      "status": "researched"
+    },
+    "barn-owl": {
+      "status": "researched"
+    },
+    "barracuda": {
+      "status": "researched"
+    },
+    "beaver": {
+      "status": "researched"
+    },
+    "beluga-whale": {
+      "status": "researched"
+    },
+    "bighorn-sheep": {
+      "status": "researched"
+    },
+    "bison": {
+      "status": "researched"
+    },
+    "black-bear": {
+      "status": "researched"
+    },
+    "black-mamba": {
+      "status": "researched"
+    },
+    "black-panther": {
+      "status": "researched"
+    },
+    "black-rhinoceros": {
+      "status": "researched"
+    },
+    "black-widow": {
+      "status": "researched"
+    },
+    "blue-whale": {
+      "status": "researched"
+    },
+    "boa-constrictor": {
+      "status": "researched"
+    },
+    "bobcat": {
+      "status": "researched"
+    },
+    "bongo": {
+      "status": "researched"
+    },
+    "bottlenose-dolphin": {
+      "status": "researched"
+    },
+    "box-jellyfish": {
+      "status": "researched"
+    },
+    "bull-shark": {
+      "status": "researched"
+    },
+    "bullet-ant": {
+      "status": "researched"
+    },
+    "bullfrog": {
+      "status": "researched"
+    },
+    "camel": {
+      "status": "researched"
+    },
+    "camel-spider": {
+      "status": "researched"
+    },
+    "cape-buffalo": {
+      "status": "researched"
+    },
+    "capuchin-monkey": {
+      "status": "researched"
+    },
+    "capybara": {
+      "status": "researched"
+    },
+    "caracal": {
+      "status": "researched"
+    },
+    "cassowary": {
+      "status": "researched"
+    },
+    "chameleon": {
+      "status": "researched"
+    },
+    "cheetah": {
+      "status": "researched"
+    },
+    "chimpanzee": {
+      "status": "researched"
+    },
+    "clouded-leopard": {
+      "status": "researched"
+    },
+    "cockatoo": {
+      "status": "researched"
+    },
+    "coconut-crab": {
+      "status": "researched"
+    },
+    "colossal-squid": {
+      "status": "researched"
+    },
+    "condor": {
+      "status": "researched"
+    },
+    "cougar": {
+      "status": "researched"
+    },
+    "coyote": {
+      "status": "researched"
+    },
+    "crow": {
+      "status": "researched"
+    },
+    "cuttlefish": {
+      "status": "researched"
+    },
+    "deathstalker-scorpion": {
+      "status": "researched"
+    },
+    "dhole": {
+      "status": "researched"
+    },
+    "dingo": {
+      "status": "researched"
+    },
+    "donkey": {
+      "status": "researched"
+    },
+    "dragonfly": {
+      "status": "researched"
+    },
+    "electric-eel": {
+      "status": "researched"
+    },
+    "elk": {
+      "status": "researched"
+    },
+    "emperor-penguin": {
+      "status": "researched"
+    },
+    "emperor-scorpion": {
+      "status": "researched"
+    },
+    "emu": {
+      "status": "researched"
+    },
+    "fennec-fox": {
+      "status": "researched"
+    },
+    "ferret": {
+      "status": "researched"
+    },
+    "flamingo": {
+      "status": "researched"
+    },
+    "flying-squirrel": {
+      "status": "researched"
+    },
+    "gaboon-viper": {
+      "status": "researched"
+    },
+    "galapagos-tortoise": {
+      "status": "researched"
+    },
+    "gazelle": {
+      "status": "researched"
+    },
+    "gecko": {
+      "status": "researched"
+    },
+    "giant-centipede": {
+      "status": "researched"
+    },
+    "giant-squid": {
+      "status": "researched"
+    },
+    "gibbon": {
+      "status": "researched"
+    },
+    "gila-monster": {
+      "status": "researched"
+    },
+    "giraffe": {
+      "status": "researched"
+    },
+    "golden-eagle": {
+      "status": "researched"
+    },
+    "goliath-birdeater": {
+      "status": "researched"
+    },
+    "goose": {
+      "status": "researched"
+    },
+    "gorilla": {
+      "status": "researched"
+    },
+    "gray-wolf": {
+      "status": "researched"
+    },
+    "great-horned-owl": {
+      "status": "researched"
+    },
+    "great-white-shark": {
+      "status": "researched"
+    },
+    "green-anaconda": {
+      "status": "researched"
+    },
+    "grizzly-bear": {
+      "status": "researched"
+    },
+    "guanaco": {
+      "status": "researched"
+    },
+    "hammerhead-shark": {
+      "status": "researched"
+    },
+    "harpy-eagle": {
+      "status": "researched"
+    },
+    "hedgehog": {
+      "status": "researched"
+    },
+    "hellbender": {
+      "status": "researched"
+    },
+    "hercules-beetle": {
+      "status": "researched"
+    },
+    "hippopotamus": {
+      "status": "researched"
+    },
+    "honey-badger": {
+      "status": "researched"
+    },
+    "hornet": {
+      "status": "researched"
+    },
+    "howler-monkey": {
+      "status": "researched"
+    },
+    "hummingbird": {
+      "status": "researched"
+    },
+    "huntsman-spider": {
+      "status": "researched"
+    },
+    "hyena": {
+      "status": "researched"
+    },
+    "ibex": {
+      "status": "researched"
+    },
+    "iguana": {
+      "status": "researched"
+    },
+    "impala": {
+      "status": "researched"
+    },
+    "jackal": {
+      "status": "researched"
+    },
+    "jaguar": {
+      "status": "researched"
+    },
+    "japanese-macaque": {
+      "status": "researched"
+    },
+    "kangaroo": {
+      "status": "researched"
+    },
+    "king-cobra": {
+      "status": "researched"
+    },
+    "king-crab": {
+      "status": "researched"
+    },
+    "kiwi": {
+      "status": "researched"
+    },
+    "koala": {
+      "status": "researched"
+    },
+    "komodo-dragon": {
+      "status": "researched"
+    },
+    "kookaburra": {
+      "status": "researched"
+    },
+    "kudu": {
+      "status": "researched"
+    },
+    "leatherback-sea-turtle": {
+      "status": "researched"
+    },
+    "leopard": {
+      "status": "researched"
+    },
+    "lionfish": {
+      "status": "researched"
+    },
+    "llama": {
+      "status": "researched"
+    },
+    "lobster": {
+      "status": "researched"
+    },
+    "lynx": {
+      "status": "researched"
+    },
+    "macaw": {
+      "status": "researched"
+    },
+    "magpie": {
+      "status": "researched"
+    },
+    "manatee": {
+      "status": "researched"
+    },
+    "mandrill": {
+      "status": "researched"
+    },
+    "maned-wolf": {
+      "status": "researched"
+    },
+    "manta-ray": {
+      "status": "researched"
+    },
+    "mantis-shrimp": {
+      "status": "researched"
+    },
+    "marlin": {
+      "status": "researched"
+    },
+    "meerkat": {
+      "status": "researched"
+    },
+    "megalodon": {
+      "status": "researched"
+    },
+    "monarch-butterfly": {
+      "status": "researched"
+    },
+    "mongoose": {
+      "status": "researched"
+    },
+    "monitor-lizard": {
+      "status": "researched"
+    },
+    "moose": {
+      "status": "researched"
+    },
+    "moray-eel": {
+      "status": "researched"
+    },
+    "mountain-goat": {
+      "status": "researched"
+    },
+    "musk-ox": {
+      "status": "researched"
+    },
+    "naked-mole-rat": {
+      "status": "researched"
+    },
+    "narwhal": {
+      "status": "researched"
+    },
+    "nautilus": {
+      "status": "researched"
+    },
+    "ocelot": {
+      "status": "researched"
+    },
+    "octopus": {
+      "status": "researched"
+    },
+    "okapi": {
+      "status": "researched"
+    },
+    "opossum": {
+      "status": "researched"
+    },
+    "orangutan": {
+      "status": "researched"
+    },
+    "orca": {
+      "status": "researched"
+    },
+    "oryx": {
+      "status": "researched"
+    },
+    "osprey": {
+      "status": "researched"
+    },
+    "ostrich": {
+      "status": "researched"
+    },
+    "otter": {
+      "status": "researched"
+    },
+    "pangolin": {
+      "status": "researched"
+    },
+    "peacock": {
+      "status": "researched"
+    },
+    "pelican": {
+      "status": "researched"
+    },
+    "peregrine-falcon": {
+      "status": "researched"
+    },
+    "piranha": {
+      "status": "researched"
+    },
+    "platypus": {
+      "status": "researched"
+    },
+    "poison-dart-frog": {
+      "status": "researched"
+    },
+    "polar-bear": {
+      "status": "researched"
+    },
+    "porcupine": {
+      "status": "researched"
+    },
+    "praying-mantis": {
+      "status": "researched"
+    },
+    "proboscis-monkey": {
+      "status": "researched"
+    },
+    "pronghorn": {
+      "status": "researched"
+    },
+    "pufferfish": {
+      "status": "researched"
+    },
+    "puffin": {
+      "status": "researched"
+    },
+    "python": {
+      "status": "researched"
+    },
+    "quokka": {
+      "status": "researched"
+    },
+    "quoll": {
+      "status": "researched"
+    },
+    "raccoon": {
+      "status": "researched"
+    },
+    "rattlesnake": {
+      "status": "researched"
+    },
+    "raven": {
+      "status": "researched"
+    },
+    "red-fox": {
+      "status": "researched"
+    },
+    "red-panda": {
+      "status": "researched"
+    },
+    "red-eyed-tree-frog": {
+      "status": "researched"
+    },
+    "red-tailed-hawk": {
+      "status": "researched"
+    },
+    "reindeer": {
+      "status": "researched"
+    },
+    "reticulated-python": {
+      "status": "researched"
+    },
+    "rhinoceros": {
+      "status": "researched"
+    },
+    "ring-tailed-lemur": {
+      "status": "researched"
+    },
+    "sable-antelope": {
+      "status": "researched"
+    },
+    "sailfish": {
+      "status": "researched"
+    },
+    "salamander": {
+      "status": "researched"
+    },
+    "saltwater-crocodile": {
+      "status": "researched"
+    },
+    "sawfish": {
+      "status": "researched"
+    },
+    "sea-lion": {
+      "status": "researched"
+    },
+    "sea-otter": {
+      "status": "researched"
+    },
+    "seal": {
+      "status": "researched"
+    },
+    "secretary-bird": {
+      "status": "researched"
+    },
+    "serval": {
+      "status": "researched"
+    },
+    "shoebill": {
+      "status": "researched"
+    },
+    "siberian-tiger": {
+      "status": "researched"
+    },
+    "skunk": {
+      "status": "researched"
+    },
+    "sloth": {
+      "status": "researched"
+    },
+    "sloth-bear": {
+      "status": "researched"
+    },
+    "snapping-turtle": {
+      "status": "researched"
+    },
+    "snow-leopard": {
+      "status": "researched"
+    },
+    "snowy-owl": {
+      "status": "legacy"
+    },
+    "spectacled-bear": {
+      "status": "legacy"
+    },
+    "spider-monkey": {
+      "status": "legacy"
+    },
+    "stag-beetle": {
+      "status": "legacy"
+    },
+    "stingray": {
+      "status": "legacy"
+    },
+    "stoat": {
+      "status": "legacy"
+    },
+    "stork": {
+      "status": "legacy"
+    },
+    "sugar-glider": {
+      "status": "legacy"
+    },
+    "sun-bear": {
+      "status": "legacy"
+    },
+    "swan": {
+      "status": "legacy"
+    },
+    "swordfish": {
+      "status": "legacy"
+    },
+    "tapir": {
+      "status": "legacy"
+    },
+    "tarantula-hawk": {
+      "status": "legacy"
+    },
+    "tasmanian-devil": {
+      "status": "legacy"
+    },
+    "tiger-shark": {
+      "status": "legacy"
+    },
+    "toucan": {
+      "status": "legacy"
+    },
+    "tuna": {
+      "status": "legacy"
+    },
+    "vulture": {
+      "status": "legacy"
+    },
+    "wallaby": {
+      "status": "legacy"
+    },
+    "walrus": {
+      "status": "legacy"
+    },
+    "warthog": {
+      "status": "legacy"
+    },
+    "wild-boar": {
+      "status": "legacy"
+    },
+    "wild-horse": {
+      "status": "legacy"
+    },
+    "wildebeest": {
+      "status": "legacy"
+    },
+    "wolverine": {
+      "status": "legacy"
+    },
+    "wombat": {
+      "status": "legacy"
+    },
+    "yak": {
+      "status": "legacy"
+    },
+    "zebra": {
+      "status": "legacy"
+    }
+  }
+}

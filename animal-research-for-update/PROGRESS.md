@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 189 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 189
+- **Completed research files:** 190 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 190
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Secretary Bird (*Sagittarius serpentarius*)
-- **Next pending animal:** Serval
-- **Latest completion:** 2026-09-24 02:02 America/Chicago
-- **Latest new-animal image status:** Secretary Bird - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Reusable 4320×2592 CC BY-SA 2.0 wild Kruger exact-species candidate found, but source metadata does not explicitly establish adulthood/sex and strict visibility of every foot/toe plus the complete tail silhouette was not certified. No PNG is claimed.
-- **Latest legacy image audit:** Nautilus (*Nautilus pompilius*). A 2848×3798 CC BY-SA 4.0 exact-species live-animal Commons source has strong provenance, but metadata does not explicitly establish adulthood and strict visibility of the numerous tentacles is unresolved. A separate 1536×2048 CC BY 4.0 exact-species image was directly rejected because it shows a detached/dead shell rather than a healthy living animal. Status `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Opossum. Source-verified animals awaiting binary cutout/commit tooling remain separate from unresolved source-quality cases.
+- **Most recently completed:** Serval (*Leptailurus serval*)
+- **Next pending animal:** Shoebill
+- **Latest completion:** 2026-09-24 03:02 America/Chicago
+- **Latest new-animal image status:** Serval - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 5184×3456 CC BY 2.0 exact-species South Luangwa candidate has excellent reusable provenance, but source metadata does not explicitly establish adulthood/sex and strict complete-body framing was not certified. A 1600×1121 wild Serengeti side-view candidate was directly rejected because the rear/tail is clipped. No PNG is claimed.
+- **Latest legacy image audit:** Opossum (*Didelphis virginiana*). A 2048×1365 CC BY 4.0 walking candidate remains reusable but visibly fails strict tail/rear framing and lacks explicit adulthood. An American Society of Mammalogists/Mammal Diversity Database record explicitly identifies a side-view adult, but redistribution permission was not established in this run. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED` / adult-provenance lead only.
+- **Next legacy image audit:** Orangutan. Source-verified animals awaiting binary cutout/commit tooling remain separate from unresolved source-quality cases.
 - **Latest checkpoint:** `audits/CHECKPOINT-175.md`; next checkpoint at 200 completed research files.
 
 ## Selection and image rules
@@ -25,7 +25,8 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
 - Generic roster labels must be resolved to an explicit taxon before physical fields and image requirements can be scientifically coherent.
-- **Secretary Bird control:** *Sagittarius serpentarius*, healthy prime adult male, 4.0 kg / 130.0 cm standing height / 130.0 cm bill-to-tail length / unresolved standardized top speed / 15.0 y / 0.0 PSI unresolved. Direct strike study measured about 195 N peak foot-strike force with ~15 ms contact in one trained male. Attack 36.0 / Defense 27.0 / Agility 83.0 / Stamina 84.0 / Intelligence 61.0 / Special 88.0. The 195 N result is not converted into bite PSI and “five times body weight” is not allowed to inflate absolute Raw Power.
+- **Serval control:** *Leptailurus serval*, healthy prime adult male, 14.0 kg / 60.0 cm shoulder / 90.0 cm head-body / unresolved standardized top speed / 10.0 y / 0.0 PSI unresolved. Hartstone-Rose et al. anatomically modeled canine bite force at 68.05 kgf (~667 N), retained only as modeled force. Attack 41.0 / Defense 24.0 / Agility 92.0 / Stamina 51.0 / Intelligence 61.0 / Special 70.0.
+- **Secretary Bird control:** *Sagittarius serpentarius*, healthy prime adult male, 4.0 kg / 130.0 cm standing height / 130.0 cm bill-to-tail / unresolved standardized top speed / 15.0 y / 0.0 PSI unresolved. Direct strike study measured about 195 N peak foot-strike force with ~15 ms contact in one trained male. Attack 36.0 / Defense 27.0 / Agility 83.0 / Stamina 84.0 / Intelligence 61.0 / Special 88.0.
 - **Seal control:** *Phoca vitulina*, healthy prime adult male, 105.0 kg / 175.0 cm total length / unresolved standardized top speed / 27.0 y / 0.0 PSI unresolved. Attack 44.0 / Defense 48.0 / Agility 82.0 / Stamina 82.0 / Intelligence 74.0 / Special 84.0.
 - **Sea Otter control:** *Enhydra lutris*, healthy prime adult male, 36.0 kg / 130.0 cm total length / 2.5 m/s institutional underwater maximum / 18.0 y / 0.0 PSI unresolved. Attack 40.0 / Defense 37.0 / Agility 86.0 / Stamina 79.0 / Intelligence 87.0 / Special 89.0.
 - **Sea Lion control:** *Zalophus californianus*, healthy prime adult male, 300.0 kg / 240.0 cm nose-to-tail / 11.2 m/s institutional swim maximum / 25.0 y / 0.0 PSI unresolved. Attack 55.0 / Defense 49.0 / Agility 84.0 / Stamina 84.0 / Intelligence 78.0 / Special 72.0.
@@ -36,12 +37,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Sea Otter | 36.0 kg adult male *E. lutris* | 40.0 | 37.0 | 86.0 | 79.0 | 87.0 | 89.0 |
 | Seal | 105.0 kg adult male *P. vitulina* | 44.0 | 48.0 | 82.0 | 82.0 | 74.0 | 84.0 |
 | Secretary Bird | 4.0 kg adult male *S. serpentarius* | 36.0 | 27.0 | 83.0 | 84.0 | 61.0 | 88.0 |
+| Serval | 14.0 kg adult male *L. serval* | 41.0 | 24.0 | 92.0 | 51.0 | 61.0 | 70.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-175.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. Next checkpoint: **200 completed research files**.
 
 ## Image pipeline status
-189 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+190 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

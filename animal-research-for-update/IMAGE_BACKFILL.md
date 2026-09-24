@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 187 / 225 (through Sea Otter). **Full-body transparent PNG assets verified and committed:** 0 / 187. A source-photo URL is not an approved PNG.
+**Research reports completed:** 188 / 225 (through Seal). **Full-body transparent PNG assets verified and committed:** 0 / 188. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -8,37 +8,37 @@
 Animals already source-verified are skipped until binary tooling becomes available. The oldest unresolved source-quality candidate is addressed each run. `REPLACEMENT SOURCE NEEDED`, `SOURCE FOUND - FULL-BODY NOT VERIFIED`, and licensing blockers remain unresolved until a genuinely better source is found.
 
 ## Active unresolved source-quality queue
-Giant Squid; Gibbon; Gila Monster; Golden Eagle; Goliath Birdeater; Goose; Gorilla; Gray Wolf; Great Horned Owl; Great White Shark; Green Anaconda; Hammerhead Shark; Harpy Eagle; Hedgehog; Hippopotamus; Honey Badger; Howler Monkey; Hummingbird; Huntsman Spider; Hyena; Iguana; Impala; Jackal; Jaguar; Japanese Macaque; Kangaroo; King Cobra; King Crab; Kiwi; Koala; Komodo Dragon; Kookaburra; Leatherback Sea Turtle; Leopard; Llama; Lobster; Lynx; Macaw; **Mandrill**; **Narwhal (NEXT)**; Nautilus; Opossum; Orangutan; Orca; Osprey; Ostrich; Otter; Pangolin; Peacock; Pelican; Peregrine Falcon; Piranha; Platypus; Poison Dart Frog; Polar Bear; Porcupine; Praying Mantis; Proboscis Monkey; Puffin; Python; Quokka; Quoll; Raccoon; Rattlesnake; Raven; Red Fox; Red Panda; Red-Eyed Tree Frog; Red-tailed Hawk; Sailfish; Salamander; Saltwater Crocodile; Sawfish; Sea Lion; Sea Otter; Megalodon.
+Giant Squid; Gibbon; Gila Monster; Golden Eagle; Goliath Birdeater; Goose; Gorilla; Gray Wolf; Great Horned Owl; Great White Shark; Green Anaconda; Hammerhead Shark; Harpy Eagle; Hedgehog; Hippopotamus; Honey Badger; Howler Monkey; Hummingbird; Huntsman Spider; Hyena; Iguana; Impala; Jackal; Jaguar; Japanese Macaque; Kangaroo; King Cobra; King Crab; Kiwi; Koala; Komodo Dragon; Kookaburra; Leatherback Sea Turtle; Leopard; Llama; Lobster; Lynx; Macaw; Mandrill; **Narwhal**; **Nautilus (NEXT)**; Opossum; Orangutan; Orca; Osprey; Ostrich; Otter; Pangolin; Peacock; Pelican; Peregrine Falcon; Piranha; Platypus; Poison Dart Frog; Polar Bear; Porcupine; Praying Mantis; Proboscis Monkey; Puffin; Python; Quokka; Quoll; Raccoon; Rattlesnake; Raven; Red Fox; Red Panda; Red-Eyed Tree Frog; Red-tailed Hawk; Sailfish; Salamander; Saltwater Crocodile; Sawfish; Sea Lion; Sea Otter; Seal; Megalodon.
+
+## 2026-09-24 Narwhal legacy audit
+Roster Narwhal is exact species ***Monodon monoceros***. A mature adult male is the preferred fighting specimen because males are larger and usually carry the long tusk.
+
+Broad discovery produced a biologically excellent adult-male record:
+- American Society of Mammalogists Mammal Images Library #5742: https://mammalsociety.org/image-library/monodon-monoceros-5742
+- The page explicitly identifies **adult male**, exact *Monodon monoceros*, photographed at Pond Inlet, Nunavut on 20 June 2018, with tusk out of water.
+- This is much stronger adulthood/sex provenance than generic narwhal search images.
+- However, the page provides a `Request Full Size Image` mechanism and site copyright notice but no reusable image license on the record. Redistribution permission therefore was **not established**.
+- The page presentation also did not establish strict complete tusk-to-fluke body framing strongly enough to pass the mandatory silhouette rule. Search images from other sites were either cropped, lacked licensing/provenance, or were unsuitable for redistribution.
+
+**Result:** `LICENSE UNVERIFIED - DO NOT COMMIT`. Keep the ASM page as an adult-male provenance lead only. No image binary was redistributed and no PNG was created. **Nautilus is next practical unresolved legacy audit.**
+
+## 2026-09-24 Seal new-animal image audit
+Roster Seal is exact species ***Phoca vitulina***. A healthy adult male is preferred because males are somewhat larger.
+
+Best provenance-safe candidate inspected:
+- Source page: https://commons.wikimedia.org/wiki/File:Harbor_seal_phoca_vitulina.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/1/16/Harbor_seal_phoca_vitulina.jpg
+- **2100×1368**, U.S. Fish and Wildlife Service, public domain, structured data identifies *Phoca vitulina richardii*.
+- Original-resolution inspection shows the head, trunk and hind-flipper end, but the foreflippers are not cleanly exposed. The metadata also does not explicitly establish adulthood or sex.
+- Animal Diversity Web has reusable images explicitly tagged **adult/sexually mature**, including https://animaldiversity.org/collections/contributors/roger_myers/DSCN0033aa/ under CC BY 3.0 and https://animaldiversity.org/collections/contributors/tanya_dewey/harborseal1/ under CC BY-NC-SA 3.0, but no candidate inspected in this run simultaneously improved strict complete-appendage framing enough to promote.
+
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The public-domain USFWS source remains a safe candidate, not a finished asset. No PNG created.
 
 ## 2026-09-24 Mandrill legacy audit
-Roster Mandrill is exact species ***Mandrillus sphinx*** and the canonical fighting specimen is a fully mature adult male.
-
-Broad discovery found strong-provenance adult-male material, but no candidate passed strict complete-body visibility:
-- Wikimedia Commons `Male Mandrill.jpg`: https://commons.wikimedia.org/wiki/File:Male_Mandrill.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/f/f9/Male_Mandrill.jpg
-- **1586×1198, CC BY 2.0**, exact species, explicitly captioned **adult male**. The Commons file was Flickr-license reviewed.
-- Direct inspection shows the adult male moving through vegetation/branches, but the pose and foreground obscure/crop the distal limbs and prevent a clean all-feet silhouette. It therefore fails `IMAGE_REQUIREMENTS.md` despite excellent adulthood/sex provenance.
-- A higher-resolution Commons source explicitly labeled **alpha male** is 3799×2848 and CC BY-SA 3.0: https://commons.wikimedia.org/wiki/File:Mandrillus_sphinx_(alpha_male).jpg ; original https://upload.wikimedia.org/wikipedia/commons/f/f7/Mandrillus_sphinx_%28alpha_male%29.jpg . Direct inspection shows a head/shoulder portrait, not a whole animal, so it is rejected.
-- A Flickr page explicitly titled `MANDRILL - adult male - (Mandrillus sphinx)` reports a 2976×3545 original, but reuse permission was not established in this run and full-body framing was not promoted from metadata alone.
-
-**Result:** `REPLACEMENT SOURCE NEEDED`. Exact adult-male reusable photographs exist, but the visually checked reusable candidates fail complete anatomy. No PNG created. **Narwhal is next practical unresolved legacy audit.**
-
-## 2026-09-24 Sea Otter new-animal image audit
-Roster Sea Otter resolves to species ***Enhydra lutris***. A strong adult male is preferred because males are materially larger, but adulthood itself is mandatory and sex must not be inferred visually.
-
-Best reusable candidate inspected:
-- Source page: https://commons.wikimedia.org/wiki/File:Sea_otter_marine_mammal_enhydra_lutris.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/7/79/Sea_otter_marine_mammal_enhydra_lutris.jpg
-- **1800×1200**, exact species, public-domain U.S. Fish and Wildlife Service photograph.
-- Direct inspection shows a single real sea otter on rocks with head, body and tail visible, but the resting pose does not cleanly expose every limb/foot and the source metadata does not explicitly establish adulthood or sex.
-- A second public-domain USFWS image, `Fast swimming sea otter enhydra lutris.jpg`, is 2130×1372, but water/splash obscures the strict full silhouette and adulthood/sex are again not explicit.
-
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The 1800×1200 USFWS source is retained as a provenance-safe candidate, not a completed image. No PNG created.
-
-## 2026-09-23 Macaw legacy audit
-Roster Macaw resolves to Scarlet Macaw ***Ara macao***. Fresh EcoRegistros discovery explicitly establishes an adult wild exact-species bird, but the feet are overlapped by the perch, tail-tip framing is not certified, and the page does not state redistribution permission. **Result:** `LICENSE UNVERIFIED - DO NOT COMMIT`.
+Exact adult-male reusable photographs exist, but inspected candidates obscure/crop distal limbs or are portraits. **Result:** `REPLACEMENT SOURCE NEEDED`.
 
 ## Recent unresolved audits retained
+- **Macaw:** explicit adult wild *Ara macao* source exists, but perch/tail framing and redistribution permission fail simultaneous verification. `LICENSE UNVERIFIED - DO NOT COMMIT`.
 - **Lynx:** standing exact-*Lynx lynx* candidate cleanly shows body/legs/feet/tail but lacks explicit adulthood/sex. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Lobster:** high-resolution reusable exact-*Homarus americanus* crevice photographs hide abdomen/tail and walking appendages. `REPLACEMENT SOURCE NEEDED`.
 - **Llama:** 3000×2000 CC BY-SA 4.0 exact-species candidate is seated/overlapped; existing standing candidate lacks explicit adulthood/sex. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
@@ -50,6 +50,7 @@ Roster Macaw resolves to Scarlet Macaw ***Ara macao***. Fresh EcoRegistros disco
 - **Saltwater Crocodile:** exact-species reusable candidate has excellent visible anatomy, but source metadata does not explicitly establish adulthood or sex. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Sawfish:** 3752×2501 CC BY 2.0 exact-*Pristis pristis* candidate has strong provenance, but adulthood/sex and strict rostrum-to-tail framing are not simultaneously verified. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Sea Lion:** explicit-male candidates clip rear body/hindquarters. `REPLACEMENT SOURCE NEEDED`.
+- **Sea Otter:** public-domain 1800×1200 USFWS source has good provenance but resting pose does not expose every limb/foot and adulthood/sex are not explicit. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
 ## Source-verified cutout backlog
 These have already passed source/full-body review and should not be repeatedly re-researched while GitHub binary writing remains unavailable:
@@ -66,9 +67,9 @@ These have already passed source/full-body review and should not be repeatedly r
 - Pufferfish: exact *Arothron hispidus*, 6069×4046 CC BY-SA 4.0 Featured/Quality Image.
 
 ## Structural and tooling blockers
-- `187` is completed text research, not completed images.
+- `188` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because available preserved-adult imagery does not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Narwhal.**
+- **Next practical unresolved source-quality legacy audit: Nautilus.**

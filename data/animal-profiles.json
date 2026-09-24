@@ -30606,7 +30606,156 @@
     },
     "snowy-owl": {
       "name": "Snowy Owl",
-      "status": "legacy"
+      "status": "researched",
+      "researchedAt": "2026-09-24",
+      "sourceFile": "animal-research-for-update/animals/snowy-owl.md",
+      "contentHash": "ed636cba813f43a5",
+      "scientificName": "Bubo scandiacus",
+      "specimen": "healthy prime adult female, 2.15 kg, approximately 65 cm total length, with an approximately 140 cm wingspan. Females are the larger sex and therefore the stronger canonical fighter.",
+      "specimenSex": "female",
+      "extinct": false,
+      "summary": "The Snowy Owl is a roughly 2.15 kg Arctic raptor whose real strengths are precision, senses and mobility rather than brute force. A larger adult female combines sharp talons, low controlled flight, snow camouflage, exceptional insulation and hearing that helps locate concealed prey. It can defend nests aggressively and travel thousands of kilometres while tracking shifting food pulses, but its light unarmored body keeps absolute Attack and Defense far below large predators.",
+      "narrative": [
+        "A Snowy Owl is easy to overrate if its Arctic toughness is mistaken for combat durability. The bird survives cold through extraordinary feather insulation, not thick hide or armor. Its fighting system is instead built around avoiding a fair exchange: detect a small target, approach low and quietly, arrive with the feet first, lock on with curved talons and use flight to control the geometry.",
+        "The larger female is the correct ABS fighter. Field data show a substantial sex difference in mass and body condition, while observational hunting data show adult females outperforming juvenile females. In ordinary ecology the owl's victims are mostly tiny rodents, especially lemmings, so its impressive predatory efficiency must remain on an absolute scale. Against a medium mammal the owl loses the mass, skeletal robustness and weapon depth needed for prolonged close combat.",
+        "What makes the species exceptional is the combination of sensory hunting and movement ecology. Snow can hide a rodent visually without making it safe, while GPS and satellite work show a predator capable of prospecting over enormous Arctic distances when prey pulses move. ABS should therefore place Snowy Owl very high in Agility, Senses and Special, high in Stamina, but much lower in Raw Power, Protection and Defense."
+      ],
+      "sections": {
+        "habitat": "Circumpolar Arctic breeder of treeless tundra across North America and Eurasia. In winter many move south into open coasts, fields, marshes, airports, prairies and large-lake environments, while others remain in northern or marine habitats.",
+        "range": "",
+        "diet": "Breeding ecology is exceptionally tied to lemmings. The 1992–2021 Utqiaġvik dataset found lemmings at 99% of pellet prey. Away from that setting the species broadens its diet to voles, rabbits, birds, waterfowl, fish and other prey. It often hunts from a low perch by waiting, then flying or pouncing onto prey.",
+        "ecology": "",
+        "social": "Usually solitary outside breeding pairs/family groups. Breeding density and reproductive output track prey availability. Females incubate while males provision during nesting, and both parents defend the nesting area. Satellite work on 12 adult nesting females found estimated annual survival of about 85.2–92.3% during the tracking study.",
+        "reproduction": "Usually solitary outside breeding pairs/family groups. Breeding density and reproductive output track prey availability. Females incubate while males provision during nesting, and both parents defend the nesting area. Satellite work on 12 adult nesting females found estimated annual survival of about 85.2–92.3% during the tracking study.",
+        "conservation": "Globally assessed as Vulnerable by IUCN according to Canada's 2025 COSEWIC assessment. Canada designated Snowy Owl Threatened in May 2025 after evidence including a 42.6% Christmas Bird Count decline over 24 years. Threats include collisions, electrocution, disease, rodenticides and climate-driven changes to Arctic systems.",
+        "adaptations": "Dense insulation, feathered feet, pale camouflage, broad wings, raptorial talons, acute hearing/vision, daylight hunting flexibility, prey caching and large-scale nomadic movement.",
+        "humanInteraction": "Winter irruptions bring owls into airports, road corridors and other open human-modified landscapes, creating collision risks. Disturbance around known owl locations is a conservation concern. The species is protected under provincial/territorial wildlife laws across Canada despite exclusion of owls from the original Migratory Birds Convention framework."
+      },
+      "conservationStatus": "Vulnerable",
+      "funFacts": [
+        "Females are substantially heavier than males; a long Saskatchewan dataset averaged 2.149 kg for females versus 1.611 kg for males.",
+        "A tracked female Snowy Owl traveled up to 4,093 km during one spring search period.",
+        "The oldest known banded Snowy Owl reported by Cornell was a female at least 23 years and 10 months old.",
+        "Snowy Owls are unusually diurnal for owls and can hunt through the continuous daylight of Arctic summer.",
+        "A 30-year Alaska study recovered 43,689 prey items from pellets, 99% of them lemmings.",
+        "Some GPS-tagged owls use frozen Great Lakes or Arctic marine openings to hunt waterfowl."
+      ],
+      "abilities": [
+        {
+          "name": "Snowfield Ambush",
+          "description": "pale plumage, low controlled flight and acute prey localization combine to reduce detection and enable a rapid foot-first strike across open snowy terrain."
+        },
+        {
+          "name": "Subnivean Lock-On",
+          "description": "strong hearing and vision allow the owl to locate and attack small prey concealed by vegetation or snow, reducing the protection normally provided by visual cover."
+        }
+      ],
+      "traits": [
+        {
+          "name": "Arctic Feather Armor",
+          "description": "exceptionally dense feathering extends over the legs and feet, preserving function in severe cold; it is thermal protection, not impact armor."
+        },
+        {
+          "name": "Nomadic Lemming Tracker",
+          "description": "breeding females can prospect over thousands of kilometres and settle where pulsed lemming abundance is favorable, an unusually mobile response to fluctuating prey."
+        }
+      ],
+      "combat": {
+        "weapons": "Snowy Owls are foot-first predators. They use powerful feathered feet and hooked talons to seize prey after a low approach, pounce or aerial pursuit. The bill assists after capture but should not be treated as the primary damage system. Their normal prey is far smaller than the owl, so prey success does not justify scaling the owl as though it routinely subdues similarly sized fighters.",
+        "weaknesses": [
+          "Light avian body with no armor.",
+          "Talons are lethal to small prey but have limited absolute reach and force against much larger mammals.",
+          "Dense cover reduces open-country flight geometry.",
+          "Grounded or wing-injured individuals lose most defensive mobility.",
+          "Large movement range and cold tolerance should not be confused with resistance to traumatic injury."
+        ],
+        "goodMatchups": [],
+        "badMatchups": []
+      },
+      "derivedSubstats": [],
+      "facts": {
+        "weight_kg": 2.15,
+        "height_cm": 0,
+        "length_cm": 65,
+        "speed_mps": 0,
+        "lifespan_years": 10,
+        "bite_force_psi": 0
+      },
+      "unverifiedFacts": [
+        "height_cm",
+        "speed_mps",
+        "bite_force_psi"
+      ],
+      "sources": [
+        {
+          "title": "URL",
+          "url": "https://www.allaboutbirds.org/guide/Snowy_Owl/id",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://www.allaboutbirds.org/guide/Snowy_Owl",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://academic.oup.com/auk/article/133/4/738/5149250",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://www.mdpi.com/1424-2818/17/3/209",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://nsojournals.onlinelibrary.wiley.com/doi/abs/10.1111/jav.00426",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://wildlife.onlinelibrary.wiley.com/doi/10.1002/jwmg.414",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://www.projectsnowstorm.org/tracking-snowy-owls/",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://www.allaboutbirds.org/news/bird-cams-faq-snowy-owl-nest/",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/snowy-owl-2025.html",
+          "supports": "",
+          "confidence": ""
+        },
+        {
+          "title": "URL",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B5%D0%BB%D0%B0%D1%8F_%D1%81%D0%BE%D0%B2%D0%B0_%D0%B1%D0%BB%D0%B8%D0%B7_%D0%BA%D0%BE%D1%80%D0%B4%D0%BE%D0%BD%D0%B0_%22%D0%A1%D0%BE%D0%BC%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%22.jpg",
+          "supports": "",
+          "confidence": ""
+        }
+      ],
+      "imageLead": {
+        "status": "SOURCE FOUND - FULL-BODY NOT VERIFIED",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B5%D0%BB%D0%B0%D1%8F_%D1%81%D0%BE%D0%B2%D0%B0_%D0%B1%D0%BB%D0%B8%D0%B7_%D0%BA%D0%BE%D1%80%D0%B4%D0%BE%D0%BD%D0%B0_%22%D0%A1%D0%BE%D0%BC%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%22.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/%D0%91%D0%B5%D0%BB%D0%B0%D1%8F_%D1%81%D0%BE%D0%B2%D0%B0_%D0%B1%D0%BB%D0%B8%D0%B7_%D0%BA%D0%BE%D1%80%D0%B4%D0%BE%D0%BD%D0%B0_%22%D0%A1%D0%BE%D0%BC%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%22.jpg",
+        "license": "CC BY-SA 4.0, uploader's own work",
+        "sex": "female verified by source metadata",
+        "notes": "This is a strong exact-species, wild, adult-female, 4608×3456 source but not a valid full-body cutout source because the feet are obscured. A 2592×3888 CC BY 2.0 female zoo source was also found but does not improve strict anatomy enough to displace this provenance-rich adult-female lead. Current connected GitHub writer is UTF-8 text-only, so no PNG binary is fabricated or claimed."
+      }
     },
     "spectacled-bear": {
       "name": "Spectacled Bear",

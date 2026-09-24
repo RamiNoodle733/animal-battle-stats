@@ -13927,8 +13927,8 @@
     "_id": "692f75f3274f411ced1e1339",
     "name": "Snowy Owl",
     "__v": 0,
-    "agility": 62.8,
-    "attack": 33.8,
+    "agility": 88,
+    "attack": 39,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Arctic tundra",
@@ -13943,58 +13943,57 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 500,
+    "bite_force_psi": 0,
     "class": "Scout",
     "createdAt": "2025-12-02T23:27:48.978Z",
-    "defense": 12.9,
-    "description": "A Small creature found in Arctic tundra.",
+    "defense": 20,
+    "description": "The Snowy Owl is a roughly 2.15 kg Arctic raptor whose real strengths are precision, senses and mobility rather than brute force.",
     "diet": [
       "lemmings",
       "rodents",
       "birds"
     ],
     "habitat": "Arctic tundra",
-    "height_cm": 70,
+    "height_cm": 0,
     "image": "/images/animals/snowy-owl.png",
-    "intelligence": 64.8,
+    "intelligence": 64,
     "isNocturnal": false,
     "isSocial": false,
-    "length_cm": 70,
+    "length_cm": 65,
     "lifespan_years": 10,
     "scientific_name": "Bubo scandiacus",
     "size": "Small",
     "size_score": 24.6,
     "special_abilities": [
-      "Silent Strike",
-      "Precision Dive"
+      "Snowfield Ambush",
+      "Subnivean Lock-On"
     ],
-    "speed_mps": 22,
-    "stamina": 82.6,
+    "speed_mps": 0,
+    "stamina": 83,
     "substats": {
-      "raw_power": 67.4,
-      "maneuverability": 93.2,
-      "endurance": 66.8,
-      "recovery": 60.1,
-      "tactics": 67.4,
-      "senses": 95.5,
-      "ferocity": 22,
-      "weaponry": 62.7,
-      "protection": 21.5,
-      "toughness": 21.8,
-      "speed": 59.2,
-      "abilities": 12.5
+      "raw_power": 17,
+      "maneuverability": 87,
+      "endurance": 83,
+      "recovery": 59,
+      "tactics": 68,
+      "senses": 91,
+      "ferocity": 55,
+      "weaponry": 45,
+      "protection": 13,
+      "toughness": 24,
+      "speed": 58,
+      "abilities": 70
     },
     "type": "Bird",
     "unique_traits": [
-      "silent flight",
-      "exceptional hearing",
-      "camouflage"
+      "Arctic Feather Armor",
+      "Nomadic Lemming Tracker"
     ],
-    "updatedAt": "2025-12-02T23:28:23.415Z",
-    "weight_kg": 2.5,
-    "special": 64.8,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-24T00:00:00.000Z",
+    "weight_kg": 2.2,
+    "special": 78,
+    "research_status": "researched",
+    "research_updated": "2026-09-24"
   },
   {
     "_id": "692f75f3274f411ced1e133a",

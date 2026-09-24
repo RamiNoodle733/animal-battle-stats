@@ -1,6 +1,6 @@
 # Image delivery audit and backfill queue
 
-**Research reports completed:** 189 / 225 (through Secretary Bird). **Full-body transparent PNG assets verified and committed:** 0 / 189. A source-photo URL is not an approved PNG.
+**Research reports completed:** 190 / 225 (through Serval). **Full-body transparent PNG assets verified and committed:** 0 / 190. A source-photo URL is not an approved PNG.
 
 `IMAGE_REQUIREMENTS.md` is mandatory and retroactive. Exact species, healthy adult, complete anatomy, real-photo provenance, adequate quality and genuine alpha transparency are required. Current connected GitHub write actions are UTF-8 text-only, so source photos remain pending rather than being faked as PNGs.
 
@@ -8,57 +8,45 @@
 Animals already source-verified are skipped until binary tooling becomes available. The oldest unresolved source-quality candidate is addressed each run. `REPLACEMENT SOURCE NEEDED`, `SOURCE FOUND - FULL-BODY NOT VERIFIED`, and licensing blockers remain unresolved until a genuinely better source is found.
 
 ## Active unresolved source-quality queue
-Giant Squid; Gibbon; Gila Monster; Golden Eagle; Goliath Birdeater; Goose; Gorilla; Gray Wolf; Great Horned Owl; Great White Shark; Green Anaconda; Hammerhead Shark; Harpy Eagle; Hedgehog; Hippopotamus; Honey Badger; Howler Monkey; Hummingbird; Huntsman Spider; Hyena; Iguana; Impala; Jackal; Jaguar; Japanese Macaque; Kangaroo; King Cobra; King Crab; Kiwi; Koala; Komodo Dragon; Kookaburra; Leatherback Sea Turtle; Leopard; Llama; Lobster; Lynx; Macaw; Mandrill; Narwhal; **Nautilus**; **Opossum (NEXT)**; Orangutan; Orca; Osprey; Ostrich; Otter; Pangolin; Peacock; Pelican; Peregrine Falcon; Piranha; Platypus; Poison Dart Frog; Polar Bear; Porcupine; Praying Mantis; Proboscis Monkey; Puffin; Python; Quokka; Quoll; Raccoon; Rattlesnake; Raven; Red Fox; Red Panda; Red-Eyed Tree Frog; Red-tailed Hawk; Sailfish; Salamander; Saltwater Crocodile; Sawfish; Sea Lion; Sea Otter; Seal; Secretary Bird; Megalodon.
+Giant Squid; Gibbon; Gila Monster; Golden Eagle; Goliath Birdeater; Goose; Gorilla; Gray Wolf; Great Horned Owl; Great White Shark; Green Anaconda; Hammerhead Shark; Harpy Eagle; Hedgehog; Hippopotamus; Honey Badger; Howler Monkey; Hummingbird; Huntsman Spider; Hyena; Iguana; Impala; Jackal; Jaguar; Japanese Macaque; Kangaroo; King Cobra; King Crab; Kiwi; Koala; Komodo Dragon; Kookaburra; Leatherback Sea Turtle; Leopard; Llama; Lobster; Lynx; Macaw; Mandrill; Narwhal; Nautilus; **Opossum**; **Orangutan (NEXT)**; Orca; Osprey; Ostrich; Otter; Pangolin; Peacock; Pelican; Peregrine Falcon; Piranha; Platypus; Poison Dart Frog; Polar Bear; Porcupine; Praying Mantis; Proboscis Monkey; Puffin; Python; Quokka; Quoll; Raccoon; Rattlesnake; Raven; Red Fox; Red Panda; Red-Eyed Tree Frog; Red-tailed Hawk; Sailfish; Salamander; Saltwater Crocodile; Sawfish; Sea Lion; Sea Otter; Seal; Secretary Bird; Serval; Megalodon.
 
-## 2026-09-24 Nautilus legacy audit
-Roster Nautilus is ***Nautilus pompilius***. A healthy mature living individual is required. Broad searching included Commons, NOAA, museum material and scientific imagery.
+## 2026-09-24 Opossum legacy audit
+Roster Opossum is ***Didelphis virginiana***. A healthy mature adult male is preferred because males are generally larger.
 
-Best reusable live-animal lead:
-- Source page: https://commons.wikimedia.org/wiki/File:Nautilus_pompilius_(front).jpg
-- Original is **2848×3798**, exact *Nautilus pompilius*, photographed alive at Pairi Daiza, and reusable under **CC BY-SA 4.0**.
-- The photograph shows a living animal with shell, hood and tentacles, but source metadata does **not explicitly establish adulthood**. Strict visibility of all tentacles is also difficult because numerous appendages naturally overlap.
-- Another Commons/iNaturalist file, https://commons.wikimedia.org/wiki/File:Nautilus_pompilius_76271178.jpg, is **1536×2048 CC BY 4.0**, but direct inspection showed a detached/dead shell in a person's hand rather than a healthy living animal, so it is rejected despite its dimensions and exact-species metadata.
-- NOAA's chambered-nautilus species page has a genuine living *N. pompilius* photograph and explicitly states that mature shells are typically 5-9 inches, but the page does not identify the pictured specimen's life stage/sex and the displayed photo is not sufficient to certify every tentacle under the strict silhouette rule.
-- Scientific adult imagery exists, including FAO/Smithsonian material explicitly captioning *N. pompilius* adult, but this run did not establish a redistribution-safe, high-resolution original that also passed the complete living-animal silhouette requirement.
+Broad search included Commons, Animal Diversity Web, the American Society of Mammalogists/Mammal Diversity Database, government-linked material, Flickr and general image discovery.
 
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. The 2848×3798 Commons live-animal source is the current reusable candidate, but adulthood and strict complete-appendage visibility remain unresolved. No binary was committed. **Opossum is next practical unresolved legacy audit.**
+Current reusable candidate:
+- Source page: https://commons.wikimedia.org/wiki/File:Didelphis_virginiana_189957925.jpg
+- Original: https://upload.wikimedia.org/wikipedia/commons/e/ee/Didelphis_virginiana_189957925.jpg
+- **2048×1365**, exact *D. virginiana*, **CC BY 4.0**, iNaturalist license reviewed by Commons.
+- Direct visual inspection confirms a genuine walking animal with visible head, body and feet, but the rear/tail region reaches/exits the right frame edge. It therefore fails the strict complete-tail silhouette requirement. Source metadata also does not explicitly establish adulthood or sex.
 
-## 2026-09-24 Secretary Bird new-animal image audit
-Roster Secretary Bird is exact species ***Sagittarius serpentarius***.
+Stronger adulthood lead:
+- American Society of Mammalogists image #630 / Mammal Diversity Database: https://www.mammalogy.org/index.php/image-library/didelphis-virginiana-630 and https://www.mammaldiversity.org/taxon/1000023/
+- Explicitly captioned **“Side view of adult”**, exact *D. virginiana*, Boone, North Carolina, 1979.
+- This resolves adulthood biologically but this run did not establish redistribution permission or a high-resolution original that simultaneously passes the full tail/all-feet rule. It is therefore a provenance lead, not a committable asset.
+- ADW also has several CC BY-NC-SA 3.0 exact-species photographs explicitly tagged adult/sexually mature, but no inspected candidate simultaneously established a superior complete-body silhouette.
 
-Best reusable candidate located:
-- Source page: https://commons.wikimedia.org/wiki/File:Secretary_Bird_(Sagittarius_serpentarius)_(6022013778).jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/4/49/Secretary_Bird_%28Sagittarius_serpentarius%29_%286022013778%29.jpg
-- **4320×2592**, wild Kruger National Park bird, exact species, real photograph, **CC BY-SA 2.0**, Flickr license reviewed by Commons.
-- Source metadata does not explicitly establish adulthood or sex, and the available inspection path did not establish every foot/toe plus the complete tail silhouette strongly enough to certify the mandatory standard.
-- A second reusable wild Serengeti candidate is 1832×2517 and exact species, but grass/vegetation overlaps the feet and its metadata likewise does not explicitly establish adult life stage.
+**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. Do not cut out the current Commons image because its tail/rear is clipped. **Orangutan is next practical unresolved legacy audit.**
+
+## 2026-09-24 Serval new-animal image audit
+Roster Serval is exact species ***Leptailurus serval***. A healthy adult male is preferred because males are larger on average.
+
+Best reusable lead:
+- Source page: https://commons.wikimedia.org/wiki/File:Serval,_South_Luangwa_National_Park_(51871420026).jpg
+- **5184×3456**, wild South Luangwa National Park, exact species, real photograph, **CC BY 2.0**, Flickr license reviewed by Commons.
+- Source metadata does not explicitly establish adulthood or sex. Strict visibility of head, all feet/limbs and complete tail was not certified strongly enough in this run.
+
+Rejected alternate:
+- https://commons.wikimedia.org/wiki/File:Leptailurus_serval_-Serengeti_National_Park,_Tanzania-8.jpg
+- **1600×1121**, exact species, wild Serengeti, **CC BY 3.0**.
+- Direct visual discovery shows the rear/tail clipped at the right frame edge, so it fails the mandatory complete-body rule despite otherwise strong side-view framing.
 
 **Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`. No PNG created or claimed.
 
-## 2026-09-24 Narwhal legacy audit
-Roster Narwhal is exact species ***Monodon monoceros***. A mature adult male is the preferred fighting specimen because males are larger and usually carry the long tusk.
-
-Broad discovery produced a biologically excellent adult-male record:
-- American Society of Mammalogists Mammal Images Library #5742: https://mammalsociety.org/image-library/monodon-monoceros-5742
-- The page explicitly identifies **adult male**, exact *Monodon monoceros*, photographed at Pond Inlet, Nunavut on 20 June 2018, with tusk out of water.
-- This is much stronger adulthood/sex provenance than generic narwhal search images.
-- However, the page provides a `Request Full Size Image` mechanism and site copyright notice but no reusable image license on the record. Redistribution permission therefore was **not established**.
-- The page presentation also did not establish strict complete tusk-to-fluke body framing strongly enough to pass the mandatory silhouette rule.
-
-**Result:** `LICENSE UNVERIFIED - DO NOT COMMIT`. Keep the ASM page as an adult-male provenance lead only. No image binary was redistributed and no PNG was created.
-
-## 2026-09-24 Seal new-animal image audit
-Roster Seal is exact species ***Phoca vitulina***. A healthy adult male is preferred because males are somewhat larger.
-
-Best provenance-safe candidate inspected:
-- Source page: https://commons.wikimedia.org/wiki/File:Harbor_seal_phoca_vitulina.jpg
-- Original: https://upload.wikimedia.org/wikipedia/commons/1/16/Harbor_seal_phoca_vitulina.jpg
-- **2100×1368**, U.S. Fish and Wildlife Service, public domain, structured data identifies *Phoca vitulina richardii*.
-- Original-resolution inspection shows the head, trunk and hind-flipper end, but the foreflippers are not cleanly exposed. The metadata also does not explicitly establish adulthood or sex.
-
-**Result:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-
 ## Recent unresolved audits retained
+- **Nautilus:** 2848×3798 CC BY-SA 4.0 exact-species living candidate has strong provenance, but adulthood and strict visibility of numerous tentacles remain unresolved. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Narwhal:** explicit adult-male ASM record exists, but redistribution permission and complete tusk-to-fluke framing were not established. `LICENSE UNVERIFIED - DO NOT COMMIT`.
 - **Mandrill:** exact adult-male reusable photographs exist, but inspected candidates obscure/crop distal limbs or are portraits. `REPLACEMENT SOURCE NEEDED`.
 - **Macaw:** explicit adult wild *Ara macao* source exists, but perch/tail framing and redistribution permission fail simultaneous verification. `LICENSE UNVERIFIED - DO NOT COMMIT`.
 - **Lynx:** standing exact-*Lynx lynx* candidate cleanly shows body/legs/feet/tail but lacks explicit adulthood/sex. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
@@ -73,6 +61,8 @@ Best provenance-safe candidate inspected:
 - **Sawfish:** 3752×2501 CC BY 2.0 exact-*Pristis pristis* candidate has strong provenance, but adulthood/sex and strict rostrum-to-tail framing are not simultaneously verified. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 - **Sea Lion:** explicit-male candidates clip rear body/hindquarters. `REPLACEMENT SOURCE NEEDED`.
 - **Sea Otter:** public-domain 1800×1200 USFWS source has good provenance but resting pose does not expose every limb/foot and adulthood/sex are not explicit. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Seal:** 2100×1368 USFWS public-domain source has good provenance but foreflippers are not cleanly exposed and adulthood/sex are not explicit. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Secretary Bird:** 4320×2592 CC BY-SA 2.0 wild exact-species source lacks explicit adulthood/sex and strict foot/toe plus tail verification. `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
 
 ## Source-verified cutout backlog
 These have already passed source/full-body review and should not be repeatedly re-researched while GitHub binary writing remains unavailable:
@@ -89,9 +79,9 @@ These have already passed source/full-body review and should not be repeatedly r
 - Pufferfish: exact *Arothron hispidus*, 6069×4046 CC BY-SA 4.0 Featured/Quality Image.
 
 ## Structural and tooling blockers
-- `189` is completed text research, not completed images.
+- `190` is completed text research, not completed images.
 - `0` remains the verified transparent-PNG count.
 - Current connected GitHub writers accept UTF-8 text, not PNG binary. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or fake `.png` is created.
 - Megalodon cannot satisfy a real-adult-photograph rule because it is extinct.
 - Giant Squid remains unresolved because available preserved-adult imagery does not satisfy the healthy-living-adult requirement.
-- **Next practical unresolved source-quality legacy audit: Opossum.**
+- **Next practical unresolved source-quality legacy audit: Orangutan.**

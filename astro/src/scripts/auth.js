@@ -29,7 +29,14 @@ if (returnTo !== '/') {
     root.querySelectorAll('[data-keep-return]').forEach((link) => { link.href = `${link.getAttribute('href')}?returnTo=${encodeURIComponent(returnTo)}`; });
 }
 const google = root.querySelector('[data-google]');
-if (google) google.href = `/api/auth?action=google-start&returnTo=${encodeURIComponent(returnTo)}`;
+if (google) {
+    google.href = `/api/auth?action=google-start&returnTo=${encodeURIComponent(returnTo)}`;
+    // Offer Google only once the server confirms it is configured.
+    fetch('/api/auth?action=providers', { headers: { Accept: 'application/json' } })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((body) => { if (body?.data?.google) root.querySelector('[data-google-row]').hidden = false; })
+        .catch(() => {});
+}
 
 if (params.get('verified') === '1') show('Email verified. You can log in now.');
 if (params.get('google_error')) show(params.get('message') || 'Google sign-in failed. Please try again.', true);

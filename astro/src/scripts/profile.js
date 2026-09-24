@@ -134,6 +134,11 @@ async function loadOwn() {
     paintCard(me, true);
     paintOwner(me);
     buildPicker();
+    // Google linking shows once the server has Google sign-in configured
+    // (or the account already has Google linked, so it can be unlinked).
+    api('action=providers', { auth: false }).then((providers) => {
+        $('[data-p-google-row]').hidden = !(providers.body?.data?.google || me.googleLinked);
+    });
 }
 
 async function loadPublic() {

@@ -90,7 +90,13 @@ function createOneTimeToken() {
 }
 
 function getBaseUrl(req) {
-    const configured = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || process.env.VERCEL_URL;
+    // Production links (emails, OAuth redirects) must use the site's own domain:
+    // VERCEL_URL is the per-deployment *.vercel.app address, which can sit
+    // behind Vercel's login wall and does not share the site's auth cookie.
+    const production = process.env.VERCEL_ENV === 'production'
+        ? (process.env.VERCEL_PROJECT_PRODUCTION_URL || 'animalbattlestats.com')
+        : null;
+    const configured = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || production || process.env.VERCEL_URL;
     if (configured) {
         return configured.startsWith('http') ? configured.replace(/\/$/, '') : `https://${configured.replace(/\/$/, '')}`;
     }
@@ -257,6 +263,13 @@ module.exports = async function handler(req, res) {
     })) return;
 
     const action = req.query.action;
+
+    // Which sign-in providers are set up, so the login page only offers working ones.
+    if (action === 'providers') {
+        if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
+        res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
+        return res.status(200).json({ success: true, data: { google: Boolean(getGoogleConfig(req)) } });
+    }
 
     try {
         await connectToDatabase();

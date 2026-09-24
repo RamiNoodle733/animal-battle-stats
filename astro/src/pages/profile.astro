@@ -63,8 +63,10 @@ const EARN = [
                     <label><input type="checkbox" data-n="newFeatures" /><span>New features and the Roblox launch</span></label>
                     <label><input type="checkbox" data-n="weeklyDigest" /><span>Weekly digest</span></label>
                 </div>
-                <h3 class="sub-h">Sign-in</h3>
-                <div class="p-row"><span><b>Google</b><span data-p-google>Not linked</span></span><button class="btn btn-sm" type="button" data-p-google-btn>Link</button></div>
+                <div class="p-google" data-p-google-row hidden>
+                    <h3 class="sub-h">Sign-in</h3>
+                    <div class="p-row"><span><b>Google</b><span data-p-google>Not linked</span></span><button class="btn btn-sm" type="button" data-p-google-btn>Link</button></div>
+                </div>
                 <div class="p-row p-prestige" data-p-prestige-row hidden><span><b>Prestige ready</b><span>Reset to level 1 for a prestige star and bonus BattlePoints.</span></span><button class="btn btn-gold btn-sm" type="button" data-p-prestige-btn>Prestige</button></div>
                 <button class="btn btn-sm p-logout" type="button" data-p-logout><Icon name="close" size={20} />Log out</button>
             </div>
@@ -149,6 +151,8 @@ const EARN = [
     .p-toggles label { display: flex; align-items: center; gap: 10px; font-size: 0.86rem; color: var(--text-2); cursor: pointer; }
     .p-toggles input { width: 18px; height: 18px; accent-color: var(--cyan); }
     .p-logout { justify-self: start; }
+    .p-google { display: grid; gap: 12px; }
+    .p-google[hidden] { display: none; }
 
     .p-earn { min-height: 0; }
     .p-earn-list { flex: 1; min-height: 0; margin: 0; list-style: none; display: grid; gap: 8px; align-content: start; overflow-y: auto; }

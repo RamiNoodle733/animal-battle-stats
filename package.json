@@ -41,7 +41,8 @@
     "assets:generate-silhouettes": "node scripts/assets/generate-silhouettes.js",
     "research:import": "node scripts/research/import-research.js",
     "research:check": "node scripts/research/import-research.js --check",
-    "preflight": "npm run lint && npm run build && npm test && npm run perf:budget && npm run version:check"
+    "preflight": "npm run lint && npm run build && npm test && npm run perf:budget && npm run version:check",
+    "seo:indexnow": "node scripts/seo/indexnow.mjs"
   },
   "keywords": [
     "animals",

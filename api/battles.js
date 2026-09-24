@@ -322,12 +322,15 @@ async function handleTournamentComplete(req, res) {
     if (issued.status === 'completed') {
         return res.status(200).json({ success: true, duplicate: true, reward: null, message: 'This tournament completion was already recorded.' });
     }
-    const issuedParticipants = issued.participants.map(String);
+    // The submission lists round-one entrants winner-first, so compare the
+    // roster as a set; the exact history check below pins the bracket order
+    // (every recorded match was validated against the server bracket).
+    const issuedParticipants = issued.participants.map(String).sort();
     const issuedHistory = issued.matchHistory.map(({ round, winner, loser }) => ({ round, winner, loser }));
     if (issued.status !== 'active'
         || issued.expiresAt <= new Date()
         || issued.bracketSize !== tournament.bracketSize
-        || JSON.stringify(issuedParticipants) !== JSON.stringify(tournament.participants)
+        || JSON.stringify(issuedParticipants) !== JSON.stringify([...tournament.participants].sort())
         || JSON.stringify(issuedHistory) !== JSON.stringify(tournament.matchHistory)) {
         return res.status(409).json({ success: false, error: 'Tournament result does not match the server-owned bracket' });
     }

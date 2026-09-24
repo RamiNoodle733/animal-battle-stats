@@ -73,3 +73,56 @@ test('ranked tournament start uses a server-selected roster and server UUID', as
         else delete require.cache[limiterPath];
     }
 });
+
+test('ranked completion accepts brackets where the second-listed animal wins', async () => {
+    const dbPath = require.resolve('../lib/mongodb');
+    const apiPath = require.resolve('../api/battles');
+    const priorDb = require.cache[dbPath];
+    require.cache[dbPath] = { id: dbPath, filename: dbPath, loaded: true, exports: { connectToDatabase: async () => {} } };
+    delete require.cache[apiPath];
+    const handler = require('../api/battles');
+    const mongoose = require('mongoose');
+    const { TournamentValidationError } = require('../lib/tournament-integrity');
+    const originalFindOne = TournamentSubmission.findOne;
+    const originalStartSession = mongoose.startSession;
+    const submissionId = '123e4567-e89b-42d3-a456-426614174000';
+    const matchHistory = [
+        { round: 1, winner: 'B', loser: 'A' }, { round: 1, winner: 'C', loser: 'D' },
+        { round: 1, winner: 'F', loser: 'E' }, { round: 1, winner: 'G', loser: 'H' },
+        { round: 2, winner: 'B', loser: 'C' }, { round: 2, winner: 'G', loser: 'F' },
+        { round: 3, winner: 'G', loser: 'B' }
+    ];
+    TournamentSubmission.findOne = async () => ({
+        status: 'active',
+        expiresAt: new Date(Date.now() + 60_000),
+        bracketSize: 8,
+        participants: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+        matchHistory
+    });
+    // Stop right after the bracket checks: a consumed-session error is
+    // reported as an already-recorded completion.
+    let reachedTransaction = false;
+    mongoose.startSession = async () => ({
+        withTransaction: async () => { reachedTransaction = true; throw new TournamentValidationError('stop'); },
+        endSession: async () => {}
+    });
+
+    try {
+        const token = auth.signToken({ userId: '507f1f77bcf86cd799439011', username: 'Rami' });
+        const res = response();
+        await handler({
+            method: 'POST',
+            query: { action: 'tournament_complete' },
+            headers: { authorization: `Bearer ${token}` },
+            body: { submissionId, bracketSize: 8, totalMatches: 7, champion: 'G', matchHistory }
+        }, res);
+        assert.notEqual(res.code, 409, res.body?.error);
+        assert.ok(reachedTransaction);
+    } finally {
+        TournamentSubmission.findOne = originalFindOne;
+        mongoose.startSession = originalStartSession;
+        delete require.cache[apiPath];
+        if (priorDb) require.cache[dbPath] = priorDb;
+        else delete require.cache[dbPath];
+    }
+});

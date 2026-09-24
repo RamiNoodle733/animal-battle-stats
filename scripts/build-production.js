@@ -12,7 +12,6 @@ const outputRoot = path.join(repoRoot, 'dist');
 const rootFiles = Object.freeze([
     'index.html',
     'about.html',
-    'battle.html',
     'methodology.html',
     'community.html',
     'compare.html',

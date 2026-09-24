@@ -12,7 +12,7 @@
 
 const { connectToDatabase } = require('../lib/mongodb');
 const BattleStats = require('../lib/models/BattleStats');
-const Animal = require('../lib/models/Animal');
+const { findAnimal, sampleAnimals } = require('../lib/canonical-animals');
 const MatchupVote = require('../lib/models/MatchupVote');
 const MatchupVoteBallot = require('../lib/models/MatchupVoteBallot');
 const TournamentSubmission = require('../lib/models/TournamentSubmission');
@@ -111,8 +111,7 @@ async function handleTournamentStart(req, res) {
         max: 10,
         windowMs: 60 * 60 * 1000
     })) return;
-    const match = start.type === 'all' ? {} : { type: start.type };
-    const sampled = await Animal.aggregate([{ $match: match }, { $sample: { size: start.bracketSize } }, { $project: { _id: 0, name: 1 } }]);
+    const sampled = sampleAnimals(start.bracketSize, { type: start.type });
     if (sampled.length !== start.bracketSize) return res.status(400).json({ success: false, error: 'Not enough animals for this tournament type' });
     const participants = sampled.map((animal) => animal.name);
     const submissionId = randomUUID();
@@ -193,7 +192,7 @@ async function recordMatchupVote(req, res) {
         const sorted = [animal1, animal2].sort();
         const isVotedForFirst = votedFor === sorted[0];
 
-        const validAnimals = await Animal.countDocuments({ name: { $in: sorted } });
+        const validAnimals = sorted.filter((name) => findAnimal(name)?.name === name).length;
         if (validAnimals !== 2) {
             return res.status(400).json({ success: false, error: 'Both matchup animals must exist' });
         }

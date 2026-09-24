@@ -921,7 +921,7 @@ class AnimalStatsApp {
     }
 
     getAnimalsCacheKey() {
-        return 'abs_animals_cache_v2';
+        return 'abs_animals_cache_v3';
     }
 
     readAnimalsCache() {

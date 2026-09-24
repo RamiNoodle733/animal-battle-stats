@@ -14,7 +14,8 @@ const { connectToDatabase } = require('../lib/mongodb');
 const { waitUntil } = require('@vercel/functions');
 const Animal = require('../lib/models/Animal');
 const { getAuthUser, authorizeRequest } = require('../lib/auth');
-const { applyCanonicalAnimalImage, applyCanonicalAnimalImages } = require('../lib/animal-images');
+const { applyCanonicalAnimalImage } = require('../lib/animal-images');
+const { filterAnimals, listAnimals, sortAnimals } = require('../lib/canonical-animals');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
@@ -74,12 +75,11 @@ module.exports = async function handler(req, res) {
             return await handleNotification(req, res);
         }
 
-        await connectToDatabase();
-
         switch (req.method) {
             case 'GET':
                 return await handleGet(req, res);
             case 'POST':
+                await connectToDatabase();
                 return await handlePost(req, res);
             default:
                 res.setHeader('Allow', ['GET', 'POST']);
@@ -189,148 +189,56 @@ async function handleNotification(req, res) {
  */
 
 async function handleHomeView(_req, res) {
-    const validImageQuery = {
-        image: {
-            $exists: true,
-            $type: 'string',
-            $nin: ['', null],
-            $not: /fallback|placeholder/i
-        }
-    };
-
-    const sampleLimit = 32;
-    const animals = await Animal.aggregate([
-        { $match: validImageQuery },
-        {
-            $addFields: {
-                totalStats: {
-                    $add: ['$attack', '$defense', '$agility', '$stamina', '$intelligence', '$special_attack']
-                }
-            }
-        },
-        { $sort: { totalStats: -1, name: 1 } },
-        { $limit: sampleLimit },
-        {
-            $project: {
-                _id: 1,
-                name: 1,
-                image: 1,
-                type: 1,
-                totalStats: 1
-            }
-        }
-    ]);
-
-    const total = await Animal.countDocuments();
-    const rankedAnimals = applyCanonicalAnimalImages(animals).map((animal, index) => ({
-        ...animal,
-        rank: index + 1
+    const animals = listAnimals().slice(0, 32).map((animal) => ({
+        _id: animal._id,
+        name: animal.name,
+        slug: animal.slug,
+        image: animal.image,
+        imageSet: animal.imageSet,
+        type: animal.type,
+        totalStats: animal.totalStats,
+        powerIndex: animal.powerIndex,
+        tier: animal.tier,
+        rank: animal.rank
     }));
 
     return res.status(200).json({
         success: true,
-        count: rankedAnimals.length,
-        total,
+        count: animals.length,
+        total: listAnimals().length,
         view: 'home',
-        data: rankedAnimals
+        data: animals
     });
 }
 
 async function handleGet(req, res) {
-    const { 
+    const {
         view,
-        search, 
-        type, 
-        class: animalClass, 
+        search,
+        type,
+        class: animalClass,
         size,
-        _diet,
         biome,
-        sort = 'name', 
+        sort = 'name',
         order = 'asc',
         limit = 500,
-        skip = 0 
+        skip = 0
     } = req.query;
 
     if (view === 'home') {
         return handleHomeView(req, res);
     }
 
-    // Build query
-    const query = {};
-
-    // Text search (escape regex metacharacters to prevent ReDoS)
-    if (search) {
-        const escaped = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        query.$or = [
-            { name: { $regex: escaped, $options: 'i' } },
-            { scientific_name: { $regex: escaped, $options: 'i' } },
-            { description: { $regex: escaped, $options: 'i' } }
-        ];
-    }
-
-    // Filters
-    if (type && type !== 'all') {
-        query.type = type;
-    }
-
-    if (animalClass && animalClass !== 'all') {
-        query.class = animalClass;
-    }
-
-    if (size && size !== 'all') {
-        query.size = size;
-    }
-
-    if (biome && biome !== 'all') {
-        const escapedBiome = biome.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        query.habitat = { $regex: escapedBiome, $options: 'i' };
-    }
-
-    // Build sort object
-    const sortObj = {};
-    const sortOrder = order === 'desc' ? -1 : 1;
-    
-    if (sort === 'total') {
-        // Sort by total stats (need to use aggregation for this)
-        const animals = await Animal.aggregate([
-            { $match: query },
-            {
-                $addFields: {
-                    totalStats: {
-                        $add: ['$attack', '$defense', '$agility', '$stamina', '$intelligence', '$special_attack']
-                    }
-                }
-            },
-            { $sort: { totalStats: sortOrder } },
-            { $skip: parseInt(skip) },
-            { $limit: parseInt(limit) }
-        ]);
-        
-        return res.status(200).json({
-            success: true,
-            count: animals.length,
-            data: applyCanonicalAnimalImages(animals)
-        });
-    }
-
-    // Regular sort
-    const sortField = sort === 'special' ? 'special_attack' : sort;
-    sortObj[sortField] = sortOrder;
-
-    const animals = await Animal
-        .find(query)
-        .sort(sortObj)
-        .skip(parseInt(skip))
-        .limit(parseInt(limit))
-        .lean();
-
-    const total = await Animal.countDocuments(query);
+    const matches = sortAnimals(filterAnimals({ search, type, class: animalClass, size, biome }), sort, order);
+    const start = Math.max(0, parseInt(skip, 10) || 0);
+    const count = Math.max(0, Math.min(500, parseInt(limit, 10) || 500));
+    const page = matches.slice(start, start + count);
 
     return res.status(200).json({
         success: true,
-        count: animals.length,
-        total,
-        data: applyCanonicalAnimalImages(animals)
+        count: page.length,
+        total: matches.length,
+        data: page
     });
 }
 

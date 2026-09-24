@@ -137,5 +137,12 @@
       "path": "/api/cron/discord-retry",
       "schedule": "17 8 * * *"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/battle",
+      "destination": "/compare",
+      "permanent": true
+    }
   ]
 }

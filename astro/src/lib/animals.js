@@ -55,6 +55,13 @@ export function formatMeasurement(value, suffix, decimals = 0) {
     return `${number.toLocaleString('en-US', { maximumFractionDigits })} ${suffix}`;
 }
 
+export function formatWeight(value) {
+    const kg = Number(value);
+    if (!Number.isFinite(kg) || kg <= 0) return 'Unknown';
+    if (kg < 1) return `${Math.round(kg * 1000).toLocaleString('en-US')} g`;
+    return `${kg.toLocaleString('en-US', { maximumFractionDigits: kg < 100 ? 1 : 0 })} kg`;
+}
+
 export function imageFor(animal) {
     const optimized = optimizedManifest.animals?.[animal.slug];
     const isCurrent = optimized?.fallback === animal.image;

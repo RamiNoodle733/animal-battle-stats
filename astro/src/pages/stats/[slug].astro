@@ -10,6 +10,7 @@ import {
     formatList,
     formatMeasurement,
     formatScore,
+    formatWeight,
     imageFor,
     relatedAnimals,
     rivalAnimals,
@@ -99,7 +100,6 @@ const jsonLd = {
                 <div class="hero-actions">
                     <a class="action-primary" href={`/stats?animal=${animal.slug}`}>Open interactive profile</a>
                     <a class="action-secondary" href={`/compare?animal=${animal.slug}`}>Compare this animal</a>
-                    <a class="action-secondary" href={`/battle?a=${animal.slug}`}>Try the battle model</a>
                 </div>
                 <p class="method-note">Scores are comparative editorial ratings for hypothetical matchups, not direct scientific measurements.</p>
             </div>
@@ -167,7 +167,7 @@ const jsonLd = {
                 <dl class="measurement-grid">
                     <div><dt>Habitat</dt><dd>{animal.habitat || 'Unknown'}</dd></div>
                     <div><dt>Diet</dt><dd>{formatList(animal.diet)}</dd></div>
-                    <div><dt>Weight</dt><dd>{formatMeasurement(animal.weight_kg, 'kg', 1)}</dd></div>
+                    <div><dt>Weight</dt><dd>{formatWeight(animal.weight_kg)}</dd></div>
                     <div><dt>Length</dt><dd>{formatMeasurement(animal.length_cm, 'cm')}</dd></div>
                     <div><dt>Top speed</dt><dd>{formatMeasurement(speedKmh, 'km/h', 1)}</dd></div>
                     <div><dt>Lifespan</dt><dd>{formatMeasurement(animal.lifespan_years, 'years', 1)}</dd></div>
@@ -241,11 +241,11 @@ const jsonLd = {
                 {rivals.map((candidate) => (
                     <article>
                         <a class="rival-profile" href={`/stats/${candidate.slug}`}><span>#{candidate.rank}</span><strong>{candidate.name}</strong><small>{candidate.type} · {candidate.class}</small></a>
-                        <a class="rival-battle" href={`/battle?a=${animal.slug}&b=${candidate.slug}`}>Run matchup</a>
+                        <a class="rival-battle" href={`/compare?animal=${animal.slug}`}>Compare</a>
                     </article>
                 ))}
             </div>
-            <div class="powerscaling-actions"><a href={`/battle?a=${animal.slug}`}>Choose another opponent</a><a href="/tournament">Enter tournament</a><a href="/methodology">How rankings differ from predictions</a></div>
+            <div class="powerscaling-actions"><a href={`/compare?animal=${animal.slug}`}>Choose another opponent</a><a href="/tournament">Enter tournament</a><a href="/methodology">How rankings differ from predictions</a></div>
         </section>
 
         <section class="related" aria-labelledby="related-title">

@@ -4,9 +4,7 @@
  * Returns random animals from the database
  */
 
-const { connectToDatabase } = require('../lib/mongodb');
-const Animal = require('../lib/models/Animal');
-const { applyCanonicalAnimalImage, applyCanonicalAnimalImages } = require('../lib/animal-images');
+const { sampleAnimals } = require('../lib/canonical-animals');
 const { setCorsHeaders } = require('../lib/cors');
 const { InputError, randomParams } = require('../lib/api-input');
 const { enforceRequestSecurity } = require('../lib/request-security');
@@ -39,31 +37,15 @@ module.exports = async function handler(req, res) {
 
     try {
         const { count: numAnimals, type, exclude } = randomParams(req.query);
-        await connectToDatabase();
-
-        const matchStage = {};
-        
-        if (type && type !== 'all') {
-            matchStage.type = type;
-        }
-
-        // Exclude specific animal names (comma-separated)
-        if (exclude) {
-            const excludeNames = exclude.split(',').map(n => n.trim());
-            matchStage.name = { $nin: excludeNames };
-        }
-
-        const animals = await Animal.aggregate([
-            { $match: matchStage },
-            { $sample: { size: numAnimals } }
-        ]);
+        const animals = sampleAnimals(numAnimals, {
+            type,
+            exclude: exclude ? exclude.split(',').map((name) => name.trim()) : []
+        });
 
         return res.status(200).json({
             success: true,
             count: animals.length,
-            data: numAnimals === 1
-                ? applyCanonicalAnimalImage(animals[0] || null)
-                : applyCanonicalAnimalImages(animals)
+            data: numAnimals === 1 ? (animals[0] || null) : animals
         });
 
     } catch (error) {

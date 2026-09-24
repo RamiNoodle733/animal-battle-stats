@@ -66,9 +66,8 @@ window.ABSCompareAnalysis = {
         text('p', `Model ${model.VERSION}. Body-size scaling, terrain and behavior are not modeled. Missing measurements are not treated as zero.`);
         const link = text('a', 'How the model works'); link.href = '/methodology';
         const share = text('button', 'Copy matchup link'); share.type = 'button';
-        text('p', 'The shared link opens Battle with these animals. Battle uses the published roster snapshot, so its estimate may differ from this live-roster analysis; the link does not freeze these values.');
-        share.addEventListener('click', async () => {
-            const url = new URL('/battle', location.origin);
+                share.addEventListener('click', async () => {
+            const url = new URL('/compare', location.origin);
             const revision = document.querySelector('meta[name="abs-version"]')?.content || '';
             url.search = new URLSearchParams({ a: slug(left), b: slug(right), model: model.VERSION, data: revision }).toString();
             try { await navigator.clipboard.writeText(url.href); share.textContent = 'Link copied'; }

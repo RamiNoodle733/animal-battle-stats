@@ -11,8 +11,7 @@
 const { connectToDatabase } = require('../lib/mongodb');
 const Vote = require('../lib/models/Vote');
 const Comment = require('../lib/models/Comment');
-const Animal = require('../lib/models/Animal');
-const { applyCanonicalAnimalImage } = require('../lib/animal-images');
+const { findAnimal, listAnimals } = require('../lib/canonical-animals');
 const BattleStats = require('../lib/models/BattleStats');
 const RankHistory = require('../lib/models/RankHistory');
 const SiteStats = require('../lib/models/SiteStats');
@@ -45,7 +44,7 @@ module.exports = async function handler(req, res) {
         }
 
         await connectToDatabase();
-        const animalCount = await Animal.countDocuments({ name: { $in: [animal1, animal2] } });
+        const animalCount = [animal1, animal2].filter((name) => findAnimal(name)?.name === name).length;
         if (animalCount !== 2) return res.status(400).json({ success: false, error: 'Unknown animal' });
 
         const matchupKey = [animal1, animal2].sort().join(':');
@@ -94,7 +93,7 @@ module.exports = async function handler(req, res) {
         await connectToDatabase();
 
         // Get all animals with scientific_name included
-        const animals = await Animal.find({}).select('name image attack defense agility stamina intelligence special_attack scientific_name').lean();
+        const animals = listAnimals();
         
         // Get vote aggregations
         const voteAggregations = await Vote.aggregate([
@@ -159,7 +158,7 @@ module.exports = async function handler(req, res) {
 
         // Combine data and calculate power rankings using new algorithm
         const rankings = animals.map((databaseAnimal) => {
-            const animal = applyCanonicalAnimalImage(databaseAnimal);
+            const animal = databaseAnimal;
             const votes = voteMap[animal.name] || { upvotes: 0, downvotes: 0, score: 0 };
             const battle = battleMap[animal.name] || { 
                 battleRating: 1000, 
@@ -220,7 +219,13 @@ module.exports = async function handler(req, res) {
                     stamina: animal.stamina,
                     intelligence: animal.intelligence,
                     special: animal.special_attack,
-                    scientific_name: animal.scientific_name
+                    scientific_name: animal.scientific_name,
+                    slug: animal.slug,
+                    type: animal.type,
+                    powerIndex: animal.powerIndex,
+                    tier: animal.tier,
+                    statRank: animal.rank,
+                    research_status: animal.research_status
                 },
                 upvotes: votes.upvotes,
                 downvotes: votes.downvotes,

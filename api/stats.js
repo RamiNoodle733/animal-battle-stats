@@ -7,9 +7,7 @@
  * - Top animals by various stats
  */
 
-const { connectToDatabase } = require('../lib/mongodb');
-const Animal = require('../lib/models/Animal');
-const { applyCanonicalAnimalImages } = require('../lib/animal-images');
+const { countBy, listAnimals, sortAnimals } = require('../lib/canonical-animals');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
 
@@ -40,80 +38,32 @@ module.exports = async function handler(req, res) {
     }
 
     try {
-        await connectToDatabase();
+        const animals = listAnimals();
+        const top = (field) => sortAnimals(animals, field, 'desc').slice(0, 5).map((animal) => ({
+            _id: animal._id,
+            name: animal.name,
+            slug: animal.slug,
+            [field]: animal[field],
+            image: animal.image,
+            imageSet: animal.imageSet
+        }));
 
-        const [
-            totalCount,
-            typeBreakdown,
-            classBreakdown,
-            sizeBreakdown,
-            topAttack,
-            topDefense,
-            topAgility,
-            topIntelligence,
-            topOverall
-        ] = await Promise.all([
-            // Total count
-            Animal.countDocuments(),
-            
-            // Type breakdown
-            Animal.aggregate([
-                { $group: { _id: '$type', count: { $sum: 1 } } },
-                { $sort: { count: -1 } }
-            ]),
-            
-            // Class breakdown
-            Animal.aggregate([
-                { $group: { _id: '$class', count: { $sum: 1 } } },
-                { $sort: { count: -1 } }
-            ]),
-            
-            // Size breakdown
-            Animal.aggregate([
-                { $group: { _id: '$size', count: { $sum: 1 } } },
-                { $sort: { count: -1 } }
-            ]),
-            
-            // Top 5 by attack
-            Animal.find().sort({ attack: -1 }).limit(5).select('name attack image').lean(),
-            
-            // Top 5 by defense
-            Animal.find().sort({ defense: -1 }).limit(5).select('name defense image').lean(),
-            
-            // Top 5 by agility
-            Animal.find().sort({ agility: -1 }).limit(5).select('name agility image').lean(),
-            
-            // Top 5 by intelligence
-            Animal.find().sort({ intelligence: -1 }).limit(5).select('name intelligence image').lean(),
-            
-            // Top 5 overall
-            Animal.aggregate([
-                {
-                    $addFields: {
-                        totalStats: {
-                            $add: ['$attack', '$defense', '$agility', '$stamina', '$intelligence', '$special_attack']
-                        }
-                    }
-                },
-                { $sort: { totalStats: -1 } },
-                { $limit: 5 },
-                { $project: { name: 1, totalStats: 1, image: 1 } }
-            ])
-        ]);
-
+        res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
         return res.status(200).json({
             success: true,
             data: {
-                total: totalCount,
-                byType: typeBreakdown.reduce((acc, t) => ({ ...acc, [t._id]: t.count }), {}),
-                byClass: classBreakdown.reduce((acc, c) => ({ ...acc, [c._id]: c.count }), {}),
-                bySize: sizeBreakdown.reduce((acc, s) => ({ ...acc, [s._id]: s.count }), {}),
+                total: animals.length,
+                researched: animals.filter((animal) => animal.research_status === 'researched').length,
+                byType: countBy('type'),
+                byClass: countBy('class'),
+                bySize: countBy('size'),
+                byTier: countBy('tier'),
                 leaderboards: {
-                    attack: applyCanonicalAnimalImages(topAttack),
-                    defense: applyCanonicalAnimalImages(topDefense),
-                    agility: applyCanonicalAnimalImages(topAgility),
-                    intelligence: applyCanonicalAnimalImages(topIntelligence),
-                    overall: applyCanonicalAnimalImages(topOverall)
+                    attack: top('attack'),
+                    defense: top('defense'),
+                    agility: top('agility'),
+                    intelligence: top('intelligence'),
+                    overall: top('powerIndex')
                 }
             }
         });

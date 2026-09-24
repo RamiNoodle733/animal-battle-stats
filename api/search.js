@@ -4,9 +4,7 @@
  * Advanced search endpoint with filtering and sorting
  */
 
-const { connectToDatabase } = require('../lib/mongodb');
-const Animal = require('../lib/models/Animal');
-const { applyCanonicalAnimalImages } = require('../lib/animal-images');
+const { filterAnimals, sortAnimals } = require('../lib/canonical-animals');
 const { setCorsHeaders } = require('../lib/cors');
 const { InputError, searchParams } = require('../lib/api-input');
 const { enforceRequestSecurity } = require('../lib/request-security');
@@ -40,7 +38,6 @@ module.exports = async function handler(req, res) {
     try {
         // Get params from query (GET) or body (POST)
         const params = searchParams(req.method === 'POST' ? req.body : req.query);
-        await connectToDatabase();
 
         const {
             q,              // Search query
@@ -65,96 +62,27 @@ module.exports = async function handler(req, res) {
             limit = 50
         } = params;
 
-        // Build query
-        const query = {};
+        const ranges = {};
+        const range = (field, min, max) => {
+            if (min !== undefined || max !== undefined) ranges[field] = { min, max };
+        };
+        range('attack', minAttack, maxAttack);
+        range('defense', minDefense, maxDefense);
+        range('agility', minAgility, maxAgility);
+        range('stamina', minStamina, maxStamina);
+        range('intelligence', minIntelligence, maxIntelligence);
 
-        // Text search (escape regex metacharacters to prevent ReDoS)
-        if (q) {
-            const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            query.$or = [
-                { name: { $regex: escaped, $options: 'i' } },
-                { scientific_name: { $regex: escaped, $options: 'i' } },
-                { habitat: { $regex: escaped, $options: 'i' } },
-                { description: { $regex: escaped, $options: 'i' } }
-            ];
-        }
-
-        // Type filter
-        if (type && type !== 'all') {
-            query.type = type;
-        }
-
-        // Class filter
-        if (cls && cls !== 'all') {
-            query.class = cls;
-        }
-
-        // Size filter
-        if (size && size !== 'all') {
-            query.size = size;
-        }
-
-        // Stat range filters
-        if (minAttack !== undefined || maxAttack !== undefined) {
-            query.attack = {};
-            if (minAttack !== undefined) query.attack.$gte = minAttack;
-            if (maxAttack !== undefined) query.attack.$lte = maxAttack;
-        }
-
-        if (minDefense !== undefined || maxDefense !== undefined) {
-            query.defense = {};
-            if (minDefense !== undefined) query.defense.$gte = minDefense;
-            if (maxDefense !== undefined) query.defense.$lte = maxDefense;
-        }
-
-        if (minAgility !== undefined || maxAgility !== undefined) {
-            query.agility = {};
-            if (minAgility !== undefined) query.agility.$gte = minAgility;
-            if (maxAgility !== undefined) query.agility.$lte = maxAgility;
-        }
-
-        if (minStamina !== undefined || maxStamina !== undefined) {
-            query.stamina = {};
-            if (minStamina !== undefined) query.stamina.$gte = minStamina;
-            if (maxStamina !== undefined) query.stamina.$lte = maxStamina;
-        }
-
-        if (minIntelligence !== undefined || maxIntelligence !== undefined) {
-            query.intelligence = {};
-            if (minIntelligence !== undefined) query.intelligence.$gte = minIntelligence;
-            if (maxIntelligence !== undefined) query.intelligence.$lte = maxIntelligence;
-        }
-
-        // Boolean filters
-        if (nocturnal !== undefined) {
-            query.isNocturnal = nocturnal === 'true' || nocturnal === true;
-        }
-
-        if (social !== undefined) {
-            query.isSocial = social === 'true' || social === true;
-        }
-
-        // Build sort
-        const sortObj = {};
-        const sortField = sort === 'special' ? 'special_attack' : sort;
-        sortObj[sortField] = order === 'desc' ? -1 : 1;
-
-        // Pagination
-        const skip = (parseInt(page) - 1) * parseInt(limit);
-
-        // Execute query
-        const [animals, total] = await Promise.all([
-            Animal.find(query)
-                .sort(sortObj)
-                .skip(skip)
-                .limit(parseInt(limit))
-                .lean(),
-            Animal.countDocuments(query)
-        ]);
+        const matches = sortAnimals(filterAnimals({
+            search: q, type, class: cls, size, nocturnal, social, ranges
+        }), sort, order);
+        const pageSize = Math.max(1, parseInt(limit, 10) || 50);
+        const skip = (Math.max(1, parseInt(page, 10) || 1) - 1) * pageSize;
+        const animals = matches.slice(skip, skip + pageSize);
+        const total = matches.length;
 
         return res.status(200).json({
             success: true,
-            data: applyCanonicalAnimalImages(animals),
+            data: animals,
             pagination: {
                 page: parseInt(page),
                 limit: parseInt(limit),

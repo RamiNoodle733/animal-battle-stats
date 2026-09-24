@@ -127,6 +127,6 @@ test('existing image elements receive responsive WebP candidates and safe fallba
 
 test('animal cache revision changes with the responsive response contract', () => {
     const source = fs.readFileSync(path.join(__dirname, '../js/main.js'), 'utf8');
-    assert.match(source, /abs_animals_cache_v2/);
+    assert.match(source, /abs_animals_cache_v3/);
     assert.doesNotMatch(source, /abs_animals_cache_v1/);
 });

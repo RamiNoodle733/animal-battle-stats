@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 process.env.JWT_SECRET ||= 'test-secret-that-is-long-enough-for-hmac-verification';
 
 const auth = require('../lib/auth');
-const Animal = require('../lib/models/Animal');
+const { findAnimal } = require('../lib/canonical-animals');
 const TournamentSubmission = require('../lib/models/TournamentSubmission');
 
 function response() {
@@ -39,14 +39,8 @@ test('ranked tournament start uses a server-selected roster and server UUID', as
     };
     delete require.cache[apiPath];
     const handler = require('../api/battles');
-    const originalAggregate = Animal.aggregate;
     const originalCreate = TournamentSubmission.create;
-    let pipeline;
     let created;
-    Animal.aggregate = async (value) => {
-        pipeline = value;
-        return Array.from({ length: 8 }, (_, index) => ({ name: `Server Animal ${index + 1}` }));
-    };
     TournamentSubmission.create = async (value) => { created = value; return value; };
 
     try {
@@ -61,14 +55,16 @@ test('ranked tournament start uses a server-selected roster and server UUID', as
 
         assert.equal(res.code, 201);
         assert.match(res.body.submissionId, /^[0-9a-f-]{36}$/i);
-        assert.deepEqual(res.body.participants, Array.from({ length: 8 }, (_, index) => `Server Animal ${index + 1}`));
-        assert.deepEqual(pipeline[0], { $match: { type: 'Mammal' } });
-        assert.deepEqual(pipeline[1], { $sample: { size: 8 } });
+        assert.equal(res.body.participants.length, 8);
+        assert.equal(new Set(res.body.participants).size, 8);
+        assert.ok(!res.body.participants.includes('Attacker Pick'));
+        for (const name of res.body.participants) {
+            assert.equal(findAnimal(name)?.type, 'Mammal');
+        }
         assert.equal(created.submissionId, res.body.submissionId);
         assert.deepEqual(created.participants, res.body.participants);
         assert.equal(created.status, 'active');
     } finally {
-        Animal.aggregate = originalAggregate;
         TournamentSubmission.create = originalCreate;
         delete require.cache[apiPath];
         if (priorDb) require.cache[dbPath] = priorDb;

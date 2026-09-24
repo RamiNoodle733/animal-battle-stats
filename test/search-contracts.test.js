@@ -19,7 +19,7 @@ function fileFor(url) {
 
 test('sitemap contains one clean absolute canonical for every public route and animal', () => {
     assert.equal(sitemapUrls.length, new Set(sitemapUrls).size);
-    assert.equal(sitemapUrls.length, 234);
+    assert.equal(sitemapUrls.length, 233);
     sitemapUrls.forEach((value) => {
         const url = new URL(value);
         assert.equal(url.origin, SITE_ORIGIN);
@@ -57,7 +57,7 @@ test('crawlable internal links avoid query traps and point to known public or pr
                 `unknown internal destination ${link.pathname} on ${url}`
             );
             if (link.search) {
-                assert.ok(['/battle', '/compare', '/stats'].includes(link.pathname), `query trap ${link.href}`);
+                assert.ok(['/compare', '/stats'].includes(link.pathname), `query trap ${link.href}`);
                 assert.ok(link.searchParams.size <= 3, `unbounded query shape ${link.href}`);
             }
         });

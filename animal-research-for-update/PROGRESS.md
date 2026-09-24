@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 183 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 183
+- **Completed research files:** 184 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 184
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Salamander, resolved to Eastern Tiger Salamander (*Ambystoma tigrinum*)
-- **Next pending animal:** Saltwater Crocodile
-- **Latest completion:** 2026-09-23 20:01 America/Chicago
-- **Latest new-animal image status:** Salamander - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 4450x2708 USFWS/Public Domain Mark exact-species photograph was directly inspected and shows the complete head, torso, four limbs/feet and tail against a simple pale background, but adulthood and sex are not explicit in the reusable source metadata. Separate Flickr sources explicitly identify adult males but are All Rights Reserved. No PNG is claimed.
-- **Latest legacy image audit:** Llama (*Lama glama*). Fresh broad search found reusable exact-species photographs including a 3000x2000 CC BY-SA 4.0 Commons image, but direct inspection showed a seated/partly overlapped composition rather than a strict all-feet standing silhouette and adulthood/sex are not explicit. The existing 4000x3000 candidate remains the stronger framing candidate but still lacks explicit adulthood. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
-- **Next legacy image audit:** Lobster. Source-verified animals awaiting binary cutout/commit tooling remain separate from unresolved source-quality cases.
+- **Most recently completed:** Saltwater Crocodile (*Crocodylus porosus*)
+- **Next pending animal:** Sawfish
+- **Latest completion:** 2026-09-23 21:00 America/Chicago
+- **Latest new-animal image status:** Saltwater Crocodile - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. An exact-species iNaturalist CC BY-SA 3.0 discovery candidate was directly inspected and shows the complete visible head, torso, four limbs/feet and tail, but source metadata does not explicitly establish adulthood or sex. Separate ADW sources explicitly identify adult/sexually mature animals but did not simultaneously improve complete-body framing, licensing and preferred-sex evidence. No PNG is claimed.
+- **Latest legacy image audit:** Lobster (*Homarus americanus*). The existing 5040x3224 CC BY 2.0 Newfoundland candidate was directly reopened and rejected as a strict full-body primary because its crevice pose hides the abdomen/tail and multiple walking appendages. A fresh 5174x3441 CC BY 2.0 exact-species alternative has the same close frontal/crevice failure. Historical explicitly male images are illustrations or weak-resolution material. Status is now `REPLACEMENT SOURCE NEEDED`.
+- **Next legacy image audit:** Lynx. Source-verified animals awaiting binary cutout/commit tooling remain separate from unresolved source-quality cases.
 - **Latest checkpoint:** `audits/CHECKPOINT-175.md`; next checkpoint at 200 completed research files.
 
 ## Selection and image rules
@@ -21,12 +21,13 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 - Ratings are absolute across all 225 animals, not pound-for-pound.
 - Unsupported bite-pressure values remain 0.0. Force is never converted to PSI without defensible contact area.
 - Maximum speed remains 0.0 where no defensible species-specific maximum exists. Strike/dive/exercise speed is not automatically maximum travel speed, and speed is not Agility.
-- Stamina separates sustained movement from burst speed, fasting tolerance and passive environmental tolerance.
+- Stamina separates sustained movement from burst speed, fasting tolerance, passive environmental tolerance and current-assisted displacement.
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
 - Generic roster labels must be resolved to an explicit taxon before physical fields and image requirements can be scientifically coherent.
-- **Salamander control:** roster generic `Caudata` resolved for staging to Eastern Tiger Salamander *Ambystoma tigrinum*, healthy post-metamorphic adult male, 0.125 kg / 25.0 cm total length / unresolved standardized height / unresolved maximum speed / 16.0 y longevity benchmark / 0.0 PSI unresolved. Attack 7.0 / Defense 14.0 / Agility 50.0 / Stamina 42.0 / Intelligence 32.0 / Special 74.0. Adhesive neuroactive skin secretion and adult regeneration raise Special/Recovery but are not double-counted as raw power or immediate toughness.
-- **Sailfish control:** *Istiophorus platypterus*, healthy prime adult female, 70.0 kg / 270.0 cm total length / unresolved standardized height / 8.3 m/s theoretical muscle-based maximum / 13.0 y reported maximum age / 0.0 PSI. Attack 52.0 / Defense 38.0 / Agility 89.0 / Stamina 79.0 / Intelligence 53.0 / Special 82.0. The famous ~110 km/h claim is rejected in favor of peer-reviewed biomechanics; bill slashing is experimentally documented and is not double-counted as raw power.
+- **Saltwater Crocodile control:** *Crocodylus porosus*, healthy prime adult male, 500.0 kg / 500.0 cm total length / unresolved standardized height / unresolved standardized maximum speed / 70.0 y / 0.0 PSI unresolved. Direct bite measurement is retained as 16,414 N molariform force rather than mislabeled PSI. Attack 92.0 / Defense 83.0 / Agility 52.0 / Stamina 46.0 / Intelligence 58.0 / Special 80.0. Current-assisted 590 km movement is evidence for persistence/tactics, not mammalian-style aerobic stamina.
+- **Salamander control:** roster generic `Caudata` resolved for staging to Eastern Tiger Salamander *Ambystoma tigrinum*, healthy post-metamorphic adult male, 0.125 kg / 25.0 cm total length / unresolved standardized height / unresolved maximum speed / 16.0 y longevity benchmark / 0.0 PSI unresolved. Attack 7.0 / Defense 14.0 / Agility 50.0 / Stamina 42.0 / Intelligence 32.0 / Special 74.0.
+- **Sailfish control:** *Istiophorus platypterus*, healthy prime adult female, 70.0 kg / 270.0 cm total length / unresolved standardized height / 8.3 m/s theoretical muscle-based maximum / 13.0 y reported maximum age / 0.0 PSI. Attack 52.0 / Defense 38.0 / Agility 89.0 / Stamina 79.0 / Intelligence 53.0 / Special 82.0.
 - **Sable Antelope control:** *Hippotragus niger*, healthy prime adult male, 235.0 kg / 140.0 cm shoulder / 230.0 cm head-body / 0.0 m/s unresolved maximum / 16.0 y / 0.0 PSI. Attack 62.0 / Defense 48.0 / Agility 72.0 / Stamina 69.0 / Intelligence 48.0 / Special 57.0.
 - **Ring-tailed Lemur control:** *Lemur catta*, healthy prime adult male, 2.5 kg. Attack 22.0 / Defense 20.0 / Agility 81.0 / Stamina 59.0 / Intelligence 74.0 / Special 65.0.
 - **Rhinoceros control:** southern white rhinoceros *Ceratotherium simum simum*, mature male 2300.0 kg. Attack 86.0 / Defense 82.0 / Agility 56.0 / Stamina 73.0 / Intelligence 49.0 / Special 53.0.
@@ -44,12 +45,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Sable Antelope | 235.0 kg adult male *H. niger* | 62.0 | 48.0 | 72.0 | 69.0 | 48.0 | 57.0 |
 | Sailfish | 70.0 kg adult female *I. platypterus* | 52.0 | 38.0 | 89.0 | 79.0 | 53.0 | 82.0 |
 | Salamander | 0.125 kg adult male *A. tigrinum* | 7.0 | 14.0 | 50.0 | 42.0 | 32.0 | 74.0 |
+| Saltwater Crocodile | 500.0 kg adult male *C. porosus* | 92.0 | 83.0 | 52.0 | 46.0 | 58.0 | 80.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-175.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. Next checkpoint: **200 completed research files**.
 
 ## Image pipeline status
-183 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+184 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

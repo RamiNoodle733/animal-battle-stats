@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+import TierBoard from './TierBoard.astro';
+import Icon from './Icon.astro';
+import HoloCard from './HoloCard.astro';
+import { animals, GROUPS, TIERS, POWER_WEIGHTS, fmtScore } from '../lib/catalog.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+
+const { group = null } = Astro.props;
+const list = group ? animals.filter((animal) => animal.group === group.key) : animals;
+const path = group ? `/tier-list/${group.key}` : '/tier-list';
+const year = new Date().getFullYear();
+const heading = group ? `${group.label} tier list` : 'Animal tier list';
+const title = group
+    ? `${group.label} Tier List ${year}: Strongest ${group.label} Ranked S to F | ${SITE.name}`
+    : `Animal Tier List ${year}: 225 Animals Ranked S to F by Fighting Power | ${SITE.name}`;
+const top = list.slice(0, 5);
+const sTier = list.filter((animal) => animal.tier === 'S');
+const description = group
+    ? `Every ${group.label.toLowerCase()} on Animal Battle Stats ranked from S tier to F tier by research-backed fighting power. Top ${group.label.toLowerCase()}: ${top.map((animal) => animal.name).join(', ')}.`
+    : `225 real animals ranked from S tier to F tier by research-backed fighting power. S tier: ${sTier.slice(0, 6).map((animal) => animal.name).join(', ')} and more.`;
+const counts = Object.fromEntries(TIERS.map((tier) => [tier.id, list.filter((animal) => animal.tier === tier.id).length]));
+const pct = (value) => `${Math.round(value * 100)}%`;
+
+const faq = [
+    { q: group ? `What is the strongest ${group.label.toLowerCase().replace(/s$/, '')}?` : 'What is the strongest animal in the world?', a: `By fighting power, the ${top[0].name} tops ${group ? `the ${group.label.toLowerCase()}` : 'the Animal Battle Stats roster'} with a power index of ${fmtScore(top[0].powerIndex)}, followed by the ${top[1].name} (${fmtScore(top[1].powerIndex)}) and the ${top[2].name} (${fmtScore(top[2].powerIndex)}).` },
+    { q: `Which ${group ? group.label.toLowerCase() : 'animals'} are S tier?`, a: sTier.length ? `${sTier.map((animal) => animal.name).join(', ')}. S tier means a power index of ${TIERS[0].min} or higher.` : `None reach S tier (power index ${TIERS[0].min}+). The best are ${top.slice(0, 3).map((animal) => animal.name).join(', ')}.` },
+    { q: 'How is this tier list made?', a: `Every animal has six research-based ratings from 0 to 100. The power index weighs them: attack ${pct(POWER_WEIGHTS.attack)}, defense ${pct(POWER_WEIGHTS.defense)}, agility ${pct(POWER_WEIGHTS.agility)}, stamina ${pct(POWER_WEIGHTS.stamina)}, special ${pct(POWER_WEIGHTS.special)}, intelligence ${pct(POWER_WEIGHTS.intelligence)}. Tiers use fixed cutoffs, not quotas.` },
+    { q: 'Is this pound-for-pound?', a: 'No. Ratings are absolute: a bullet ant can be incredible for its size and still rank far below a wolf, which is why small animals sit in the lower tiers.' }
+];
+
+const jsonLd = [
+    {
+        '@type': 'CollectionPage',
+        url: absoluteUrl(path),
+        name: heading,
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        mainEntity: {
+            '@type': 'ItemList',
+            name: heading,
+            numberOfItems: list.length,
+            itemListOrder: 'https://schema.org/ItemListOrderDescending',
+            itemListElement: list.slice(0, 60).map((animal, index) => ({ '@type': 'ListItem', position: index + 1, name: `${animal.name} (${animal.tier} tier)`, url: absoluteUrl(`/stats/${animal.slug}`) }))
+        }
+    },
+    { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
+    {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+            { '@type': 'ListItem', position: 2, name: 'Tier list', item: absoluteUrl('/tier-list') },
+            ...(group ? [{ '@type': 'ListItem', position: 3, name: group.label, item: absoluteUrl(path) }] : [])
+        ]
+    }
+];
+---
+
+<Base title={title} description={description} path={path} image="/images/og/tier-list.jpg" imageAlt={heading} jsonLd={jsonLd} active="tiers" biome={group?.key === 'sea' ? 'ocean' : group?.key === 'birds' ? 'mountains' : group?.key === 'bugs' ? 'jungle' : group?.key === 'reptiles' ? 'desert' : group?.key === 'amphibians' ? 'wetlands' : 'savanna'}>
+    <div class="tiers screen-grid">
+        <section class="panel board" aria-labelledby="tl-title">
+            <div class="panel-head">
+                <Icon name="crown" size={30} />
+                <h1 id="tl-title" class="panel-title">{heading}</h1>
+                <span class="aside">{list.length} animals · {year}</span>
+            </div>
+            <nav class="tabs" aria-label="Tier list by group">
+                <a href="/tier-list" aria-current={!group ? 'page' : undefined}>All</a>
+                {GROUPS.map((item) => <a href={`/tier-list/${item.key}`} aria-current={group?.key === item.key ? 'page' : undefined}>{item.label}</a>)}
+            </nav>
+            <div class="board-scroll scroll"><TierBoard list={list} /></div>
+        </section>
+
+        <aside class="side">
+            <section class="panel gold top-card">
+                <div class="panel-head"><Icon name="trophy" size={28} /><h2 class="panel-title">#1 {group ? group.label.replace(/s$/, '') : 'overall'}</h2></div>
+                <div class="panel-body top-body">
+                    <div class="top-wrap"><HoloCard animal={top[0]} rank priority sizes="200px" /></div>
+                    <ol class="runners">
+                        {top.slice(1, 5).map((animal, index) => <li><a href={`/stats/${animal.slug}`}><b>{index + 2}</b>{animal.name}<span>{fmtScore(animal.powerIndex)}</span></a></li>)}
+                    </ol>
+                </div>
+            </section>
+            <section class="panel info">
+                <div class="panel-head"><Icon name="book" size={28} /><h2 class="panel-title">How tiers work</h2></div>
+                <div class="panel-body scroll">
+                    <div class="tier-key">
+                        {TIERS.map((tier) => <span class={`tier-${tier.id.toLowerCase()}`}><i class={`tier-badge tier-${tier.id.toLowerCase()}`}>{tier.id}</i>{tier.name}<em>{tier.id === 'F' ? `< ${TIERS[4].min}` : `${tier.min}+`} · {counts[tier.id]}</em></span>)}
+                    </div>
+                    <div class="faq">{faq.map((item, index) => <details open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+                </div>
+            </section>
+        </aside>
+    </div>
+</Base>
+
+<style>
+    .tiers { grid-template-columns: minmax(0, 1fr) minmax(280px, 340px); max-width: 1600px; margin: 0 auto; }
+    .board { min-height: 0; }
+    .board-scroll { flex: 1; min-height: 0; padding: 12px; }
+    .side { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 12px; min-height: 0; }
+    .top-body { display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center; }
+    .top-wrap { width: 130px; }
+    .runners { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+    .runners a { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.86rem; }
+    .runners a:hover { color: var(--cyan-2); }
+    .runners b { font-family: var(--font-display); font-size: 1.1rem; color: var(--muted); width: 16px; }
+    .runners span { margin-left: auto; font-family: var(--font-display); font-weight: 900; color: var(--gold-2); }
+    .info { min-height: 0; }
+    .info .panel-body { flex: 1; min-height: 0; }
+    .tier-key { display: grid; gap: 5px; margin-bottom: 10px; }
+    .tier-key span { display: flex; align-items: center; gap: 8px; font-size: 0.84rem; font-weight: 700; }
+    .tier-key i { font-style: normal; height: 24px; min-width: 26px; font-size: 1rem; }
+    .tier-key em { margin-left: auto; font-style: normal; font-size: 0.74rem; color: var(--muted); }
+    @media (max-width: 1000px) {
+        .tiers { grid-template-columns: 1fr; }
+        .side { display: none; }
+    }
+</style>

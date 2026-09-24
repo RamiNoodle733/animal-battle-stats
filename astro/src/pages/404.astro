@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import HoloCard from '../components/HoloCard.astro';
+import { getAnimal } from '../lib/catalog.js';
+
+const sloth = getAnimal('sloth') || getAnimal('snapping-turtle');
+---
+<Base title="Page not found | Animal Battle Stats" description="This page does not exist. Search 225 animals or jump back into the arena." path="/404" noindex biome="jungle">
+    <div class="nf">
+        <div class="nf-card"><HoloCard animal={sloth} tag="span" sizes="220px" meta="Still looking…" /></div>
+        <div class="nf-copy">
+            <p class="eyebrow"><Icon name="alert" size={22} />Error 404</p>
+            <h1 class="screen-title">This page wandered off</h1>
+            <p>The link is broken or the page moved. Search for an animal or head back to the arena.</p>
+            <div class="btn-row">
+                <button class="btn btn-cyan" type="button" data-open-search><Icon name="paw" size={26} />Search animals</button>
+                <a class="btn btn-hot" href="/compare"><Icon name="vs" size={26} />Who would win?</a>
+                <a class="btn" href="/"><Icon name="home" size={26} />Home</a>
+            </div>
+        </div>
+    </div>
+</Base>
+<style>
+    .nf { height: 100%; display: flex; align-items: center; justify-content: center; gap: clamp(20px, 5vw, 60px); flex-wrap: wrap; }
+    .nf-card { width: 200px; transform: rotate(-6deg); }
+    .nf-copy { max-width: 520px; }
+    .nf-copy p { color: var(--text-2); }
+    .nf-copy .screen-title { margin: 6px 0 12px; }
+</style>

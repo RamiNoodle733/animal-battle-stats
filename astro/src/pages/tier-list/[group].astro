@@ -1,0 +1,11 @@
+---
+import TierListPage from '../../components/TierListPage.astro';
+import { GROUPS } from '../../lib/catalog.js';
+
+export function getStaticPaths() {
+    return GROUPS.map((group) => ({ params: { group: group.key }, props: { group } }));
+}
+
+const { group } = Astro.props;
+---
+<TierListPage group={group} />

@@ -1,0 +1,280 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import HoloCard from '../components/HoloCard.astro';
+import AnimalImage from '../components/AnimalImage.astro';
+import { animals, researchedCount, sourceCount, fmtScore } from '../lib/catalog.js';
+import { PAIRS } from '../lib/matchups.js';
+import { SITE, ROBLOX, absoluteUrl } from '../lib/site.js';
+
+const ring = [...animals.filter((animal) => animal.tier === 'S'), ...animals.filter((animal) => animal.tier === 'A')].slice(0, 12);
+const classics = PAIRS.filter((pair) => pair.classic).map((pair) => [pair.a.slug, pair.b.slug, pair.a.name, pair.b.name]);
+const fresh = animals
+    .filter((animal) => animal.profile.researchedAt)
+    .sort((a, b) => String(b.profile.researchedAt).localeCompare(String(a.profile.researchedAt)) || a.rank - b.rank)
+    .slice(0, 8);
+const firstPair = PAIRS.find((pair) => pair.classic);
+const featured = animals[0];
+
+const title = `${SITE.name}: The Animal Powerscaling Database (225 Animals)`;
+const description = `Who would win? Research-backed battle stats, tier lists and power rankings for 225 real animals, with sources on every profile. Compare any matchup and watch the fight. ${ROBLOX.live ? 'Now on Roblox.' : 'Coming to Roblox.'}`;
+const MENU = [
+    { href: '/compare', label: 'Who would win?', sub: 'Pick two animals and fight', icon: 'vs', cls: 'btn-hot primary' },
+    { href: '/stats', label: 'Animals', sub: '225 fighters, full stats', icon: 'paw' },
+    { href: '/tier-list', label: 'Tier list', sub: 'S to F, all 225', icon: 'crown' },
+    { href: '/rankings', label: 'Rankings', sub: 'Strongest, fastest, biggest', icon: 'medal' },
+    { href: '/tournament', label: 'Tournament', sub: 'Run a bracket', icon: 'trophy' },
+    { href: '/community', label: 'Community', sub: 'Votes, talk, leaderboards', icon: 'friends' }
+];
+const jsonLd = [
+    {
+        '@type': 'WebPage',
+        '@id': `${SITE.url}/#home`,
+        url: `${SITE.url}/`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        about: { '@type': 'Thing', name: 'Animal powerscaling and hypothetical animal matchups' },
+        mainEntity: {
+            '@type': 'Dataset',
+            name: 'Animal Battle Stats dataset',
+            description: `Six battle ratings (attack, defense, agility, stamina, intelligence, special), physical measurements and sourced research profiles for ${animals.length} animals.`,
+            url: absoluteUrl('/stats'),
+            license: 'https://creativecommons.org/licenses/by/4.0/',
+            creator: { '@id': `${SITE.url}/#organization` },
+            distribution: [{ '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: absoluteUrl('/animal_stats.json') }],
+            variableMeasured: ['attack', 'defense', 'agility', 'stamina', 'intelligence', 'special', 'weight', 'top speed', 'bite force']
+        }
+    }
+];
+---
+
+<Base title={title} description={description} path="/" image="/images/og/site.jpg" imageAlt="Animal Battle Stats" jsonLd={jsonLd} active="" biome="savanna" seed={3}>
+    <div class="home screen-grid">
+        <section class="menu-col enter">
+            <div class="logo-block">
+                <img src="/images/logo.png" alt="Animal Battle Stats logo" width="120" height="120" />
+                <div>
+                    <h1 class="screen-title">Animal Battle Stats</h1>
+                    <p class="tag">The animal powerscaling database</p>
+                </div>
+            </div>
+            <p class="intro">Research-backed battle stats for {animals.length} real animals: {researchedCount} full research profiles with {sourceCount.toLocaleString('en-US')} cited sources. Settle any "who would win" debate.</p>
+            <nav class="main-menu" aria-label="Main menu">
+                {MENU.map((item) => (
+                    <a class={`mm ${item.cls || ''}`} href={item.href}>
+                        <Icon name={item.icon} size={40} />
+                        <span><b>{item.label}</b><small>{item.sub}</small></span>
+                    </a>
+                ))}
+            </nav>
+            <button class="home-search field" type="button" data-open-search>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
+                <span>Find an animal…</span><kbd class="chip">/</kbd>
+            </button>
+        </section>
+
+        <section class="show-col" aria-label="Featured">
+            <div class="carousel enter-2" data-carousel aria-label="Top tier animals">
+                <div class="ring" data-ring style={`--n:${ring.length}`}>
+                    {ring.map((animal, index) => (
+                        <div class="slot" style={`--i:${index}`}><HoloCard animal={animal} rank priority={index < 4} sizes="200px" /></div>
+                    ))}
+                </div>
+                <p class="ring-hint">Drag to spin · top {ring.length} fighters</p>
+            </div>
+
+            <div class="tiles enter-3">
+                <a class="tile panel daily" href={`/compare/${firstPair.slug}`} data-daily>
+                    <span class="tile-k"><Icon name="swords" size={22} />Daily matchup</span>
+                    <span class="daily-row">
+                        <AnimalImage animal={firstPair.a} sizes="110px" alt="" class="d-a" />
+                        <em>VS</em>
+                        <AnimalImage animal={firstPair.b} sizes="110px" alt="" class="d-b" />
+                    </span>
+                    <strong data-daily-title>{firstPair.a.name} vs {firstPair.b.name}</strong>
+                </a>
+                <a class="tile panel gold aotd" href={`/stats/${featured.slug}`} data-aotd>
+                    <span class="tile-k"><Icon name="star" size={22} />Animal of the day</span>
+                    <span class="aotd-row">
+                        <AnimalImage animal={featured} sizes="120px" alt="" class="aotd-img" />
+                        <span><strong data-aotd-name>{featured.name}</strong><small data-aotd-meta>#{featured.rank} · {featured.tier} tier · PWR {fmtScore(featured.powerIndex)}</small></span>
+                    </span>
+                </a>
+                <a class="tile panel hot roblox" href="/roblox">
+                    <span class="tile-k"><Icon name="cards" size={22} />{ROBLOX.live ? 'Live on Roblox' : 'Coming to Roblox'}</span>
+                    <strong>Collect all 225 as holo-cards</strong>
+                    <small>Battle them in a 3D world, run the goofy crowd fights and climb the leaderboards.</small>
+                    <span class="btn btn-white btn-sm">{ROBLOX.live ? 'Play free' : 'See the game'}</span>
+                </a>
+            </div>
+
+            <div class="ticker enter-3" aria-label="Recently researched">
+                <span class="tk-label"><Icon name="book" size={20} />Just researched</span>
+                <div class="tk-track">
+                    <div class="tk-run">
+                        {[...fresh, ...fresh].map((animal) => <a href={`/stats/${animal.slug}`}>{animal.name} <b>{animal.tier}</b></a>)}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script type="application/json" id="home-data" set:html={JSON.stringify({ classics })}></script>
+</Base>
+
+<script>
+    import { loadAnimalIndex } from '../scripts/site.js';
+
+    // ---- 3D ring: auto spin, drag to rotate, pause on hover
+    const carousel = document.querySelector('[data-carousel]');
+    const ring = document.querySelector('[data-ring]');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let angle = 0;
+    let velocity = reduced ? 0 : -0.06;
+    let dragging = false;
+    let lastX = 0;
+    let hovering = false;
+    function frame() {
+        if (!dragging) {
+            angle += hovering ? velocity * 0.15 : velocity;
+            if (Math.abs(velocity) > 0.06) velocity *= 0.95;
+            else if (!reduced) velocity = velocity < 0 ? -0.06 : 0.06;
+        }
+        ring.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(-6deg) rotateY(${angle}deg)`;
+        requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+    carousel.addEventListener('pointerenter', () => { hovering = true; });
+    carousel.addEventListener('pointerleave', () => { hovering = false; });
+    carousel.addEventListener('pointerdown', (event) => {
+        dragging = true;
+        lastX = event.clientX;
+        carousel.setPointerCapture(event.pointerId);
+    });
+    carousel.addEventListener('pointermove', (event) => {
+        if (!dragging) return;
+        const delta = event.clientX - lastX;
+        lastX = event.clientX;
+        angle += delta * 0.25;
+        velocity = delta * 0.25;
+    });
+    const release = () => { dragging = false; };
+    carousel.addEventListener('pointerup', release);
+    carousel.addEventListener('pointercancel', release);
+    // Only follow a card link when the pointer did not drag.
+    let downX = 0;
+    carousel.addEventListener('pointerdown', (event) => { downX = event.clientX; }, true);
+    carousel.addEventListener('click', (event) => { if (Math.abs(event.clientX - downX) > 6) event.preventDefault(); }, true);
+
+    // ---- daily picks (same for everyone, changes at midnight UTC)
+    const day = Math.floor(Date.now() / 86400000);
+    const { classics } = JSON.parse(document.getElementById('home-data').textContent);
+    const pair = classics[day % classics.length];
+    loadAnimalIndex().then((list) => {
+        const bySlug = new Map(list.map((animal) => [animal.s, animal]));
+        const a = bySlug.get(pair[0]);
+        const b = bySlug.get(pair[1]);
+        if (a && b) {
+            const daily = document.querySelector('[data-daily]');
+            daily.href = `/compare/${pair[0]}-vs-${pair[1]}`;
+            daily.querySelector('.d-a').src = a.m; daily.querySelector('.d-a').removeAttribute('srcset');
+            daily.querySelector('.d-b').src = b.m; daily.querySelector('.d-b').removeAttribute('srcset');
+            daily.querySelector('[data-daily-title]').textContent = `${a.n} vs ${b.n}`;
+        }
+        const pool = list.filter((animal) => animal.res);
+        const pick = pool[(day * 7919) % pool.length];
+        if (pick) {
+            const aotd = document.querySelector('[data-aotd]');
+            aotd.href = `/stats/${pick.s}`;
+            const img = aotd.querySelector('.aotd-img');
+            img.src = pick.m; img.removeAttribute('srcset');
+            aotd.querySelector('[data-aotd-name]').textContent = pick.n;
+            aotd.querySelector('[data-aotd-meta]').textContent = `#${pick.r} · ${pick.tier} tier · PWR ${Number.isInteger(pick.p) ? pick.p : pick.p.toFixed(1)}`;
+        }
+    });
+</script>
+
+<style>
+    .home { grid-template-columns: minmax(340px, 0.8fr) minmax(0, 1.2fr); max-width: 1500px; margin: 0 auto; align-items: stretch; }
+    .menu-col { min-height: 0; display: flex; flex-direction: column; gap: 12px; padding: clamp(4px, 1vw, 12px); }
+    .logo-block { display: flex; align-items: center; gap: 14px; }
+    .logo-block img { width: clamp(76px, 8vw, 112px); height: auto; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6)); animation: float 6s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-5px); } }
+    .logo-block h1 { font-size: clamp(2rem, 3.6vw, 3.4rem); }
+    .tag { margin: 6px 0 0; font-family: var(--font-display); font-size: 1rem; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cyan-2); }
+    .intro { margin: 0; font-size: 0.9rem; color: var(--text-2); max-width: 52ch; }
+    .main-menu { display: grid; gap: 8px; }
+    .mm {
+        --c1: #22325f; --c2: #131d3d; --edge: #080d20;
+        display: flex; align-items: center; gap: 14px;
+        padding: 10px 18px;
+        background: linear-gradient(180deg, var(--c1), var(--c2));
+        clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.16), inset 0 -4px 0 var(--edge);
+        transition: transform 0.15s var(--ease), filter 0.15s;
+    }
+    .mm:hover { transform: translateX(6px); filter: brightness(1.18); }
+    .mm img { transition: transform 0.25s var(--spring); }
+    .mm:hover img { transform: scale(1.12) rotate(-6deg); }
+    .mm b { display: block; font-family: var(--font-display); font-size: clamp(1.25rem, 1.8vw, 1.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1; transform: skewX(-6deg); }
+    .mm small { font-size: 0.74rem; color: var(--text-2); }
+    .mm.primary { --c1: #ffa24d; --c2: #ff5f00; --edge: #a13a00; color: #1d0800; padding: 14px 18px; }
+    .mm.primary small { color: #3b1500; }
+    .mm.primary b { font-size: clamp(1.5rem, 2.2vw, 2rem); }
+    .home-search { cursor: text; gap: 10px; color: var(--muted); text-align: left; }
+    .home-search span { flex: 1; }
+
+    .show-col { min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto auto; gap: 12px; }
+    .carousel { --radius: 470px; position: relative; min-height: 0; perspective: 1600px; display: grid; place-items: center; cursor: grab; touch-action: pan-y; user-select: none; }
+    .carousel::before { content: ""; position: absolute; left: 12%; right: 12%; bottom: 6%; height: 22%; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 190, 90, 0.35), rgba(0, 212, 255, 0.12) 55%, transparent 75%); transform: perspective(500px) rotateX(66deg); }
+    .carousel::after { content: ""; position: absolute; left: 50%; top: -10%; width: 60%; height: 90%; transform: translateX(-50%); background: conic-gradient(from 180deg at 50% 0%, transparent 42%, rgba(255, 220, 150, 0.10) 47%, rgba(255, 220, 150, 0.18) 50%, rgba(255, 220, 150, 0.10) 53%, transparent 58%); pointer-events: none; }
+    .carousel:active { cursor: grabbing; }
+    .ring { position: relative; z-index: 1; width: 196px; height: 261px; transform-style: preserve-3d; }
+    .slot { position: absolute; inset: 0; transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--radius)); backface-visibility: hidden; }
+    .slot :global(.card) { width: 100%; height: 100%; }
+    .ring-hint { position: absolute; bottom: 4px; margin: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+
+    .tiles { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 12px; }
+    .tile { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; min-height: 150px; transition: transform 0.18s var(--ease), filter 0.18s; }
+    .tile:hover { transform: translateY(-3px); filter: brightness(1.1); }
+    .tile-k { display: flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan-2); }
+    .tile strong { font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; text-transform: uppercase; line-height: 1.05; }
+    .tile small { font-size: 0.78rem; color: var(--text-2); }
+    .daily-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 4px; }
+    .daily-row :global(img) { width: 100%; height: 64px; object-fit: contain; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); }
+    .daily-row :global(.d-b) { transform: scaleX(-1); }
+    .daily-row em { font-style: normal; font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; color: var(--orange); }
+    .aotd-row { display: flex; align-items: center; gap: 10px; }
+    .aotd-row :global(img) { width: 96px; height: 72px; object-fit: contain; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); }
+    .aotd-row strong { display: block; }
+    .roblox .tile-k { color: var(--orange-2); }
+    .roblox .btn { margin-top: auto; align-self: flex-start; }
+
+    .ticker { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 6px 10px; background: rgba(4, 7, 18, 0.65); border: 1px solid var(--line); border-radius: 10px; }
+    .tk-label { display: flex; align-items: center; gap: 6px; flex-shrink: 0; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-2); }
+    .tk-track { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    .tk-run { display: flex; gap: 22px; width: max-content; animation: marquee 40s linear infinite; }
+    .tk-run a { font-size: 0.82rem; font-weight: 700; white-space: nowrap; color: var(--text-2); }
+    .tk-run a:hover { color: #fff; }
+    .tk-run b { color: var(--gold-2); font-family: var(--font-display); }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    @media (max-width: 1100px) { .carousel { --radius: 380px; } .ring { width: 160px; height: 213px; } }
+    @media (max-width: 900px) {
+        .home { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); overflow-y: auto; }
+        .menu-col { gap: 8px; }
+        .intro, .home-search { display: none; }
+        .main-menu { grid-template-columns: 1fr 1fr; gap: 6px; }
+        .mm { padding: 8px 12px; gap: 8px; }
+        .mm.primary { grid-column: 1 / -1; }
+        .mm small { display: none; }
+        .mm :global(img) { width: 30px; height: 30px; }
+        .show-col { grid-template-rows: 240px auto; }
+        .carousel { --radius: 240px; }
+        .ring { width: 108px; height: 144px; }
+        .ring-hint, .ticker { display: none; }
+        .tiles { grid-template-columns: 1fr 1fr; }
+        .tiles .roblox { grid-column: 1 / -1; min-height: 0; }
+        .tile { min-height: 0; }
+    }
+</style>

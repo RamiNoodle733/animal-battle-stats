@@ -32,31 +32,31 @@
     },
     {
       "source": "/profile",
-      "destination": "/"
+      "destination": "/app"
     },
     {
       "source": "/login",
-      "destination": "/"
+      "destination": "/app"
     },
     {
       "source": "/signup",
-      "destination": "/"
+      "destination": "/app"
     },
     {
       "source": "/forgot-password",
-      "destination": "/"
+      "destination": "/app"
     },
     {
       "source": "/reset-password",
-      "destination": "/"
+      "destination": "/app"
     },
     {
       "source": "/battlepoints",
-      "destination": "/"
+      "destination": "/app"
     },
     {
       "source": "/profile/:username",
-      "destination": "/"
+      "destination": "/app"
     },
     {
       "source": "/community/:tab",
@@ -142,6 +142,11 @@
     {
       "source": "/battle",
       "destination": "/compare",
+      "permanent": true
+    },
+    {
+      "source": "/methodology",
+      "destination": "/about#model",
       "permanent": true
     }
   ]

@@ -1,6 +1,17 @@
 #!/usr/bin/env node
 'use strict';
 
+// Production build. Output: dist/ (Vercel's outputDirectory).
+//
+//  1. guard against sensitive exports
+//  2. refresh canonical data from the research reports
+//  3. encode responsive image variants and social cards
+//  4. build every static page with Astro (.cache/astro-dist)
+//  5. render legacy single-page-app shells only for routes Astro does not own
+//  6. assemble an allowlisted dist/, write sitemap.xml + version.json, minify
+//
+// Generated HTML is never committed; tests that inspect pages read dist/.
+
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
@@ -8,112 +19,78 @@ const { transformSync } = require('esbuild');
 
 const repoRoot = path.resolve(__dirname, '..');
 const outputRoot = path.join(repoRoot, 'dist');
+const astroOut = path.join(repoRoot, '.cache', 'astro-dist');
+const variantsOut = path.join(repoRoot, '.cache', 'image-variants');
+const ogOut = path.join(repoRoot, '.cache', 'og');
 
-const rootFiles = Object.freeze([
-    'index.html',
-    'about.html',
-    'methodology.html',
-    'community.html',
-    'compare.html',
-    'rankings.html',
-    'stats.html',
-    'tournament.html',
-    'community-page.css',
-    'compare-page.css',
-    'tournament-v4.css',
-    'manifest.json',
-    'robots.txt',
-    'sitemap.xml',
-    'animal_stats.json'
+// Legacy app routes and the shell file each one is served from.
+const SPA_ROUTES = Object.freeze([
+    { route: '/', file: 'index.html' },
+    { route: '/stats', file: 'stats.html' },
+    { route: '/compare', file: 'compare.html' },
+    { route: '/rankings', file: 'rankings.html' },
+    { route: '/community', file: 'community.html' },
+    { route: '/tournament', file: 'tournament.html' }
 ]);
 
-const directoryExtensions = Object.freeze({
+const ROOT_FILES = Object.freeze(['manifest.json', 'robots.txt', 'animal_stats.json']);
+const PUBLIC_DATA = Object.freeze(['ne_110m_land.geojson', 'game-balance.json', 'animal-profiles.json', 'roblox-game.json']);
+const COPY_DIRS = Object.freeze({
     css: new Set(['.css']),
     js: new Set(['.js']),
-    data: new Set(['.geojson', '.json']),
-    images: new Set(['.jpg', '.jpeg', '.png', '.svg', '.webp', '.avif', '.gif', '.json']),
-    stats: new Set(['.html'])
+    images: new Set(['.jpg', '.jpeg', '.png', '.svg', '.webp', '.avif', '.gif', '.json'])
 });
 
-function assertSafeOutputPath(targetPath) {
-    const resolved = path.resolve(targetPath);
-    const relative = path.relative(outputRoot, resolved);
+function run(script, args = []) {
+    execFileSync(process.execPath, [path.join(repoRoot, script), ...args], { cwd: repoRoot, stdio: 'inherit', env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1' } });
+}
 
+function assertSafeOutputPath(targetPath) {
+    const relative = path.relative(outputRoot, path.resolve(targetPath));
     if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) {
         throw new Error(`Unsafe deployment output path: ${targetPath}`);
     }
-
     if (/site-activity|activity-exports?|sensitive-exports?/i.test(relative)) {
         throw new Error(`Sensitive export path rejected from deployment: ${relative}`);
     }
 }
 
-function copyFile(relativePath) {
-    const source = path.join(repoRoot, relativePath);
-    const destination = path.join(outputRoot, relativePath);
-
-    if (!fs.existsSync(source) || !fs.statSync(source).isFile()) {
-        throw new Error(`Required deployment file is missing: ${relativePath}`);
-    }
-
+function copyFile(source, relativeDestination) {
+    const destination = path.join(outputRoot, relativeDestination);
     assertSafeOutputPath(destination);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     fs.copyFileSync(source, destination);
 }
 
-function copyAllowedDirectory(directory, allowedExtensions) {
-    const sourceRoot = path.join(repoRoot, directory);
-    if (!fs.existsSync(sourceRoot)) {
-        throw new Error(`Required deployment directory is missing: ${directory}`);
+function walk(directory, visit) {
+    if (!fs.existsSync(directory)) return;
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+        const absolute = path.join(directory, entry.name);
+        if (entry.isSymbolicLink()) continue;
+        if (entry.isDirectory()) walk(absolute, visit);
+        else if (entry.isFile()) visit(absolute);
     }
+}
 
-    const pending = [sourceRoot];
-    while (pending.length > 0) {
-        const current = pending.pop();
-        const entries = fs.readdirSync(current, { withFileTypes: true });
-
-        for (const entry of entries) {
-            const absolutePath = path.join(current, entry.name);
-            if (entry.isSymbolicLink()) continue;
-            if (entry.isDirectory()) {
-                pending.push(absolutePath);
-                continue;
-            }
-            if (!entry.isFile()) continue;
-
-            const extension = path.extname(entry.name).toLowerCase();
-            if (!allowedExtensions.has(extension)) continue;
-
-            copyFile(path.relative(repoRoot, absolutePath));
-        }
-    }
+function copyTree(sourceRoot, destinationPrefix, allowed = null) {
+    walk(sourceRoot, (file) => {
+        if (allowed && !allowed.has(path.extname(file).toLowerCase())) return;
+        copyFile(file, path.join(destinationPrefix, path.relative(sourceRoot, file)));
+    });
 }
 
 function decodeTextAsset(buffer) {
-    if (buffer[0] === 0xff && buffer[1] === 0xfe) {
-        return buffer.subarray(2).toString('utf16le');
-    }
+    if (buffer[0] === 0xff && buffer[1] === 0xfe) return buffer.subarray(2).toString('utf16le');
     return buffer.toString('utf8');
 }
 
-function minifyDeploymentAssets() {
-    const pending = [outputRoot];
+function minifyLegacyAssets() {
     let optimized = 0;
-
-    while (pending.length > 0) {
-        const current = pending.pop();
-        for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-            const absolutePath = path.join(current, entry.name);
-            if (entry.isDirectory()) {
-                pending.push(absolutePath);
-                continue;
-            }
-            if (!entry.isFile()) continue;
-
-            const extension = path.extname(entry.name).toLowerCase();
-            if (extension !== '.css' && extension !== '.js') continue;
-
-            const result = transformSync(decodeTextAsset(fs.readFileSync(absolutePath)), {
+    for (const directory of ['css', 'js']) {
+        walk(path.join(outputRoot, directory), (file) => {
+            const extension = path.extname(file).toLowerCase();
+            if (extension !== '.css' && extension !== '.js') return;
+            const result = transformSync(decodeTextAsset(fs.readFileSync(file)), {
                 loader: extension === '.css' ? 'css' : 'js',
                 target: 'es2020',
                 legalComments: 'none',
@@ -122,11 +99,10 @@ function minifyDeploymentAssets() {
                 // Classic client scripts share public globals across files.
                 minifyIdentifiers: extension === '.css'
             });
-            fs.writeFileSync(absolutePath, result.code, 'utf8');
+            fs.writeFileSync(file, result.code, 'utf8');
             optimized += 1;
-        }
+        });
     }
-
     return optimized;
 }
 
@@ -134,35 +110,57 @@ if (path.dirname(outputRoot) !== repoRoot || path.basename(outputRoot) !== 'dist
     throw new Error(`Refusing to clear unexpected output directory: ${outputRoot}`);
 }
 
-execFileSync(process.execPath, [
-    path.join(repoRoot, 'scripts', 'security', 'check-sensitive-exports.js'),
-    '--workspace'
-], {
+// 1-4: inputs and static pages
+run('scripts/security/check-sensitive-exports.js', ['--workspace']);
+run('scripts/research/import-research.js');
+run('scripts/images/build-variants.js');
+if (fs.existsSync(path.join(repoRoot, 'scripts/images/build-og.js'))) run('scripts/images/build-og.js');
+fs.rmSync(astroOut, { recursive: true, force: true });
+execFileSync(process.execPath, [path.join(repoRoot, 'node_modules', 'astro', 'bin', 'astro.mjs'), 'build'], {
     cwd: repoRoot,
-    stdio: 'inherit'
-});
-execFileSync(process.execPath, [path.join(repoRoot, 'scripts', 'prerender-seo-pages.mjs')], {
-    cwd: repoRoot,
-    stdio: 'inherit'
-});
-execFileSync(process.execPath, [path.join(repoRoot, 'scripts', 'generate-sitemap.mjs')], {
-    cwd: repoRoot,
-    stdio: 'inherit'
-});
-execFileSync(process.execPath, [path.join(repoRoot, 'scripts', 'version', 'check-site-version.js')], {
-    cwd: repoRoot,
-    stdio: 'inherit'
+    stdio: 'inherit',
+    env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1' }
 });
 
+// 5: legacy app shells for routes that do not have an Astro page yet
+const { renderHtml } = require('../lib/seo-renderer.js');
+const spaFiles = [];
+for (const { route, file } of SPA_ROUTES) {
+    if (fs.existsSync(path.join(astroOut, file))) continue;
+    const html = renderHtml(route);
+    if (!html) throw new Error(`No app shell rendered for ${route}`);
+    spaFiles.push([file, html]);
+}
+// app.html serves sign-in, profile and other app-only routes (see vercel.json).
+const appShell = renderHtml('/tournament')
+    .replace(/<link rel="canonical"[^>]*>\s*/i, '')
+    .replace('</head>', '<meta name="robots" content="noindex, follow">\n</head>');
+spaFiles.push(['app.html', appShell]);
+
+// 6: assemble dist/
 fs.rmSync(outputRoot, { recursive: true, force: true });
 fs.mkdirSync(outputRoot, { recursive: true });
+copyTree(astroOut, '.');
+for (const [file, html] of spaFiles) {
+    const destination = path.join(outputRoot, file);
+    assertSafeOutputPath(destination);
+    fs.writeFileSync(destination, html);
+}
+for (const [directory, allowed] of Object.entries(COPY_DIRS)) {
+    copyTree(path.join(repoRoot, directory), directory, allowed);
+}
+copyTree(variantsOut, path.join('images', 'animals', 'v'), new Set(['.webp']));
+copyTree(ogOut, path.join('images', 'og'), new Set(['.jpg', '.png']));
+for (const file of ROOT_FILES) {
+    const source = path.join(repoRoot, file);
+    if (fs.existsSync(source)) copyFile(source, file);
+}
+for (const file of PUBLIC_DATA) {
+    const source = path.join(repoRoot, 'data', file);
+    if (fs.existsSync(source)) copyFile(source, path.join('data', file));
+}
 
-rootFiles.forEach(copyFile);
-Object.entries(directoryExtensions).forEach(([directory, extensions]) => {
-    copyAllowedDirectory(directory, extensions);
-});
-
-const optimizedAssetCount = minifyDeploymentAssets();
+const optimizedAssetCount = minifyLegacyAssets();
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(repoRoot, 'package.json'), 'utf8'));
 let commit = process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || null;
@@ -173,31 +171,14 @@ if (!commit) {
         commit = null;
     }
 }
-fs.writeFileSync(path.join(outputRoot, 'version.json'), `${JSON.stringify({
-    version: packageJson.version,
-    commit,
-    builtAt: new Date().toISOString()
-}, null, 2)}\n`, 'utf8');
+fs.writeFileSync(path.join(outputRoot, 'version.json'), `${JSON.stringify({ version: packageJson.version, commit, builtAt: new Date().toISOString() }, null, 2)}\n`);
+
+run('scripts/generate-sitemap.mjs');
+run('scripts/version/check-site-version.js');
 
 const deployedFiles = [];
-const pending = [outputRoot];
-while (pending.length > 0) {
-    const current = pending.pop();
-    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-        const absolutePath = path.join(current, entry.name);
-        if (entry.isDirectory()) pending.push(absolutePath);
-        if (entry.isFile()) deployedFiles.push(path.relative(outputRoot, absolutePath).replace(/\\/g, '/'));
-    }
-}
+walk(outputRoot, (file) => deployedFiles.push(path.relative(outputRoot, file).replace(/\\/g, '/')));
+const forbidden = deployedFiles.filter((file) => /site-activity|activity-exports?|sensitive-exports?/i.test(file) || file.toLowerCase().endsWith('.csv'));
+if (forbidden.length) throw new Error(`Forbidden files reached deployment output: ${forbidden.join(', ')}`);
 
-const forbidden = deployedFiles.filter((file) => (
-    /site-activity|activity-exports?|sensitive-exports?/i.test(file)
-    || file.toLowerCase().endsWith('.csv')
-));
-
-if (forbidden.length > 0) {
-    throw new Error(`Forbidden files reached deployment output: ${forbidden.join(', ')}`);
-}
-
-console.log(`Production allowlist built ${deployedFiles.length} files into dist/.`);
-console.log(`Minified ${optimizedAssetCount} deployment CSS/JavaScript assets without changing source files.`);
+console.log(`Production build: ${deployedFiles.length} files in dist/ (${spaFiles.length} app shells, ${optimizedAssetCount} legacy assets minified).`);

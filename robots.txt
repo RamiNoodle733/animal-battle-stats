@@ -1,25 +1,55 @@
 # Animal Battle Stats - robots.txt
 # https://animalbattlestats.com
+# Search engines and AI assistants are welcome to read and cite every public page.
+# A plain-text guide for AI assistants: https://animalbattlestats.com/llms.txt
 
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /app
 
-# Search discovery is independent of training policy.
-User-agent: OAI-SearchBot
-Allow: /
-
-# Existing training policy is preserved; this is not a search requirement.
-User-agent: GPTBot
-Allow: /
-
+# Search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-# Point to sitemap
-Sitemap: https://animalbattlestats.com/sitemap.xml
+User-agent: DuckDuckBot
+Allow: /
 
-# Crawl delay (optional - be nice to the server)
-Crawl-delay: 1
+User-agent: Applebot
+Allow: /
+
+# AI search and assistants
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://animalbattlestats.com/sitemap.xml

@@ -1,184 +1,132 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { STATS, TIERS, POWER_WEIGHTS, researchedCount, sourceCount, lastResearchDate, animals } from '../lib/catalog.js';
+import { SITE, SOCIAL, absoluteUrl } from '../lib/site.js';
 
-const canonical = 'https://animalbattlestats.com/about';
-const title = 'Methodology, Sources, and About | Animal Battle Stats';
-const description = 'How Animal Battle Stats defines comparative ratings, reviews wildlife facts, handles sources and images, and corrects the 225-animal dataset.';
-const updated = '2026-08-24';
-const sources = [
-    {
-        name: 'Catalogue of Life',
-        use: 'Taxonomic names and classification cross-checks',
-        href: 'https://www.catalogueoflife.org/about/catalogueoflife'
-    },
-    {
-        name: 'Animal Diversity Web',
-        use: 'Natural history, distribution, behavior, and bibliography discovery',
-        href: 'https://animaldiversity.org/about/'
-    },
-    {
-        name: 'IUCN Red List',
-        use: 'Reviewed species assessments and conservation context',
-        href: 'https://nrl.iucnredlist.org/assessment/process'
-    },
-    {
-        name: 'NOAA Fisheries Species Directory',
-        use: 'Marine-species identity, biology, range, and status cross-checks',
-        href: 'https://www.fisheries.noaa.gov/species-directory'
-    }
+const title = `About Animal Battle Stats: How the Ratings, Tiers and Matchups Work | ${SITE.name}`;
+const description = 'How Animal Battle Stats researches 225 animals, turns sources into six 0-100 battle ratings, builds the power index and tiers, and predicts who would win.';
+const pct = (value) => `${Math.round(value * 100)}%`;
+const faq = [
+    { q: 'What is Animal Battle Stats?', a: `Animal Battle Stats (animalbattlestats.com) is a free animal powerscaling site. It rates ${animals.length} real animals on six battle stats, ranks them into tiers, and predicts hypothetical matchups. ${researchedCount} animals have full research profiles with cited sources.` },
+    { q: 'Are the battle ratings scientific measurements?', a: 'No. Measurements such as weight, speed and bite force come from sources. The six battle ratings are editorial judgments built from that research, on one absolute scale so every animal can be compared.' },
+    { q: 'Is it pound-for-pound?', a: 'No. Ratings are absolute. An ant is incredibly strong for its size and still rates far below a gorilla, because a real fight is about absolute force, weapons and durability.' },
+    { q: 'Which animal is rated for males or females?', a: 'Each profile rates a healthy adult. When one sex is clearly larger or does the fighting, that sex is used: usually males, but females for species like eagles, most spiders and anacondas.' },
+    { q: 'Does the higher power index always win?', a: 'No. The matchup model gives the stronger animal better odds, not a guarantee, and it ignores terrain, ambush and motivation. Those are exactly what the written verdicts discuss.' },
+    { q: 'Who made Animal Battle Stats?', a: `${SITE.founder} designed and built Animal Battle Stats as an animal powerscaling and community project, with a companion game on Roblox.` }
 ];
-const definitions = [
-    ['Attack', 'Capacity to inflict damage using natural weapons, striking force, bite, venom, constriction, or comparable offensive tools.'],
-    ['Defense', 'Protection and durability from armor, hide, shell, body mass, pain tolerance, and resistance to an opponent’s attacks.'],
-    ['Agility', 'Acceleration, reflexes, turning, balance, and control of movement—not simply top speed.'],
-    ['Stamina', 'Ability to sustain exertion, recover, and keep functioning during a prolonged encounter.'],
-    ['Intelligence', 'Problem solving, learning, tactical flexibility, perception, communication, and useful social coordination.'],
-    ['Special', 'Unusual matchup-changing tools that do not fit cleanly elsewhere, such as venom, electricity, camouflage, echolocation, or regeneration.']
+const jsonLd = [
+    { '@type': 'AboutPage', url: absoluteUrl('/about'), name: 'About Animal Battle Stats', description, isPartOf: { '@id': `${SITE.url}/#website` } },
+    { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }
 ];
-const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-        {
-            '@type': 'AboutPage',
-            name: 'Animal Battle Stats methodology and source policy',
-            description,
-            url: canonical,
-            dateModified: updated,
-            isPartOf: { '@type': 'WebSite', name: 'Animal Battle Stats', url: 'https://animalbattlestats.com/' },
-            creator: { '@type': 'Person', name: 'Rami Abdelrazzaq' },
-            mainEntity: { '@id': `${canonical}#dataset` }
-        },
-        {
-            '@id': `${canonical}#dataset`,
-            '@type': 'Dataset',
-            name: 'Animal Battle Stats comparative animal dataset',
-            description: 'A versioned collection of wildlife facts and editorial 0–100 ratings for hypothetical animal matchups.',
-            url: 'https://animalbattlestats.com/stats',
-            dateModified: updated,
-            measurementTechnique: 'Published wildlife references are reviewed for factual fields; six comparative battle ratings are normalized editorial judgments rather than scientific measurements.',
-            variableMeasured: definitions.map(([name, definition]) => ({ '@type': 'PropertyValue', name, description: definition })),
-            citation: sources.map((source) => source.href),
-            creator: { '@type': 'Person', name: 'Rami Abdelrazzaq' }
-        },
-        {
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://animalbattlestats.com/' },
-                { '@type': 'ListItem', position: 2, name: 'Methodology and About', item: canonical }
-            ]
-        }
-    ]
-};
+const TABS = [['about', 'About', 'paw'], ['ratings', 'Ratings', 'claws'], ['model', 'Matchups', 'vs'], ['sources', 'Sources', 'scroll'], ['faq', 'FAQ', 'book']];
+const sourcesList = [
+    ['Animal Diversity Web (University of Michigan)', 'https://animaldiversity.org/'],
+    ['IUCN Red List', 'https://www.iucnredlist.org/'],
+    ['Smithsonian National Zoo', 'https://nationalzoo.si.edu/'],
+    ['San Diego Zoo Wildlife Alliance', 'https://animals.sandiegozoo.org/'],
+    ['NOAA Fisheries', 'https://www.fisheries.noaa.gov/'],
+    ['Peer-reviewed papers (linked per animal)', '/stats']
+];
 ---
 
-<SiteLayout
-    title={title}
-    description={description}
-    canonical={canonical}
-    jsonLd={jsonLd}
-    styles={['/css/pages/about-static.css']}
-    footerLabel="Methodology and source policy"
->
-    <main id="main-content" class="about-main">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Methodology &amp; About</span></nav>
-
-        <section class="about-hero" aria-labelledby="about-title">
-            <div>
-                <p class="about-kicker">SYSTEM DOCUMENT / METHODOLOGY</p>
-                <h1 id="about-title">The rules behind the ratings.</h1>
-                <p class="about-lede">Animal Battle Stats combines real wildlife facts with a transparent editorial model for hypothetical matchups. Facts and ratings are not the same thing—and this page keeps that line visible.</p>
-                <div class="about-actions">
-                    <a class="about-action-primary" href="/stats">Explore animal profiles</a>
-                    <a href="/compare">Open the comparison arena</a>
-                    <a href="/methodology">Battle model formula</a>
-                </div>
-            </div>
-            <aside class="status-card" aria-label="Dataset status">
-                <span>DATASET STATUS</span>
-                <strong>225 profiles</strong>
-                <dl>
-                    <div><dt>Rating scale</dt><dd>0–100</dd></div>
-                    <div><dt>Release model</dt><dd>Versioned</dd></div>
-                    <div><dt>Last policy update</dt><dd><time datetime={updated}>August 24, 2026</time></dd></div>
+<Base title={title} description={description} path="/about" jsonLd={jsonLd} biome="forest">
+    <div class="info screen-grid">
+        <aside class="panel side">
+            <div class="panel-head"><Icon name="book" size={30} /><h1 class="panel-title">About ABS</h1></div>
+            <div class="panel-body">
+                <p class="lede">The animal powerscaling database: real animals, researched stats, and a transparent way to settle "who would win".</p>
+                <dl class="facts-grid">
+                    <div><dt>Animals</dt><dd>{animals.length}</dd></div>
+                    <div><dt>Researched</dt><dd>{researchedCount}</dd></div>
+                    <div><dt>Sources cited</dt><dd>{sourceCount.toLocaleString('en-US')}</dd></div>
+                    <div><dt>Last research</dt><dd style="font-size:1rem">{lastResearchDate || '—'}</dd></div>
                 </dl>
-                <p>Per-field citation migration is in progress. Legacy entries without complete source trails remain labeled as editorial data, not proven scientific measurements.</p>
-            </aside>
-        </section>
-
-        <section class="about-section" aria-labelledby="model-title">
-            <div class="about-section-heading"><p>THE MODEL</p><h2 id="model-title">What each battle stat means</h2><span>Comparative ratings, not laboratory units</span></div>
-            <div class="definition-grid">
-                {definitions.map(([name, definition], index) => (
-                    <article><span>{String(index + 1).padStart(2, '0')}</span><h3>{name}</h3><p>{definition}</p></article>
-                ))}
+                <div class="btn-row" style="margin-top:14px">
+                    <a class="btn btn-cyan btn-sm" href={`https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml`} rel="noopener" target="_blank">Report a correction</a>
+                    <a class="btn btn-sm" href={`mailto:${SITE.email}`}>Email us</a>
+                </div>
+                <div class="socials">{SOCIAL.map((item) => <a class="chip" href={item.url} rel="me noopener" target="_blank">{item.name}</a>)}</div>
             </div>
-        </section>
+        </aside>
 
-        <section class="process-grid" aria-label="Profile methodology">
-            <article class="about-section process-card">
-                <div class="about-section-heading"><p>WORKFLOW</p><h2>How a profile is built</h2></div>
-                <ol class="process-list">
-                    <li><strong>Identify the animal.</strong><span>Confirm the common name, scientific name, and intended taxon.</span></li>
-                    <li><strong>Review factual ranges.</strong><span>Compare credible references for adult size, mass, movement, defenses, natural weapons, behavior, and habitat.</span></li>
-                    <li><strong>Resolve context.</strong><span>Prefer representative healthy adults and explain sex, age, region, or environment differences when they materially change a matchup.</span></li>
-                    <li><strong>Assign comparative ratings.</strong><span>Translate the reviewed profile into six 0–100 editorial scores, avoiding double-counting the same advantage across categories.</span></li>
-                    <li><strong>Version and correct.</strong><span>Publish changes in a numbered release and revise records when stronger evidence or a clear error is found.</span></li>
+        <section class="panel doc">
+            <div class="tabs" role="tablist">
+                {TABS.map(([id, label, icon], index) => <button type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-controls={`p-${id}`} data-tab={id}><Icon name={icon} size={22} />{label}</button>)}
+            </div>
+            <div class="pane scroll prose" id="p-about" role="tabpanel">
+                <h2 class="pane-h">What this is</h2>
+                <p>Animal Battle Stats rates {animals.length} real animals, from army ants to the Megalodon, on six battle stats. Every rating sits on one absolute 0–100 scale, so a house cat and a hippo can be compared directly. The stats power the tier list, the rankings, the matchup simulator and the Animal Battle Stats game on Roblox.</p>
+                <p>Each animal is researched from scratch: size, weapons, defenses, senses, behavior and real fighting records, with sources listed on its profile. A healthy adult of the stronger or fighting sex is the reference specimen.</p>
+                <h2 class="pane-h">How a profile is built</h2>
+                <ol>
+                    <li><b>Pin down the animal.</b> Common name, exact species and the specimen being rated.</li>
+                    <li><b>Collect measurements.</b> Weight, size, speed, lifespan and bite force from zoos, universities, agencies and papers. Values without solid evidence are left blank instead of guessed.</li>
+                    <li><b>Study how it fights.</b> Weapons, defenses, endurance, senses, tactics and known conflicts.</li>
+                    <li><b>Rate it.</b> Twelve detailed ratings roll up into the six headline stats, checked against similar animals so the scale stays consistent.</li>
+                    <li><b>Publish and correct.</b> Research updates flow into the site automatically; corrections are welcome.</li>
                 </ol>
-            </article>
-
-            <article class="about-section limits-card">
-                <div class="about-section-heading"><p>BOUNDARIES</p><h2>What the numbers cannot prove</h2></div>
-                <ul class="boundary-list">
-                    <li>There is no universal scientific “attack” or “special” score for an animal.</li>
-                    <li>A single number cannot capture every age, sex, population, terrain, or encounter.</li>
-                    <li>Top speed, body mass, and bite-force reports may be estimates or ranges and can conflict.</li>
-                    <li>Higher total stats do not guarantee a win; matchup mechanics and environment still matter.</li>
-                    <li>The site is an educational powerscaling project, not veterinary, wildlife-handling, or safety advice.</li>
-                </ul>
-            </article>
-        </section>
-
-        <section class="about-section" aria-labelledby="sources-title">
-            <div class="about-section-heading"><p>REFERENCE POLICY</p><h2 id="sources-title">How sources are selected</h2><span>Prefer named, reviewable records over unattributed summaries</span></div>
-            <p class="section-intro">These resources are starting points and cross-checks, not a claim that one database settles every field. Individual records should ultimately link to the exact pages, papers, or institutional references used.</p>
-            <div class="source-grid">
-                {sources.map((source) => (
-                    <a href={source.href} rel="noreferrer">
-                        <span>EXTERNAL REFERENCE</span><h3>{source.name}</h3><p>{source.use}</p><strong>Visit source →</strong>
-                    </a>
-                ))}
             </div>
-            <div class="source-rules">
-                <h3>Conflict rule</h3>
-                <p>When reputable sources disagree, the profile should show a range or explain the context instead of silently choosing the most dramatic value. Scientific names are cross-checked separately from combat interpretation.</p>
+            <div class="pane scroll prose" id="p-ratings" role="tabpanel" hidden>
+                <h2 class="pane-h" id="ratings">The six battle stats</h2>
+                <div class="stat-defs">
+                    {STATS.map((stat) => <div class={stat.cls}><b>{stat.label}</b><span>{stat.blurb}</span></div>)}
+                </div>
+                <h2 class="pane-h">Power index &amp; tiers</h2>
+                <p>The power index combines the six stats: attack {pct(POWER_WEIGHTS.attack)}, defense {pct(POWER_WEIGHTS.defense)}, agility {pct(POWER_WEIGHTS.agility)}, stamina {pct(POWER_WEIGHTS.stamina)}, special {pct(POWER_WEIGHTS.special)} and intelligence {pct(POWER_WEIGHTS.intelligence)}. Fighting stats count most because they decide real fights.</p>
+                <div class="tier-key">{TIERS.map((tier) => <span class={`tier-${tier.id.toLowerCase()}`}><i class={`tier-badge tier-${tier.id.toLowerCase()}`}>{tier.id}</i>{tier.name} · power {tier.id === 'F' ? `under ${TIERS[4].min}` : `${tier.min}+`}</span>)}</div>
             </div>
-        </section>
-
-        <section class="about-section image-policy" aria-labelledby="image-policy-title">
-            <div class="about-section-heading"><p>IMAGE STANDARD</p><h2 id="image-policy-title">Real animals, transparent presentation</h2></div>
-            <div class="policy-columns">
-                <div><h3>Replacement standard</h3><p>New animal assets must begin with a real photograph of the correct animal. The subject is isolated onto a genuinely transparent background; cartoons, generated animals, 3D renders, watermarked stock previews, and unrelated species are rejected.</p></div>
-                <div><h3>Traceability</h3><p>Approved replacements record the creator, source page, license, asset checksum, dimensions, and review status. Existing legacy art is being replaced progressively rather than being mislabeled as already verified.</p></div>
+            <div class="pane scroll prose" id="p-model" role="tabpanel" hidden>
+                <h2 class="pane-h" id="model">How "who would win" works</h2>
+                <p>For two animals, each stat gap is multiplied by its weight (the same weights as the power index) and the results are added up. That margin becomes a win probability on a logistic curve, capped between 5% and 95% because upsets happen. The animated fight draws a winner with that probability, so a 70% favorite still loses three fights in ten.</p>
+                <p>The model deliberately ignores terrain, ambush, group fights and motivation. The written verdict on each matchup page calls those out, for example when one animal lives in water and the other on land.</p>
+                <p>Upsets, rematches and fan votes are part of the fun. Fan votes are shown next to the model and never change the ratings.</p>
+            </div>
+            <div class="pane scroll prose" id="p-sources" role="tabpanel" hidden>
+                <h2 class="pane-h">Where the facts come from</h2>
+                <p>Every researched profile lists its own sources with what each one supports. The most common references:</p>
+                <ul>{sourcesList.map(([name, url]) => <li><a href={url} rel="noopener" target={url.startsWith('http') ? '_blank' : undefined}>{name}</a></li>)}</ul>
+                <p>When sources disagree, profiles use a representative adult value and explain the range instead of picking the most dramatic number. Unverified internet figures (like many viral bite-force claims) are rejected.</p>
+                <h2 class="pane-h">Photos</h2>
+                <p>Animal images are real photographs of adult animals with the background removed, from freely licensed sources such as Wikimedia Commons. Photographers and licenses are credited on each profile and on the <a href="/credits">credits page</a>.</p>
+                <h2 class="pane-h">Data for AI assistants</h2>
+                <p>A plain-text summary lives at <a href="/llms.txt">/llms.txt</a>, the full dataset at <a href="/llms-full.txt">/llms-full.txt</a> and <a href="/animal_stats.json">/animal_stats.json</a>. Ratings are free to cite with a link to the animal's page.</p>
+            </div>
+            <div class="pane scroll" id="p-faq" role="tabpanel" hidden>
+                <div class="faq">{faq.map((item, index) => <details open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
             </div>
         </section>
+    </div>
+</Base>
 
-        <section class="about-section corrections" aria-labelledby="corrections-title">
-            <div>
-                <p class="about-kicker">CORRECTIONS / CONTRIBUTIONS</p>
-                <h2 id="corrections-title">Found a bad fact or wrong animal?</h2>
-                <p>Send the animal, claim type, current value, proposed correction, biological context, and exact source. A report creates a review request—not an automatic production edit. Accepted changes are validated and published in a versioned release.</p>
-            </div>
-            <div class="correction-actions">
-                <a href="https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml&amp;title=Data%20correction%3A%20">Open correction form</a>
-                <a href="mailto:animalbattlestats@gmail.com?subject=Animal%20Battle%20Stats%20correction">Send private email</a>
-            </div>
-        </section>
+<script>
+    const tabs = [...document.querySelectorAll('[data-tab]')];
+    function show(id) {
+        for (const tab of tabs) {
+            const on = tab.dataset.tab === id;
+            tab.setAttribute('aria-selected', String(on));
+            document.getElementById(`p-${tab.dataset.tab}`).hidden = !on;
+        }
+    }
+    tabs.forEach((tab) => tab.addEventListener('click', () => { show(tab.dataset.tab); history.replaceState(null, '', `#${tab.dataset.tab === 'about' ? '' : tab.dataset.tab}`); }));
+    const hash = location.hash.slice(1);
+    const map = { ratings: 'ratings', model: 'model', sources: 'sources', faq: 'faq', credits: 'sources' };
+    if (map[hash]) show(map[hash]);
+</script>
 
-        <section class="about-section faq" aria-labelledby="faq-title">
-            <div class="about-section-heading"><p>QUICK ANSWERS</p><h2 id="faq-title">Common questions</h2></div>
-            <details><summary>Are the battle scores scientific measurements?</summary><p>No. Factual fields can be sourced from wildlife references, while the six battle scores are transparent editorial ratings for comparison.</p></details>
-            <details><summary>Does the highest total always win?</summary><p>No. Totals summarize broad capability; size, weapons, environment, behavior, and matchup-specific advantages can change the outcome.</p></details>
-            <details><summary>Who created Animal Battle Stats?</summary><p>Animal Battle Stats was designed and developed by Rami Abdelrazzaq as an evolving animal powerscaling and community project.</p></details>
-        </section>
-    </main>
-</SiteLayout>
+<style>
+    .info { grid-template-columns: minmax(280px, 360px) minmax(0, 1fr); max-width: 1300px; margin: 0 auto; }
+    .side .lede { color: var(--text-2); font-size: 0.95rem; }
+    .socials { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .doc { min-height: 0; }
+    .pane { flex: 1; min-height: 0; padding: 16px 20px; }
+    .pane-h { margin: 14px 0 8px; font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); transform: skewX(-6deg); }
+    .pane ol, .pane ul { padding-left: 20px; display: grid; gap: 6px; }
+    .stat-defs { display: grid; gap: 8px; }
+    .stat-defs div { padding: 10px 12px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-left: 3px solid var(--stat); border-radius: 8px; }
+    .stat-defs b { display: block; font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; color: var(--stat); }
+    .tier-key { display: grid; gap: 6px; }
+    .tier-key span { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+    .tier-key i { font-style: normal; height: 26px; min-width: 28px; font-size: 1rem; }
+    @media (max-width: 860px) { .info { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); } .side .facts-grid, .side .socials { display: none; } }
+</style>

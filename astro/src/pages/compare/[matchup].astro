@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import VsScreen from '../../components/VsScreen.astro';
+import { PAIRS, verdict } from '../../lib/matchups.js';
+import { SITE, absoluteUrl } from '../../lib/site.js';
+
+export function getStaticPaths() {
+    return PAIRS.map((pair) => ({ params: { matchup: pair.slug }, props: { pair } }));
+}
+
+const { pair } = Astro.props;
+const { a, b } = pair;
+const result = verdict(a, b);
+const path = `/compare/${pair.slug}`;
+const title = `${a.name} vs ${b.name}: Who Would Win? | ${SITE.name}`;
+const description = `${result.winner.name} beats the ${result.loser.name} ${result.odds}% of the time in our model (${result.strength.toLowerCase()}). Stat duel, size comparison, speed, bite force and an animated fight.`;
+const jsonLd = [
+    {
+        '@type': 'WebPage',
+        url: absoluteUrl(path),
+        name: `${a.name} vs ${b.name}: who would win?`,
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        about: [
+            { '@type': 'Taxon', name: a.name, scientificName: a.scientific_name, url: absoluteUrl(`/stats/${a.slug}`) },
+            { '@type': 'Taxon', name: b.name, scientificName: b.scientific_name, url: absoluteUrl(`/stats/${b.slug}`) }
+        ]
+    },
+    {
+        '@type': 'FAQPage',
+        mainEntity: [
+            { '@type': 'Question', name: `Who would win, ${a.name} or ${b.name}?`, acceptedAnswer: { '@type': 'Answer', text: `${result.winner.name}. ${result.paragraphs.join(' ')}` } },
+            { '@type': 'Question', name: `Is the ${result.winner.name} stronger than the ${result.loser.name}?`, acceptedAnswer: { '@type': 'Answer', text: `Overall, yes: power index ${result.winner.powerIndex} vs ${result.loser.powerIndex} on the Animal Battle Stats scale.` } }
+        ]
+    },
+    {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+            { '@type': 'ListItem', position: 2, name: 'Who would win', item: absoluteUrl('/compare') },
+            { '@type': 'ListItem', position: 3, name: `${a.name} vs ${b.name}`, item: absoluteUrl(path) }
+        ]
+    }
+];
+---
+<Base title={title} description={description} path={path} image={`/images/og/vs/${pair.slug}.jpg`} imageAlt={`${a.name} vs ${b.name}`} jsonLd={jsonLd} active="compare" biome={result.winner.biome}>
+    <VsScreen a={a} b={b} />
+</Base>
+<script>
+    import '../../scripts/versus.js';
+</script>

@@ -1,6 +1,6 @@
 {
   "name": "animal-battle-stats",
-  "version": "2.21.8",
+  "version": "3.0.0",
   "description": "Animal Battle Stats - a versioned wildlife comparison and animal powerscaling website",
   "main": "api/index.js",
   "scripts": {
@@ -28,7 +28,6 @@
     "verify:ui-stability": "node scripts/verification/verify-ui-stability-browser.js",
     "verify:community": "node scripts/verification/verify-community-browser.js",
     "verify:arcade": "node scripts/verification/verify-arcade-overhaul-browser.js",
-    "seo:prerender": "node scripts/prerender-seo-pages.mjs",
     "astro:build": "astro build",
     "seo:sitemap": "node scripts/generate-sitemap.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
@@ -42,7 +41,7 @@
     "assets:generate-silhouettes": "node scripts/assets/generate-silhouettes.js",
     "research:import": "node scripts/research/import-research.js",
     "research:check": "node scripts/research/import-research.js --check",
-    "preflight": "npm run lint && npm test && npm run perf:budget && npm run version:check && npm run build"
+    "preflight": "npm run lint && npm run build && npm test && npm run perf:budget && npm run version:check"
   },
   "keywords": [
     "animals",
@@ -62,6 +61,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@fontsource-variable/big-shoulders-display": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
     "astro": "7.2.6",
     "dotenv": "^16.3.1",
     "eslint": "^9.39.4",

@@ -53,15 +53,13 @@ function syncHtmlVersion(htmlContent, version, filePath) {
     const portalPattern = /(<span class="portal-version">)v\d+\.\d+\.\d+(<\/span>)/;
     const aboutPattern = /(<p class="about-version">Version )\d+\.\d+\.\d+/;
 
-    if (!portalPattern.test(htmlContent)) {
-        throw new Error(`Could not find portal version markup in ${path.relative(repoRoot, filePath)}`);
+    const metaPattern = /(<meta name="abs-version" content=")\d+\.\d+\.\d+(")/;
+    if (!metaPattern.test(htmlContent)) {
+        throw new Error(`Could not find the abs-version meta tag in ${path.relative(repoRoot, filePath)}`);
     }
 
-    if (!aboutPattern.test(htmlContent)) {
-        throw new Error(`Could not find about version markup in ${path.relative(repoRoot, filePath)}`);
-    }
-
-    let updated = htmlContent.replace(portalPattern, `$1v${version}$2`);
+    let updated = htmlContent.replace(metaPattern, `$1${version}$2`);
+    updated = updated.replace(portalPattern, `$1v${version}$2`);
     updated = updated.replace(aboutPattern, `$1${version}`);
     updated = updated.replace(
         /((?:src|href)=["']\/[^"']+\.(?:js|css))(?:\?v=\d+\.\d+\.\d+)?(["'])/g,
@@ -84,18 +82,9 @@ function syncRouterAssetRevision(version) {
     );
 }
 
+// Only the legacy app shell is committed HTML; every other page is built.
 function getGeneratedHtmlPaths() {
-    const rootPages = fs.readdirSync(repoRoot, { withFileTypes: true })
-        .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
-        .map((entry) => path.join(repoRoot, entry.name));
-    const statsDir = path.join(repoRoot, 'stats');
-    const animalPages = fs.existsSync(statsDir)
-        ? fs.readdirSync(statsDir, { withFileTypes: true })
-            .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
-            .map((entry) => path.join(statsDir, entry.name))
-        : [];
-
-    return [...rootPages, ...animalPages];
+    return [path.join(repoRoot, 'index.html')];
 }
 
 function syncPackageLock(version) {

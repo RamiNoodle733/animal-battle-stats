@@ -1,0 +1,34 @@
+{
+  "name": "Animal Battle Stats",
+  "placeId": null,
+  "universeId": null,
+  "status": "in-development",
+  "pitch": "Collect all 225 real animals as holo-cards, power them up, and settle who would win in flashy 3D battles on floating islands.",
+  "features": [
+    {
+      "title": "Collect 225 real animals",
+      "text": "Every animal on this site is a real-photo holo-card in the game, from army ants to the Megalodon."
+    },
+    {
+      "title": "Battle in a 3D world",
+      "text": "Fly your champion card across eight biome islands (Savanna, Forest, Jungle, Wetlands, Desert, Mountains, Arctic and Ocean) and fight wild animals where they live."
+    },
+    {
+      "title": "Goofy power-scaling",
+      "text": "Hordes and crowd battles settle the classics: 100 army ants against a honey badger, or 30 wolves against an elephant."
+    },
+    {
+      "title": "Live shows and tournaments",
+      "text": "Server-wide Who Would Win? shows, 8-animal tournaments, raids against giant crowds and a daily gauntlet, played out on the Plaza stage for everyone at once."
+    },
+    {
+      "title": "Real stats drive the fights",
+      "text": "Attack, defense, agility and the rest come straight from this database, so research on the site changes the game."
+    },
+    {
+      "title": "No loot boxes",
+      "text": "No packs, no paid odds and nothing you can buy that makes an animal stronger. Rewards come from playing."
+    }
+  ],
+  "updated": "2026-09-24"
+}

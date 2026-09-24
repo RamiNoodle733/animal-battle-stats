@@ -1,0 +1,28 @@
+---
+// Collectible animal card, same idea as the Roblox game's holo-cards:
+// tier frame, biome background, power badge, name plate, glare for 3D tilt.
+import AnimalImage from './AnimalImage.astro';
+import { fmtScore } from '../lib/catalog.js';
+
+const { animal, href, rank = false, priority = false, sizes = '(max-width: 760px) 40vw, 180px', tag = 'a', meta, transition = false } = Astro.props;
+const Tag = tag;
+const tier = animal.tier.toLowerCase();
+---
+<Tag
+    class={`card tier-${tier} bio-${animal.biome}`}
+    href={Tag === 'a' ? (href || `/stats/${animal.slug}`) : undefined}
+    data-slug={animal.slug}
+    style={transition ? `view-transition-name: art-${animal.slug}` : undefined}
+>
+    <span class="card-inner">
+        <span class="card-power"><b>{fmtScore(animal.powerIndex)}</b><small>PWR</small></span>
+        {rank && <span class="card-rank">#{animal.rank}</span>}
+        <span class={`tier-badge tier-${tier}`}>{animal.tier}</span>
+        <span class="card-art"><AnimalImage animal={animal} priority={priority} sizes={sizes} alt="" /></span>
+        <span class="card-plate">
+            <span class="card-name">{animal.name}</span>
+            <span class="card-meta">{meta || animal.class}</span>
+        </span>
+        <span class="card-glare"></span>
+    </span>
+</Tag>

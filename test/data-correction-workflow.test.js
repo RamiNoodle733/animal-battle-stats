@@ -18,12 +18,14 @@ test('correction intake requires identity, claim type, context, source metadata 
     assert.doesNotMatch(form, /0 if none/i);
 });
 
-test('every generated animal profile exposes the structured correction route', () => {
+const built = fs.existsSync(path.join(root, 'dist', 'stats', 'salamander.html'));
+
+test('every generated animal profile exposes the structured correction route', { skip: !built && 'dist/ not built' }, () => {
     const animals = JSON.parse(read('animal_stats.json'));
     assert.equal(animals.length, 225);
     for (const animal of animals) {
         const slug = animal.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-        const html = read(`stats/${slug}.html`);
+        const html = read(`dist/stats/${slug}.html`);
         assert.match(html, /github\.com\/RamiNoodle733\/animal-battle-stats\/issues\/new\?template=data-correction\.yml/);
     }
 });

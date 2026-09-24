@@ -1,0 +1,280 @@
+---
+import Base from '../layouts/Base.astro';
+import HoloCard from '../components/HoloCard.astro';
+import Meters from '../components/Meters.astro';
+import Icon from '../components/Icon.astro';
+import AnimalImage from '../components/AnimalImage.astro';
+import { animals, GROUPS, TIERS, BIOMES, researchedCount, fmtScore, fmtWeight } from '../lib/catalog.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+
+const title = `Animal Stats Database: 225 Animals Ranked by Strength & Power | ${SITE.name}`;
+const description = 'Browse research-backed battle stats for 225 real animals. Filter by mammals, birds, reptiles, sea creatures and bugs, and sort by attack, defense, speed, weight or overall power.';
+const jsonLd = [
+    {
+        '@type': 'CollectionPage',
+        url: absoluteUrl('/stats'),
+        name: 'Animal stats database',
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        mainEntity: {
+            '@type': 'ItemList',
+            name: 'Animals ranked by power index',
+            numberOfItems: animals.length,
+            itemListOrder: 'https://schema.org/ItemListOrderDescending',
+            itemListElement: animals.map((animal) => ({ '@type': 'ListItem', position: animal.rank, name: animal.name, url: absoluteUrl(`/stats/${animal.slug}`) }))
+        }
+    }
+];
+const sorts = [
+    ['rank', 'Power rank'], ['attack', 'Attack'], ['defense', 'Defense'], ['agility', 'Agility'], ['stamina', 'Stamina'],
+    ['intelligence', 'Intelligence'], ['special', 'Special'], ['weight', 'Heaviest'], ['speed', 'Fastest'], ['name', 'A–Z']
+];
+const first = animals[0];
+const firstWeight = fmtWeight(first.weight_kg);
+---
+
+<Base title={title} description={description} path="/stats" jsonLd={jsonLd} active="animals" biome={first.biome}>
+    <div class="select screen-grid">
+        <section class="panel roster" aria-labelledby="roster-title">
+            <div class="panel-head">
+                <Icon name="paw" size={30} />
+                <h1 id="roster-title" class="panel-title">Choose your animal</h1>
+                <span class="aside" data-count>225 animals · {researchedCount} researched</span>
+            </div>
+            <div class="controls">
+                <label class="field grow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
+                    <span class="visually-hidden">Search animals</span>
+                    <input type="search" placeholder="Search animals…" data-q autocomplete="off" />
+                </label>
+                <label class="field">
+                    <span class="visually-hidden">Sort by</span>
+                    <select data-sort>{sorts.map(([value, label]) => <option value={value}>{label}</option>)}</select>
+                </label>
+                <div class="seg" role="group" aria-label="Group">
+                    <button type="button" aria-pressed="true" data-group="all">All</button>
+                    {GROUPS.map((group) => <button type="button" aria-pressed="false" data-group={group.key}>{group.label}</button>)}
+                </div>
+                <div class="seg tiers" role="group" aria-label="Tier">
+                    {TIERS.map((tier) => <button type="button" aria-pressed="false" data-tier={tier.id} class={`tier-${tier.id.toLowerCase()}`}>{tier.id}</button>)}
+                </div>
+            </div>
+            <div class="grid-wrap scroll" data-scroll>
+                <div class="roster-grid" data-grid>
+                    {animals.map((animal, index) => (
+                        <div
+                            class="cell"
+                            data-slug={animal.slug}
+                            data-name={animal.name.toLowerCase()}
+                            data-sci={String(animal.scientific_name || '').toLowerCase()}
+                            data-group={animal.group}
+                            data-tier={animal.tier}
+                            data-rank={animal.rank}
+                            data-attack={animal.attack}
+                            data-defense={animal.defense}
+                            data-agility={animal.agility}
+                            data-stamina={animal.stamina}
+                            data-intelligence={animal.intelligence}
+                            data-special={animal.special}
+                            data-weight={animal.weight_kg || 0}
+                            data-speed={animal.speed_mps || 0}
+                        >
+                            <HoloCard animal={animal} rank priority={index < 10} sizes="(max-width: 760px) 30vw, 150px" />
+                        </div>
+                    ))}
+                </div>
+                <p class="empty-state" hidden data-empty>No animals match those filters.</p>
+            </div>
+        </section>
+
+        <aside class={`panel preview tier-${first.tier.toLowerCase()}`} aria-live="polite" data-preview>
+            <div class="pv-art">
+                <div class="pv-platform"></div>
+                <img class="pv-img on" src={first.img.variants[1]?.src || first.img.src} alt="" width="512" height="400" data-img-a />
+                <img class="pv-img" alt="" width="512" height="400" data-img-b />
+            </div>
+            <div class="pv-body">
+                <div class="pv-head">
+                    <span class={`tier-badge lg tier-${first.tier.toLowerCase()}`} data-pv-tier>{first.tier}</span>
+                    <div>
+                        <h2 class="screen-title pv-name" data-pv-name>{first.name}</h2>
+                        <p class="pv-meta" data-pv-meta>#{first.rank} · {first.type} · {BIOMES[first.biome]?.label}</p>
+                    </div>
+                    <div class="pv-power"><small>PWR</small><strong data-pv-power>{fmtScore(first.powerIndex)}</strong></div>
+                </div>
+                <div class="live-meters" data-pv-meters><Meters animal={first} /></div>
+                <p class="pv-weight" data-pv-weight>{firstWeight ? `Weight ${firstWeight.metric}` : ''}</p>
+                <div class="btn-row pv-actions">
+                    <a class="btn btn-cyan" href={`/stats/${first.slug}`} data-pv-profile><Icon name="book" size={26} />Profile</a>
+                    <a class="btn btn-hot" href={`/compare?a=${first.slug}`} data-pv-fight><Icon name="swords" size={26} />Fight</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</Base>
+
+<script>
+    import { loadAnimalIndex } from '../scripts/site.js';
+
+    const grid = document.querySelector('[data-grid]');
+    const cells = [...grid.querySelectorAll('.cell')];
+    const q = document.querySelector('[data-q]');
+    const sortSelect = document.querySelector('[data-sort]');
+    const count = document.querySelector('[data-count]');
+    const empty = document.querySelector('[data-empty]');
+    const state = { q: '', group: 'all', tier: null, sort: 'rank' };
+    const params = new URLSearchParams(location.search);
+    state.q = params.get('q') || '';
+    state.group = params.get('group') || 'all';
+    state.tier = params.get('tier') ? params.get('tier').toUpperCase() : null;
+    state.sort = params.get('sort') || 'rank';
+    q.value = state.q;
+    sortSelect.value = state.sort;
+
+    function apply() {
+        const needle = state.q.trim().toLowerCase();
+        let shown = 0;
+        const sorted = [...cells].sort((a, b) => {
+            if (state.sort === 'name') return a.dataset.name.localeCompare(b.dataset.name);
+            if (state.sort === 'rank') return Number(a.dataset.rank) - Number(b.dataset.rank);
+            return Number(b.dataset[state.sort]) - Number(a.dataset[state.sort]) || Number(a.dataset.rank) - Number(b.dataset.rank);
+        });
+        for (const cell of sorted) {
+            const match = (!needle || cell.dataset.name.includes(needle) || cell.dataset.sci.includes(needle))
+                && (state.group === 'all' || cell.dataset.group === state.group)
+                && (!state.tier || cell.dataset.tier === state.tier);
+            cell.hidden = !match;
+            if (match) shown += 1;
+            grid.appendChild(cell);
+        }
+        count.textContent = `${shown} of ${cells.length} animals`;
+        empty.hidden = shown > 0;
+        document.querySelectorAll('button[data-group]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.group === state.group)));
+        document.querySelectorAll('button[data-tier]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.tier === state.tier)));
+        const next = new URLSearchParams();
+        if (state.q) next.set('q', state.q);
+        if (state.group !== 'all') next.set('group', state.group);
+        if (state.tier) next.set('tier', state.tier);
+        if (state.sort !== 'rank') next.set('sort', state.sort);
+        history.replaceState(null, '', next.toString() ? `?${next}` : location.pathname);
+    }
+    q.addEventListener('input', () => { state.q = q.value; apply(); });
+    sortSelect.addEventListener('change', () => { state.sort = sortSelect.value; apply(); });
+    document.querySelectorAll('button[data-group]').forEach((button) => button.addEventListener('click', () => { state.group = button.dataset.group; apply(); }));
+    document.querySelectorAll('button[data-tier]').forEach((button) => button.addEventListener('click', () => { state.tier = state.tier === button.dataset.tier ? null : button.dataset.tier; apply(); }));
+    if (state.q || state.group !== 'all' || state.tier || state.sort !== 'rank') apply();
+
+    // ---- preview: crossfade two image layers and glide the meters, no reflow flash
+    const preview = document.querySelector('[data-preview]');
+    const imgA = preview.querySelector('[data-img-a]');
+    const imgB = preview.querySelector('[data-img-b]');
+    const STAT_KEYS = ['atk', 'def', 'agi', 'sta', 'int', 'spl'];
+    const BIOME_LABEL = { savanna: 'Savanna', forest: 'Forest', jungle: 'Jungle', wetlands: 'Wetlands', desert: 'Desert', mountains: 'Mountains', arctic: 'Arctic', ocean: 'Ocean' };
+    let index = new Map();
+    let showing = cells[0]?.dataset.slug;
+    let front = imgA;
+    loadAnimalIndex().then((list) => { index = new Map(list.map((animal) => [animal.s, animal])); });
+
+    function fmt(value) { return Number.isInteger(value) ? String(value) : Number(value).toFixed(1); }
+    function weight(kg) {
+        if (!(kg > 0)) return '';
+        if (kg < 1) return `Weight ${Math.round(kg * 1000)} g`;
+        if (kg >= 1000) return `Weight ${(kg / 1000).toFixed(1)} t`;
+        return `Weight ${kg < 100 ? kg.toFixed(1).replace(/\.0$/, '') : Math.round(kg)} kg`;
+    }
+
+    function showPreview(slug) {
+        const animal = index.get(slug);
+        if (!animal || slug === showing) return;
+        showing = slug;
+        const back = front === imgA ? imgB : imgA;
+        back.src = animal.m;
+        back.decode?.().catch(() => {}).finally(() => {
+            if (showing !== slug) return;
+            back.classList.add('on');
+            front.classList.remove('on');
+            front = back;
+        });
+        preview.className = `panel preview tier-${animal.tier.toLowerCase()}`;
+        preview.querySelector('[data-pv-tier]').className = `tier-badge lg tier-${animal.tier.toLowerCase()}`;
+        preview.querySelector('[data-pv-tier]').textContent = animal.tier;
+        preview.querySelector('[data-pv-name]').textContent = animal.n;
+        preview.querySelector('[data-pv-meta]').textContent = `#${animal.r} · ${animal.t} · ${BIOME_LABEL[animal.b] || animal.c}`;
+        preview.querySelector('[data-pv-power]').textContent = fmt(animal.p);
+        preview.querySelector('[data-pv-weight]').textContent = weight(animal.w);
+        preview.querySelector('[data-pv-profile]').href = `/stats/${slug}`;
+        preview.querySelector('[data-pv-fight]').href = `/compare?a=${slug}`;
+        const meters = preview.querySelectorAll('.meter');
+        STAT_KEYS.forEach((key, i) => {
+            const value = Number(animal[key]) || 0;
+            const bar = meters[i].querySelector('.m-bar');
+            bar.style.animation = 'none';
+            bar.style.setProperty('--v', String(Math.min(100, value)));
+            bar.setAttribute('aria-valuenow', String(value));
+            meters[i].querySelector('.m-val').textContent = fmt(value);
+        });
+    }
+
+    let hoverTimer = null;
+    grid.addEventListener('pointerover', (event) => {
+        const cell = event.target.closest('.cell');
+        if (!cell) return;
+        clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(() => showPreview(cell.dataset.slug), 70);
+    });
+    grid.addEventListener('focusin', (event) => {
+        const cell = event.target.closest('.cell');
+        if (cell) showPreview(cell.dataset.slug);
+    });
+</script>
+
+<style>
+    .select { grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.85fr); max-width: 1600px; margin: 0 auto; }
+    .roster { min-height: 0; }
+    .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+    .controls .grow { flex: 1 1 220px; }
+    .tiers button { min-width: 36px; }
+    .tiers button[aria-pressed="true"] { color: #0b0e1a; background: linear-gradient(160deg, var(--tier-2), var(--tier) 45%, var(--tier-d)); }
+    .grid-wrap { flex: 1; min-height: 0; padding: 14px; }
+    .roster-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(138px, 1fr)); gap: 12px; }
+    .cell { min-width: 0; }
+
+    .preview { min-height: 0; overflow: hidden; transition: --trim 0.3s; }
+    .pv-art { position: relative; flex: 1 1 45%; min-height: 0; display: grid; place-items: end center; overflow: hidden; }
+    .pv-platform {
+        position: absolute; left: 14%; right: 14%; bottom: 6%; height: 18%;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, color-mix(in srgb, var(--tier) 50%, transparent), transparent 70%);
+        transform: perspective(400px) rotateX(62deg);
+        transition: background 0.35s;
+    }
+    .pv-img {
+        position: absolute;
+        left: 50%; bottom: 10%;
+        width: auto; max-width: 86%; max-height: 84%;
+        object-fit: contain;
+        transform: translateX(-50%) translateY(8px);
+        opacity: 0;
+        filter: drop-shadow(0 20px 18px rgba(0, 0, 0, 0.6));
+        transition: opacity 0.28s ease-out, transform 0.35s var(--ease);
+    }
+    .pv-img.on { opacity: 1; transform: translateX(-50%); }
+    .pv-body { padding: 12px 16px 16px; border-top: 1px solid var(--line); }
+    .pv-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .pv-name { font-size: clamp(1.7rem, 2.6vw, 2.4rem); }
+    .pv-meta { margin: 4px 0 0; font-size: 0.78rem; color: var(--muted); }
+    .pv-power { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; }
+    .pv-power small { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.18em; color: var(--muted); }
+    .pv-power strong { font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; line-height: 1; color: var(--tier); transition: color 0.3s; }
+    .pv-weight { margin: 10px 0 0; font-size: 0.8rem; color: var(--text-2); min-height: 1.2em; }
+    .pv-actions { margin-top: 12px; }
+    .pv-actions .btn { flex: 1; }
+
+    @media (max-width: 900px) {
+        .select { grid-template-columns: 1fr; }
+        .preview { display: none; }
+        .roster-grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 9px; }
+        .controls { padding: 8px 10px; gap: 6px; }
+        .controls .seg { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; scrollbar-width: none; }
+    }
+</style>

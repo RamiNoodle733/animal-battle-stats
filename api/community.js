@@ -19,6 +19,7 @@ const { consumeRateLimit, requestIdentity } = require('../lib/distributed-rate-l
 const { enforceRequestSecurity } = require('../lib/request-security');
 const { xpToNext } = require('../lib/xpSystem');
 const { waitUntil } = require('@vercel/functions');
+const { robloxSnapshot } = require('../lib/roblox-game');
 
 // In-memory presence store with TTL (would use Redis in production)
 // Structure: { userId: { username, displayName, profileAnimal, lastSeen, page } }
@@ -470,6 +471,20 @@ module.exports = async function handler(req, res) {
     }
 
     const [action] = requestedActions;
+
+    // Roblox game numbers: public, database-free and cached at the edge.
+    if (action === 'roblox') {
+        if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
+        try {
+            const data = await robloxSnapshot();
+            res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+            return res.status(200).json({ success: true, data });
+        } catch (error) {
+            console.error('Roblox stats error:', error);
+            return res.status(200).json({ success: true, data: { live: false } });
+        }
+    }
+
     if (!enforceRequestSecurity(req, res, {
         maxBodyBytes: 16 * 1024,
         allowUnauthenticated: action === 'ping' || action === 'visit',

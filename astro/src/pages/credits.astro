@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import AnimalImage from '../components/AnimalImage.astro';
+import { animals, sourceCount, researchedCount } from '../lib/catalog.js';
+import { creditFor } from '../lib/credits.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+
+const rows = animals
+    .map((animal) => ({ animal, credit: creditFor(animal.slug) }))
+    .sort((a, b) => a.animal.name.localeCompare(b.animal.name));
+const credited = rows.filter((row) => row.credit);
+const title = `Photo Credits & Sources | ${SITE.name}`;
+const description = `Photographers, licenses and research sources behind Animal Battle Stats: ${credited.length} credited animal photos and ${sourceCount.toLocaleString('en-US')} cited research sources.`;
+const jsonLd = [{ '@type': 'WebPage', url: absoluteUrl('/credits'), name: 'Photo credits and sources', description, isPartOf: { '@id': `${SITE.url}/#website` } }];
+---
+
+<Base title={title} description={description} path="/credits" jsonLd={jsonLd} biome="forest">
+    <div class="credits screen-grid">
+        <aside class="panel">
+            <div class="panel-head"><Icon name="camera" size={30} /><h1 class="panel-title">Credits</h1></div>
+            <div class="panel-body prose">
+                <p>Every animal photo is a real photograph of an adult animal, cut out from a freely licensed original. Thank you to the photographers below.</p>
+                <p><b>{credited.length}</b> of {animals.length} photos are credited here; the rest are being replaced with verified, licensed photos.</p>
+                <p><b>{sourceCount.toLocaleString('en-US')}</b> research sources are cited across {researchedCount} animal profiles; each profile's Sources tab lists its own.</p>
+                <p>Icons are the Animal Battle Stats game icon set, shared with the Roblox game. Fonts: Inter and Big Shoulders Display (SIL Open Font License).</p>
+                <p>Photo licenses (CC BY, CC BY-SA, CC0, public domain) allow reuse with credit. Cut-out images derived from CC BY-SA photos are shared under the same license.</p>
+            </div>
+        </aside>
+        <section class="panel list-panel" aria-label="Photo credits">
+            <div class="panel-head"><h2 class="panel-title">Photo credits</h2><span class="aside">{credited.length} photos</span></div>
+            <ul class="credit-list scroll">
+                {rows.map(({ animal, credit }) => (
+                    <li>
+                        <AnimalImage animal={animal} sizes="56px" alt="" />
+                        <a href={`/stats/${animal.slug}`}><b>{animal.name}</b></a>
+                        {credit
+                            ? <span>“{credit.title}” by {credit.artist} · <a class="link" href={credit.sourcePage} rel="noopener" target="_blank">{credit.license}</a>{credit.modified ? ` · ${credit.modified}` : ''}</span>
+                            : <span class="pending">Verified photo coming soon</span>}
+                    </li>
+                ))}
+            </ul>
+        </section>
+    </div>
+</Base>
+
+<style>
+    .credits { grid-template-columns: minmax(260px, 360px) minmax(0, 1fr); max-width: 1300px; margin: 0 auto; }
+    .list-panel { min-height: 0; }
+    .credit-list { flex: 1; min-height: 0; margin: 0; padding: 10px 14px; list-style: none; display: grid; gap: 6px; align-content: start; }
+    .credit-list li { display: grid; grid-template-columns: 56px 170px minmax(0, 1fr); align-items: center; gap: 10px; padding: 4px 8px; background: rgba(3, 6, 16, 0.4); border: 1px solid var(--line); border-radius: 8px; font-size: 0.84rem; }
+    .credit-list :global(img) { width: 56px; height: 40px; object-fit: contain; }
+    .credit-list span { color: var(--text-2); }
+    .pending { color: var(--dim) !important; font-style: italic; }
+    @media (max-width: 860px) {
+        .credits { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+        .credits aside .panel-body p:not(:first-child) { display: none; }
+        .credit-list li { grid-template-columns: 44px minmax(0, 1fr); }
+        .credit-list li span { grid-column: 2; }
+    }
+</style>

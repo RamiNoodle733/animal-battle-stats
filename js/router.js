@@ -21,7 +21,8 @@
  * Scripts/styles are injected once and cached for repeat navigations.
  */
 const CHART_JS_URL = 'https://cdn.jsdelivr.net/npm/chart.js';
-const ASSET_REVISION = '2.21.8';
+const ASSET_REVISION = '3.0.0';
+const LEGACY_APP_ROUTES = /^\/(tournament|community|profile|login|signup|forgot-password|reset-password|battlepoints)(\/|$)/;
 
 function versionedAsset(path) {
     return `${path}?v=${ASSET_REVISION}`;
@@ -246,6 +247,13 @@ class Router {
         const { replace = false, skipHandler = false } = options;
         const normalizedUrl = this.normalizePath(url);
         const currentPath = this.normalizePath(window.location.pathname);
+
+        // Home, animals, compare, rankings and tier lists are now standalone
+        // pages; only account and legacy app screens stay in this shell.
+        if (!LEGACY_APP_ROUTES.test(normalizedUrl)) {
+            window.location.assign(url);
+            return;
+        }
 
         // Prevent duplicate navigation
         if (this.isNavigating) return;

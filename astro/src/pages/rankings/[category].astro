@@ -1,0 +1,11 @@
+---
+import LeaderboardScreen from '../../components/LeaderboardScreen.astro';
+import { CATEGORIES } from '../../lib/categories.js';
+
+export function getStaticPaths() {
+    return CATEGORIES.map((category) => ({ params: { category: category.slug }, props: { category } }));
+}
+
+const { category } = Astro.props;
+---
+<LeaderboardScreen category={category} />

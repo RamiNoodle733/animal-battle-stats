@@ -1,0 +1,5 @@
+---
+// One of the chisel icons shared with the Roblox game (images/icons/abs/*.webp).
+const { name, size = 24, alt = '', class: className, lazy = false } = Astro.props;
+---
+<img class={className} src={`/images/icons/abs/${name}.webp`} width={size} height={size} alt={alt} loading={lazy ? 'lazy' : 'eager'} decoding="async" draggable="false" />

@@ -1,264 +1,451 @@
 ---
-import AnimalPicture from '../../components/AnimalPicture.astro';
-import AnimalLayout from '../../layouts/AnimalLayout.astro';
-import evidenceManifest from '../../../../data/animal-evidence.json';
-import evidenceTools from '../../../../lib/animal-evidence.js';
+import Base from '../../layouts/Base.astro';
+import AnimalImage from '../../components/AnimalImage.astro';
+import Meters from '../../components/Meters.astro';
+import Radar from '../../components/Radar.astro';
+import Icon from '../../components/Icon.astro';
 import {
-    animals,
-    clampScore,
-    detailedStats,
-    formatList,
-    formatMeasurement,
-    formatScore,
-    formatWeight,
-    imageFor,
-    relatedAnimals,
-    rivalAnimals,
-    stats
-} from '../../lib/animals.js';
+    animals, STATS, SUBSTATS, GROUPS, BIOMES, groupRank, statRank, rivals, tierInfo,
+    fmtWeight, fmtLength, fmtSpeed, fmtYears, fmtBite, fmtScore, ordinal, article
+} from '../../lib/catalog.js';
+import { verdict, matchupHref } from '../../lib/matchups.js';
+import { creditFor } from '../../lib/credits.js';
+import { SITE, absoluteUrl } from '../../lib/site.js';
 
 export function getStaticPaths() {
-    return animals.map((animal) => ({
-        params: { slug: animal.slug },
-        props: { animal }
-    }));
+    return animals.map((animal) => ({ params: { slug: animal.slug }, props: { animal } }));
 }
 
 const { animal } = Astro.props;
-const image = imageFor(animal);
-const related = relatedAnimals(animal);
-const rivals = rivalAnimals(animal);
-const canonical = `https://animalbattlestats.com/stats/${animal.slug}`;
-const title = `${animal.name} Stats, Rank, Habitat, Diet, and Battle Profile | Animal Battle Stats`;
-const description = `${animal.name} is ranked #${animal.rank}. Explore attack, defense, agility, stamina, intelligence, special abilities, habitat, measurements, and battle profile.`;
-const battleProfile = animal.battle_profile || {};
-const speedKmh = Number(animal.speed_mps) > 0 ? Number(animal.speed_mps) * 3.6 : 0;
-const powerIndex = animal.totalStats / stats.length;
-const evidenceFields = 6;
-const animalEvidence = evidenceTools.latestEvidenceByField(evidenceManifest.records.filter((record) => record.animal === animal.name));
-const evidenceAssessment = evidenceTools.assessEvidence(animalEvidence);
-const reviewedEvidenceFields = animalEvidence.length;
-const correctionUrl = `https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml&title=${encodeURIComponent(`Data correction: ${animal.name}`)}`;
-const evidenceValue = (record) => {
-    if (record.state !== 'known' && record.state !== 'actual_zero') return record.state.replaceAll('_', ' ');
-    const primary = `${record.typical ?? record.value} ${record.unit}`;
-    return record.minimum != null && record.maximum != null
-        ? `${primary} (range ${record.minimum}–${record.maximum} ${record.unit})`
-        : primary;
-};
-const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-        {
+const profile = animal.profile;
+const researched = animal.researched;
+const tier = tierInfo(animal.tier);
+const group = GROUPS.find((item) => item.key === animal.group);
+const biome = BIOMES[animal.biome];
+const inGroup = groupRank(animal);
+const credit = creditFor(animal.slug);
+const path = `/stats/${animal.slug}`;
+const seed = animal.rank;
+
+const sortedStats = [...STATS].sort((a, b) => (animal[b.key] || 0) - (animal[a.key] || 0));
+const best = sortedStats[0];
+const worst = sortedStats[sortedStats.length - 1];
+
+const unverified = new Set(profile.unverifiedFacts || []);
+const factRows = [
+    ['Weight', fmtWeight(animal.weight_kg), 'weight_kg'],
+    ['Height', fmtLength(animal.height_cm), 'height_cm'],
+    ['Length', fmtLength(animal.length_cm), 'length_cm'],
+    ['Top speed', fmtSpeed(animal.speed_mps), 'speed_mps'],
+    ['Bite force', fmtBite(animal.bite_force_psi), 'bite_force_psi'],
+    ['Lifespan', fmtYears(animal.lifespan_years), 'lifespan_years']
+].map(([label, value, key]) => ({ label, value: researched && unverified.has(key) ? null : value, key }));
+
+const abilities = profile.abilities?.length ? profile.abilities : (animal.special_abilities || []).map((name) => ({ name, description: '' }));
+const traits = profile.traits?.length ? profile.traits : (animal.unique_traits || []).map((name) => ({ name, description: '' }));
+const cap = (text) => (text ? text.charAt(0).toUpperCase() + text.slice(1) : '');
+
+const summary = profile.summary || animal.description;
+const specimenRaw = (profile.specimen || '').split(/(?<=[.!?])\s+(?=[A-Z])/)[0];
+const specimen = cap(specimenRaw);
+const rivalList = rivals(animal, 8).map((rival) => ({ rival, result: verdict(animal, rival), href: matchupHref(animal, rival) }));
+const beats = rivalList.filter(({ result }) => result.winner.slug === animal.slug);
+const loses = rivalList.filter(({ result }) => result.winner.slug !== animal.slug);
+
+// Reports sometimes merge headings ("Diet and social system"): show each text once.
+const sections = {};
+const seenText = new Set();
+for (const [key, value] of Object.entries(profile.sections || {})) {
+    const first = String(value || '').split('\n')[0];
+    if (!first || seenText.has(first)) continue;
+    seenText.add(first);
+    sections[key] = first;
+}
+const combat = profile.combat || {};
+const weaponLines = String(combat.weapons || '').split('\n').filter(Boolean);
+const sources = profile.sources || [];
+
+const w = fmtWeight(animal.weight_kg);
+const s = fmtSpeed(animal.speed_mps);
+const bite = fmtBite(animal.bite_force_psi);
+const title = `${animal.name} Stats: Strength, Speed, Size & Power Ranking | ${SITE.name}`;
+const description = `${animal.name} ranks #${animal.rank} of 225 (${animal.tier}-tier, power ${fmtScore(animal.powerIndex)}). Attack ${fmtScore(animal.attack)}, defense ${fmtScore(animal.defense)}, agility ${fmtScore(animal.agility)}${w ? `, weighs ${w.metric}` : ''}${s ? `, runs ${s.metric}` : ''}. Sources included.`;
+
+const faq = [];
+faq.push({ q: `How strong is ${article(animal.name)} ${animal.name}?`, a: `On the Animal Battle Stats scale, the ${animal.name} has an attack rating of ${fmtScore(animal.attack)} and a power index of ${fmtScore(animal.powerIndex)} out of 100, which ranks it #${animal.rank} of 225 animals and puts it in ${animal.tier} tier (${tier.name}). Its strongest stat is ${best.label.toLowerCase()} (${fmtScore(animal[best.key])}).` });
+if (w) faq.push({ q: `How much does ${article(animal.name)} ${animal.name} weigh?`, a: `A typical adult ${animal.name} weighs about ${w.metric} (${w.imperial}).${specimen ? ` Rated specimen: ${specimenRaw}` : ''}` });
+faq.push({ q: `How fast is ${article(animal.name)} ${animal.name}?`, a: s ? `The ${animal.name}'s top speed is about ${s.metric} (${s.imperial}). Its agility rating is ${fmtScore(animal.agility)} out of 100.` : `There is no reliable measured top speed for the ${animal.name}, so we do not publish one. Its agility rating, which covers acceleration, reflexes and evasion, is ${fmtScore(animal.agility)} out of 100.` });
+if (bite) faq.push({ q: `What is the ${animal.name}'s bite force?`, a: `The ${animal.name}'s bite force is about ${bite.metric}.` });
+if (sections.diet) faq.push({ q: `What does ${article(animal.name)} ${animal.name} eat?`, a: sections.diet });
+if (profile.conservationStatus) faq.push({ q: `Is the ${animal.name} endangered?`, a: `${profile.conservationStatus === 'Least Concern' ? `No. The ${animal.name} is listed as Least Concern.` : `The ${animal.name}'s conservation status is ${profile.conservationStatus}.`} ${(sections.conservation || '').slice(0, 400)}`.trim() });
+faq.push({
+    q: `What animals can beat ${article(animal.name)} ${animal.name}?`,
+    a: loses.length
+        ? `Among its closest rivals, ${loses.map(({ rival, result }) => `the ${rival.name} (${result.odds}%)`).join(', ')} would be favored against the ${animal.name}. It would be favored against ${beats.length ? beats.map(({ rival }) => `the ${rival.name}`).join(', ') : 'none of them'}.`
+        : `The ${animal.name} is favored against all of its closest rivals, including ${beats.map(({ rival }) => `the ${rival.name}`).join(', ')}.`
+});
+
+const jsonLd = [
+    {
+        '@type': 'WebPage',
+        '@id': `${absoluteUrl(path)}#webpage`,
+        url: absoluteUrl(path),
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        dateModified: profile.researchedAt || undefined,
+        primaryImageOfPage: { '@id': `${absoluteUrl(path)}#image` },
+        about: { '@type': 'Taxon', name: animal.name, scientificName: animal.scientific_name, alternateName: animal.scientific_name, description: summary },
+        mainEntity: {
             '@type': 'Dataset',
-            name: `${animal.name} comparative battle statistics`,
-            description,
-            url: canonical,
-            dateModified: String(animal.updatedAt || animal.createdAt || '').slice(0, 10) || undefined,
-            about: {
-                '@type': 'Thing',
-                name: animal.name,
-                alternateName: animal.scientific_name || undefined,
-                description: animal.description || undefined
-            },
-            variableMeasured: stats.map(([key, label]) => ({
-                '@type': 'PropertyValue',
-                name: label,
-                value: clampScore(animal[key]),
-                maxValue: 100
-            }))
-        },
-        {
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://animalbattlestats.com/' },
-                { '@type': 'ListItem', position: 2, name: 'Animal Stats', item: 'https://animalbattlestats.com/stats' },
-                { '@type': 'ListItem', position: 3, name: animal.name, item: canonical }
+            name: `${animal.name} battle statistics`,
+            description: `Six research-based battle ratings (0-100) and physical measurements for the ${animal.name}.`,
+            creator: { '@id': `${SITE.url}/#organization` },
+            license: 'https://creativecommons.org/licenses/by/4.0/',
+            variableMeasured: [
+                ...STATS.map((stat) => ({ '@type': 'PropertyValue', name: stat.label, value: Number(animal[stat.key]) || 0, minValue: 0, maxValue: 100 })),
+                { '@type': 'PropertyValue', name: 'Power index', value: animal.powerIndex, minValue: 0, maxValue: 100 },
+                ...(animal.weight_kg > 0 ? [{ '@type': 'PropertyValue', name: 'Weight', value: animal.weight_kg, unitCode: 'KGM' }] : []),
+                ...(animal.speed_mps > 0 ? [{ '@type': 'PropertyValue', name: 'Top speed', value: Math.round(animal.speed_mps * 3.6), unitText: 'km/h' }] : [])
             ]
         }
-    ]
-};
+    },
+    {
+        '@type': 'ImageObject',
+        '@id': `${absoluteUrl(path)}#image`,
+        contentUrl: absoluteUrl(animal.img.src),
+        caption: `${animal.name} (${animal.scientific_name})`,
+        ...(credit ? { creditText: credit.artist, creator: { '@type': 'Person', name: credit.artist }, license: credit.licenseUrl || undefined, acquireLicensePage: credit.sourcePage || undefined, copyrightNotice: credit.artist } : {})
+    },
+    {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+            { '@type': 'ListItem', position: 2, name: 'Animals', item: `${SITE.url}/stats` },
+            { '@type': 'ListItem', position: 3, name: animal.name, item: absoluteUrl(path) }
+        ]
+    },
+    { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }
+];
+
+const TABS = [
+    ['stats', 'Stats', 'claws'], ['kit', 'Kit', 'bolt'], ['facts', 'Facts', 'map'],
+    ['versus', 'Versus', 'vs'], ['lore', 'Lore', 'book'], ['sources', 'Sources', 'scroll']
+];
+const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(profile.conservationStatus || '') ? 'chip-red' : profile.conservationStatus === 'Extinct' ? 'chip-orange' : 'chip-green';
 ---
 
-<AnimalLayout title={title} description={description} canonical={canonical} image={image.fallback} jsonLd={jsonLd}>
-    <main id="main-content">
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a><span>/</span><a href="/stats">Animal Stats</a><span>/</span><span aria-current="page">{animal.name}</span>
-        </nav>
-
-        <section class="hero-grid" aria-labelledby="animal-title">
-            <div class="hero-copy">
-                <div class="eyebrow-row">
-                    <span class="rank-chip">WORLD RANK #{animal.rank}</span>
-                    <span>{animal.type || 'Animal'}</span>
-                    <span>{animal.class || 'Unclassified'}</span>
-                </div>
-                <p class="kicker">FIELD PROFILE / {animal.slug.toUpperCase()}</p>
-                <h1 id="animal-title">{animal.name}</h1>
-                <p class="scientific-name"><em>{animal.scientific_name || 'Scientific classification unavailable'}</em></p>
-                <p class="hero-description">{animal.description || `${animal.name} comparative animal profile.`}</p>
-                <div class="hero-actions">
-                    <a class="action-primary" href={`/stats?animal=${animal.slug}`}>Open interactive profile</a>
-                    <a class="action-secondary" href={`/compare?animal=${animal.slug}`}>Compare this animal</a>
-                </div>
-                <p class="method-note">Scores are comparative editorial ratings for hypothetical matchups, not direct scientific measurements.</p>
-            </div>
-            <div class="animal-stage">
-                <div class="stage-orbit" aria-hidden="true"></div>
-                <AnimalPicture animal={animal} image={image} priority={true} />
-                <div class="power-index">
-                    <span>POWER INDEX</span>
-                    <strong>{formatScore(powerIndex)}</strong>
-                    <small>/ 100</small>
-                </div>
-            </div>
-        </section>
-
-        <section class="stats-panel" aria-labelledby="battle-stats-title">
-            <div class="section-heading">
-                <div><p>COMBAT TELEMETRY</p><h2 id="battle-stats-title">Battle stats</h2></div>
-                <span>Six-category comparative model</span>
-            </div>
-            <div class="stat-grid">
-                {stats.map(([key, label, abbreviation]) => (
-                    <article class={`stat-card stat-${key}`} style={`--score:${clampScore(animal[key])}%`}>
-                        <div class="stat-card-top"><span>{abbreviation}</span><strong>{formatScore(animal[key])}</strong></div>
-                        <h3>{label}</h3>
-                        <div class="stat-track" aria-label={`${label}: ${formatScore(animal[key])} out of 100`}>
-                            <span></span>
-                        </div>
-                    </article>
-                ))}
-            </div>
-        </section>
-
-        <section class="detail-panel" aria-labelledby="detailed-stats-title">
-            <div class="section-heading">
-                <div><p>DETAILED COMBAT MATRIX</p><h2 id="detailed-stats-title">Twelve substats</h2></div>
-                <span>Editorial 0–100 ratings</span>
-            </div>
-            <div class="substat-grid">
-                {detailedStats.map(([key, label]) => (
-                    <div class="substat-row">
-                        <span>{label}</span><strong>{formatScore(animal.substats?.[key])}</strong>
-                        <div class="substat-track" aria-label={`${label}: ${formatScore(animal.substats?.[key])} out of 100`}><i style={`width:${clampScore(animal.substats?.[key])}%`}></i></div>
+<Base title={title} description={description} path={path} image={`/images/og/${animal.slug}.jpg`} imageAlt={`${animal.name} battle card`} jsonLd={jsonLd} active="animals" biome={animal.biome} seed={seed}>
+    <div class="profile screen-grid">
+        <section class={`stage tier-${animal.tier.toLowerCase()}`} aria-labelledby="animal-name">
+            <div class="stage-top enter">
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="/stats">Animals</a> / <a href={`/stats?group=${animal.group}`}>{group?.label}</a></nav>
+                <div class="badges">
+                    <span class={`tier-badge lg tier-${animal.tier.toLowerCase()}`} title={`${animal.tier} tier: ${tier.name}`}>{animal.tier}</span>
+                    <div>
+                        <h1 id="animal-name" class="screen-title">{animal.name}</h1>
+                        <p class="sci"><em>{animal.scientific_name}</em></p>
                     </div>
-                ))}
+                </div>
+                <div class="chips">
+                    <span class="chip chip-gold"><Icon name="medal" size={16} />#{animal.rank} of 225</span>
+                    <span class="chip chip-cyan"><Icon name="map" size={16} />{biome?.label || 'Arena'}</span>
+                    <span class="chip">{animal.class}</span>
+                    {profile.conservationStatus && <span class={`chip ${conservationClass}`}>{profile.conservationStatus}</span>}
+                </div>
             </div>
-            <p class="module-note">Substats explain the six headline ratings. They are editorial judgments, not additional scientific measurements or independent inputs to the current battle probability.</p>
+
+            <div class="podium" style={`view-transition-name: art-${animal.slug}`}>
+                <div class="platform" aria-hidden="true"></div>
+                <AnimalImage animal={animal} priority sizes="(max-width: 760px) 70vw, 520px" class="hero-art" />
+            </div>
+
+            <div class="stage-bottom enter-2">
+                <div class="power">
+                    <span>Power</span>
+                    <strong>{fmtScore(animal.powerIndex)}</strong>
+                    <small>{ordinal(inGroup.rank)} of {inGroup.total} {group?.label.toLowerCase()}</small>
+                </div>
+                <div class="quick">
+                    {w && <span><b>{w.metric}</b><small>weight</small></span>}
+                    {s && <span><b>{s.metric}</b><small>top speed</small></span>}
+                    {bite && <span><b>{bite.metric}</b><small>bite</small></span>}
+                </div>
+                <div class="btn-row actions">
+                    <a class="btn btn-hot" href={`/compare?a=${animal.slug}`}><Icon name="swords" size={26} />Fight</a>
+                    <button class="btn btn-sm" type="button" data-share><Icon name="flag" size={22} />Share</button>
+                </div>
+            </div>
+            {credit && <p class="credit">Photo: {credit.artist} · <a href={credit.sourcePage} rel="noopener" target="_blank">{credit.license}</a></p>}
         </section>
 
-        <div class="intel-grid">
-            <section class="intel-card battle-card" aria-labelledby="battle-profile-title">
-                <div class="section-heading compact"><div><p>TACTICAL READOUT</p><h2 id="battle-profile-title">Battle profile</h2></div></div>
-                <dl class="profile-strip">
-                    <div><dt>Combat style</dt><dd>{battleProfile.combat_style || 'Unknown'}</dd></div>
-                    <div><dt>Preferred range</dt><dd>{battleProfile.preferred_range || 'Unknown'}</dd></div>
-                    <div><dt>Primary environment</dt><dd>{battleProfile.primary_environment || animal.habitat || 'Unknown'}</dd></div>
+        <section class="panel dossier enter-3" aria-label={`${animal.name} details`}>
+            <div class="tabs" role="tablist">
+                {TABS.map(([id, label, icon], index) => (
+                    <button type="button" role="tab" id={`tab-${id}`} aria-controls={`pane-${id}`} aria-selected={index === 0 ? 'true' : 'false'} data-tab={id}>
+                        <Icon name={icon} size={22} />{label}
+                    </button>
+                ))}
+            </div>
+
+            <div class="pane scroll" id="pane-stats" role="tabpanel" aria-labelledby="tab-stats">
+                <p class="summary">{summary}</p>
+                <div class="stats-split">
+                    <Meters animal={animal} />
+                    <div class="radar-box"><Radar animal={animal} size={250} /></div>
+                </div>
+                <div class="callouts">
+                    <div class={best.cls}><span>Best stat</span><strong>{best.label}</strong><small>{ordinal(statRank(animal, best.key).rank)} of 225</small></div>
+                    <div class={worst.cls}><span>Weak spot</span><strong>{worst.label}</strong><small>{fmtScore(animal[worst.key])} / 100</small></div>
+                </div>
+                <h2 class="pane-h">Detailed ratings</h2>
+                <div class="pips">
+                    {SUBSTATS.map(([key, label, parent]) => {
+                        const stat = STATS.find((item) => item.key === parent);
+                        const value = Number(animal.substats?.[key]) || 0;
+                        return <div class={`pip-row ${stat.cls}`}><span>{label}</span><span class="track"><i style={`--w:${Math.min(100, value)}%`}></i></span><b>{fmtScore(value)}</b></div>;
+                    })}
+                </div>
+                <p class="note">{researched ? `Research-backed ratings on one 0–100 scale for all 225 animals (updated ${profile.researchedAt}).` : 'Research for this animal is in progress; these are earlier ratings.'} <a class="link" href="/about#ratings">How ratings work</a></p>
+            </div>
+
+            <div class="pane scroll" id="pane-kit" role="tabpanel" aria-labelledby="tab-kit" hidden>
+                <h2 class="pane-h">Special abilities</h2>
+                <div class="kit">
+                    {abilities.map((ability, index) => (
+                        <div class="kit-item"><Icon name={index === 0 ? 'bolt' : 'fire'} size={30} lazy /><small>Ability {index + 1}</small><b>{ability.name}</b>{ability.description && <p>{cap(ability.description)}</p>}</div>
+                    ))}
+                </div>
+                <h2 class="pane-h">Unique traits</h2>
+                <div class="kit">
+                    {traits.map((trait) => (
+                        <div class="kit-item trait"><Icon name="star" size={30} lazy /><small>Trait</small><b>{trait.name}</b>{trait.description && <p>{cap(trait.description)}</p>}</div>
+                    ))}
+                </div>
+                {(weaponLines.length > 0 || combat.badMatchups?.length > 0) && (
+                    <>
+                        <h2 class="pane-h">How it fights</h2>
+                        <div class="fight-grid">
+                            {weaponLines.length > 0 && <div class="fight good"><h3><Icon name="claws" size={22} lazy />Weapons</h3><ul>{weaponLines.slice(0, 4).map((line) => <li>{line}</li>)}</ul></div>}
+                            {combat.goodMatchups?.length > 0 && <div class="fight good"><h3><Icon name="check" size={22} lazy />Beats</h3><ul>{combat.goodMatchups.slice(0, 4).map((line) => <li>{line}</li>)}</ul></div>}
+                            {(combat.badMatchups?.length > 0 || combat.weaknesses?.length > 0) && <div class="fight bad"><h3><Icon name="alert" size={22} lazy />Struggles vs</h3><ul>{(combat.badMatchups?.length ? combat.badMatchups : combat.weaknesses).slice(0, 5).map((line) => <li>{line}</li>)}</ul></div>}
+                        </div>
+                    </>
+                )}
+            </div>
+
+            <div class="pane scroll" id="pane-facts" role="tabpanel" aria-labelledby="tab-facts" hidden>
+                <dl class="facts-grid">
+                    {factRows.map((row) => (
+                        <div><dt>{row.label}</dt>{row.value ? <dd>{row.value.metric}{row.value.imperial && <small>{row.value.imperial}</small>}</dd> : <dd class="na">No reliable measurement</dd>}</div>
+                    ))}
+                    <div><dt>Home biome</dt><dd>{biome?.label || '—'}</dd></div>
+                    <div><dt>Lifestyle</dt><dd class="na" style="color:var(--text-2)">{animal.isSocial ? 'Social' : 'Mostly solitary'}{animal.isNocturnal ? ', nocturnal' : ''}</dd></div>
                 </dl>
-                <div class="strength-grid">
-                    <div><h3>Advantages</h3><ul>{(battleProfile.strengths || []).map((item) => <li>{item}</li>)}</ul></div>
-                    <div class="weaknesses"><h3>Pressure points</h3><ul>{(battleProfile.weaknesses || []).map((item) => <li>{item}</li>)}</ul></div>
+                {specimen && <p class="note">Rated specimen: {specimen}</p>}
+                {profile.funFacts?.length > 0 && (
+                    <>
+                        <h2 class="pane-h">Fun facts</h2>
+                        <ul class="fun">{profile.funFacts.slice(0, 6).map((fact) => <li>{fact}</li>)}</ul>
+                    </>
+                )}
+            </div>
+
+            <div class="pane scroll" id="pane-versus" role="tabpanel" aria-labelledby="tab-versus" hidden>
+                <p class="note" style="margin-top:0">Closest rivals by power. Tap one for the full breakdown, or pick any opponent.</p>
+                <div class="vs-list">
+                    {rivalList.map(({ rival, result, href }) => {
+                        const win = result.winner.slug === animal.slug;
+                        return (
+                            <a class={`vs-row ${win ? 'win' : 'loss'}`} href={href} data-sfx>
+                                <AnimalImage animal={animal} sizes="64px" alt="" />
+                                <span class="vs-mid"><b>vs {rival.name}</b><small>{win ? 'Wins' : 'Loses'} · {result.odds}% · {result.strength}</small></span>
+                                <span class="flip"><AnimalImage animal={rival} sizes="64px" alt="" /></span>
+                                <span class={`chip ${win ? 'chip-green' : 'chip-red'}`}>{win ? 'W' : 'L'}</span>
+                            </a>
+                        );
+                    })}
                 </div>
-            </section>
-
-            <section class="intel-card" aria-labelledby="field-data-title">
-                <div class="section-heading compact"><div><p>FIELD DATA</p><h2 id="field-data-title">Measurements</h2></div></div>
-                <dl class="measurement-grid">
-                    <div><dt>Habitat</dt><dd>{animal.habitat || 'Unknown'}</dd></div>
-                    <div><dt>Diet</dt><dd>{formatList(animal.diet)}</dd></div>
-                    <div><dt>Weight</dt><dd>{formatWeight(animal.weight_kg)}</dd></div>
-                    <div><dt>Length</dt><dd>{formatMeasurement(animal.length_cm, 'cm')}</dd></div>
-                    <div><dt>Top speed</dt><dd>{formatMeasurement(speedKmh, 'km/h', 1)}</dd></div>
-                    <div><dt>Lifespan</dt><dd>{formatMeasurement(animal.lifespan_years, 'years', 1)}</dd></div>
-                    <div><dt>Bite force</dt><dd>{formatMeasurement(animal.bite_force_psi, 'psi')}</dd></div>
-                    <div><dt>Behavior</dt><dd>{animal.isSocial ? 'Social' : 'Primarily solitary'}{animal.isNocturnal ? ' · Nocturnal' : ''}</dd></div>
-                </dl>
-            </section>
-        </div>
-
-        <section class="evidence-panel" aria-labelledby="evidence-title" data-evidence-status={reviewedEvidenceFields ? 'partial' : 'unavailable'}>
-            <div class="section-heading compact">
-                <div><p>DATA PROVENANCE</p><h2 id="evidence-title">Evidence status</h2></div>
-                <span>{reviewedEvidenceFields} of {evidenceFields} fields reviewed</span>
+                <a class="btn btn-cyan" href={`/compare?a=${animal.slug}`} style="margin-top:12px"><Icon name="vs" size={26} />Pick any opponent</a>
             </div>
-            <div class="evidence-summary">
-                <strong>{reviewedEvidenceFields ? 'Partial evidence coverage' : 'Per-field review pending'}</strong>
-                <p>
-                    {reviewedEvidenceFields
-                        ? `${reviewedEvidenceFields} physical fields have cited evidence in data release ${evidenceManifest.dataRelease}. Unreviewed fields remain clearly separate from evidence-backed facts.`
-                        : `No physical fields for ${animal.name} have per-field cited evidence in data release ${evidenceManifest.dataRelease}. The measurements above are legacy catalogue values and remain unreviewed.`}
-                </p>
-                <p>Missing values and legacy zeros are not treated as verified actual zero unless a cited record explicitly says so.</p>
-                <div class="evidence-links">
-                    <a href="/about#sources-title">Source policy</a>
-                    <a href="/methodology">Battle methodology</a>
-                    <a href={correctionUrl}>Report this profile</a>
-                </div>
-            </div>
-            {animalEvidence.length > 0 && (
-                <div class="evidence-table-wrap" tabindex="0" aria-label={`${animal.name} reviewed evidence`}>
-                    <table class="evidence-table">
-                        <thead><tr><th>Field</th><th>Reviewed value</th><th>Context</th><th>Source</th></tr></thead>
-                        <tbody>
-                            {animalEvidence.map((record) => (
-                                <tr>
-                                    <th scope="row">{record.field.replaceAll('_', ' ')}</th>
-                                    <td>{evidenceValue(record)}</td>
-                                    <td>{[record.basis, record.confidence, record.sex, record.ageClass].filter(Boolean).join(' · ')}{record.notes && <small>{record.notes}</small>}</td>
-                                    <td>
-                                        <a href={record.source.url}>{record.source.publisher}: {record.source.title}</a>
-                                        <small>{record.source.publishedAt ? `Published ${record.source.publishedAt} · ` : ''}Accessed {record.source.accessedAt} · Reviewed {record.reviewedAt}</small>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
-            <p class="evidence-confidence">Evidence confidence: <strong>{evidenceAssessment.confidence}</strong></p>
-        </section>
 
-        <section class="arsenal" aria-labelledby="arsenal-title">
-            <div class="section-heading"><div><p>SPECIALIZATION</p><h2 id="arsenal-title">Abilities &amp; traits</h2></div></div>
-            <div class="arsenal-grid">
-                <div><h3>Special abilities</h3><ul>{(animal.special_abilities || []).map((item) => <li>{item}</li>)}</ul></div>
-                <div><h3>Unique traits</h3><ul>{(animal.unique_traits || []).map((item) => <li>{item}</li>)}</ul></div>
+            <div class="pane scroll prose" id="pane-lore" role="tabpanel" aria-labelledby="tab-lore" hidden>
+                <h2 class="pane-h" style="margin-top:0">{animal.name} battle analysis</h2>
+                {(profile.narrative?.length ? profile.narrative : [summary]).map((paragraph) => <p>{paragraph}</p>)}
+                {sections.habitat && <><h3>Habitat &amp; range</h3><p>{sections.habitat}</p>{sections.range && <p>{sections.range}</p>}</>}
+                {sections.diet && <><h3>Diet &amp; hunting</h3><p>{sections.diet}</p></>}
+                {sections.social && <><h3>Social life</h3><p>{sections.social}</p></>}
+                {sections.conservation && <><h3>Conservation</h3><p>{sections.conservation}</p></>}
+                <h3>Quick answers</h3>
+                <div class="faq">{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+            </div>
+
+            <div class="pane scroll" id="pane-sources" role="tabpanel" aria-labelledby="tab-sources" hidden>
+                <p class="note" style="margin-top:0">{researched ? `Researched ${profile.researchedAt}. Ratings are editorial judgments built from these sources; measurements describe a healthy adult${profile.specimenSex && profile.specimenSex !== 'unspecified' ? ` ${profile.specimenSex}` : ''}.` : 'A full sourced research profile for this animal is in progress.'}</p>
+                {sources.length > 0 ? (
+                    <ol class="sources">
+                        {sources.slice(0, 20).map((source) => <li><a href={source.url} rel="noopener nofollow" target="_blank">{source.title}</a>{source.supports && <span>{source.supports}</span>}</li>)}
+                    </ol>
+                ) : <p class="empty-state">Sources appear here when the research profile is published.</p>}
+                {credit && <p class="note">Photo: “{credit.title}” by {credit.artist}, {credit.license}{credit.modified ? `, ${credit.modified.toLowerCase()}` : ''}. <a class="link" href={credit.sourcePage} rel="noopener" target="_blank">Original</a></p>}
+                <a class="btn btn-sm" href={`https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml&title=${encodeURIComponent(`Data correction: ${animal.name}`)}`} rel="noopener" target="_blank"><Icon name="alert" size={22} lazy />Suggest a correction</a>
             </div>
         </section>
+    </div>
+</Base>
 
-        <section class="powerscaling-panel" aria-labelledby="powerscaling-title">
-            <div class="section-heading"><div><p>ROSTER POSITION</p><h2 id="powerscaling-title">Powerscaling context</h2></div><a href="/rankings">Open rankings</a></div>
-            <div class="rank-context-grid">
-                <article><span>Overall</span><strong>#{animal.rank}</strong><small>of {animals.length}</small></article>
-                <article><span>{animal.type} rank</span><strong>#{animal.typeRank.rank}</strong><small>of {animal.typeRank.total}</small></article>
-                <article><span>{animal.class} archetype</span><strong>#{animal.classRank.rank}</strong><small>of {animal.classRank.total}</small></article>
-                <article><span>{animal.size} size class</span><strong>#{animal.sizeRank.rank}</strong><small>of {animal.sizeRank.total}</small></article>
-            </div>
-            <p class="module-note">These positions sort the current editorial six-stat total within the named roster groups. Biome and pound-for-pound ranks remain unpublished until their classification and normalization rules are reviewed.</p>
-            <div class="rival-heading"><h3>Closest roster rivals</h3><span>Nearest current total ratings</span></div>
-            <div class="rival-grid">
-                {rivals.map((candidate) => (
-                    <article>
-                        <a class="rival-profile" href={`/stats/${candidate.slug}`}><span>#{candidate.rank}</span><strong>{candidate.name}</strong><small>{candidate.type} · {candidate.class}</small></a>
-                        <a class="rival-battle" href={`/compare?animal=${animal.slug}`}>Compare</a>
-                    </article>
-                ))}
-            </div>
-            <div class="powerscaling-actions"><a href={`/compare?animal=${animal.slug}`}>Choose another opponent</a><a href="/tournament">Enter tournament</a><a href="/methodology">How rankings differ from predictions</a></div>
-        </section>
+<script>
+    import { sfx } from '../../scripts/sfx.js';
+    import { toast } from '../../scripts/site.js';
 
-        <section class="related" aria-labelledby="related-title">
-            <div class="section-heading"><div><p>CONTINUE RESEARCH</p><h2 id="related-title">Related animals</h2></div><a href="/stats">View all 225</a></div>
-            <div class="related-grid">
-                {related.map((candidate) => (
-                    <a href={`/stats/${candidate.slug}`}>
-                        <span>#{candidate.rank}</span>
-                        <strong>{candidate.name}</strong>
-                        <small>{candidate.type} · {candidate.class}</small>
-                    </a>
-                ))}
-            </div>
-        </section>
-    </main>
-</AnimalLayout>
+    const tabs = [...document.querySelectorAll('[data-tab]')];
+    function show(id, focus = false) {
+        const tab = tabs.find((item) => item.dataset.tab === id) || tabs[0];
+        for (const item of tabs) {
+            const on = item === tab;
+            item.setAttribute('aria-selected', String(on));
+            item.tabIndex = on ? 0 : -1;
+            document.getElementById(`pane-${item.dataset.tab}`).hidden = !on;
+        }
+        if (focus) tab.focus();
+    }
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => { show(tab.dataset.tab); history.replaceState(null, '', `#${tab.dataset.tab}`); });
+        tab.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+                const next = tabs[(index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+                show(next.dataset.tab, true);
+                sfx.tab();
+            }
+        });
+    });
+    if (location.hash) show(location.hash.slice(1));
+
+    document.querySelector('[data-share]')?.addEventListener('click', async () => {
+        const data = { title: document.title, url: location.href.split('#')[0] };
+        try {
+            if (navigator.share) await navigator.share(data);
+            else { await navigator.clipboard.writeText(data.url); toast('Link copied'); }
+        } catch { /* cancelled */ }
+    });
+</script>
+
+<style>
+    .profile { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); max-width: 1500px; margin: 0 auto; }
+    .stage { position: relative; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+    .crumbs { font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
+    .crumbs a:hover { color: var(--text); }
+    .badges { display: flex; align-items: center; gap: 14px; }
+    .badges .screen-title { font-size: clamp(2.2rem, 4.6vw, 4.2rem); }
+    .sci { margin: 6px 0 0; color: var(--muted); font-size: 0.9rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+    .podium { position: relative; display: grid; place-items: end center; min-height: 0; padding-bottom: 7%; }
+    .platform {
+        position: absolute;
+        left: 12%; right: 12%; bottom: 3%;
+        height: 16%;
+        border-radius: 50%;
+        background:
+            radial-gradient(closest-side, color-mix(in srgb, var(--tier) 55%, transparent), transparent 70%),
+            radial-gradient(closest-side, color-mix(in srgb, var(--bio-accent) 45%, transparent), transparent 100%);
+        box-shadow: 0 0 60px color-mix(in srgb, var(--tier) 40%, transparent);
+        transform: perspective(400px) rotateX(62deg);
+    }
+    .platform::after {
+        content: "";
+        position: absolute;
+        inset: 14% 10%;
+        border-radius: 50%;
+        border: 2px solid color-mix(in srgb, var(--tier) 70%, transparent);
+        animation: ring 3.6s ease-in-out infinite;
+    }
+    @keyframes ring { 50% { transform: scale(1.08); opacity: 0.45; } }
+    .podium :global(.hero-art) {
+        position: relative;
+        width: auto;
+        max-width: 92%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.6));
+        animation: arrive 0.45s ease-out both, idle 6s 0.6s ease-in-out infinite;
+    }
+    @keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes idle { 50% { transform: translateY(-4px); } }
+
+    .stage-bottom { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
+    .power {
+        display: flex; flex-direction: column; align-items: flex-start;
+        padding: 8px 16px 8px 14px;
+        background: linear-gradient(180deg, rgba(8, 12, 28, 0.9), rgba(8, 12, 28, 0.7));
+        border: 1px solid color-mix(in srgb, var(--tier) 60%, transparent);
+        clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    }
+    .power span { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .power strong { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; line-height: 0.95; color: var(--tier); text-shadow: 0 0 20px color-mix(in srgb, var(--tier) 50%, transparent); }
+    .power small { font-size: 0.7rem; color: var(--text-2); }
+    .quick { display: flex; gap: 14px; }
+    .quick span { display: flex; flex-direction: column; }
+    .quick b { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; line-height: 1; }
+    .quick small { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .actions { margin-left: auto; }
+    .credit { position: absolute; right: 0; bottom: -4px; margin: 0; font-size: 0.64rem; color: var(--dim); }
+    .credit a { text-decoration: underline; }
+
+    .dossier { min-height: 0; }
+    .pane { flex: 1; min-height: 0; padding: 14px 16px 18px; }
+    .summary { color: var(--text-2); font-size: 0.93rem; }
+    .stats-split { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr); gap: 14px; align-items: center; }
+    .radar-box { display: grid; place-items: center; }
+    .radar-box :global(svg) { width: min(100%, 250px); height: auto; }
+    .callouts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0 4px; }
+    .callouts div { padding: 8px 12px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-left: 3px solid var(--stat); border-radius: 8px; }
+    .callouts span { display: block; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .callouts strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; color: var(--stat); }
+    .callouts small { display: block; font-size: 0.72rem; color: var(--text-2); }
+    .pane-h { margin: 16px 0 8px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text); transform: skewX(-6deg); }
+    .note { margin-top: 12px; font-size: 0.78rem; color: var(--muted); }
+
+    .fight-grid { display: grid; gap: 8px; }
+    .fight { padding: 10px 12px; border-radius: 10px; background: rgba(3, 6, 16, 0.4); border: 1px solid var(--line); }
+    .fight.good { border-left: 3px solid var(--green); }
+    .fight.bad { border-left: 3px solid var(--red); }
+    .fight h3 { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; text-transform: uppercase; }
+    .fight ul { margin: 0; padding-left: 18px; font-size: 0.84rem; color: var(--text-2); display: grid; gap: 4px; }
+
+    .fun { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 0.86rem; color: var(--text-2); }
+    .fun li { position: relative; padding-left: 22px; }
+    .fun li::before { content: "★"; position: absolute; left: 0; color: var(--gold); }
+
+    .vs-list { display: grid; gap: 7px; }
+    .vs-row {
+        display: grid; grid-template-columns: 58px minmax(0, 1fr) 58px 30px; align-items: center; gap: 10px;
+        padding: 6px 10px 6px 6px;
+        background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 10px;
+        transition: transform 0.15s var(--ease), border-color 0.15s;
+    }
+    .vs-row:hover { transform: translateX(3px); border-color: var(--line-2); }
+    .vs-row.win { background: linear-gradient(90deg, rgba(53, 220, 143, 0.12), transparent 60%); }
+    .vs-row.loss { background: linear-gradient(90deg, rgba(255, 77, 94, 0.12), transparent 60%); }
+    .vs-row :global(img) { width: 58px; height: 44px; object-fit: contain; }
+    .vs-row .flip :global(img) { transform: scaleX(-1); }
+    .vs-mid b { display: block; font-size: 0.92rem; }
+    .vs-mid small { font-size: 0.74rem; color: var(--muted); }
+
+    .sources { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 0.84rem; }
+    .sources a { font-weight: 700; color: var(--cyan-2); }
+    .sources span { display: block; color: var(--muted); font-size: 0.76rem; }
+
+    @media (max-width: 900px) {
+        .profile { grid-template-columns: 1fr; grid-template-rows: minmax(0, 0.95fr) minmax(0, 1.05fr); }
+        .stage { grid-template-rows: auto minmax(0, 1fr) auto; }
+        .badges .screen-title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
+        .tier-badge.lg { height: 38px; min-width: 44px; font-size: 1.5rem; }
+        .chips, .crumbs, .quick, .credit { display: none; }
+        .stage-bottom { gap: 8px; }
+        .power { padding: 4px 12px; }
+        .power strong { font-size: 1.8rem; }
+        .stats-split { grid-template-columns: 1fr; }
+        .radar-box { display: none; }
+    }
+</style>

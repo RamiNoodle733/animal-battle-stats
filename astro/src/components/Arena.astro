@@ -1,0 +1,153 @@
+---
+// Screen backdrop: biome lighting, a procedurally drawn horizon silhouette and
+// ambient particles. Everything is generated at build time from a seed, so
+// each biome always looks the same and no image files are needed.
+const { biome = 'arena', seed = 7 } = Astro.props;
+
+function rng(start) {
+    let state = start >>> 0 || 1;
+    return () => {
+        state = (state * 1664525 + 1013904223) >>> 0;
+        return state / 4294967296;
+    };
+}
+const rand = rng(seed * 9973 + biome.length * 131);
+const W = 1600;
+const H = 200;
+const r = (min, max) => min + rand() * (max - min);
+const f = (n) => Math.round(n * 10) / 10;
+
+function hills(base, amp, step) {
+    let d = `M0 ${H} L0 ${base}`;
+    for (let x = 0; x <= W + step; x += step) {
+        const y = base - r(0, amp);
+        d += ` Q${f(x - step / 2)} ${f(y - amp * 0.4)} ${f(x)} ${f(y)}`;
+    }
+    return `${d} L${W} ${H} Z`;
+}
+function peaks(base, minH, maxH) {
+    let d = `M0 ${H} L0 ${base}`;
+    let x = 0;
+    while (x < W) {
+        const width = r(70, 170);
+        d += ` L${f(x + width * r(0.35, 0.65))} ${f(base - r(minH, maxH))} L${f(x + width)} ${f(base - r(0, minH * 0.4))}`;
+        x += width;
+    }
+    return `${d} L${W} ${H} Z`;
+}
+function pines(base, minH, maxH, gapMin, gapMax) {
+    let d = `M0 ${H} L0 ${base}`;
+    let x = 0;
+    while (x < W) {
+        const width = r(gapMin, gapMax);
+        const h = r(minH, maxH);
+        d += ` L${f(x + width * 0.5)} ${f(base - h)} L${f(x + width)} ${base}`;
+        x += width;
+    }
+    return `${d} L${W} ${H} Z`;
+}
+function canopy(base, minH, maxH) {
+    let d = `M0 ${H} L0 ${base}`;
+    let x = 0;
+    while (x < W) {
+        const width = r(40, 110);
+        const h = r(minH, maxH);
+        d += ` A${f(width / 2)} ${f(h)} 0 0 1 ${f(x + width)} ${base}`;
+        x += width;
+    }
+    return `${d} L${W} ${H} Z`;
+}
+function acacia(cx, base, size) {
+    const top = base - size;
+    const trunk = `M${f(cx - 3)} ${base} L${f(cx - 2)} ${f(top + 8)} L${f(cx + 2)} ${f(top + 8)} L${f(cx + 4)} ${base} Z`;
+    const crown = `M${f(cx - size * 0.9)} ${f(top + 6)} Q${f(cx)} ${f(top - size * 0.28)} ${f(cx + size * 0.9)} ${f(top + 6)} Q${f(cx)} ${f(top + 14)} ${f(cx - size * 0.9)} ${f(top + 6)} Z`;
+    return trunk + crown;
+}
+function waves(base, amp, length) {
+    let d = `M0 ${H} L0 ${base}`;
+    for (let x = 0; x <= W; x += length) {
+        d += ` Q${f(x + length / 4)} ${f(base - amp)} ${f(x + length / 2)} ${base} T${f(x + length)} ${base}`;
+    }
+    return `${d} L${W} ${H} Z`;
+}
+function reeds(base, count) {
+    let d = '';
+    for (let i = 0; i < count; i += 1) {
+        const x = r(0, W);
+        const h = r(20, 60);
+        const lean = r(-8, 8);
+        d += `M${f(x)} ${base} L${f(x + lean)} ${f(base - h)} L${f(x + 2.5)} ${base} Z `;
+    }
+    return d;
+}
+function bergs(base, count) {
+    let d = '';
+    for (let i = 0; i < count; i += 1) {
+        const x = r(0, W);
+        const w = r(60, 160);
+        const h = r(25, 70);
+        d += `M${f(x)} ${base} L${f(x + w * 0.2)} ${f(base - h * 0.7)} L${f(x + w * 0.45)} ${f(base - h)} L${f(x + w * 0.7)} ${f(base - h * 0.55)} L${f(x + w)} ${base} Z `;
+    }
+    return d;
+}
+
+const layers = {
+    arena: [[hills(150, 28, 200), 0.5], [hills(172, 16, 140), 1]],
+    savanna: [[hills(150, 26, 260), 0.45], [hills(176, 10, 180) + acacia(260, 176, 46) + acacia(690, 178, 38) + acacia(1180, 176, 54) + acacia(1460, 177, 34), 1]],
+    forest: [[pines(150, 50, 95, 22, 40), 0.45], [pines(182, 40, 80, 16, 30), 1]],
+    jungle: [[canopy(150, 30, 70), 0.45], [canopy(182, 26, 58), 1]],
+    wetlands: [[hills(160, 12, 220) + canopy(160, 16, 34), 0.45], [waves(184, 3, 120) + reeds(184, 90), 1]],
+    desert: [[hills(158, 38, 360), 0.45], [`M980 ${H} L980 118 L1010 108 L1180 108 L1204 120 L1204 ${H} Z` + hills(184, 18, 300), 1]],
+    mountains: [[peaks(150, 60, 125), 0.45], [peaks(186, 30, 70), 1]],
+    arctic: [[peaks(160, 20, 55), 0.4], [waves(186, 2, 160) + bergs(186, 9), 1]],
+    ocean: [[`M1100 ${H} L1100 158 Q1180 118 1260 150 Q1320 132 1380 158 L1380 ${H} Z` + waves(170, 6, 110), 0.4], [waves(186, 5, 90), 1]]
+};
+const art = layers[biome] || layers.arena;
+
+const moteKind = { savanna: 'dust', desert: 'dust', forest: 'firefly', jungle: 'firefly', wetlands: 'firefly', arctic: 'snow', mountains: 'snow', ocean: 'bubble', arena: 'spark' }[biome] || 'spark';
+const motes = Array.from({ length: 16 }, () => ({
+    left: f(r(0, 100)),
+    delay: f(r(0, 12)),
+    duration: f(r(9, 18)),
+    size: f(r(2, moteKind === 'bubble' ? 7 : 4.5))
+}));
+---
+<div class={`arena bio-${biome}`} aria-hidden="true" data-biome={biome}>
+    <div class="horizon">
+        <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none">
+            {art.map(([d, opacity]) => <path d={d} fill="currentColor" opacity={opacity} />)}
+        </svg>
+    </div>
+    <div class={`motes ${moteKind}`}>
+        {motes.map((mote) => <i style={`left:${mote.left}%;animation-delay:-${mote.delay}s;animation-duration:${mote.duration}s;width:${mote.size}px;height:${mote.size}px`}></i>)}
+    </div>
+</div>
+
+<style>
+    .motes i {
+        position: absolute;
+        bottom: -10px;
+        border-radius: 50%;
+        background: var(--bio-accent);
+        opacity: 0;
+        animation-name: rise;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    .motes.dust i { background: #ffd9a0; filter: blur(0.5px); }
+    .motes.firefly i { background: #d9ff8a; box-shadow: 0 0 8px #caff6a; }
+    .motes.spark i { background: var(--cyan-2); box-shadow: 0 0 6px var(--cyan); }
+    .motes.bubble i { background: transparent; border: 1px solid rgba(180, 235, 255, 0.7); }
+    .motes.snow i { background: #fff; animation-name: fall; top: -10px; bottom: auto; }
+    @keyframes rise {
+        0% { transform: translate(0, 0); opacity: 0; }
+        12% { opacity: 0.8; }
+        80% { opacity: 0.5; }
+        100% { transform: translate(40px, -92vh); opacity: 0; }
+    }
+    @keyframes fall {
+        0% { transform: translate(0, 0); opacity: 0; }
+        10% { opacity: 0.9; }
+        100% { transform: translate(-60px, 102vh); opacity: 0; }
+    }
+</style>

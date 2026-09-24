@@ -80,6 +80,10 @@ jobs:
       - name: Lint JavaScript
         run: npm run lint
 
+      - name: Build allowlisted deployment artifact
+        if: steps.deployment.outputs.required != 'false'
+        run: npm run build
+
       - name: Run unit and contract tests
         run: npm test
 
@@ -89,9 +93,6 @@ jobs:
       - name: Verify release version agreement
         run: npm run version:check
 
-      - name: Build allowlisted deployment artifact
-        if: steps.deployment.outputs.required != 'false'
-        run: npm run build
 
   release-production:
     needs: sensitive-export-guard

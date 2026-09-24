@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 'use strict';
 
+// Release version agreement: package files, the legacy app's asset revision and
+// every built HTML page (dist/) must carry the same version.
+
 const fs = require('fs');
 const path = require('path');
 
 const repoRoot = path.resolve(__dirname, '..', '..');
+const dist = path.join(repoRoot, 'dist');
 const packageJson = JSON.parse(fs.readFileSync(path.join(repoRoot, 'package.json'), 'utf8'));
 const packageLock = JSON.parse(fs.readFileSync(path.join(repoRoot, 'package-lock.json'), 'utf8'));
 const version = String(packageJson.version || '').trim();
@@ -12,37 +16,41 @@ const version = String(packageJson.version || '').trim();
 if (!/^\d+\.\d+\.\d+$/.test(version)) {
     throw new Error(`Invalid package version: ${version}`);
 }
-
 if (packageLock.version !== version || packageLock.packages?.['']?.version !== version) {
     throw new Error('package.json and package-lock.json versions disagree');
-}
-
-const rootHtml = fs.readdirSync(repoRoot, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
-    .map((entry) => path.join(repoRoot, entry.name));
-const statsRoot = path.join(repoRoot, 'stats');
-const animalHtml = fs.readdirSync(statsRoot, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
-    .map((entry) => path.join(statsRoot, entry.name));
-const htmlFiles = [...rootHtml, ...animalHtml];
-const portalMarker = `<span class="portal-version">v${version}</span>`;
-const aboutMarker = `<p class="about-version">Version ${version}`;
-const mismatches = htmlFiles.filter((filePath) => {
-    const html = fs.readFileSync(filePath, 'utf8');
-    const localAssetUrls = [...html.matchAll(/(?:src|href)=["'](\/[^"']+\.(?:js|css)(?:\?[^"']*)?)["']/g)]
-        .map((match) => match[1]);
-    const hasStaleAsset = localAssetUrls.some((url) => !url.endsWith(`?v=${version}`));
-    return !html.includes(portalMarker) || !html.includes(aboutMarker) || hasStaleAsset;
-});
-
-if (mismatches.length > 0) {
-    const relative = mismatches.slice(0, 10).map((filePath) => path.relative(repoRoot, filePath));
-    throw new Error(`Version ${version} is missing from ${mismatches.length} HTML file(s): ${relative.join(', ')}`);
 }
 
 const routerSource = fs.readFileSync(path.join(repoRoot, 'js', 'router.js'), 'utf8');
 if (!routerSource.includes(`const ASSET_REVISION = '${version}';`)) {
     throw new Error(`js/router.js asset revision does not match ${version}`);
 }
+const shell = fs.readFileSync(path.join(repoRoot, 'index.html'), 'utf8');
+const staleShellAssets = [...shell.matchAll(/(?:src|href)=["'](\/(?:css|js)\/[^"']+)["']/g)]
+    .map((match) => match[1])
+    .filter((url) => !url.endsWith(`?v=${version}`));
+if (staleShellAssets.length) {
+    throw new Error(`index.html references unversioned assets: ${staleShellAssets.slice(0, 5).join(', ')}`);
+}
 
-console.log(`Version agreement passed (${version}, ${htmlFiles.length} HTML files).`);
+if (!fs.existsSync(dist)) {
+    console.log(`Version agreement passed (${version}; no dist/ to inspect yet).`);
+    process.exit(0);
+}
+
+const pages = [];
+(function walk(directory) {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+        const absolute = path.join(directory, entry.name);
+        if (entry.isDirectory()) walk(absolute);
+        else if (entry.name.endsWith('.html')) pages.push(absolute);
+    }
+})(dist);
+
+const marker = `<meta name="abs-version" content="${version}"`;
+const mismatches = pages.filter((file) => !fs.readFileSync(file, 'utf8').includes(marker));
+if (mismatches.length) {
+    const relative = mismatches.slice(0, 10).map((file) => path.relative(dist, file));
+    throw new Error(`Version ${version} is missing from ${mismatches.length} built page(s): ${relative.join(', ')}`);
+}
+
+console.log(`Version agreement passed (${version}, ${pages.length} built pages).`);

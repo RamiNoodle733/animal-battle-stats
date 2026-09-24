@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import VsScreen from '../components/VsScreen.astro';
+import { getAnimal } from '../lib/catalog.js';
+import { PAIRS } from '../lib/matchups.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+
+const a = getAnimal('african-lion');
+const b = getAnimal('siberian-tiger');
+const title = `Who Would Win? Animal Battle Simulator for 225 Animals | ${SITE.name}`;
+const description = 'Pick any two of 225 real animals and see who would win: research-backed stat duel, tale of the tape, win odds and an animated fight. Lion vs tiger, orca vs great white shark and more.';
+const jsonLd = [
+    {
+        '@type': 'WebApplication',
+        name: 'Who Would Win? animal battle simulator',
+        url: absoluteUrl('/compare'),
+        applicationCategory: 'GameApplication',
+        operatingSystem: 'Any (web browser)',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        description
+    },
+    {
+        '@type': 'ItemList',
+        name: 'Popular animal matchups',
+        itemListElement: PAIRS.filter((pair) => pair.classic).slice(0, 30).map((pair, index) => ({ '@type': 'ListItem', position: index + 1, name: `${pair.a.name} vs ${pair.b.name}`, url: absoluteUrl(`/compare/${pair.slug}`) }))
+    }
+];
+---
+<Base title={title} description={description} path="/compare" image="/images/og/compare.jpg" imageAlt="Who would win? Animal battle simulator" jsonLd={jsonLd} active="compare" biome="arena">
+    <h1 class="visually-hidden">Who would win? Compare any two animals</h1>
+    <VsScreen a={a} b={b} pageLevel="h2" analysis={false} />
+</Base>
+<script>
+    import '../scripts/versus.js';
+</script>

@@ -1,0 +1,23 @@
+---
+// Six stat bars in the Injustice card style: slanted segments, a round stat
+// badge where the bar starts, label and big number above the bar's end.
+import { STATS, fmtScore } from '../lib/catalog.js';
+
+const { animal, compact = false } = Astro.props;
+const ICONS = { attack: 'claws', defense: 'shield', agility: 'wind', stamina: 'heart', intelligence: 'target', special: 'bolt' };
+const SEGMENTS = Array.from({ length: 10 }, (_, index) => index);
+---
+<div class={`meters${compact ? ' compact' : ''}`}>
+    {STATS.map((stat) => {
+        const value = Number(animal[stat.key]) || 0;
+        return (
+            <div class={`meter ${stat.cls}`} data-meter={stat.key} title={`${stat.label}: ${stat.blurb}`}>
+                <span class="m-icon"><img src={`/images/icons/abs/${ICONS[stat.key]}.webp`} alt="" width="26" height="26" /></span>
+                <span class="m-top"><span class="m-label">{stat.label}</span><b class="m-val">{fmtScore(value)}</b></span>
+                <span class="m-bar" style={`--v:${Math.min(100, value)}`} role="meter" aria-label={stat.label} aria-valuemin="0" aria-valuemax="100" aria-valuenow={value}>
+                    {SEGMENTS.map((index) => <i style={`--i:${index}`}></i>)}
+                </span>
+            </div>
+        );
+    })}
+</div>

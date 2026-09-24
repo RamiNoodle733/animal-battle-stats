@@ -1,0 +1,330 @@
+---
+import Icon from './Icon.astro';
+import AnimalImage from './AnimalImage.astro';
+import { STATS, BIOMES, fmtScore, fmtWeight, fmtLength, fmtSpeed, fmtBite, fmtYears } from '../lib/catalog.js';
+import { verdict, PAIRS } from '../lib/matchups.js';
+
+// a/b: the two fighters shown on first paint (static matchup pages pass them).
+const { a, b, pageLevel = 'h1', analysis = true } = Astro.props;
+const result = verdict(a, b);
+const oddsA = result.winner.slug === a.slug ? result.odds : 100 - result.odds;
+const oddsB = 100 - oddsA;
+const Heading = pageLevel;
+const tape = [
+    ['Power index', fmtScore(a.powerIndex), fmtScore(b.powerIndex), a.powerIndex, b.powerIndex],
+    ['Tier', a.tier, b.tier, -a.rank, -b.rank],
+    ['Rank', `#${a.rank}`, `#${b.rank}`, -a.rank, -b.rank],
+    ['Weight', fmtWeight(a.weight_kg)?.metric || '—', fmtWeight(b.weight_kg)?.metric || '—', Number(a.weight_kg) || 0, Number(b.weight_kg) || 0],
+    ['Length', fmtLength(a.length_cm)?.metric || '—', fmtLength(b.length_cm)?.metric || '—', Number(a.length_cm) || 0, Number(b.length_cm) || 0],
+    ['Height', fmtLength(a.height_cm)?.metric || '—', fmtLength(b.height_cm)?.metric || '—', Number(a.height_cm) || 0, Number(b.height_cm) || 0],
+    ['Top speed', fmtSpeed(a.speed_mps)?.metric || '—', fmtSpeed(b.speed_mps)?.metric || '—', Number(a.speed_mps) || 0, Number(b.speed_mps) || 0],
+    ['Bite force', fmtBite(a.bite_force_psi)?.metric || '—', fmtBite(b.bite_force_psi)?.metric || '—', Number(a.bite_force_psi) || 0, Number(b.bite_force_psi) || 0],
+    ['Lifespan', fmtYears(a.lifespan_years)?.metric || '—', fmtYears(b.lifespan_years)?.metric || '—', 0, 0]
+];
+const SEG = Array.from({ length: 10 }, (_, index) => index);
+const ICONS = { attack: 'claws', defense: 'shield', agility: 'wind', stamina: 'heart', intelligence: 'target', special: 'bolt' };
+const faq = [
+    { q: `Who would win, ${a.name} or ${b.name}?`, a: `${result.winner.name}. ${result.paragraphs[0]}` },
+    { q: `Which is bigger, the ${a.name} or the ${b.name}?`, a: (() => {
+        const wa = Number(a.weight_kg) || 0; const wb = Number(b.weight_kg) || 0;
+        if (!wa || !wb) return 'A reliable weight is missing for one of them.';
+        const big = wa >= wb ? a : b; const small = big === a ? b : a;
+        return `The ${big.name} (${fmtWeight(big.weight_kg).metric}) is heavier than the ${small.name} (${fmtWeight(small.weight_kg).metric}).`;
+    })() },
+    { q: `Which is faster?`, a: (() => {
+        const sa = Number(a.speed_mps) || 0; const sb = Number(b.speed_mps) || 0;
+        if (sa && sb) { const fast = sa >= sb ? a : b; return `The ${fast.name} is faster, with a top speed of ${fmtSpeed(fast.speed_mps).metric}.`; }
+        const agile = (a.agility || 0) >= (b.agility || 0) ? a : b;
+        return `No reliable top speed exists for both, but the ${agile.name} is more agile (${fmtScore(agile.agility)} vs ${fmtScore((agile === a ? b : a).agility)}).`;
+    })() }
+];
+const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
+---
+
+<div class="vs" data-vs data-a={a.slug} data-b={b.slug}>
+    <section class={`fighter side-a tier-${a.tier.toLowerCase()} bio-${a.biome}`} data-side="a" aria-label="Fighter 1">
+        <div class="hp-wrap">
+            <div class="hp-name"><span class={`tier-badge tier-${a.tier.toLowerCase()}`} data-f-tier>{a.tier}</span><strong data-f-name>{a.name}</strong><span class="hp-pwr"><small>PWR</small><b data-f-power>{fmtScore(a.powerIndex)}</b></span></div>
+            <div class="hp"><i data-hp></i></div>
+        </div>
+        <div class="f-stage">
+            <div class="f-platform"></div>
+            <a class="f-art" href={`/stats/${a.slug}`} data-f-link aria-label={`${a.name} profile`}>
+                <AnimalImage animal={a} priority sizes="(max-width: 900px) 42vw, 420px" alt={a.name} />
+            </a>
+            <div class="fx" data-fx></div>
+        </div>
+        <div class="f-foot">
+            <span class="chip" data-f-meta>{a.class} · {BIOMES[a.biome]?.label}</span>
+            <button class="btn btn-sm" type="button" data-pick="a"><Icon name="cards" size={22} />Change</button>
+        </div>
+    </section>
+
+    <section class="console panel" aria-label="Matchup">
+        <div class="vs-head">
+            <Heading class="vs-title">
+                <span data-t-a>{a.name}</span> <em>vs</em> <span data-t-b>{b.name}</span>
+            </Heading>
+            <p class="vs-q">Who would win?</p>
+        </div>
+        <div class="odds" aria-label="Win odds">
+            <span class="o-a" style={`--p:${oddsA}%`} data-odds-a>{oddsA}%</span>
+            <span class="o-b" style={`--p:${oddsB}%`} data-odds-b>{oddsB}%</span>
+        </div>
+        <p class="verdict-line"><Icon name="crown" size={22} /><strong data-winner>{result.winner.name}</strong> <span data-strength>{result.strength.toLowerCase()}</span></p>
+
+        <div class="tabs" role="tablist">
+            <button type="button" role="tab" aria-selected="true" data-ctab="duel"><Icon name="swords" size={20} />Duel</button>
+            <button type="button" role="tab" aria-selected="false" data-ctab="tape"><Icon name="target" size={20} />Tape</button>
+            {analysis && <button type="button" role="tab" aria-selected="false" data-ctab="verdict"><Icon name="book" size={20} />Verdict</button>}
+        </div>
+        <div class="c-pane scroll" data-cpane="duel">
+            <div class="duel">
+                {STATS.map((stat) => {
+                    const va = Number(a[stat.key]) || 0; const vb = Number(b[stat.key]) || 0;
+                    return (
+                        <div class={`duel-row ${stat.cls}`} data-stat={stat.key}>
+                            <b class={va >= vb ? 'lead' : ''} data-va>{fmtScore(va)}</b>
+                            <span class="seg-bar left" style={`--v:${va}`} data-ba>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
+                            <span class="d-mid"><Icon name={ICONS[stat.key]} size={20} /><small>{stat.abbr}</small></span>
+                            <span class="seg-bar right" style={`--v:${vb}`} data-bb>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
+                            <b class={vb > va ? 'lead' : ''} data-vb>{fmtScore(vb)}</b>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+        <div class="c-pane scroll" data-cpane="tape" hidden>
+            <table class="tape">
+                <thead><tr><th data-tape-a>{a.name}</th><th></th><th data-tape-b>{b.name}</th></tr></thead>
+                <tbody data-tape>
+                    {tape.map(([label, va, vb, na, nb]) => <tr><td class={na > nb ? 'lead' : ''}>{va}</td><th>{label}</th><td class={nb > na ? 'lead' : ''}>{vb}</td></tr>)}
+                </tbody>
+            </table>
+        </div>
+        {analysis && (
+            <div class="c-pane scroll prose" data-cpane="verdict" hidden>
+                <div data-verdict-text>{result.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
+                <div class="faq" data-faq>{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+                <p class="small muted">Odds come from the Animal Battle Stats model: six researched ratings, weighted, compared head to head. <a class="link" href="/about#model">How it works</a></p>
+            </div>
+        )}
+
+        <div class="c-actions">
+            <button class="btn btn-hot btn-lg fight-btn" type="button" data-fight><Icon name="swords" size={28} />Fight!</button>
+            <div class="fan" data-fan>
+                <span>Fans pick:</span>
+                <button type="button" class="chip" data-vote-side="a"><span data-fan-a>{a.name}</span> <b data-fan-pa></b></button>
+                <button type="button" class="chip" data-vote-side="b"><span data-fan-b>{b.name}</span> <b data-fan-pb></b></button>
+            </div>
+        </div>
+        <div class="announcer" data-announcer aria-live="assertive"></div>
+    </section>
+
+    <section class={`fighter side-b tier-${b.tier.toLowerCase()} bio-${b.biome}`} data-side="b" aria-label="Fighter 2">
+        <div class="hp-wrap">
+            <div class="hp-name"><span class="hp-pwr"><small>PWR</small><b data-f-power>{fmtScore(b.powerIndex)}</b></span><strong data-f-name>{b.name}</strong><span class={`tier-badge tier-${b.tier.toLowerCase()}`} data-f-tier>{b.tier}</span></div>
+            <div class="hp"><i data-hp></i></div>
+        </div>
+        <div class="f-stage">
+            <div class="f-platform"></div>
+            <a class="f-art mirror" href={`/stats/${b.slug}`} data-f-link aria-label={`${b.name} profile`}>
+                <AnimalImage animal={b} priority sizes="(max-width: 900px) 42vw, 420px" alt={b.name} />
+            </a>
+            <div class="fx" data-fx></div>
+        </div>
+        <div class="f-foot">
+            <button class="btn btn-sm" type="button" data-pick="b"><Icon name="cards" size={22} />Change</button>
+            <span class="chip" data-f-meta>{b.class} · {BIOMES[b.biome]?.label}</span>
+        </div>
+    </section>
+
+    <section class="roster panel" aria-label="Choose a fighter" data-roster>
+        <div class="r-head">
+            <span class="r-title" data-roster-title>Pick fighter 2</span>
+            <label class="field r-search"><span class="visually-hidden">Search</span><input type="search" placeholder="Search…" data-r-q autocomplete="off" /></label>
+            <div class="classics">
+                {classics.map((pair) => <a class="chip" href={`/compare/${pair.slug}`}>{pair.a.name} vs {pair.b.name}</a>)}
+            </div>
+        </div>
+        <div class="r-strip" data-r-strip aria-busy="true"></div>
+    </section>
+</div>
+
+<style>
+    .vs {
+        height: 100%;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 1.05fr) minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 12px;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+    .fighter { position: relative; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+    .fighter.picking .f-stage { outline: 2px dashed rgba(0, 212, 255, 0.5); outline-offset: -6px; border-radius: 16px; }
+    .hp-wrap { padding: 4px 2px 8px; }
+    .hp-name { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .side-b .hp-name { justify-content: flex-end; }
+    .hp-name strong { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 2rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; transform: skewX(-6deg); line-height: 1; }
+    .hp-pwr { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+    .hp-pwr small { font-size: 0.55rem; font-weight: 800; letter-spacing: 0.14em; color: var(--muted); }
+    .hp-pwr b { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--tier); }
+    .side-a .hp-pwr { margin-left: auto; }
+    .side-b .hp-pwr { margin-right: auto; }
+    .hp {
+        --hp: 100%;
+        position: relative;
+        height: 20px;
+        background: linear-gradient(180deg, #2a0a10, #12040a);
+        border: 2px solid #05070d;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), inset 0 2px 4px rgba(0, 0, 0, 0.6);
+        clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+        overflow: hidden;
+    }
+    .side-b .hp { clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+    .hp i {
+        position: absolute;
+        top: 0; bottom: 0;
+        width: var(--hp);
+        background: linear-gradient(180deg, #d6ff8a, #35dc8f 45%, #139a5c);
+        transition: width 0.45s var(--ease), background 0.3s;
+    }
+    .side-a .hp i { right: 0; }
+    .side-b .hp i { left: 0; }
+    .hp.mid i { background: linear-gradient(180deg, #fff3a0, #ffc53d 45%, #b88400); }
+    .hp.low i { background: linear-gradient(180deg, #ffb0a0, #ff4d5e 45%, #9c1024); }
+    .hp::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 calc(5% - 2px), rgba(0, 0, 0, 0.45) calc(5% - 2px) 5%); }
+
+    .f-stage { position: relative; min-height: 0; display: grid; place-items: end center; padding-bottom: 8%; }
+    .f-platform {
+        position: absolute; left: 10%; right: 10%; bottom: 4%; height: 15%;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, color-mix(in srgb, var(--bio-accent) 55%, transparent), transparent 72%);
+        box-shadow: 0 0 50px color-mix(in srgb, var(--bio-accent) 30%, transparent);
+        transform: perspective(380px) rotateX(64deg);
+    }
+    .f-art { position: relative; display: grid; place-items: end center; width: 100%; height: 100%; min-height: 0; }
+    .f-art :global(img) {
+        width: auto; max-width: 100%; max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 22px 20px rgba(0, 0, 0, 0.6));
+        transition: transform 0.25s var(--ease), filter 0.25s;
+    }
+    .f-art.mirror :global(img) { transform: scaleX(-1); }
+    .f-foot { display: flex; align-items: center; gap: 8px; }
+    .side-b .f-foot { justify-content: flex-end; }
+    .fx { position: absolute; inset: 0; pointer-events: none; }
+
+    .console { min-height: 0; }
+    .vs-head { padding: 12px 16px 4px; text-align: center; }
+    .vs-title { font-family: var(--font-display); font-size: clamp(1.25rem, 2vw, 1.8rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05; transform: skewX(-6deg); }
+    .vs-title em { font-style: normal; color: var(--orange); padding: 0 4px; }
+    .vs-q { margin: 2px 0 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .odds { display: flex; height: 30px; margin: 8px 16px 6px; overflow: hidden; clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
+    .odds span { display: flex; align-items: center; padding: 0 12px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; color: #06101c; transition: flex-basis 0.6s var(--ease); }
+    .o-a { flex: 0 0 var(--p); background: linear-gradient(180deg, #7eeaff, var(--cyan)); }
+    .o-b { flex: 0 0 var(--p); justify-content: flex-end; background: linear-gradient(180deg, #ffb27a, var(--orange)); }
+    .verdict-line { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0 0 6px; font-size: 0.86rem; color: var(--text-2); }
+    .verdict-line strong { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-transform: uppercase; color: var(--gold-2); }
+    .c-pane { flex: 1; min-height: 0; padding: 10px 14px; }
+    .duel { display: grid; gap: 7px; }
+    .duel-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) 54px minmax(0, 1fr) 40px; align-items: center; gap: 6px; }
+    .duel-row b { font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; color: var(--muted); text-align: center; }
+    .duel-row b.lead { color: var(--stat); text-shadow: 0 0 12px color-mix(in srgb, var(--stat) 60%, transparent); }
+    .seg-bar { display: flex; gap: 2px; height: 14px; transition: --v 0.5s var(--ease); }
+    .seg-bar.left { flex-direction: row-reverse; }
+    .seg-bar i {
+        flex: 1;
+        transform: skewX(-24deg);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.3)),
+            linear-gradient(90deg, var(--stat) calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), #5b6176 0);
+    }
+    .seg-bar.left i {
+        transform: skewX(24deg);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.3)),
+            linear-gradient(270deg, var(--stat) calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), #5b6176 0);
+    }
+    .d-mid { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+    .d-mid small { font-family: var(--font-display); font-size: 0.72rem; font-weight: 900; color: var(--stat); letter-spacing: 0.06em; }
+    .tape { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .tape th, .tape td { padding: 7px 6px; border-bottom: 1px solid var(--line); text-align: center; }
+    .tape thead th { font-family: var(--font-display); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
+    .tape tbody th { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .tape td { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--text-2); }
+    .tape td.lead { color: var(--gold-2); }
+    .c-actions { display: grid; gap: 8px; padding: 10px 14px 14px; border-top: 1px solid var(--line); }
+    .fight-btn { width: 100%; }
+    .fight-btn[disabled] { filter: grayscale(0.6) brightness(0.8); pointer-events: none; }
+    .fan { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; font-size: 0.76rem; color: var(--muted); }
+    .fan .chip { cursor: pointer; }
+    .fan .chip.voted { border-color: var(--gold); color: var(--gold-2); }
+    .announcer {
+        position: absolute; inset: 0; z-index: 20;
+        display: grid; place-items: center;
+        pointer-events: none;
+        font-family: var(--font-display); font-weight: 900; text-transform: uppercase; text-align: center;
+    }
+    .announcer :global(.big) { padding: 14px 40px; background: linear-gradient(90deg, transparent, rgba(4, 7, 18, 0.88) 18%, rgba(4, 7, 18, 0.88) 82%, transparent); font-size: clamp(3rem, 7vw, 6rem); line-height: 0.9; transform: skewX(-8deg); text-shadow: 0 6px 0 rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 0, 0.6); color: #fff; animation: slam 0.5s var(--spring) both; }
+    .announcer :global(.move) { max-width: 90%; padding: 10px 16px; font-size: clamp(1.1rem, 2vw, 1.6rem); color: #1d0800; background: linear-gradient(180deg, #ffd27a, var(--orange)); clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%); animation: slam 0.35s var(--spring) both; }
+    @keyframes slam { from { opacity: 0; transform: skewX(-8deg) scale(1.8); } to { opacity: 1; transform: skewX(-8deg) scale(1); } }
+
+    .roster { grid-column: 1 / -1; min-height: 0; }
+    .r-head { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-bottom: 1px solid var(--line); }
+    .r-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; color: var(--cyan-2); white-space: nowrap; }
+    .r-search { width: 200px; min-height: 34px; }
+    .r-search input { height: 32px; }
+    .classics { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+    .classics::-webkit-scrollbar { display: none; }
+    .classics .chip:hover { border-color: var(--orange); color: var(--orange-2); }
+    .r-strip { display: flex; gap: 8px; padding: 10px 12px; overflow-x: auto; scrollbar-width: thin; }
+    :global(.r-card) { flex: 0 0 92px; padding: 0; background: none; border: 0; }
+    :global(.r-card[hidden]) { display: none; }
+    :global(.r-card) :global(.card) { pointer-events: none; }
+    :global(.r-card) :global(.card-meta) { display: none; }
+    :global(.r-card) :global(.card-name) { font-size: 0.72rem; }
+    :global(.r-card) :global(.card-power) { transform: scale(0.8); transform-origin: top left; }
+    :global(.r-card) :global(.tier-badge) { transform: scale(0.8); transform-origin: top right; }
+    :global(.r-card.selected-a) :global(.card) { box-shadow: 0 0 0 3px var(--cyan); }
+    :global(.r-card.selected-b) :global(.card) { box-shadow: 0 0 0 3px var(--orange); }
+
+    /* fight animation states */
+    .fighter.lunge .f-art :global(img) { transform: translateX(14%) rotate(-4deg) scale(1.05); }
+    .side-b.lunge .f-art :global(img) { transform: scaleX(-1) translateX(14%) rotate(-4deg) scale(1.05); }
+    .fighter.hit .f-art :global(img) { filter: drop-shadow(0 0 18px rgba(255, 60, 60, 0.9)) brightness(1.6) saturate(0.4); transform: translateX(-5%); }
+    .side-b.hit .f-art :global(img) { transform: scaleX(-1) translateX(-5%); }
+    .fighter.ko .f-art :global(img) { transform: translateY(12%) rotate(14deg); filter: grayscale(1) brightness(0.5); transition: transform 0.8s var(--ease), filter 0.8s; }
+    .side-b.ko .f-art :global(img) { transform: scaleX(-1) translateY(12%) rotate(14deg); }
+    .fighter.winner .f-art :global(img) { filter: drop-shadow(0 0 28px color-mix(in srgb, var(--tier) 80%, transparent)) drop-shadow(0 22px 20px rgba(0, 0, 0, 0.6)); transform: translateY(-4%) scale(1.06); }
+    .side-b.winner .f-art :global(img) { transform: scaleX(-1) translateY(-4%) scale(1.06); }
+    .fx :global(.dmg) {
+        position: absolute; left: 50%; top: 35%;
+        font-family: var(--font-display); font-size: 2.4rem; font-weight: 900; color: #fff;
+        text-shadow: 0 3px 0 #000, 0 0 16px rgba(255, 60, 60, 0.9);
+        animation: float-up 0.9s var(--ease) forwards;
+    }
+    .fx :global(.dmg.crit) { color: var(--gold-2); font-size: 3.2rem; }
+    .fx :global(.burst) { position: absolute; left: 50%; top: 45%; width: 160px; height: 160px; margin: -80px 0 0 -80px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 170, 60, 0.6) 30%, transparent 65%); animation: burst 0.35s ease-out forwards; }
+    @keyframes float-up { from { opacity: 1; transform: translate(-50%, 0) scale(0.8); } 20% { transform: translate(-50%, -12px) scale(1.15); } to { opacity: 0; transform: translate(-50%, -80px) scale(1); } }
+    @keyframes burst { from { opacity: 1; transform: scale(0.2); } to { opacity: 0; transform: scale(1.4); } }
+
+    @media (max-width: 900px) {
+        .vs { grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 8px; }
+        .console { grid-column: 1 / -1; grid-row: 2; }
+        .side-a { grid-column: 1; grid-row: 1; }
+        .side-b { grid-column: 2; grid-row: 1; }
+        .roster { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; padding-bottom: var(--dock-h); transform: translateY(100%); visibility: hidden; transition: transform 0.28s var(--ease), visibility 0s 0.28s; }
+        .roster.open { transform: none; visibility: visible; transition: transform 0.28s var(--ease); }
+        .classics { display: none; }
+        .r-search { flex: 1; width: auto; }
+        .hp-name strong { font-size: 1.05rem; }
+        .hp-pwr, .f-foot .chip { display: none; }
+        .vs-head { padding: 8px 10px 0; }
+        .odds { margin: 6px 10px 4px; height: 26px; }
+        .c-actions { padding: 8px 10px 10px; }
+        .btn-lg.fight-btn { min-height: 46px; font-size: 1.15rem; }
+    }
+</style>

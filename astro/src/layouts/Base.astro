@@ -1,0 +1,182 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/big-shoulders-display';
+import '../styles/abs.css';
+import packageJson from '../../../package.json';
+import Arena from '../components/Arena.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, SOCIAL, ROBLOX, absoluteUrl } from '../lib/site.js';
+
+const {
+    title,
+    description,
+    path = '/',
+    image = '/images/og/site.jpg',
+    imageAlt = 'Animal Battle Stats',
+    type = 'website',
+    jsonLd = [],
+    active = '',
+    biome = 'arena',
+    seed = 7,
+    noindex = false,
+    bodyClass = ''
+} = Astro.props;
+
+const canonical = absoluteUrl(path);
+const socialImage = absoluteUrl(image);
+const version = packageJson.version;
+const MENU = [
+    { key: 'animals', href: '/stats', label: 'Animals', icon: 'paw' },
+    { key: 'compare', href: '/compare', label: 'Versus', icon: 'vs' },
+    { key: 'tiers', href: '/tier-list', label: 'Tiers', icon: 'crown' },
+    { key: 'rankings', href: '/rankings', label: 'Rankings', icon: 'medal' },
+    { key: 'tournament', href: '/tournament', label: 'Tourney', icon: 'trophy' },
+    { key: 'community', href: '/community', label: 'Community', icon: 'friends' }
+];
+const DOCK = [MENU[0], MENU[1], MENU[2], MENU[5], { key: 'roblox', href: '/roblox', label: 'Roblox', icon: 'cards' }];
+const graph = [
+    {
+        '@type': 'Organization',
+        '@id': `${SITE.url}/#organization`,
+        name: SITE.name,
+        url: `${SITE.url}/`,
+        logo: { '@type': 'ImageObject', url: absoluteUrl(SITE.logo), width: 512, height: 512 },
+        email: SITE.email,
+        founder: { '@type': 'Person', name: SITE.founder },
+        sameAs: SOCIAL.map((item) => item.url)
+    },
+    {
+        '@type': 'WebSite',
+        '@id': `${SITE.url}/#website`,
+        name: SITE.name,
+        alternateName: ['ABS', 'animalbattlestats.com'],
+        url: `${SITE.url}/`,
+        description: SITE.description,
+        publisher: { '@id': `${SITE.url}/#organization` },
+        inLanguage: 'en',
+        potentialAction: {
+            '@type': 'SearchAction',
+            target: { '@type': 'EntryPoint', urlTemplate: `${SITE.url}/stats?q={search_term_string}` },
+            'query-input': 'required name=search_term_string'
+        }
+    },
+    ...jsonLd
+];
+const ldJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+        <meta name="theme-color" content="#050814" />
+        <meta name="color-scheme" content="dark" />
+        <meta name="abs-version" content={version} />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="alternate" type="text/plain" title="Summary for AI assistants" href="/llms.txt" />
+        <meta property="og:type" content={type} />
+        <meta property="og:site_name" content={SITE.name} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={socialImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={imageAlt} />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@AnimalBattStats" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={socialImage} />
+        <meta name="twitter:image:alt" content={imageAlt} />
+        <slot name="head" />
+        <script type="application/ld+json" set:html={ldJson} />
+    </head>
+    <body class={`game bio-${biome} ${bodyClass}`.trim()}>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <Arena biome={biome} seed={seed} />
+
+        <header class="hud">
+            <a class="brand" href="/" aria-label="Animal Battle Stats home">
+                <img src="/images/logo.png" alt="" width="40" height="40" />
+                <span class="brand-word"><b>Animal Battle</b><span>Stats</span></span>
+            </a>
+            <nav class="menu" aria-label="Main">
+                {MENU.map((item) => (
+                    <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>
+                        <Icon name={item.icon} size={26} />
+                        <span>{item.label}</span>
+                    </a>
+                ))}
+            </nav>
+            <div class="hud-right">
+                <button class="hud-btn" type="button" data-open-search aria-label="Search animals" title="Search (press /)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
+                </button>
+                <button class="hud-btn" type="button" data-sound-toggle aria-label="Sound effects" aria-pressed="true">
+                    <Icon name="roar" size={26} />
+                </button>
+                <a class="btn btn-white btn-sm play-btn" href="/roblox" aria-current={active === 'roblox' ? 'page' : undefined}>
+                    <Icon name="cards" size={26} /><span>Play<span class="long"> on Roblox</span></span>
+                </a>
+                <a class="player-chip" href="/login" data-player-chip><span class="lvl">?</span><span class="who">Log in</span></a>
+                <button class="hud-btn" type="button" data-sheet-toggle aria-expanded="false" aria-controls="more-sheet" aria-label="Menu">
+                    <Icon name="gear" size={26} />
+                </button>
+            </div>
+        </header>
+
+        <main class="screen" id="main">
+            <slot />
+        </main>
+
+        <nav class="dock" aria-label="Quick">
+            {DOCK.map((item) => (
+                <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>
+                    <Icon name={item.icon} size={30} />
+                    <span>{item.label}</span>
+                </a>
+            ))}
+        </nav>
+
+        <aside class="sheet" id="more-sheet" aria-label="More">
+            <h2 class="screen-title" style="font-size:1.6rem">Menu</h2>
+            <nav aria-label="All pages">
+                <a href="/"><Icon name="home" size={26} />Home</a>
+                {MENU.map((item) => <a href={item.href}><Icon name={item.icon} size={26} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label === 'Tourney' ? 'Tournament' : item.label}</a>)}
+                <a href="/roblox"><Icon name="cards" size={26} />{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
+                <a href="/about"><Icon name="book" size={26} />About &amp; how ratings work</a>
+                <a href="/credits"><Icon name="scroll" size={26} />Sources &amp; photo credits</a>
+                <a href="/llms.txt"><Icon name="bolt" size={26} />Data for AI assistants</a>
+            </nav>
+            <div class="socials">
+                {SOCIAL.map((item) => <a class="chip" href={item.url} rel="me noopener" target="_blank">{item.name}</a>)}
+            </div>
+            <p class="fine">© {year} {SITE.name} · v{version}<br />Hypothetical matchups for fun and learning. Never approach wild animals.</p>
+        </aside>
+
+        <dialog class="search-dialog" id="search-dialog" aria-label="Search animals">
+            <div class="search-field">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
+                <input type="search" placeholder="Search 225 animals…" aria-label="Search animals" autocomplete="off" spellcheck="false" data-search-input />
+                <kbd class="chip">Esc</kbd>
+            </div>
+            <ul class="search-results" role="listbox" data-search-results></ul>
+        </dialog>
+
+        <script>
+            import '../scripts/site.js';
+        </script>
+        <slot name="scripts" />
+    </body>
+</html>

@@ -1,0 +1,215 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import AnimalImage from './AnimalImage.astro';
+import HoloCard from './HoloCard.astro';
+import { animals, fmtScore, POWER_WEIGHTS } from '../lib/catalog.js';
+import { CATEGORIES, leaderboard } from '../lib/categories.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+
+// category = null renders the overall power ranking with community votes.
+const { category = null } = Astro.props;
+const year = new Date().getFullYear();
+const list = category ? leaderboard(category) : animals;
+const show = category ? category.show : (animal) => fmtScore(animal.powerIndex);
+const path = category ? `/rankings/${category.slug}` : '/rankings';
+const heading = category ? category.label : 'Strongest animals';
+const title = category
+    ? `${category.label} in the World (${year}): Top ${Math.min(list.length, 225)} Ranked | ${SITE.name}`
+    : `Strongest Animals in the World ${year}: Power Rankings of 225 Animals | ${SITE.name}`;
+const description = category
+    ? `${category.intro} #1: ${list[0].name} (${show(list[0])}), #2: ${list[1].name}, #3: ${list[2].name}. Research-backed rankings with sources.`
+    : `Who is the strongest animal? ${animals[0].name}, ${animals[1].name} and ${animals[2].name} top our research-backed power rankings of 225 real animals.`;
+const pct = (value) => `${Math.round(value * 100)}%`;
+const podium = list.slice(0, 3);
+const land = animals.filter((animal) => animal.group !== 'sea');
+
+const faq = category
+    ? [
+        { q: `What is the #1 animal for ${category.stat.toLowerCase()}?`, a: `The ${list[0].name} leads with ${show(list[0])}, ahead of the ${list[1].name} (${show(list[1])}) and the ${list[2].name} (${show(list[2])}).` },
+        { q: 'How is this ranking made?', a: category.measurement ? `${category.intro} Values describe the healthy adult each profile is rated on, with sources on every profile.` : `${category.intro} The ${category.stat.toLowerCase()} rating is on one 0–100 scale for all 225 animals, set in each animal's research report.` }
+    ]
+    : [
+        { q: 'What is the strongest animal in the world?', a: `On our roster the ${animals[0].name} ranks #1 with a power index of ${fmtScore(animals[0].powerIndex)}, ahead of the ${animals[1].name} (${fmtScore(animals[1].powerIndex)}) and the ${animals[2].name} (${fmtScore(animals[2].powerIndex)}).` },
+        { q: 'What is the strongest land animal?', a: `The ${land[0].name} is the highest-ranked land animal (power ${fmtScore(land[0].powerIndex)}), followed by the ${land[1].name} and the ${land[2].name}.` },
+        { q: 'How is the power index calculated?', a: `Six battle ratings (0–100) weighted: attack ${pct(POWER_WEIGHTS.attack)}, defense ${pct(POWER_WEIGHTS.defense)}, agility ${pct(POWER_WEIGHTS.agility)}, stamina ${pct(POWER_WEIGHTS.stamina)}, special ${pct(POWER_WEIGHTS.special)}, intelligence ${pct(POWER_WEIGHTS.intelligence)}.` },
+        { q: 'Do votes change the ranking?', a: 'No. Community votes show opinion next to each animal; the ranking only uses the researched stats.' }
+    ];
+
+const jsonLd = [
+    {
+        '@type': 'CollectionPage',
+        url: absoluteUrl(path),
+        name: heading,
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        mainEntity: {
+            '@type': 'ItemList',
+            name: heading,
+            numberOfItems: list.length,
+            itemListOrder: 'https://schema.org/ItemListOrderDescending',
+            itemListElement: list.slice(0, 100).map((animal, index) => ({ '@type': 'ListItem', position: index + 1, name: `${animal.name} (${show(animal)})`, url: absoluteUrl(`/stats/${animal.slug}`) }))
+        }
+    },
+    { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }
+];
+const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal' }, ...CATEGORIES.map((item) => ({ ...item, icon: { attack: 'claws', defense: 'shield', agility: 'wind', stamina: 'heart', intelligence: 'target', special: 'bolt', weight_kg: 'tower', speed_mps: 'fire', bite_force_psi: 'burst', length_cm: 'arrow' }[item.key] }))];
+---
+
+<Base title={title} description={description} path={path} image="/images/og/rankings.jpg" imageAlt={heading} jsonLd={jsonLd} active="rankings" biome="mountains">
+    <div class="board screen-grid">
+        <nav class="panel rail" aria-label="Ranking categories">
+            <div class="panel-head"><Icon name="medal" size={28} /><span class="panel-title">Leaderboards</span></div>
+            <div class="rail-list scroll">
+                {RAIL.map((item) => (
+                    <a href={item.slug ? `/rankings/${item.slug}` : '/rankings'} aria-current={(item.slug || null) === (category?.slug || null) ? 'page' : undefined}>
+                        <Icon name={item.icon} size={26} />
+                        <span><b>{item.slug ? item.label.replace(/^Animals with the /, '').replace(/ animals$/i, '') : 'Power index'}</b><small>{item.stat}</small></span>
+                    </a>
+                ))}
+            </div>
+        </nav>
+
+        <section class="panel list-panel" aria-labelledby="lb-title">
+            <div class="panel-head">
+                <h1 id="lb-title" class="panel-title">{heading}</h1>
+                <span class="aside">{list.length} ranked{category?.measurement ? ' · measured values only' : ''}</span>
+                {!category && (
+                    <div class="seg sort" role="group" aria-label="Sort">
+                        <button type="button" aria-pressed="true" data-sort="power">Power</button>
+                        <button type="button" aria-pressed="false" data-sort="votes">Votes</button>
+                    </div>
+                )}
+            </div>
+            <div class="podium">
+                {podium.map((animal, index) => (
+                    <div class={`pod p${index + 1}`}>
+                        <span class="place">{index + 1}</span>
+                        <HoloCard animal={animal} priority sizes="170px" meta={show(animal)} />
+                    </div>
+                ))}
+            </div>
+            <ol class="rows scroll" data-rows>
+                {list.map((animal, index) => (
+                    <li class={`row tier-${animal.tier.toLowerCase()}`} data-name={animal.name} data-id={animal._id} data-rank={index + 1}>
+                        <span class="pos">{index + 1}</span>
+                        <AnimalImage animal={animal} sizes="64px" alt="" />
+                        <a class="nm" href={`/stats/${animal.slug}`} data-sfx>{animal.name}<small>{animal.type} · {animal.class}</small></a>
+                        {!category && <span class="votes" data-vote-slot></span>}
+                        <span class={`tier-badge tier-${animal.tier.toLowerCase()}`}>{animal.tier}</span>
+                        <b class="val">{show(animal)}</b>
+                    </li>
+                ))}
+            </ol>
+            <details class="lb-faq faq">
+                <summary>About this ranking</summary>
+                {faq.map((item) => <p><strong>{item.q}</strong> {item.a}</p>)}
+            </details>
+        </section>
+    </div>
+</Base>
+
+{!category && (
+    <script>
+        import { castVote, loadVotes } from '../scripts/votes.js';
+        import { toast } from '../scripts/site.js';
+        import { sfx } from '../scripts/sfx.js';
+
+        const list = document.querySelector('[data-rows]');
+        const rows = [...list.children];
+        let votes = new Map();
+
+        function paint() {
+            for (const row of rows) {
+                const entry = votes.get(row.dataset.name) || { up: 0, down: 0, mine: null };
+                row.querySelector('[data-vote-slot]').innerHTML = `
+                    <button type="button" class="vote up${entry.mine === 'up' ? ' on' : ''}" data-vote="up" aria-label="Upvote ${row.dataset.name}">▲ ${entry.up}</button>
+                    <button type="button" class="vote down${entry.mine === 'down' ? ' on' : ''}" data-vote="down" aria-label="Downvote ${row.dataset.name}">▼ ${entry.down}</button>`;
+            }
+        }
+        loadVotes().then((map) => { votes = map; paint(); }).catch(() => {});
+
+        list.addEventListener('click', async (event) => {
+            const button = event.target.closest('[data-vote]');
+            if (!button) return;
+            const row = button.closest('li');
+            const result = await castVote(row.dataset.id, row.dataset.name, button.dataset.vote, votes.get(row.dataset.name));
+            if (result.needsLogin) { toast('Log in to vote (and earn XP)'); setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent(location.pathname)}`; }, 900); return; }
+            if (result.error) { sfx.error(); toast(result.error); return; }
+            votes.set(row.dataset.name, result.entry);
+            paint();
+            if (result.xp) { sfx.coin(); toast(`+${result.xp} XP for voting`); }
+        });
+
+        document.querySelectorAll('[data-sort]').forEach((button) => button.addEventListener('click', () => {
+            document.querySelectorAll('[data-sort]').forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+            const byVotes = button.dataset.sort === 'votes';
+            [...rows].sort((a, b) => {
+                if (!byVotes) return Number(a.dataset.rank) - Number(b.dataset.rank);
+                const va = votes.get(a.dataset.name) || { up: 0, down: 0 };
+                const vb = votes.get(b.dataset.name) || { up: 0, down: 0 };
+                return (vb.up - vb.down) - (va.up - va.down) || Number(a.dataset.rank) - Number(b.dataset.rank);
+            }).forEach((row, index) => { row.querySelector('.pos').textContent = String(index + 1); list.appendChild(row); });
+        }));
+    </script>
+)}
+
+<style>
+    .board { grid-template-columns: 250px minmax(0, 1fr); max-width: 1400px; margin: 0 auto; }
+    .rail { min-height: 0; }
+    .rail-list { flex: 1; min-height: 0; padding: 8px; display: grid; gap: 4px; align-content: start; }
+    .rail-list a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 9px; border: 1px solid transparent; }
+    .rail-list a:hover { background: rgba(255, 255, 255, 0.04); }
+    .rail-list a[aria-current="page"] { background: linear-gradient(90deg, rgba(0, 212, 255, 0.16), transparent); border-color: rgba(0, 212, 255, 0.35); }
+    .rail-list b { display: block; font-family: var(--font-display); font-size: 1.02rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05; }
+    .rail-list small { font-size: 0.68rem; color: var(--muted); }
+    .list-panel { min-height: 0; }
+    .list-panel .panel-head { flex-wrap: wrap; }
+    .sort { margin-left: 8px; }
+    .podium { display: grid; grid-template-columns: repeat(3, minmax(0, 150px)); justify-content: center; align-items: end; gap: 14px; padding: 14px 16px 6px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+    .pod { position: relative; }
+    .pod.p1 { order: 2; transform: translateY(-8px); }
+    .pod.p2 { order: 1; }
+    .pod.p3 { order: 3; }
+    .place { position: absolute; top: -10px; left: 50%; z-index: 6; transform: translateX(-50%); display: grid; place-items: center; width: 30px; height: 30px; font-family: var(--font-display); font-weight: 900; color: #0b0e1a; border-radius: 50%; background: linear-gradient(160deg, #fff3b0, var(--tier-s)); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); }
+    .p2 .place { background: linear-gradient(160deg, #fff, #b9c3dc); }
+    .p3 .place { background: linear-gradient(160deg, #ffd0a8, #c7773f); }
+    .rows { flex: 1; min-height: 0; margin: 0; padding: 10px 12px; list-style: none; display: grid; gap: 6px; align-content: start; }
+    .row {
+        display: grid;
+        grid-template-columns: 40px 64px minmax(0, 1fr) auto 34px 78px;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 12px 5px 6px;
+        background: linear-gradient(90deg, color-mix(in srgb, var(--tier) 12%, transparent), transparent 45%), rgba(3, 6, 16, 0.45);
+        border: 1px solid var(--line);
+        border-radius: 9px;
+    }
+    .row:hover { border-color: color-mix(in srgb, var(--tier) 55%, transparent); }
+    .pos { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; text-align: center; color: var(--text-2); }
+    .row :global(img) { width: 64px; height: 44px; object-fit: contain; }
+    .nm { font-weight: 800; line-height: 1.15; overflow-wrap: anywhere; }
+    .nm small { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
+    .nm:hover { color: var(--cyan-2); }
+    .row .tier-badge { height: 26px; min-width: 28px; font-size: 1rem; }
+    .val { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-align: right; font-variant-numeric: tabular-nums; }
+    .votes { display: flex; gap: 4px; }
+    :global(.vote) { padding: 3px 7px; font-size: 0.74rem; font-weight: 800; color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); border-radius: 6px; font-variant-numeric: tabular-nums; }
+    :global(.vote.up:hover), :global(.vote.up.on) { color: #86f2c2; border-color: rgba(53, 220, 143, 0.5); }
+    :global(.vote.down:hover), :global(.vote.down.on) { color: #ff9aa5; border-color: rgba(255, 77, 94, 0.5); }
+    .lb-faq { flex-shrink: 0; padding: 0 16px; border-top: 1px solid var(--line); font-size: 0.84rem; }
+    .lb-faq p { color: var(--text-2); }
+    @media (max-width: 900px) {
+        .board { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+        .rail { max-height: none; }
+        .rail .panel-head { display: none; }
+        .rail-list { display: flex; overflow-x: auto; padding: 6px; }
+        .rail-list a { flex-shrink: 0; padding: 6px 10px; }
+        .rail-list small { display: none; }
+        .podium { display: none; }
+        .row { grid-template-columns: 30px 50px minmax(0, 1fr) auto 64px; gap: 6px; }
+        .row .tier-badge { display: none; }
+        .row :global(img) { width: 50px; height: 36px; }
+        .votes :global(.vote) { padding: 2px 5px; }
+    }
+</style>

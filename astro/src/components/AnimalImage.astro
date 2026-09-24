@@ -1,0 +1,24 @@
+---
+// Responsive transparent cutout. Variants are WebP at 256/512/960 px wide.
+const { animal, sizes = '(max-width: 640px) 45vw, 220px', priority = false, alt, class: className } = Astro.props;
+const img = animal.img;
+const srcset = img.variants.map((variant) => `${variant.src} ${variant.width}w`).join(', ');
+const mid = img.variants[1] || img.variants[0];
+const src = mid ? mid.src : img.src;
+const ratio = img.width && img.height ? img.height / img.width : 1;
+const width = mid ? mid.width : 512;
+const height = Math.round(width * ratio);
+const label = alt ?? `${animal.name} (${animal.scientific_name || animal.type})`;
+---
+<img
+    class={className}
+    src={src}
+    srcset={srcset || undefined}
+    sizes={srcset ? sizes : undefined}
+    width={width}
+    height={height}
+    alt={label}
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : undefined}
+    decoding="async"
+/>

@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import HoloCard from '../components/HoloCard.astro';
+import { getAnimal, animals } from '../lib/catalog.js';
+import { SITE, ROBLOX, SOCIAL, absoluteUrl } from '../lib/site.js';
+
+const fan = ['honey-badger', 'megalodon', 'army-ant'].map(getAnimal).filter(Boolean);
+const title = `Animal Battle Stats on Roblox: Collect 225 Real Animals & Battle | ${SITE.name}`;
+const description = `The Animal Battle Stats Roblox game: collect all ${animals.length} real animals as holo-cards, power them up and battle across eight biome islands. Free to play, no loot boxes. ${ROBLOX.live ? 'Play now on Roblox.' : 'Coming soon to Roblox.'}`;
+const ICONS = ['cards', 'map', 'swords', 'tv', 'target', 'check'];
+const discord = SOCIAL.find((item) => item.name === 'Discord');
+const faq = [
+    { q: 'Is Animal Battle Stats on Roblox?', a: ROBLOX.live ? `Yes. Animal Battle Stats is live on Roblox and free to play: ${ROBLOX.playUrl}` : 'The Animal Battle Stats game is in development for Roblox. Join the Discord or check this page for the launch.' },
+    { q: 'Is it free?', a: 'Yes, it is free to play. There are no loot boxes or paid packs, and nothing you can buy makes an animal stronger.' },
+    { q: 'Are the animals the same as on the website?', a: `Yes. All ${animals.length} animals, their stats and their home biomes come straight from this site, so new research here changes the game too.` },
+    { q: 'What do you do in the game?', a: 'Fly your champion card across floating biome islands, fight and recruit wild animals, level them up, beat island bosses (the Ocean boss is the Megalodon), and join server-wide shows, tournaments and raids.' }
+];
+const jsonLd = [
+    {
+        '@type': 'VideoGame',
+        name: 'Animal Battle Stats',
+        description,
+        url: ROBLOX.playUrl || absoluteUrl('/roblox'),
+        image: absoluteUrl('/images/og/roblox.jpg'),
+        genre: ['Collectible card game', 'Fighting', 'Adventure'],
+        gamePlatform: ['Roblox', 'PC', 'Mac', 'iOS', 'Android', 'Xbox'],
+        applicationCategory: 'Game',
+        operatingSystem: 'Windows, macOS, iOS, Android, Xbox',
+        playMode: ['SinglePlayer', 'MultiPlayer'],
+        author: { '@id': `${SITE.url}/#organization` },
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: ROBLOX.live ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder' }
+    },
+    { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }
+];
+---
+
+<Base title={title} description={description} path="/roblox" image="/images/og/roblox.jpg" imageAlt="Animal Battle Stats on Roblox" jsonLd={jsonLd} active="roblox" biome="ocean" seed={11}>
+    <div class="rbx screen-grid">
+        <section class="hero-col enter">
+            <p class="eyebrow"><Icon name="cards" size={22} />{ROBLOX.live ? 'Live now on Roblox' : 'Coming to Roblox'}</p>
+            <h1 class="screen-title">Animal Battle Stats<br /><span>on Roblox</span></h1>
+            <p class="pitch">{ROBLOX.pitch}</p>
+            <div class="live" data-live hidden>
+                <div><b data-stat="playing">–</b><span>Playing now</span></div>
+                <div><b data-stat="visits">–</b><span>Visits</span></div>
+                <div><b data-stat="favorites">–</b><span>Favorites</span></div>
+                <div><b data-stat="likes">–</b><span>Likes</span></div>
+            </div>
+            <div class="btn-row cta">
+                {ROBLOX.live
+                    ? <a class="btn btn-white btn-lg" href={ROBLOX.playUrl} rel="noopener" target="_blank"><Icon name="cards" size={30} />Play free</a>
+                    : <a class="btn btn-hot btn-lg" href={discord?.url} rel="noopener" target="_blank"><Icon name="alert" size={30} />Get launch news</a>}
+                <a class="btn btn-lg" href="/compare"><Icon name="vs" size={30} />Try battles here</a>
+            </div>
+            <div class="fan-cards" aria-hidden="true">
+                {fan.map((animal) => <HoloCard animal={animal} tag="span" sizes="180px" />)}
+            </div>
+        </section>
+
+        <section class="panel features" id="features" aria-labelledby="feat-title">
+            <div class="panel-head"><Icon name="star" size={28} /><h2 id="feat-title" class="panel-title">What's inside</h2><span class="aside">{ROBLOX.live ? 'Free to play' : 'In development'}</span></div>
+            <div class="feat-grid scroll">
+                {ROBLOX.features.map((feature, index) => (
+                    <article class="feat">
+                        <Icon name={ICONS[index] || 'star'} size={40} />
+                        <h3>{feature.title}</h3>
+                        <p>{feature.text}</p>
+                    </article>
+                ))}
+                <article class="feat wide">
+                    <Icon name="bolt" size={40} />
+                    <h3>One universe, two ways to play</h3>
+                    <p>The website is the research lab: stats, tiers and matchups. The Roblox game is the arena: collect, level and battle the same {animals.length} animals. Research updates here show up in the game's cards.</p>
+                </article>
+                <div class="faq">{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+            </div>
+        </section>
+    </div>
+</Base>
+
+<script>
+    // Live game numbers from the Roblox public API (proxied and cached by our API).
+    fetch('/api/community?action=roblox', { headers: { Accept: 'application/json' } })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((body) => {
+            const game = body?.data?.game;
+            if (!game) return;
+            const box = document.querySelector('[data-live]');
+            const fmt = (value) => Number(value || 0).toLocaleString('en-US', { notation: value >= 100000 ? 'compact' : 'standard', maximumFractionDigits: 1 });
+            box.querySelector('[data-stat="playing"]').textContent = fmt(game.playing);
+            box.querySelector('[data-stat="visits"]').textContent = fmt(game.visits);
+            box.querySelector('[data-stat="favorites"]').textContent = fmt(game.favorites);
+            box.querySelector('[data-stat="likes"]').textContent = game.likeRatio != null ? `${Math.round(game.likeRatio * 100)}%` : fmt(game.upVotes);
+            box.hidden = false;
+        })
+        .catch(() => {});
+</script>
+
+<style>
+    .rbx { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); max-width: 1500px; margin: 0 auto; }
+    .hero-col { min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 0 clamp(4px, 2vw, 24px); }
+    .hero-col .screen-title { font-size: clamp(2.6rem, 5.4vw, 5rem); }
+    .hero-col .screen-title span { color: var(--cyan); }
+    .pitch { font-size: 1.05rem; color: var(--text-2); max-width: 52ch; margin: 0; }
+    .live { display: flex; flex-wrap: wrap; gap: 8px; }
+    .live div { display: flex; flex-direction: column; min-width: 100px; padding: 8px 12px; background: rgba(4, 7, 18, 0.7); border: 1px solid var(--line-2); clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+    .live b { font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; line-height: 1; }
+    .live span { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .fan-cards { position: relative; height: 230px; margin-top: 6px; }
+    .fan-cards :global(.card) { position: absolute; width: 150px; top: 0; }
+    .fan-cards :global(.card:nth-child(1)) { left: 4%; transform: rotate(-12deg) translateY(18px); }
+    .fan-cards :global(.card:nth-child(2)) { left: 26%; z-index: 2; }
+    .fan-cards :global(.card:nth-child(3)) { left: 48%; transform: rotate(11deg) translateY(18px); }
+    .features { min-height: 0; }
+    .feat-grid { flex: 1; min-height: 0; padding: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+    .feat { padding: 14px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 10px; }
+    .feat h3 { margin: 8px 0 6px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; }
+    .feat p { margin: 0; font-size: 0.86rem; color: var(--text-2); }
+    .feat.wide, .feat-grid .faq { grid-column: 1 / -1; }
+    @media (max-width: 900px) {
+        .rbx { grid-template-columns: 1fr; overflow-y: auto; }
+        .fan-cards { display: none; }
+        .feat-grid { grid-template-columns: 1fr; }
+    }
+</style>

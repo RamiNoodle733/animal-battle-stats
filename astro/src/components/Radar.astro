@@ -1,0 +1,43 @@
+---
+// Six-stat hexagon. Optional second animal is drawn as an orange overlay.
+import { STATS } from '../lib/catalog.js';
+const { animal, versus = null, size = 300, label } = Astro.props;
+const center = size / 2;
+const radius = size / 2 - 38;
+const angle = (index) => (Math.PI * 2 * index) / STATS.length - Math.PI / 2;
+const point = (index, value) => {
+    const r = (radius * Math.max(0, Math.min(100, value))) / 100;
+    return [center + r * Math.cos(angle(index)), center + r * Math.sin(angle(index))];
+};
+const polygon = (subject) => STATS.map((stat, index) => point(index, Number(subject[stat.key]) || 0).map((n) => n.toFixed(1)).join(',')).join(' ');
+const ring = (level) => STATS.map((_, index) => point(index, level).map((n) => n.toFixed(1)).join(',')).join(' ');
+const labelPoint = (index) => {
+    const r = radius + 22;
+    return [center + r * Math.cos(angle(index)), center + r * Math.sin(angle(index)) + 5];
+};
+---
+<svg class="radar" viewBox={`0 0 ${size} ${size}`} width={size} height={size} role="img" aria-label={label || `${animal.name} stat radar`}>
+    <defs>
+        <radialGradient id={`rg-${animal.slug}`} cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#00d4ff" stop-opacity="0.12" />
+        </radialGradient>
+    </defs>
+    {[25, 50, 75, 100].map((level) => (
+        <polygon points={ring(level)} fill="none" stroke="rgba(150,170,255,0.16)" stroke-width={level === 100 ? 1.4 : 1} />
+    ))}
+    {STATS.map((_, index) => {
+        const [x, y] = point(index, 100);
+        return <line x1={center} y1={center} x2={x} y2={y} stroke="rgba(150,170,255,0.12)" />;
+    })}
+    {versus && <polygon points={polygon(versus)} fill="rgba(255,107,0,0.22)" stroke="#ff8a1f" stroke-width="2" stroke-linejoin="round" />}
+    <polygon points={polygon(animal)} fill={`url(#rg-${animal.slug})`} stroke="#00d4ff" stroke-width="2.2" stroke-linejoin="round" />
+    {STATS.map((stat, index) => {
+        const [x, y] = point(index, Number(animal[stat.key]) || 0);
+        return <circle cx={x} cy={y} r="3.4" fill="#e9fbff" />;
+    })}
+    {STATS.map((stat, index) => {
+        const [x, y] = labelPoint(index);
+        return <text x={x} y={y} text-anchor="middle">{stat.abbr}</text>;
+    })}
+</svg>

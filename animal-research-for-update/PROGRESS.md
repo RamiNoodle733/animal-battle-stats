@@ -1,17 +1,17 @@
 # 225-Animal Research Overhaul Progress
 
 - **Target:** 225 animals
-- **Completed research files:** 184 / 225
-- **Verified full-body transparent PNGs committed:** 0 / 184
+- **Completed research files:** 185 / 225
+- **Verified full-body transparent PNGs committed:** 0 / 185
 - **Research source list:** `../DATA_PROGRESS.md`
 - **Output directory:** `animals/`
 - **Status:** In progress
-- **Most recently completed:** Saltwater Crocodile (*Crocodylus porosus*)
-- **Next pending animal:** Sawfish
-- **Latest completion:** 2026-09-23 21:00 America/Chicago
-- **Latest new-animal image status:** Saltwater Crocodile - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. An exact-species iNaturalist CC BY-SA 3.0 discovery candidate was directly inspected and shows the complete visible head, torso, four limbs/feet and tail, but source metadata does not explicitly establish adulthood or sex. Separate ADW sources explicitly identify adult/sexually mature animals but did not simultaneously improve complete-body framing, licensing and preferred-sex evidence. No PNG is claimed.
-- **Latest legacy image audit:** Lobster (*Homarus americanus*). The existing 5040x3224 CC BY 2.0 Newfoundland candidate was directly reopened and rejected as a strict full-body primary because its crevice pose hides the abdomen/tail and multiple walking appendages. A fresh 5174x3441 CC BY 2.0 exact-species alternative has the same close frontal/crevice failure. Historical explicitly male images are illustrations or weak-resolution material. Status is now `REPLACEMENT SOURCE NEEDED`.
-- **Next legacy image audit:** Lynx. Source-verified animals awaiting binary cutout/commit tooling remain separate from unresolved source-quality cases.
+- **Most recently completed:** Sawfish, resolved to Largetooth Sawfish (*Pristis pristis*)
+- **Next pending animal:** Sea Lion
+- **Latest completion:** 2026-09-23 22:00 America/Chicago
+- **Latest new-animal image status:** Sawfish - `SOURCE FOUND - FULL-BODY NOT VERIFIED`. A 3752x2501 CC BY 2.0 exact-*Pristis pristis* Townsville photograph has strong reusable provenance, but adulthood and sex are not explicit and strict complete rostrum-to-tail/all-visible-fin framing was not certified strongly enough. No PNG is claimed.
+- **Latest legacy image audit:** Lynx (*Lynx lynx*). The old 5184x3456 explicitly male tree-resting candidate fails strict full-body visibility because branches/pose obscure appendages. A fresh 1543x1336 CC BY 4.0 standing *L. l. carpathicus* candidate has excellent complete visible anatomy, but source metadata does not explicitly establish adulthood or sex. Status remains `SOURCE FOUND - FULL-BODY NOT VERIFIED`.
+- **Next legacy image audit:** Macaw. Source-verified animals awaiting binary cutout/commit tooling remain separate from unresolved source-quality cases.
 - **Latest checkpoint:** `audits/CHECKPOINT-175.md`; next checkpoint at 200 completed research files.
 
 ## Selection and image rules
@@ -25,7 +25,8 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 - Special must not double-count ordinary size, toughness, cognition, flight or sociality.
 - Group behavior can raise Tactics contextually but does not multiply one individual's Raw Power, Attack or Defense.
 - Generic roster labels must be resolved to an explicit taxon before physical fields and image requirements can be scientifically coherent.
-- **Saltwater Crocodile control:** *Crocodylus porosus*, healthy prime adult male, 500.0 kg / 500.0 cm total length / unresolved standardized height / unresolved standardized maximum speed / 70.0 y / 0.0 PSI unresolved. Direct bite measurement is retained as 16,414 N molariform force rather than mislabeled PSI. Attack 92.0 / Defense 83.0 / Agility 52.0 / Stamina 46.0 / Intelligence 58.0 / Special 80.0. Current-assisted 590 km movement is evidence for persistence/tactics, not mammalian-style aerobic stamina.
+- **Sawfish control:** generic `Pristidae` roster entry resolved for staging to largetooth sawfish *Pristis pristis*, healthy large mature adult female, 300.0 kg / 500.0 cm total length / unresolved standardized height / unresolved maximum speed / 36.0 y canonical longevity / 0.0 PSI unresolved. Attack 76.0 / Defense 58.0 / Agility 61.0 / Stamina 68.0 / Intelligence 48.0 / Special 88.0. The 300 kg mass is a conservative large-adult modeling control with moderate confidence because adult mass distributions are sparse; published maxima near 590 kg are not used as representative.
+- **Saltwater Crocodile control:** *Crocodylus porosus*, healthy prime adult male, 500.0 kg / 500.0 cm total length / unresolved standardized height / unresolved standardized maximum speed / 70.0 y / 0.0 PSI unresolved. Direct bite measurement is retained as 16,414 N molariform force rather than mislabeled PSI. Attack 92.0 / Defense 83.0 / Agility 52.0 / Stamina 46.0 / Intelligence 58.0 / Special 80.0.
 - **Salamander control:** roster generic `Caudata` resolved for staging to Eastern Tiger Salamander *Ambystoma tigrinum*, healthy post-metamorphic adult male, 0.125 kg / 25.0 cm total length / unresolved standardized height / unresolved maximum speed / 16.0 y longevity benchmark / 0.0 PSI unresolved. Attack 7.0 / Defense 14.0 / Agility 50.0 / Stamina 42.0 / Intelligence 32.0 / Special 74.0.
 - **Sailfish control:** *Istiophorus platypterus*, healthy prime adult female, 70.0 kg / 270.0 cm total length / unresolved standardized height / 8.3 m/s theoretical muscle-based maximum / 13.0 y reported maximum age / 0.0 PSI. Attack 52.0 / Defense 38.0 / Agility 89.0 / Stamina 79.0 / Intelligence 53.0 / Special 82.0.
 - **Sable Antelope control:** *Hippotragus niger*, healthy prime adult male, 235.0 kg / 140.0 cm shoulder / 230.0 cm head-body / 0.0 m/s unresolved maximum / 16.0 y / 0.0 PSI. Attack 62.0 / Defense 48.0 / Agility 72.0 / Stamina 69.0 / Intelligence 48.0 / Special 57.0.
@@ -45,12 +46,12 @@ Each run uses `DATA_PROGRESS.md` ordering but ignores old checkmarks, choosing t
 ## Recent animals
 | Animal | Canonical specimen | Attack | Defense | Agility | Stamina | Intelligence | Special |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Sailfish | 70.0 kg adult female *I. platypterus* | 52.0 | 38.0 | 89.0 | 79.0 | 53.0 | 82.0 |
 | Salamander | 0.125 kg adult male *A. tigrinum* | 7.0 | 14.0 | 50.0 | 42.0 | 32.0 | 74.0 |
 | Saltwater Crocodile | 500.0 kg adult male *C. porosus* | 92.0 | 83.0 | 52.0 | 46.0 | 58.0 | 80.0 |
+| Sawfish | 300.0 kg adult female *P. pristis* | 76.0 | 58.0 | 61.0 | 68.0 | 48.0 | 88.0 |
 
 ## Checkpoints
 `audits/CHECKPOINT-175.md` reviewed inflation, inverted comparisons, compression, proportional-strength leakage, speed/agility confusion, double-counting, weak sourcing and duplicate ability concepts. Next checkpoint: **200 completed research files**.
 
 ## Image pipeline status
-184 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.
+185 research reports are complete, but **0 verified transparent PNG binaries are committed**. Current connected GitHub `create_file` / `update_file` actions accept UTF-8 text only. No JPEG rename, base64-text pseudo-PNG, opaque checkerboard or other fake image is created. `IMAGE_BACKFILL.md` remains the legacy audit queue.

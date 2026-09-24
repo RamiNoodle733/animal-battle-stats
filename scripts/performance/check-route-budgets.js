@@ -35,6 +35,7 @@ const SCREENS = [
     ['rankings', 'rankings.html'],
     ['roblox', 'roblox.html'],
     ['community', 'community.html'],
+    ['tournament', 'tournament.html'],
     ['about', 'about.html'],
     ['app shell', 'app.html']
 ].filter(([, file]) => file && fs.existsSync(path.join(dist, file)));

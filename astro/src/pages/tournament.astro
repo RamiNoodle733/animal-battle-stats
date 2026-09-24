@@ -1,0 +1,391 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { animals, STATS } from '../lib/catalog.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+
+// Divisions match the server's ranked roster filter (exact animal type), so
+// only types with enough animals for the smallest bracket are offered.
+const DIVISIONS = [
+    { key: 'all', label: 'All animals' },
+    { key: 'Mammal', label: 'Mammals' },
+    { key: 'Bird', label: 'Birds' },
+    { key: 'Reptile', label: 'Reptiles' },
+    { key: 'Fish', label: 'Fish' },
+    { key: 'Insect', label: 'Insects' }
+].map((division) => ({ ...division, count: division.key === 'all' ? animals.length : animals.filter((animal) => animal.type === division.key).length }))
+    .filter((division) => division.count >= 8);
+const SIZES = [8, 16, 32, 64];
+const ICONS = { attack: 'claws', defense: 'shield', agility: 'wind', stamina: 'heart', intelligence: 'target', special: 'bolt' };
+const SEG = Array.from({ length: 10 }, (_, index) => index);
+
+const title = `Animal Tournament Bracket: Pick Who Wins | ${SITE.name}`;
+const description = `Run an 8 to 64 animal tournament bracket from ${animals.length} real animals. Pick the winner of every fight, crown a champion and see how your picks compare with the stats and the community battle ratings.`;
+const faq = [
+    { q: 'How does the animal tournament work?', a: 'Choose a bracket size (8, 16, 32 or 64 animals) and a division. Animals are drawn at random and paired up, and you pick the winner of every fight until one champion is left. Stats odds and fan picks are shown if you want a hint.' },
+    { q: 'What is a battle rating?', a: 'Every ranked tournament updates an Elo-style battle rating for each animal that fought, starting at 1000. Beating a higher-rated animal moves the rating more than beating a lower-rated one, so the ratings show which animals players keep picking to win.' },
+    { q: 'What is the difference between ranked and casual?', a: 'Signed-in players play ranked: the server draws the bracket, records every pick and updates the battle ratings, and the first finished ranked bracket each day earns XP and BattlePoints. Casual brackets run in your browser and are not recorded.' },
+    { q: 'Are the stats odds the real answer?', a: 'They come from the Animal Battle Stats model, which weighs attack, defense, agility, stamina, intelligence and special abilities. Real fights depend on size, setting and motivation, so upsets happen and you can always pick against the numbers.' }
+];
+const jsonLd = [
+    { '@type': 'WebPage', url: absoluteUrl('/tournament'), name: 'Animal tournament bracket', description, isPartOf: { '@id': `${SITE.url}/#website` } },
+    { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }
+];
+---
+
+<Base title={title} description={description} path="/tournament" image="/images/og/tournament.jpg" imageAlt="Animal tournament bracket" jsonLd={jsonLd} active="tournament" biome="mountains" seed={17}>
+    <h1 class="visually-hidden">Animal tournament bracket</h1>
+    <div class="tourney" data-tourney data-stage="setup">
+
+        <!-- 1. setup -->
+        <div class="t-setup" data-pane="setup" data-info="ratings">
+            <section class="panel hot t-config enter" aria-labelledby="t-config-title">
+                <div class="panel-head"><Icon name="trophy" size={28} /><h2 id="t-config-title" class="panel-title">Tournament</h2><span class="aside">Pick every winner</span></div>
+                <div class="panel-body t-config-body">
+                    <h3 class="sub-h">Bracket size</h3>
+                    <div class="t-sizes" role="group" aria-label="Bracket size">
+                        {SIZES.map((size) => <button type="button" class="t-size" data-size={size} aria-pressed={size === 16 ? 'true' : 'false'}><b>{size}</b><span>{size - 1} fights</span></button>)}
+                    </div>
+                    <h3 class="sub-h">Division</h3>
+                    <div class="seg t-divs" role="group" aria-label="Division">
+                        {DIVISIONS.map((division) => <button type="button" data-type={division.key} data-count={division.count} aria-pressed={division.key === 'all' ? 'true' : 'false'}>{division.label} <small>{division.count}</small></button>)}
+                    </div>
+                    <div class="t-mode" data-mode>
+                        <Icon name="lock" size={30} />
+                        <p data-mode-text><b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and BattlePoints once a day.</p>
+                    </div>
+                    <button class="btn btn-hot btn-lg t-start" type="button" data-start><Icon name="swords" size={30} />Start tournament</button>
+                    <div class="t-recent" data-recent hidden>
+                        <h3 class="sub-h">Your recent champions</h3>
+                        <div class="t-recent-list" data-recent-list></div>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="t-info-tabs tabs" aria-label="Tournament info">
+                <button type="button" aria-selected="true" data-info-tab="ratings"><Icon name="medal" size={20} />Ratings</button>
+                <button type="button" aria-selected="false" data-info-tab="how"><Icon name="scroll" size={20} />How it works</button>
+            </nav>
+
+            <section class="panel t-board enter-2" aria-labelledby="t-board-title">
+                <div class="panel-head"><Icon name="medal" size={28} /><h2 id="t-board-title" class="panel-title">Battle ratings</h2><span class="aside">From ranked brackets</span></div>
+                <ol class="t-ratings scroll" data-ratings><li class="muted small">Loading ratings…</li></ol>
+            </section>
+
+            <section class="panel gold t-how enter-3" aria-labelledby="t-how-title">
+                <div class="panel-head"><Icon name="scroll" size={28} /><h2 id="t-how-title" class="panel-title">How it works</h2></div>
+                <div class="panel-body scroll">
+                    <ol class="t-steps">
+                        <li><Icon name="cards" size={30} lazy /><span><b>Draw a bracket</b>8 to 64 random animals, from every class or a single division.</span></li>
+                        <li><Icon name="vs" size={30} lazy /><span><b>Pick every winner</b>Tap the animal you think wins. Stats odds and fan picks are there as hints.</span></li>
+                        <li><Icon name="crown" size={30} lazy /><span><b>Crown a champion</b>Ranked brackets update the battle ratings and pay XP and BattlePoints once a day.</span></li>
+                    </ol>
+                    <div class="faq">{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 2. fights -->
+        <div class="t-fight" data-pane="fight" hidden>
+            <header class="panel t-bar">
+                <div class="t-round"><b data-round>Round of 16</b><span data-fight-label>Fight 1 of 8</span></div>
+                <div class="t-progress" aria-hidden="true"><i data-progress></i></div>
+                <span class="chip" data-mode-chip>Casual</span>
+                <button class="btn btn-sm" type="button" data-quit><Icon name="close" size={20} /><span>Quit</span></button>
+            </header>
+            <div class="t-arena">
+                <div class="t-side side-a" data-side="a"></div>
+                <section class="panel t-console" aria-label="Fight details">
+                    <img class="t-vs" src="/images/icons/abs/vs.webp" alt="" width="88" height="88" decoding="async">
+                    <p class="t-q">Who wins?</p>
+                    <div class="t-odds" aria-label="Stats odds">
+                        <span class="o-a" data-odds-a>50%</span>
+                        <span class="o-b" data-odds-b>50%</span>
+                    </div>
+                    <p class="t-cap"><span>Stats odds</span><span data-fans></span></p>
+                    <div class="t-duel">
+                        {STATS.map((stat) => (
+                            <div class={`duel-row ${stat.cls}`} data-stat={stat.key}>
+                                <b data-va>0</b>
+                                <span class="seg-bar left" data-ba>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
+                                <span class="d-mid"><Icon name={ICONS[stat.key]} size={18} /><small>{stat.abbr}</small></span>
+                                <span class="seg-bar right" data-bb>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
+                                <b data-vb>0</b>
+                            </div>
+                        ))}
+                    </div>
+                    <div class="t-auto">
+                        <button class="btn btn-sm" type="button" data-auto="fight" title="Pick the stats favorite (S)"><Icon name="target" size={20} />Stats pick</button>
+                        <button class="btn btn-sm" type="button" data-auto="round" title="Stats picks for the rest of this round"><Icon name="bolt" size={20} />Sim round</button>
+                    </div>
+                    <p class="t-keys">Tap a card, or use <kbd>←</kbd> <kbd>→</kbd> and <kbd>S</kbd></p>
+                </section>
+                <div class="t-side side-b" data-side="b"></div>
+            </div>
+            <div class="announcer" data-announcer aria-live="polite"></div>
+        </div>
+
+        <!-- 3. results -->
+        <div class="t-done" data-pane="done" hidden>
+            <section class="t-podium" data-podium aria-label="Podium"></section>
+            <section class="panel gold t-recap" aria-labelledby="t-recap-title">
+                <div class="panel-head"><Icon name="crown" size={28} /><h2 id="t-recap-title" class="panel-title">Champion</h2><span class="aside" data-recap-meta></span></div>
+                <div class="panel-body scroll t-recap-body">
+                    <p class="t-champ" data-champ></p>
+                    <div class="t-nums" data-nums></div>
+                    <p class="small t-upset" data-upset></p>
+                    <p class="t-reward" data-reward hidden></p>
+                    <h3 class="sub-h">Road to the title</h3>
+                    <ol class="t-road" data-road></ol>
+                </div>
+                <div class="t-actions">
+                    <button class="btn btn-hot" type="button" data-again><Icon name="swords" size={24} />Run it back</button>
+                    <button class="btn" type="button" data-new>New bracket</button>
+                    <button class="btn btn-sm" type="button" data-share><Icon name="arrow" size={20} />Share</button>
+                    <a class="btn btn-sm btn-white" href="/stats" data-champ-link>Profile</a>
+                </div>
+            </section>
+            <div class="t-confetti" data-confetti aria-hidden="true"></div>
+        </div>
+    </div>
+</Base>
+
+<script>
+    import '../scripts/tournament.js';
+</script>
+
+<style>
+    .tourney { position: relative; height: 100%; max-width: 1600px; margin: 0 auto; }
+    .tourney > [data-pane] { height: 100%; min-height: 0; }
+    .tourney > [data-pane][hidden] { display: none; }
+    .sub-h { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-2); }
+    .tourney :global(.small) { font-size: 0.8rem; }
+    .tourney :global(.muted) { color: var(--muted); }
+    kbd { display: inline-block; min-width: 20px; padding: 0 5px; font-family: var(--font-body); font-size: 0.72rem; font-weight: 800; line-height: 18px; text-align: center; color: var(--text); background: rgba(255, 255, 255, 0.1); border: 1px solid var(--line-2); border-radius: 4px; }
+
+    /* ------------------------------------------------ setup */
+    .t-setup { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(280px, 0.85fr); gap: 12px; }
+    .t-info-tabs { display: none; }
+    .t-config-body { flex: 1; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
+    .t-sizes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .t-size {
+        display: flex; flex-direction: column; align-items: center; gap: 2px;
+        padding: 10px 6px 8px;
+        color: var(--text-2);
+        background: linear-gradient(180deg, var(--steel-1), var(--steel-3));
+        border: 1px solid var(--line-2);
+        clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -3px 0 rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        transition: transform 0.12s var(--ease), filter 0.15s;
+    }
+    .t-size:hover:not(:disabled) { filter: brightness(1.15); transform: translateY(-1px); }
+    .t-size b { font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; line-height: 0.9; }
+    .t-size span { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .t-size[aria-pressed="true"] { color: #1d0800; background: linear-gradient(180deg, #ffb36b, #ff5f00); border-color: transparent; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -4px 0 #a13a00, 0 0 22px rgba(255, 107, 0, 0.35); }
+    .t-size[aria-pressed="true"] span { color: #4a1c00; }
+    .t-size:disabled, .t-divs button:disabled { opacity: 0.35; cursor: not-allowed; }
+    .t-divs button small { margin-left: 3px; font-size: 0.72em; opacity: 0.7; }
+    .t-mode { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; font-size: 0.84rem; color: var(--text-2); background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 10px; }
+    .t-mode p { margin: 0; }
+    .t-mode :global(b) { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    .t-mode.ranked { border-color: rgba(255, 215, 0, 0.45); background: rgba(255, 215, 0, 0.06); }
+    .t-mode.ranked :global(b) { color: var(--gold-2); }
+    .t-start { width: 100%; margin-top: auto; }
+    .t-start[disabled] { filter: grayscale(0.6) brightness(0.8); pointer-events: none; }
+    .t-recent-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .tourney :global(.t-champ-chip) { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 4px; font-size: 0.78rem; font-weight: 800; background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.35); border-radius: 999px; }
+    .tourney :global(.t-champ-chip img) { width: 28px; height: 24px; object-fit: contain; }
+    .tourney :global(.t-champ-chip small) { font-weight: 700; color: var(--muted); }
+
+    .t-board { min-height: 0; }
+    .t-ratings { flex: 1; min-height: 0; margin: 0; padding: 10px 12px; list-style: none; display: grid; gap: 6px; align-content: start; }
+    .tourney :global(.t-rate) { display: grid; grid-template-columns: 26px 44px minmax(0, 1fr) auto 58px; align-items: center; gap: 8px; padding: 5px 10px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 8px; }
+    .tourney :global(.t-rate .pos) { font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; text-align: center; color: var(--text-2); }
+    .tourney :global(.t-rate:nth-child(-n+3) .pos) { color: var(--gold); text-shadow: 0 0 12px rgba(255, 215, 0, 0.45); }
+    .tourney :global(.t-rate img) { width: 44px; height: 34px; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.5)); }
+    .tourney :global(.t-rate a) { font-weight: 800; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .tourney :global(.t-rate a:hover) { color: var(--cyan-2); }
+    .tourney :global(.t-rate .rec) { font-size: 0.74rem; font-weight: 800; color: var(--muted); }
+    .tourney :global(.t-rate .elo) { font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; text-align: right; color: var(--gold-2); }
+
+    .t-how .panel-body { flex: 1; }
+    .t-steps { margin: 0 0 12px; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .t-steps li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; align-items: start; font-size: 0.84rem; color: var(--text-2); }
+    .t-steps b { display: block; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; }
+
+    /* ------------------------------------------------ fights */
+    .t-fight { position: relative; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 12px; }
+    .t-bar { flex-direction: row; align-items: center; gap: 14px; padding: 10px 16px; }
+    .t-round { display: flex; flex-direction: column; min-width: 150px; }
+    .t-round b { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; letter-spacing: 0.04em; text-transform: uppercase; transform: skewX(-6deg); }
+    .t-round span { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .t-progress { flex: 1; height: 12px; background: rgba(255, 255, 255, 0.08); clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); overflow: hidden; }
+    .t-progress i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--orange)); transition: width 0.4s var(--ease); }
+    [data-mode-chip].ranked { color: var(--gold-2); border-color: rgba(255, 215, 0, 0.45); background: rgba(255, 215, 0, 0.08); }
+    [data-quit][data-armed] { --c1: #ff7a86; --c2: #d8243a; --edge: #7a0f1c; }
+
+    .t-arena { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 380px) minmax(0, 1fr); gap: 12px; }
+    .t-side { min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto auto; justify-items: center; gap: 8px; }
+    .tourney :global(.t-card) { height: 100%; max-width: 100%; font: inherit; color: inherit; text-align: left; border: 0; cursor: pointer; }
+    .tourney :global(.t-card .card-art) { inset: 13% 5% 21%; }
+    .tourney :global(.t-card .card-name) { font-size: clamp(1.05rem, 1.9vw, 1.9rem); }
+    .tourney :global(.t-card .card-meta) { font-size: 0.7rem; }
+    .tourney :global(.t-card:focus-visible) { outline: 3px solid var(--cyan); outline-offset: 3px; }
+    .tourney :global(.t-tags) { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+    .tourney :global(.t-pick-btn) { min-width: min(240px, 100%); }
+    .tourney :global(.t-pick-btn kbd) { color: inherit; background: rgba(0, 0, 0, 0.18); border-color: rgba(0, 0, 0, 0.25); }
+    .tourney :global(.t-stamp) {
+        position: absolute; left: 50%; top: 44%; z-index: 6;
+        padding: 6px 20px;
+        font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.6rem); font-weight: 900; line-height: 1;
+        color: #fff; background: var(--red);
+        clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+        transform: translate(-50%, -50%) rotate(-12deg) scale(2.2);
+        opacity: 0;
+        pointer-events: none;
+    }
+    .tourney :global(.t-side.won .t-card) { transform: scale(1.03); box-shadow: 0 0 0 3px var(--gold), 0 0 46px rgba(255, 215, 0, 0.55), 0 18px 34px rgba(0, 0, 0, 0.6); }
+    .tourney :global(.t-side.lost .t-card) { transform: rotate(-3deg) scale(0.95); filter: grayscale(1) brightness(0.55); transition: transform 0.35s var(--ease), filter 0.35s; }
+    .tourney :global(.t-side.side-b.lost .t-card) { transform: rotate(3deg) scale(0.95); }
+    .tourney :global(.t-side.lost .t-stamp) { opacity: 1; transform: translate(-50%, -50%) rotate(-12deg) scale(1); transition: transform 0.28s var(--spring), opacity 0.12s; }
+    .tourney :global(.t-side.won .t-pick-btn), .tourney :global(.t-side.lost .t-pick-btn) { visibility: hidden; }
+    .tourney :global(.t-side.in-l .t-card) { animation: in-l 0.38s var(--ease) both; }
+    .tourney :global(.t-side.in-r .t-card) { animation: in-r 0.38s var(--ease) both; }
+    @keyframes in-l { from { opacity: 0; transform: translateX(-48px) rotate(-5deg); } }
+    @keyframes in-r { from { opacity: 0; transform: translateX(48px) rotate(5deg); } }
+
+    .t-console { min-height: 0; padding: 12px 14px; gap: 8px; overflow-y: auto; }
+    .t-vs { width: 88px; height: 88px; align-self: center; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.6)); animation: vs-pulse 1.8s ease-in-out infinite; }
+    @keyframes vs-pulse { 50% { transform: scale(1.08) rotate(-3deg); } }
+    .t-q { margin: -4px 0 0; text-align: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+    .t-odds { display: flex; height: 30px; overflow: hidden; clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
+    .t-odds span { display: flex; align-items: center; padding: 0 12px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; color: #06101c; transition: flex-basis 0.5s var(--ease); }
+    .o-a { flex: 0 0 var(--p, 50%); background: linear-gradient(180deg, #7eeaff, var(--cyan)); }
+    .o-b { flex: 0 0 var(--p, 50%); justify-content: flex-end; background: linear-gradient(180deg, #ffb27a, var(--orange)); }
+    .t-cap { display: flex; justify-content: space-between; gap: 8px; margin: -2px 0 2px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .t-duel { display: grid; gap: 6px; }
+    .duel-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) 46px minmax(0, 1fr) 34px; align-items: center; gap: 5px; }
+    .duel-row b { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-align: center; color: var(--muted); }
+    .duel-row b.lead { color: var(--stat); text-shadow: 0 0 12px color-mix(in srgb, var(--stat) 60%, transparent); }
+    .seg-bar { display: flex; gap: 2px; height: 13px; transition: --v 0.5s var(--ease); }
+    .seg-bar.left { flex-direction: row-reverse; }
+    .seg-bar i {
+        flex: 1;
+        transform: skewX(-24deg);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.3)),
+            linear-gradient(90deg, var(--stat) calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), #5b6176 0);
+    }
+    .seg-bar.left i {
+        transform: skewX(24deg);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.3)),
+            linear-gradient(270deg, var(--stat) calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), #5b6176 0);
+    }
+    .d-mid { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+    .d-mid small { font-family: var(--font-display); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.06em; color: var(--stat); }
+    .t-auto { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto; }
+    .t-auto .btn { padding: 0 8px; }
+    .t-keys { margin: 0; text-align: center; font-size: 0.72rem; color: var(--dim); }
+    .tourney[data-busy] .t-auto .btn { pointer-events: none; filter: grayscale(0.6) brightness(0.8); }
+
+    .announcer { position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; pointer-events: none; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; text-align: center; }
+    .announcer :global(.big) { padding: 14px 44px; font-size: clamp(2.6rem, 6.5vw, 5.6rem); line-height: 0.9; color: #fff; background: linear-gradient(90deg, transparent, rgba(4, 7, 18, 0.9) 18%, rgba(4, 7, 18, 0.9) 82%, transparent); transform: skewX(-8deg); text-shadow: 0 6px 0 rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 0, 0.6); animation: slam 0.5s var(--spring) both; }
+    .announcer :global(.big small) { display: block; margin-top: 6px; font-size: 0.32em; letter-spacing: 0.2em; color: var(--gold-2); }
+    @keyframes slam { from { opacity: 0; transform: skewX(-8deg) scale(1.8); } to { opacity: 1; transform: skewX(-8deg) scale(1); } }
+
+    /* ------------------------------------------------ results */
+    .t-done { position: relative; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.8fr); gap: 12px; }
+    .t-podium { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 1fr); align-items: end; gap: 12px; padding: 8px 8px 0; }
+    .tourney :global(.pod) { height: 100%; min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; align-items: end; justify-items: center; gap: 0; animation: rise 0.6s var(--ease) both; }
+    .tourney :global(.pod-1) { animation-delay: 0.25s; }
+    .tourney :global(.pod-3) { animation-delay: 0.12s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(40px); } }
+    /* Cards fit their podium slot at 3:4 whichever side is tighter. */
+    .tourney :global(.pod-art) { position: relative; width: 100%; height: 100%; min-height: 0; container-type: size; display: flex; align-items: flex-end; justify-content: center; gap: 8px; padding: 40px 0 10px; }
+    .tourney :global(.pod-2 .pod-art) { height: 82%; }
+    .tourney :global(.pod-3 .pod-art) { height: 66%; }
+    .tourney :global(.pod .card) { flex: none; width: auto; height: min(100cqh, 100cqw * 4 / 3); }
+    .tourney :global(.pod-3 .card) { height: min(100cqh, (50cqw - 4px) * 4 / 3); }
+    .tourney :global(.pod .card-name) { font-size: min(1.5rem, 8cqw); overflow-wrap: normal; }
+    .tourney :global(.pod-3 .card-name) { font-size: min(0.95rem, 4.2cqw); }
+    .tourney :global(.pod-1 .card) { box-shadow: 0 0 0 3px var(--gold), 0 0 60px rgba(255, 215, 0, 0.45), 0 18px 34px rgba(0, 0, 0, 0.6); }
+    .tourney :global(.pod-crown) { position: absolute; top: -40px; left: 50%; z-index: 5; width: 76px; height: 76px; transform: translateX(-50%) rotate(-8deg); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.6)); animation: crown 2.4s ease-in-out infinite; }
+    @keyframes crown { 50% { transform: translateX(-50%) translateY(-6px) rotate(6deg); } }
+    .tourney :global(.pod-step) { width: 100%; display: grid; place-items: center; align-content: center; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; color: #0b0e1a; clip-path: polygon(6% 0, 94% 0, 100% 100%, 0 100%); box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.5); }
+    .tourney :global(.pod-step b) { font-size: 2.6rem; line-height: 0.9; }
+    .tourney :global(.pod-step span) { font-size: 0.8rem; letter-spacing: 0.14em; }
+    .tourney :global(.pod-1 .pod-step) { height: 96px; background: linear-gradient(180deg, #fff3b0, var(--gold) 40%, var(--gold-d)); }
+    .tourney :global(.pod-2 .pod-step) { height: 74px; background: linear-gradient(180deg, #ffffff, #c8cfe6 45%, #6b7596); }
+    .tourney :global(.pod-3 .pod-step) { height: 56px; background: linear-gradient(180deg, #ffd2a6, #d98c4a 45%, #7a4318); }
+
+    .t-recap { min-height: 0; }
+    .t-recap-body { flex: 1; }
+    .t-champ { margin: 0 0 10px; font-family: var(--font-display); font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 900; line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; color: var(--gold-2); transform: skewX(-6deg); text-shadow: 0 0 24px rgba(255, 215, 0, 0.35); }
+    .t-nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-bottom: 10px; }
+    .tourney :global(.t-nums div) { display: flex; flex-direction: column; padding: 7px 8px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .tourney :global(.t-nums b) { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; }
+    .tourney :global(.t-nums span) { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .t-upset { margin: 0 0 10px; color: var(--text-2); }
+    .t-reward { margin: 0 0 12px; padding: 8px 10px; font-size: 0.86rem; color: var(--text-2); background: rgba(255, 215, 0, 0.07); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; }
+    .t-reward :global(b) { color: var(--gold-2); }
+    .t-road { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+    .tourney :global(.t-road li) { display: grid; grid-template-columns: 68px 30px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 4px 8px; font-size: 0.84rem; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 6px; }
+    .tourney :global(.t-road .rnd) { font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cyan-2); }
+    .tourney :global(.t-road img) { width: 30px; height: 24px; object-fit: contain; }
+    .tourney :global(.t-road .pct) { font-family: var(--font-display); font-weight: 900; color: var(--muted); }
+    .tourney :global(.t-road .pct.upset) { color: var(--orange-2); }
+    .t-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px 14px; border-top: 1px solid var(--line); }
+
+    .t-confetti { position: absolute; inset: 0; z-index: 30; overflow: hidden; pointer-events: none; }
+    .tourney :global(.t-confetti i) { position: absolute; top: -24px; left: var(--x); width: 9px; height: 14px; background: var(--c); border-radius: 2px; animation: fall var(--t) var(--d) cubic-bezier(0.3, 0.6, 0.6, 1) forwards; }
+    @keyframes fall { to { transform: translate(var(--dx), 110vh) rotate(var(--r)); } }
+
+    @media (max-width: 1100px) {
+        .t-setup { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+        .t-config { grid-row: 1 / -1; }
+        .t-info-tabs { display: flex; grid-column: 2; grid-row: 1; }
+        .t-board, .t-how { grid-column: 2; grid-row: 2; }
+        .t-setup[data-info="ratings"] .t-how, .t-setup[data-info="how"] .t-board { display: none; }
+    }
+    @media (max-width: 900px) {
+        .t-setup { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); gap: 8px; }
+        .t-config { grid-row: 1; }
+        .t-info-tabs { grid-column: 1; grid-row: 2; padding-top: 0; }
+        .t-board, .t-how { grid-column: 1; grid-row: 3; }
+        .t-config-body { padding: 10px 12px; gap: 8px; }
+        .t-size { padding: 7px 4px 6px; }
+        .t-size b { font-size: 1.8rem; }
+        .t-mode { padding: 8px 10px; font-size: 0.78rem; }
+        .t-recent { display: none; }
+
+        .t-fight { gap: 8px; }
+        .t-bar { flex-wrap: wrap; gap: 8px 10px; padding: 8px 10px; }
+        .t-round { min-width: 0; margin-right: auto; }
+        .t-round b { font-size: 1.25rem; }
+        .t-progress { order: 3; flex-basis: 100%; height: 8px; }
+        .t-arena { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: 8px; }
+        .side-a { grid-column: 1; grid-row: 1; }
+        .side-b { grid-column: 2; grid-row: 1; }
+        .t-console { grid-column: 1 / -1; grid-row: 2; padding: 8px 10px; gap: 6px; overflow: visible; }
+        .t-vs, .t-keys, .t-q { display: none; }
+        .t-side { grid-template-rows: minmax(0, 1fr) auto; }
+        .tourney :global(.t-pick-btn) { display: none; }
+        .tourney :global(.t-tags .chip:not(.chip-gold)) { display: none; }
+        .duel-row { grid-template-columns: 30px minmax(0, 1fr) 40px minmax(0, 1fr) 30px; }
+        .t-duel { gap: 4px; }
+        .seg-bar { height: 10px; }
+
+        .t-done { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: 8px; }
+        .t-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .tourney :global(.pod-step) { transform: scale(0.85); transform-origin: bottom; }
+        .tourney :global(.pod-3 .card-power), .tourney :global(.pod-3 .tier-badge), .tourney :global(.pod-2 .card-power) { display: none; }
+        .t-recap { max-height: 46vh; }
+        .tourney :global(.pod-crown) { width: 52px; height: 52px; top: -24px; }
+    }
+    @media (max-height: 700px) and (min-width: 901px) {
+        .t-vs { display: none; }
+    }
+</style>

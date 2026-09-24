@@ -77,6 +77,7 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
             <button type="button" role="tab" aria-selected="true" data-ctab="duel"><Icon name="swords" size={20} />Duel</button>
             <button type="button" role="tab" aria-selected="false" data-ctab="tape"><Icon name="target" size={20} />Tape</button>
             {analysis && <button type="button" role="tab" aria-selected="false" data-ctab="verdict"><Icon name="book" size={20} />Verdict</button>}
+            <button type="button" role="tab" aria-selected="false" data-ctab="talk"><Icon name="friends" size={20} />Talk</button>
         </div>
         <div class="c-pane scroll" data-cpane="duel">
             <div class="duel">
@@ -109,6 +110,7 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
                 <p class="small muted">Odds come from the Animal Battle Stats model: six researched ratings, weighted, compared head to head. <a class="link" href="/about#model">How it works</a></p>
             </div>
         )}
+        <div class="c-pane scroll" data-cpane="talk" hidden></div>
 
         <div class="c-actions">
             <button class="btn btn-hot btn-lg fight-btn" type="button" data-fight><Icon name="swords" size={28} />Fight!</button>

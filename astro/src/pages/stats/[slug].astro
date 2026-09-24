@@ -130,7 +130,7 @@ const jsonLd = [
 
 const TABS = [
     ['stats', 'Stats', 'claws'], ['kit', 'Kit', 'bolt'], ['facts', 'Facts', 'map'],
-    ['versus', 'Versus', 'vs'], ['lore', 'Lore', 'book'], ['sources', 'Sources', 'scroll']
+    ['versus', 'Versus', 'vs'], ['lore', 'Lore', 'book'], ['sources', 'Sources', 'scroll'], ['talk', 'Talk', 'friends']
 ];
 const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(profile.conservationStatus || '') ? 'chip-red' : profile.conservationStatus === 'Extinct' ? 'chip-orange' : 'chip-green';
 ---
@@ -290,6 +290,8 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                 {credit && <p class="note">Photo: “{credit.title}” by {credit.artist}, {credit.license}{credit.modified ? `, ${credit.modified.toLowerCase()}` : ''}. <a class="link" href={credit.sourcePage} rel="noopener" target="_blank">Original</a></p>}
                 <a class="btn btn-sm" href={`https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml&title=${encodeURIComponent(`Data correction: ${animal.name}`)}`} rel="noopener" target="_blank"><Icon name="alert" size={22} lazy />Suggest a correction</a>
             </div>
+
+            <div class="pane scroll" id="pane-talk" role="tabpanel" aria-labelledby="tab-talk" hidden data-comments={animal.name}></div>
         </section>
     </div>
 </Base>
@@ -297,6 +299,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 <script>
     import { sfx } from '../../scripts/sfx.js';
     import { toast } from '../../scripts/site.js';
+    import { mountComments } from '../../scripts/comments.js';
 
     const tabs = [...document.querySelectorAll('[data-tab]')];
     function show(id, focus = false) {
@@ -308,6 +311,9 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
             document.getElementById(`pane-${item.dataset.tab}`).hidden = !on;
         }
         if (focus) tab.focus();
+        // The comment thread loads the first time its tab opens.
+        const talk = document.getElementById('pane-talk');
+        if (tab.dataset.tab === 'talk' && talk) mountComments(talk, { animalName: talk.dataset.comments });
     }
     tabs.forEach((tab, index) => {
         tab.addEventListener('click', () => { show(tab.dataset.tab); history.replaceState(null, '', `#${tab.dataset.tab}`); });

@@ -184,13 +184,20 @@ if (dialog) {
 const chip = document.querySelector('[data-player-chip]');
 if (chip) {
     chip.href = `/login?returnTo=${encodeURIComponent(location.pathname + location.search)}`;
+    // Pages that need to know either way read window.ABS_AUTH ('user' | 'guest')
+    // or listen for abs:user / abs:guest.
+    const guest = () => {
+        window.ABS_AUTH = 'guest';
+        document.dispatchEvent(new CustomEvent('abs:guest'));
+    };
     fetch('/api/auth?action=me', { credentials: 'same-origin', headers: { Accept: 'application/json' } })
         .then((response) => (response.ok ? response.json() : null))
         .then(async (body) => {
             const user = body?.data?.user;
-            if (!user) return;
+            if (!user) return guest();
             window.ABS_USER = user;
             window.ABS_TOKEN = body.data.token || null;
+            window.ABS_AUTH = 'user';
             document.dispatchEvent(new CustomEvent('abs:user', { detail: user }));
             const level = Number(user.level) || 1;
             const progress = user.xpToNext ? Math.min(100, Math.round(((Number(user.xp) || 0) / user.xpToNext) * 100)) : 0;
@@ -200,5 +207,5 @@ if (chip) {
                 <span class="who"><span>${escapeHtml(user.displayName || user.username)}</span><span class="xpbar"><i style="width:${progress}%"></i></span></span>
                 <span class="bp" title="BattlePoints"><img src="/images/icons/abs/coin.webp" alt="" width="20" height="20">${Number(user.battlePoints || 0).toLocaleString('en-US')}</span>`;
         })
-        .catch(() => {});
+        .catch(guest);
 }

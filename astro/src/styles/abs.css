@@ -778,6 +778,29 @@ body.game {
 .faq details p { margin: 0 0 12px; font-size: 0.88rem; color: var(--text-2); }
 
 .empty-state { padding: 28px; text-align: center; color: var(--muted); border: 1px dashed var(--line-2); border-radius: 12px; }
+
+/* ---------------------------------------------------------------- comment threads (scripts/comments.js) */
+
+.cm-compose { display: grid; gap: 6px; }
+.cm-compose textarea { width: 100%; resize: none; padding: 9px 11px; font: inherit; font-size: 0.9rem; color: var(--text); background: rgba(3, 6, 16, 0.6); border: 1px solid var(--line-2); border-radius: 10px; }
+.cm-compose textarea:focus { outline: none; border-color: var(--cyan); }
+.cm-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.cm-hint { font-size: 0.72rem; color: var(--dim); }
+.cm-list { display: grid; gap: 8px; margin-top: 10px; }
+.cm-empty { margin: 4px 0; font-size: 0.86rem; color: var(--muted); }
+.cm { padding: 9px 11px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 10px; }
+.cm header { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.cm header b { font-size: 0.86rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cm time { flex: none; font-size: 0.7rem; color: var(--dim); }
+.cm-av { flex: none; width: 30px; height: 30px; border-radius: 50%; object-fit: contain; background: radial-gradient(circle at 50% 35%, #26315e, #0b1026 70%); border: 2px solid var(--line-2); }
+.cm p { margin: 4px 0 0 38px; font-size: 0.88rem; line-height: 1.4; color: var(--text-2); white-space: pre-line; overflow-wrap: anywhere; }
+.cm footer { display: flex; align-items: center; gap: 6px; margin: 6px 0 0 38px; }
+.cm-reply { margin: 8px 0 0 26px; background: rgba(255, 255, 255, 0.03); }
+.cm-vote { width: 26px; height: 22px; display: grid; place-items: center; font-size: 0.62rem; color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
+.cm-vote.on { color: var(--green); border-color: rgba(53, 220, 143, 0.5); }
+.cm-vote.down.on { color: var(--red); border-color: rgba(255, 77, 94, 0.5); }
+.cm-score { min-width: 20px; text-align: center; font-family: var(--font-display); font-weight: 900; }
+.cm-link { margin-left: 6px; padding: 0 4px; font: inherit; font-size: 0.76rem; font-weight: 800; color: var(--cyan-2); background: none; border: 0; cursor: pointer; }
 .toast {
     position: fixed; left: 50%; bottom: calc(var(--dock-h) + 18px); z-index: 90;
     transform: translate(-50%, 20px); opacity: 0;

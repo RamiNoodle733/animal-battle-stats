@@ -1,0 +1,183 @@
+---
+// Player profile: /profile (your own, editable) and /profile/<username>
+// (public, read-only; vercel.json rewrites it here and the script reads the path).
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../lib/site.js';
+
+const EARN = [
+    ['medal', 'Vote on an animal', '+5 XP', 'Each animal, once a day'],
+    ['vs', 'Daily matchup vote', '+10 XP · +2 BP', 'Once a day on any Versus fight'],
+    ['book', 'Comment on an animal', '+10 XP', 'Replies earn +5 XP'],
+    ['trophy', 'Finish a ranked tournament', '+25 XP · +5 BP', 'Once a day'],
+    ['crown', 'Level up', 'BattlePoints', 'Bigger payouts at milestone levels']
+];
+---
+
+<Base title={`Player profile | ${SITE.name}`} description="Your Animal Battle Stats player profile: level, XP, BattlePoints and profile animal." path="/profile" noindex active="" biome="mountains" seed={9}>
+    <div class="prof" data-profile data-state="loading">
+        <section class="panel gold p-card enter" aria-live="polite">
+            <div class="p-art" data-p-art><div class="p-pick-hint" data-p-hint hidden><Icon name="paw" size={40} /><span>Pick a profile animal</span></div></div>
+            <div class="p-id">
+                <span class="p-lvl" data-p-level title="Level">1</span>
+                <div class="p-names">
+                    <h1 class="p-name" data-p-name>Player</h1>
+                    <span class="p-handle" data-p-handle></span>
+                </div>
+            </div>
+            <div class="p-xp"><div class="p-xpbar"><i data-p-xpbar></i></div><span data-p-xptext>0 / 0 XP</span></div>
+            <div class="p-nums">
+                <div><b data-p-bp>0</b><span>BattlePoints</span></div>
+                <div><b data-p-life>0</b><span>Lifetime XP</span></div>
+                <div><b data-p-prestige>0</b><span>Prestige</span></div>
+            </div>
+            <p class="p-since small" data-p-since></p>
+        </section>
+
+        <section class="panel p-main enter-2" data-p-owner-only>
+            <div class="tabs" role="tablist">
+                <button type="button" role="tab" aria-selected="true" data-p-tab="edit"><Icon name="gear" size={20} />Profile</button>
+                <button type="button" role="tab" aria-selected="false" data-p-tab="animal"><Icon name="paw" size={20} />Animal</button>
+                <button type="button" role="tab" aria-selected="false" data-p-tab="account"><Icon name="lock" size={20} />Account</button>
+            </div>
+
+            <form class="p-pane scroll" data-p-pane="edit" data-p-form>
+                <p class="p-flag" data-p-flag hidden>Your name needs a change before it can show on leaderboards. Pick a new one below.</p>
+                <label class="fld"><span>Display name</span><input name="displayName" maxlength="30" autocomplete="nickname" /><small>Shown on leaderboards and posts. Change it any time.</small></label>
+                <label class="fld"><span>Username</span><input name="username" maxlength="20" pattern="[A-Za-z0-9_]+" autocomplete="username" /><small data-p-rename>Your login name. 3 changes per week.</small></label>
+                <button class="btn btn-cyan" type="submit" data-p-save><Icon name="check" size={22} />Save profile</button>
+            </form>
+
+            <div class="p-pane p-animal" data-p-pane="animal" hidden>
+                <div class="field p-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg><input type="search" placeholder="Search 225 animals" aria-label="Search animals" data-p-q /></div>
+                <div class="p-grid scroll" data-p-grid aria-busy="true"></div>
+            </div>
+
+            <div class="p-pane scroll" data-p-pane="account" hidden>
+                <div class="p-row"><span><b>Email</b><span data-p-email>–</span></span><span class="chip" data-p-verified>–</span></div>
+                <h3 class="sub-h">Email notifications</h3>
+                <div class="p-toggles" data-p-notify>
+                    <label><input type="checkbox" data-n="enabled" /><span>Email me at all</span></label>
+                    <label><input type="checkbox" data-n="commentReplies" /><span>Replies to my comments</span></label>
+                    <label><input type="checkbox" data-n="tournamentUpdates" /><span>Tournament updates</span></label>
+                    <label><input type="checkbox" data-n="newFeatures" /><span>New features and the Roblox launch</span></label>
+                    <label><input type="checkbox" data-n="weeklyDigest" /><span>Weekly digest</span></label>
+                </div>
+                <h3 class="sub-h">Sign-in</h3>
+                <div class="p-row"><span><b>Google</b><span data-p-google>Not linked</span></span><button class="btn btn-sm" type="button" data-p-google-btn>Link</button></div>
+                <div class="p-row p-prestige" data-p-prestige-row hidden><span><b>Prestige ready</b><span>Reset to level 1 for a prestige star and bonus BattlePoints.</span></span><button class="btn btn-gold btn-sm" type="button" data-p-prestige-btn>Prestige</button></div>
+                <button class="btn btn-sm p-logout" type="button" data-p-logout><Icon name="close" size={20} />Log out</button>
+            </div>
+        </section>
+
+        <aside class="panel hot p-earn enter-3" aria-labelledby="earn-title">
+            <div class="panel-head"><Icon name="xp" size={28} /><h2 id="earn-title" class="panel-title">Earn XP</h2></div>
+            <ul class="p-earn-list panel-body">
+                {EARN.map(([icon, title, value, note]) => <li><Icon name={icon} size={30} lazy /><span><b>{title}</b><small>{note}</small></span><em>{value}</em></li>)}
+            </ul>
+            <div class="p-links">
+                <a class="btn btn-sm" href="/rankings"><Icon name="medal" size={20} />Vote</a>
+                <a class="btn btn-sm" href="/tournament"><Icon name="trophy" size={20} />Tourney</a>
+                <a class="btn btn-sm" href="/community"><Icon name="friends" size={20} />Community</a>
+            </div>
+        </aside>
+
+        <div class="p-empty panel" data-p-empty hidden>
+            <Icon name="alert" size={48} />
+            <h2 class="panel-title" data-p-empty-title>Player not found</h2>
+            <p data-p-empty-text>No player has that username.</p>
+            <a class="btn btn-hot" href="/community">Community</a>
+        </div>
+    </div>
+</Base>
+
+<script>
+    import '../scripts/profile.js';
+</script>
+
+<style>
+    .prof { height: 100%; display: grid; grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.2fr) minmax(260px, 0.8fr); gap: 12px; max-width: 1500px; margin: 0 auto; }
+    .prof[data-state="loading"] > .panel { opacity: 0.55; }
+    .prof[data-state="public"] [data-p-owner-only] { display: none; }
+    .prof[data-state="public"] { grid-template-columns: minmax(280px, 420px) minmax(260px, 380px); justify-content: center; }
+    .prof[data-state="missing"] > .panel:not(.p-empty) { display: none; }
+    .prof[data-state="missing"] { display: grid; place-items: center; grid-template-columns: 1fr; }
+    .small { font-size: 0.8rem; }
+    .sub-h { margin: 6px 0 2px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-2); }
+
+    .p-card { min-height: 0; padding: 16px; gap: 12px; }
+    .p-art { position: relative; flex: 1; min-height: 0; display: grid; place-items: center; }
+    .p-art :global(.card) { height: 100%; max-height: 420px; max-width: 100%; aspect-ratio: 3 / 4; width: auto; }
+    .p-pick-hint { display: grid; justify-items: center; gap: 8px; padding: 22px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-transform: uppercase; color: var(--muted); border: 2px dashed var(--line-2); border-radius: 14px; cursor: pointer; }
+    .p-id { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .p-lvl { flex: none; display: grid; place-items: center; width: 54px; height: 54px; font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: #1f1400; background: linear-gradient(160deg, var(--gold-2), var(--gold) 45%, var(--gold-d)); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+    .p-names { min-width: 0; display: flex; flex-direction: column; }
+    .p-name { margin: 0; font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; transform: skewX(-6deg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .p-handle { font-size: 0.82rem; color: var(--muted); }
+    .p-xp { display: grid; gap: 4px; }
+    .p-xpbar { height: 12px; background: rgba(255, 255, 255, 0.1); clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); overflow: hidden; }
+    .p-xpbar i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--cyan-2)); transition: width 0.8s var(--ease); }
+    .p-xp span { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .p-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+    .p-nums div { display: flex; flex-direction: column; padding: 7px 8px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .p-nums b { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; color: var(--gold-2); }
+    .p-nums span { font-size: 0.56rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .p-since { margin: 0; color: var(--dim); }
+
+    .p-main { min-height: 0; }
+    .p-pane { flex: 1; min-height: 0; padding: 14px 16px; display: grid; gap: 12px; align-content: start; }
+    .p-pane[hidden] { display: none; }
+    .fld { display: grid; gap: 4px; }
+    .fld > span { font-family: var(--font-display); font-size: 0.9rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); }
+    .fld input { height: 44px; padding: 0 12px; font: inherit; color: var(--text); background: rgba(3, 6, 16, 0.6); border: 1px solid var(--line-2); border-radius: 10px; }
+    .fld input:focus { outline: none; border-color: var(--cyan); }
+    .fld small { font-size: 0.72rem; color: var(--dim); }
+    .p-flag { margin: 0; padding: 9px 12px; font-size: 0.86rem; border-radius: 8px; border: 1px solid rgba(255, 197, 61, 0.5); background: rgba(255, 197, 61, 0.1); color: var(--gold-2); }
+    .p-animal { grid-template-rows: auto minmax(0, 1fr); }
+    .p-grid { min-height: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; align-content: start; padding: 2px; }
+    .prof :global(.p-opt) { padding: 0; background: none; border: 0; cursor: pointer; }
+    .prof :global(.p-opt[hidden]) { display: none; }
+    .prof :global(.p-opt .card) { pointer-events: none; }
+    .prof :global(.p-opt .card-meta) { display: none; }
+    .prof :global(.p-opt .card-name) { font-size: 0.72rem; }
+    .prof :global(.p-opt .card-power), .prof :global(.p-opt .tier-badge) { transform: scale(0.8); }
+    .prof :global(.p-opt[aria-pressed="true"] .card) { box-shadow: 0 0 0 3px var(--gold), 0 0 22px rgba(255, 215, 0, 0.5); }
+    .p-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 10px; }
+    .p-row > span { display: flex; flex-direction: column; min-width: 0; font-size: 0.84rem; color: var(--text-2); }
+    .p-row b { font-family: var(--font-display); font-size: 1rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; }
+    .p-toggles { display: grid; gap: 6px; }
+    .p-toggles label { display: flex; align-items: center; gap: 10px; font-size: 0.86rem; color: var(--text-2); cursor: pointer; }
+    .p-toggles input { width: 18px; height: 18px; accent-color: var(--cyan); }
+    .p-logout { justify-self: start; }
+
+    .p-earn { min-height: 0; }
+    .p-earn-list { flex: 1; min-height: 0; margin: 0; list-style: none; display: grid; gap: 8px; align-content: start; overflow-y: auto; }
+    .p-earn-list li { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 10px; }
+    .p-earn-list b { display: block; font-size: 0.88rem; }
+    .p-earn-list small { font-size: 0.72rem; color: var(--muted); }
+    .p-earn-list em { font-style: normal; font-family: var(--font-display); font-size: 0.95rem; font-weight: 900; color: var(--gold-2); white-space: nowrap; }
+    .p-links { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px 14px; border-top: 1px solid var(--line); }
+    .p-empty { grid-column: 1 / -1; max-width: 420px; padding: 28px; display: grid; justify-items: center; gap: 12px; text-align: center; }
+    .p-empty[hidden] { display: none; }
+
+    @media (max-width: 1100px) {
+        .prof { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+        .p-earn { display: none; }
+        .prof[data-state="public"] .p-earn { display: flex; }
+    }
+    @media (max-width: 760px) {
+        .prof { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
+        .p-card { padding: 10px 12px; gap: 8px; display: grid; grid-template-columns: 96px minmax(0, 1fr); grid-template-areas: "art id" "art xp" "nums nums"; }
+        .p-art { grid-area: art; }
+        .p-art :global(.card) { max-height: 128px; }
+        .p-art :global(.card-plate), .p-art :global(.card-power), .p-art :global(.tier-badge) { display: none; }
+        .p-art :global(.card-art) { inset: 6% 4% 4%; }
+        .p-pick-hint { padding: 10px; font-size: 0.72rem; }
+        .p-id { grid-area: id; }
+        .p-xp { grid-area: xp; }
+        .p-nums { grid-area: nums; }
+        .p-since { display: none; }
+        .p-lvl { width: 40px; height: 40px; font-size: 1.2rem; }
+        .prof[data-state="public"] { grid-template-columns: minmax(0, 1fr); }
+    }
+</style>

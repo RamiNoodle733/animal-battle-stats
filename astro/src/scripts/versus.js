@@ -4,6 +4,7 @@
 import engine from '../../../js/battle-engine.js';
 import { loadAnimalIndex, escapeHtml, toast } from './site.js';
 import { sfx, shake } from './sfx.js';
+import { mountComments } from './comments.js';
 
 // The engine is a UMD file shared with the server build: bundlers hand back
 // its CommonJS export, plain browsers get the global.
@@ -126,6 +127,7 @@ function paintMatchup() {
     if (location.pathname === '/compare') history.replaceState(null, '', `/compare?${params}`);
     document.title = `${a.n} vs ${b.n}: Who Would Win? | Animal Battle Stats`;
     loadFanVotes(a, b);
+    document.dispatchEvent(new CustomEvent('abs:matchup'));
 }
 
 function setPicking(side) {
@@ -333,7 +335,22 @@ root.querySelector('[data-r-q]').addEventListener('input', (event) => {
 root.querySelectorAll('[data-ctab]').forEach((tab) => tab.addEventListener('click', () => {
     root.querySelectorAll('[data-ctab]').forEach((other) => other.setAttribute('aria-selected', String(other === tab)));
     root.querySelectorAll('[data-cpane]').forEach((pane) => { pane.hidden = pane.dataset.cpane !== tab.dataset.ctab; });
+    if (tab.dataset.ctab === 'talk') mountTalk();
 }));
+
+// Matchup comments, keyed like the server stores them ("A vs B", sorted).
+const talkPane = root.querySelector('[data-cpane="talk"]');
+function mountTalk() {
+    const a = state.index.get(state.a);
+    const b = state.index.get(state.b);
+    if (!a || !b || !talkPane) return;
+    const key = [a.n, b.n].sort().join(' vs ');
+    if (talkPane.dataset.key === key) return;
+    talkPane.dataset.key = key;
+    delete talkPane.dataset.mounted;
+    mountComments(talkPane, { comparisonKey: key });
+}
+document.addEventListener('abs:matchup', () => { if (talkPane && !talkPane.hidden) mountTalk(); });
 
 // Same markup as HoloCard.astro, built client-side so matchup pages stay small.
 function cardHtml(animal) {

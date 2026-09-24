@@ -1,0 +1,141 @@
+---
+// Log in, sign up, forgot and reset password: one game-style screen, four modes.
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import HoloCard from './HoloCard.astro';
+import { getAnimal } from '../lib/catalog.js';
+import { SITE } from '../lib/site.js';
+
+const { mode } = Astro.props;
+const COPY = {
+    login: { title: 'Log in', path: '/login', heading: 'Welcome back', sub: 'Log in to vote, post, play ranked tournaments and level up.' },
+    signup: { title: 'Create account', path: '/signup', heading: 'Join the arena', sub: 'Free forever. Vote on animals, climb the leaderboard and earn BattlePoints.' },
+    forgot: { title: 'Reset password', path: '/forgot-password', heading: 'Forgot your password?', sub: 'Enter your email and we will send you a reset link.' },
+    reset: { title: 'Choose a new password', path: '/reset-password', heading: 'New password', sub: 'Pick a new password for your account.' }
+};
+const copy = COPY[mode];
+const lineup = ['african-lion', 'honey-badger', 'orca'].map(getAnimal).filter(Boolean);
+const PERKS = [
+    ['medal', 'Level up', 'Earn XP for votes, posts and tournaments.'],
+    ['coin', 'BattlePoints', 'Collect BP and climb the player leaderboard.'],
+    ['trophy', 'Ranked tournaments', 'Your picks move the battle ratings.'],
+    ['friends', 'Community', 'Debate matchups and comment on animals.']
+];
+---
+
+<Base title={`${copy.title} | ${SITE.name}`} description={copy.sub} path={copy.path} noindex active="" biome="savanna" seed={5}>
+    <div class="auth" data-auth data-mode={mode}>
+        <section class="auth-hero enter" aria-hidden="true">
+            <div class="hero-cards">
+                {lineup.map((animal, index) => <HoloCard animal={animal} tag="span" sizes="220px" priority={index === 1} />)}
+            </div>
+            <ul class="perks">
+                {PERKS.map(([icon, title, text]) => <li><Icon name={icon} size={30} /><span><b>{title}</b>{text}</span></li>)}
+            </ul>
+        </section>
+
+        <section class="panel hot auth-panel enter-2" aria-labelledby="auth-title">
+            <div class="panel-head"><Icon name={mode === 'signup' ? 'plus' : mode === 'login' ? 'lock' : 'scroll'} size={28} /><h1 id="auth-title" class="panel-title">{copy.heading}</h1></div>
+            <div class="panel-body auth-body">
+                {(mode === 'login' || mode === 'signup') && (
+                    <nav class="seg auth-seg" aria-label="Account">
+                        <a href="/login" aria-current={mode === 'login' ? 'page' : undefined} data-keep-return>Log in</a>
+                        <a href="/signup" aria-current={mode === 'signup' ? 'page' : undefined} data-keep-return>Sign up</a>
+                    </nav>
+                )}
+                <p class="auth-sub">{copy.sub}</p>
+                <p class="auth-note" data-note role="status" hidden></p>
+
+                <form class="auth-form" data-form novalidate>
+                    {mode === 'login' && (<>
+                        <label class="fld"><span>Email or username</span><input name="login" type="text" autocomplete="username" required maxlength="120" /></label>
+                        <label class="fld"><span>Password</span><input name="password" type="password" autocomplete="current-password" required maxlength="200" /></label>
+                        <a class="link small forgot" href="/forgot-password">Forgot password?</a>
+                    </>)}
+                    {mode === 'signup' && (<>
+                        <label class="fld"><span>Username</span><input name="username" type="text" autocomplete="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" /><small>3 to 20 letters, numbers or underscores. Shown on leaderboards.</small></label>
+                        <label class="fld"><span>Email</span><input name="email" type="email" autocomplete="email" required maxlength="200" /><small>Used to verify your account and reset your password. Never shown.</small></label>
+                        <label class="fld"><span>Password</span><input name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="200" /><small>At least 8 characters.</small></label>
+                    </>)}
+                    {mode === 'forgot' && (
+                        <label class="fld"><span>Email</span><input name="email" type="email" autocomplete="email" required maxlength="200" /></label>
+                    )}
+                    {mode === 'reset' && (<>
+                        <label class="fld"><span>New password</span><input name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="200" /><small>At least 8 characters.</small></label>
+                        <label class="fld"><span>Repeat password</span><input name="confirm" type="password" autocomplete="new-password" required minlength="8" maxlength="200" /></label>
+                    </>)}
+                    <button class="btn btn-hot btn-lg auth-submit" type="submit" data-submit>
+                        <Icon name={mode === 'signup' ? 'plus' : mode === 'login' ? 'arrow' : 'check'} size={26} />
+                        <span>{mode === 'login' ? 'Log in' : mode === 'signup' ? 'Create account' : mode === 'forgot' ? 'Send reset link' : 'Save password'}</span>
+                    </button>
+                </form>
+
+                {(mode === 'login' || mode === 'signup') && (<>
+                    <div class="or"><span>or</span></div>
+                    <a class="btn btn-white google" href="/api/auth?action=google-start" data-google>
+                        <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+                        Continue with Google
+                    </a>
+                    <p class="legal small">By continuing you agree to play nice. We never sell your data.</p>
+                </>)}
+                {(mode === 'forgot' || mode === 'reset') && <p class="small back"><a class="link" href="/login">Back to log in</a></p>}
+            </div>
+        </section>
+    </div>
+</Base>
+
+<script>
+    import '../scripts/auth.js';
+</script>
+
+<style>
+    .auth { height: 100%; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(340px, 460px); gap: 16px; max-width: 1300px; margin: 0 auto; align-items: center; }
+    .auth-hero { min-height: 0; display: grid; gap: 22px; align-content: center; }
+    .hero-cards { display: flex; justify-content: center; align-items: flex-end; perspective: 900px; }
+    .hero-cards :global(.card) { width: clamp(130px, 14vw, 200px); pointer-events: none; }
+    .hero-cards :global(.card:nth-child(1)) { transform: rotate(-9deg) translate(34px, 16px); }
+    .hero-cards :global(.card:nth-child(2)) { z-index: 2; width: clamp(150px, 16.5vw, 236px); animation: float 5s ease-in-out infinite; }
+    .hero-cards :global(.card:nth-child(3)) { transform: rotate(9deg) translate(-34px, 16px); }
+    @keyframes float { 50% { transform: translateY(-10px); } }
+    .perks { margin: 0 auto; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; max-width: 620px; }
+    .perks li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; align-items: start; font-size: 0.84rem; color: var(--text-2); }
+    .perks b { display: block; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; }
+
+    .auth-panel { max-height: 100%; }
+    .auth-body { display: grid; gap: 12px; overflow-y: auto; }
+    .auth-seg { display: grid; grid-template-columns: 1fr 1fr; }
+    .auth-seg a { text-align: center; }
+    .auth-sub { margin: 0; font-size: 0.9rem; color: var(--text-2); }
+    .auth-note { margin: 0; padding: 9px 12px; font-size: 0.86rem; border-radius: 8px; border: 1px solid rgba(53, 220, 143, 0.45); background: rgba(53, 220, 143, 0.08); color: #b8f5d8; }
+    .auth-note.error { border-color: rgba(255, 77, 94, 0.5); background: rgba(255, 77, 94, 0.1); color: #ffc2c8; }
+    .auth-form { display: grid; gap: 10px; }
+    .fld { display: grid; gap: 4px; }
+    .fld > span { font-family: var(--font-display); font-size: 0.9rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); }
+    .fld input { height: 44px; padding: 0 12px; font: inherit; color: var(--text); background: rgba(3, 6, 16, 0.6); border: 1px solid var(--line-2); border-radius: 10px; box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35); }
+    .fld input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.18); }
+    .fld input[aria-invalid="true"] { border-color: var(--red); }
+    .fld small { font-size: 0.72rem; color: var(--dim); }
+    .forgot { justify-self: end; margin-top: -4px; }
+    .small { font-size: 0.8rem; }
+    .auth-submit { width: 100%; margin-top: 4px; }
+    .auth-submit[disabled] { filter: grayscale(0.6) brightness(0.8); pointer-events: none; }
+    .or { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
+    .or::before, .or::after { content: ""; height: 1px; background: var(--line-2); }
+    .google { width: 100%; text-transform: none; letter-spacing: 0.02em; }
+    .legal, .back { margin: 0; text-align: center; color: var(--dim); }
+
+    @media (max-width: 900px) {
+        .auth { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); align-items: start; gap: 10px; }
+        .auth-hero { gap: 0; }
+        .perks { display: none; }
+        .hero-cards :global(.card) { width: 92px; }
+        .hero-cards :global(.card:nth-child(2)) { width: 108px; }
+        .hero-cards :global(.card:nth-child(1)) { transform: rotate(-9deg) translate(20px, 10px); }
+        .hero-cards :global(.card:nth-child(3)) { transform: rotate(9deg) translate(-20px, 10px); }
+        .auth-panel { max-height: none; min-height: 0; height: 100%; }
+    }
+    @media (max-height: 760px) and (max-width: 900px) {
+        .auth-hero { display: none; }
+        .auth { grid-template-rows: minmax(0, 1fr); }
+    }
+</style>

@@ -31,36 +31,29 @@
       "destination": "/api/:path*"
     },
     {
-      "source": "/profile",
-      "destination": "/app"
-    },
-    {
-      "source": "/login",
-      "destination": "/app"
-    },
-    {
-      "source": "/signup",
-      "destination": "/app"
-    },
-    {
-      "source": "/forgot-password",
-      "destination": "/app"
-    },
-    {
-      "source": "/reset-password",
-      "destination": "/app"
-    },
-    {
-      "source": "/battlepoints",
-      "destination": "/app"
-    },
-    {
       "source": "/profile/:username",
-      "destination": "/app"
+      "destination": "/profile"
     },
     {
       "source": "/community/:tab",
       "destination": "/community"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/battle",
+      "destination": "/compare",
+      "permanent": true
+    },
+    {
+      "source": "/methodology",
+      "destination": "/about#model",
+      "permanent": true
+    },
+    {
+      "source": "/battlepoints",
+      "destination": "/profile",
+      "permanent": false
     }
   ],
   "headers": [
@@ -136,18 +129,6 @@
     {
       "path": "/api/cron/discord-retry",
       "schedule": "17 8 * * *"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/battle",
-      "destination": "/compare",
-      "permanent": true
-    },
-    {
-      "source": "/methodology",
-      "destination": "/about#model",
-      "permanent": true
     }
   ]
 }

@@ -5,8 +5,9 @@
 //
 //  1. guard against sensitive exports
 //  2. refresh canonical data from the research reports
-//  3. encode responsive image variants and social cards
-//  4. build every static page with Astro (.cache/astro-dist)
+//  3. encode responsive image variants
+//  4. build every static page with Astro (.cache/astro-dist), then draw the
+//     social cards (.cache/og) from the job list it emits
 //  5. render legacy single-page-app shells only for routes Astro does not own
 //  6. assemble an allowlisted dist/, write sitemap.xml + version.json, minify
 //
@@ -114,13 +115,16 @@ if (path.dirname(outputRoot) !== repoRoot || path.basename(outputRoot) !== 'dist
 run('scripts/security/check-sensitive-exports.js', ['--workspace']);
 run('scripts/research/import-research.js');
 run('scripts/images/build-variants.js');
-if (fs.existsSync(path.join(repoRoot, 'scripts/images/build-og.js'))) run('scripts/images/build-og.js');
 fs.rmSync(astroOut, { recursive: true, force: true });
 execFileSync(process.execPath, [path.join(repoRoot, 'node_modules', 'astro', 'bin', 'astro.mjs'), 'build'], {
     cwd: repoRoot,
     stdio: 'inherit',
     env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1' }
 });
+// Social cards are drawn from the job list the Astro build just wrote; the
+// list itself is build-only and never deployed.
+run('scripts/images/build-og.js');
+fs.rmSync(path.join(astroOut, 'data', 'og-jobs.json'), { force: true });
 
 // 5: legacy app shells for routes that do not have an Astro page yet
 const { renderHtml } = require('../lib/seo-renderer.js');

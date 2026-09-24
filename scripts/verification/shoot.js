@@ -41,8 +41,25 @@ function browserPath() {
     const errors = [];
     page.on('pageerror', (error) => errors.push(error.message));
     page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
+    // --live-api answers read-only API calls from production, so pages that
+    // need the database can be reviewed locally. Writes are blocked.
+    if (args.includes('--live-api')) {
+        await page.route('**/api/**', async (route) => {
+            const request = route.request();
+            if (request.method() !== 'GET') return route.abort();
+            const url = new URL(request.url());
+            const response = await fetch(`https://animalbattlestats.com${url.pathname}${url.search}`, { headers: { Accept: 'application/json' } });
+            return route.fulfill({ status: response.status, contentType: response.headers.get('content-type') || 'application/json', body: Buffer.from(await response.arrayBuffer()) });
+        });
+    }
     await page.goto(`${base}${target}`, { waitUntil: 'load', timeout: 45000 });
     await page.waitForTimeout(1500);
+    // --click <selector> taps an element first, e.g. a tab.
+    const click = option('--click', null);
+    if (click) {
+        await page.click(click);
+        await page.waitForTimeout(1200);
+    }
     const total = await page.evaluate(() => document.documentElement.scrollHeight);
     const files = [];
     for (let index = 0; index < pages; index += 1) {

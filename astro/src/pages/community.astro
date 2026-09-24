@@ -1,0 +1,180 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { PAIRS } from '../lib/matchups.js';
+import { SITE, ROBLOX, SOCIAL, absoluteUrl } from '../lib/site.js';
+
+const title = `Community: Animal Debates, Votes & Leaderboards | ${SITE.name}`;
+const description = 'Join the Animal Battle Stats community: debate who would win, vote on the strongest animals, climb the player leaderboard and follow the Animal Battle Stats Roblox game.';
+const jsonLd = [{ '@type': 'WebPage', url: absoluteUrl('/community'), name: 'Animal Battle Stats community', description, isPartOf: { '@id': `${SITE.url}/#website` } }];
+const classics = PAIRS.filter((pair) => pair.classic).slice(0, 12);
+const discord = SOCIAL.find((item) => item.name === 'Discord');
+const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
+---
+
+<Base title={title} description={description} path="/community" jsonLd={jsonLd} active="community" biome="jungle" seed={21}>
+    <h1 class="visually-hidden">Animal Battle Stats community</h1>
+    <div class="hub" data-hub>
+        <nav class="hub-tabs tabs" aria-label="Community sections">
+            <button type="button" aria-selected="true" data-hub-tab="talk"><Icon name="friends" size={22} />Talk</button>
+            <button type="button" aria-selected="false" data-hub-tab="trending"><Icon name="fire" size={22} />Trending</button>
+            <button type="button" aria-selected="false" data-hub-tab="players"><Icon name="medal" size={22} />Players</button>
+            <button type="button" aria-selected="false" data-hub-tab="roblox"><Icon name="cards" size={22} />Roblox</button>
+        </nav>
+
+        <section class="panel talk" data-col="talk" aria-labelledby="talk-title">
+            <div class="panel-head"><Icon name="friends" size={28} /><h2 id="talk-title" class="panel-title">The Arena</h2><span class="aside">Debate anything animal</span></div>
+            <form class="composer" data-composer>
+                <label class="visually-hidden" for="msg">Your message</label>
+                <textarea id="msg" maxlength="500" rows="2" placeholder="Who would win: 100 army ants or one honey badger?" data-msg></textarea>
+                <div class="composer-row">
+                    <span class="small muted" data-composer-note>Be kind. 500 characters max.</span>
+                    <button class="btn btn-cyan btn-sm" type="submit" data-post><Icon name="arrow" size={20} />Post</button>
+                </div>
+            </form>
+            <div class="feed scroll" data-talk-feed aria-live="polite">
+                {Array.from({ length: 5 }, () => <div class="msg skeleton-msg"><span></span><p></p></div>)}
+            </div>
+        </section>
+
+        <section class="panel mid" aria-label="Trending and players">
+            <div class="tabs" role="tablist">
+                <button type="button" role="tab" aria-selected="true" data-mid-tab="trending"><Icon name="fire" size={20} />Trending</button>
+                <button type="button" role="tab" aria-selected="false" data-mid-tab="comments"><Icon name="book" size={20} />Comments</button>
+                <button type="button" role="tab" aria-selected="false" data-mid-tab="players"><Icon name="medal" size={20} />Players</button>
+            </div>
+            <div class="mid-pane scroll" data-mid="trending" data-col="trending">
+                <h3 class="sub-h">Fan favorites</h3>
+                <ol class="fav-list" data-favs><li class="muted small">Loading votes…</li></ol>
+                <h3 class="sub-h">Hot matchups</h3>
+                <div class="match-chips">{classics.map((pair) => <a class="chip" href={`/compare/${pair.slug}`}>{pair.a.name} vs {pair.b.name}</a>)}</div>
+            </div>
+            <div class="mid-pane scroll" data-mid="comments" hidden>
+                <div class="feed" data-comment-feed><p class="muted small">Loading comments…</p></div>
+            </div>
+            <div class="mid-pane scroll" data-mid="players" data-col="players" hidden>
+                <ol class="players" data-players><li class="muted small">Loading players…</li></ol>
+                <p class="small muted">Earn XP by voting on animals, running tournaments and posting. Levels unlock bigger vote influence.</p>
+            </div>
+        </section>
+
+        <aside class="side" data-col="roblox">
+            <section class="panel hot rbx-panel">
+                <div class="panel-head"><Icon name="cards" size={28} /><h2 class="panel-title">Roblox game</h2><span class="aside" data-rbx-status>{ROBLOX.live ? 'Live' : 'Coming soon'}</span></div>
+                <div class="panel-body">
+                    <div class="rbx-stats" data-rbx-stats hidden>
+                        <div><b data-rs="playing">–</b><span>Playing</span></div>
+                        <div><b data-rs="visits">–</b><span>Visits</span></div>
+                        <div><b data-rs="favorites">–</b><span>Favorites</span></div>
+                    </div>
+                    <p class="small rbx-copy" data-rbx-copy>{ROBLOX.pitch} Game leaderboards show up here at launch.</p>
+                    <div class="rbx-boards" data-rbx-boards></div>
+                    <ul class="rbx-feats">
+                        {ROBLOX.features.map((feature, index) => (
+                            <li><Icon name={FEATURE_ICONS[index % FEATURE_ICONS.length]} size={26} lazy /><span><b>{feature.title}</b><span>{feature.text}</span></span></li>
+                        ))}
+                    </ul>
+                    <div class="btn-row">
+                        <a class="btn btn-white btn-sm" href="/roblox"><Icon name="cards" size={22} />The game</a>
+                        {discord && <a class="btn btn-sm" href={discord.url} rel="noopener" target="_blank">Discord</a>}
+                    </div>
+                </div>
+            </section>
+            <section class="panel gold stats-panel">
+                <div class="panel-head"><Icon name="trophy" size={28} /><h2 class="panel-title">By the numbers</h2></div>
+                <div class="panel-body big-nums" data-site-stats>
+                    <div><b data-ss="totalUsers">–</b><span>Members</span></div>
+                    <div><b data-ss="totalVotes">–</b><span>Votes cast</span></div>
+                    <div><b data-ss="totalMatches">–</b><span>Fights run</span></div>
+                    <div><b data-ss="totalComments">–</b><span>Comments</span></div>
+                </div>
+            </section>
+        </aside>
+    </div>
+</Base>
+
+<script>
+    import '../scripts/community.js';
+</script>
+
+<style>
+    .hub { height: 100%; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(280px, 0.8fr); gap: 12px; max-width: 1600px; margin: 0 auto; }
+    .hub-tabs { display: none; }
+    .talk, .mid { min-height: 0; }
+    .composer { padding: 10px 14px; border-bottom: 1px solid var(--line); }
+    .composer textarea { width: 100%; resize: none; padding: 10px 12px; background: rgba(3, 6, 16, 0.6); border: 1px solid var(--line-2); border-radius: 10px; color: var(--text); font: inherit; }
+    .composer textarea:focus { outline: none; border-color: var(--cyan); }
+    .composer-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; }
+    .feed { flex: 1; min-height: 0; padding: 10px 14px; display: grid; gap: 8px; align-content: start; }
+    .mid-pane { flex: 1; min-height: 0; padding: 12px 14px; }
+    .sub-h { margin: 4px 0 8px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-2); }
+    .fav-list, .players { margin: 0 0 14px; padding: 0; list-style: none; display: grid; gap: 6px; }
+    .match-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .match-chips .chip:hover { border-color: var(--orange); color: var(--orange-2); }
+    .side { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 12px; min-height: 0; }
+    .rbx-panel { min-height: 0; }
+    .rbx-panel .panel-body { overflow-y: auto; }
+    .rbx-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .big-nums { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .rbx-feats { margin: 0 0 12px; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .rbx-feats li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; align-items: start; }
+    .rbx-feats b { display: block; font-family: var(--font-display); font-size: 1rem; font-weight: 900; letter-spacing: 0.03em; text-transform: uppercase; }
+    .rbx-feats li > span > span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 0.78rem; color: var(--text-2); }
+    .rbx-stats div, .big-nums div { display: flex; flex-direction: column; padding: 8px 10px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .rbx-stats b, .big-nums b { font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; line-height: 1; }
+    .rbx-stats span, .big-nums span { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .rbx-copy { color: var(--text-2); margin: 10px 0; }
+    .rbx-boards { display: grid; gap: 8px; margin-bottom: 12px; }
+    .skeleton-msg { height: 64px; border-radius: 10px; background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.07), rgba(255,255,255,0.03)); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+    @keyframes shimmer { to { background-position: -200% 0; } }
+
+    /* content rendered by community.js */
+    .hub :global(.small) { font-size: 0.8rem; }
+    .hub :global(.muted) { color: var(--muted); }
+    .hub :global(.msg:not(.skeleton-msg)) { padding: 10px 12px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 10px; animation: msg-in 0.28s var(--ease) both; }
+    .hub :global(.msg header) { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .hub :global(.msg header b) { font-weight: 800; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hub :global(.msg time) { flex: none; font-size: 0.72rem; color: var(--dim); }
+    .hub :global(.msg header .chip) { margin-left: auto; flex: none; }
+    .hub :global(.msg p) { margin: 4px 0 0 44px; color: var(--text-2); font-size: 0.9rem; line-height: 1.4; white-space: pre-line; overflow-wrap: anywhere; }
+    .hub :global(.msg footer) { display: flex; align-items: center; gap: 6px; margin: 6px 0 0 44px; }
+    .hub :global(.msg .msg) { margin: 8px 0 0 30px; background: rgba(255, 255, 255, 0.03); }
+    .hub :global(.av) { width: 36px; height: 36px; flex: none; border-radius: 50%; object-fit: contain; background: radial-gradient(circle at 50% 35%, #26315e, #0b1026 70%); border: 2px solid var(--line-2); }
+    .hub :global(.vote) { width: 28px; height: 24px; display: grid; place-items: center; border-radius: 6px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.04); color: var(--muted); font-size: 0.66rem; cursor: pointer; }
+    .hub :global(.vote:hover) { color: #fff; border-color: var(--line-2); }
+    .hub :global(.vote.up.on) { color: var(--green); border-color: rgba(53, 220, 143, 0.5); background: rgba(53, 220, 143, 0.1); }
+    .hub :global(.vote.down.on) { color: var(--red); border-color: rgba(255, 77, 94, 0.5); background: rgba(255, 77, 94, 0.1); }
+    .hub :global(.score) { min-width: 22px; text-align: center; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; }
+    .hub :global(.link-btn) { margin-left: 6px; padding: 2px 4px; background: none; border: 0; color: var(--cyan-2); font: inherit; font-size: 0.78rem; font-weight: 800; cursor: pointer; }
+    .hub :global(.link-btn:hover) { text-decoration: underline; }
+    .hub :global(.fav), .hub :global(.player) { display: grid; align-items: center; gap: 10px; padding: 6px 10px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 8px; }
+    .hub :global(.fav) { grid-template-columns: 26px 52px minmax(0, 1fr) auto; }
+    .hub :global(.player) { grid-template-columns: 26px 36px minmax(0, 1fr) auto auto; }
+    .hub :global(.fav:nth-child(-n+3) .pos), .hub :global(.player:nth-child(-n+3) .pos) { color: var(--gold); text-shadow: 0 0 12px rgba(255, 215, 0, 0.45); }
+    .hub :global(.pos) { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; color: var(--text-2); text-align: center; }
+    .hub :global(.fav img) { width: 52px; height: 40px; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.5)); }
+    .hub :global(.fav a) { font-weight: 800; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hub :global(.fav a:hover) { color: var(--cyan-2); }
+    .hub :global(.net) { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--green); }
+    .hub :global(.pname) { display: flex; flex-direction: column; min-width: 0; }
+    .hub :global(.pname strong) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hub :global(.xpbar) { height: 5px; margin-top: 4px; border-radius: 3px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
+    .hub :global(.xpbar i) { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--cyan-2)); }
+    .hub :global(.player .lvl) { display: grid; place-items: center; width: 30px; height: 30px; font-family: var(--font-display); font-size: 1rem; font-weight: 900; color: #1f1400; background: linear-gradient(160deg, var(--gold-2), var(--gold) 45%, var(--gold-d)); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+    .hub :global(.player .bp) { display: flex; align-items: center; gap: 4px; min-width: 64px; justify-content: flex-end; color: var(--gold-2); font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; }
+    .hub :global(.board) { padding: 8px 10px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .hub :global(.board h4) { margin: 0 0 4px; font-family: var(--font-display); font-size: 0.95rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-2); }
+    .hub :global(.board ol) { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font-size: 0.84rem; }
+    .hub :global(.board li) { display: flex; justify-content: space-between; gap: 8px; }
+    .hub :global(.board li b) { font-family: var(--font-display); font-weight: 900; color: var(--gold-2); }
+    @keyframes msg-in { from { opacity: 0; transform: translateY(6px); } }
+    @media (prefers-reduced-motion: reduce) { .hub :global(.msg) { animation: none !important; } .skeleton-msg { animation: none; } }
+    @media (max-width: 1100px) {
+        .hub { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+        .hub-tabs { display: flex; grid-row: 1; padding: 0 0 4px; border: 0; }
+        .hub > .panel, .hub > .side { grid-row: 2; display: none; }
+        .hub[data-show="talk"] .talk, .hub[data-show="trending"] .mid, .hub[data-show="players"] .mid, .hub[data-show="roblox"] .side { display: flex; }
+        .hub[data-show="roblox"] .side { display: grid; }
+        .mid [data-mid-tab="players"], .hub[data-show="players"] .mid .tabs { display: none; }
+    }
+</style>

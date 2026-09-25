@@ -118,7 +118,28 @@ def neutralize(image, alpha):
     return Image.fromarray(np.clip(pixels * gains, 0, 255).astype(np.uint8))
 
 
-def cutout(photo, session, erase=(), neutral=False):
+def fade_edges(alpha, share=0.12):
+    """Softens a subject that runs off the photo: alpha ramps to zero over the
+    last `share` of the frame on every side the subject touches, so a snake
+    whose body leaves the picture fades out instead of ending in a straight cut."""
+    height, width = alpha.shape
+    out = alpha.astype(np.float32)
+    band_x = max(2, int(width * share))
+    band_y = max(2, int(height * share))
+    ramp_x = np.linspace(0.0, 1.0, band_x, dtype=np.float32)
+    ramp_y = np.linspace(0.0, 1.0, band_y, dtype=np.float32)
+    if alpha[:, :3].max() > 128:
+        out[:, :band_x] *= ramp_x[None, :]
+    if alpha[:, -3:].max() > 128:
+        out[:, -band_x:] *= ramp_x[::-1][None, :]
+    if alpha[:3, :].max() > 128:
+        out[:band_y, :] *= ramp_y[:, None]
+    if alpha[-3:, :].max() > 128:
+        out[-band_y:, :] *= ramp_y[::-1][:, None]
+    return out.astype(np.uint8)
+
+
+def cutout(photo, session, erase=(), neutral=False, fade=False):
     with Image.open(photo) as source:
         image = source.convert("RGB")
     mask = remove(image, session=session, only_mask=True, post_process_mask=False)
@@ -129,6 +150,8 @@ def cutout(photo, session, erase=(), neutral=False):
     for x0, y0, x1, y1 in erase:
         alpha[int(y0 * height):int(y1 * height), int(x0 * width):int(x1 * width)] = 0
     alpha = clean_mask(alpha)
+    if fade:
+        alpha = fade_edges(alpha)
     if neutral:
         image = neutralize(image, alpha)
     rgba = image.copy()
@@ -180,13 +203,14 @@ def main():
             continue
         erase = [tuple(box) for box in choice.get("erase", [])]
         neutral = bool(choice.get("neutral"))
-        stamp = f"{candidate['title']}|{model}|{MAX_SIDE}" + (f"|{erase}" if erase else "") + ("|neutral" if neutral else "")
+        fade = bool(choice.get("fade"))
+        stamp = f"{candidate['title']}|{model}|{MAX_SIDE}" + (f"|{erase}" if erase else "") + ("|neutral" if neutral else "") + ("|fade" if fade else "")
         if not force and not out_dir and state.get(slug) == stamp and (target_dir / f"{slug}.png").exists():
             continue
         started = time.time()
         try:
             photo = download(slug, key, candidate)
-            image, coverage = cutout(photo, session, erase, neutral)
+            image, coverage = cutout(photo, session, erase, neutral, fade)
         except Exception as error:
             print(f"{slug}: FAILED {error}", flush=True)
             continue

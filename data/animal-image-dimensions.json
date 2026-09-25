@@ -69,14 +69,14 @@
     },
     "/images/animals/anaconda.png": {
       "width": 1024,
-      "height": 701,
+      "height": 685,
       "subject": {
-        "left": 20,
+        "left": 21,
         "top": 0,
-        "width": 984,
-        "height": 681
+        "width": 982,
+        "height": 665
       },
-      "sha256": "7bcc743e41a0d2189081045602d61417f729c937d2f4914c1130c7165c21eb68"
+      "sha256": "1bb3df9ebe0c72aff26a7bbff74918aa5ab0b3cc94cdac10ccd826518ab9a37a"
     },
     "/images/animals/anglerfish.png": {
       "width": 1024,
@@ -146,14 +146,14 @@
     },
     "/images/animals/axolotl.png": {
       "width": 1024,
-      "height": 590,
+      "height": 960,
       "subject": {
-        "left": 0,
+        "left": 21,
         "top": 21,
-        "width": 1003,
-        "height": 548
+        "width": 982,
+        "height": 918
       },
-      "sha256": "5fdb66146b5c138e4d382348c7ae7fc1ea4176f0cc41068fbd79d2dc92b14fb9"
+      "sha256": "bd3c55e2d7e5cb5ce8f00b05dece3361bcfd5cc7fd89520fe18c1203ca808094"
     },
     "/images/animals/baboon.png": {
       "width": 865,
@@ -849,15 +849,15 @@
       "sha256": "51f3532a067036e838b49b2935a3684e4f495b12b75cbb01303df465f409258a"
     },
     "/images/animals/gibbon.png": {
-      "width": 1008,
-      "height": 1024,
+      "width": 663,
+      "height": 688,
       "subject": {
-        "left": 21,
-        "top": 21,
-        "width": 966,
-        "height": 982
+        "left": 15,
+        "top": 15,
+        "width": 632,
+        "height": 658
       },
-      "sha256": "23bd5cb10dc007123053a8495b0f837abe44d9fbfa8a0f04809214f8764684ee"
+      "sha256": "ff3ae709133a9e1217e7b518842c8214fbe25d7139d234843e64607c3fb20c8c"
     },
     "/images/animals/gila-monster.png": {
       "width": 1024,
@@ -1829,14 +1829,14 @@
     },
     "/images/animals/python.png": {
       "width": 1024,
-      "height": 609,
+      "height": 648,
       "subject": {
-        "left": 21,
-        "top": 21,
-        "width": 982,
-        "height": 567
+        "left": 5,
+        "top": 20,
+        "width": 1014,
+        "height": 625
       },
-      "sha256": "a10e616dcb2b12f0b479e45a9f6810f7b73a7918cdbb31b3a00d1d1b7fa4d765"
+      "sha256": "9e59a0870eae04add9d1b9a154c2fcd6bd71f4760c259a94768c3029dcd0160e"
     },
     "/images/animals/quokka.png": {
       "width": 1024,
@@ -1873,14 +1873,14 @@
     },
     "/images/animals/rattlesnake.png": {
       "width": 1024,
-      "height": 682,
+      "height": 626,
       "subject": {
-        "left": 0,
-        "top": 21,
-        "width": 1004,
-        "height": 661
+        "left": 21,
+        "top": 20,
+        "width": 983,
+        "height": 586
       },
-      "sha256": "c70588137687af0d7ef70c53229c78000b4500e4e4873e615f715b0c06540144"
+      "sha256": "03d701afaa0a88d36a52aa632dc36d70dd83df46ad582e3d14c324dce13f6fb5"
     },
     "/images/animals/raven.png": {
       "width": 1024,

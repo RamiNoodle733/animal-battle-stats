@@ -15,6 +15,8 @@ export function GET() {
         r: animal.rank,
         i: animal.img.thumb,
         m: animal.img.variants[1]?.src || animal.img.thumb,
+        ar: animal.img.ar,
+        k: animal.img.k,
         atk: animal.attack,
         def: animal.defense,
         agi: animal.agility,

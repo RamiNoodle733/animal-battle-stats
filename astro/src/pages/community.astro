@@ -16,6 +16,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     <h1 class="visually-hidden">Animal Battle Stats community</h1>
     <div class="hub" data-hub>
         <nav class="hub-tabs tabs" aria-label="Community sections">
+            <button type="button" aria-selected="false" data-hub-tab="world"><Icon name="map" size={22} />World</button>
             <button type="button" aria-selected="true" data-hub-tab="talk"><Icon name="friends" size={22} />Talk</button>
             <button type="button" aria-selected="false" data-hub-tab="trending"><Icon name="fire" size={22} />Trending</button>
             <button type="button" aria-selected="false" data-hub-tab="players"><Icon name="medal" size={22} />Players</button>
@@ -39,11 +40,37 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
 
         <section class="panel mid" aria-label="Trending and players">
             <div class="tabs" role="tablist">
-                <button type="button" role="tab" aria-selected="true" data-mid-tab="trending"><Icon name="fire" size={20} />Trending</button>
+                <button type="button" role="tab" aria-selected="true" data-mid-tab="world"><Icon name="map" size={20} />World</button>
+                <button type="button" role="tab" aria-selected="false" data-mid-tab="trending"><Icon name="fire" size={20} />Trending</button>
                 <button type="button" role="tab" aria-selected="false" data-mid-tab="comments"><Icon name="book" size={20} />Comments</button>
                 <button type="button" role="tab" aria-selected="false" data-mid-tab="players"><Icon name="medal" size={20} />Players</button>
             </div>
-            <div class="mid-pane scroll" data-mid="trending" data-col="trending">
+            <div class="mid-pane scroll world" data-mid="world" data-world>
+                <div class="w-globe">
+                    <canvas aria-label="Globe showing where Animal Battle Stats visitors come from" role="img"></canvas>
+                    <div class="w-tip" data-w-tip hidden></div>
+                    <p class="w-hint">Drag to spin · tap a light</p>
+                </div>
+                <div class="w-stats">
+                    <div><b data-w="visitors">–</b><span>Visitors</span></div>
+                    <div><b data-w="visits">–</b><span>Visits</span></div>
+                    <div><b data-w="places">–</b><span>Cities</span></div>
+                    <div><b data-w="countries">–</b><span>Countries</span></div>
+                </div>
+                <div class="w-cols">
+                    <section>
+                        <h3 class="sub-h">Top countries</h3>
+                        <ol class="w-countries" data-w-countries><li class="muted small">Loading…</li></ol>
+                    </section>
+                    <section>
+                        <h3 class="sub-h">Last 30 days</h3>
+                        <div class="w-trend" data-w-trend aria-hidden="true"></div>
+                        <p class="small muted w-windows" data-w-windows></p>
+                    </section>
+                </div>
+                <p class="small muted">Approximate city-level locations from anonymous visits; nobody is shown individually.</p>
+            </div>
+            <div class="mid-pane scroll" data-mid="trending" data-col="trending" hidden>
                 <h3 class="sub-h">Fan favorites</h3>
                 <ol class="fav-list" data-favs><li class="muted small">Loading votes…</li></ol>
                 <h3 class="sub-h">Hot matchups</h3>
@@ -125,6 +152,30 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .rbx-stats span, .big-nums span { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
     .rbx-copy { color: var(--text-2); margin: 10px 0; }
     .rbx-boards { display: grid; gap: 8px; margin-bottom: 12px; }
+    /* world map */
+    .world { display: grid; gap: 12px; align-content: start; }
+    .w-globe { position: relative; height: min(52vh, 420px); min-height: 240px; display: grid; place-items: center; }
+    .w-globe canvas { cursor: grab; touch-action: none; }
+    .w-globe canvas:active { cursor: grabbing; }
+    .w-hint { position: absolute; bottom: 0; left: 0; right: 0; margin: 0; text-align: center; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); pointer-events: none; }
+    .w-tip { position: absolute; left: 0; top: 0; z-index: 3; display: grid; gap: 1px; max-width: 220px; padding: 7px 10px; font-size: 0.78rem; color: var(--text-2); background: rgba(4, 7, 18, 0.92); border: 1px solid var(--line-2); border-radius: 8px; pointer-events: none; }
+    .w-tip :global(b) { color: #fff; }
+    .w-tip :global(small) { color: var(--muted); }
+    .w-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+    .w-stats div { display: flex; flex-direction: column; padding: 7px 9px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .w-stats b { font-family: var(--font-display); font-size: 1.45rem; font-weight: 900; line-height: 1; color: var(--cyan-2); }
+    .w-stats span { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .w-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+    .w-countries { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+    .w-countries :global(li) { display: grid; grid-template-columns: 22px minmax(0, 1fr) 60px auto; align-items: center; gap: 6px; font-size: 0.8rem; }
+    .w-countries :global(.cn) { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--text-2); }
+    .w-countries :global(.cbar) { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+    .w-countries :global(.cbar i) { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--gold)); }
+    .w-countries :global(b) { font-family: var(--font-display); font-weight: 900; font-variant-numeric: tabular-nums; }
+    .w-trend { display: flex; align-items: flex-end; gap: 2px; height: 70px; padding: 4px 0; }
+    .w-trend :global(i) { flex: 1; min-height: 3px; border-radius: 2px 2px 0 0; background: linear-gradient(180deg, var(--cyan-2), rgba(0, 212, 255, 0.25)); }
+    .w-windows { margin: 4px 0 0; }
+
     .skeleton-msg { height: 64px; border-radius: 10px; background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.07), rgba(255,255,255,0.03)); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
     @keyframes shimmer { to { background-position: -200% 0; } }
 
@@ -173,8 +224,10 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
         .hub { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
         .hub-tabs { display: flex; grid-row: 1; padding: 0 0 4px; border: 0; }
         .hub > .panel, .hub > .side { grid-row: 2; display: none; }
-        .hub[data-show="talk"] .talk, .hub[data-show="trending"] .mid, .hub[data-show="players"] .mid, .hub[data-show="roblox"] .side { display: flex; }
+        .hub[data-show="talk"] .talk, .hub[data-show="trending"] .mid, .hub[data-show="players"] .mid, .hub[data-show="world"] .mid, .hub[data-show="roblox"] .side { display: flex; }
         .hub[data-show="roblox"] .side { display: grid; }
-        .mid [data-mid-tab="players"], .hub[data-show="players"] .mid .tabs { display: none; }
+        .mid [data-mid-tab="players"], .mid [data-mid-tab="world"], .hub[data-show="players"] .mid .tabs, .hub[data-show="world"] .mid .tabs { display: none; }
+        .w-cols { grid-template-columns: 1fr; }
+        .w-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 </style>

@@ -118,9 +118,17 @@ const jsonLd = [
     .feat h3 { margin: 8px 0 6px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; }
     .feat p { margin: 0; font-size: 0.86rem; color: var(--text-2); }
     .feat.wide, .feat-grid .faq { grid-column: 1 / -1; }
+    @media (max-height: 820px) and (min-width: 901px) {
+        .hero-col { gap: 10px; }
+        .hero-col .screen-title { font-size: clamp(2.2rem, 4.2vw, 3.6rem); }
+        .pitch { font-size: 0.95rem; }
+        .fan-cards { height: 176px; }
+        .fan-cards :global(.card) { width: 118px; }
+    }
     @media (max-width: 900px) {
-        .rbx { grid-template-columns: 1fr; overflow-y: auto; }
-        .fan-cards { display: none; }
+        .rbx { grid-template-columns: 1fr; height: auto; min-height: 100%; }
+        .fan-cards { height: 170px; max-width: 360px; }
+        .fan-cards :global(.card) { width: 112px; }
         .feat-grid { grid-template-columns: 1fr; }
     }
 </style>

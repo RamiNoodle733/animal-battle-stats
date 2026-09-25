@@ -38,16 +38,18 @@ async function prepare(file) {
     if (meta.hasAlpha) {
         // Crop empty transparent margins so every card frames the animal the same way.
         const { data, info } = await sharp(file).ensureAlpha().extractChannel(3).raw().toBuffer({ resolveWithObject: true });
-        let top = info.height, left = info.width, right = -1, bottom = -1;
+        let top = info.height, left = info.width, right = -1, bottom = -1, solid = 0;
         for (let y = 0; y < info.height; y += 1) {
             const row = y * info.width;
             for (let x = 0; x < info.width; x += 1) {
-                if (data[row + x] > 12) {
+                const alpha = data[row + x];
+                if (alpha > 12) {
                     if (x < left) left = x;
                     if (x > right) right = x;
                     if (y < top) top = y;
                     if (y > bottom) bottom = y;
                 }
+                if (alpha > 128) solid += 1;
             }
         }
         if (right > left && bottom > top) {
@@ -59,7 +61,10 @@ async function prepare(file) {
                 height: Math.min(info.height, bottom + pad + 1) - Math.max(0, top - pad)
             };
             pipeline = sharp(file, { failOn: 'none' }).ensureAlpha().extract(extract);
-            return { pipeline, width: extract.width, height: extract.height, transparent: true };
+            // fill: share of the cropped frame the animal covers (sparse shapes
+            // like birds in flight or coiled snakes are drawn a little larger).
+            const fill = Math.round((solid / (extract.width * extract.height)) * 1000) / 1000;
+            return { pipeline, width: extract.width, height: extract.height, transparent: true, fill };
         }
     }
     return { pipeline, width: meta.width, height: meta.height, transparent: Boolean(meta.hasAlpha) };
@@ -83,12 +88,12 @@ async function main() {
         }
         const hash = crypto.createHash('sha1').update(fs.readFileSync(file)).digest('hex').slice(0, 10);
         const cached = previous[slug];
-        if (cached && cached.hash === hash && cached.variants.every((variant) => fs.existsSync(path.join(OUT, path.basename(variant.src))))) {
+        if (cached && cached.hash === hash && typeof cached.fill === 'number' && cached.variants.every((variant) => fs.existsSync(path.join(OUT, path.basename(variant.src))))) {
             manifest[slug] = cached;
             cached.variants.forEach((variant) => keep.add(path.basename(variant.src)));
             continue;
         }
-        const { pipeline, width, height, transparent } = await prepare(file);
+        const { pipeline, width, height, transparent, fill = 1 } = await prepare(file);
         const master = await pipeline.png().toBuffer();
         const variants = [];
         for (const target of WIDTHS) {
@@ -102,7 +107,7 @@ async function main() {
             variants.push({ src: `${PUBLIC_PREFIX}${name}`, width: info.width, height: info.height });
             keep.add(name);
         }
-        manifest[slug] = { hash, width, height, transparent, variants };
+        manifest[slug] = { hash, width, height, transparent, fill, variants };
         encoded += 1;
     }
 

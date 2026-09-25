@@ -37,6 +37,13 @@ export function searchAnimals(list, query, limit = 12) {
     return results.sort((a, b) => b.score - a.score).slice(0, limit).map((entry) => entry.animal);
 }
 
+// Equal-area sizing variables for an animal image (see .animal-art in abs.css).
+export function artVars(animal) {
+    const ar = Number(animal?.ar) || 1;
+    const k = Number(animal?.k) || 1;
+    return `--ar:${ar};--k:${k}`;
+}
+
 export function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 }

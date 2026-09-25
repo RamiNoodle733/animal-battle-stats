@@ -18,7 +18,7 @@ const tiers = TIERS.map((tier) => ({ ...tier, animals: list.filter((animal) => a
                     {tier.animals.map((animal) => (
                         <li>
                             <a class={`tchip bio-${animal.biome}`} href={`/stats/${animal.slug}`} title={`${animal.name}: power ${fmtScore(animal.powerIndex)} (#${animal.rank})`} data-sfx>
-                                <AnimalImage animal={animal} sizes="96px" alt="" />
+                                <span class="tart"><AnimalImage animal={animal} sizes="96px" alt="" class="animal-art" /></span>
                                 <span class="tl-name">{animal.name}</span>
                                 <span class="tl-score">{fmtScore(animal.powerIndex)}</span>
                             </a>
@@ -62,7 +62,8 @@ const tiers = TIERS.map((tier) => ({ ...tier, animals: list.filter((animal) => a
         text-align: center;
     }
     .tchip:hover { transform: translateY(-4px) scale(1.04); border-color: var(--tier); z-index: 2; }
-    .tchip :global(img) { width: 80px; height: 56px; object-fit: contain; filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.55)); }
+    .tart { width: 80px; height: 56px; display: grid; place-items: center; container-type: size; }
+    .tchip :global(img) { --fit: 0.86; filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.55)); }
     .tl-name { margin-top: 2px; font-family: var(--font-display); font-size: 0.8rem; font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; }
     .tl-score { font-family: var(--font-display); font-size: 0.8rem; font-weight: 900; color: var(--tier); }
     .tier-empty { margin: 0; padding: 16px; font-size: 0.8rem; color: var(--dim); align-self: center; }
@@ -71,6 +72,6 @@ const tiers = TIERS.map((tier) => ({ ...tier, animals: list.filter((animal) => a
         .tier-label strong { font-size: 2.2rem; }
         .tier-label span { display: none; }
         .tchip { width: 74px; }
-        .tchip :global(img) { width: 66px; height: 46px; }
+        .tart { width: 66px; height: 46px; }
     }
 </style>

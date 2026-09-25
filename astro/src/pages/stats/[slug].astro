@@ -152,6 +152,10 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                     <span class="chip chip-cyan"><Icon name="map" size={16} />{biome?.label || 'Arena'}</span>
                     <span class="chip">{animal.class}</span>
                     {profile.conservationStatus && <span class={`chip ${conservationClass}`}>{profile.conservationStatus}</span>}
+                    <span class="votes" data-votes={animal.name} role="group" aria-label={`Community vote on the ${animal.name}`}>
+                        <button type="button" class="vbtn up" data-vote="up" title="Upvote: stronger than its rank"><span aria-hidden="true">▲</span><b data-count="up">·</b></button>
+                        <button type="button" class="vbtn down" data-vote="down" title="Downvote: weaker than its rank"><span aria-hidden="true">▼</span><b data-count="down">·</b></button>
+                    </span>
                 </div>
             </div>
 
@@ -300,6 +304,31 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     import { sfx } from '../../scripts/sfx.js';
     import { toast } from '../../scripts/site.js';
     import { mountComments } from '../../scripts/comments.js';
+    import { loadVotes, castVote } from '../../scripts/votes.js';
+
+    // Community up/down vote on this animal (one per day, earns XP).
+    const voteBox = document.querySelector('[data-votes]');
+    let voteEntry = null;
+    function paintVotes() {
+        if (!voteEntry) return;
+        for (const type of ['up', 'down']) {
+            voteBox.querySelector(`[data-count="${type}"]`).textContent = voteEntry[type];
+            voteBox.querySelector(`[data-vote="${type}"]`).classList.toggle('on', voteEntry.mine === type);
+            voteBox.querySelector(`[data-vote="${type}"]`).setAttribute('aria-pressed', String(voteEntry.mine === type));
+        }
+    }
+    loadVotes().then((map) => { voteEntry = map.get(voteBox.dataset.votes) || null; paintVotes(); }).catch(() => {});
+    voteBox.addEventListener('click', async (event) => {
+        const button = event.target.closest('[data-vote]');
+        if (!button || !voteEntry) return;
+        const result = await castVote(voteEntry.id, voteBox.dataset.votes, button.dataset.vote, voteEntry);
+        if (result.needsLogin) { toast('Log in to vote'); return; }
+        if (result.error) { sfx.error(); toast(result.error); return; }
+        voteEntry = result.entry;
+        paintVotes();
+        sfx.coin();
+        if (result.xp) toast(`+${result.xp} XP`);
+    });
 
     const tabs = [...document.querySelectorAll('[data-tab]')];
     function show(id, focus = false) {
@@ -346,7 +375,8 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     .sci { margin: 6px 0 0; color: var(--muted); font-size: 0.9rem; }
     .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 
-    .podium { position: relative; display: grid; place-items: end center; min-height: 0; padding-bottom: 7%; }
+    /* Explicit row + size container: the photo is sized to the stage, never the stage to the photo. */
+    .podium { position: relative; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: end center; min-height: 0; padding-bottom: 7%; container-type: size; }
     .platform {
         position: absolute;
         left: 12%; right: 12%; bottom: 3%;
@@ -368,10 +398,11 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     }
     @keyframes ring { 50% { transform: scale(1.08); opacity: 0.45; } }
     .podium :global(.hero-art) {
+        --fit: 1.05;
         position: relative;
-        width: auto;
-        max-width: 92%;
-        max-height: 100%;
+        width: min(92cqw, calc(var(--fit) * var(--k, 1) * 92cqh), calc(92cqh * var(--ar, 1)));
+        height: auto;
+        aspect-ratio: var(--ar, auto);
         object-fit: contain;
         filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.6));
         animation: arrive 0.45s ease-out both, idle 6s 0.6s ease-in-out infinite;
@@ -391,11 +422,18 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     .power strong { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; line-height: 0.95; color: var(--tier); text-shadow: 0 0 20px color-mix(in srgb, var(--tier) 50%, transparent); }
     .power small { font-size: 0.7rem; color: var(--text-2); }
     .quick { display: flex; gap: 14px; }
+    .votes { display: inline-flex; gap: 4px; }
+    .vbtn { display: inline-flex; align-items: center; gap: 5px; height: 26px; padding: 0 9px; font: inherit; font-size: 0.72rem; font-weight: 800; color: var(--text-2); background: rgba(4, 7, 18, 0.75); border: 1px solid var(--line-2); border-radius: 7px; cursor: pointer; transition: color 0.15s, border-color 0.15s, transform 0.12s var(--ease); }
+    .vbtn b { font-family: var(--font-display); font-size: 0.95rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+    .vbtn:hover { transform: translateY(-1px); color: #fff; }
+    .vbtn.up:hover, .vbtn.up.on { color: #86f2c2; border-color: rgba(53, 220, 143, 0.6); }
+    .vbtn.down:hover, .vbtn.down.on { color: #ff9aa5; border-color: rgba(255, 77, 94, 0.6); }
+    .vbtn.on { background: rgba(255, 255, 255, 0.06); }
     .quick span { display: flex; flex-direction: column; }
     .quick b { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; line-height: 1; }
     .quick small { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
     .actions { margin-left: auto; }
-    .credit { position: absolute; right: 0; bottom: -4px; margin: 0; font-size: 0.64rem; color: var(--dim); }
+    .credit { position: absolute; right: 0; top: 0; margin: 0; max-width: 45%; text-align: right; font-size: 0.64rem; color: var(--dim); }
     .credit a { text-decoration: underline; }
 
     .dossier { min-height: 0; }
@@ -442,12 +480,17 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     .sources a { font-weight: 700; color: var(--cyan-2); }
     .sources span { display: block; color: var(--muted); font-size: 0.76rem; }
 
+    /* Phones and tablets: the stage keeps a real height and the whole screen scrolls,
+       instead of squeezing the photo and the stats into half a screen each. */
     @media (max-width: 900px) {
-        .profile { grid-template-columns: 1fr; grid-template-rows: minmax(0, 0.95fr) minmax(0, 1.05fr); }
-        .stage { grid-template-rows: auto minmax(0, 1fr) auto; }
+        .profile { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; min-height: 100%; }
+        .stage { grid-template-rows: auto clamp(230px, 44vh, 440px) auto; }
         .badges .screen-title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
         .tier-badge.lg { height: 38px; min-width: 44px; font-size: 1.5rem; }
-        .chips, .crumbs, .quick, .credit { display: none; }
+        .crumbs, .credit { display: none; }
+        .chips { margin-top: 8px; }
+        .quick { gap: 12px; }
+        .quick b { font-size: 1.1rem; }
         .stage-bottom { gap: 8px; }
         .power { padding: 4px 12px; }
         .power strong { font-size: 1.8rem; }

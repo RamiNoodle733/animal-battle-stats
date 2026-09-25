@@ -348,11 +348,20 @@ body.game {
 .screen {
     position: relative;
     min-height: 0;
-    overflow: hidden;
+    /* Content that cannot fit scrolls inside the frame (HUD and dock stay put) instead of being cut off. */
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(120, 150, 255, 0.35) transparent;
     padding: clamp(10px, 1.6vw, 20px);
 }
 .screen-grid { height: 100%; min-height: 0; display: grid; gap: clamp(10px, 1.4vw, 16px); }
 .screen-grid > * { min-width: 0; }
+/* Flow screens: on phones, tablets and short windows the layout takes its natural height and scrolls. */
+@media (max-width: 900px), (max-height: 700px) {
+    .screen-grid.flow { height: auto; min-height: 100%; }
+}
 
 .panel {
     --trim: var(--cyan);
@@ -397,7 +406,8 @@ body.game {
     text-transform: uppercase;
     transform: skewX(-6deg);
 }
-.panel-head .aside { margin-left: auto; font-size: 0.78rem; color: var(--muted); }
+.panel-head .aside { margin-left: auto; min-width: 0; overflow: hidden; font-size: 0.78rem; white-space: nowrap; text-overflow: ellipsis; color: var(--muted); }
+.panel-head > img { flex: none; }
 .panel-body { padding: 14px 16px; min-height: 0; }
 .scroll {
     overflow-y: auto;
@@ -502,6 +512,8 @@ body.game {
 
 .seg { display: inline-flex; flex-wrap: wrap; gap: 4px; }
 .seg button, .seg a {
+    flex: none;
+    white-space: nowrap;
     padding: 6px 11px;
     font-family: var(--font-display); font-size: 0.92rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
     color: var(--muted);
@@ -585,71 +597,97 @@ body.game {
         radial-gradient(80% 55% at 50% 42%, color-mix(in srgb, var(--bio-glow) 38%, transparent), transparent 72%),
         linear-gradient(180deg, color-mix(in srgb, var(--bio-sky) 85%, #fff 4%), #070b1a 92%);
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 22px rgba(0, 0, 0, 0.5);
+    /* Badges and the name scale with the card, so tiny and huge cards share one layout. */
+    container: card / inline-size;
 }
 .card-inner::before {
     /* biome floor under the animal */
     content: "";
     position: absolute;
-    left: -10%; right: -10%; bottom: 18%;
-    height: 26%;
+    left: -10%; right: -10%; bottom: 22%;
+    height: 24%;
     background: radial-gradient(50% 50% at 50% 50%, color-mix(in srgb, var(--bio-accent) 30%, transparent), transparent 70%);
 }
+/* The art sits between the badges and the name plate and never under either. */
 .card-art {
     position: absolute;
-    inset: 16% 6% 22%;
+    inset: 20% 6% 27%;
     display: grid;
-    place-items: end center;
+    place-items: center;
+    container-type: size;
     transform: translateZ(30px);
 }
 .card-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: 50% 100%;
+    --fit: 0.82;
     filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.6));
     transition: transform 0.35s var(--ease);
 }
 .card:hover .card-art img { transform: scale(1.06) translateY(-2px); }
 .card-power {
     position: absolute;
-    top: 7px; left: 7px;
+    top: 4.5cqw; left: 4.5cqw;
     z-index: 3;
     display: flex; flex-direction: column; align-items: center;
-    min-width: 40px;
-    padding: 3px 6px 2px;
+    min-width: 23cqw;
+    padding: 1.5cqw 3cqw 1cqw;
     background: linear-gradient(180deg, rgba(4, 7, 18, 0.88), rgba(4, 7, 18, 0.7));
     border: 1px solid color-mix(in srgb, var(--tier) 60%, transparent);
-    border-radius: 7px;
+    border-radius: 4cqw;
 }
-.card-power b { font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; line-height: 1; color: var(--tier-2); }
-.card-power small { font-size: 0.52rem; font-weight: 800; letter-spacing: 0.14em; color: var(--muted); }
-.card .tier-badge { position: absolute; top: 8px; right: 7px; z-index: 3; height: 28px; min-width: 30px; font-size: 1.1rem; }
+.card-power b { font-family: var(--font-display); font-size: clamp(0.78rem, 11cqw, 1.3rem); font-weight: 900; line-height: 1; color: var(--tier-2); }
+.card-power small { font-size: clamp(0.4rem, 4cqw, 0.56rem); font-weight: 800; letter-spacing: 0.14em; color: var(--muted); }
+.card .tier-badge { position: absolute; top: 5cqw; right: 4.5cqw; z-index: 3; height: clamp(18px, 15cqw, 30px); min-width: clamp(20px, 17cqw, 32px); padding: 0 1.5cqw; font-size: clamp(0.72rem, 10cqw, 1.15rem); }
 .card-plate {
     position: absolute;
     left: 0; right: 0; bottom: 0;
     z-index: 3;
-    padding: 18px 8px 7px;
+    min-height: 27%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2cqw 5cqw 4cqw;
     text-align: center;
-    background: linear-gradient(180deg, transparent, rgba(3, 5, 14, 0.9) 45%);
+    background: linear-gradient(180deg, rgba(3, 5, 14, 0), rgba(3, 5, 14, 0.9) 34%);
 }
 .card-name {
-    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
     font-family: var(--font-display);
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    font-size: clamp(0.68rem, 10cqw, 1.2rem);
     font-weight: 900;
-    line-height: 1;
+    line-height: 0.98;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.7);
-    overflow-wrap: anywhere;
+    text-wrap: balance;
+    /* Whole words only: "HIPPOPOTAMUS" must never split in the middle. */
+    overflow-wrap: normal;
+    word-break: normal;
 }
-.card-meta { display: block; margin-top: 3px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.card-meta { display: block; margin-top: 1.5cqw; overflow: hidden; font-size: clamp(0.48rem, 4.6cqw, 0.66rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; color: var(--muted); }
 .card-rank {
-    position: absolute; left: 50%; top: 8px; z-index: 3; transform: translateX(-50%);
-    font-family: var(--font-display); font-size: 0.8rem; font-weight: 900; color: var(--text-2);
+    position: absolute; left: 50%; top: 5.5cqw; z-index: 3; transform: translateX(-50%);
+    font-family: var(--font-display); font-size: clamp(0.6rem, 7cqw, 0.85rem); font-weight: 900; color: var(--text-2);
     text-shadow: 0 1px 0 #000;
 }
-@media (max-width: 760px) { .card-rank { display: none; } }
+/* Small cards drop the extras instead of overlapping them. */
+@container card (max-width: 175px) { .card-rank { display: none; } }
+@container card (max-width: 140px) { .card-meta { display: none; } }
+
+/* ---------------------------------------------------------------- equal-area animal art
+   Any container with container-type: size can hold one animal image (AnimalImage
+   sets --ar and --k; client cards use artVars()). The animal gets the same visual
+   area whatever its shape: width = --fit x --k x box height, capped to the box. */
+.card-art img, .animal-art {
+    width: min(100cqw, calc(var(--fit, 0.8) * var(--k, 1) * 100cqh), calc(100cqh * var(--ar, 1)));
+    height: auto;
+    aspect-ratio: var(--ar, auto);
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+}
 .card-glare {
     position: absolute;
     inset: 0;

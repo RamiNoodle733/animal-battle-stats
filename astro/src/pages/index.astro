@@ -88,16 +88,16 @@ const jsonLd = [
                 <a class="tile panel daily" href={`/compare/${firstPair.slug}`} data-daily>
                     <span class="tile-k"><Icon name="swords" size={22} />Daily matchup</span>
                     <span class="daily-row">
-                        <AnimalImage animal={firstPair.a} sizes="110px" alt="" class="d-a" />
+                        <span class="dart"><AnimalImage animal={firstPair.a} sizes="110px" alt="" class="d-a animal-art" /></span>
                         <em>VS</em>
-                        <AnimalImage animal={firstPair.b} sizes="110px" alt="" class="d-b" />
+                        <span class="dart"><AnimalImage animal={firstPair.b} sizes="110px" alt="" class="d-b animal-art" /></span>
                     </span>
                     <strong data-daily-title>{firstPair.a.name} vs {firstPair.b.name}</strong>
                 </a>
                 <a class="tile panel gold aotd" href={`/stats/${featured.slug}`} data-aotd>
                     <span class="tile-k"><Icon name="star" size={22} />Animal of the day</span>
                     <span class="aotd-row">
-                        <AnimalImage animal={featured} sizes="120px" alt="" class="aotd-img" />
+                        <span class="aart"><AnimalImage animal={featured} sizes="120px" alt="" class="aotd-img animal-art" /></span>
                         <span><strong data-aotd-name>{featured.name}</strong><small data-aotd-meta>#{featured.rank} · {featured.tier} tier · PWR {fmtScore(featured.powerIndex)}</small></span>
                     </span>
                 </a>
@@ -124,6 +124,14 @@ const jsonLd = [
 
 <script>
     import { loadAnimalIndex } from '../scripts/site.js';
+
+    // Swap a server-rendered image for another animal, keeping equal-area sizing.
+    function swapArt(img, animal) {
+        img.removeAttribute('srcset');
+        img.style.setProperty('--ar', animal.ar || 1);
+        img.style.setProperty('--k', animal.k || 1);
+        img.src = animal.m;
+    }
 
     // ---- 3D ring: auto spin, drag to rotate, pause on hover
     const carousel = document.querySelector('[data-carousel]');
@@ -177,8 +185,8 @@ const jsonLd = [
         if (a && b) {
             const daily = document.querySelector('[data-daily]');
             daily.href = `/compare/${pair[0]}-vs-${pair[1]}`;
-            daily.querySelector('.d-a').src = a.m; daily.querySelector('.d-a').removeAttribute('srcset');
-            daily.querySelector('.d-b').src = b.m; daily.querySelector('.d-b').removeAttribute('srcset');
+            swapArt(daily.querySelector('.d-a'), a);
+            swapArt(daily.querySelector('.d-b'), b);
             daily.querySelector('[data-daily-title]').textContent = `${a.n} vs ${b.n}`;
         }
         const pool = list.filter((animal) => animal.res);
@@ -186,8 +194,7 @@ const jsonLd = [
         if (pick) {
             const aotd = document.querySelector('[data-aotd]');
             aotd.href = `/stats/${pick.s}`;
-            const img = aotd.querySelector('.aotd-img');
-            img.src = pick.m; img.removeAttribute('srcset');
+            swapArt(aotd.querySelector('.aotd-img'), pick);
             aotd.querySelector('[data-aotd-name]').textContent = pick.n;
             aotd.querySelector('[data-aotd-meta]').textContent = `#${pick.r} · ${pick.tier} tier · PWR ${Number.isInteger(pick.p) ? pick.p : pick.p.toFixed(1)}`;
         }
@@ -241,11 +248,13 @@ const jsonLd = [
     .tile strong { font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; text-transform: uppercase; line-height: 1.05; }
     .tile small { font-size: 0.78rem; color: var(--text-2); }
     .daily-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 4px; }
-    .daily-row :global(img) { width: 100%; height: 64px; object-fit: contain; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); }
+    .dart { height: 64px; display: grid; place-items: center; container-type: size; }
+    .daily-row :global(img) { --fit: 1; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); }
     .daily-row :global(.d-b) { transform: scaleX(-1); }
     .daily-row em { font-style: normal; font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; color: var(--orange); }
     .aotd-row { display: flex; align-items: center; gap: 10px; }
-    .aotd-row :global(img) { width: 96px; height: 72px; object-fit: contain; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); }
+    .aart { flex: none; width: 96px; height: 72px; display: grid; place-items: center; container-type: size; }
+    .aotd-row :global(img) { --fit: 0.9; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); }
     .aotd-row strong { display: block; }
     .roblox .tile-k { color: var(--orange-2); }
     .roblox .btn { margin-top: auto; align-self: flex-start; }
@@ -260,8 +269,26 @@ const jsonLd = [
     @keyframes marquee { to { transform: translateX(-50%); } }
 
     @media (max-width: 1100px) { .carousel { --radius: 380px; } .ring { width: 160px; height: 213px; } }
+    /* Short laptop windows: a tighter menu so everything fits without cutting off the last buttons. */
+    @media (max-height: 800px) and (min-width: 901px) {
+        .menu-col { gap: 8px; }
+        .logo-block img { width: 64px; }
+        .logo-block h1 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+        .intro { display: none; }
+        .main-menu { gap: 6px; }
+        .mm { padding: 6px 16px; }
+        .mm.primary { padding: 9px 16px; }
+        .mm b { font-size: 1.2rem; }
+        .mm.primary b { font-size: 1.5rem; }
+        .mm small { font-size: 0.68rem; }
+        .ring { width: 160px; height: 213px; }
+        .carousel { --radius: 380px; }
+        .ring-hint { display: none; }
+        .tile { min-height: 0; padding: 10px 12px; }
+        .dart { height: 52px; }
+    }
     @media (max-width: 900px) {
-        .home { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); overflow-y: auto; }
+        .home { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; min-height: 100%; }
         .menu-col { gap: 8px; }
         .intro, .home-search { display: none; }
         .main-menu { grid-template-columns: 1fr 1fr; gap: 6px; }
@@ -269,9 +296,9 @@ const jsonLd = [
         .mm.primary { grid-column: 1 / -1; }
         .mm small { display: none; }
         .mm :global(img) { width: 30px; height: 30px; }
-        .show-col { grid-template-rows: 240px auto; }
-        .carousel { --radius: 240px; }
-        .ring { width: 108px; height: 144px; }
+        .show-col { grid-template-rows: clamp(220px, 44vw, 380px) auto; }
+        .carousel { --radius: clamp(220px, 40vw, 380px); }
+        .ring { width: clamp(118px, 20vw, 176px); height: clamp(157px, 26.7vw, 235px); }
         .ring-hint, .ticker { display: none; }
         .tiles { grid-template-columns: 1fr 1fr; }
         .tiles .roblox { grid-column: 1 / -1; min-height: 0; }

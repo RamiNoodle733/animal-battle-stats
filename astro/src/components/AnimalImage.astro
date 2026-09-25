@@ -9,9 +9,12 @@ const ratio = img.width && img.height ? img.height / img.width : 1;
 const width = mid ? mid.width : 512;
 const height = Math.round(width * ratio);
 const label = alt ?? `${animal.name} (${animal.scientific_name || animal.type})`;
+// Equal-area sizing variables (see sizeFactor in lib/catalog.js).
+const style = `--ar:${img.ar ?? 1};--k:${img.k ?? 1}`;
 ---
 <img
     class={className}
+    style={style}
     src={src}
     srcset={srcset || undefined}
     sizes={srcset ? sizes : undefined}

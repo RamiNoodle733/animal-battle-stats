@@ -64,18 +64,31 @@ export const GROUPS = Object.freeze([
     { key: 'bugs', label: 'Bugs & spiders', types: ['Insect', 'Arachnid', 'Arthropod', 'Invertebrate'] }
 ]);
 
+// Equal-area sizing. Fitting every photo to the same box makes long animals
+// (crocodiles, sharks) tiny and blocky ones (elephants) huge. Pages instead
+// size each image so its area is the same (CSS: width = fit * k * box height,
+// see .animal-art in abs.css): k = sqrt(aspect ratio), nudged up for sparse
+// shapes (birds in flight, coiled snakes) that cover little of their frame.
+export function sizeFactor(aspect, fill = 0.5) {
+    const sparse = Math.min(1.3, Math.max(0.88, Math.pow(0.45 / Math.max(fill, 0.05), 0.25)));
+    return Math.round(Math.sqrt(aspect) * sparse * 1000) / 1000;
+}
+
 function imageFor(slug, fallbackSrc) {
     const entry = variantManifest[slug];
     const src = String(fallbackSrc || '').split(/[?#]/)[0] || '/images/logo.png';
-    if (!entry) return { src, width: 800, height: 800, variants: [] };
+    if (!entry) return { src, width: 800, height: 800, variants: [], ar: 1, k: 1 };
     const largest = entry.variants[entry.variants.length - 1];
+    const ar = Math.round((entry.width / entry.height) * 1000) / 1000;
     return {
         src: largest ? largest.src : src,
         master: src,
         width: entry.width,
         height: entry.height,
         variants: entry.variants,
-        thumb: entry.variants[0]?.src || src
+        thumb: entry.variants[0]?.src || src,
+        ar,
+        k: sizeFactor(ar, entry.fill)
     };
 }
 

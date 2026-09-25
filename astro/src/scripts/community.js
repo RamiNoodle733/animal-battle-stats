@@ -2,6 +2,7 @@
 // leaderboard, Roblox game panel and site numbers. All user text is escaped.
 import { loadAnimalIndex, escapeHtml, toast } from './site.js';
 import { sfx } from './sfx.js';
+import { mountWorld } from './world.js';
 
 const hub = document.querySelector('[data-hub]');
 const animalsPromise = loadAnimalIndex().then((list) => new Map(list.map((animal) => [animal.n.toLowerCase(), animal])));
@@ -40,25 +41,28 @@ async function avatar(name) {
 
 // Phones show one column at a time; the middle column's own tabs stay for
 // Trending and Comments, while Players gets its own top-level tab.
-let midShown = 'trending';
+let midShown = 'world';
 function showHub(name) {
     hub.dataset.show = name;
     hub.querySelectorAll('[data-hub-tab]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.hubTab === name)));
-    if (name === 'players') showMid('players');
-    else if (name === 'trending' && midShown === 'players') showMid('trending');
+    if (name === 'players' || name === 'world') showMid(name);
+    else if (name === 'trending' && (midShown === 'players' || midShown === 'world')) showMid('trending');
 }
 function showMid(name) {
     midShown = name;
     hub.querySelectorAll('[data-mid-tab]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.midTab === name)));
     hub.querySelectorAll('[data-mid]').forEach((pane) => { pane.hidden = pane.dataset.mid !== name; });
     if (name === 'comments') loadComments();
+    if (name === 'world') mountWorld(hub.querySelector('[data-world]'));
 }
 hub.querySelectorAll('[data-hub-tab]').forEach((tab) => tab.addEventListener('click', () => showHub(tab.dataset.hubTab)));
 hub.querySelectorAll('[data-mid-tab]').forEach((tab) => tab.addEventListener('click', () => showMid(tab.dataset.midTab)));
 // Old links: /community/chat, /community/feed and /community/map.
 const legacyTab = location.pathname.split('/')[2];
-showHub(legacyTab === 'feed' ? 'trending' : 'talk');
-if (legacyTab === 'feed') showMid('comments');
+const narrow = matchMedia('(max-width: 1100px)').matches;
+if (legacyTab === 'feed') { showHub('trending'); showMid('comments'); }
+else if (legacyTab === 'chat') { showHub('talk'); showMid('world'); }
+else { showHub(narrow ? 'world' : 'talk'); showMid('world'); }
 
 // ---------------------------------------------------------------- arena discussion
 

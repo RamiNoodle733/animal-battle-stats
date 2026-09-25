@@ -93,7 +93,7 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
                 {list.map((animal, index) => (
                     <li class={`row tier-${animal.tier.toLowerCase()}`} data-name={animal.name} data-id={animal._id} data-rank={index + 1}>
                         <span class="pos">{index + 1}</span>
-                        <AnimalImage animal={animal} sizes="64px" alt="" />
+                        <span class="thumb"><AnimalImage animal={animal} sizes="64px" alt="" class="animal-art" /></span>
                         <a class="nm" href={`/stats/${animal.slug}`} data-sfx>{animal.name}<small>{animal.type} · {animal.class}</small></a>
                         {!category && <span class="votes" data-vote-slot></span>}
                         <span class={`tier-badge tier-${animal.tier.toLowerCase()}`}>{animal.tier}</span>
@@ -187,7 +187,8 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
     }
     .row:hover { border-color: color-mix(in srgb, var(--tier) 55%, transparent); }
     .pos { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; text-align: center; color: var(--text-2); }
-    .row :global(img) { width: 64px; height: 44px; object-fit: contain; }
+    .thumb { width: 64px; height: 44px; display: grid; place-items: center; container-type: size; }
+    .row :global(img) { --fit: 0.9; }
     .nm { font-weight: 800; line-height: 1.15; overflow-wrap: anywhere; }
     .nm small { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
     .nm:hover { color: var(--cyan-2); }
@@ -209,7 +210,7 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
         .podium { display: none; }
         .row { grid-template-columns: 30px 50px minmax(0, 1fr) auto 64px; gap: 6px; }
         .row .tier-badge { display: none; }
-        .row :global(img) { width: 50px; height: 36px; }
+        .thumb { width: 50px; height: 36px; }
         .votes :global(.vote) { padding: 2px 5px; }
     }
 </style>

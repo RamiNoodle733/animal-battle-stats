@@ -2,7 +2,7 @@
 // watch an animated fight. The fight's winner is drawn with the model's
 // probability, so an underdog can still pull off the upset now and then.
 import engine from '../../../js/battle-engine.js';
-import { loadAnimalIndex, escapeHtml, toast } from './site.js';
+import { loadAnimalIndex, escapeHtml, toast, artVars } from './site.js';
 import { sfx, shake } from './sfx.js';
 import { mountComments } from './comments.js';
 import { trackFight } from './track.js';
@@ -57,6 +57,10 @@ function paintFighter(side, animal) {
     img.removeAttribute('srcset');
     img.src = animal.m;
     img.alt = animal.n;
+    img.style.setProperty('--ar', animal.ar || 1);
+    img.style.setProperty('--k', animal.k || 1);
+    img.removeAttribute('width');
+    img.removeAttribute('height');
     node.querySelector('.hp').className = 'hp';
     node.querySelector('[data-hp]').style.width = '100%';
     node.classList.remove('ko', 'winner', 'lunge', 'hit');
@@ -92,7 +96,7 @@ function paintMatchup() {
         const trail = row.querySelector('[data-vb]');
         lead.textContent = fmt(va);
         trail.textContent = fmt(vb);
-        lead.className = va >= vb ? 'lead' : '';
+        lead.className = va > vb ? 'lead' : '';
         trail.className = vb > va ? 'lead' : '';
     }
     root.querySelector('[data-tape-a]').textContent = a.n;
@@ -361,7 +365,7 @@ function cardHtml(animal) {
         <span class="card tier-${tier} bio-${animal.b}"><span class="card-inner">
             <span class="card-power"><b>${fmt(animal.p)}</b><small>PWR</small></span>
             <span class="tier-badge tier-${tier}">${animal.tier}</span>
-            <span class="card-art"><img src="${animal.i}" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+            <span class="card-art"><img src="${animal.i}" alt="" style="${artVars(animal)}" width="96" height="96" loading="lazy" decoding="async"></span>
             <span class="card-plate"><span class="card-name">${escapeHtml(animal.n)}</span></span>
         </span></span></button>`;
 }

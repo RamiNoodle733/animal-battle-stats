@@ -90,8 +90,8 @@ const firstWeight = fmtWeight(first.weight_kg);
         <aside class={`panel preview tier-${first.tier.toLowerCase()}`} aria-live="polite" data-preview>
             <div class="pv-art">
                 <div class="pv-platform"></div>
-                <img class="pv-img on" src={first.img.variants[1]?.src || first.img.src} alt="" width="512" height="400" data-img-a />
-                <img class="pv-img" alt="" width="512" height="400" data-img-b />
+                <img class="pv-img on" src={first.img.variants[1]?.src || first.img.src} alt="" style={`--ar:${first.img.ar};--k:${first.img.k}`} data-img-a />
+                <img class="pv-img" alt="" data-img-b />
             </div>
             <div class="pv-body">
                 <div class="pv-head">
@@ -188,6 +188,8 @@ const firstWeight = fmtWeight(first.weight_kg);
         if (!animal || slug === showing) return;
         showing = slug;
         const back = front === imgA ? imgB : imgA;
+        back.style.setProperty('--ar', animal.ar || 1);
+        back.style.setProperty('--k', animal.k || 1);
         back.src = animal.m;
         back.decode?.().catch(() => {}).finally(() => {
             if (showing !== slug) return;
@@ -240,7 +242,7 @@ const firstWeight = fmtWeight(first.weight_kg);
     .cell { min-width: 0; }
 
     .preview { min-height: 0; overflow: hidden; transition: --trim 0.3s; }
-    .pv-art { position: relative; flex: 1 1 45%; min-height: 0; display: grid; place-items: end center; overflow: hidden; }
+    .pv-art { position: relative; flex: 1 1 45%; min-height: 0; display: grid; place-items: end center; overflow: hidden; container-type: size; }
     .pv-platform {
         position: absolute; left: 14%; right: 14%; bottom: 6%; height: 18%;
         border-radius: 50%;
@@ -249,9 +251,12 @@ const firstWeight = fmtWeight(first.weight_kg);
         transition: background 0.35s;
     }
     .pv-img {
+        --fit: 0.74;
         position: absolute;
         left: 50%; bottom: 10%;
-        width: auto; max-width: 86%; max-height: 84%;
+        width: min(88cqw, calc(var(--fit) * var(--k, 1) * 84cqh), calc(84cqh * var(--ar, 1)));
+        height: auto;
+        aspect-ratio: var(--ar, auto);
         object-fit: contain;
         transform: translateX(-50%) translateY(8px);
         opacity: 0;
@@ -276,5 +281,7 @@ const firstWeight = fmtWeight(first.weight_kg);
         .roster-grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 9px; }
         .controls { padding: 8px 10px; gap: 6px; }
         .controls .seg { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; scrollbar-width: none; }
+        .controls .grow { flex: 1 1 150px; }
+        .grid-wrap { padding: 10px; }
     }
 </style>

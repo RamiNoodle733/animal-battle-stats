@@ -1,6 +1,6 @@
 // Player profile. /profile shows and edits your own account (Bearer token from
 // the shared session check); /profile/<username> shows anyone's public card.
-import { loadAnimalIndex, escapeHtml, toast } from './site.js';
+import { loadAnimalIndex, escapeHtml, toast, artVars } from './site.js';
 import { sfx } from './sfx.js';
 import { trackLogout } from './track.js';
 
@@ -28,7 +28,7 @@ function cardHtml(animal, big = false) {
         <span class="card-inner">
             <span class="card-power"><b>${animal.p}</b><small>PWR</small></span>
             <span class="tier-badge tier-${tier}">${animal.tier}</span>
-            <span class="card-art"><img src="${big ? animal.m : animal.i}" alt="" width="360" height="360" decoding="async"></span>
+            <span class="card-art"><img src="${big ? animal.m : animal.i}" alt="" style="${artVars(animal)}" decoding="async"></span>
             <span class="card-plate"><span class="card-name">${escapeHtml(animal.n)}</span><span class="card-meta">${escapeHtml(animal.cls)}</span></span>
             <span class="card-glare"></span>
         </span></a>`;

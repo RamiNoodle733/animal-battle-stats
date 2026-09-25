@@ -85,7 +85,7 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
                     const va = Number(a[stat.key]) || 0; const vb = Number(b[stat.key]) || 0;
                     return (
                         <div class={`duel-row ${stat.cls}`} data-stat={stat.key}>
-                            <b class={va >= vb ? 'lead' : ''} data-va>{fmtScore(va)}</b>
+                            <b class={va > vb ? 'lead' : ''} data-va>{fmtScore(va)}</b>
                             <span class="seg-bar left" style={`--v:${va}`} data-ba>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
                             <span class="d-mid"><Icon name={ICONS[stat.key]} size={20} /><small>{stat.abbr}</small></span>
                             <span class="seg-bar right" style={`--v:${vb}`} data-bb>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
@@ -199,7 +199,8 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
     .hp.low i { background: linear-gradient(180deg, #ffb0a0, #ff4d5e 45%, #9c1024); }
     .hp::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 calc(5% - 2px), rgba(0, 0, 0, 0.45) calc(5% - 2px) 5%); }
 
-    .f-stage { position: relative; min-height: 0; display: grid; place-items: end center; padding-bottom: 8%; }
+    /* One explicit row: an implicit auto row would grow to the photo and let tall animals spill. */
+    .f-stage { position: relative; min-height: 0; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); padding-bottom: 8%; }
     .f-platform {
         position: absolute; left: 10%; right: 10%; bottom: 4%; height: 15%;
         border-radius: 50%;
@@ -207,9 +208,12 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
         box-shadow: 0 0 50px color-mix(in srgb, var(--bio-accent) 30%, transparent);
         transform: perspective(380px) rotateX(64deg);
     }
-    .f-art { position: relative; display: grid; place-items: end center; width: 100%; height: 100%; min-height: 0; }
+    .f-art { position: relative; display: grid; place-items: end center; min-height: 0; container-type: size; }
     .f-art :global(img) {
-        width: auto; max-width: 100%; max-height: 100%;
+        --fit: 0.84;
+        width: min(100cqw, calc(var(--fit) * var(--k, 1) * 100cqh), calc(100cqh * var(--ar, 1)));
+        height: auto;
+        aspect-ratio: var(--ar, auto);
         object-fit: contain;
         filter: drop-shadow(0 22px 20px rgba(0, 0, 0, 0.6));
         transition: transform 0.25s var(--ease), filter 0.25s;
@@ -286,10 +290,6 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
     :global(.r-card) { flex: 0 0 92px; padding: 0; background: none; border: 0; }
     :global(.r-card[hidden]) { display: none; }
     :global(.r-card) :global(.card) { pointer-events: none; }
-    :global(.r-card) :global(.card-meta) { display: none; }
-    :global(.r-card) :global(.card-name) { font-size: 0.72rem; }
-    :global(.r-card) :global(.card-power) { transform: scale(0.8); transform-origin: top left; }
-    :global(.r-card) :global(.tier-badge) { transform: scale(0.8); transform-origin: top right; }
     :global(.r-card.selected-a) :global(.card) { box-shadow: 0 0 0 3px var(--cyan); }
     :global(.r-card.selected-b) :global(.card) { box-shadow: 0 0 0 3px var(--orange); }
 
@@ -313,8 +313,27 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
     @keyframes float-up { from { opacity: 1; transform: translate(-50%, 0) scale(0.8); } 20% { transform: translate(-50%, -12px) scale(1.15); } to { opacity: 0; transform: translate(-50%, -80px) scale(1); } }
     @keyframes burst { from { opacity: 1; transform: scale(0.2); } to { opacity: 0; transform: scale(1.4); } }
 
+    /* Short laptop windows: tighten everything so the stat duel keeps all six rows. */
+    @media (max-height: 820px) and (min-width: 901px) {
+        .vs { gap: 10px; }
+        .hp-wrap { padding: 2px 2px 4px; }
+        .hp-name strong { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+        .vs-head { padding: 8px 14px 2px; }
+        .vs-title { font-size: clamp(1.1rem, 1.6vw, 1.4rem); }
+        .vs-q { display: none; }
+        .odds { height: 26px; margin: 6px 14px 4px; }
+        .verdict-line { margin-bottom: 2px; }
+        .c-pane { padding: 6px 12px; }
+        .duel { gap: 3px; }
+        .seg-bar { height: 11px; }
+        .c-actions { padding: 8px 12px 10px; gap: 6px; }
+        .btn-lg.fight-btn { min-height: 44px; font-size: 1.15rem; }
+        .r-head { padding: 5px 10px; }
+        .r-strip { padding: 7px 10px; }
+        :global(.r-card) { flex-basis: 76px; }
+    }
     @media (max-width: 900px) {
-        .vs { grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 8px; }
+        .vs { grid-template-columns: 1fr 1fr; grid-template-rows: clamp(190px, 34vh, 340px) auto; height: auto; min-height: 100%; gap: 8px; }
         .console { grid-column: 1 / -1; grid-row: 2; }
         .side-a { grid-column: 1; grid-row: 1; }
         .side-b { grid-column: 2; grid-row: 1; }

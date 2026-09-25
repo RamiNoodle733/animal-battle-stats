@@ -2,8 +2,9 @@
 // Signed-in players play ranked: the server draws the roster and records each
 // pick (battle ratings, daily reward). Everyone else plays a local bracket.
 import engine from '../../../js/battle-engine.js';
-import { loadAnimalIndex, escapeHtml, toast } from './site.js';
+import { loadAnimalIndex, escapeHtml, toast, artVars } from './site.js';
 import { sfx, shake } from './sfx.js';
+import { loadVotes, castVote } from './votes.js';
 
 const model = engine || globalThis.ABSBattleEngine;
 const root = document.querySelector('[data-tourney]');
@@ -45,7 +46,14 @@ const state = {
     done: false,
     startedAt: 0,
     token: 0,
-    chain: Promise.resolve()
+    chain: Promise.resolve(),
+    // Guess the crowd: fan votes stay hidden until the pick, then the pick is
+    // scored against the majority. crowd holds the current fight's votes.
+    guessMode: saved.guess === true,
+    crowd: null,
+    guesses: { correct: 0, total: 0, streak: 0, best: 0 },
+    withCrowd: { agree: 0, total: 0 },
+    voteMap: null
 };
 const sides = { a: $('[data-side="a"]'), b: $('[data-side="b"]') };
 const startButton = $('[data-start]');
@@ -115,6 +123,7 @@ function paintSetup() {
         button.setAttribute('aria-pressed', String(size === state.size));
     });
     $$('[data-type]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.type === state.type)));
+    $('[data-guess-toggle]').setAttribute('aria-checked', String(state.guessMode));
 }
 
 function paintMode() {
@@ -177,7 +186,7 @@ function fighterHtml(animal, side) {
             <span class="card-inner">
                 <span class="card-power"><b>${fmt(animal.p)}</b><small>PWR</small></span>
                 <span class="tier-badge tier-${tier}">${animal.tier}</span>
-                <span class="card-art"><img src="${animal.m}" alt="" width="360" height="360" decoding="async"></span>
+                <span class="card-art"><img src="${animal.m}" alt="" style="${artVars(animal)}" decoding="async"></span>
                 <span class="card-plate"><span class="card-name">${escapeHtml(animal.n)}</span><span class="card-meta">${escapeHtml(animal.cls)} · #${animal.r}</span></span>
                 <span class="card-glare"></span>
                 <span class="t-stamp" aria-hidden="true">K.O.</span>
@@ -186,9 +195,51 @@ function fighterHtml(animal, side) {
         <div class="t-tags">
             <span class="chip chip-gold" title="Battle rating">Elo ${rating?.battleRating ?? 1000}</span>
             ${record}
+            ${voteChips(animal)}
             <a class="chip chip-cyan" href="/stats/${animal.s}" target="_blank" rel="noopener">Stats ↗</a>
         </div>
         <button type="button" class="btn ${side === 'a' ? 'btn-cyan' : 'btn-hot'} t-pick-btn" data-pick="${side}"><kbd>${side === 'a' ? '←' : '→'}</kbd>Winner</button>`;
+}
+
+// Up/down votes on the animal itself (the rankings vote, XP once a day each).
+function voteChips(animal) {
+    const entry = state.voteMap?.get(animal.n);
+    if (!entry) return '';
+    return `<button type="button" class="chip t-vote up${entry.mine === 'up' ? ' on' : ''}" data-vote="up" data-animal="${escapeHtml(animal.n)}" title="Upvote ${escapeHtml(animal.n)}">▲ ${entry.up}</button>
+            <button type="button" class="chip t-vote down${entry.mine === 'down' ? ' on' : ''}" data-vote="down" data-animal="${escapeHtml(animal.n)}" title="Downvote ${escapeHtml(animal.n)}">▼ ${entry.down}</button>`;
+}
+
+async function voteAnimal(button) {
+    const name = button.dataset.animal;
+    const entry = state.voteMap?.get(name);
+    if (!entry) return;
+    const result = await castVote(entry.id, name, button.dataset.vote, entry);
+    if (result.needsLogin) { toast('Log in to vote on animals'); return; }
+    if (result.error) { sfx.error(); toast(result.error); return; }
+    state.voteMap.set(name, result.entry);
+    sfx.coin();
+    if (result.xp) toast(`+${result.xp} XP`);
+    const tags = button.parentElement;
+    const animal = state.byName.get(name);
+    if (animal && tags) {
+        tags.querySelectorAll('.t-vote').forEach((node) => node.remove());
+        tags.querySelector('.chip-cyan')?.insertAdjacentHTML('beforebegin', voteChips(animal));
+    }
+}
+
+function paintCrowd() {
+    const box = $('[data-crowd]');
+    box.dataset.state = 'hidden';
+    box.classList.remove('flash-good', 'flash-bad');
+    for (const node of [$('[data-crowd-a]'), $('[data-crowd-b]')]) {
+        node.style.setProperty('--p', '50%');
+        node.textContent = '?%';
+    }
+    $('[data-crowd-label]').textContent = state.guessMode ? 'Who did most fans pick?' : 'Fan vote';
+    $('[data-crowd-total]').textContent = 'Loading…';
+    const result = $('[data-crowd-result]');
+    result.className = 't-crowd-result';
+    result.textContent = state.guessMode ? 'Pick who you think the crowd chose.' : 'Revealed after your pick.';
 }
 
 function paintFight() {
@@ -212,7 +263,7 @@ function paintFight() {
         const vb = Number(b[short]) || 0;
         row.querySelector('[data-va]').textContent = fmt(va);
         row.querySelector('[data-vb]').textContent = fmt(vb);
-        row.querySelector('[data-va]').classList.toggle('lead', va >= vb);
+        row.querySelector('[data-va]').classList.toggle('lead', va > vb);
         row.querySelector('[data-vb]').classList.toggle('lead', vb > va);
         row.querySelector('[data-ba]').style.setProperty('--v', va);
         row.querySelector('[data-bb]').style.setProperty('--v', vb);
@@ -220,8 +271,10 @@ function paintFight() {
     $('[data-round]').textContent = roundName(state.round, state.rounds);
     $('[data-fight-label]').textContent = `Fight ${state.index + 1} of ${state.entrants.length / 2}`;
     $('[data-progress]').style.width = `${(state.history.length / (2 ** state.rounds - 1)) * 100}%`;
-    $('[data-fans]').textContent = '';
+    state.crowd = null;
+    paintCrowd();
     if (!state.sim) loadFans(a, b, token);
+    else $('[data-crowd-total]').textContent = 'Simulating';
     // Warm the next pair's art.
     const next = [state.entrants[state.index * 2 + 2], state.entrants[state.index * 2 + 3]].filter(Boolean);
     for (const animal of next) new Image().src = animal.m;
@@ -232,10 +285,85 @@ async function loadFans(a, b, token) {
         const params = new URLSearchParams({ action: 'matchup_votes', animal1: a.n, animal2: b.n });
         const response = await fetch(`/api/battles?${params}`, { headers: { Accept: 'application/json' } });
         const body = await response.json();
-        if (token !== state.token || !body.data?.hasVotes) return;
-        const total = body.data.totalVotes;
-        $('[data-fans]').textContent = `Fans ${body.data.animal1Percentage}–${body.data.animal2Percentage} · ${total} ${total === 1 ? 'vote' : 'votes'}`;
-    } catch { /* optional hint */ }
+        if (token !== state.token) return;
+        const aVotes = Number(body.data?.animal1Votes) || 0;
+        const bVotes = Number(body.data?.animal2Votes) || 0;
+        state.crowd = { token, aVotes, bVotes, total: aVotes + bVotes };
+        $('[data-crowd-total]').textContent = state.crowd.total ? `${state.crowd.total} ${state.crowd.total === 1 ? 'vote' : 'votes'}` : 'No votes yet';
+    } catch {
+        if (token === state.token) $('[data-crowd-total]').textContent = 'Unavailable';
+    }
+}
+
+// Reveals the fan vote with this pick added, and scores the guess.
+function revealCrowd(side, a, b) {
+    const crowd = state.crowd && state.crowd.token === state.token ? state.crowd : null;
+    const box = $('[data-crowd]');
+    const result = $('[data-crowd-result]');
+    if (!crowd) {
+        result.textContent = 'Fan vote unavailable for this fight.';
+        return;
+    }
+    const aVotes = crowd.aVotes + (side === 'a' ? 1 : 0);
+    const bVotes = crowd.bVotes + (side === 'b' ? 1 : 0);
+    const total = aVotes + bVotes;
+    const pa = Math.round((aVotes / total) * 100);
+    box.dataset.state = 'shown';
+    $('[data-crowd-a]').style.setProperty('--p', `${Math.min(88, Math.max(12, pa))}%`);
+    $('[data-crowd-b]').style.setProperty('--p', `${Math.min(88, Math.max(12, 100 - pa))}%`);
+    $('[data-crowd-a]').textContent = `${pa}%`;
+    $('[data-crowd-b]').textContent = `${100 - pa}%`;
+    $('[data-crowd-total]').textContent = `${total} ${total === 1 ? 'vote' : 'votes'}`;
+
+    // The majority is judged on the votes cast before this pick.
+    if (!crowd.total) {
+        result.className = 't-crowd-result';
+        result.textContent = 'First vote on this matchup!';
+        return;
+    }
+    if (crowd.aVotes === crowd.bVotes) {
+        result.className = 't-crowd-result';
+        result.textContent = 'The crowd is split 50/50.';
+        return;
+    }
+    const majority = crowd.aVotes > crowd.bVotes ? 'a' : 'b';
+    const favorite = majority === 'a' ? a : b;
+    const agree = side === majority;
+    state.withCrowd.total += 1;
+    if (agree) state.withCrowd.agree += 1;
+    if (state.guessMode) {
+        state.guesses.total += 1;
+        if (agree) {
+            state.guesses.correct += 1;
+            state.guesses.streak += 1;
+            state.guesses.best = Math.max(state.guesses.best, state.guesses.streak);
+            sfx.coin();
+        } else {
+            state.guesses.streak = 0;
+            setTimeout(() => sfx.error(), 160);
+        }
+        paintStreak(true);
+    }
+    result.className = `t-crowd-result ${agree ? 'good' : 'bad'}`;
+    if (agree) {
+        result.textContent = state.guessMode && state.guesses.streak > 1 ? `Right! ${state.guesses.streak} in a row` : `With the crowd: most fans picked ${favorite.n}`;
+    } else {
+        result.textContent = `Most fans picked ${favorite.n}`;
+    }
+    box.classList.remove('flash-good', 'flash-bad');
+    void box.offsetWidth;
+    box.classList.add(agree ? 'flash-good' : 'flash-bad');
+}
+
+function paintStreak(bump = false) {
+    const chip = $('[data-streak]');
+    chip.hidden = !state.guessMode;
+    chip.querySelector('b').textContent = state.guesses.streak;
+    if (bump) {
+        chip.classList.remove('bump');
+        void chip.offsetWidth;
+        chip.classList.add('bump');
+    }
 }
 
 function announce(html, ms) {
@@ -246,13 +374,27 @@ function announce(html, ms) {
 
 // Ranked picks are recorded strictly in order; a failure drops the bracket
 // to casual rather than blocking play.
-function record(match, matchIndex) {
+function record(match, matchIndex, sideOf) {
     if (!state.submissionId) return;
     const submissionId = state.submissionId;
+    const token = state.token;
     state.chain = state.chain.then(async () => {
         if (state.rankedBroken || submissionId !== state.submissionId) return;
         const response = await post('/api/battles', { submissionId, matchIndex, ...match }).catch(() => null);
-        if (response?.ok) return;
+        if (response?.ok) {
+            const body = await response.json().catch(() => ({}));
+            const data = body?.data;
+            // Float each animal's battle rating change over its card while the fight is on screen.
+            if (data && token === state.token && root.dataset.stage === 'fight') {
+                for (const [entry, side] of [[data.winner, sideOf.winner], [data.loser, sideOf.loser]]) {
+                    const change = Number(entry?.change) || 0;
+                    const card = sides[side]?.querySelector('.t-card');
+                    if (!card || !change) continue;
+                    card.insertAdjacentHTML('beforeend', `<span class="t-elo ${change > 0 ? 'plus' : 'minus'}">${change > 0 ? '+' : ''}${change}</span>`);
+                }
+            }
+            return;
+        }
         const body = await response?.json().catch(() => ({}));
         state.rankedBroken = true;
         paintModeChip();
@@ -280,7 +422,14 @@ async function start() {
     const list = await indexReady;
     const pool = state.type === 'all' ? list : list.filter((animal) => animal.t === state.type);
     let roster = null;
-    Object.assign(state, { submissionId: null, rankedBroken: false, votes: 0, chain: Promise.resolve() });
+    Object.assign(state, {
+        submissionId: null,
+        rankedBroken: false,
+        votes: 0,
+        chain: Promise.resolve(),
+        guesses: { correct: 0, total: 0, streak: 0, best: 0 },
+        withCrowd: { agree: 0, total: 0 }
+    });
     if (window.ABS_USER) {
         try {
             const response = await post('/api/battles?action=tournament_start', { bracketSize: state.size, type: state.type });
@@ -304,8 +453,9 @@ async function start() {
         roster = shuffle(pool).slice(0, state.size);
     }
     Object.assign(state, { entrants: roster, winners: [], history: [], round: 1, rounds: Math.log2(roster.length), index: 0, done: false, startedAt: Date.now() });
-    store.set('abs:t-setup', { size: state.size, type: state.type });
+    store.set('abs:t-setup', { size: state.size, type: state.type, guess: state.guessMode });
     paintModeChip();
+    paintStreak();
     showStage('fight');
     startButton.disabled = false;
     sfx.go();
@@ -323,9 +473,10 @@ async function pick(side) {
     const pA = odds(a, b);
     const match = { round: state.round, winner: winner.n, loser: loser.n };
     state.history.push({ ...match, p: side === 'a' ? pA : 1 - pA });
-    record(match, state.history.length - 1);
+    record(match, state.history.length - 1, { winner: side, loser: side === 'a' ? 'b' : 'a' });
     vote(a, b, winner);
     state.winners.push(winner);
+    if (!state.sim) revealCrowd(side, a, b);
 
     sides[side].classList.add('won');
     sides[side === 'a' ? 'b' : 'a'].classList.add('lost');
@@ -333,7 +484,8 @@ async function pick(side) {
     setTimeout(() => sfx.ko(), 140);
     if (!state.sim) shake(root, 0.8);
     $('[data-progress]').style.width = `${(state.history.length / (2 ** state.rounds - 1)) * 100}%`;
-    await wait(state.sim ? 320 : reduced ? 300 : 820);
+    // Hold long enough to read the fan vote reveal (longer when a guess was scored).
+    await wait(state.sim ? 320 : reduced ? 500 : (state.guessMode ? 1500 : 1150));
     if (root.dataset.stage !== 'fight') {
         setBusy(false);
         return;
@@ -373,6 +525,7 @@ async function simRound() {
     state.sim = false;
     if (!state.done && root.dataset.stage === 'fight') {
         const [a, b] = current();
+        paintCrowd();
         loadFans(a, b, state.token);
     }
 }
@@ -393,7 +546,7 @@ function podiumCard(animal, crown = false) {
         <span class="card-inner">
             <span class="card-power"><b>${fmt(animal.p)}</b><small>PWR</small></span>
             <span class="tier-badge tier-${tier}">${animal.tier}</span>
-            <span class="card-art"><img src="${animal.m}" alt="" width="360" height="360" decoding="async"></span>
+            <span class="card-art"><img src="${animal.m}" alt="" style="${artVars(animal)}" decoding="async"></span>
             <span class="card-plate"><span class="card-name">${escapeHtml(animal.n)}</span></span>
             <span class="card-glare"></span>
         </span></a>`;
@@ -481,6 +634,18 @@ async function finish() {
     $('[data-upset]').textContent = biggest
         ? `Biggest upset: ${biggest.winner} beat ${biggest.loser} with ${Math.round(biggest.p * 100)}% stats odds.`
         : 'No upsets: every pick went with the stats favorite.';
+    const crowdSum = $('[data-crowd-sum]');
+    if (state.guessMode && state.guesses.total) {
+        const best = Math.max(state.guesses.best, Number(store.get('abs:t-best-streak', 0)) || 0);
+        store.set('abs:t-best-streak', best);
+        crowdSum.textContent = `Guess the crowd: ${state.guesses.correct} of ${state.guesses.total} right · best streak ${state.guesses.best} (your record: ${best}).`;
+        crowdSum.hidden = false;
+    } else if (state.withCrowd.total) {
+        crowdSum.textContent = `You sided with the fan majority in ${state.withCrowd.agree} of ${state.withCrowd.total} fights.`;
+        crowdSum.hidden = false;
+    } else {
+        crowdSum.hidden = true;
+    }
     $('[data-road]').innerHTML = state.history.filter((match) => match.winner === champion.n).map((match) => {
         const foe = state.byName.get(match.loser);
         const pct = Math.round(match.p * 100);
@@ -521,7 +686,18 @@ $$('[data-info-tab]').forEach((tab) => tab.addEventListener('click', () => {
     $$('[data-info-tab]').forEach((other) => other.setAttribute('aria-selected', String(other === tab)));
 }));
 startButton.addEventListener('click', start);
+$('[data-guess-toggle]').addEventListener('click', () => {
+    state.guessMode = !state.guessMode;
+    store.set('abs:t-setup', { size: state.size, type: state.type, guess: state.guessMode });
+    paintSetup();
+    sfx.tab();
+});
 root.addEventListener('click', (event) => {
+    const voteButton = event.target.closest('[data-vote]');
+    if (voteButton) {
+        voteAnimal(voteButton);
+        return;
+    }
     const target = event.target.closest('[data-pick]');
     if (target && root.dataset.stage === 'fight') pick(target.dataset.pick);
 });
@@ -554,11 +730,31 @@ document.addEventListener('keydown', (event) => {
     if (key === 'arrowleft' || key === 'a') { event.preventDefault(); pick('a'); }
     else if (key === 'arrowright' || key === 'd') { event.preventDefault(); pick('b'); }
     else if (key === 's') { event.preventDefault(); statsPick(); }
+    else if (key === 'g' && !state.busy) {
+        event.preventDefault();
+        state.guessMode = !state.guessMode;
+        store.set('abs:t-setup', { size: state.size, type: state.type, guess: state.guessMode });
+        paintStreak();
+        paintCrowd();
+        if (state.crowd) $('[data-crowd-total]').textContent = state.crowd.total ? `${state.crowd.total} ${state.crowd.total === 1 ? 'vote' : 'votes'}` : 'No votes yet';
+        toast(state.guessMode ? 'Guess the crowd: on' : 'Guess the crowd: off');
+    }
 });
 window.addEventListener('pagehide', quitRanked);
 document.addEventListener('abs:user', paintMode);
 
 paintSetup();
 if (window.ABS_USER) paintMode();
+loadVotes().then((map) => {
+    state.voteMap = map;
+    // A fight already on screen gets its vote buttons now.
+    if (root.dataset.stage !== 'fight') return;
+    for (const side of ['a', 'b']) {
+        const tags = sides[side].querySelector('.t-tags');
+        const name = sides[side].querySelector('.card-name')?.textContent;
+        const animal = name && state.byName.get(name);
+        if (tags && animal && !tags.querySelector('.t-vote')) tags.querySelector('.chip-cyan')?.insertAdjacentHTML('beforebegin', voteChips(animal));
+    }
+}).catch(() => {});
 paintRecent();
 loadRatings();

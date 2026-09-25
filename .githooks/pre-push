@@ -76,9 +76,9 @@ fi
 
 version_output="$(node scripts/version/bump-site-version.js --bump patch)"
 new_version="${version_output%% *}"
-git add package.json package-lock.json -- '*.html' 'stats/*.html'
+git add package.json package-lock.json
 
-if git diff --cached --quiet -- package.json package-lock.json '*.html' 'stats/*.html'; then
+if git diff --cached --quiet -- package.json package-lock.json; then
     exit 0
 fi
 

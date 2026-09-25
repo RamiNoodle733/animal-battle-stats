@@ -39,9 +39,9 @@ Audit a local clean-URL static server:
 
 ```bash
 npm run build
-npm run preview:readonly -- 3000 dist
+node scripts/preview-dist.js 3000
 # In another terminal:
-npm run seo:audit -- --sitemap sitemap.xml --base http://127.0.0.1:3000
+npm run seo:audit -- --sitemap dist/sitemap.xml --base http://127.0.0.1:3000
 ```
 
 The JSON report is written to `reports/seo-audit.json` when `--write` is passed.

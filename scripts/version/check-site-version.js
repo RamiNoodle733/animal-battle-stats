@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-// Release version agreement: package files, the legacy app's asset revision and
-// every built HTML page (dist/) must carry the same version.
+// Release version agreement: package files and every built HTML page (dist/)
+// must carry the same version.
 
 const fs = require('fs');
 const path = require('path');
@@ -18,18 +18,6 @@ if (!/^\d+\.\d+\.\d+$/.test(version)) {
 }
 if (packageLock.version !== version || packageLock.packages?.['']?.version !== version) {
     throw new Error('package.json and package-lock.json versions disagree');
-}
-
-const routerSource = fs.readFileSync(path.join(repoRoot, 'js', 'router.js'), 'utf8');
-if (!routerSource.includes(`const ASSET_REVISION = '${version}';`)) {
-    throw new Error(`js/router.js asset revision does not match ${version}`);
-}
-const shell = fs.readFileSync(path.join(repoRoot, 'index.html'), 'utf8');
-const staleShellAssets = [...shell.matchAll(/(?:src|href)=["'](\/(?:css|js)\/[^"']+)["']/g)]
-    .map((match) => match[1])
-    .filter((url) => !url.endsWith(`?v=${version}`));
-if (staleShellAssets.length) {
-    throw new Error(`index.html references unversioned assets: ${staleShellAssets.slice(0, 5).join(', ')}`);
 }
 
 if (!fs.existsSync(dist)) {

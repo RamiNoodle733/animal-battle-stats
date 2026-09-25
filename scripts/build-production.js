@@ -8,15 +8,13 @@
 //  3. encode responsive image variants
 //  4. build every static page with Astro (.cache/astro-dist), then draw the
 //     social cards (.cache/og) from the job list it emits
-//  5. render legacy single-page-app shells only for routes Astro does not own
-//  6. assemble an allowlisted dist/, write sitemap.xml + version.json, minify
+//  5. assemble an allowlisted dist/, write sitemap.xml + version.json
 //
 // Generated HTML is never committed; tests that inspect pages read dist/.
 
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
-const { transformSync } = require('esbuild');
 
 const repoRoot = path.resolve(__dirname, '..');
 const outputRoot = path.join(repoRoot, 'dist');
@@ -24,23 +22,9 @@ const astroOut = path.join(repoRoot, '.cache', 'astro-dist');
 const variantsOut = path.join(repoRoot, '.cache', 'image-variants');
 const ogOut = path.join(repoRoot, '.cache', 'og');
 
-// Legacy app routes and the shell file each one is served from.
-const SPA_ROUTES = Object.freeze([
-    { route: '/', file: 'index.html' },
-    { route: '/stats', file: 'stats.html' },
-    { route: '/compare', file: 'compare.html' },
-    { route: '/rankings', file: 'rankings.html' },
-    { route: '/community', file: 'community.html' },
-    { route: '/tournament', file: 'tournament.html' }
-]);
-
 const ROOT_FILES = Object.freeze(['manifest.json', 'robots.txt', 'animal_stats.json']);
-const PUBLIC_DATA = Object.freeze(['ne_110m_land.geojson', 'game-balance.json', 'animal-profiles.json', 'roblox-game.json']);
-const COPY_DIRS = Object.freeze({
-    css: new Set(['.css']),
-    js: new Set(['.js']),
-    images: new Set(['.jpg', '.jpeg', '.png', '.svg', '.webp', '.avif', '.gif', '.json'])
-});
+const PUBLIC_DATA = Object.freeze(['game-balance.json', 'animal-profiles.json', 'roblox-game.json']);
+const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.svg', '.webp', '.avif', '.gif', '.json']);
 
 function run(script, args = []) {
     execFileSync(process.execPath, [path.join(repoRoot, script), ...args], { cwd: repoRoot, stdio: 'inherit', env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1' } });
@@ -80,33 +64,6 @@ function copyTree(sourceRoot, destinationPrefix, allowed = null) {
     });
 }
 
-function decodeTextAsset(buffer) {
-    if (buffer[0] === 0xff && buffer[1] === 0xfe) return buffer.subarray(2).toString('utf16le');
-    return buffer.toString('utf8');
-}
-
-function minifyLegacyAssets() {
-    let optimized = 0;
-    for (const directory of ['css', 'js']) {
-        walk(path.join(outputRoot, directory), (file) => {
-            const extension = path.extname(file).toLowerCase();
-            if (extension !== '.css' && extension !== '.js') return;
-            const result = transformSync(decodeTextAsset(fs.readFileSync(file)), {
-                loader: extension === '.css' ? 'css' : 'js',
-                target: 'es2020',
-                legalComments: 'none',
-                minifyWhitespace: true,
-                minifySyntax: true,
-                // Classic client scripts share public globals across files.
-                minifyIdentifiers: extension === '.css'
-            });
-            fs.writeFileSync(file, result.code, 'utf8');
-            optimized += 1;
-        });
-    }
-    return optimized;
-}
-
 if (path.dirname(outputRoot) !== repoRoot || path.basename(outputRoot) !== 'dist') {
     throw new Error(`Refusing to clear unexpected output directory: ${outputRoot}`);
 }
@@ -126,33 +83,11 @@ execFileSync(process.execPath, [path.join(repoRoot, 'node_modules', 'astro', 'bi
 run('scripts/images/build-og.js');
 fs.rmSync(path.join(astroOut, 'data', 'og-jobs.json'), { force: true });
 
-// 5: legacy app shells for routes that do not have an Astro page yet
-const { renderHtml } = require('../lib/seo-renderer.js');
-const spaFiles = [];
-for (const { route, file } of SPA_ROUTES) {
-    if (fs.existsSync(path.join(astroOut, file))) continue;
-    const html = renderHtml(route);
-    if (!html) throw new Error(`No app shell rendered for ${route}`);
-    spaFiles.push([file, html]);
-}
-// app.html serves sign-in, profile and other app-only routes (see vercel.json).
-const appShell = renderHtml('/tournament')
-    .replace(/<link rel="canonical"[^>]*>\s*/i, '')
-    .replace('</head>', '<meta name="robots" content="noindex, follow">\n</head>');
-spaFiles.push(['app.html', appShell]);
-
-// 6: assemble dist/
+// 5: assemble dist/
 fs.rmSync(outputRoot, { recursive: true, force: true });
 fs.mkdirSync(outputRoot, { recursive: true });
 copyTree(astroOut, '.');
-for (const [file, html] of spaFiles) {
-    const destination = path.join(outputRoot, file);
-    assertSafeOutputPath(destination);
-    fs.writeFileSync(destination, html);
-}
-for (const [directory, allowed] of Object.entries(COPY_DIRS)) {
-    copyTree(path.join(repoRoot, directory), directory, allowed);
-}
+copyTree(path.join(repoRoot, 'images'), 'images', IMAGE_EXTENSIONS);
 copyTree(variantsOut, path.join('images', 'animals', 'v'), new Set(['.webp']));
 copyTree(ogOut, path.join('images', 'og'), new Set(['.jpg', '.png']));
 for (const file of ROOT_FILES) {
@@ -163,8 +98,6 @@ for (const file of PUBLIC_DATA) {
     const source = path.join(repoRoot, 'data', file);
     if (fs.existsSync(source)) copyFile(source, path.join('data', file));
 }
-
-const optimizedAssetCount = minifyLegacyAssets();
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(repoRoot, 'package.json'), 'utf8'));
 let commit = process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || null;
@@ -185,4 +118,4 @@ walk(outputRoot, (file) => deployedFiles.push(path.relative(outputRoot, file).re
 const forbidden = deployedFiles.filter((file) => /site-activity|activity-exports?|sensitive-exports?/i.test(file) || file.toLowerCase().endsWith('.csv'));
 if (forbidden.length) throw new Error(`Forbidden files reached deployment output: ${forbidden.join(', ')}`);
 
-console.log(`Production build: ${deployedFiles.length} files in dist/ (${spaFiles.length} app shells, ${optimizedAssetCount} legacy assets minified).`);
+console.log(`Production build: ${deployedFiles.length} files in dist/.`);

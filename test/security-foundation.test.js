@@ -65,11 +65,15 @@ test('level 100 progression has a finite completed percentage', () => {
 
 test('browser code cannot post direct or custom rewards', () => {
     const root = path.join(__dirname, '..');
-    const clientFiles = fs.readdirSync(path.join(root, 'js'))
-        .filter((name) => name.endsWith('.js'));
-    const clientSource = clientFiles.map((name) => fs.readFileSync(path.join(root, 'js', name), 'utf8')).join('\n');
+    // Site code: Astro pages, components and client scripts, plus the shared js/ modules.
+    const clientFiles = [
+        ...fs.readdirSync(path.join(root, 'js')).map((name) => path.join('js', name)),
+        ...fs.readdirSync(path.join(root, 'astro', 'src'), { recursive: true }).map((name) => path.join('astro', 'src', name))
+    ].filter((file) => /\.(?:js|astro)$/.test(file));
+    const clientSource = clientFiles.map((file) => fs.readFileSync(path.join(root, file), 'utf8')).join('\n');
     const authSource = fs.readFileSync(path.join(root, 'api', 'auth.js'), 'utf8');
 
+    assert.ok(clientFiles.length > 10, `only ${clientFiles.length} site files inspected`);
     assert.doesNotMatch(clientSource, /customXp|customBp/);
     assert.doesNotMatch(clientSource, /fetch\(['"]\/api\/auth\?action=rewards['"],[\s\S]{0,120}method:\s*['"]POST/);
     assert.doesNotMatch(authSource, /customXp|customBp/);

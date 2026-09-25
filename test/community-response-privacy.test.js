@@ -102,12 +102,15 @@ test('comments GET failures return a generic error without database details', as
 test('public community clients and endpoints do not depend on leaked account IDs or voter arrays', () => {
     const root = path.resolve(__dirname, '..');
     const communityApi = fs.readFileSync(path.join(root, 'api/community.js'), 'utf8');
-    const manager = fs.readFileSync(path.join(root, 'js/community-manager.js'), 'utf8');
-    const rankings = fs.readFileSync(path.join(root, 'js/rankings.js'), 'utf8');
+    const scripts = path.join(root, 'astro/src/scripts');
+    const community = fs.readFileSync(path.join(scripts, 'community.js'), 'utf8');
+    const comments = fs.readFileSync(path.join(scripts, 'comments.js'), 'utf8');
 
     assert.doesNotMatch(communityApi, /\bodId\s*:/);
-    assert.doesNotMatch(manager, /authorId|data-user-id|\.upvotes\?\.|\.downvotes\?\./);
-    assert.doesNotMatch(rankings, /comment\.authorId|data-user-id|comment\.upvotes\?\.|comment\.downvotes\?\./);
-    assert.match(manager, /item\.userVote === 'up'/);
-    assert.match(rankings, /comment\.canDelete === true/);
+    for (const name of fs.readdirSync(scripts).filter((file) => file.endsWith('.js'))) {
+        const source = fs.readFileSync(path.join(scripts, name), 'utf8');
+        assert.doesNotMatch(source, /authorId|data-user-id|\.upvotes\?\.|\.downvotes\?\./, name);
+    }
+    assert.match(community, /message\.userVote === 'up'/);
+    assert.match(comments, /comment\.userVote === 'up'/);
 });

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Animal Battle Stats is a web application for comparing animal statistics, running tournaments, and community interaction. The codebase follows a modular architecture with clear separation between pages and shared utilities.
+Animal Battle Stats is a web application for comparing animal statistics, running tournaments, and community interaction. Every public page is built to static HTML by [Astro](https://astro.build); interactive features are small client scripts that call the serverless API.
 
 ---
 
@@ -10,6 +10,20 @@ Animal Battle Stats is a web application for comparing animal statistics, runnin
 
 ```
 animal-stats/
+├── astro/                  # The website (Astro, static output)
+│   ├── public/             # Files served as-is
+│   └── src/
+│       ├── pages/          # One file per route (see Routes below)
+│       ├── components/     # Game screens and widgets (HoloCard, Meters, Arena, VsScreen, ...)
+│       ├── layouts/
+│       │   └── Base.astro  # HUD, menus, SEO/social metadata, JSON-LD, abs-version meta
+│       ├── scripts/        # Client scripts, bundled by Astro into /_astro/*.js
+│       ├── lib/            # Build-time data: catalogue, matchups, categories, credits
+│       └── styles/abs.css  # Design system
+│
+├── js/
+│   └── battle-engine.js    # Matchup model (UMD): used by pages, client scripts and tests
+│
 ├── api/                    # Serverless API endpoints (Vercel)
 │   ├── animals.js          # Animal CRUD operations
 │   ├── auth.js             # Authentication endpoints
@@ -22,37 +36,6 @@ animal-stats/
 │   ├── search.js           # Animal search
 │   ├── stats.js            # Site statistics
 │   └── votes.js            # Voting system
-│
-├── css/                    # Stylesheets (modular BEM architecture)
-│   ├── main.css            # Main entry point (imports all modules)
-│   ├── legacy.css          # Legacy styles (~17K lines, being migrated)
-│   ├── variables.css       # CSS custom properties (colors, spacing)
-│   ├── base.css            # Base element styles (reset, typography)
-│   ├── components/         # Reusable UI components
-│   │   ├── buttons.css     # Button variants
-│   │   ├── cards.css       # Card components
-│   │   ├── modals.css      # Modal dialogs
-│   │   └── stat-bars.css   # Animated stat bars
-│   ├── layout/             # Layout components
-│   │   ├── header.css      # Site header
-│   │   └── grid.css        # Grid system
-│   └── pages/              # Page-specific styles
-│       ├── stats.css       # Stats page
-│       ├── compare.css     # Compare page
-│       ├── rankings.css    # Rankings page
-│       ├── community.css   # Community page
-│       └── tournament.css  # Tournament modal
-│
-├── js/                     # JavaScript modules
-│   ├── core.js             # ✨ Shared utilities & configuration
-│   ├── router.js           # URL routing (SPA navigation)
-│   ├── auth.js             # Authentication UI & state
-│   ├── main.js             # Core app + Stats page (AnimalStatsApp)
-│   ├── rankings.js         # Rankings page (RankingsManager)
-│   ├── tournament.js       # Tournament system (TournamentManager)
-│   ├── community-manager.js # Community page (CommunityManager)
-│   ├── compare.js          # Compare page enhancements
-│   └── community.js        # Community page enhancements
 │
 ├── lib/                    # Backend shared libraries
 │   ├── auth.js             # Auth utilities (JWT, validation)
@@ -69,132 +52,73 @@ animal-stats/
 │       ├── Vote.js         # User votes
 │       └── XpClaim.js      # XP claims tracking
 │
-├── scripts/                # Development & migration scripts
+├── scripts/                # Build, development & migration scripts
+│   ├── build-production.js # Production build into dist/
+│   ├── preview-dist.js     # Local preview of dist/ with vercel.json routing
 │   ├── migrations/         # Database migrations
 │   ├── data-tools/         # Data import/export tools
 │   └── assets/             # Audited, dry-run-first animal image pipeline
 │
+├── data/                   # Research profiles, image metadata, Roblox game data
 ├── images/                 # Static images
-├── index.html              # Main HTML entry point
+├── animal_stats.json       # Canonical animal catalogue
 ├── manifest.json           # PWA manifest
-├── vercel.json             # Vercel configuration
+├── vercel.json             # Vercel configuration (build, redirects, rewrites, headers)
 └── package.json            # Dependencies
 ```
 
 ---
 
-## JavaScript Architecture
+## Frontend
 
-### Core Files
+### Pages
+Each route is an Astro page in `astro/src/pages/`. The build writes one HTML file per page (`build.format: 'file'`) and Vercel serves them without the `.html` extension (`cleanUrls`).
 
-#### `js/core.js` - Shared Utilities (~290 lines)
-Provides global utilities used across all modules:
-- `formatNumber(num)` - Format numbers with commas
-- `formatStat(num)` - Format stats with decimals
-- `escapeHtml(text)` - XSS prevention
-- `formatTimeAgo(date)` - Relative time formatting
-- `debounce(fn, wait)` - Input debouncing
-- `apiRequest(endpoint)` - API helper
-- `authApiRequest(endpoint)` - Authenticated API helper
-- `API_CONFIG` - API endpoints configuration
-- `FALLBACK_IMAGE` - Placeholder image SVG
-- `window.AppState` - Shared application state
-- `window.EventBus` - Cross-module communication
+| Route | Source |
+|-------|--------|
+| `/` | `index.astro` |
+| `/stats`, `/stats/<animal>` | `stats.astro`, `stats/[slug].astro` |
+| `/compare`, `/compare/<a>-vs-<b>` | `compare.astro`, `compare/[matchup].astro` |
+| `/tier-list`, `/tier-list/<group>` | `tier-list.astro`, `tier-list/[group].astro` |
+| `/rankings`, `/rankings/<category>` | `rankings.astro`, `rankings/[category].astro` |
+| `/tournament` | `tournament.astro` |
+| `/community` (and `/community/<tab>`) | `community.astro` |
+| `/profile` (and `/profile/<username>`) | `profile.astro` |
+| `/login`, `/signup`, `/forgot-password`, `/reset-password` | `AuthScreen.astro` via the matching page |
+| `/about`, `/credits`, `/roblox`, `/404` | matching `.astro` page |
+| `/llms.txt`, `/llms-full.txt`, `/data/*.json` | `.js` endpoints rendered at build time |
 
-#### `js/router.js` - URL Routing (~240 lines)
-SPA router handling:
-- Route definitions for all pages
-- Browser history management
-- URL slug generation
-- Navigation helpers
+`vercel.json` rewrites `/profile/<username>` and `/community/<tab>` to their pages and redirects retired URLs (`/battle`, `/methodology`, `/battlepoints`, `/app`).
 
-#### `js/auth.js` - Authentication (~1,150 lines)
-User authentication UI:
-- Login/signup forms
-- Session management
-- User stats bar updates
-- Profile management
+### Build-time data
+`astro/src/lib/catalog.js` reads `animal_stats.json`, `data/animal-profiles.json` and the image manifests once per build and derives ratings, tiers, ranks, images and matchups for every page. Animal, matchup, tier and ranking pages therefore ship their content as complete HTML; live data (votes, comments, community, accounts) is fetched by client scripts.
 
-### Page Managers
+### Client scripts
+Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, imported from the pages that need them:
 
-#### `js/main.js` - Core App + Stats Page (~2,500 lines)
-**Contains:** `AnimalStatsApp` class
-- App initialization and state management
-- Router integration
-- Animal data fetching
-- Stats view rendering
-- Compare page base functionality
-- Grid filtering and sorting
+- `site.js` - shared by every screen: HUD menus, quick search (`/data/animals-lite.json`), sound effects, card tilt, signed-in player chip
+- `versus.js` - Versus screen: odds, stat duel and animated fight using `js/battle-engine.js`
+- `tournament.js` - bracket play; ranked brackets for signed-in players go through the server-owned bracket API
+- `community.js`, `comments.js`, `votes.js`, `world.js` - community hub, comment threads, animal votes, visitor globe
+- `auth.js`, `profile.js` - sign-in forms and player profiles
+- `sfx.js`, `track.js` - synthesized sound effects and visit analytics
 
-#### `js/rankings.js` - Rankings Page (~1,850 lines)
-**Contains:** `RankingsManager` class
-- Power rankings display
-- Vote handling (upvotes/downvotes)
-- Comments system
-- Rank detail panel
-- Tournament history for animals
-
-#### `js/tournament.js` - Tournament System (~1,900 lines)
-**Contains:** `TournamentManager` class
-- Bracket generation (4/8/16/32 animals)
-- Match simulation with intro animations
-- Prediction system ("Guess the Majority")
-- ELO rating updates
-- Results tracking and podium display
-
-#### `js/community-manager.js` - Community Page (~1,300 lines)
-**Contains:** `CommunityManager` class
-- Chat messages
-- Activity feed
-- Daily matchup voting
-- User presence
-
-### Enhancement Files
-
-#### `js/compare.js` - Compare Page Enhancements (~920 lines)
-Tournament-style visual enhancements:
-- Fighter card layout
-- Intro animations
-- Result overlays
-- Stat comparison displays
-
-#### `js/community.js` - Community Page Enhancements
-Real-time features:
-- Heartbeat tracking
-- Online users indicator
-- Chat polling enhancements
+### Styles
+`astro/src/styles/abs.css` is the design system, imported once by `Base.astro`; Astro bundles it into `/_astro/*.css`. Fonts come from `@fontsource-variable` packages.
 
 ---
 
-## CSS Architecture
+## Build & Deploy
 
-### BEM Naming Convention
-Classes follow Block-Element-Modifier pattern:
-```css
-.block {}
-.block__element {}
-.block--modifier {}
-```
+`npm run build` runs `scripts/build-production.js`, which Vercel also runs on deploy:
 
-### CSS Variables
-Defined in `css/variables.css`:
-```css
---color-primary: #ff0033;
---color-accent: #00d4ff;
---spacing-sm: 8px;
---spacing-md: 16px;
-/* ... */
-```
+1. reject sensitive exports from the workspace
+2. import finished research into `animal_stats.json` / `data/animal-profiles.json`
+3. encode responsive image variants
+4. `astro build` into `.cache/astro-dist`, then draw the social cards
+5. assemble an allowlisted `dist/` (Astro output, images, public data), write `sitemap.xml` and `version.json`, and check that every page carries the package version
 
-### Import Order (main.css)
-```css
-@import 'variables.css';     /* 1. Variables first */
-@import 'base.css';          /* 2. Base styles */
-@import 'layout/header.css'; /* 3. Layout */
-@import 'layout/grid.css';
-@import 'components/...';    /* 4. Components */
-@import 'pages/...';         /* 5. Pages last */
-```
+`node scripts/preview-dist.js 4321` serves `dist/` locally with the `vercel.json` redirects and rewrites. `npm run perf:budget` checks the gzip weight of each screen; `npm test` runs the unit and contract tests (tests that inspect pages skip until `dist/` is built).
 
 ---
 
@@ -221,28 +145,26 @@ All API endpoints are serverless functions (Vercel) in `/api/`:
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                    FRONTEND                               │
-│  ┌─────────┐   ┌──────────┐   ┌──────────────────────┐  │
-│  │ Router  │──▶│ main.js  │──▶│ Page Managers        │  │
-│  │         │   │          │   │ - RankingsManager    │  │
-│  │         │   │          │   │ - TournamentManager  │  │
-│  │         │   │          │   │ - CommunityManager   │  │
-│  └─────────┘   └──────────┘   └──────────────────────┘  │
-│        │              │                    │             │
-│        │              ▼                    │             │
-│        │        ┌──────────┐               │             │
-│        │        │ core.js  │◀──────────────┘             │
-│        │        │ (utils)  │                             │
-│        │        └──────────┘                             │
-└────────┼─────────────┼───────────────────────────────────┘
-         │             │
-         ▼             ▼
+│                 BUILD (npm run build)                     │
+│  animal_stats.json ─┐                                     │
+│  data/*.json ───────┼─▶ astro/src/lib ─▶ static HTML      │
+│  js/battle-engine ──┘                    (dist/)          │
+└──────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌──────────────────────────────────────────────────────────┐
+│                  BROWSER                                  │
+│  Static page ─▶ astro/src/scripts (site.js, versus.js,    │
+│                 community.js, profile.js, ...)            │
+└──────────────────────────────────────────────────────────┘
+                              │ fetch
+                              ▼
 ┌──────────────────────────────────────────────────────────┐
 │                     API Layer                             │
-│  /api/animals  /api/rankings  /api/chat  /api/auth      │
+│  /api/animals  /api/rankings  /api/community  /api/auth  │
 └──────────────────────────────────────────────────────────┘
-         │
-         ▼
+                              │
+                              ▼
 ┌──────────────────────────────────────────────────────────┐
 │                    MongoDB Atlas                          │
 │  Collections: animals, votes, comments, users, chat...   │
@@ -254,17 +176,10 @@ All API endpoints are serverless functions (Vercel) in `/api/`:
 ## Adding New Features
 
 ### Adding a New Page
-1. Create CSS file: `css/pages/newpage.css`
-2. Add import to `css/main.css`
-3. Add HTML view in `index.html` with `id="newpage-view"`
-4. Add class in `main.js` (or separate file)
-5. Register route in `js/router.js`
-6. Add nav button in header
-
-### Adding a New Component
-1. Create CSS file: `css/components/newcomponent.css`
-2. Add import to `css/main.css`
-3. Use BEM naming: `.c-newcomponent__element`
+1. Create `astro/src/pages/newpage.astro` and wrap it in `Base.astro` (title, description, `path`)
+2. Put interactive behaviour in `astro/src/scripts/newpage.js` and import it from the page's `<script>`
+3. Add styles to `astro/src/styles/abs.css`
+4. Add a menu entry in `Base.astro` if it belongs in the HUD, and a screen to `scripts/performance/check-route-budgets.js`
 
 ### Adding API Endpoint
 1. Create file in `/api/newfeature.js`
@@ -276,63 +191,17 @@ All API endpoints are serverless functions (Vercel) in `/api/`:
 ## Development Guidelines
 
 ### JavaScript
-- Use `'use strict'` in all files
-- Expose managers on `window` for debugging
+- Client scripts are ES modules; keep them framework-free
+- Escape every piece of user text before inserting it into the DOM
 - Use `async/await` for API calls
-- Add JSDoc comments for public methods
+- `npm run lint` covers `api/`, `lib/`, `js/` and `astro/src/`
 
 ### CSS
-- Use BEM naming convention
-- Define colors in variables.css
-- Page styles go in css/pages/
-- Component styles go in css/components/
+- Use the design tokens and components already in `abs.css`
+- Respect `prefers-reduced-motion`
 
 ### API
 - Always validate input
 - Use try/catch for all DB operations
 - Return consistent JSON structure
 - Log errors for debugging
-
----
-
-## Future Improvements
-
-### Planned Refactoring
-1. **Split main.js into modules** - When ready, extract:
-   - `js/stats.js` - Stats page
-   - `js/rankings.js` - Rankings page  
-   - `js/tournament.js` - Tournament modal
-   - `js/community-manager.js` - Community page
-
-2. **Convert to ES Modules** - Use import/export
-
-3. **TypeScript Migration** - Add type safety
-
-4. **Component Library** - Extract reusable components
-
----
-
-## Quick Reference
-
-### Global Objects
-```javascript
-window.app              // AnimalStatsApp instance
-window.rankingsManager  // RankingsManager instance
-window.tournamentManager // TournamentManager instance
-window.communityManager // CommunityManager instance
-window.Auth             // Authentication module
-window.Router           // Router instance
-window.CoreUtils        // Utility functions
-window.AppState         // Shared state
-window.EventBus         // Event system
-```
-
-### Key DOM IDs
-```
-#stats-view      - Stats page container
-#compare-view    - Compare page container
-#rankings-view   - Rankings page container
-#community-view  - Community page container
-#tournament-modal - Tournament overlay
-#home-view       - Home/landing page
-```

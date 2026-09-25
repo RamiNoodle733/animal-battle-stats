@@ -100,40 +100,21 @@ npm run assets:sync-images -- --env-file .cache/production.env --apply
 
 ```
 animal-battle-stats/
-├── index.html              # Main HTML (single-page app)
+├── astro/                  # The website: Astro builds every page to static HTML
+│   ├── public/             # Files served as-is
+│   └── src/
+│       ├── pages/          # Routes: home, animals, versus, tiers, rankings, tournament, community, profile, sign-in
+│       ├── components/     # Game screens and widgets (holo cards, stat meters, arena)
+│       ├── layouts/        # Base layout: HUD, menus, SEO metadata
+│       ├── scripts/        # Client scripts (fights, tournament, community, accounts)
+│       ├── lib/            # Build-time catalogue, matchups and site data
+│       └── styles/abs.css  # Design system
+│
+├── js/
+│   └── battle-engine.js    # Matchup model shared by the pages, client scripts and tests
+│
 ├── manifest.json           # PWA manifest
 ├── vercel.json             # Vercel deployment config
-│
-├── css/                    # Stylesheets (modular architecture)
-│   ├── main.css            # Import manifest
-│   ├── legacy.css          # Original styles (being migrated)
-│   ├── variables.css       # Design tokens
-│   ├── base.css            # Reset & utilities
-│   ├── components/         # Reusable UI components
-│   │   ├── buttons.css
-│   │   ├── cards.css
-│   │   ├── modals.css
-│   │   └── stat-bars.css
-│   ├── layout/             # Layout components
-│   │   ├── header.css
-│   │   └── grid.css
-│   └── pages/              # Page-specific styles
-│       ├── compare.css
-│       ├── community.css
-│       ├── rankings.css
-│       ├── stats.css
-│       └── tournament.css
-│
-├── js/                     # Client-side JavaScript
-│   ├── core.js             # Shared utilities & config
-│   ├── main.js             # Core app + Stats page (~2,500 lines)
-│   ├── rankings.js         # Rankings page (~1,850 lines)
-│   ├── tournament.js       # Tournament system (~1,900 lines)
-│   ├── community-manager.js # Community page (~1,300 lines)
-│   ├── router.js           # Client-side routing
-│   ├── auth.js             # Authentication UI
-│   ├── compare.js          # Compare page enhancements
-│   └── community.js        # Community page enhancements
 │
 ├── api/                    # Serverless API functions (Vercel)
 │   ├── animals.js          # Animals CRUD
@@ -164,7 +145,9 @@ animal-battle-stats/
 │       ├── Vote.js
 │       └── XpClaim.js
 │
-├── scripts/                # Admin/development scripts
+├── scripts/                # Build, admin and development scripts
+│   ├── build-production.js # Production build (dist/)
+│   ├── preview-dist.js     # Local preview of dist/ with Vercel routing
 │   ├── migrations/         # Database migrations
 │   ├── data-tools/         # Data manipulation tools
 │   └── assets/             # Audited, dry-run-first animal image pipeline
@@ -190,7 +173,7 @@ animal-battle-stats/
 
 ## 🛠️ Technologies
 
-**Frontend**: HTML5, CSS3, JavaScript, Chart.js, Font Awesome  
+**Frontend**: Astro (static HTML), CSS, JavaScript  
 **Backend**: Vercel Serverless Functions, MongoDB Atlas, Mongoose  
 **Auth**: JWT, bcryptjs
 

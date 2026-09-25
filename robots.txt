@@ -6,7 +6,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /app
 
 # Search engines
 User-agent: Googlebot

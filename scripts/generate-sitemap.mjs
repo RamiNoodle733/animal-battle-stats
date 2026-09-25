@@ -1,5 +1,5 @@
 // Writes dist/sitemap.xml from the built pages, with image entries for every
-// animal and matchup page. Pages marked noindex, app shells and 404 are skipped.
+// animal and matchup page. Pages marked noindex and 404 are skipped.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const SITE = 'https://animalbattlestats.com';
-const SKIP = new Set(['app.html', '404.html']);
+const SKIP = new Set(['404.html']);
 
 const profiles = JSON.parse(fs.readFileSync(path.join(root, 'data', 'animal-profiles.json'), 'utf8')).animals;
 const today = new Date().toISOString().slice(0, 10);
@@ -23,7 +23,7 @@ function htmlFiles(directory, prefix = '') {
     for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
         const relative = path.posix.join(prefix, entry.name);
         if (entry.isDirectory()) {
-            if (['_astro', 'images', 'css', 'js', 'data'].includes(entry.name) && !prefix) continue;
+            if (['_astro', 'images', 'data'].includes(entry.name) && !prefix) continue;
             files.push(...htmlFiles(path.join(directory, entry.name), relative));
         } else if (entry.name.endsWith('.html') && !SKIP.has(relative)) {
             files.push(relative);

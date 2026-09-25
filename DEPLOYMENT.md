@@ -9,10 +9,10 @@ This document provides comprehensive instructions for deploying the Animal Battl
 │                         Vercel                                   │
 │  ┌─────────────────┐     ┌─────────────────────────────────┐   │
 │  │   Static Files  │     │    Serverless Functions (API)   │   │
-│  │  - index.html   │     │  - /api/animals                 │   │
-│  │  - styles.css   │ ──► │  - /api/animals/[id]            │   │
-│  │  - script.js    │     │  - /api/search                  │   │
-│  │  - data.js      │     │  - /api/stats                   │   │
+│  │  (Astro, dist/) │     │  - /api/animals                 │   │
+│  │  - HTML pages   │ ──► │  - /api/animals/[id]            │   │
+│  │  - JS/CSS       │     │  - /api/search                  │   │
+│  │  - images       │     │  - /api/stats                   │   │
 │  └─────────────────┘     │  - /api/random                  │   │
 │                          │  - /api/health                  │   │
 │                          └──────────────┬──────────────────┘   │
@@ -286,11 +286,9 @@ animal-stats/
 │   └── models/
 │       └── Animal.js       # Mongoose model
 ├── scripts/                # Utility scripts
+│   ├── build-production.js # Production build (dist/)
 │   └── seed-database.js    # Database seeder
-├── index.html              # Frontend HTML
-├── styles.css              # Frontend styles
-├── script.js               # Frontend JavaScript
-├── data.js                 # Fallback local data
+├── astro/                  # Frontend: Astro pages, components, client scripts, styles
 ├── animal_stats.json       # Source data (JSON)
 ├── package.json            # Node.js config
 ├── vercel.json             # Vercel config

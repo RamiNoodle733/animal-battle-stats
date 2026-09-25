@@ -33,7 +33,7 @@ test('sitemap lists one clean canonical URL for every public page and animal', {
         assert.ok(fs.existsSync(fileFor(value)), `missing built page for ${value}`);
     }
     for (const animal of animals) assert.ok(sitemapPaths.has(`/stats/${slug(animal.name)}`), `missing /stats/${slug(animal.name)}`);
-    for (const pathname of ['/', '/stats', '/compare', '/tier-list', '/rankings', '/roblox', '/about']) assert.ok(sitemapPaths.has(pathname), `missing ${pathname}`);
+    for (const pathname of ['/', '/stats', '/compare', '/tier-list', '/rankings', '/tournament', '/community', '/roblox', '/about']) assert.ok(sitemapPaths.has(pathname), `missing ${pathname}`);
     for (const pathname of sitemapPaths) assert.doesNotMatch(pathname, /^\/(?:profile|login|signup|api|app|404)(?:\/|$)/u);
 });
 
@@ -46,7 +46,7 @@ test('every sitemap page has consistent social, canonical and structured metadat
 });
 
 test('internal links point to real pages or preserved app routes', { skip: !built && 'dist/ not built' }, () => {
-    const appRoutes = new Set(['/profile', '/login', '/signup', '/forgot-password', '/battlepoints', '/tournament', '/community', '/llms.txt', '/llms-full.txt', '/animal_stats.json']);
+    const appRoutes = new Set(['/profile', '/login', '/signup', '/forgot-password', '/battlepoints', '/llms.txt', '/llms-full.txt', '/animal_stats.json']);
     for (const url of sitemapUrls.filter((value, index) => index % 7 === 0 || !/\/compare\//u.test(value))) {
         const html = fs.readFileSync(fileFor(url), 'utf8');
         for (const link of internalLinks(html)) {

@@ -42,6 +42,19 @@ test('about page explains ratings, matchups and sources with an FAQ', { skip: !b
     assert.match(html, /\/llms\.txt/);
 });
 
+test('every public route and page rewrite is a built page', { skip: !built && 'dist/ not built' }, () => {
+    const vercel = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+    const routes = ['/', '/stats', '/compare', '/tier-list', '/rankings', '/tournament', '/community', '/login', '/signup', '/forgot-password', '/reset-password', '/profile'];
+    const rewrites = vercel.rewrites.map((rule) => rule.destination).filter((destination) => !destination.startsWith('/api/'));
+    for (const route of [...routes, ...rewrites]) {
+        const file = route === '/' ? 'index.html' : `${route.slice(1)}.html`;
+        assert.ok(fs.existsSync(path.join(dist, file)), `${route} has no built page`);
+    }
+    // The retired single-page-app shell must not come back; old links go home.
+    assert.equal(fs.existsSync(path.join(dist, 'app.html')), false);
+    assert.ok(vercel.redirects.some((rule) => rule.source === '/app' && rule.destination === '/'), '/app must redirect home');
+});
+
 test('design system keeps reduced-motion and screen-fit contracts', () => {
     const css = fs.readFileSync(path.join(root, 'astro/src/styles/abs.css'), 'utf8');
     assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);

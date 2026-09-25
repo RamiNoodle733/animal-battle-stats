@@ -17,9 +17,7 @@ if (!fs.existsSync(path.join(dist, 'index.html'))) {
 const BUDGET = Object.freeze({
     html: 70 * 1024,
     js: 70 * 1024,
-    css: 45 * 1024,
-    legacyJs: 90 * 1024,
-    legacyCss: 90 * 1024
+    css: 45 * 1024
 });
 
 const firstMatchup = fs.existsSync(path.join(dist, 'compare'))
@@ -36,8 +34,7 @@ const SCREENS = [
     ['roblox', 'roblox.html'],
     ['community', 'community.html'],
     ['tournament', 'tournament.html'],
-    ['about', 'about.html'],
-    ['app shell', 'app.html']
+    ['about', 'about.html']
 ].filter(([, file]) => file && fs.existsSync(path.join(dist, file)));
 
 const gz = (buffer) => zlib.gzipSync(buffer).length;
@@ -77,10 +74,9 @@ for (const [name, file] of SCREENS) {
     const jsBytes = scripts.reduce((sum, chunk) => sum + gz(fs.readFileSync(chunk)), 0);
     const cssBytes = styles.reduce((sum, sheet) => sum + gz(fs.readFileSync(sheet)), 0);
     const htmlBytes = gz(Buffer.from(html));
-    const legacy = name === 'app shell';
     if (htmlBytes > BUDGET.html) failures.push(`${name} HTML ${kb(htmlBytes)} > ${kb(BUDGET.html)}`);
-    if (jsBytes > (legacy ? BUDGET.legacyJs : BUDGET.js)) failures.push(`${name} JS ${kb(jsBytes)}`);
-    if (cssBytes > (legacy ? BUDGET.legacyCss : BUDGET.css)) failures.push(`${name} CSS ${kb(cssBytes)}`);
+    if (jsBytes > BUDGET.js) failures.push(`${name} JS ${kb(jsBytes)}`);
+    if (cssBytes > BUDGET.css) failures.push(`${name} CSS ${kb(cssBytes)}`);
     rows.push({ screen: name, htmlGzip: kb(htmlBytes), jsGzip: kb(jsBytes), cssGzip: kb(cssBytes) });
 }
 

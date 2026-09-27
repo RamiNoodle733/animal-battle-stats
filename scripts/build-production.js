@@ -24,7 +24,8 @@ const ogOut = path.join(repoRoot, '.cache', 'og');
 
 const ROOT_FILES = Object.freeze(['manifest.json', 'robots.txt', 'animal_stats.json']);
 const PUBLIC_DATA = Object.freeze(['game-balance.json', 'animal-profiles.json', 'roblox-game.json']);
-const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.svg', '.webp', '.avif', '.gif', '.json']);
+// Images, plus short gameplay clips for the Roblox page (images/roblox/*.mp4|webm).
+const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.svg', '.webp', '.avif', '.gif', '.json', '.mp4', '.webm']);
 
 function run(script, args = []) {
     execFileSync(process.execPath, [path.join(repoRoot, script), ...args], { cwd: repoRoot, stdio: 'inherit', env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1' } });

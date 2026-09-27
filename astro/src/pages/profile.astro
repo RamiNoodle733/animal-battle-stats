@@ -42,7 +42,7 @@ const EARN = [
             <div class="tabs" role="tablist">
                 <button type="button" role="tab" aria-selected="true" data-p-tab="edit"><Icon name="gear" size={20} />Profile</button>
                 <button type="button" role="tab" aria-selected="false" data-p-tab="animal"><Icon name="paw" size={20} />Animal</button>
-                <button type="button" role="tab" aria-selected="false" data-p-tab="roblox"><RobloxMark size={16} />Roblox</button>
+                <button type="button" role="tab" aria-selected="false" data-p-tab="roblox" hidden><RobloxMark size={16} />Roblox</button>
                 <button type="button" role="tab" aria-selected="false" data-p-tab="account"><Icon name="lock" size={20} />Account</button>
             </div>
 
@@ -84,7 +84,7 @@ const EARN = [
                     <h3 class="sub-h">Connect your Roblox account</h3>
                     <p class="small">Show your Roblox name and avatar here and see your in-game stats. Roblox handles the sign-in, so we never see your password. Disconnect any time.</p>
                     <a class="btn btn-roblox" href="/api/auth?action=link-roblox" aria-disabled="true" data-rb-link><RobloxMark size={20} />Connect Roblox</a>
-                    <p class="small rb-note" data-rb-off hidden>Roblox sign-in switches on with the game.</p>
+                    <p class="small rb-note" data-rb-off hidden>Roblox sign-in is not switched on yet.</p>
                 </div>
             </div>
 
@@ -95,7 +95,7 @@ const EARN = [
                     <label><input type="checkbox" data-n="enabled" /><span>Email me at all</span></label>
                     <label><input type="checkbox" data-n="commentReplies" /><span>Replies to my comments</span></label>
                     <label><input type="checkbox" data-n="tournamentUpdates" /><span>Tournament updates</span></label>
-                    <label><input type="checkbox" data-n="newFeatures" /><span>New features and the Roblox launch</span></label>
+                    <label><input type="checkbox" data-n="newFeatures" /><span>New features and game updates</span></label>
                     <label><input type="checkbox" data-n="weeklyDigest" /><span>Weekly digest</span></label>
                 </div>
                 <div class="p-google" data-p-google-row hidden>

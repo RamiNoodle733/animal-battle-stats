@@ -92,6 +92,7 @@ let robloxCardFor = null;
 
 function paintRoblox(user) {
     const account = user.robloxLinked ? user.roblox : null;
+    if (account) $('[data-p-tab="roblox"]').hidden = false;
     $('[data-rb-linked]').hidden = !account;
     $('[data-rb-empty]').hidden = Boolean(account);
     if (!account) {
@@ -126,6 +127,7 @@ async function loadRobloxCard(userId) {
 
 function paintRobloxAvailability(enabled) {
     const link = $('[data-rb-link]');
+    if (enabled) $('[data-p-tab="roblox"]').hidden = false;
     $('[data-rb-off]').hidden = enabled;
     if (enabled) link.removeAttribute('aria-disabled');
     else link.setAttribute('aria-disabled', 'true');
@@ -270,7 +272,10 @@ if (params.get('roblox_welcome') === '1') toast('Welcome! Your account is ready.
 else if (params.get('roblox_linked') === '1') toast('Roblox account connected');
 else if (params.get('roblox_error')) toast(params.get('message') || 'Roblox linking failed.');
 const startTab = params.get('roblox_welcome') === '1' ? 'animal' : params.get('tab');
-if (!publicName && ['edit', 'animal', 'roblox', 'account'].includes(startTab)) showTab(startTab);
+if (!publicName && ['edit', 'animal', 'roblox', 'account'].includes(startTab)) {
+    if (startTab === 'roblox') $('[data-p-tab="roblox"]').hidden = false;
+    showTab(startTab);
+}
 if (['roblox_welcome', 'roblox_linked', 'roblox_error', 'google_error'].some((key) => params.has(key))) {
     history.replaceState(null, '', location.pathname + (startTab ? `?tab=${startTab}` : ''));
 }

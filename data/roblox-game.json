@@ -2,13 +2,58 @@
   "name": "Animal Battle Stats",
   "placeId": 118592355937726,
   "universeId": 10767969314,
-  "status": "in-development",
+  "status": "live",
   "pitch": "Collect all 225 real animals as holo-cards, power them up, and settle who would win in flashy 3D battles on floating islands.",
   "trailer": {
     "youtubeId": null,
+    "src": null,
     "poster": null
   },
   "screenshots": [],
+  "videos": [
+    {
+      "title": "100 army ants vs a honey badger",
+      "youtubeId": null,
+      "src": null,
+      "poster": null,
+      "animal": "army-ant"
+    },
+    {
+      "title": "Megalodon boss fight",
+      "youtubeId": null,
+      "src": null,
+      "poster": null,
+      "animal": "megalodon"
+    },
+    {
+      "title": "Fly across 8 biome islands",
+      "youtubeId": null,
+      "src": null,
+      "poster": null,
+      "animal": "bald-eagle"
+    },
+    {
+      "title": "Collect all 225 holo-cards",
+      "youtubeId": null,
+      "src": null,
+      "poster": null,
+      "animal": "african-lion"
+    },
+    {
+      "title": "30 wolves vs an elephant",
+      "youtubeId": null,
+      "src": null,
+      "poster": null,
+      "animal": "gray-wolf"
+    },
+    {
+      "title": "Live Who Would Win? shows",
+      "youtubeId": null,
+      "src": null,
+      "poster": null,
+      "animal": "polar-bear"
+    }
+  ],
   "features": [
     {
       "title": "Collect 225 real animals",

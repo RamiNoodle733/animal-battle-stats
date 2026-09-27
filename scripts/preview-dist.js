@@ -19,7 +19,7 @@ process.env.JWT_SECRET ||= 'local-preview-secret-that-is-long-enough-1234567890'
 const TYPES = {
     '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json',
     '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif', '.svg': 'image/svg+xml',
-    '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml', '.geojson': 'application/json', '.ico': 'image/x-icon'
+    '.mp4': 'video/mp4', '.webm': 'video/webm', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml', '.geojson': 'application/json', '.ico': 'image/x-icon'
 };
 
 function toRegExp(source) {

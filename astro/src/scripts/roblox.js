@@ -1,16 +1,18 @@
-// The Roblox game page: trailer/screenshot stage, live game numbers and
-// leaderboards (from /api/community?action=roblox), and the Connect Roblox
-// button, which depends on whether Roblox sign-in is configured and who is here.
+// The Roblox game page: the trailer stage and screenshot row, gameplay clips,
+// live game numbers and leaderboards (from /api/community?action=roblox), and
+// the Connect Roblox section, shown once Roblox sign-in is configured.
 import { escapeHtml, toast } from './site.js';
 
 const root = document.querySelector('[data-rbx]');
 const stage = root.querySelector('[data-stage]');
 const thumbs = root.querySelector('[data-thumbs]');
-const trailerId = root.dataset.trailer || null;
-const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>';
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const compact = (value) => Number(value || 0).toLocaleString('en-US', { notation: value >= 100000 ? 'compact' : 'standard', maximumFractionDigits: 1 });
 
-// ---------------------------------------------------------------- stage
+// Privacy-enhanced YouTube embed, loaded only when the visitor presses play.
+function youtubeFrame(id, title) {
+    return `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1" title="${escapeHtml(title)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+}
 
 // YouTube has no maxres poster for some uploads; fall back to the always-present one.
 function posterFallback(img) {
@@ -20,17 +22,16 @@ function posterFallback(img) {
 }
 root.querySelectorAll('[data-poster]').forEach(posterFallback);
 
-function showTrailerPoster() {
-    const poster = thumbs.querySelector('[data-kind="video"] img')?.getAttribute('src');
-    stage.innerHTML = `<button class="stage-video" type="button" data-play-trailer aria-label="Play the official trailer">
-        <img src="${escapeHtml(poster)}" alt="" width="1280" height="720">
-        <span class="play-disc">${PLAY_SVG}</span>
-        <span class="stage-label"><b>Official trailer</b></span></button>`;
-}
+// ---------------------------------------------------------------- trailer stage
+
+const trailer = { youtube: stage.dataset.youtube || null, src: stage.dataset.src || null };
+const trailerPoster = stage.querySelector('.stage-video')?.outerHTML || '';
 
 function playTrailer() {
-    // Privacy-enhanced embed, loaded only when the visitor asks for it.
-    stage.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(trailerId)}?autoplay=1&rel=0&playsinline=1" title="Animal Battle Stats official trailer" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+    if (trailer.youtube) stage.innerHTML = youtubeFrame(trailer.youtube, 'Animal Battle Stats official trailer');
+    else if (trailer.src) {
+        stage.innerHTML = `<video src="${escapeHtml(trailer.src)}" controls autoplay playsinline></video>`;
+    }
 }
 
 function showImage(src, alt) {
@@ -39,16 +40,39 @@ function showImage(src, alt) {
 
 function select(thumb) {
     thumbs.querySelectorAll('button.thumb').forEach((node) => node.setAttribute('aria-pressed', String(node === thumb)));
-    if (thumb.dataset.kind === 'video') showTrailerPoster();
-    else showImage(thumb.dataset.src, thumb.dataset.alt || '');
+    if (thumb.dataset.kind === 'video') {
+        stage.innerHTML = trailerPoster;
+        stage.querySelectorAll('img').forEach(posterFallback);
+    } else showImage(thumb.dataset.src, thumb.dataset.alt || '');
 }
 
 stage.addEventListener('click', (event) => {
-    if (trailerId && event.target.closest('[data-play-trailer]')) playTrailer();
+    if (event.target.closest('[data-play]')) playTrailer();
 });
 thumbs.addEventListener('click', (event) => {
     const thumb = event.target.closest('button.thumb');
     if (thumb && thumb.getAttribute('aria-pressed') !== 'true') select(thumb);
+});
+
+// ---------------------------------------------------------------- gameplay clips
+
+// Clips play muted on a loop while on screen, like a store page. With reduced
+// motion they wait for the visitor instead.
+const clips = [...root.querySelectorAll('video[data-autoplay]')];
+if (reducedMotion) {
+    clips.forEach((clip) => { clip.controls = true; });
+} else if (clips.length && 'IntersectionObserver' in window) {
+    const watcher = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+            if (entry.isIntersecting) entry.target.play().catch(() => { entry.target.controls = true; });
+            else entry.target.pause();
+        }
+    }, { threshold: 0.4 });
+    clips.forEach((clip) => watcher.observe(clip));
+}
+root.addEventListener('click', (event) => {
+    const button = event.target.closest('.clip-yt[data-youtube]');
+    if (button) button.outerHTML = youtubeFrame(button.dataset.youtube, button.getAttribute('aria-label') || 'Gameplay video');
 });
 
 // ---------------------------------------------------------------- live game data
@@ -60,7 +84,7 @@ function paintLive(game) {
     box.querySelector('[data-stat="favorites"]').textContent = compact(game.favorites);
     box.querySelector('[data-stat="likes"]').textContent = game.likeRatio != null ? `${Math.round(game.likeRatio * 100)}%` : compact(game.upVotes);
     box.hidden = false;
-    if (game.creator) root.querySelector('[data-creator]').textContent = ` · By ${game.creator}`;
+    if (game.creator) root.querySelector('[data-creator]').textContent = `· By ${game.creator}`;
     if (game.icon) {
         const icon = root.querySelector('[data-game-icon]');
         icon.src = game.icon;
@@ -68,23 +92,27 @@ function paintLive(game) {
     }
 }
 
-// The game's own Roblox screenshots stand in until the site has its own.
+// The game's own Roblox screenshots fill the row until the site has its own.
 function paintRobloxShots(urls) {
     if (Number(root.dataset.shots) > 0 || !urls.length) return;
-    const tiles = urls.slice(0, 4 - (trailerId ? 1 : 0)).map((url, index) => `
+    const hasTrailer = Boolean(trailer.youtube || trailer.src);
+    const tiles = urls.slice(0, hasTrailer ? 3 : 4).map((url, index) => `
         <button class="thumb" type="button" data-kind="image" data-src="${escapeHtml(url)}" data-alt="Animal Battle Stats on Roblox" aria-pressed="false" aria-label="Screenshot ${index + 1}">
             <img src="${escapeHtml(url)}" alt="" loading="lazy" width="320" height="180"></button>`);
-    thumbs.querySelectorAll('[data-soon]').forEach((node) => node.remove());
     thumbs.insertAdjacentHTML('beforeend', tiles.join(''));
-    if (!trailerId) select(thumbs.querySelector('button.thumb'));
+    thumbs.hidden = thumbs.querySelectorAll('button.thumb').length < 2;
+    if (!hasTrailer) select(thumbs.querySelector('button.thumb'));
 }
 
 function paintBoards(boards) {
+    let filled = 0;
     for (const board of boards) {
         const list = root.querySelector(`[data-board="${board.id}"] ol`);
         if (!list || !board.top?.length) continue;
+        filled += 1;
         list.innerHTML = board.top.slice(0, 5).map((entry) => `<li><span class="lb-rank">${Number(entry.rank) || ''}</span><span class="lb-name">${escapeHtml(entry.name)}</span><b>${compact(entry.value)}</b></li>`).join('');
     }
+    if (filled) root.querySelector('[data-boards-section]').hidden = false;
 }
 
 fetch('/api/community?action=roblox', { headers: { Accept: 'application/json' } })
@@ -106,6 +134,7 @@ const label = connect.querySelector('[data-cn-label]');
 const note = connect.querySelector('[data-cn-note]');
 
 function paintConnect(state, user) {
+    connect.hidden = false;
     connect.dataset.state = state;
     button.removeAttribute('aria-disabled');
     if (state === 'linked') {
@@ -113,11 +142,6 @@ function paintConnect(state, user) {
         button.href = '/profile?tab=roblox';
         label.textContent = 'View your profile';
         note.textContent = `Connected as ${name}${user.roblox.username && user.roblox.username !== name ? ` (@${user.roblox.username})` : ''}.`;
-    } else if (state === 'off') {
-        button.removeAttribute('href');
-        button.setAttribute('aria-disabled', 'true');
-        label.textContent = 'Opens at launch';
-        note.textContent = 'Roblox sign-in switches on with the game.';
     } else if (state === 'user') {
         button.href = '/api/auth?action=link-roblox&returnTo=%2Froblox';
         label.textContent = 'Connect Roblox';
@@ -141,10 +165,10 @@ const who = new Promise((resolve) => {
         document.addEventListener('abs:guest', () => resolve(null), { once: true });
     }
 });
+// The section stays hidden until Roblox sign-in is configured (or already linked).
 Promise.all([providers, who]).then(([enabled, user]) => {
     if (user?.robloxLinked && user.roblox) paintConnect('linked', user);
-    else if (!enabled) paintConnect('off');
-    else paintConnect(user ? 'user' : 'guest', user);
+    else if (enabled) paintConnect(user ? 'user' : 'guest', user);
 });
 
 // Back from Roblox: say how it went, then tidy the address bar.

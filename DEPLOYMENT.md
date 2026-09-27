@@ -266,7 +266,7 @@ Defines:
 Players can sign in with Roblox or connect Roblox to an existing account. The site
 uses Roblox OAuth 2.0 (authorization code flow with PKCE, scopes `openid profile`),
 so it only ever receives the player's Roblox user id, username and display name.
-The buttons show "Opens at launch" until both variables below are set.
+The Roblox sign-in buttons and the Connect section stay hidden until both variables below are set.
 
 1. On https://create.roblox.com/dashboard/credentials open **OAuth 2.0 Apps** and
    create an app (registering one needs an ID-verified Roblox account).
@@ -283,18 +283,23 @@ no email, so these accounts have none (no email sign-in, reset or notifications)
 Google is linked. Linking stores the Roblox user id as a sign-in provider, so one
 Roblox account can belong to only one site account.
 
-### Launching the Roblox game
+### The Roblox game page (`/roblox`)
 
 Everything is in `data/roblox-game.json`:
 
-- `status`: set to `"live"` when the place goes public. The Play on Roblox buttons,
-  live player numbers, the game's Roblox icon and screenshots, and the leaderboards
-  switch on with it.
-- `trailer.youtubeId`: the 11-character id of the YouTube trailer (the part after
-  `watch?v=`). `trailer.poster` optionally replaces YouTube's thumbnail with your own image.
-- `screenshots`: `[{ "src": "/images/roblox/<file>.webp", "alt": "..." }]`, 16:9, put the
-  files in `images/roblox/`. Without any, the page uses the game's screenshots from
-  Roblox once it is live, and island placeholders before that.
+- `status`: `"live"` shows the Play on Roblox buttons (they open the game on Roblox),
+  live player numbers, the game's Roblox icon and screenshots, and the leaderboards.
+  Anything else shows the page as coming soon.
+- `trailer` and each entry in `videos` (the Gameplay grid; the first one is shown big)
+  take either `youtubeId`, the 11-character id after `watch?v=` (plays when clicked,
+  with sound), or `src`, a video file (muted, loops while on screen). `poster` is an
+  optional image. With neither, the slot says "Video pending". `animal` picks the
+  placeholder art and `title` is the caption.
+- Video files go in `images/roblox/` (MP4 or WebM, 16:9, a few MB each: they are
+  deployed with the site and cached for a year, so give a new file a new name).
+  Use YouTube for anything long.
+- `screenshots`: `[{ "src": "/images/roblox/<file>.webp", "alt": "..." }]`, 16:9, in
+  `images/roblox/`. Without any, the page uses the game's screenshots from Roblox.
 
 ### Battle Points Shop (Coming Soon)
 

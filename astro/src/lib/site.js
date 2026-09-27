@@ -26,17 +26,24 @@ export const SOCIAL = Object.freeze([
 // shows the game as live (a Play button) only once `status` is "live": the ids
 // can be filled in while the place is still private.
 const robloxLive = Boolean(robloxGame.placeId) && robloxGame.status === 'live';
-// Trailer: a YouTube video id (the 11 characters after watch?v=). Poster defaults to YouTube's.
+// Videos (the trailer and each gameplay clip) take either a YouTube id (the 11
+// characters after watch?v=) or `src`, a video file (/images/roblox/<file>.mp4 or
+// an https URL); `poster` is optional. With neither, the slot shows "Video pending".
 // Screenshots: [{ "src": "/images/roblox/<file>.webp", "alt": "..." }], 16:9, shown in order.
 const mediaUrl = (value) => typeof value === 'string' && (/^\/[^/]/.test(value) || /^https:\/\//.test(value));
-const youtubeId = /^[A-Za-z0-9_-]{11}$/.test(robloxGame.trailer?.youtubeId || '') ? robloxGame.trailer.youtubeId : null;
+function video(entry) {
+    const youtubeId = /^[A-Za-z0-9_-]{11}$/.test(entry?.youtubeId || '') ? entry.youtubeId : null;
+    const src = youtubeId || !mediaUrl(entry?.src) ? null : entry.src;
+    const poster = mediaUrl(entry?.poster) ? entry.poster : youtubeId ? `https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg` : null;
+    return { title: String(entry?.title || ''), youtubeId, src, poster, animal: entry?.animal || null, ready: Boolean(youtubeId || src) };
+}
+const trailer = video({ title: 'Official trailer', ...robloxGame.trailer });
 export const ROBLOX = Object.freeze({
     ...robloxGame,
     live: robloxLive,
     playUrl: robloxLive ? `https://www.roblox.com/games/${robloxGame.placeId}` : null,
-    trailer: youtubeId
-        ? { youtubeId, poster: mediaUrl(robloxGame.trailer.poster) ? robloxGame.trailer.poster : `https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg` }
-        : null,
+    trailer: trailer.ready ? trailer : null,
+    videos: (robloxGame.videos || []).map(video).filter((entry) => entry.title),
     screenshots: (robloxGame.screenshots || [])
         .filter((shot) => mediaUrl(shot?.src))
         .map((shot) => ({ src: shot.src, alt: shot.alt || 'Animal Battle Stats on Roblox' }))

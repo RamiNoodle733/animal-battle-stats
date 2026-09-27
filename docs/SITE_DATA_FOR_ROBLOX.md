@@ -34,9 +34,8 @@ and the hooks the site already reads.
 The site's Roblox panel (Community page, /roblox) shows players online,
 visits, favorites and votes as soon as the game has a public place:
 
-- `data/roblox-game.json` holds the ids (placeId 118592355937726, universeId 10767969314, filled in
-  2026-09-27 while the place is still private). The panel says Coming soon until `status` is set
-  to `"live"` there; do that when the place goes public (the env vars `ROBLOX_PLACE_ID` /
+- `data/roblox-game.json` holds the ids (placeId 118592355937726, universeId 10767969314) and
+  `status`, which is `"live"` since the 2026-09-27 launch (the env vars `ROBLOX_PLACE_ID` /
   `ROBLOX_UNIVERSE_ID` on Vercel still override the ids).
 
 Global leaderboards are read through Roblox Open Cloud when
@@ -54,13 +53,12 @@ Each entry's key must be the player's numeric `UserId` (as a string) and
 its value a whole number. The site shows only Roblox display names, never
 user ids or avatars. The game writes these stores in that format (LeaderboardService).
 
-## Trailer and screenshots on /roblox
+## Trailer, gameplay videos and screenshots on /roblox
 
-`data/roblox-game.json` also holds `trailer` (`youtubeId`, optional `poster`) and
-`screenshots` (`[{ "src", "alt" }]`, 16:9 files in `images/roblox/`). Until they are
-filled in, the page shows a "trailer drops at launch" placeholder and island tiles;
-once `status` is `"live"` and no screenshots are set, it uses the game's own
-screenshots from its Roblox page.
+`data/roblox-game.json` also holds `trailer`, `videos` (the Gameplay grid) and
+`screenshots`. A video is a YouTube id or a video file in `images/roblox/`; until
+one is set its slot says "Video pending" (details in DEPLOYMENT.md). With no
+screenshots set, the page uses the game's own screenshots from its Roblox page.
 
 ## Roblox accounts on the site
 

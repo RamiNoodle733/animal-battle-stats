@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 3.2.0 — 2026-09-27
 
-- Rebuilt the Roblox game page as the game's official page: Play on Roblox, a trailer player and screenshot row (placeholders until `data/roblox-game.json` has a trailer and screenshots), live player numbers, the game's global leaderboards and a FAQ.
+- The Animal Battle Stats Roblox game is live: Play on Roblox buttons across the site open the game, and the site shows its live player numbers and leaderboards.
+- Rebuilt the Roblox game page as the game's official page: Play on Roblox, a trailer player and screenshot row, a Gameplay video grid (muted clips that loop while on screen, or YouTube videos) with "Video pending" slots until the videos are added in `data/roblox-game.json`, live player numbers, the game's global leaderboards and a FAQ. The text-only "What's inside" section is gone.
 - Added Roblox sign-in: Continue with Roblox on log in and sign up, and Connect Roblox on the Roblox page and a new Roblox tab on the profile, which shows the player's Roblox name, avatar and in-game stats. OAuth 2.0 with PKCE; switched on by `ROBLOX_CLIENT_ID` and `ROBLOX_CLIENT_SECRET`.
 - The Roblox logo now marks the Play and sign-in buttons, the header, the mobile dock and the Community panel, with a trademark notice.
 

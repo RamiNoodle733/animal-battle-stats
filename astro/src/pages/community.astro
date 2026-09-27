@@ -95,7 +95,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                         <div><b data-rs="visits">–</b><span>Visits</span></div>
                         <div><b data-rs="favorites">–</b><span>Favorites</span></div>
                     </div>
-                    <p class="small rbx-copy" data-rbx-copy>{ROBLOX.pitch} Game leaderboards show up here at launch.</p>
+                    <p class="small rbx-copy" data-rbx-copy>{ROBLOX.pitch}{ROBLOX.live ? '' : ' Game leaderboards show up here at launch.'}</p>
                     <div class="rbx-boards" data-rbx-boards></div>
                     <ul class="rbx-feats">
                         {ROBLOX.features.map((feature, index) => (

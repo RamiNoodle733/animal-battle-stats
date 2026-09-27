@@ -2,7 +2,7 @@
 
 ## 1. Identity and canonical specimen
 - **Roster name:** Red Panda
-- **Canonical taxon:** **Himalayan red panda, *Ailurus fulgens***. The roster's legacy taxon is *Ailurus fulgens*. A 2020 population-genomic analysis supports recognizing Himalayan *A. fulgens* and Chinese *A. styani* as two phylogenetic species, while many institutional references still discuss them as subspecies/forms. This report uses *A. fulgens* sensu Himalayan red panda and flags older species-complex measurements where they cannot be separated.
+- **Canonical taxon:** **Himalayan red panda, *Ailurus fulgens***. The roster's legacy taxon is *Ailurus fulgens*. A 2020 population-genomic analysis supports recognizing Himalayan *A. fulgens* and Chinese *A. styani* as two distinct species, while many institutional references still discuss them as subspecies/forms. This report uses *A. fulgens* sensu Himalayan red panda and flags older species-complex measurements where they cannot be separated.
 - **Living/extinct:** living.
 - **Canonical specimen:** healthy prime adult **5.0 kg** Himalayan red panda. Sexes are reported as similar in size, so there is no evidence-based reason to force a male fighting specimen. Where sex is unknown, this report does not infer it from appearance.
 - **Dimorphism/population variation:** Animal Diversity Web reports no meaningful sexual dimorphism in size or color. Smithsonian gives the broader species-complex adult mass as 3.6-7.7 kg and head-body length 56-62.5 cm. ADW gives 3.7-6.2 kg and 56-62.5 cm. Chinese red pandas are generally larger and differ in pelage/tail pattern from Himalayan red pandas, so the 5.0 kg canonical value avoids importing the larger Chinese extreme into *A. fulgens*.
@@ -20,7 +20,7 @@
 | Lifespan | **10.0 years** representative wild adult context; wild range commonly **8-10 y**, maximum about **14 y** in ADW | Smithsonian reports exceptional longevity up to 23 y, evidently including managed-care context. Canonical field uses 10 y rather than an exceptional captive maximum. |
 | Bite force | **0.0 PSI** | No defensible species-specific bite pressure measurement was found. A robust carnivoran skull and teeth do not justify a fabricated PSI conversion. |
 | Claws | curved, semi-retractile/strongly grasping claws; exact canonical length unresolved | Important for climbing and close defense; no reliable species-specific claw-length series was found. |
-| False thumb | enlarged radial sesamoid | Peer-reviewed anatomy shows it contributes to gripping and likely originated in thin-branch climbing before being co-opted for bamboo manipulation. |
+| False thumb | enlarged radial sesamoid | Peer-reviewed anatomy shows it contributes to gripping, both in thin-branch climbing and in bamboo manipulation. |
 
 ### Proposed canonical factual fields
 ```text
@@ -44,7 +44,7 @@ The enlarged radial sesamoid, the famous **false thumb**, is not a stabbing weap
 ### Offensive mechanics
 A red panda can rear, paw, claw and bite at close range. Its plantigrade feet and flexible forelimbs support grasping and branch control. It lacks venom, horns, tusks, specialized crushing jaws or a large-body impact weapon. Practical offense is therefore low on the 225-animal absolute scale even though it can defend itself effectively against similarly tiny threats.
 
-### Defensive adaptations and toughness
+### Defensive features and toughness
 Dense fur, a low center of mass on branches, claws, arboreal escape and a long balancing tail are useful defenses. None is armor. There is no shell, osteoderm layer, thick hide specialization or exceptional trauma tolerance. Against a large predator, climbing/avoidance is far more important than absorbing damage.
 
 ### Locomotion and maneuverability
@@ -71,7 +71,7 @@ Although taxonomically within Carnivora, red pandas are overwhelmingly bamboo sp
 
 **Environmental pros:** strong climbing control; head-first descent; tail balance; fur and plantar hair suited to cool conditions; branch-gripping hand anatomy; ability to use narrow substrates deliberately.
 
-**Environmental cons:** open flat terrain removes much of its vertical escape advantage. High heat is unfavorable for a cold-adapted animal. A low-quality bamboo diet constrains energy economics. Water combat and sustained high-speed terrestrial pursuit are not specializations.
+**Environmental cons:** open flat terrain removes much of its vertical escape advantage. High heat is unfavorable for an animal suited to cold conditions. A low-quality bamboo diet constrains energy economics. Water combat and sustained high-speed terrestrial pursuit are not specializations.
 
 **Major weaknesses:** only about 5 kg; no armor; no venom; no high-force measured bite; no long-reach weapon; modest absolute muscular power; escape-dependent defense against larger predators.
 
@@ -107,7 +107,7 @@ All scores use the roster-wide absolute 0.1-100.0 scale.
 | **Agility** | **77.0** | Strong three-dimensional branch control and experimentally documented substrate-sensitive gait stability. |
 | **Stamina** | **49.0** | Persistent forager/climber but not a high-output endurance specialist; bamboo energetics impose real constraints. |
 | **Intelligence** | **58.0** | Moderate manipulative/spatial competence, below experimentally exceptional problem solvers. |
-| **Special** | **67.0** | Convergent false-thumb gripping and specialized arboreal mechanics meaningfully change positional matchups without being offensive superpowers. |
+| **Special** | **67.0** | False-thumb gripping and specialized arboreal mechanics meaningfully change positional matchups without being offensive superpowers. |
 
 ## 7. Exactly two special abilities
 1. **False-Thumb Grip** - the enlarged radial sesamoid works with the forepaw to improve grasping. Anatomical work links the system to thin-branch climbing and bamboo manipulation, giving unusually secure object/substrate control for a small carnivoran.
@@ -120,7 +120,7 @@ All scores use the roster-wide absolute 0.1-100.0 scale.
 ## 9. Expanded profile
 
 ### Habitat and range
-Himalayan red pandas occupy cool, high-elevation temperate forests with dense bamboo understory. Smithsonian places the broader red-panda complex from Nepal/India/Bhutan east through northern Myanmar and southwestern China; under the two-species interpretation, *A. fulgens* is the Himalayan lineage and the Chinese lineage is *A. styani*.
+Himalayan red pandas occupy cool, high-elevation temperate forests with dense bamboo understory. Smithsonian places the broader red-panda complex from Nepal/India/Bhutan east through northern Myanmar and southwestern China; under the two-species interpretation, *A. fulgens* is the Himalayan form and the Chinese form is *A. styani*.
 
 ### Diet and ecology
 Bamboo leaves and shoots dominate the diet. Seasonal bamboo quality strongly affects digestible energy. The animal spends substantial time feeding because it extracts relatively little energy from fibrous bamboo. Other plant material and occasional animal foods can supplement the diet, but they do not convert it into an active predator.
@@ -132,26 +132,26 @@ Adults are generally solitary. Scent marking and quiet vocalizations help mainta
 Smithsonian reports young are roughly full-grown around one year and reach sexual maturity around 18 months. Litters are commonly small. Maternal denning and care dominate early life. ADW gives typical wild lifespan around 8-10 years with records to about 14, while managed animals can live longer.
 
 ### Conservation
-Red pandas are threatened by habitat loss/degradation, fragmentation, human disturbance and poaching. Smithsonian currently describes red pandas as Endangered and notes major recent decline. Taxonomic splitting matters for conservation because the Himalayan lineage has lower genomic diversity and higher genetic load than the Chinese lineage in the 2020 genomic analysis.
+Red pandas are threatened by habitat loss/degradation, fragmentation, human disturbance and poaching. Smithsonian currently describes red pandas as Endangered and notes major recent decline. Taxonomic splitting matters for conservation because the Himalayan population has lower genomic diversity and higher genetic load than the Chinese population in the 2020 genomic analysis.
 
-### Adaptations
+### Special features
 - Enlarged radial sesamoid assists grasping.
 - Curved claws and flexible limbs support arboreality.
 - Long tail provides balance on branches and can aid thermal protection.
 - Dense fur and furred soles suit cold mountain habitat.
 - Gait modulation increases stability on arboreal substrates.
-- Cranio-dental morphology remains capable of processing tough bamboo despite carnivoran ancestry.
+- Cranio-dental morphology is capable of processing tough bamboo despite the animal's placement in the order Carnivora.
 
 ### Human interaction
-Red pandas are major zoo/conservation ambassadors but remain wild animals, not domesticated pets. Habitat conversion, roads, livestock pressure, forest-product collection and illegal trade can affect wild populations. Captive breeding must account for lineage/species identity to avoid conservation-significant mixing.
+Red pandas are major zoo/conservation ambassadors but remain wild animals, not domesticated pets. Habitat conversion, roads, livestock pressure, forest-product collection and illegal trade can affect wild populations. Captive breeding must account for population/species identity to avoid conservation-significant mixing.
 
 ### Genuine fun facts
 - The red panda's 'thumb' is not a true digit. It is an enlarged wrist bone, the radial sesamoid.
-- Giant and red pandas evolved their false-thumb systems independently, a striking example of convergence.
+- Giant pandas and red pandas both have a false-thumb system, even though they belong to different families.
 - Red pandas can descend trees head-first.
 - Their bamboo digestion is inefficient enough that they must process large amounts of forage.
 - Their long tail can approach three-quarters of head-body length.
-- Modern population genomics supports separating Himalayan and Chinese red pandas into distinct phylogenetic species.
+- Modern population genomics supports separating Himalayan and Chinese red pandas into distinct species.
 
 ### Concise site-ready summary
 A small Himalayan bamboo specialist with claws, a false thumb and exceptional branch control, the red panda wins position rather than power. Its bite and claws are modest on the full ABS scale, but secure gripping, head-first descent and stability-focused arboreal gait make it difficult to catch in its native forest canopy.
@@ -191,10 +191,10 @@ notes: Exact Himalayan taxon category Ailurus fulgens fulgens, 8640x5420. Direct
 | Smithsonian National Zoo, Red panda | https://nationalzoo.si.edu/animals/red-panda | size, range, habitat, lifespan, reproduction, conservation | 3.6-7.7 kg; 56-62.5 cm body; 37-47.2 cm tail; longevity up to 23 y | **High** institutional source; dimensions may pool both traditional forms/species. |
 | Animal Diversity Web, *Ailurus fulgens* | https://animaldiversity.org/accounts/Ailurus_fulgens/ | mass, length, dimorphism, lifespan, locomotion | 3.7-6.2 kg; 560-625 mm; sexes alike; wild typical 8-10 y | **Moderate-high** synthesis; older taxonomy pools red-panda complex. |
 | Plocek et al. 2023, Journal of Experimental Zoology | https://onlinelibrary.wiley.com/doi/full/10.1002/jez.2725 | gait mechanics | 132 strides, 3 red pandas; arboreal stability adjustments | **High** peer-reviewed direct locomotor study; small sample. |
-| Antón et al. 2006, Journal of Anatomy | https://onlinelibrary.wiley.com/doi/full/10.1111/j.1469-7580.2006.00649.x | false-thumb anatomy | radial sesamoid grip; thin-branch climbing origin/exaptation | **High** peer-reviewed anatomical study. |
+| Antón et al. 2006, Journal of Anatomy | https://onlinelibrary.wiley.com/doi/full/10.1111/j.1469-7580.2006.00649.x | false-thumb anatomy | radial sesamoid grip; role in thin-branch climbing | **High** peer-reviewed anatomical study. |
 | Wei et al. 2000, Zoo Biology | https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291098-2361%282000%2919%3A1%3C27%3A%3AAID-ZOO3%3E3.0.CO%3B2-9 | bamboo energetics | leaf digestibility ~26.47%, shoots ~44.08%; seasonal energy balance | **High** direct feeding/energy study; managed field-station context. |
 | Fei et al. 2017, metabolic rate | https://pubmed.ncbi.nlm.nih.gov/28306740/ | metabolism | seasonal resting metabolic-rate differences | **High** peer-reviewed physiological measurement. |
-| Hu et al. 2020 / Chinese Academy of Sciences summary | https://english.cas.cn/newsroom/research_news/life/202002/t20200227_230269.shtml | taxonomy/genomics | two phylogenetic species; Himalayan lineage lower diversity/higher load | **High** summary of Science Advances population-genomics study; taxonomy is still inconsistently adopted by institutions. |
+| Hu et al. 2020 / Chinese Academy of Sciences summary | https://english.cas.cn/newsroom/research_news/life/202002/t20200227_230269.shtml | taxonomy/genomics | two species; Himalayan population lower diversity/higher load | **High** summary of Science Advances population-genomics study; taxonomy is still inconsistently adopted by institutions. |
 | Wikimedia Commons, Red Panda full body 2024 | https://commons.wikimedia.org/wiki/File:Red_Panda_full_body_2024.jpg | image provenance | 8640x5420, CC BY-SA 4.0, Nepal, categorized *A. f. fulgens* | **High provenance**, but strict full-body/adulthood verification fails due obstruction/metadata. |
 | ADW image `ailurus2` | https://animaldiversity.org/collections/contributors/david_blank/ailurus2/ | alternate adult image | explicitly adult/sexually mature, CC BY-NC-SA 3.0 | **High age provenance**, but lower resolution and anatomy framing are not strong enough for final cutout. |
 

@@ -8,7 +8,7 @@
 - **Status:** Living.
 - **Canonical combat specimen:** healthy mature adult male, **15.0 kg**, representing a robust western/central adult rather than an unusually large eastern hybrid-influenced animal.
 - **Sex choice:** males are larger than females in the species. ADW gives a species mass range of 7–21 kg and explicitly records male-larger sexual dimorphism. Yellowstone and Grand Canyon NPS pages give 11–16 kg / 25–35 lb as a common western range.
-- **Population variation:** body size is geographically variable. Some eastern coyotes are larger and can carry wolf/dog ancestry, so they should not be used to inflate the species-wide representative baseline. Pelage varies substantially from gray-brown through reddish tones.
+- **Population variation:** body size is geographically variable. Some eastern coyotes are larger and can carry wolf/dog genes, so they should not be used to inflate the species-wide representative baseline. Pelage varies substantially from gray-brown through reddish tones.
 
 ## 2. Physical measurements
 
@@ -86,7 +86,7 @@ Intraspecific disputes involve threat displays, chasing and biting. Coyotes gene
 ### Environmental strengths
 - Open grassland and broken scrub favor detection, pursuit and route flexibility.
 - Forest edges and heterogeneous terrain favor opportunistic stalking and escape routes.
-- Urban environments demonstrate exceptional behavioral adaptability and resource switching.
+- Urban environments demonstrate exceptional behavioral flexibility and resource switching.
 - Snow and cold are manageable, but coyotes do not have the large snowshoe-like feet of some northern specialists.
 
 ### Weaknesses
@@ -116,10 +116,10 @@ All are absolute roster-wide ratings, not pound-for-pound.
 | Speed | **82.0** | NPS maximum 45 mph supports very high running speed, with moderate evidence confidence |
 | Endurance | **75.0** | telemetry supports repeated multi-kilometer daily travel, including 16.47 km/day mean in adult males in one study |
 | Recovery | **57.0** | good general mammalian recovery but no unusual regenerative mechanism |
-| Tactics | **79.0** | flexible solo/pair/family behavior, risk-sensitive foraging and exceptional habitat adaptation |
+| Tactics | **79.0** | flexible solo/pair/family behavior, risk-sensitive foraging and exceptional habitat versatility |
 | Senses | **82.0** | strong canid olfaction/hearing plus vigilant vision, conservatively below sensory specialists |
 | Ferocity | **57.0** | capable predator and defender, but generally risk-sensitive rather than a reckless close-combat specialist |
-| Abilities | **54.0** | behavioral adaptability and communication are useful but not a venom/electric/armor-tier special mechanism |
+| Abilities | **54.0** | behavioral flexibility and communication are useful but not a venom/electric/armor-tier special mechanism |
 
 ## 6. Proposed six headline ratings
 
@@ -129,13 +129,13 @@ All are absolute roster-wide ratings, not pound-for-pound.
 | **Defense** | **25.0** | avoidance and mobility help, but physical protection is weak |
 | **Agility** | **82.0** | fast, light, evasive and highly controllable terrestrial locomotion |
 | **Stamina** | **74.0** | strong travel endurance supported by telemetry without inflating routine movement into maximal exertion |
-| **Intelligence** | **76.0** | excellent behavioral flexibility, learning, social communication and human-landscape adaptation |
-| **Special** | **61.0** | unusual ecological adaptability and flexible social/foraging modes are matchup-relevant, but not a rare physiological weapon |
+| **Intelligence** | **76.0** | excellent behavioral flexibility, learning, social communication and success in human landscapes |
+| **Special** | **61.0** | unusual ecological versatility and flexible social/foraging modes are matchup-relevant, but not a rare physiological weapon |
 
 ## 7. Exactly two special abilities and two unique traits
 
 ### Special abilities
-1. **Adaptive Hunt Switch** — shifts between solitary foraging, paired hunting and family-associated behavior, while changing prey and resource use with habitat and season. This increases tactical options rather than raw force.
+1. **Versatile Hunt Switch** — shifts between solitary foraging, paired hunting and family-associated behavior, while changing prey and resource use with habitat and season. This increases tactical options rather than raw force.
 2. **Long-Range Chorus** — howls, yips and other vocal signals support territory advertisement, mate/family contact and coordination. In a one-on-one battle this is mainly a situational awareness/communication specialization, not a damage multiplier.
 
 ### Unique traits
@@ -159,7 +159,7 @@ ADW reports seasonal breeding, roughly 60–63 day gestation and an average litt
 ### Conservation
 The species is widely distributed and not globally threatened. Local mortality commonly includes vehicles, persecution/control, disease and other human-associated causes. Its continued range expansion is a major example of carnivore resilience to landscape modification.
 
-### Adaptations
+### Special features
 - Digitigrade, long-legged locomotion for economical travel and rapid pursuit.
 - Generalist dentition capable of carnivory plus broader omnivorous processing.
 - Acute canid sensory suite.
@@ -178,7 +178,7 @@ Coyotes often live near people while avoiding direct contact. Food conditioning 
 - Badger-coyote hunting associations are real observations in some places, but a 2026 Kansas study found they are not a universal regional pattern.
 
 ### Concise site-ready summary
-A fast, lean and exceptionally adaptable North American canid, the coyote wins through mobility, endurance, sharp senses and tactical flexibility rather than brute force. Its bite is dangerous to smaller prey, but its modest mass and lack of armor make direct fights with larger predators unfavorable.
+A fast, lean and exceptionally versatile North American canid, the coyote wins through mobility, endurance, sharp senses and tactical flexibility rather than brute force. Its bite is dangerous to smaller prey, but its modest mass and lack of armor make direct fights with larger predators unfavorable.
 
 ### Rich narrative profile
 The coyote is a survivor built around options. At roughly 15 kg in the canonical male, it lacks the mass to wrestle with the roster’s heavy predators, yet it combines fast digitigrade movement, strong travel endurance, keen sensory awareness and one of the most flexible behavioral repertoires among medium carnivores. It can hunt alone, pair opportunistically, maintain a family territory, shift diet across seasons, and navigate landscapes ranging from desert to downtown.
@@ -225,7 +225,7 @@ That flexibility matters in a matchup because the coyote does not need to solve 
 - **Lifespan:** potential maxima of 10–14+ years do not describe typical survival. Canonical 6 years follows Yellowstone’s field average.
 - **Speed:** 45 mph comes from NPS but lacks instrumented-method detail. Keep 20.1 m/s at moderate confidence and do not use it as a proxy for endurance or maneuverability.
 - **Bite:** the legacy 153 PSI is rejected pending a traceable measurement. `0.0` means no reliable PSI established, not “no bite.”
-- **Eastern animals:** hybrid ancestry and larger body size in some eastern populations should not silently redefine the representative *C. latrans* combat specimen.
+- **Eastern animals:** wolf/dog hybridization and larger body size in some eastern populations should not silently redefine the representative *C. latrans* combat specimen.
 
 ## 11. Cross-animal normalization notes
 

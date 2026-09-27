@@ -41,7 +41,7 @@ No defensible Amur-specific direct bite-pressure measurement in PSI was found. H
 - **Dentition:** carnassials slice flesh after the initial killing bite; the tongue’s keratinized papillae aid meat removal but are not treated as a combat weapon.
 
 ### Defensive structures
-No armor or shell. Defense comes from 190 kg body mass, dense musculature, robust skeleton, thick winter pelage and subcutaneous fat adapted to severe cold. Fur and fat are meaningful thermal defenses but weak substitutes for armor against penetrating weapons.
+No armor or shell. Defense comes from 190 kg body mass, dense musculature, robust skeleton, thick winter pelage and subcutaneous fat suited to severe cold. Fur and fat are meaningful thermal defenses but weak substitutes for armor against penetrating weapons.
 
 ## 3. Proposed canonical factual fields
 
@@ -132,7 +132,7 @@ All scores use the roster-wide absolute 0.1–100.0 scale.
 | Tactics | **75.0** | Independent stalking, ambush placement, prey assessment and kill positioning are sophisticated but not human/cetacean-level cognition. |
 | Senses | **77.0** | Strong low-light vision and hearing plus olfaction/tactile information support ambush and territorial awareness. |
 | Ferocity | **84.0** | Regularly tackles dangerous ungulates and may engage rival tigers; kept below indiscriminately aggressive roster extremes. |
-| Abilities | **57.0** | Camouflage, cold adaptation and stealth materially change terrestrial matchups, but there is no venom, electricity, armor or exotic physiological weapon. |
+| Abilities | **57.0** | Camouflage, cold tolerance and stealth materially change terrestrial matchups, but there is no venom, electricity, armor or exotic physiological weapon. |
 
 ## 6. Proposed six headline ratings
 
@@ -143,7 +143,7 @@ All scores use the roster-wide absolute 0.1–100.0 scale.
 | **Agility** | **84.0** | Exceptional acceleration, balance and close-range repositioning for a very large predator. |
 | **Stamina** | **62.0** | Strong patrol/travel capacity but only moderate sustained combat output relative to pursuit specialists. |
 | **Intelligence** | **66.0** | Flexible solitary stalking and prey handling, without evidence for the roster’s highest-order social/problem-solving cognition. |
-| **Special** | **61.0** | Cold-adapted camouflage and silent ambush are matchup-relevant but less exotic than venom, electricity, echolocation or regeneration. |
+| **Special** | **61.0** | Cold-climate camouflage and silent ambush are matchup-relevant but less exotic than venom, electricity, echolocation or regeneration. |
 
 ## 7. Exactly two special abilities and exactly two unique traits
 
@@ -172,7 +172,7 @@ Females mature around three to four years, males somewhat later. Gestation is ro
 ### Conservation
 The tiger species is **Endangered** on the IUCN Red List. The Amur population suffered a severe twentieth-century bottleneck but recovered substantially under protection. Current estimates vary with geography, year and method. WCS reports 70 tigers within Northeast China Tiger and Leopard National Park in 2024, including animals whose territories overlap Russia. A 2025 winter-track study estimated 43–46 adults/subadults plus 12 cubs in one 5,400 km² southwest Primorye survey unit. These are regional figures, not interchangeable global totals.
 
-### Adaptations
+### Special features
 - Thick seasonal pelage and fat for severe cold.
 - Extra paw fur and broad padded feet for snow, stealth and impact buffering.
 - Retractile claws that remain protected until needed.
@@ -192,7 +192,7 @@ Primary threats include poaching, prey depletion, habitat fragmentation, roads a
 - The population recovered from an extremely small twentieth-century remnant after legal protection and anti-poaching work.
 
 ### Concise site-ready summary
-The Amur tiger is a cold-adapted, solitary heavyweight cat built around stealth, explosive acceleration and close-range control. A prime male combines roughly 190 kg of muscle with retractile claws, powerful forelimbs and a neck-targeting bite. Its attack and agility are elite among terrestrial predators, but lack of armor and burst-oriented hunting keep Defense and Stamina below the roster’s heaviest and most endurance-specialized animals.
+The Amur tiger is a cold-hardy, solitary heavyweight cat built around stealth, explosive acceleration and close-range control. A prime male combines roughly 190 kg of muscle with retractile claws, powerful forelimbs and a neck-targeting bite. Its attack and agility are elite among terrestrial predators, but lack of armor and burst-oriented hunting keep Defense and Stamina below the roster’s heaviest and most endurance-specialized animals.
 
 ### Rich narrative profile
 An Amur tiger wins by deciding when contact begins. In broken forest it advances quietly on padded feet, using vegetation, shadow and its striped coat to reduce detection. The final attack is not simply a bite. The hindquarters accelerate nearly 200 kg of cat into the target, the forelimbs catch and destabilize it, claws preserve purchase, and the jaws search for a neck or throat position. This integration of stealth, impact, grappling and bite delivery makes the tiger much more dangerous than any one isolated measurement implies.

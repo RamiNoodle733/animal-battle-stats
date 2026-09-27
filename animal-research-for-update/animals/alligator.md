@@ -122,7 +122,7 @@ The alligator is an ectotherm and should not be scored like a pursuit mammal. It
 
 Crocodilians possess specialized integumentary sensory organs. Classic work showed facial pressure receptors capable of detecting small disturbances at the water surface, supported by specialized neural pathways. Later research found crocodylian integumentary organs can combine mechanical, thermal and chemical sensitivity. For an alligator waiting at the air-water interface, this is directly battle relevant because it improves detection of movement when visibility is poor.
 
-Vision, hearing and smell also support crepuscular/nocturnal ambush behavior, but the pressure-sensing system is the most distinctive sensory adaptation for ABS.
+Vision, hearing and smell also support crepuscular/nocturnal ambush behavior, but the pressure-sensing system is the most distinctive sensory feature for ABS.
 
 ### Intelligence and tactics
 
@@ -216,7 +216,7 @@ Alligators excel at waiting and energy conservation and can sustain a lower-forc
 
 ### Intelligence: 51.0
 
-The species is behaviorally competent, adaptable and capable of effective ambush tactics, but it lacks the demonstrated problem-solving breadth, communication complexity and flexible cooperative tactics expected of the roster's highest-intelligence animals.
+The species is behaviorally competent, flexible and capable of effective ambush tactics, but it lacks the demonstrated problem-solving breadth, communication complexity and flexible cooperative tactics expected of the roster's highest-intelligence animals.
 
 ### Special: 72.0
 
@@ -264,7 +264,7 @@ Breeding occurs in spring. Females construct mound nests and commonly lay severa
 
 The American alligator is one of the United States' best-known conservation recoveries. Heavy hunting and habitat loss drove severe declines, but legal protection and state/federal management allowed recovery. U.S. Fish and Wildlife Service states that the species recovered sufficiently by 1987 to no longer require endangered/threatened status for its own population, although it remains regulated under the ESA because of similarity of appearance to other protected crocodilians and is listed in CITES Appendix II. In 2026, USFWS estimated nearly five million American alligators in the southeastern United States.
 
-### Major adaptations
+### Special features
 
 - Massive jaw-closing musculature
 - Continuous tooth replacement
@@ -301,7 +301,7 @@ The jaws are the centerpiece. Unlike many popular animal statistics, alligator b
 
 Its defensive design complements this offense. The back is reinforced by osteoderms beneath thick scales, and the animal's low body profile reduces the number of easy attack angles available to an opponent approaching from above. The tradeoff is specialization. Short limbs and an ectothermic metabolism are excellent for a predator that waits, bursts, grips and conserves energy, but they are inferior to the repeated acceleration and aerobic pursuit capacity of wolves, wild dogs or other cursorial mammals. An alligator dragged into a long dry-land contest loses much of what makes it formidable.
 
-This environmental dependence is essential to fair ABS scaling. In shallow freshwater, a 200 kg adult male can use concealment, buoyancy, tail propulsion and the possibility of dragging an opponent into deeper water. On open dry ground, the same animal retains its dangerous bite and armor but loses much of its mobility advantage. The correct ABS interpretation is therefore neither an invincible prehistoric tank nor a slow animal helpless outside water. It is a powerful specialist whose attack and defense remain high in absolute terms while agility and stamina are much more conditional.
+This environmental dependence is essential to fair ABS scaling. In shallow freshwater, a 200 kg adult male can use concealment, buoyancy, tail propulsion and the possibility of dragging an opponent into deeper water. On open dry ground, the same animal retains its dangerous bite and armor but loses much of its mobility advantage. The correct ABS interpretation is therefore neither an invincible armored tank nor a slow animal helpless outside water. It is a powerful specialist whose attack and defense remain high in absolute terms while agility and stamina are much more conditional.
 
 The species is also ecologically more complex than its combat reputation suggests. Alligators shape wetlands by digging and maintaining water-filled depressions, show parental care, communicate with powerful bellows, and alter movement according to season, temperature and breeding condition. Their recovery from severe twentieth-century decline into a widespread managed population is one of the clearest conservation success stories in North American wildlife management.
 
@@ -373,7 +373,7 @@ Current researched comparison set: African Elephant, African Lion, African Wild 
 - **Agility 49.0:** Below African Lion and African Wild Dog. Water improves its practical movement, but the headline score must remain cross-environment and cannot turn aquatic specialization into general agility.
 - **Stamina 40.0:** Far below African Wild Dog (82.0) and Wandering Albatross (96.0). This protects the distinction between ambush patience/low metabolic demand and sustained high-output performance.
 - **Intelligence 51.0:** Competent but below African Lion and African Wild Dog social/tactical flexibility anchors.
-- **Special 72.0:** High because pressure sensing, armored integument and rotational prey handling materially alter encounters. It should later be compared carefully with Saltwater Crocodile so shared crocodilian adaptations are not inflated simply because the larger species repeats them.
+- **Special 72.0:** High because pressure sensing, armored integument and rotational prey handling materially alter encounters. It should later be compared carefully with Saltwater Crocodile so shared crocodilian features are not inflated simply because the larger species repeats them.
 
 ### Future normalization flags
 

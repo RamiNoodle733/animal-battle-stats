@@ -110,7 +110,7 @@ The primary weapon is the jaw. A broad, heavily muscled skull and prominent cani
 
 The badger is a close-range fighter rather than a pursuit predator. Its best route is to close distance, brace on short powerful limbs, seize with the jaws and use body weight and forelimbs to maintain contact. Its omnivorous dentition is less specialized for slicing flesh than a similarly sized hypercarnivore's, but its skull construction favors forceful crushing and gripping.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 There is no true armor. Defense comes from stocky construction, a low center of gravity, short robust limbs, coarse pelage, a heavy skull and a willingness to resist when cornered. The fossorial body plan makes it difficult for similar-sized opponents to topple or manipulate. This should not be exaggerated into mythical invulnerability: larger carnivores can kill badgers.
 
@@ -120,7 +120,7 @@ Badgers walk, trot and can gallop, swim, and climb to a limited degree. Their lo
 
 ### Endurance and stamina
 
-A Białowieża telemetry study found mean daily movement of **7 km**, with movement increasing when food was dispersed. This supports solid terrestrial endurance. It does not make the badger an elite cursorial endurance animal like a wolf or African wild dog. Seasonal winter torpor/reduced activity in colder parts of the range is an energy-saving adaptation, not combat stamina.
+A Białowieża telemetry study found mean daily movement of **7 km**, with movement increasing when food was dispersed. This supports solid terrestrial endurance. It does not make the badger an elite cursorial endurance animal like a wolf or African wild dog. Seasonal winter torpor/reduced activity in colder parts of the range is an energy-saving strategy, not combat stamina.
 
 ### Senses
 
@@ -152,7 +152,7 @@ Animal Diversity Web notes that wolves, lynxes and bears can occasionally prey o
 
 ### Environmental limitations
 
-- No specialized high-speed pursuit adaptations.
+- No specialized high-speed pursuit anatomy.
 - Short limbs limit reach and vertical mobility.
 - Digging specialization is less useful on hard rock, deep water or highly exposed terrain.
 - Vision is not its strongest sensory channel.
@@ -247,7 +247,7 @@ European badgers are notable for embryonic diapause. Peer-reviewed reviews repor
 
 The IUCN assessment cited for *Meles meles* classifies the species as **Least Concern**. It remains widespread, although legal protection, management and conflict differ by country. In Britain, badgers receive specific legal protection while also being central to long-running bovine tuberculosis management controversies.
 
-### Major adaptations
+### Special features
 
 - Long non-retractile foreclaws and powerful forelimbs for excavation
 - Low, robust fossorial body plan

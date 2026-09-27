@@ -39,7 +39,7 @@ bite_force_psi: 0.0
 Adult monarchs have essentially no dedicated offensive weapon against roster-scale opponents. Legs can cling, wings can reposition the animal, and the proboscis feeds on nectar, but none is a meaningful damaging weapon. Attack must therefore remain near the absolute roster floor regardless of the butterfly's famous endurance.
 
 ### Cardenolide chemical defense
-Monarch larvae feed on milkweeds and sequester cardenolides into the adult stage. These compounds interfere with animal Na+/K+-ATPase, while monarchs possess evolved target-site resistance that permits them to tolerate their toxic host chemistry. The defense is primarily deterrent rather than an actively delivered venom: an attacker must generally bite or ingest the butterfly to experience the chemical cost. Toxicity is also variable rather than uniform.
+Monarch larvae feed on milkweeds and sequester cardenolides into the adult stage. These compounds interfere with animal Na+/K+-ATPase, while monarchs possess target-site resistance that permits them to tolerate their toxic host chemistry. The defense is primarily deterrent rather than an actively delivered venom: an attacker must generally bite or ingest the butterfly to experience the chemical cost. Toxicity is also variable rather than uniform.
 
 ### Warning coloration
 The orange-black-white pattern is aposematic. It advertises chemical unprofitability to experienced visual predators. This can reduce attack probability, but it does not make the thin insect body mechanically durable. ABS Defense therefore distinguishes deterrence from physical toughness, while Special captures the unusual chemical system more strongly.
@@ -55,7 +55,7 @@ The eastern fall generation can travel from Canada and the northern United State
 Migratory monarchs use an antenna-based, time-compensated sun compass. Peer-reviewed work also demonstrates a light-dependent inclination magnetic compass under conditions where directional daylight cues are unavailable. The magnetic system uses ultraviolet-A/blue wavelengths and appears to involve light-sensitive magnetosensors associated with the antennae. These are sophisticated orientation mechanisms, but they are sensory/navigation specializations rather than evidence of vertebrate-like general reasoning.
 
 ### Intelligence and tactics
-Monarch behavior integrates circadian timing, sun position, skylight information and magnetic cues to maintain migration direction. This earns meaningful Senses and Tactics credit. However, much of this performance is specialized evolved orientation circuitry. There is insufficient evidence here for broad problem-solving, social strategy or flexible combat learning comparable with corvids, parrots, primates or carnivorans. Intelligence therefore stays moderate-low on the roster scale.
+Monarch behavior integrates circadian timing, sun position, skylight information and magnetic cues to maintain migration direction. This earns meaningful Senses and Tactics credit. However, much of this performance is specialized innate orientation circuitry. There is insufficient evidence here for broad problem-solving, social strategy or flexible combat learning comparable with corvids, parrots, primates or carnivorans. Intelligence therefore stays moderate-low on the roster scale.
 
 ### Fighting and aggression
 Adults are not specialized fighters. Male reproductive interactions can involve pursuit and physical contact, but the species does not possess claws, jaws, horns, venom injection or other dedicated weapons. Ferocity is consequently near the roster floor.
@@ -110,7 +110,7 @@ Adults are not specialized fighters. Male reproductive interactions can involve 
 | **Special** | **89.0** | Milkweed-derived chemical defense combined with sun and magnetic navigation is highly unusual and matchup-relevant without inflating physical combat scores. |
 
 ## 8. Exactly two special abilities
-1. **Milkweed Chemical Shield** - larvae sequester milkweed cardenolides that persist into adulthood, while evolved Na+/K+-ATPase resistance lets monarchs tolerate compounds that make them distasteful or toxic to many vertebrate predators.
+1. **Milkweed Chemical Shield** - larvae sequester milkweed cardenolides that persist into adulthood, while Na+/K+-ATPase resistance lets monarchs tolerate compounds that make them distasteful or toxic to many vertebrate predators.
 2. **Dual Compass Migration** - migratory adults combine a time-compensated sun compass with a light-dependent magnetic inclination compass, allowing directional orientation even when normal solar cues are degraded.
 
 ## 9. Exactly two unique traits
@@ -119,7 +119,7 @@ Adults are not specialized fighters. Male reproductive interactions can involve 
 
 ## 10. Expanded profile
 ### Habitat and range
-Monarchs originated in North America and now also occur in non-migratory populations elsewhere. In North America they use open habitats containing milkweed and nectar plants, including fields, roadsides, wetlands and gardens. Eastern migrants overwinter primarily in high-elevation oyamel fir forests in central Mexico, while western migrants use coastal California and northern Baja California sites.
+Monarchs are native to North America and now also occur in non-migratory populations elsewhere. In North America they use open habitats containing milkweed and nectar plants, including fields, roadsides, wetlands and gardens. Eastern migrants overwinter primarily in high-elevation oyamel fir forests in central Mexico, while western migrants use coastal California and northern Baja California sites.
 
 ### Diet
 Larvae are milkweed specialists. Adults drink nectar from many flowering plants. This ontogenetic diet shift is central to the animal's biology because larval milkweed supplies cardenolides for adult defense while adult nectar supplies carbohydrate for movement and migration.
@@ -188,7 +188,7 @@ In a forced battle, the monarch survives by not being caught and by being undesi
 | Canada COSEWIC Monarch assessment | https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/monarch-2016.html | adult 93-105 mm wingspan and sex identification | **High.** Government status assessment. |
 | Nature Communications, Guerra et al. 2014 | https://www.nature.com/articles/ncomms5164 | light-dependent magnetic inclination compass, UV-A/blue light, antenna involvement, sun-compass context | **High.** Peer-reviewed experimental work. |
 | Neuron, Heinze & Reppert 2011 | https://doi.org/10.1016/J.NEURON.2010.12.025 | integration of sun/skylight cues in migratory navigation | **High.** Peer-reviewed neurobiology. |
-| Evolution, Petschenka et al. 2013 | https://onlinelibrary.wiley.com/doi/10.1111/evo.12152 | cardenolide resistance and adult sequestration; Na+/K+-ATPase adaptation | **High.** Peer-reviewed evolutionary physiology. |
+| Evolution, Petschenka et al. 2013 | https://onlinelibrary.wiley.com/doi/10.1111/evo.12152 | cardenolide resistance and adult sequestration; Na+/K+-ATPase insensitivity | **High.** Peer-reviewed physiology study. |
 | Functional Ecology, Oberhauser 1997 | https://besjournals.onlinelibrary.wiley.com/doi/10.1046/j.1365-2435.1997.00074.x | breeding female lifespan variation and reproductive resource allocation | **High.** Peer-reviewed life-history experiment. |
 | The Nature Conservancy, Monarch profile | https://www.nature.org/en-us/get-involved/how-to-help/animals-we-protect/monarch-butterfly/ | ~12 mph average migration flight context | **Moderate.** Strong conservation organization, but not a maximum-speed experiment; not used for `speed_mps`. |
 | USFWS Save the Monarch, updated 2026-07-23 | https://www.fws.gov/our-work/pollinators/save-monarch | current U.S. ESA status and threats | **High and current.** Explicitly says no final ruling yet and no federal ESA protection currently in force. |

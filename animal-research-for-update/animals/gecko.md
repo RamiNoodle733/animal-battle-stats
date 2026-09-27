@@ -61,7 +61,7 @@ Tokays are predominantly visual nocturnal foragers. The University of Bern notes
 Males defend territories and advertise with the characteristic call. Aggressive displays include mouth gaping and barking, and direct fights can involve biting. Both sexes can show high aggression. This supports meaningful Ferocity for a tiny vertebrate, but absolute Attack remains low.
 
 ### Locomotion and maneuverability
-The adhesive toe system is the defining combat-relevant adaptation. It allows abrupt changes between floor, wall, trunk and ceiling, creating escape and approach routes unavailable to most terrestrial opponents. The 2021 experiment also shows that locomotor performance is temperature-sensitive, a critical environmental limitation.
+The adhesive toe system is the defining combat-relevant feature. It allows abrupt changes between floor, wall, trunk and ceiling, creating escape and approach routes unavailable to most terrestrial opponents. The 2021 experiment also shows that locomotor performance is temperature-sensitive, a critical environmental limitation.
 
 ### Defense and durability
 Physical protection is weak: ordinary reptilian scales and a small body provide little resistance to crushing, biting or blunt trauma. Defense instead comes from adhesion, crevice use, camouflage, threat displays, rapid repositioning and tail autotomy.
@@ -70,7 +70,7 @@ Physical protection is weak: ordinary reptilian scales and a small body provide 
 Tokays are ectotherms. Their locomotor output depends strongly on temperature, and there is no evidence for mammal-like sustained pursuit. Routine nocturnal activity and repeated climbing support moderate stamina for a lizard, not high absolute endurance.
 
 ### Senses
-Large lidless eyes are adapted to nocturnal vision. The species also uses olfaction and the vomeronasal/Jacobson's system. Its vocal communication is unusually conspicuous for a lizard. These are useful awareness tools but do not justify treating generic sensory excellence as a direct damage multiplier.
+Large lidless eyes are suited to nocturnal vision. The species also uses olfaction and the vomeronasal/Jacobson's system. Its vocal communication is unusually conspicuous for a lizard. These are useful awareness tools but do not justify treating generic sensory excellence as a direct damage multiplier.
 
 ### Intelligence and tactics
 Tokays show territorial decision-making, visual prey selection, vocal communication and parental care. Bern reports captive parental behavior including egg/juvenile defense and assistance around hatching. This supports more behavioral complexity than the live placeholder suggests, while remaining far below corvid, primate and advanced social-mammal cognition.
@@ -147,12 +147,12 @@ The species is a nocturnal carnivore dominated by large insects and other invert
 Tokays are territorial, particularly males, but breeding pairs/family associations can be more socially complex than the old stereotype of a purely solitary gecko. Females commonly cement pairs of hard-shelled eggs to vertical surfaces. Bern researchers report parental care behaviors in captivity, including defense and interactions with juveniles.
 
 ### Conservation
-The 2019 IUCN assessment lists *G. gecko* as **Least Concern**, while CITES regulates international trade under Appendix II. TRAFFIC/IUCN analysis notes a very broad range and adaptability but also substantial trade and reported local declines in parts of Asia. Global LC status therefore should not be interpreted as absence of local pressure.
+The 2019 IUCN assessment lists *G. gecko* as **Least Concern**, while CITES regulates international trade under Appendix II. TRAFFIC/IUCN analysis notes a very broad range and ecological flexibility but also substantial trade and reported local declines in parts of Asia. Global LC status therefore should not be interpreted as absence of local pressure.
 
 ### Human interaction
 Tokays readily inhabit buildings and can benefit people by consuming insects. They are also heavily traded as pets and for traditional-medicine markets. Handling can provoke a persistent bite, so they are poor candidates for casual handling.
 
-### Adaptations
+### Special features
 - Hierarchical toe-pad setae for dry adhesion.
 - Nocturnal visual system with strong low-light/color performance.
 - Vocal territorial communication.

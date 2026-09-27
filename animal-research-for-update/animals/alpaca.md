@@ -9,7 +9,7 @@
 - **Exact ABS animal represented:** Domestic alpaca, with a robust healthy mature male used as the canonical combat specimen because mature males develop substantially larger fighting teeth than females. Huacaya is used as the visual/body-form default because it is the more familiar type, but battle ratings are intended to represent the species rather than a fiber-show phenotype.
 - **Canonical specimen:** Healthy mature adult male, approximately 65 kg, fully grown and with developed fighting teeth.
 - **Sexual dimorphism:** Overall body dimorphism is modest. The major combat-relevant difference is dentition: adult males develop upper/lower incisors and lower canines into fighting teeth exceeding 3 cm, whereas these teeth are less developed in females.
-- **Domestication/taxonomy note:** Genetic work supports descent of the alpaca primarily from the vicuña and the classification *Vicugna pacos*. The long history of domestication means body size, fleece, color, and conformation vary by breed and husbandry.
+- **Domestication/taxonomy note:** Genetic work indicates the alpaca was bred primarily from the vicuña and supports the classification *Vicugna pacos*. The long history of domestication means body size, fleece, color, and conformation vary by breed and husbandry.
 
 ## 2. Physical measurements
 
@@ -68,11 +68,11 @@ No reliable standardized in-vivo bite-force PSI measurement was located. Mastica
 
 ### Defensive structures
 
-Alpacas lack horns, armor, thick dermal shields, or large claws. Dense fleece provides insulation and may offer slight superficial buffering, but it should not be treated as meaningful armor against serious teeth, claws, horns, or crushing attacks. Soft padded feet are adapted to terrain and grazing rather than striking like hard hooves.
+Alpacas lack horns, armor, thick dermal shields, or large claws. Dense fleece provides insulation and may offer slight superficial buffering, but it should not be treated as meaningful armor against serious teeth, claws, horns, or crushing attacks. Soft padded feet are suited to terrain and grazing rather than striking like hard hooves.
 
 ### High-altitude physiology
 
-Peer-reviewed physiological studies show unusually high hemoglobin oxygen affinity and only minor cardiorespiratory adjustment between sea level and 3,300 m. Alpacas maintained arterial oxygen saturation above 90% in one study and display blood/oxygen-transport traits suited to chronic hypoxia. This is a real endurance/environmental adaptation, but it does not mean an alpaca has elite high-output combat stamina.
+Peer-reviewed physiological studies show unusually high hemoglobin oxygen affinity and only minor cardiorespiratory adjustment between sea level and 3,300 m. Alpacas maintained arterial oxygen saturation above 90% in one study and display blood/oxygen-transport traits suited to chronic hypoxia. This is a real endurance/environmental specialization, but it does not mean an alpaca has elite high-output combat stamina.
 
 ## 3. Canonical proposed factual fields
 
@@ -100,7 +100,7 @@ Peer-reviewed physiological studies show unusually high hemoglobin oxygen affini
 
 ### Primary weapons
 
-**Male fighting teeth.** Mature males can develop elongated incisors/canines over 3 cm. These are purpose-built by sexual selection for conflict and can cut/lacerate. Relative to the full ABS roster, however, a 65 kg herbivore with small fangs has limited absolute damage output compared with large carnivores, suids, great apes, crocodilians, or megafauna.
+**Male fighting teeth.** Mature males can develop elongated incisors/canines over 3 cm. These are used in male-male conflict and can cut/lacerate. Relative to the full ABS roster, however, a 65 kg herbivore with small fangs has limited absolute damage output compared with large carnivores, suids, great apes, crocodilians, or megafauna.
 
 ### Secondary weapons
 
@@ -120,11 +120,11 @@ Alpacas have moderate mammalian body mass, a thick fleece coat, and good footing
 
 ### Locomotion and maneuverability
 
-Alpacas are adapted to uneven Andean terrain and possess soft padded feet. Their relatively light camelid build and long legs permit competent repositioning. They are more maneuverable than megafauna such as elephants and alligators on land, but they are not a specialized pursuit predator or acrobatic small animal. Exact top speed remains unresolved.
+Alpacas are at home on uneven Andean terrain and possess soft padded feet. Their relatively light camelid build and long legs permit competent repositioning. They are more maneuverable than megafauna such as elephants and alligators on land, but they are not a specialized pursuit predator or acrobatic small animal. Exact top speed remains unresolved.
 
 ### Endurance and stamina
 
-High-altitude physiology is the standout physical adaptation. Peer-reviewed work demonstrates high oxygen affinity and relatively small cardiorespiratory changes under chronic hypoxia. Alpacas also evolved/are managed in high-elevation grazing systems where sustained low-intensity locomotion is routine. This supports above-average endurance for a domestic herbivore, but not the extreme sustained chase output of African wild dogs or the transoceanic endurance of wandering albatrosses.
+High-altitude physiology is the standout physical specialization. Peer-reviewed work demonstrates high oxygen affinity and relatively small cardiorespiratory changes under chronic hypoxia. Alpacas are also raised and managed in high-elevation grazing systems where sustained low-intensity locomotion is routine. This supports above-average endurance for a domestic herbivore, but not the extreme sustained chase output of African wild dogs or the transoceanic endurance of wandering albatrosses.
 
 ### Senses
 
@@ -178,7 +178,7 @@ Generally low. Alpacas are domesticated, social grazers and usually avoid seriou
 
 - Much smaller unarmored animals that cannot overcome its size/reach
 - Opponents vulnerable to kicks or lacerations but unable to grapple effectively
-- High-altitude matchups where hypoxia penalizes poorly adapted opponents
+- High-altitude matchups where hypoxia penalizes opponents poorly suited to altitude
 
 ### Bad matchup archetypes
 
@@ -199,7 +199,7 @@ All values use the absolute 225-animal scale.
 | Raw Power | **25.0** | Enough body mass for shoving/kicking, but no evidence of exceptional absolute muscular force. |
 | Weaponry | **25.0** | Male >3 cm fighting teeth are real dedicated weapons; kicks add redundancy, but lethality is limited. |
 | Protection | **17.0** | Dense fleece offers insulation and minor superficial buffering, not true armor. |
-| Toughness | **30.0** | Healthy ungulate-like robustness, but not adapted to absorb severe predatory trauma. |
+| Toughness | **30.0** | Healthy ungulate-like robustness, but not built to absorb severe predatory trauma. |
 | Maneuverability | **47.0** | Competent long-legged movement and padded-foot control on uneven ground; not an agility specialist. |
 | Endurance | **60.0** | High-altitude oxygen transport and grazing lifestyle support sustained function, without evidence for elite chase endurance. |
 | Tactics | **35.0** | Herd vigilance, social signals and male fighting behavior, but limited offensive tactical complexity. |
@@ -214,19 +214,19 @@ All values use the absolute 225-animal scale.
 | **Attack** | **25.0** | Male fighting teeth, kicks and body force can injure, but absolute lethality is low compared with serious predators and larger armed herbivores. |
 | **Defense** | **25.0** | Moderate body size and fleece, but no armor; survival strategy is primarily avoidance/flight. |
 | **Agility** | **47.0** | Good terrain control and competent escape movement, without evidence for exceptional acceleration/reflexes. |
-| **Stamina** | **60.0** | Strong high-altitude oxygen-transport adaptation and sustained grazing locomotion, but not an extreme high-output endurance specialist. |
+| **Stamina** | **60.0** | Strong high-altitude oxygen-transport specialization and sustained grazing locomotion, but not an extreme high-output endurance specialist. |
 | **Intelligence** | **43.0** | Trainable, communicative and socially aware, but limited evidence for advanced flexible problem solving or combat tactics. |
 | **Special** | **43.0** | High-altitude physiology plus regurgitated spit create genuine unusual matchup effects, but neither is broadly fight-deciding. |
 
 ### Rating interpretation
 
-The alpaca is a useful anti-compression test. Its proportional adaptations and male-specific fighting anatomy are interesting, but the absolute scale prevents those features from pushing a ~65 kg domestic grazer into predator-level Attack or Defense. Its best relative category is Stamina because high-altitude physiology is directly supported by experimental research.
+The alpaca is a useful anti-compression test. Its proportional specializations and male-specific fighting anatomy are interesting, but the absolute scale prevents those features from pushing a ~65 kg domestic grazer into predator-level Attack or Defense. Its best relative category is Stamina because high-altitude physiology is directly supported by experimental research.
 
 ## 7. Exactly two special abilities and two unique traits
 
 ### Special abilities
 
-1. **Thin-Air Engine** - High-affinity hemoglobin and other oxygen-transport characteristics support effective function under chronic Andean hypoxia. In high-altitude matchups this can preserve performance while a poorly adapted opponent experiences a greater oxygen penalty.
+1. **Thin-Air Engine** - High-affinity hemoglobin and other oxygen-transport characteristics support effective function under chronic Andean hypoxia. In high-altitude matchups this can preserve performance while an opponent poorly suited to altitude experiences a greater oxygen penalty.
 2. **Caustic Spit** - Alpacas can spit/regurgitate stomach contents as a social and defensive deterrent. It can foul the face, distract and discourage an opponent, but is not treated as corrosive damage or a lethal projectile.
 
 ### Unique traits
@@ -238,7 +238,7 @@ The alpaca is a useful anti-compression test. Its proportional adaptations and m
 
 ### Habitat
 
-The alpaca originated as a domestic high-Andean camelid associated with mountain grasslands, valleys and Altiplano/puna environments. Smithsonian describes ancestral/domestic Andean settings, while modern alpacas are raised worldwide.
+The alpaca is a domestic high-Andean camelid traditionally kept in mountain grasslands, valleys and Altiplano/puna environments. Smithsonian describes traditional/domestic Andean settings, while modern alpacas are raised worldwide.
 
 ### Geographic range
 
@@ -269,7 +269,7 @@ Highly social herd animals. Dominant males may maintain reproductive groups, whi
 
 **Domesticated / not meaningfully assessed like a wild species.** Some zoo pages map alpacas into IUCN-style categories inconsistently, but production ABS should avoid presenting a normal wild-species Red List status without qualification. The domestic population is widespread and not threatened in the sense of a wild endangered taxon.
 
-### Major adaptations
+### Special features
 
 - High oxygen affinity suited to altitude
 - Dense insulating fleece
@@ -285,7 +285,7 @@ Alpacas have been domesticated in the Andes for thousands of years, primarily fo
 ### Fun facts
 
 1. Alpacas are the smallest domesticated camelids.
-2. Genetic evidence strongly supports the vicuña as the primary wild ancestor of the alpaca.
+2. Genetic evidence strongly supports that alpacas were bred primarily from wild vicuñas.
 3. Adult males can grow fighting teeth more than 3 cm long.
 4. Their fleece occurs in many natural colors and is the principal reason for their domestication.
 5. Alpacas use a variety of vocalizations and body postures, including humming and alarm calls.
@@ -297,17 +297,17 @@ Alpacas have been domesticated in the Andes for thousands of years, primarily fo
 
 ### Concise site-ready summary
 
-The alpaca (*Vicugna pacos*) is a domesticated South American camelid built for life in the high Andes. A mature male weighs roughly 65 kg and carries specialized fighting teeth over 3 cm long, but its normal survival strategy is vigilance and flight rather than lethal combat. Its standout adaptation is high-altitude physiology: alpaca blood has high oxygen affinity and supports effective function under chronic hypoxia. On the absolute ABS scale, this gives the alpaca respectable Stamina and a useful altitude-related Special ability while keeping Attack and Defense well below true predators and heavily armed herbivores.
+The alpaca (*Vicugna pacos*) is a domesticated South American camelid built for life in the high Andes. A mature male weighs roughly 65 kg and carries specialized fighting teeth over 3 cm long, but its normal survival strategy is vigilance and flight rather than lethal combat. Its standout feature is high-altitude physiology: alpaca blood has high oxygen affinity and supports effective function under chronic hypoxia. On the absolute ABS scale, this gives the alpaca respectable Stamina and a useful altitude-related Special ability while keeping Attack and Defense well below true predators and heavily armed herbivores.
 
 ### Detailed narrative profile
 
-The alpaca is easy to underestimate because its modern image is dominated by fleece farms and companion-animal settings. Biologically, however, it is a specialized domestic camelid shaped by thousands of years of Andean pastoralism and by ancestry in one of the world's most demanding high-altitude environments. Its body is relatively light, long-legged and covered in dense insulating fiber. This combination suits open highland grazing much better than close-quarters combat.
+The alpaca is easy to underestimate because its modern image is dominated by fleece farms and companion-animal settings. Biologically, however, it is a specialized domestic camelid bred through thousands of years of Andean pastoralism and at home in one of the world's most demanding high-altitude environments. Its body is relatively light, long-legged and covered in dense insulating fiber. This combination suits open highland grazing much better than close-quarters combat.
 
 For ABS, the mature male is the most defensible combat specimen. Male alpacas possess a real sex-specific weapon: elongated fighting teeth formed by incisors and canines that can exceed 3 cm. These teeth can cut rivals and demonstrate that male-male conflict is not merely symbolic. Even so, the absolute battle scale matters. A 65 kg alpaca does not possess the jaw mechanics of a big cat, the grappling strength of a great ape, the horns of a large bovid, or the armor of a crocodilian. Fighting teeth improve its Weaponry, but they do not transform it into a high-tier killer.
 
 Its defensive plan is even clearer. Smithsonian describes flight as the alpaca's principal defense. Excellent sight and hearing, herd alarm behavior, long legs and competent footing help it detect danger and leave before contact. Spitting adds a memorable deterrent. Alpaca spit can include regurgitated stomach contents, making it unpleasant and potentially distracting around the eyes and face. ABS should model this as disruption, not as acid damage. The animal still has little dedicated protection once a capable predator establishes a grip.
 
-The most scientifically distinctive part of the profile is altitude physiology. Classic experimental work on alpacas found high hemoglobin oxygen affinity and relatively minor cardiorespiratory changes across altitude. Another study measured oxygen transport at sea level and 3,300 m and reported arterial saturation remaining above 90%, with only minor adjustments consistent with tissue and blood characteristics well suited to chronic hypoxia. This is a legitimate matchup-relevant adaptation. At high elevation an alpaca may retain useful performance better than an opponent with poor hypoxia tolerance. It does not mean the alpaca can sprint or fight indefinitely, so Stamina is strong rather than elite.
+The most scientifically distinctive part of the profile is altitude physiology. Classic experimental work on alpacas found high hemoglobin oxygen affinity and relatively minor cardiorespiratory changes across altitude. Another study measured oxygen transport at sea level and 3,300 m and reported arterial saturation remaining above 90%, with only minor adjustments consistent with tissue and blood characteristics well suited to chronic hypoxia. This is a legitimate matchup-relevant trait. At high elevation an alpaca may retain useful performance better than an opponent with poor hypoxia tolerance. It does not mean the alpaca can sprint or fight indefinitely, so Stamina is strong rather than elite.
 
 Behaviorally, alpacas are social, vigilant and trainable. They communicate through vocalizations and posture, form strong herd relationships and can learn routine husbandry behaviors. Those qualities justify moderate Senses and Intelligence, but there is no basis for giving them the tactical sophistication of coordinated predators, apes, elephants, cetaceans or corvids. Their social system is mainly defensive and reproductive rather than offensive.
 
@@ -390,14 +390,14 @@ Confidence: **High**.
 ### Kadwell et al. - Genetic analysis reveals the wild ancestors of the llama and the alpaca
 URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC1088918/
 
-Supports: genetic evidence that alpaca is descended primarily from vicuña and should be classified *Vicugna pacos*.
+Supports: genetic evidence that alpacas were bred primarily from vicuñas and should be classified *Vicugna pacos*.
 
 Confidence: **High**, peer-reviewed genetic study.
 
 ### Reynafarje et al. - Oxygen transport of hemoglobin in high-altitude animals (Camelidae)
 URL: https://pubmed.ncbi.nlm.nih.gov/1126888/
 
-Supports: high oxygen affinity and multiple blood/muscle biochemical characteristics associated with high-altitude adaptation in alpacas/llamas.
+Supports: high oxygen affinity and multiple blood/muscle biochemical characteristics associated with high-altitude tolerance in alpacas/llamas.
 
 Confidence: **High**, peer-reviewed physiological study, though older.
 
@@ -456,4 +456,4 @@ Alligator's experimentally measured multi-kilonewton bite, armored body and ambu
 - Revisit **Stamina 60.0** after Camel, Bactrian Camel, Yak, Pronghorn, Reindeer and mountain ungulates establish altitude/desert/endurance anchors.
 - Revisit **Agility 47.0** once a reliable alpaca speed/locomotion study is found. Do not use an unsourced top-speed number as a shortcut.
 - Keep **Attack 25.0** conservative unless evidence shows much more severe fighting-tooth injury mechanics than currently documented.
-- The alpaca should remain a clear example of why interesting proportional adaptations do not equal high absolute battle scores.
+- The alpaca should remain a clear example of why interesting proportional specializations do not equal high absolute battle scores.

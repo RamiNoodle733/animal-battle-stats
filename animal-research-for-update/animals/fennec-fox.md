@@ -42,9 +42,9 @@ Fennecs have a normal small-canid biting apparatus, but ADW specifically describ
 
 ### Defensive anatomy and desert physiology
 
-Fennecs have no armor, shell, thick hide or heavy skeletal protection. Their defensive adaptations are avoidance-oriented: pale camouflage, acute hearing, rapid digging, burrows, small size and agility. Thick fur on the feet protects the pads from hot sand and aids traction.
+Fennecs have no armor, shell, thick hide or heavy skeletal protection. Their defensive features are avoidance-oriented: pale camouflage, acute hearing, rapid digging, burrows, small size and agility. Thick fur on the feet protects the pads from hot sand and aids traction.
 
-A classic 1982 physiological paper specifically studied thermoregulation and metabolism in the fennec. More recent comparative genomics of North African foxes found repeated selection signatures in extreme desert specialists including *V. zerda*, particularly genes affecting **renal water homeostasis**, with physiological/gene-expression support. Smithsonian also notes that fennecs can go long periods without free drinking water and obtain water from food. These are genuine environmental survival adaptations, not evidence of unusual trauma resistance.
+A classic 1982 physiological paper specifically studied thermoregulation and metabolism in the fennec. More recent comparative genomics of North African foxes found repeated genetic signatures in extreme desert specialists including *V. zerda*, particularly in genes affecting **renal water homeostasis**, with physiological/gene-expression support. Smithsonian also notes that fennecs can go long periods without free drinking water and obtain water from food. These are genuine environmental survival traits, not evidence of unusual trauma resistance.
 
 ## 3. Canonical proposed factual fields
 
@@ -123,7 +123,7 @@ ADW describes family groups up to roughly ten animals, dominance signaling and t
 | Raw Power | **10.0** | Useful digging and pouncing power for size, but negligible absolute muscular force. |
 | Weaponry | **14.0** | Small canid teeth and claws can kill tiny prey but have little reach or absolute damage. |
 | Protection | **7.0** | Fur and concealment only; no armor or robust passive defense. |
-| Toughness | **12.0** | Healthy desert-adapted mammal, but little mass or structural margin against trauma. |
+| Toughness | **12.0** | Healthy desert-dwelling mammal, but little mass or structural margin against trauma. |
 | Speed | **35.0** | Athletic small canid, deliberately conservative because no defensible maximum speed was verified. |
 | Maneuverability | **88.0** | Light body, rapid pouncing, strong standing jumps, digging and loose-sand traction. |
 | Endurance | **66.0** | Excellent arid-environment persistence and water economy, without evidence for elite pursuit endurance. |
@@ -131,7 +131,7 @@ ADW describes family groups up to roughly ten animals, dominance signaling and t
 | Tactics | **66.0** | Stalk-pounce-dig hunting, caching, burrow use and flexible opportunism. |
 | Senses | **91.0** | Exceptional prey-localizing hearing plus nocturnal sensory suite, without inventing quantitative thresholds. |
 | Ferocity | **44.0** | Active predator and territorial canid, but not a large-opponent combat specialist. |
-| Abilities | **72.0** | Burrowing, sand-adapted feet, water economy and heat-management physiology are highly specialized but mostly environmental. |
+| Abilities | **72.0** | Burrowing, sand-gripping feet, water economy and heat-management physiology are highly specialized but mostly environmental. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -149,12 +149,12 @@ ADW describes family groups up to roughly ten animals, dominance signaling and t
 ### Special abilities
 
 1. **Subsand Sonar**: Oversized pinnae and specialized hearing allow the fox to localize small prey moving beneath sand, enabling targeted digging and pouncing in darkness. This is acoustic localization, not literal sonar or echolocation.
-2. **Sahara Water Economy**: Renal water-homeostasis adaptations, nocturnal behavior and water obtained through food allow prolonged function without regular access to free drinking water, improving persistence in hot arid matchups.
+2. **Sahara Water Economy**: Renal water-homeostasis specializations, nocturnal behavior and water obtained through food allow prolonged function without regular access to free drinking water, improving persistence in hot arid matchups.
 
 ### Unique traits
 
 1. **Sandshoe Paws**: Dense fur on the feet protects pads from hot substrate and improves movement on loose sand.
-2. **Heat-Radiator Ears**: Disproportionately large ears contribute to heat exchange while also supporting acute hearing, a distinctive dual-use desert adaptation.
+2. **Heat-Radiator Ears**: Disproportionately large ears contribute to heat exchange while also supporting acute hearing, a distinctive dual-use desert feature.
 
 ## 8. Expanded profile
 
@@ -174,7 +174,7 @@ Family groups may contain a breeding pair, young and older offspring. Vocal comm
 
 The IUCN Canid Specialist Group reports *V. zerda* as **Least Concern**, based on the 2015 assessment and its broad Saharan distribution, while noting that information remains limited. CITES' 2026 documentation also records the species as Least Concern under that assessment. Trapping for exhibition/tourist sale and human disturbance are recognized pressures. Least Concern should not be interpreted as absence of local pressure.
 
-### Major adaptations
+### Special features
 
 - Large ears for prey detection and heat exchange.
 - Pale coat for desert concealment.
@@ -194,22 +194,22 @@ Fennecs are kept in zoos and occur in wildlife trade. Smithsonian notes legal pr
 - Adults can jump roughly a meter from a standing start according to Smithsonian.
 - The soles are heavily furred, functioning like biological protection against hot sand.
 - Family life and solitary hunting coexist: fennecs can live in social groups but commonly forage alone.
-- Recent genomics found desert-specialist foxes including fennecs show repeated selection signatures related to renal water homeostasis.
+- Recent genomics found desert-specialist foxes including fennecs show repeated genetic signatures related to renal water homeostasis.
 
 ### Concise site-ready summary
 
-The fennec fox is a tiny Saharan canid built around detection, evasion and desert survival rather than brute force. A roughly 1.5 kg adult male combines exceptional hearing, furred sand-adapted feet, rapid pouncing and water-conserving physiology. Its bite can dispatch small prey, but its absolute Attack and Defense are very low against the broader ABS roster. Its real strengths are Agility, Senses and desert-specialist abilities.
+The fennec fox is a tiny Saharan canid built around detection, evasion and desert survival rather than brute force. A roughly 1.5 kg adult male combines exceptional hearing, furred sand-gripping feet, rapid pouncing and water-conserving physiology. Its bite can dispatch small prey, but its absolute Attack and Defense are very low against the broader ABS roster. Its real strengths are Agility, Senses and desert-specialist abilities.
 
 ### Narrative profile
 
 A fennec survives by knowing what is under the sand before it becomes visible. At night, the fox listens for rodents, reptiles and insects, approaches, then pounces or excavates with rapid fore- and hind-foot action. The same light frame that limits damage output makes direction changes and standing jumps highly effective. If danger escalates, concealment and a burrow are more valuable than trading blows.
 
-Its oversized ears are the signature adaptation, but the desert package is broader. Pale fur reduces visual contrast, furred soles insulate the feet and improve traction, nocturnality avoids peak heat, and water-balance physiology reduces dependence on free water. Those adaptations justify a high Special rating, but none should leak into Raw Power or passive Defense. In an absolute battle model, the fennec remains a 1.5 kg animal. It can be biologically extraordinary and still be physically overwhelmed by most medium-sized roster animals.
+Its oversized ears are the signature feature, but the desert package is broader. Pale fur reduces visual contrast, furred soles insulate the feet and improve traction, nocturnality avoids peak heat, and water-balance physiology reduces dependence on free water. Those traits justify a high Special rating, but none should leak into Raw Power or passive Defense. In an absolute battle model, the fennec remains a 1.5 kg animal. It can be biologically extraordinary and still be physically overwhelmed by most medium-sized roster animals.
 
 ### Future structured-field proposals
 
 - `tail_length_cm`: representative/range, because tail is a major balance and morphology feature.
-- `ear_length_cm`: useful species-specific adaptation field with source/range semantics.
+- `ear_length_cm`: useful species-specific feature field with source/range semantics.
 - `jump_vertical_m` and `jump_horizontal_m`: only where institutional/primary evidence exists.
 - `free_water_dependence`: categorical field separating desert water economy from exercise stamina.
 - `burrowing_specialist`: boolean or ordinal locomotor/ecology field.
@@ -232,10 +232,10 @@ Its oversized ears are the signature adaptation, but the desert package is broad
 
 | Source | Direct URL | Supports | Finding | Confidence / caveat |
 |---|---|---|---|---|
-| Smithsonian National Zoo, Fennec fox | https://nationalzoo.si.edu/animals/fennec-fox | size, ears, habitat, diet, reproduction, lifespan, heat/water adaptations, jumping | 0.9-1.4 kg; 35.6-40.6 cm body; 10.2-15.2 cm ears; up to 11 y human care; prey-under-sand hearing; water from food; ~1 m jump | High institutional source; captive lifespan is not wild lifespan |
+| Smithsonian National Zoo, Fennec fox | https://nationalzoo.si.edu/animals/fennec-fox | size, ears, habitat, diet, reproduction, lifespan, heat/water physiology, jumping | 0.9-1.4 kg; 35.6-40.6 cm body; 10.2-15.2 cm ears; up to 11 y human care; prey-under-sand hearing; water from food; ~1 m jump | High institutional source; captive lifespan is not wild lifespan |
 | Animal Diversity Web, *Vulpes zerda* | https://animaldiversity.org/accounts/Vulpes_zerda/ | sex/size ranges, height, tail, behavior, lifespan, sociality | 0.8-1.5 kg; male larger; 18-22 cm shoulder; 30-40 cm body; 18-30 cm tail; wild up to 10 y; family groups; caching; stalk-spring-pounce | Moderate-high synthesis; some underlying references are older |
 | Maloiy et al. 1982, Journal of Zoology | https://doi.org/10.1111/j.1469-7998.1982.tb02076.x | thermoregulation/metabolism | Species-specific physiological study of fennec thermoregulation and metabolism | High primary source; older study |
-| Rocha et al. 2023, Nature Ecology & Evolution / PubMed | https://pubmed.ncbi.nlm.nih.gov/37308700/ | desert adaptation/genomics | Extreme desert fox specialists including fennec show repeated selection signatures involving renal water homeostasis | High peer-reviewed genomic evidence; gene signatures are not direct combat measurements |
+| Rocha et al. 2023, Nature Ecology & Evolution / PubMed | https://pubmed.ncbi.nlm.nih.gov/37308700/ | desert physiology/genomics | Extreme desert fox specialists including fennec show repeated genetic signatures involving renal water homeostasis | High peer-reviewed genomic evidence; gene signatures are not direct combat measurements |
 | IUCN SSC Canid Specialist Group | https://www.canids.org/species/view/PREKPF521541 | taxonomy, range, conservation | *V. zerda*, Least Concern under 2015 assessment, broad sandy-desert range, no known major range-wide decline | High authority; global assessment is dated 2015 |
 | CITES AC30 species document, 2026 | https://cites.org/sites/default/files/eng/com/ac/30/E-AC30-13-01-A3.pdf | current trade/conservation context, breeding biology | Records IUCN LC (2015); summarizes social units and maturity | High intergovernmental source; relies partly on prior literature |
 | Wikimedia Commons, Drew Avery | https://commons.wikimedia.org/wiki/File:Fennec_Fox_Vulpes_zerda.jpg | image provenance | Exact species, 3197x2477, CC BY 2.0, Flickr-reviewed | Strong provenance; fails strict single-subject/adult verification |

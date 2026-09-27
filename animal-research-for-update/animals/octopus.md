@@ -54,7 +54,7 @@ The species lacks shell or armor. Its body is highly deformable, with the beak t
 ### Offensive mechanics
 The giant Pacific octopus is a close-control predator. It can envelop prey with eight muscular arms and inter-arm webbing, establish many sucker contacts, pull or restrain prey, and bring the beak/radula to a controlled target. Hard-shelled prey are not handled with one fixed tactic: experiments show pulling, chipping and drilling are selected according to resistance. Toxic saliva assists prey immobilization after access is gained.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 There is little conventional armor. Instead, the octopus relies on concealment, den refuge, flexible anatomy, distributed limbs, ink and rapid jet-assisted escape. Adult predators include large fishes and marine mammals, so a 30 kg octopus is not physically invulnerable. Damage to soft tissue can be serious, and the short semelparous life history does not imply unusual trauma resistance.
 
 ### Locomotion and maneuverability
@@ -132,7 +132,7 @@ All scores use the absolute 225-animal roster scale.
 2. **Eight-Arm Capture Web** - eight muscular, chemosensory sucker-lined arms can envelop, probe and restrain prey while routing it toward the beak, combining sensing and control in the same appendages.
 
 ### Unique traits
-1. **Adaptive Shellbreaker** - experimentally switches among pulling, chipping and drilling depending on prey-shell resistance instead of relying on one fixed feeding technique.
+1. **Versatile Shellbreaker** - experimentally switches among pulling, chipping and drilling depending on prey-shell resistance instead of relying on one fixed feeding technique.
 2. **Beak-Limited Body** - almost the entire body is deformable, allowing use of narrow refuges constrained primarily by the rigid beak rather than a skeleton.
 
 ## 8. Expanded profile
@@ -149,7 +149,7 @@ Mostly solitary. Reproduction is semelparous. Females attach tens of thousands o
 ### Conservation
 The species is not treated as globally endangered in the institutional sources reviewed here, but abundance estimation is difficult. NOAA repeatedly characterizes North Pacific octopus stock knowledge as limited and manages multiple octopus species as assemblages in Alaska, so apparent broad distribution should not be mistaken for precise population certainty.
 
-### Major adaptations
+### Special features
 Eight muscular arms, dense suckers with chemical/tactile sensing, dynamic chromatophore/texture camouflage, ink, jet propulsion, deformable soft body, hard beak/radula, toxic saliva and high behavioral flexibility.
 
 ### Human interaction

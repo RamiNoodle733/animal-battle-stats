@@ -17,7 +17,7 @@
 
 The African Lion entry represents the lion, *Panthera leo*, specifically an African population rather than the smaller remaining Asiatic population in India. Taxonomic placement is Animalia, Chordata, Mammalia, Carnivora, Felidae, *Panthera*, *Panthera leo*.
 
-Modern lion taxonomy recognizes major geographic lineages rather than the many older subspecies historically proposed. For ABS, the important practical choice is to avoid mixing a record specimen, captive giant, or Asiatic male into the canonical African profile.
+Modern lion taxonomy recognizes major geographic groups rather than the many older subspecies historically proposed. For ABS, the important practical choice is to avoid mixing a record specimen, captive giant, or Asiatic male into the canonical African profile.
 
 ### Canonical specimen assumption
 
@@ -29,7 +29,7 @@ The canonical specimen is not a 250+ kg exceptional giant. A representative larg
 
 Sexual dimorphism is strongly battle-relevant. Adult males are heavier and carry a mane, while females are the primary pride hunters. Males form coalitions, challenge resident males, defend territories and prides, and can suffer severe or fatal wounds in escalated fights. Smithsonian notes that males take on most defensive duties and that young males form coalitions before attempting pride takeovers.
 
-The mane should not be treated as proven armor. University of Minnesota lion research found no compelling evidence that the mane provides effective protection from wounding. It functions much more clearly as a sexually selected signal of male quality, condition and intimidation. That distinction matters for ABS Defense.
+The mane should not be treated as proven armor. University of Minnesota lion research found no compelling evidence that the mane provides effective protection from wounding. It functions much more clearly as a signal of male quality, condition and intimidation. That distinction matters for ABS Defense.
 
 ---
 
@@ -87,7 +87,7 @@ This is not a claim that lions have weak jaws. It is a data-integrity decision: 
 
 ### Skull and canines
 
-Published cranial datasets show the lion has a large robust skull. A broad comparative dataset reported adult male lion skull length around **358.6 mm** on average in its sample. Lions use large canines to seize and kill prey, while carnassials shear flesh. Their jaws are designed for gripping and killing large prey, but lion cranial mechanics should not be confused with the extreme bone-processing specialization of hyenas or the proportionally exceptional bite mechanics of jaguars.
+Published cranial datasets show the lion has a large robust skull. A broad comparative dataset reported adult male lion skull length around **358.6 mm** on average in its sample. Lions use large canines to seize and kill prey, while carnassials shear flesh. Their jaws are built for gripping and killing large prey, but lion cranial mechanics should not be confused with the extreme bone-processing specialization of hyenas or the proportionally exceptional bite mechanics of jaguars.
 
 ### Forelimbs and claws
 
@@ -305,7 +305,7 @@ Females typically give birth to one to four cubs after roughly 3.5 months gestat
 
 The lion is currently classified as **Vulnerable** globally by IUCN, with major regional differences. The IUCN Cat Specialist Group reports extensive range loss, fragmentation, prey depletion, habitat loss, human-lion conflict and illegal killing as major pressures. Some regional populations are stable or recovering, while others remain severely threatened.
 
-### Major adaptations
+### Special features
 
 - muscular forequarters for grappling and prey control
 - retractile claws for traction, hooking and slashing
@@ -313,7 +313,7 @@ The lion is currently classified as **Vulnerable** globally by IUCN, with major 
 - low-light sensory performance for nocturnal/crepuscular hunting
 - social coordination unusual among cats
 - loud roaring and scent marking for territorial communication
-- male mane as a sexually selected signal of condition and intimidation
+- male mane as a signal of condition and intimidation
 
 ### Human interaction
 
@@ -334,13 +334,13 @@ The African Lion is a powerful social big cat built for explosive close-range co
 
 ### Detailed narrative profile
 
-A prime adult male African lion is not simply a scaled-up house cat and not simply a bundle of famous predator statistics. Its combat design is an integrated system. Powerful forequarters allow the lion to strike, hook and hold. Retractile claws provide purchase. The jaws and canines finish prey once control is established. A muscular 190 kg body adds enough momentum and leverage to wrestle large animals, while feline balance and acceleration let the lion reposition far more quickly than most animals in the same mass neighborhood.
+A prime adult male African lion is not simply a scaled-up house cat and not simply a bundle of famous predator statistics. Its combat anatomy is an integrated system. Powerful forequarters allow the lion to strike, hook and hold. Retractile claws provide purchase. The jaws and canines finish prey once control is established. A muscular 190 kg body adds enough momentum and leverage to wrestle large animals, while feline balance and acceleration let the lion reposition far more quickly than most animals in the same mass neighborhood.
 
-The male's natural history adds another layer. Female lions do most cooperative pride hunting, but males live a life shaped by direct competition with other males. Young males leave their natal pride, often form coalitions and eventually challenge resident males. These contests can be brutal. The lion therefore has unusually relevant fighting experience against an opponent with almost the same weapons, anatomy and tactical options.
+The male's natural history adds another layer. Female lions do most cooperative pride hunting, but males live a life dominated by direct competition with other males. Young males leave their natal pride, often form coalitions and eventually challenge resident males. These contests can be brutal. The lion therefore has unusually relevant fighting experience against an opponent with almost the same weapons, anatomy and tactical options.
 
 That does not make the lion invincible. The absolute ABS scale is especially important here. A 190 kg male is formidable compared with most terrestrial predators but tiny beside a 5.5-tonne African elephant. The lion cannot compensate for a thirty-fold mass deficit merely because it is a better specialized killer. Likewise, large bovids, hippos and rhinoceroses can punish a failed grapple with horns, jaws or enormous body force. A lion's lack of armor means every committed close-range attack carries risk.
 
-The mane is also easy to overrate. It is visually dramatic and clearly matters in lion social biology, but field research has not found compelling evidence that it serves as effective armor against rival attacks. Its stronger role is signaling: mane characteristics advertise information about a male, and other lions respond to those signals. ABS should reward this as a real behavioral adaptation without turning hair into a shield.
+The mane is also easy to overrate. It is visually dramatic and clearly matters in lion social biology, but field research has not found compelling evidence that it serves as effective armor against rival attacks. Its stronger role is signaling: mane characteristics advertise information about a male, and other lions respond to those signals. ABS should reward this as a real behavioral trait without turning hair into a shield.
 
 The resulting profile is a strong but bounded predator. Attack and Agility are the lion's headline strengths. Intelligence is above average because social coordination, rival assessment and ambush tactics are genuinely sophisticated. Defense is only moderate-to-strong because muscle and toughness cannot replace armor. Stamina is not elite because lions depend heavily on short bursts. Special remains moderate because, despite the lion's iconic biology, it does not possess venom, electricity, echolocation, chemical weaponry or another rare mechanism that fundamentally changes matchup rules.
 

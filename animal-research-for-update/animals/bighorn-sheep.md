@@ -9,7 +9,7 @@
 - **Exact animal represented:** North American bighorn sheep, *Ovis canadensis*. For canonical combat scaling, use a healthy mature Rocky Mountain-type ram rather than a smaller desert ewe or a record trophy animal.
 - **Canonical specimen:** Healthy fully mature adult male (ram), approximately **110.0 kg**, **100.0 cm at the shoulder**, and **170.0 cm head-to-tail/body-length convention**.
 - **Why male:** Sexual dimorphism is major and directly combat-relevant. Rams are substantially heavier, have massive curled horns, thicker neck/chest construction, and are the sex that performs prolonged high-energy ramming contests.
-- **Population variation:** Rocky Mountain, Sierra Nevada, and desert populations differ materially in body size, coat, horn form, climate adaptations, and ecology. NPS reports Rocky Mountain rams over 300 lb in some populations, while desert rams are generally smaller. The 110 kg canonical ram is large and mature without using the exceptional upper end.
+- **Population variation:** Rocky Mountain, Sierra Nevada, and desert populations differ materially in body size, coat, horn form, climate tolerance, and ecology. NPS reports Rocky Mountain rams over 300 lb in some populations, while desert rams are generally smaller. The 110 kg canonical ram is large and mature without using the exceptional upper end.
 
 ## 2. Physical measurements
 
@@ -72,7 +72,7 @@ Peer-reviewed biomechanics are especially strong. Scientific Reports summarizes 
 
 Bighorn sheep do not have body armor, but the ram's head-horn complex is a specialized impact-management system. The keratin horn, tapered spiral geometry, bony horn core, and foam-like trabecular bone dissipate energy. This specialization protects against the characteristic head-on impacts of ram combat but must not be generalized into whole-body invulnerability. Mountain lions can kill adult bighorns.
 
-The feet are another major adaptation: NPS describes specialized hooves and rubber-like pads that grip steep rocky surfaces, providing exceptional sure-footedness and escape ability on cliffs.
+The feet are another major specialization: NPS describes specialized hooves and rubber-like pads that grip steep rocky surfaces, providing exceptional sure-footedness and escape ability on cliffs.
 
 ## 3. Canonical proposed factual fields
 
@@ -185,7 +185,7 @@ Primary defense is early detection followed by rapid movement into steep escape 
 | Tactics | **48.0** | Rival assessment, dominance behavior, and terrain use are useful but behaviorally narrower than top cognitive taxa. |
 | Senses | **67.0** | Strong vision, smell, and hearing provide effective long-range threat detection. |
 | Ferocity | **68.0** | Mature rams willingly perform repeated violent clashes during rut, though aggression is strongly context-dependent. |
-| Abilities | **59.0** | Horn impact mitigation and specialized cliff locomotion are meaningful matchup-changing adaptations without being exotic offensive systems. |
+| Abilities | **59.0** | Horn impact mitigation and specialized cliff locomotion are meaningful matchup-changing specializations without being exotic offensive systems. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -240,7 +240,7 @@ Rut occurs seasonally, with mature rams competing for access to females. Gestati
 
 At the species scale *Ovis canadensis* remains widespread, but conservation status varies sharply by population and subspecies. The Sierra Nevada bighorn (*O. c. sierrae*) and the Peninsular Ranges population of desert bighorn have received U.S. federal protection. Historical declines were driven by overhunting, habitat change, competition, and especially disease introduced from domestic livestock. The future site should avoid applying a threatened subspecies/population status to every bighorn sheep.
 
-### Major adaptations
+### Special features
 
 - Massive permanent horns in males
 - Energy-absorbing horn and horncore architecture
@@ -248,7 +248,7 @@ At the species scale *Ovis canadensis* remains widespread, but conservation stat
 - Specialized gripping hooves and foot pads
 - Excellent visual vigilance in open terrain
 - Strong mountain/canyon locomotor control
-- Population-specific adaptations to alpine cold or desert aridity
+- Population-specific tolerance of alpine cold or desert aridity
 
 ### Human interaction
 
@@ -312,7 +312,7 @@ Bighorns also have meaningful endurance. Rutting rams can engage in repeated cla
 | Drake et al., Acta Biomaterialia (2016), PubMed | https://pubmed.ncbi.nlm.nih.gov/27544811/ | Horn/horncore impact absorption | CT-derived finite-element models show horn and trabecular horncore reduce brain-cavity acceleration | **Very high**; peer-reviewed primary biomechanics |
 | Huang et al., Acta Biomaterialia (2017), PubMed | https://pubmed.ncbi.nlm.nih.gov/28974475/ | Charge velocity and horn material mechanics | Rams collide around 9 m/s; hierarchical horn structure provides impact resistance/energy absorption | **Very high**; peer-reviewed materials study |
 | Canyonlands National Park, NPS | https://www.nps.gov/cany/learn/photosmultimedia/inside_bighornsheep.htm | Rut behavior and independent charge-speed context | Rams charge at up to 20 mph and clash during rut | **High** as corroborating government source |
-| Yosemite National Park, NPS | https://www.nps.gov/yose/learn/nature/sheep-biology.htm | Hoof/terrain adaptation, Sierra population size context | Rubber-like hoof pad grips rock; Sierra rams up to 220 lb | **High**; subspecies/local context |
+| Yosemite National Park, NPS | https://www.nps.gov/yose/learn/nature/sheep-biology.htm | Hoof/terrain specialization, Sierra population size context | Rubber-like hoof pad grips rock; Sierra rams up to 220 lb | **High**; subspecies/local context |
 | Curecanti NRA, NPS | https://www.nps.gov/cure/learn/nature/mammals.htm | Senses, hooves, sociality | Vision/hearing/smell detect danger; specialized hooves grip steep terrain; sexes separate outside rut | **High**; government summary |
 | USGS Southwest Biological Science Center | https://www.usgs.gov/centers/southwest-biological-science-center/science/predation-desert-bighorn-sheep-mountain-lions | Predator vulnerability and disease | Mountain lion predation can be major mortality source; respiratory disease important population limiter | **Very high** for desert-population ecology |
 | Grand Canyon NPS | https://www.nps.gov/articles/desert-bighorn-sheep.htm | Desert ecology, social groups, ram combat | Desert rams to 250 lb; herds commonly 8-10; rams charge head-on for dominance | **High**; desert subspecies context |
@@ -344,4 +344,4 @@ Bighorns also have meaningful endurance. Rutting rams can engage in repeated cla
 - **Versus Beaver:** Beaver's incisors are excellent cutting tools at 23 kg, but the bighorn's fivefold mass and high-energy charge demand a much higher absolute Attack.
 - **Versus Bald Eagle/Barn Owl:** Flying raptors remain more maneuverable in three dimensions, but their tiny body masses keep absolute Attack below the ram. Bighorn Agility 74.0 reflects terrain control, not speed inflation.
 - **Versus Beluga Whale:** Beluga is over an order of magnitude heavier, so Bighorn must remain far below it in Size and whole-body durability. The ram's specialized horns allow respectable terrestrial Attack without collapsing that mass gap.
-- **Normalization watch:** Weaponry 67.0 and Agility 74.0 are intentionally high for a 110 kg herbivore because they describe genuine specialization. Attack 58.0 and Defense 48.0 remain much more conservative so the adaptation is not double-counted into universal combat superiority. Revisit against Bison, Cape Buffalo, Elk, Moose, Mountain Goat, Musk Ox, and Ibex during later cross-roster audits.
+- **Normalization watch:** Weaponry 67.0 and Agility 74.0 are intentionally high for a 110 kg herbivore because they describe genuine specialization. Attack 58.0 and Defense 48.0 remain much more conservative so the specialization is not double-counted into universal combat superiority. Revisit against Bison, Cape Buffalo, Elk, Moose, Mountain Goat, Musk Ox, and Ibex during later cross-roster audits.

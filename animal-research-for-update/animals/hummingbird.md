@@ -114,7 +114,7 @@ Outside mating they are largely solitary/resource-oriented. Males defend profita
 ### Conservation and humans
 Smithsonian lists the species as **Least Concern** and not endangered, while noting hazards including window collisions and domestic cats. Feeders and native flowering gardens create frequent human contact.
 
-### Adaptations
+### Special features
 Hover-specialized wing stroke, near-continuous lift, extreme aerobic metabolism, torpor, long nectar-feeding bill/tongue, visual stabilization, and seasonal migration fat loading.
 
 ### Fun facts

@@ -65,7 +65,7 @@ Adult males possess conspicuously enlarged canines, heavy facial/cranial ridges 
 
 ### Defensive structures and body form
 
-Olive baboons have no armor. The mature male's advantages are body mass, robust skull/neck/shoulders, thick coat, mobility, threat displays and social support. The mane is not treated as armor. Hands and feet support versatile terrestrial quadrupedal locomotion and climbing. Ischial callosities are sitting adaptations, not battle protection.
+Olive baboons have no armor. The mature male's advantages are body mass, robust skull/neck/shoulders, thick coat, mobility, threat displays and social support. The mane is not treated as armor. Hands and feet support versatile terrestrial quadrupedal locomotion and climbing. Ischial callosities are sitting pads, not battle protection.
 
 ## 3. Canonical proposed factual fields
 
@@ -99,7 +99,7 @@ The primary weapon is the mouth, especially the long male canines. The skull has
 
 Forelimbs and hands are not clawed killing weapons, but they provide grip, balance, manipulation and the ability to seize or stabilize an opponent during a close encounter. Body weight and strong limbs support lunging, wrestling and forceful threat displays. The most dangerous sequence is therefore a rapid close, grasp or positional disruption, followed by canine use, rather than a long-distance chase attack.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 There is no shell, thick hide or specialized trauma-resistant structure. Defense comes from a robust adult male frame, mobility, situational awareness, threat displays and the ability to retaliate dangerously. A leopard remains capable of killing baboons, demonstrating that the male's dangerous canines do not translate into high passive protection.
 
@@ -121,7 +121,7 @@ This is a major strength. Olive baboons live in complex multi-male, multi-female
 
 ### Hunting and predatory behavior
 
-Olive baboons are omnivores, not dedicated macropredators. Their diet includes fruits, grasses, roots, seeds, insects, eggs, carrion and small vertebrates. They can kill animal prey opportunistically, but the adult male's canines evolved in a social/competitive system as well as feeding. ABS Attack therefore recognizes dangerous weaponry without treating the baboon like a similarly sized specialist carnivore.
+Olive baboons are omnivores, not dedicated macropredators. Their diet includes fruits, grasses, roots, seeds, insects, eggs, carrion and small vertebrates. They can kill animal prey opportunistically, but the adult male's canines serve social/competitive functions as well as feeding. ABS Attack therefore recognizes dangerous weaponry without treating the baboon like a similarly sized specialist carnivore.
 
 ### Intraspecific fighting
 
@@ -251,11 +251,11 @@ Mating is polygynandrous. Male rank and competitive ability influence consort ac
 
 The species is currently treated as **Least Concern** by IUCN and is widespread. It is listed under CITES Appendix II with other baboons. Local conflict can still be intense because crop raiding and habituation lead to persecution even when the species is not globally threatened.
 
-### Major adaptations
+### Special features
 
 - Strong sexual dimorphism with enlarged male weaponry
 - Self-maintaining canine honing complex
-- Terrestrial quadrupedal efficiency plus retained climbing competence
+- Terrestrial quadrupedal efficiency plus climbing competence
 - Grasping hands and feet
 - Cheek pouches for efficient foraging
 - Broad omnivory and low-quality-food tolerance
@@ -288,7 +288,7 @@ In a fight, the baboon's best route is not trading raw force with a larger oppon
 
 Its intelligence deserves separation from troop power. Olive baboons track rank, relationships and social context, form coalitions and change aggressive behavior according to circumstances. Those facts support strong tactical cognition in a solo animal, but they do not justify adding the strength of 50 troopmates to its stats. Likewise, documented leopard mobbing demonstrates risk tolerance and coordinated defense rather than proving that one male routinely beats leopards.
 
-Ecologically, the species is unusually adaptable. It can forage across savanna, steppe, woodland and forest margins, eat an exceptionally broad diet, walk kilometers per day and still climb effectively. That flexibility is why Agility, Stamina and Intelligence can all be strong even while Defense remains modest. In full-roster ABS scaling, the olive baboon should feel dangerous because of versatility and tactical close-range weapon use, not because its physical force has been exaggerated to great-ape or big-cat levels.
+Ecologically, the species is unusually flexible. It can forage across savanna, steppe, woodland and forest margins, eat an exceptionally broad diet, walk kilometers per day and still climb effectively. That flexibility is why Agility, Stamina and Intelligence can all be strong even while Defense remains modest. In full-roster ABS scaling, the olive baboon should feel dangerous because of versatility and tactical close-range weapon use, not because its physical force has been exaggerated to great-ape or big-cat levels.
 
 ### Useful future structured-field ideas
 

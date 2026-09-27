@@ -135,7 +135,7 @@ A 2015 Toxicon study showed that honey badgers have amino-acid substitutions at 
 | Maneuverability | **60.0** | Low center of gravity, twisting skin and short powerful limbs aid close-range repositioning. |
 | Endurance | **69.0** | Field-tracked males cover long active-period distances and enormous ranges. |
 | Recovery | **52.0** | General mustelid resilience is useful, but no extraordinary trauma-recovery mechanism is established. |
-| Tactics | **66.0** | Flexible prey switching, excavation and opportunistic foraging show meaningful behavioral adaptability. |
+| Tactics | **66.0** | Flexible prey switching, excavation and opportunistic foraging show meaningful behavioral flexibility. |
 | Senses | **64.0** | Strong smell and close-range sensory competence, without an elite exotic sense. |
 | Ferocity | **84.0** | High defensive willingness and aggressive male interactions, moderated below mythic 100-level claims. |
 | Abilities | **78.0** | Alpha-neurotoxin resistance plus loose-skin counter-grappling can materially change specific matchups. |
@@ -148,7 +148,7 @@ A 2015 Toxicon study showed that honey badgers have amino-acid substitutions at 
 | **Defense** | **45.0** | Thick loose skin and compact build are excellent for size, yet still only moderate in roster-wide absolute defense. |
 | **Agility** | **61.0** | Good close-range control and twisting/repositioning, not exceptional top speed. |
 | **Stamina** | **70.0** | Strong field-supported ranging endurance without confusing travel with pursuit performance. |
-| **Intelligence** | **64.0** | Flexible generalist foraging and spatial behavior support solid tactical adaptability. |
+| **Intelligence** | **64.0** | Flexible generalist foraging and spatial behavior support solid tactical versatility. |
 | **Special** | **80.0** | Verified alpha-neurotoxin resistance and unusual loose-skin defense create genuinely distinctive matchup effects. |
 
 ## 7. Exactly two special abilities and exactly two unique traits
@@ -181,7 +181,7 @@ Honey badgers are predominantly solitary. Adult male home ranges in the southern
 
 The species is generally treated as **Least Concern** globally, but local pressures include persecution, trapping, road mortality and conflict with beekeepers or poultry keepers. Its broad distribution should not obscure local declines or fragmented populations.
 
-### Adaptations
+### Special features
 
 - Powerful forelimbs and claws for excavation.
 - Loose thick skin and reduced external ears for close physical encounters.
@@ -205,7 +205,7 @@ The honey badger is a compact, wide-ranging mustelid built for excavation and st
 
 ### Rich narrative profile
 
-The honey badger's real biology is more interesting than its internet mythology. It is not an indestructible miniature tank. It is a small but exceptionally well-equipped generalist whose adaptations solve specific ecological problems. Strong forequarters open burrows and nests, a robust bite handles diverse prey, and loose skin makes a superficial grab less decisive than it would be on many similarly sized mammals.
+The honey badger's real biology is more interesting than its internet mythology. It is not an indestructible miniature tank. It is a small but exceptionally well-equipped generalist whose specializations solve specific ecological problems. Strong forequarters open burrows and nests, a robust bite handles diverse prey, and loose skin makes a superficial grab less decisive than it would be on many similarly sized mammals.
 
 Its strongest special claim also has unusually good mechanistic evidence. Honey badgers prey on venomous snakes, and molecular work shows changes in the muscular nicotinic acetylcholine receptor that impede binding by snake alpha-neurotoxins. That does not make the animal immune to all venom. In ABS terms, it is a matchup-specific resistance and belongs primarily in Special, not as a blanket increase to Defense.
 
@@ -240,7 +240,7 @@ The Kalahari movement record also corrects another common distortion. Honey badg
 | Begg et al., Journal of Zoology, diet/foraging | https://doi.org/10.1017/S0952836903003789 | diet, dimorphism, foraging | nine habituated free-ranging animals; seasonal prey switching; marked dimorphism but no sex difference in prey size/digging success | High, peer reviewed |
 | Begg et al., Journal of Zoology, spatial organization | https://doi.org/10.1017/S0952836904005989 | home range, travel, social spacing | males 541±93 km² vs females 126±13; travel rates 3.8 vs 2.7 km/h; actual active-period movement 13.8 vs 7.7 km | High, peer reviewed; not maximum speed |
 | Kheswa et al., Mammalian Biology | https://www.researchgate.net/publication/322894667_Habitat_use_by_honey_badgers_and_the_influence_of_predators_in_iSimangaliso_Wetland_Park_South_Africa | mass, range ecology | females 5–10 kg; males up to 16 kg, citing Begg et al. | Moderate-high; peer-reviewed paper copy/index |
-| Drabeck, Dean & Jansa, Toxicon | https://pubmed.ncbi.nlm.nih.gov/25796346/ | venom resistance | nAChR substitutions impede alpha-neurotoxin binding; convergent resistance mechanism | High, peer reviewed; not universal venom immunity |
+| Drabeck, Dean & Jansa, Toxicon | https://pubmed.ncbi.nlm.nih.gov/25796346/ | venom resistance | nAChR substitutions impede alpha-neurotoxin binding; resistance mechanism shared with other snake-resistant mammals | High, peer reviewed; not universal venom immunity |
 | Animal Diversity Web | https://animaldiversity.org/accounts/Mellivora_capensis/ | lifespan, reproduction, behavior, diet | wild 7–8 y; captive 24–26 y; broad diet; prolonged maternal care | Moderate-high institutional synthesis |
 | African Wildlife Foundation | https://www.awf.org/wildlife-conservation/ratel | morphology, habitat, lifespan | 8–12 kg; 60–70 cm; wild up to 8 y; powerful forequarters | Moderate-high institutional |
 | American Society of Mammalogists image library | https://www.mammalsociety.org/image-library/mellivora-capensis-1299 | image anatomy/taxon | exact species, side view, feet and tail visible | High taxonomic image metadata; reuse/resolution not selected as primary |

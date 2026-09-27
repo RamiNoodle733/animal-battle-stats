@@ -63,7 +63,7 @@ Pronghorn are extreme open-country cursors. Their long distal limbs, streamlined
 This is the species' defining combat-relevant strength. NPS describes sustained 45–50 mph sprints, and National Geographic notes that pronghorn can travel for miles at about half their maximum speed. A comparative physiology study explicitly calls *A. americana* one of the most athletic mammals and relates its blood rheology to very high aerobic capacity. High sustained speed is therefore not merely folklore or a top-speed statistic.
 
 ### Senses
-Large laterally placed eyes are adapted for open-country surveillance. Theodore Roosevelt NPS reports an estimated **320-degree field of visibility** and the ability to detect moving objects at great distance. Hearing and smell supplement this, while the conspicuous rump patch provides a visual alarm signal to conspecifics. Vision is the dominant battle-relevant sense.
+Large laterally placed eyes are suited to open-country surveillance. Theodore Roosevelt NPS reports an estimated **320-degree field of visibility** and the ability to detect moving objects at great distance. Hearing and smell supplement this, while the conspicuous rump patch provides a visual alarm signal to conspecifics. Vision is the dominant battle-relevant sense.
 
 ### Intelligence and tactics
 Pronghorn use territorial systems, seasonal grouping, migration, alarm communication and flexible mate-defense behavior. Adult males defend territories and harems, assess rivals and often resolve contests through signaling before escalation. These behaviors support competent Tactics but do not justify primate/corvid/cetacean-level Intelligence.
@@ -100,7 +100,7 @@ All scores use the roster-wide absolute 0.1–100.0 scale.
 | Raw Power | **43.0** | Athletic 51 kg ungulate with strong neck/legs, but absolute force remains well below large bovids and great apes. |
 | Weaponry | **48.0** | Paired 25–41 cm pronged horns can injure and control rivals, but are less lethal/reaching than oryx horns, tusks or major predator jaws. |
 | Protection | **27.0** | Little passive armor; fur, hide and ordinary mammalian structure only. |
-| Toughness | **40.0** | Can sustain dangerous rut contests, but the species is fundamentally escape-adapted rather than trauma-adapted. |
+| Toughness | **40.0** | Can sustain dangerous rut contests, but the species is fundamentally built for escape rather than for absorbing trauma. |
 | Maneuverability | **90.0** | Exceptional acceleration and high-speed control on open ground, moderated for poorer confined/obstacle versatility. |
 | Speed | **97.0** | Defensible maximum around 24.6 m/s, among the highest terrestrial speeds in the roster. |
 | Endurance | **96.0** | Sustained high-speed running and unusually high aerobic capacity are core specializations. |
@@ -144,8 +144,8 @@ The species is polygynous. Gestation is about **252 days**. Females usually bear
 ### Conservation
 The species overall is currently treated as **Least Concern**, although local populations and subspecies can be much more vulnerable. Fences, roads, habitat fragmentation, severe winter and disruption of migration corridors remain major management concerns.
 
-### Major adaptations
-Long cursorial limbs, very high aerobic capacity, large eyes, broad visual field, annually renewed horn sheaths, alarm rump patch and seasonal migratory behavior define the species. These adaptations favor detection and prolonged escape rather than close-range durability.
+### Special features
+Long cursorial limbs, very high aerobic capacity, large eyes, broad visual field, annually renewed horn sheaths, alarm rump patch and seasonal migratory behavior define the species. These features favor detection and prolonged escape rather than close-range durability.
 
 ### Human interaction
 Pronghorn are managed as game animals through much of their range. Roads and conventional livestock fencing fragment habitat and migration routes. Conservation programs increasingly emphasize wildlife-friendly fencing and protection of migration corridors.
@@ -165,7 +165,7 @@ The pronghorn is North America's extreme endurance sprinter: a roughly 51 kg adu
 ### Narrative profile
 The pronghorn's battle identity begins before contact. Its huge eyes scan an enormous arc of prairie, and once danger is recognized the animal's best weapon is distance. A healthy mature buck can accelerate into a run approaching 25 m/s, yet unlike many speed specialists it is also built to keep moving fast. Government field summaries describe sustained 45–50 mph running, and comparative physiology places the species among the most athletic mammals. That combination is why Stamina, Agility and Senses dominate its ABS profile rather than raw physical power.
 
-When escape is impossible, the male is not defenseless. Its paired keratin-sheathed horns can exceed 30 cm and include forward prongs used during rut contests. Rivals threaten, approach, lock horns, twist and shove; short bouts can cause serious injury. Still, a 51 kg pronghorn is not an oryx, bison or rhinoceros. Its weapons evolved primarily for contests with other pronghorn, and its thinly protected cursorial body is poorly suited to absorbing a predator's bite or grapple.
+When escape is impossible, the male is not defenseless. Its paired keratin-sheathed horns can exceed 30 cm and include forward prongs used during rut contests. Rivals threaten, approach, lock horns, twist and shove; short bouts can cause serious injury. Still, a 51 kg pronghorn is not an oryx, bison or rhinoceros. Its weapons are used primarily in contests with other pronghorn, and its thinly protected cursorial body is poorly suited to absorbing a predator's bite or grapple.
 
 The result is a highly asymmetric fighter. In open terrain it can dictate whether many encounters happen at all. In cramped terrain, against an ambush attacker already inside its acceleration envelope, much of its greatest advantage disappears. ABS therefore keeps Attack and Defense moderate while allowing the evidence-backed locomotor and sensory specializations to approach the elite end of the roster.
 

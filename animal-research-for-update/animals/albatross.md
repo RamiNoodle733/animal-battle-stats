@@ -88,7 +88,7 @@ The wandering albatross is not built to overpower terrestrial animals. Its bill 
 
 ### Defense and durability
 
-Defense is primarily behavioral and positional: remain airborne, exploit wind, land on water, and avoid contact. Once physically caught by a much larger predator, the bird has little structural protection. Its lightweight flight-adapted body is a major disadvantage in a forced close-quarters matchup.
+Defense is primarily behavioral and positional: remain airborne, exploit wind, land on water, and avoid contact. Once physically caught by a much larger predator, the bird has little structural protection. Its lightweight, flight-built body is a major disadvantage in a forced close-quarters matchup.
 
 ### Locomotion and maneuverability
 
@@ -162,7 +162,7 @@ The best defense is flight and remoteness. At breeding colonies, eggs/chicks are
 | Raw power | **10.0** | Low absolute muscular/mechanical combat force |
 | Weaponry | **18.0** | Large hooked bill is useful but no talons, crushing jaw, horns, claws or venom |
 | Protection | **7.0** | Plumage/weather resistance but essentially no combat armor |
-| Toughness | **20.0** | Long-lived, harsh-ocean-adapted bird, yet lightweight flight anatomy limits trauma tolerance |
+| Toughness | **20.0** | Long-lived bird built for harsh oceans, yet lightweight flight anatomy limits trauma tolerance |
 | Maneuverability | **73.0** | Superb control and wind exploitation in open ocean, penalized for huge span and poor tight-space handling |
 | Endurance | **96.0** | Multi-day, multi-thousand-kilometer travel with extraordinarily efficient dynamic soaring |
 | Tactics | **54.0** | Sophisticated wind/route/search decisions, but limited evidence for flexible fighting tactics |
@@ -186,7 +186,7 @@ The best defense is flight and remoteness. At breeding colonies, eggs/chicks are
 ### Special abilities
 
 1. **Dynamic Soaring** — Harvests energy from wind gradients above ocean waves, allowing rapid long-range flight with exceptionally low locomotor cost. In a matchup, this creates extraordinary range control and endurance when wind/open space are available.
-2. **Oceanic Wayfinder** — Combines long-range sensory input, navigation and adaptive search behavior to operate across thousands of kilometers of feature-poor Southern Ocean. This supports pursuit, disengagement and environmental positioning rather than direct damage.
+2. **Oceanic Wayfinder** — Combines long-range sensory input, navigation and flexible search behavior to operate across thousands of kilometers of feature-poor Southern Ocean. This supports pursuit, disengagement and environmental positioning rather than direct damage.
 
 ### Unique traits
 
@@ -223,12 +223,12 @@ A classic slow-life-history seabird: late maturity, one egg, extremely high pare
 
 BirdLife identifies the wandering albatross as **Vulnerable**. Fisheries bycatch remains a major threat. Tracking work around South Georgia shows frequent encounters with fishing vessels, and the species’ low reproductive rate makes adult losses difficult to replace.
 
-### Major adaptations
+### Special features
 
 - Extremely long, narrow wings
 - Dynamic-soaring flight mechanics
 - Strong pelagic navigation/search ability
-- Saltwater-adapted seabird physiology
+- Seabird physiology suited to saltwater
 - Large hooked bill for marine feeding
 - Exceptional life-history longevity
 
@@ -251,7 +251,7 @@ The wandering albatross is the ultimate endurance flier: a roughly 10 kg Souther
 
 ### Detailed narrative profile
 
-A wandering albatross is a striking example of why ABS must separate direct combat power from specialized performance. On the ground, a healthy adult male is only around ten kilograms and possesses no armor, grappling claws or crushing jaw. Against a lion, wild dog or elephant in forced close quarters, its size and weaponry are plainly inadequate. Its hooked bill can cut and defend, but the bird is not designed to trade blows.
+A wandering albatross is a striking example of why ABS must separate direct combat power from specialized performance. On the ground, a healthy adult male is only around ten kilograms and possesses no armor, grappling claws or crushing jaw. Against a lion, wild dog or elephant in forced close quarters, its size and weaponry are plainly inadequate. Its hooked bill can cut and defend, but the bird is not built to trade blows.
 
 Put the same animal over open Southern Ocean water and its profile changes completely. Its three-meter-plus wings are aerodynamic tools for dynamic soaring. By repeatedly crossing wind gradients above waves, the bird can replace much of the energy that another flier would have to supply through constant muscular flapping. GPS and wind studies show that wandering albatross airspeed changes with wind conditions and approaches about 20 m/s in the empirically observed high-speed regime. Tracking studies show journeys of thousands of kilometers, while energetic measurements demonstrate how cheaply this travel can be achieved.
 
@@ -259,9 +259,9 @@ That makes Stamina the albatross’s defining ABS statistic. A score in the mid-
 
 Its Special score captures that unusual wind-harvesting system. Dynamic soaring is not merely “good stamina” repeated under a second label: it changes how the animal acquires locomotor energy and therefore how terrain and weather affect a matchup. In open windy environments, an opponent may be unable to force contact at all. In a calm enclosed arena, much of that advantage collapses.
 
-The wandering albatross also deserves respectable Intelligence and Senses ratings. Long-range navigation over a visually repetitive ocean, wind-aware route choice, adaptive responses to ships and prey-search patterns documented by GPS all require substantial information processing. That should not be confused with the generalized manipulation/problem-solving abilities of great apes, corvids or cetaceans, so the rating remains moderate on the full ABS roster.
+The wandering albatross also deserves respectable Intelligence and Senses ratings. Long-range navigation over a visually repetitive ocean, wind-aware route choice, flexible responses to ships and prey-search patterns documented by GPS all require substantial information processing. That should not be confused with the generalized manipulation/problem-solving abilities of great apes, corvids or cetaceans, so the rating remains moderate on the full ABS roster.
 
-Ecologically, this bird is built around survival and patience rather than violence. Adults can live for decades, mature slowly and invest heavily in a single egg. That life history helps explain why fisheries bycatch is so damaging: a population designed around long adult survival cannot quickly replace mature birds lost to hooks and cables. The result is a species whose greatest “battle” adaptations are mobility, efficiency and persistence rather than killing power.
+Ecologically, this bird is built around survival and patience rather than violence. Adults can live for decades, mature slowly and invest heavily in a single egg. That life history helps explain why fisheries bycatch is so damaging: a population that depends on long adult survival cannot quickly replace mature birds lost to hooks and cables. The result is a species whose greatest “battle” assets are mobility, efficiency and persistence rather than killing power.
 
 ### Proposed future structured fields
 

@@ -24,7 +24,7 @@ Gemsbok have a thick muscular neck and dense/inelastic skin, but no armor. Their
 Buffalo Zoo reports running speeds **up to 56 km/h**, equivalent to **15.6 m/s**. Multiple weaker secondary sources report 60 km/h. Because the 56 km/h figure is an institutional species-specific maximum and is slightly more conservative, `speed_mps = 15.6`. Speed is kept separate from agility: a large straight-horned antelope is fast in open terrain but cannot turn like a small felid.
 
 ### Thermoregulation and water independence
-This is one of the species' strongest adaptations. ADW reports body temperature can rise from about 35.7 C toward 45 C to delay evaporative cooling. More importantly, modern free-ranging biologger research in Botswana directly compared gemsbok with water-dependent wildebeest. Gemsbok were frequently **more than 20 km from potential surface water**, shifted activity nocturnally in hot seasons, selected shade during daytime heat, and showed substantial daily body-temperature variation. This supports exceptional desert endurance while avoiding the false claim that they never need water.
+This is one of the species' strongest traits. ADW reports body temperature can rise from about 35.7 C toward 45 C to delay evaporative cooling. More importantly, modern free-ranging biologger research in Botswana directly compared gemsbok with water-dependent wildebeest. Gemsbok were frequently **more than 20 km from potential surface water**, shifted activity nocturnally in hot seasons, selected shade during daytime heat, and showed substantial daily body-temperature variation. This supports exceptional desert endurance while avoiding the false claim that they never need water.
 
 ### Lifespan and bite force
 ADW gives about **18 years average in the wild** and about 20 years in captivity; AWF reports up to 20 years wild. Canonical `lifespan_years = 18.0` as a normal wild reference rather than an exceptional maximum.
@@ -50,14 +50,14 @@ The paired horns are the primary weapon. Their long, narrow geometry gives excep
 ### Offensive mechanics
 A bull can threaten from outside ordinary bite range by lowering or angling the horns, fencing with a rival and jabbing laterally. Against a soft-bodied attacker, penetration is the key damage pathway. Against another gemsbok, ritualized spacing and horn control reduce the frequency of catastrophic contact, so serious weapon potential should not be confused with constant lethal fighting.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 Defense combines body mass, muscular neck/shoulders, dense skin, speed and an unusually dangerous forward horn zone. ADW notes that predators preferentially target young because adults carry puncture risk, while also cautioning that claims of fatal predator stabbing are debated. The report therefore credits deterrence and plausible puncture capability without turning anecdotes into guaranteed lion-killing performance.
 
 ### Locomotion and maneuverability
 Long legs and cursorial anatomy are optimized for open arid terrain. The 15.6 m/s institutional maximum supports strong straight-line speed. Maneuverability is good for a large antelope, especially during predator evasion, but horn length and body size constrain close-quarter turning relative to smaller predators.
 
 ### Endurance and stamina
-Gemsbok range through low-productivity landscapes, tolerate major heat loads and can remain far from surface water. Biologger data directly support behavioral and physiological flexibility under seasonal heat/aridity. Stamina is therefore very strong, but not a claim of unlimited running. A 2025 persistence-hunting study also demonstrates that healthy oryx can ultimately become hyperthermic during prolonged pursuit, an important ceiling on the adaptation.
+Gemsbok range through low-productivity landscapes, tolerate major heat loads and can remain far from surface water. Biologger data directly support behavioral and physiological flexibility under seasonal heat/aridity. Stamina is therefore very strong, but not a claim of unlimited running. A 2025 persistence-hunting study also demonstrates that healthy oryx can ultimately become hyperthermic during prolonged pursuit, an important ceiling on this heat tolerance.
 
 ### Senses
 ADW describes visual, acoustic and chemical perception; Buffalo Zoo specifically characterizes eyesight, hearing and smell as excellent. Open-country vigilance, dominance displays and scent marking make all three useful. No extraordinary sensory mechanism comparable with echolocation is present.
@@ -149,7 +149,7 @@ Polygynous. Gestation is about **8.5 months / 270 days**, usually producing one 
 ### Conservation
 ADW and contemporary institutional sources list gemsbok as **Least Concern**. Local pressures include hunting, livestock competition, habitat change and climate stress. Conversely, introduced populations can themselves create ecological-management problems, as documented at White Sands.
 
-### Major adaptations
+### Special features
 - Long paired horns in both sexes.
 - Muscular neck/shoulder complex and dense skin.
 - Cursorial limbs and high open-country speed.
@@ -170,7 +170,7 @@ Gemsbok are important ecotourism and game-ranch animals and are an iconic Namibi
 - Gemsbok have been successfully introduced to New Mexico, far outside their native African range.
 
 ### Concise site-ready summary
-The gemsbok is a 230 kg desert antelope built around reach, speed and endurance. A territorial bull controls nearly meter-long spear-like horns with fencing and jabbing movements, while desert-adapted physiology lets it range far from surface water and tolerate severe heat. It is dangerous at standoff range but lacks true armor and loses much of its advantage if a stronger grappler gets inside the horns.
+The gemsbok is a 230 kg desert antelope built around reach, speed and endurance. A territorial bull controls nearly meter-long spear-like horns with fencing and jabbing movements, while desert-hardy physiology lets it range far from surface water and tolerate severe heat. It is dangerous at standoff range but lacks true armor and loses much of its advantage if a stronger grappler gets inside the horns.
 
 ### Rich narrative profile
 A gemsbok bull is best understood as a mobile spear platform rather than a generic large antelope. Its offense starts before an opponent reaches the body: paired, nearly straight horns project far beyond the face, and real social contests use controlled fencing and lateral jabs. The animal behind those horns is not lightweight. At roughly 230 kg, a prime bull has enough neck and shoulder mass to make contact consequential while retaining the cursorial build needed to flee major predators.

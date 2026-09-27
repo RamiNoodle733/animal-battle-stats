@@ -69,7 +69,7 @@ The secondary weapon is delivery behavior: a cornered animal can elevate the for
 
 Against normal prey, the mamba does not need to overpower with mass. ADW describes it striking once or twice and then waiting for paralysis before swallowing. This is an important ABS distinction: low Raw Power can coexist with strong Attack because the venom bypasses conventional size-based durability after successful injection.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 Physical durability is poor in absolute roster terms. At roughly 1.6 kg, the animal is vulnerable to trampling, crushing, tearing and large-animal bites. Its effective defense is active rather than structural: fast escape, flexible body control, use of refuges, climbing ability, warning display and the danger imposed on an attacker that enters striking range.
 
@@ -194,7 +194,7 @@ ADW reports annual breeding, male combat, oviparity, clutches around **6–17 eg
 
 ADW reports **Least Concern** from the IUCN Red List. Habitat loss and expanding human settlement can still increase local conflict even when the species is not globally threatened.
 
-### Major adaptations
+### Special features
 
 - Potent, multi-component neurotoxic venom.
 - Fixed anterior fangs for rapid injection.

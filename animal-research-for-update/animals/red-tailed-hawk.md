@@ -95,7 +95,7 @@ Adults can be aggressive in nest and territory defense. Cornell reports them cha
 - **Defense: 23.0** — avoidance is strong, physical protection is weak; Defense is not inflated by flight.
 - **Agility: 90.0** — elite aerial positioning, braking, turning and controlled descent justify a very high score independent of maximum speed.
 - **Stamina: 74.0** — soaring and migratory capacity support sustained activity, while avoiding unsupported claims of extreme flapping endurance.
-- **Intelligence: 65.0** — effective adaptable predator with spatial and hunting flexibility, clearly below Raven-level cognition.
+- **Intelligence: 65.0** — effective versatile predator with spatial and hunting flexibility, clearly below Raven-level cognition.
 - **Special: 74.0** — exceptional visual targeting plus aerial attack geometry are highly matchup-relevant but not rare enough for toxin/electricity-tier scores.
 
 ## 7. Exactly two special abilities and exactly two unique traits
@@ -121,9 +121,9 @@ Adults are usually encountered singly or in territorial pairs rather than huntin
 Cornell reports one brood, generally **1–5 eggs**, **28–35 days incubation**, and **42–46 days nestling period**. Both sexes build or refurbish nests. Females perform most incubation while males provide much of the food, though males also incubate for shorter periods.
 
 ### Conservation and human interaction
-The Red-tailed Hawk is one of the most familiar North American raptors and adapts well to agricultural, suburban and roadside mosaics where hunting perches are abundant. Human infrastructure can provide perches and nest sites but also exposes hawks to vehicle strikes, electrocution and other anthropogenic hazards.
+The Red-tailed Hawk is one of the most familiar North American raptors and does well in agricultural, suburban and roadside mosaics where hunting perches are abundant. Human infrastructure can provide perches and nest sites but also exposes hawks to vehicle strikes, electrocution and other anthropogenic hazards.
 
-### Major adaptations
+### Special features
 Broad soaring wings, acute vision, sharply curved talons, a large hallux claw, reversible aerial-to-ground attack geometry, and generalist prey choice form a coherent predatory system. None should be converted into fictional bite pressure or falcon-level dive speed.
 
 ### Fun facts
@@ -132,7 +132,7 @@ Broad soaring wings, acute vision, sharply curved talons, a large hallux claw, r
 - A wild banded individual reached **30 years 8 months**, according to the USGS Bird Banding Laboratory.
 - Red-tailed Hawks sometimes lock talons during aerial courtship.
 - They readily hunt from utility poles and other human-made perches.
-- Cornell's long-running campus pair has repeatedly raised young on a human structure in Ithaca, illustrating urban adaptability.
+- Cornell's long-running campus pair has repeatedly raised young on a human structure in Ithaca, illustrating its tolerance of urban settings.
 
 ### Concise site summary
 A broad-winged North American raptor that combines acute visual targeting, controlled aerial positioning and powerful talons. The Red-tailed Hawk is devastating to small terrestrial prey but remains a lightweight fighter whose defense depends much more on staying airborne than absorbing damage.

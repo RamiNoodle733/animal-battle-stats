@@ -44,7 +44,7 @@ The giant moray is an ambush/crevice predator whose oral jaws capture and proces
 No reliable *G. javanicus* bite force in newtons or pressure in PSI was found. Its bite is biologically serious, but ABS does not convert reputation, injury reports or body size into invented pressure.
 
 ### Secondary feeding system: raptorial pharyngeal jaws
-Mehta and Wainwright's *Nature* work established a remarkable moray feeding mechanism: because morays have weak suction feeding, a second set of pharyngeal jaws can protract forward from the throat into the oral cavity, grasp prey already held by the mouth, and retract it toward the oesophagus. Their experimental species was *Muraena retifera*, so this report treats the mechanism as a well-supported moray-family adaptation rather than pretending the kinematic measurements were taken directly from *G. javanicus*.
+Mehta and Wainwright's *Nature* work established a remarkable moray feeding mechanism: because morays have weak suction feeding, a second set of pharyngeal jaws can protract forward from the throat into the oral cavity, grasp prey already held by the mouth, and retract it toward the oesophagus. Their experimental species was *Muraena retifera*, so this report treats the mechanism as a well-supported moray-family feature rather than pretending the kinematic measurements were taken directly from *G. javanicus*.
 
 The system matters in combat only after oral capture. It improves prey retention and transport but is not a magical extra jaw that projects outside the mouth.
 
@@ -140,7 +140,7 @@ FishBase reports prespawning observations of pairs entwined together on the reef
 ### Conservation
 IUCN assessment cited by FishBase and institutional summaries lists *G. javanicus* as **Least Concern**. A wide Indo-Pacific distribution and occurrence in protected reef systems help, though reef degradation and fishing can create local pressure.
 
-### Major adaptations
+### Special features
 - elongate anguilliform body for reef crevices
 - sharp oral teeth for capture and retention
 - highly mobile pharyngeal jaws characteristic of morays

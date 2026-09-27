@@ -146,7 +146,7 @@ A mated queen overwinters, emerges in spring, founds a nest and raises the first
 ### Conservation and human interaction
 European hornets are ecologically useful insect predators but can conflict with people when nesting in structures. Stings are medically important because venom can cause intense local effects and allergic reactions, but the species should not be represented as automatically lethal to humans. Introduced North American populations are well established.
 
-### Adaptations
+### Special features
 - Large vespid flight musculature and thoracic thermoregulation.
 - Female venom apparatus with a long sting.
 - Strong mandibles for prey processing and nest construction.

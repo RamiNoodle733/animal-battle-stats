@@ -216,7 +216,7 @@ Large adults have relatively few natural predators, but sharks, large tuna and g
 | **Defense** | **28.0** | Escape and water-column positioning help avoid attacks, but actual protection is weak and there is no armor. |
 | **Agility** | **70.0** | Rapid acceleration, three-dimensional repositioning and precise ram alignment make it highly agile in water, without treating top speed as agility by itself. |
 | **Stamina** | **64.0** | Long tag-recorded movements support strong travel stamina, while burst attack physiology keeps it below elite endurance specialists. |
-| **Intelligence** | **51.0** | Competent visual ambush predator with adaptive prey-processing behavior, but limited evidence for broad flexible problem solving. |
+| **Intelligence** | **51.0** | Competent visual ambush predator with versatile prey-processing behavior, but limited evidence for broad flexible problem solving. |
 | **Special** | **52.0** | Scissor-like cutting dentition and burst ambush are distinctive and useful, though less matchup-transforming than venom, electricity, echolocation or extreme regeneration. |
 
 ### Rating interpretation
@@ -265,7 +265,7 @@ Reproduction is less well documented than feeding mechanics. Florida Museum desc
 
 Great barracuda are widely distributed and are important recreational/game fish in many regions. Florida FWC identifies them as native top reef predators. FishBase flags high fishing vulnerability despite broad distribution, which is compatible with relatively slow population turnover. Conservation labeling should be rechecked directly against the current IUCN species account during production migration rather than inferred from generic barracuda summaries.
 
-### Major adaptations
+### Special features
 
 - Streamlined, elongate burst-swimming body.
 - Posterior fin placement and powerful tail for acceleration.
@@ -363,4 +363,4 @@ This file was calibrated against the already-researched staging animals rather t
 
 ### Future normalization watch
 
-Revisit Barracuda after **Bull Shark, Marlin, Sailfish, Swordfish, Great White Shark, Tiger Shark, Mako Shark, Piranha, Moray Eel, Giant Grouper and Tuna** are researched. The most important checks will be aquatic Attack spacing, burst-speed versus Agility separation, and whether Weaponry 61.0 appropriately captures cutting efficiency without double-counting the same jaw adaptation in Special.
+Revisit Barracuda after **Bull Shark, Marlin, Sailfish, Swordfish, Great White Shark, Tiger Shark, Mako Shark, Piranha, Moray Eel, Giant Grouper and Tuna** are researched. The most important checks will be aquatic Attack spacing, burst-speed versus Agility separation, and whether Weaponry 61.0 appropriately captures cutting efficiency without double-counting the same jaw specialization in Special.

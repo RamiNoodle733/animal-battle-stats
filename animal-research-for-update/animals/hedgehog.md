@@ -135,7 +135,7 @@ Adults are mainly solitary and non-territorial. Males roam more widely during br
 ### Conservation
 The IUCN moved *E. europaeus* from Least Concern to **Near Threatened** on **28 October 2024**. IUCN reported declines in more than half the countries in its range, with national estimates of roughly 16–33% over ten years in several areas. Agricultural intensification, habitat degradation/fragmentation, roads and urban development are major pressures.
 
-### Adaptations
+### Special features
 - Thousands of keratin spines with muscular erection.
 - Panniculus-carnosus-driven defensive curling.
 - Strong olfactory and auditory ground-foraging system.

@@ -145,7 +145,7 @@ Adults are not cooperative pack hunters. They may occur in aggregations or migra
 ### Conservation
 The common green darner is widespread and is generally treated as Least Concern. Wetland quality remains ecologically important because reproduction depends on freshwater habitat.
 
-### Adaptations
+### Special features
 - independently controlled wings and powerful flight musculature
 - large compound eyes with behaviorally specialized visual regions
 - target-motion neural processing optimized for tiny moving prey

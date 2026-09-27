@@ -52,7 +52,7 @@ Additional future field: `wingspan_cm = 270.0`; `male_culmen_cm = 34.2`.
 ## 4. Combat biology
 
 ### Primary and secondary weapons
-The long bill is the primary contact tool. It can jab, clamp, shove, scoop and strike at close range, and ADW specifically records breeding birds jabbing neighboring pelicans and other waterbirds while defending tiny nest territories. The breeding-season bill plate is real keratin but should not be treated as a horn evolved for high-energy stabbing. Webbed feet can kick or push but are principally locomotor.
+The long bill is the primary contact tool. It can jab, clamp, shove, scoop and strike at close range, and ADW specifically records breeding birds jabbing neighboring pelicans and other waterbirds while defending tiny nest territories. The breeding-season bill plate is real keratin but should not be treated as a horn built for high-energy stabbing. Webbed feet can kick or push but are principally locomotor.
 
 ### Offensive mechanics
 Against small aquatic prey, the bill and pouch form an efficient capture system rather than a high-force killing bite. Against another similarly sized bird, reach is useful and repeated jabs can displace an opponent. Against a mammalian predator or armored opponent, the lack of talons, teeth, crushing jaws, venom, or a piercing raptorial bill sharply limits damage.
@@ -89,7 +89,7 @@ Surface feeder, not a plunge diver. Fish dominate the diet, supplemented by amph
 - **No takeoff room:** removes its best defensive option.
 
 ### Weaknesses
-Light flight-adapted skeleton and soft tissues, low weapon lethality for its size, awkward land movement, no armor, no strong bite-force evidence, and dependence on space for aerial disengagement.
+Light skeleton and soft tissues built for flight, low weapon lethality for its size, awkward land movement, no armor, no strong bite-force evidence, and dependence on space for aerial disengagement.
 
 ### Matchup archetypes
 - **Favored:** much smaller unarmored animals that cannot effectively reach or hold it, especially around water where the pelican can disengage.
@@ -106,7 +106,7 @@ All ratings use absolute 0.1–100.0 roster scaling.
 | Raw Power | **19.0** | Enough to propel a 7 kg body and 2.7 m wings, but low absolute striking/grappling power. |
 | Weaponry | **24.0** | Very long bill gives reach; lacks raptorial talons, crushing bite, teeth or venom. |
 | Protection | **14.0** | Feathers and size only; no armor or specialized trauma resistance. |
-| Toughness | **25.0** | Large bird with migration-capable physiology, but flight-adapted anatomy remains vulnerable to trauma. |
+| Toughness | **25.0** | Large bird with migration-capable physiology, but anatomy built for flight remains vulnerable to trauma. |
 | Maneuverability | **71.0** | Graceful swimmer and soaring flier; lower than falcons/raptors because acceleration and tight aerial combat are not its specialty. |
 | Endurance | **84.0** | Long-distance migration, soaring economy and very large telemetry home ranges. |
 | Tactics | **69.0** | Repeated cooperative fish corralling and group movement demonstrate useful coordination. |
@@ -117,7 +117,7 @@ All ratings use absolute 0.1–100.0 roster scaling.
 ## 6. Proposed six headline ABS ratings
 
 - **Attack: 28.0** — enormous bill reach and documented jabbing exceed many similarly weighted non-predatory birds, but the bill is optimized for scooping rather than tissue-destroying force and no credible bite PSI exists.
-- **Defense: 22.0** — body size helps somewhat, but there is no armor and flight-adapted anatomy is vulnerable once seized.
+- **Defense: 22.0** — body size helps somewhat, but there is no armor and anatomy built for flight is vulnerable once seized.
 - **Agility: 72.0** — excellent water control and soaring flight, balanced downward for awkward terrestrial movement and lower aerial-combat precision than specialized raptors.
 - **Stamina: 84.0** — migration, formation travel, thermal soaring and broad telemetry ranges make sustained movement a genuine strength.
 - **Intelligence: 64.0** — cooperative foraging and flexible visual/tactile feeding support above-basic tactical behavior without evidence for elite cognition.
@@ -150,7 +150,7 @@ Typically lays about two eggs but commonly raises one chick successfully. Both p
 ### Conservation
 IUCN status is **Least Concern**. Audubon and state agencies describe major historical recovery/increase, but nesting colonies remain sensitive to human disturbance, habitat degradation, water-level changes, disease and fishing-related hazards.
 
-### Major adaptations
+### Special features
 Large broad wings for soaring, fully webbed feet for propulsion, expandable gular pouch, buoyancy-enhancing air sacs, cooperative surface feeding, and seasonal breeding ornamentation.
 
 ### Human interaction
@@ -260,7 +260,7 @@ The bill is still relevant in conflict. Breeding birds defend crowded nest space
 - **Defense 22.0** is only slightly above Peacock 19.0 and Golden Eagle 21.0. Large visual area is not armor.
 - **Agility 72.0** stays far below Osprey 87.0 and Golden Eagle 88.0 because Pelican's soaring/swimming control is excellent but tight pursuit and aerial attack maneuverability are not its specialization.
 - **Stamina 84.0** is intentionally high and slightly above Osprey 82.0 because migratory soaring and telemetry demonstrate enormous routine movement capacity. It remains below Ostrich 89.0, whose terrestrial sustained-running specialization has unusually strong biomechanical support.
-- **Special 73.0** rewards the unusual pouch/buoyancy/cooperative-feeding system without treating it as direct lethality. It remains below Osprey 83.0 because the osprey's fishing adaptations are more directly weaponized.
+- **Special 73.0** rewards the unusual pouch/buoyancy/cooperative-feeding system without treating it as direct lethality. It remains below Osprey 83.0 because the osprey's fishing tools are more directly weaponized.
 - No proportional-strength leakage, speed/agility substitution, unsupported PSI, or duplicate counting of wingspan as raw power was used.
 
 ## 13. Future field proposals

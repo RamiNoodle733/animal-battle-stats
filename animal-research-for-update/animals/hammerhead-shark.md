@@ -63,7 +63,7 @@ Great hammerheads are unusually specialized ray predators. O'Connell's field wor
 A 230 kg shark has substantial body mass, a cartilaginous skeleton resistant to some kinds of fracture, tough skin with dermal denticles, and a large swimming envelope that makes small attacks less consequential. It lacks rigid armor, however. Gills, eyes, abdomen and fins remain vulnerable, and capture studies report high stress sensitivity and post-release mortality. Defense should therefore be solid but not confused with the shark's offensive danger.
 
 ### Locomotion and maneuverability
-The cephalofoil is a major maneuvering adaptation. CFD results support rapid pitch-control forces as head angle changes and note that hammerheads can execute sharp turns without the body roll seen in conventional carcharhinids. The tradeoff is substantial drag and energetic cost. This supports high Agility, but not a fabricated top-speed value.
+The cephalofoil is a major maneuvering feature. CFD results support rapid pitch-control forces as head angle changes and note that hammerheads can execute sharp turns without the body roll seen in conventional carcharhinids. The tradeoff is substantial drag and energetic cost. This supports high Agility, but not a fabricated top-speed value.
 
 ### Endurance and movement
 A 2025 acoustic-telemetry study followed 15 mature great hammerheads, 207-331.5 cm fork length, and found partial migration. Some repeatedly made round-trip migrations from the Florida Keys to northern Gulf or Atlantic destinations, while others stayed resident and shifted habitat seasonally. Australian tracking of 31 animals found mean maximum displacement of 105.8 km and one 776 km movement followed by a return within six weeks. These data support strong sustained swimming and navigation without implying white-shark-scale transoceanic endurance.
@@ -158,7 +158,7 @@ Viviparous. Sources report litters roughly 6-42 or broader institutional ranges 
 ### Conservation
 The great hammerhead is globally assessed as Critically Endangered in recent literature, with severe historical fishing pressure, fin retention, bycatch and high post-release mortality. Conservation status does not affect combat scores but is essential profile context.
 
-### Adaptations
+### Special features
 - Laterally expanded cephalofoil carrying widely distributed sensory pores.
 - Tall, strongly falcate first dorsal fin characteristic of the species.
 - Serrated triangular teeth for cutting prey.
@@ -249,7 +249,7 @@ Potential future fields: `resolved_taxon`, `canonical_sex`, `canonical_total_len
 - [x] Six headline ratings scored with one decimal
 - [x] Exactly two named special abilities
 - [x] Exactly two unique traits
-- [x] Ecology, life history, conservation, adaptations, human interaction and fun facts included
+- [x] Ecology, life history, conservation, special features, human interaction and fun facts included
 - [x] Concise summary and rich narrative included
 - [x] Direct-URL source ledger and confidence/conflicts included
 - [x] Cross-roster normalization performed

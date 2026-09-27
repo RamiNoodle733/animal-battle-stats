@@ -61,7 +61,7 @@ The giant manta has no purpose-built killing weapon. Its most consequential offe
 
 Practical attack is constrained by behavior and anatomy. *M. birostris* is a planktivorous filter feeder, not a pursuit predator. Its enormous disc can deliver substantial incidental force and can breach clear of the water, but its mouth, teeth and tail are poorly configured for injuring large opponents. Attack must therefore remain far below similarly massive animals with horns, tusks, jaws or predatory dentition.
 
-### Defensive adaptations
+### Defensive features
 
 Body size is the central defense. Only very large sharks and other top marine predators are credible routine natural threats to adults. The disc also gives the ray excellent control in three dimensions, allowing rapid banking, turning and depth changes. Long-distance movement lets it leave unfavorable areas rather than stand and fight.
 
@@ -114,7 +114,7 @@ Adults rely primarily on size, mobility and escape. Large sharks can attack mant
 1. Almost no specialized offensive weaponry for its body size.
 2. No venomous sting or defensive barb.
 3. Broad pectoral margins can be bitten or amputated by large predators.
-4. Planktivorous behavior provides little evolved experience killing large prey.
+4. Planktivorous behavior provides little practical experience killing large prey.
 5. Very large span reduces close-quarters maneuverability in confined water.
 
 ### Matchup archetypes
@@ -187,7 +187,7 @@ Life history is exceptionally slow. NOAA reports usually **one pup every two to 
 
 The giant manta ray is **Endangered** on the IUCN Red List and listed as **Threatened under the U.S. Endangered Species Act**. Major threats include targeted harvest, bycatch, demand for gill plates, entanglement, vessel strikes and other anthropogenic impacts.
 
-### Adaptations
+### Special features
 
 - Huge oscillating pectoral fins for efficient pelagic lift and thrust.
 - Cephalic lobes plus specialized branchial filtration for plankton feeding.

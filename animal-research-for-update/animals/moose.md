@@ -45,7 +45,7 @@ Prime bulls are specialized seasonal wrestlers. NPS Denali observations distingu
 At roughly 550 kg, simple body mass makes the canonical bull difficult for small and medium predators to stop. The heavy shoulder girdle and rut-swollen neck support violent collisions. Thick forehead skin protects the area most exposed in antler contests. This is still not passive armor: large carnivores can exploit hindquarters, abdomen and legs, especially in deep or crusted snow.
 
 ### Locomotion and agility
-Moose combine very long legs with large splayed hooves adapted to snow, mud and wetlands. They can move rapidly on land and are powerful swimmers. Their large size and wide antler rack reduce fine turning precision compared with smaller cervids, but field fighting shows meaningful balance and positional skill, including deliberate use of slope advantage.
+Moose combine very long legs with large splayed hooves suited to snow, mud and wetlands. They can move rapidly on land and are powerful swimmers. Their large size and wide antler rack reduce fine turning precision compared with smaller cervids, but field fighting shows meaningful balance and positional skill, including deliberate use of slope advantage.
 
 ### Endurance
 Moose are capable swimmers, extensive browsers and in some populations long-distance seasonal migrants. However, rutting bulls can cease or sharply reduce feeding while investing heavily in reproductive competition, creating energetic costs. Stamina is therefore strong but not near the roster ceiling.
@@ -65,7 +65,7 @@ Healthy adults can deter wolves, bears and other predators through size, kicks, 
 ### Environmental strengths and limitations
 **Best:** cool boreal forest edges, wetlands, shallow water, snow where broad hooves remain effective, and open rutting terrain with room for the rack.
 
-**Weak:** heat. Moose are strongly cold-adapted and seek shade/water in warm conditions. Dense woody tangles constrain the antler rack. Deep crusted snow can reverse the normal long-leg advantage. Aquatic mobility is excellent for a terrestrial ungulate but does not make the animal an aquatic fighter.
+**Weak:** heat. Moose are well equipped for cold and seek shade/water in warm conditions. Dense woody tangles constrain the antler rack. Deep crusted snow can reverse the normal long-leg advantage. Aquatic mobility is excellent for a terrestrial ungulate but does not make the animal an aquatic fighter.
 
 ### Matchup archetypes
 **Favorable:** smaller terrestrial mammals forced into frontal range; similarly sized lightly armored opponents vulnerable to goring, trampling or displacement; opponents that cannot absorb a 550 kg collision.
@@ -97,7 +97,7 @@ All scores use the absolute 225-animal scale.
 - **Agility: 58.0** - Remarkably mobile for its mass and competent in snow/water, while broad antlers and bulk constrain fine maneuvering.
 - **Stamina: 70.0** - Strong swimming, migration/ranging and sustained browsing movement, moderated by rut costs and heat sensitivity.
 - **Intelligence: 55.0** - Direct evidence supports rival assessment, learning through sparring and positional tactics, not broad high-order cognition.
-- **Special: 60.0** - Annual giant antlers, snow-adapted hooves and wetland competence meaningfully change matchups, but none is a rare bypass system comparable with venom or electricity.
+- **Special: 60.0** - Annual giant antlers, snow-suited hooves and wetland competence meaningfully change matchups, but none is a rare bypass system comparable with venom or electricity.
 
 ## 7. Abilities and traits
 
@@ -126,7 +126,7 @@ Breeding occurs in autumn. Prime fighting/breeding performance in Denali bulls d
 ### Conservation
 At the global species level moose are generally treated as Least Concern, though regional populations can decline from habitat change, parasites, predation, hunting pressure and warming-related stress.
 
-### Adaptations
+### Special features
 - long legs for snow, marshes and browsing
 - broad hooves that spread load on soft substrate
 - hollow insulating guard hairs and dense underfur
@@ -197,4 +197,4 @@ Its size does not make it clumsy in the simplistic sense. Long legs and broad ho
 - **Jaguar/Leopard:** Moose exceeds them massively in size and frontal collision power, but cats retain superior maneuverability and killing specialization. Attack similarity must not imply identical combat style.
 - **Megalodon:** Moose remains far below the 100.0 Attack ceiling and other giant megafaunal anchors. No proportional-strength leakage is used.
 - **Agility check:** 58.0 is intentionally far below Mongoose/Leopard because speed is not agility; the moose's bulk and rack constrain fine turning despite respectable running speed.
-- **Double-counting check:** antlers primarily drive Weaponry/Attack; body mass and forehead protection drive Defense; snow/wetland locomotion supports Agility/Special. The same adaptation is not used to inflate every category.
+- **Double-counting check:** antlers primarily drive Weaponry/Attack; body mass and forehead protection drive Defense; snow/wetland locomotion supports Agility/Special. The same feature is not used to inflate every category.

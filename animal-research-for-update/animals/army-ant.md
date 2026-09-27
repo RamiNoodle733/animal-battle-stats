@@ -102,7 +102,7 @@ The soldier's primary weapon is its pair of huge falcate mandibles, which are sp
 
 A major can hook and clamp a small target with its sickle-shaped jaws, remain attached, and contribute to a massed defense. Ordinary raiding workers grip, pull apart appendages, sting prey, and collectively transport pieces. The key calibration distinction is that the famous destructive “army” is a colony-level emergent weapon. A single soldier does not receive the damage output of 100,000 to 2,000,000 nestmates.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 The exoskeleton protects against abrasion and tiny opponents. Soldiers can physically guard raid columns and bivouacs. Against large animals, however, one worker has virtually no resistance to crushing force. Its best defense is being extremely small, difficult to target, and dangerous enough at skin level to discourage contact when many nestmates are present.
 
@@ -245,7 +245,7 @@ Queens are wingless. New colonies form by fission rather than a lone queen indep
 
 No species-level IUCN threatened category was identified during this run. Eciton ecology is nevertheless strongly tied to intact, humid forest. A 2021 review argues that Eciton army ants can serve as umbrella species for Neotropical forest conservation because colonies require large, connected forest areas and support diverse associated organisms.
 
-### Major adaptations
+### Special features
 
 - Extreme worker polymorphism and task specialization
 - Falcate major mandibles for defense

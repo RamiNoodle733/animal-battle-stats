@@ -70,7 +70,7 @@ ADW reports hunting movements around **2.4 km per day**, roughly half that dista
 Large ears and acute directional hearing are central to hunting. IUCN CatSG states that prey in tall grass or reeds is located primarily by hearing. Wind can interfere with acoustic localization, making this specialization powerful but environmentally sensitive. Vision and smell remain useful felid senses but are not inflated beyond the evidence.
 
 ### Intelligence and tactics
-Servals combine patient listening, precise pounce placement, repeated jumping when an initial strike fails, digging/probing into holes, and aerial interception. They also adapt activity patterns in human-modified landscapes. These behaviors support strong predatory tactics, but not primate, corvid or cetacean-level general cognition.
+Servals combine patient listening, precise pounce placement, repeated jumping when an initial strike fails, digging/probing into holes, and aerial interception. They also adjust activity patterns in human-modified landscapes. These behaviors support strong predatory tactics, but not primate, corvid or cetacean-level general cognition.
 
 ### Fighting and aggression
 Servals are primarily solitary. IUCN CatSG notes that aggressive behavior between servals is rare. Males occupy larger home ranges and scent-mark more often, but there is no specialized dueling weapon or evidence that routine adult combat is central to their biology. Ferocity therefore reflects predatory commitment rather than social aggression.
@@ -119,7 +119,7 @@ All values use the absolute 225-animal roster scale.
 | Endurance | **51.0** | Sustained territorial/hunting movement is adequate, but not pursuit-specialist endurance. |
 | Recovery | **43.0** | Ordinary mammalian recovery with no unusual regeneration. |
 | Tactics | **68.0** | Acoustic stalking, repeated pounce adjustment, digging and aerial interception show strong predatory flexibility. |
-| Senses | **87.0** | Exceptionally large ears and hearing-led localization of concealed prey are central, documented adaptations. |
+| Senses | **87.0** | Exceptionally large ears and hearing-led localization of concealed prey are central, documented features. |
 | Ferocity | **55.0** | Effective predator, but intraspecific aggression is uncommon and large-opponent engagement is not typical. |
 | Abilities | **66.0** | Acoustic targeting plus vertical interception materially changes matchups, without venom/electric-tier biology. |
 
@@ -165,7 +165,7 @@ Sexual maturity is reached around **18-24 months**. IUCN CatSG gives gestation a
 ### Conservation
 The species is globally **Least Concern**, but local populations face wetland/grassland conversion, persecution for poultry predation, road mortality and trade in skins. North African populations are much more precarious than the species as a whole.
 
-### Major adaptations
+### Special features
 - Very long legs for grassland visibility and pouncing.
 - Large mobile ears for acoustic prey localization.
 - Retractile claws and elongated mobile toes.

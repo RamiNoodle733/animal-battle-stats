@@ -14,7 +14,7 @@
 ### Mass and dimensions
 Animal Diversity Web reports **0.7-6.3 kg** and **465-815 mm total length**, with males slightly larger. Smithsonian independently gives **0.7-6.3 kg** and **46.5-81.5 cm**. Illinois wildlife guidance gives 3-12 lb and reports local males averaging about 6 lb versus 4.5 lb for females. A **4.5 kg** prime male therefore represents a robust adult in good condition rather than a record specimen.
 
-The tail is long and heavily furred. ADW reports tail lengths around **170-400 mm** and hindfoot lengths around **55-85 mm**. The feet are plantigrade, five-toed, and the forefeet carry long claws adapted for digging.
+The tail is long and heavily furred. ADW reports tail lengths around **170-400 mm** and hindfoot lengths around **55-85 mm**. The feet are plantigrade, five-toed, and the forefeet carry long claws suited to digging.
 
 ### Height
 Reliable references emphasize total length rather than standing shoulder height. No sufficiently standardized adult shoulder-height dataset was recovered, so **`height_cm = 0.0 unresolved`** rather than inventing a value.
@@ -72,7 +72,7 @@ Telemetry demonstrates multi-kilometer nightly movement, including **3.3 km aver
 Smell and hearing are important during nocturnal foraging. Vision is adequate for close-range threat orientation but is not documented here as an exceptional long-range visual system. The animal's chemical defense reduces the need to out-detect every predator at long distance.
 
 ### Intelligence and tactics
-The warning-to-spray escalation sequence is tactically useful and the species adapts readily to agricultural, suburban and urban landscapes. That indicates flexible foraging and threat management. It does not establish primate, corvid or parrot-level general cognition.
+The warning-to-spray escalation sequence is tactically useful and the species adjusts readily to agricultural, suburban and urban landscapes. That indicates flexible foraging and threat management. It does not establish primate, corvid or parrot-level general cognition.
 
 ### Fighting and predation behavior
 Skunks are mostly solitary and are not specialized pursuit predators. They forage opportunistically for insects and other invertebrates, amphibians, reptiles, fish, birds and eggs, small mammals, fruit, vegetation, carrion and human-associated foods. They generally benefit more from making predators disengage than from physically overpowering them.
@@ -126,7 +126,7 @@ Skunks are mostly solitary and are not specialized pursuit predators. They forag
 | **Defense** | **34.0** | Low mechanical durability is substantially improved by an excellent pre-contact deterrent. |
 | **Agility** | **53.0** | Competent close terrestrial repositioning, but no evidence of elite speed or acrobatics. |
 | **Stamina** | **57.0** | Several kilometers of nightly movement support moderate endurance. |
-| **Intelligence** | **58.0** | Flexible omnivory, urban adaptation and threat escalation support moderate behavioral flexibility. |
+| **Intelligence** | **58.0** | Flexible omnivory, use of urban habitats and threat escalation support moderate behavioral flexibility. |
 | **Special** | **93.0** | Directional irritant spray capable of temporary blindness is an exceptional matchup-changing specialization. |
 
 ## 7. Exactly two special abilities and exactly two unique traits
@@ -154,9 +154,9 @@ Adults are primarily solitary outside breeding and seasonal den-sharing contexts
 Breeding generally occurs in late winter to spring. ADW reports litters of **2-10**, commonly around five, with gestation estimates affected by delayed implantation. Young develop the musk defense remarkably early.
 
 ### Conservation and human interaction
-The species is widespread and adaptable. Its major human conflicts involve odor, denning around structures, road mortality and rabies management. USGS work has studied movement specifically because striped skunks are important rabies-vector hosts in North America.
+The species is widespread and versatile. Its major human conflicts involve odor, denning around structures, road mortality and rabies management. USGS work has studied movement specifically because striped skunks are important rabies-vector hosts in North America.
 
-### Adaptations
+### Special features
 A compact digging body, long foreclaws, nocturnal sensory ecology, flexible diet, seasonal fat storage, conspicuous warning coloration and specialized paired scent glands combine into a successful generalist design.
 
 ### Genuine fun facts

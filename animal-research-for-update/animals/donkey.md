@@ -3,7 +3,7 @@
 ## 1. Identity and canonical specimen
 - **Common name:** Donkey / domestic ass
 - **Taxon:** *Equus africanus asinus* (often also written *Equus asinus* in domestic-animal literature)
-- **Status:** Living, domesticated equid descended from African wild ass ancestry.
+- **Status:** Living, domesticated equid bred from the African wild ass.
 - **Canonical combat specimen:** healthy mature standard-size jack, **150.0 kg**. This is intentionally not a miniature and not a giant Mammoth/Poitou extreme.
 - **Sex/dimorphism:** Sex effects vary among populations and breeds. A 205-adult Cameroon sample found no significant sex effect on measured dimensions and mean males 120.44 kg versus females 124.72 kg, while a 2026 Abruzzo breed study found larger males (292.4 kg mean) than females (242.5 kg). Breed/population variation overwhelms any simple universal sex rule. A mature jack is retained because intact males are the territorial/fighting sex.
 - **Variation:** Domestic donkeys span extreme breed and management variation. The canonical specimen is a robust middle-sized working type, not a record individual.
@@ -49,7 +49,7 @@ A donkey's decisive close-range weapon is its hindquarter-driven kick. The long 
 The donkey is a substantial ungulate with a sturdy trunk and limbs, but it lacks horns, tusks, armor or thick specialized hide. Its best defense is spatial: face or angle away, keep a threat in kicking range, move over difficult terrain, and punish close pursuit. Large predators that survive or avoid the kick can exploit the neck, muzzle, abdomen and limbs.
 
 ### Locomotion and maneuverability
-Donkeys are adapted to dry, rocky landscapes and have relatively small, narrow hooves associated with sure footing. They are less specialized for extreme high-speed flight than horses, but deliberate footing and rapid close-range repositioning make them more agile than their old site score suggested. They remain less maneuverable than cougar-sized ambush predators or small canids.
+Donkeys are well suited to dry, rocky landscapes and have relatively small, narrow hooves associated with sure footing. They are less specialized for extreme high-speed flight than horses, but deliberate footing and rapid close-range repositioning make them more agile than their old site score suggested. They remain less maneuverable than cougar-sized ambush predators or small canids.
 
 ### Endurance and water economy
 Desert physiology is a major strength. In a peer-reviewed dehydration/rehydration study, donkeys endured **four days of water deprivation**; plasma volume fell 24%, and after drinking they restored baseline status within the first two hours. Another experiment found donkeys compensated accurately after 19 hours without water and had a higher thirst threshold than ponies. This supports high environmental endurance, but dehydration tolerance is not identical to continuous high-output fighting stamina.
@@ -120,7 +120,7 @@ All are absolute roster-wide values.
 
 ## 8. Expanded profile
 ### Habitat and range
-Domestic donkeys occur worldwide in farms, pastoral systems, drylands and feral populations. Their ancestry and physiology are strongly associated with African arid environments.
+Domestic donkeys occur worldwide in farms, pastoral systems, drylands and feral populations. Their domestic origins and physiology are strongly associated with African arid environments.
 
 ### Diet and ecology
 Herbivorous grazer/browser. Donkeys can exploit coarse, relatively low-quality forage and have long served as working animals in resource-limited landscapes.
@@ -132,26 +132,26 @@ Flexible social organization depending on resource distribution and management. 
 Gestation is about a year and usually produces one foal. Sexual maturity occurs well before full adult longevity. Long life and low reproductive rate contrast with many smaller roster animals.
 
 ### Conservation
-The domestic donkey itself is not treated as a wild conservation unit in the same way as its critically endangered African wild-ass ancestor. Feral populations can also create management and ecological conflicts where introduced.
+The domestic donkey itself is not treated as a wild conservation unit in the same way as the critically endangered African wild ass from which it was bred. Feral populations can also create management and ecological conflicts where introduced.
 
-### Major adaptations
+### Special features
 Efficient water conservation, rapid rehydration, arid-climate tolerance, rough-terrain footing, large ears, and durable herbivore digestive strategy.
 
 ### Human interaction
-Donkeys have been used for transport, traction, guarding and agriculture for millennia. Archaeological evidence from Abydos shows prime adult male asses with skeletal loading patterns associated with early transport use, demonstrating the deep history of working adaptation under domestication.
+Donkeys have been used for transport, traction, guarding and agriculture for millennia. Archaeological evidence from Abydos shows prime adult male asses with skeletal loading patterns associated with early transport use, demonstrating the long history of working use under domestication.
 
 ### Fun facts
 - Experimental donkeys can remember a hidden object's location for at least 90 seconds.
 - After four days without water, studied donkeys restored baseline hydration status within roughly two hours after drinking.
 - A Cameroon study of 205 adults found strong population variation and no simple universal male-larger pattern.
-- Donkey hooves are narrower/smaller than typical horse hooves, fitting their rough-terrain ancestry.
+- Donkey hooves are narrower/smaller than typical horse hooves, suiting them to rough terrain.
 - Domestic longevity can exceed 40 years, although that is not representative of every working population.
 
 ### Concise site summary
 A tough, sure-footed desert equid whose dangerous hind-hoof counter, substantial body mass and exceptional water economy make it much more formidable than its placid reputation suggests.
 
 ### Narrative profile
-The donkey is not a miniature horse with worse stats. It is an arid-adapted equid built around caution, footing, resource efficiency and a punishing close-range counterattack. A representative jack gives away speed and specialized weaponry to many predators, but forcing entry into its rear arc risks a hard hoof strike backed by a 150 kg body. Its physiology is especially distinctive: controlled studies show impressive dehydration tolerance and rapid rehydration. Those adaptations justify high Stamina and meaningful Special scores without pretending they are armor or raw attack. Cognitively, donkeys demonstrate memory and problem-solving consistent with capable equids. Their battle identity is therefore a durable, terrain-aware counterfighter rather than a passive livestock animal.
+The donkey is not a miniature horse with worse stats. It is a dryland equid built around caution, footing, resource efficiency and a punishing close-range counterattack. A representative jack gives away speed and specialized weaponry to many predators, but forcing entry into its rear arc risks a hard hoof strike backed by a 150 kg body. Its physiology is especially distinctive: controlled studies show impressive dehydration tolerance and rapid rehydration. Those traits justify high Stamina and meaningful Special scores without pretending they are armor or raw attack. Cognitively, donkeys demonstrate memory and problem-solving consistent with capable equids. Their battle identity is therefore a durable, terrain-aware counterfighter rather than a passive livestock animal.
 
 ### Future field proposals
 - Instrument maximum sprint speed in healthy standard adult jacks over standardized footing.

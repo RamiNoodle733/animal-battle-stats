@@ -136,7 +136,7 @@ The species is aplacental viviparous. The best modern synthesis reports birth at
 ### Conservation
 The largetooth sawfish is Critically Endangered and protected under CITES Appendix I. NOAA lists it as endangered under the U.S. Endangered Species Act throughout its foreign range. Major threats include gillnet/trawl bycatch, deliberate retention, habitat loss and river alteration. Its saw makes entanglement particularly dangerous.
 
-### Adaptations
+### Special features
 - long rostrum carrying paired rows of rostral teeth
 - electroreception concentrated around the rostral/head region
 - spiracles permitting respiration while resting near the bottom

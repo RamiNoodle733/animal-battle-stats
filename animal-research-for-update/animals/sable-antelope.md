@@ -30,7 +30,7 @@ Both sexes have transversely ringed, backward-curving horns. The best comparativ
 Bull fights can involve kneeling and horn fencing/thrusting. The long sweep provides exceptional reach for a bovid and can be redirected toward predators when cornered.
 
 ### Speed and locomotion
-Many tertiary sites repeat ~56 km/h / 35 mph, but this run did not locate a direct instrumented species-specific maximum suitable for a canonical factual field. A peer-reviewed comparative paper includes sable among African savanna herbivores in sprint-speed evolution, but the accessible material does not expose a defensible individual maximum measurement. **Canonical `speed_mps`: 0.0** pending primary measurement. This does not mean the animal is slow.
+Many tertiary sites repeat ~56 km/h / 35 mph, but this run did not locate a direct instrumented species-specific maximum suitable for a canonical factual field. A peer-reviewed comparative paper includes sable among African savanna herbivores in a sprint-speed comparison, but the accessible material does not expose a defensible individual maximum measurement. **Canonical `speed_mps`: 0.0** pending primary measurement. This does not mean the animal is slow.
 
 ### Lifespan
 AWF gives up to **16 years in the wild** and about 20 in captivity; ADW also reports wild longevity to about 16 and captive records beyond 19. Use **16.0 years** as the canonical wild representative longevity rather than a captive maximum.
@@ -56,7 +56,7 @@ The paired scimitar-shaped horns are the dominant weapons. Their rearward curve 
 In male competition, bulls posture and engage with their horns, including kneeling behavior during contests. The weapon system is best at frontal or oblique engagement where the animal can keep the opponent in the horn arc. Against a predator, turning to face the threat converts pursuit into a dangerous approach problem.
 
 ### Defense and toughness
-The sable has substantial absolute mass and a compact, powerful build but lacks true armor. Its best active defense is making frontal engagement costly with the horns. This is deterrence plus counterattack rather than passive protection, so the same adaptation is not double-counted as heavy Armor.
+The sable has substantial absolute mass and a compact, powerful build but lacks true armor. Its best active defense is making frontal engagement costly with the horns. This is deterrence plus counterattack rather than passive protection, so the same trait is not double-counted as heavy Armor.
 
 ### Locomotion and maneuverability
 Long legs and a cursorial bovid body support fast escape and rapid directional repositioning in savanna woodland. It is less nimble in confined terrain than a small antelope, but more maneuverable than megafauna. Top speed is deliberately not substituted for Agility.
@@ -136,7 +136,7 @@ The global species has been assessed as **Least Concern** in the widely used IUC
 ### Human interaction
 Sable are major ecotourism animals and have also been intensively managed and selected in private wildlife systems for horn traits, which is one reason trophy/ranch horn records are poor choices for a representative wild ABS specimen. Conservation programs must also guard against population fragmentation and inappropriate genetic mixing.
 
-### Adaptations
+### Special features
 - Long, ringed horns provide both sexual-competition and predator-defense utility.
 - A robust neck and shoulder complex supports horn control.
 - Long cursorial legs allow rapid escape and repositioning.

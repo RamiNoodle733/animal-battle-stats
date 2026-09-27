@@ -128,7 +128,7 @@ Seasonal breeding, about **21 days gestation**, pouch development, commonly arou
 ### Conservation
 Global summaries commonly list *D. maculatus* as **Near Threatened**, while Australian EPBC/state listings distinguish threatened populations/subspecies. Habitat loss and fragmentation, introduced predators, roads and poison exposure are important pressures. Any future site conservation field should retain authority and population context.
 
-### Adaptations
+### Special features
 Rigid predatory skull; carnivorous dentition; ridged climbing pads; developed hallux; long balancing tail; scent-marking at communal latrines; flexible ground/tree hunting; cryptic spotted coat.
 
 ### Human interaction

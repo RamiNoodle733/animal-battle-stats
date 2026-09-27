@@ -128,9 +128,9 @@ The diet is strongly ophiophagous. Smithsonian lists rat snakes, dhamans, python
 Adults are generally solitary outside reproductive interactions. Males engage in ritual wrestling. Females build and guard nests. Smithsonian reports 21-40 eggs in its general account, while peer-reviewed field reports show local variation and exceptional cases. Lifespan is about 20 years.
 
 ### Conservation
-The king-cobra complex has long been treated as threatened by habitat destruction and persecution. Modern conservation assessment now has to catch up with the four-species taxonomy because each lineage has a smaller range than the historical single-species concept. This report therefore avoids treating old range-wide abundance statements as automatically valid for *O. hannah* sensu stricto.
+The king-cobra complex has long been treated as threatened by habitat destruction and persecution. Modern conservation assessment now has to catch up with the four-species taxonomy because each species has a smaller range than the historical single-species concept. This report therefore avoids treating old range-wide abundance statements as automatically valid for *O. hannah* sensu stricto.
 
-### Adaptations
+### Special features
 - fixed front-fang venom delivery
 - expandable hood supported by elongated cervical ribs
 - strong chemical tracking of snake prey

@@ -51,7 +51,7 @@ The skin is covered with bead-like scales, and the body is stout, but the primar
 
 The main weapon is a clamp-and-chew bite. The lower-jaw venom glands feed venom toward enlarged grooved teeth; repeated jaw movement improves venom delivery into a wound. This is slower than a viper's injection system but unusually difficult to interrupt once the lizard has established a grip. Published human cases document immediate intense pain, swelling and systemic symptoms including nausea, dizziness and, in severe cases reported across the literature, hypotension or airway edema.
 
-### Defensive adaptations and toughness
+### Defensive features and toughness
 
 Passive protection is modest in absolute roster terms. The beaded integument and stout construction are useful against small predators, but a 1.1 kg animal cannot absorb heavy mammalian strikes. Venom and persistent attachment are much more important deterrents than armor.
 
@@ -152,7 +152,7 @@ They are usually solitary. Spring brings mating and male combat. Smithsonian rep
 
 The species is legally protected in parts of its U.S. range and is vulnerable to habitat destruction, roads, persecution and illegal collection. San Diego Zoo notes it became the first venomous wildlife in North America to receive legal protection in 1952. Human bites are uncommon but medically significant. Published clinical literature documents severe pain and swelling, with severe systemic envenomation a minority outcome.
 
-### Major adaptations
+### Special features
 
 - Venomous grooved-tooth bite with sustained chewing delivery.
 - Low metabolic rate and large-meal strategy.
@@ -171,13 +171,13 @@ The species is legally protected in parts of its U.S. range and is vulnerable to
 
 ### Concise site-ready summary
 
-The Gila monster is a slow, stout venomous lizard of the North American desert. Its absolute strength and speed are low, but a tenacious clamp-and-chew bite delivers potent venom through grooved lower teeth. Fat storage, low metabolism and the ability to reclaim water from its urinary bladder make it exceptionally well adapted to long dry intervals.
+The Gila monster is a slow, stout venomous lizard of the North American desert. Its absolute strength and speed are low, but a tenacious clamp-and-chew bite delivers potent venom through grooved lower teeth. Fat storage, low metabolism and the ability to reclaim water from its urinary bladder make it exceptionally well equipped for long dry intervals.
 
 ### Rich narrative profile
 
 The Gila monster is a strong example of why ABS must separate physical power from special biology. A roughly one-kilogram lizard cannot compete with medium mammals in raw force, reach or speed. Its danger comes from a specialized delivery system: establish a bite, hold on, chew, and allow venom to enter through grooves in the lower teeth. That mechanism can turn a low-power contact into an intensely painful and sometimes systemic injury.
 
-Its desert physiology is equally unusual but should not be double-counted as fighting stamina. The urinary bladder can function as a water reservoir, while low metabolism and large meals permit long periods underground. Those adaptations improve survival between opportunities rather than creating a tireless high-output fighter. The resulting profile is intentionally polarized: low Raw Power and Speed, modest Defense, but very high Abilities and Special.
+Its desert physiology is equally unusual but should not be double-counted as fighting stamina. The urinary bladder can function as a water reservoir, while low metabolism and large meals permit long periods underground. Those traits improve survival between opportunities rather than creating a tireless high-output fighter. The resulting profile is intentionally polarized: low Raw Power and Speed, modest Defense, but very high Abilities and Special.
 
 ### Future field proposals
 

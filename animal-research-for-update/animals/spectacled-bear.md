@@ -153,7 +153,7 @@ The modern species synthesis records the Andean bear as **Vulnerable**, with a d
 ### Human interaction
 The bear is generally shy, but its size and weapons demand respect. Agricultural expansion brings bears into maize fields and livestock areas, where retaliatory killing is a major conservation problem. Occasional livestock attacks should not be generalized into routine predatory behavior.
 
-### Adaptations
+### Special features
 - Strong curved claws and forequarters for climbing and tearing vegetation.
 - Ankle anatomy suited to strong inversion during climbing.
 - Dense coarse fur for montane environments.
@@ -178,7 +178,7 @@ A spectacled bear is best understood as a mountain-climbing generalist, not a mi
 
 Terrain changes the matchup. On open ground, a 115 kg male has no verified exceptional sprint speed. In steep forest or trees, it becomes harder to pursue and can use climbing routes unavailable to many similarly sized opponents. This vertical competence raises Agility, while Attack remains well below dedicated large-prey killers.
 
-The mostly vegetarian diet also matters for calibration. Powerful jaws do not automatically imply high predatory Attack. Jaw anatomy is substantially shaped by fibrous plant foods. Likewise, shy behavior is not weakness: a cornered bear remains dangerous, but normal ecology does not justify inflated Ferocity.
+The mostly vegetarian diet also matters for calibration. Powerful jaws do not automatically imply high predatory Attack. Jaw anatomy is substantially geared toward fibrous plant foods. Likewise, shy behavior is not weakness: a cornered bear remains dangerous, but normal ecology does not justify inflated Ferocity.
 
 ## 10. Mandatory image audit
 

@@ -80,7 +80,7 @@ All scores are absolute roster-wide 0.1-100.0 values.
 | Weaponry | **12.5** | broad mouth and small teeth, no major piercing/crushing weapon |
 | Protection | **15.0** | soft skin; concealment/slime help but are not armor |
 | Toughness | **18.0** | long-lived but physiologically sensitive, permeable amphibian body |
-| Maneuverability | **50.0** | competent bottom walking, tail propulsion and current-adapted profile |
+| Maneuverability | **50.0** | competent bottom walking, tail propulsion and a profile suited to flowing water |
 | Speed | **20.0** | no verified high top speed; primarily bottom-oriented ambush locomotion |
 | Endurance | **42.0** | capable movements and long life, but ectothermic ambush ecology is not elite exertional stamina |
 | Recovery | **31.0** | no exceptional adult regeneration evidence used here |
@@ -121,7 +121,7 @@ Adults are mainly solitary. Sexual maturity occurs roughly at 5-8 years. Breedin
 ### Conservation
 The range-wide eastern hellbender was **proposed for U.S. Endangered Species Act listing on December 13, 2024**, but as of the fresh September 2026 USFWS material the range-wide listing remains proposed, not final. The Missouri eastern-hellbender DPS is already federally endangered, as is the separate Ozark subspecies. USFWS reports major losses and declines driven by sedimentation, degraded water quality, habitat destruction, disease, collection and direct mortality.
 
-### Adaptations
+### Special features
 - Flattened head/body for life beneath rocks and in current.
 - Large muscular keeled tail for propulsion.
 - Extensive respiratory skin folds.
@@ -141,14 +141,14 @@ Hellbenders are harmless to people in ordinary circumstances but may bite defens
 - Their loose side folds are functional respiratory surface, not merely wrinkled skin.
 
 ### Concise site-ready summary
-The eastern hellbender is a giant fully aquatic salamander built for life beneath rocks in cold, fast streams. It is a low-power ambush predator whose real battle advantages are concealment, a muscular swimming tail, vibration and chemical sensing, slippery defensive mucus and extraordinary skin-based respiration. Those adaptations work best underwater and do not compensate for its soft body against much larger opponents.
+The eastern hellbender is a giant fully aquatic salamander built for life beneath rocks in cold, fast streams. It is a low-power ambush predator whose real battle advantages are concealment, a muscular swimming tail, vibration and chemical sensing, slippery defensive mucus and extraordinary skin-based respiration. Those features work best underwater and do not compensate for its soft body against much larger opponents.
 
 ### Rich narrative profile
-A hellbender looks heavy and primitive, but its body is a specialized stream machine. The broad flattened head and torso slide beneath cover rocks, the muscular tail controls movement in current, and wrinkled lateral folds turn much of the skin into respiratory surface. Because its eyesight is poor, it reads the underwater environment through chemical information and a lateral line sensitive to pressure and vibration.
+A hellbender looks heavy and ungainly, but its body is a specialized stream machine. The broad flattened head and torso slide beneath cover rocks, the muscular tail controls movement in current, and wrinkled lateral folds turn much of the skin into respiratory surface. Because its eyesight is poor, it reads the underwater environment through chemical information and a lateral line sensitive to pressure and vibration.
 
 Its combat niche is correspondingly narrow. The animal waits near cover and takes crayfish and other small prey at close range. Against something of comparable scale, surprise, suction-assisted capture and the ability to retreat beneath a rock can matter. A predator trying to seize it also has to contend with slippery, unpleasant mucus. But none of this makes the hellbender physically powerful in absolute terms. At roughly a kilogram, it has no armor, no venom and no evidence-backed high-force bite. Large predators overwhelm the soft body if they can deny it cover.
 
-This makes the hellbender a useful calibration case for ABS: Special and Senses can be meaningful without inflating Attack, Defense or Raw Power. Its adaptations are real and unusual, but tightly coupled to clean, oxygen-rich running water.
+This makes the hellbender a useful calibration case for ABS: Special and Senses can be meaningful without inflating Attack, Defense or Raw Power. Its specializations are real and unusual, but tightly coupled to clean, oxygen-rich running water.
 
 ### Future structured-field proposals
 - `cutaneous_respiration_dependence`: very high.

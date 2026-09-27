@@ -107,8 +107,8 @@ They form long-term pair bonds and occur as pairs, family parties and flocks. Wo
 ### Conservation
 The species is globally Least Concern, but major regional declines are real. World Parrot Trust reports roughly 50,000-500,000 individuals with a decreasing trend and identifies habitat loss and trapping as major threats. A 2019 USFWS determination estimated about 2,000-3,000 individuals for northern *A. m. cyanoptera*, with habitat loss, poaching and small population size as principal threats.
 
-### Adaptations and human interaction
-Key adaptations include the high-force hooked bill, zygodactyl grasp, beak-assisted climbing, long tail, strong visual communication and extended learning. Scarlet macaws are prominent in aviculture and illegal wildlife trade. Their intelligence, longevity, loud calls and destructive bill make them demanding captive animals. Conservation work includes nest protection, rehabilitation, reintroduction and anti-trafficking programs.
+### Special features and human interaction
+Key features include the high-force hooked bill, zygodactyl grasp, beak-assisted climbing, long tail, strong visual communication and extended learning. Scarlet macaws are prominent in aviculture and illegal wildlife trade. Their intelligence, longevity, loud calls and destructive bill make them demanding captive animals. Conservation work includes nest protection, rehabilitation, reintroduction and anti-trafficking programs.
 
 ### Fun facts
 - A large fraction of total body length is tail.

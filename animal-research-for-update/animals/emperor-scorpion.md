@@ -138,7 +138,7 @@ The emperor scorpion must remain vastly below mammalian and megafaunal combatant
 
 ### Unique traits
 1. **Pectine Ground Radar** - comb-like pectines and mechanosensory hairs provide substrate and vibration information that supports nocturnal prey detection despite poor eyesight.
-2. **UV Cuticle Glow** - the exoskeleton fluoresces blue-green under ultraviolet light; the phenomenon is genuine, while its evolutionary function remains uncertain and is not assigned fictional offensive power.
+2. **UV Cuticle Glow** - the exoskeleton fluoresces blue-green under ultraviolet light; the phenomenon is genuine, while its biological function remains uncertain and is not assigned fictional offensive power.
 
 ## 8. Expanded profile
 
@@ -157,7 +157,7 @@ ADW reports year-round breeding, approximately nine months of gestation, roughly
 ### Conservation and trade
 International trade in *P. imperator* is regulated under **CITES Appendix II**. San Diego Zoo notes that permits are required for international movement under participating CITES systems because collection for trade has conservation implications. London Zoo describes over-harvesting for the pet trade as a threat. CITES Appendix II should not be mislabeled as an IUCN threat category.
 
-### Major adaptations
+### Special features
 The animal's biology forms a coherent forest-floor package: enlarged grasping chelae, a flexible stinging metasoma, vibration-sensitive hairs, pectines for substrate information, nocturnality, a protective exoskeleton and low-energy ambush behavior. The result is an effective small-prey grappler rather than a miniature version of a large predator.
 
 ### Human interaction

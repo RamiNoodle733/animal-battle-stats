@@ -64,7 +64,7 @@ Breeding males defend calling territories and use physical contests when signali
 ### Defense and toughness
 Defense is weak in absolute terms. Skin is exposed and physiologically permeable, and there is no shell, armor, thick hide, quills or substantial skeletal protection. Survival depends more on rapid retreat into water, concealment and explosive jumping than on absorbing damage.
 
-Bullfrog hindlimb bones are mechanically adapted to the erratic loads of explosive jumping, but this locomotor robustness should not be misread as whole-body armor.
+Bullfrog hindlimb bones are mechanically suited to the erratic loads of explosive jumping, but this locomotor robustness should not be misread as whole-body armor.
 
 ### Maneuverability
 Bullfrogs can transition rapidly between a crouched ambush posture, explosive jump and swimming escape. Direction changes on land are less continuous than those of small cursorial mammals, but the initial launch is extremely fast and difficult for similarly sized prey to evade.
@@ -149,7 +149,7 @@ Adults are not cooperative social hunters. Breeding aggregations form around wat
 ### Conservation and invasion
 The species is globally widespread and not conservation-limited in the way many amphibians are. In introduced ranges it is a major management concern. USGS research links invasive bullfrogs with predation, competition, altered amphibian occurrence and pathogen dynamics. A 2023 landscape-scale study found bullfrog presence associated with reduced occurrence of native amphibians and increased occurrence of amphibian pathogens in the southwestern United States and Sonora.
 
-### Adaptations
+### Special features
 - Powerful elongated hindlimbs for explosive jumping and swimming.
 - Large gape and rapid prey-capture system.
 - Eyes and tympana positioned for shoreline vigilance.

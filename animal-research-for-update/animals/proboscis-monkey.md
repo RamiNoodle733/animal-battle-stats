@@ -138,7 +138,7 @@ Gestation is reported around 166–200 days. Captive longevity exceeds 25 years.
 ### Conservation
 The species is **Endangered** and CITES Appendix I. Habitat destruction/fragmentation and hunting have driven major declines. ESABII's IUCN-derived summary reports a decline greater than 50% over approximately three generations.
 
-### Adaptations
+### Special features
 Large hands and feet, partial webbing, strong swimming, long limbs for arboreal/suspensory locomotion, enlarged male nose, flexible social grouping and colobine foregut fermentation.
 
 ### Human interaction
@@ -205,7 +205,7 @@ The enormous male nose is biologically important without being a weapon. It func
 - It is heavier than the 12 kg North American River Otter, but the otter's carnivorous dentition and predatory behavior justify the otter retaining comparable or greater practical Attack despite lower mass.
 - Agility can legitimately exceed many much larger animals because this category measures control/repositioning rather than force. The combination of arboreal movement and swimming supports an **85.0** without importing top-speed claims.
 - Intelligence is raised by flexible primate behavior but held well below Orca's 99.0 and below great-ape expectations.
-- Special is high because aquatic proficiency is unusually developed for a primate and the male nasal-acoustic system is distinctive, but neither adaptation is allowed to inflate Raw Power or Defense.
+- Special is high because aquatic proficiency is unusually developed for a primate and the male nasal-acoustic system is distinctive, but neither trait is allowed to inflate Raw Power or Defense.
 - Low observed aggression prevents the old site's generic primate reputation from anchoring Ferocity/Tactics. The new ratings are independently researched.
 
 ## Verification checklist

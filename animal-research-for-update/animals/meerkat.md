@@ -30,7 +30,7 @@ No primary or strong institutional species-specific maximum running-speed measur
 Wild longitudinal studies document age-related changes through multiple years, with reproductive traits peaking around **4-6 years** in dominant animals. Zoological sources commonly report longer captive lives, including up to about 15 years. Because a clean wild maximum is not established by the strongest sources reviewed here, canonical `lifespan_years` is conservatively **10.0**, moderate confidence, representing a plausible long-lived adult rather than asserting a hard species maximum.
 
 ### Defenses
-The meerkat has no armor. Defense relies on vigilance, group alarm systems, rapid retreat into burrows and bolt holes, mobbing when numerical conditions favor it, piloerection threat displays, and teeth/claws when cornered. A nictitating membrane protects the eyes while digging and the ears can close against soil, but these are excavation adaptations rather than battle armor.
+The meerkat has no armor. Defense relies on vigilance, group alarm systems, rapid retreat into burrows and bolt holes, mobbing when numerical conditions favor it, piloerection threat displays, and teeth/claws when cornered. A nictitating membrane protects the eyes while digging and the ears can close against soil, but these are excavation features rather than battle armor.
 
 ## 3. Canonical proposed factual fields
 | Field | Proposed value | Basis / caveat |
@@ -61,7 +61,7 @@ Meerkats are diurnal and spend much of their active period foraging, digging, mo
 Vision is crucial for sentinel scanning, while smell is heavily used during foraging. The communication system is particularly sophisticated: peer-reviewed work shows alarm-call structure conveys both **predator type** and **urgency**, and playback experiments show receivers alter responses appropriately.
 
 ### Intelligence, learning and tactics
-Wild meerkats provide one of the strongest nonhuman teaching examples. Thornton and McAuliffe experimentally showed helpers alter prey provisioning as pups mature, giving younger pups disabled prey and older pups more intact prey, accelerating acquisition of dangerous prey-handling skills. This is strong evidence for adaptive social information transfer, though the authors explicitly note that the mechanism need not require human-like theory of mind.
+Wild meerkats provide one of the strongest nonhuman teaching examples. Thornton and McAuliffe experimentally showed helpers alter prey provisioning as pups mature, giving younger pups disabled prey and older pups more intact prey, accelerating acquisition of dangerous prey-handling skills. This is strong evidence for flexible social information transfer, though the authors explicitly note that the mechanism need not require human-like theory of mind.
 
 ### Intraspecific fighting and group conflict
 Meerkat groups are territorial. Intergroup encounters often end before physical contact, but field research reports occasional fights and fatalities. This supports meaningful ferocity and tactical coordination in ecological context. ABS still scores one canonical individual, so group numbers do not multiply its Raw Power, Attack or Defense.
@@ -137,7 +137,7 @@ Sexual maturity occurs around one year, although actual breeding is heavily cons
 ### Conservation
 Major zoological references and the IUCN-linked institutional summaries classify the species as **Least Concern**. Local survival nevertheless depends strongly on rainfall, prey productivity, disease, predation and group stability.
 
-### Major adaptations
+### Special features
 Long digging claws, eye and ear protection from soil, upright sentinel posture, sophisticated alarm communication, cooperative care, flexible dangerous-prey handling and extensive use of subterranean refuge.
 
 ### Human interaction
@@ -178,7 +178,7 @@ The key ABS asymmetry is therefore deliberate. Raw Power, Attack, Toughness and 
 | Source | Direct URL | Supports | Reported finding / context | Confidence / conflicts |
 |---|---|---|---|---|
 | Animal Diversity Web, *Suricata suricatta* | https://animaldiversity.org/accounts/Suricata_suricatta/ | mass, dimensions, claws, dentition, reproduction, predator defense | males ~731 g; females ~720 g; 245-290 mm head-rump; 190-240 mm tail; foreclaws ~15 mm; hind claws ~8 mm | High-quality university synthesis; some underlying references older. |
-| UT Austin DigiMorph, *Suricata suricatta* male | https://digimorph.geo.utexas.edu/specimens/Suricata_suricatta/male/ | morphology, size, digging adaptations | slender body, long limbs, ~731 g males; enlarged claws; narrow feet/hands | High institutional morphology source. |
+| UT Austin DigiMorph, *Suricata suricatta* male | https://digimorph.geo.utexas.edu/specimens/Suricata_suricatta/male/ | morphology, size, digging features | slender body, long limbs, ~731 g males; enlarged claws; narrow feet/hands | High institutional morphology source. |
 | Thornton & McAuliffe 2006, Science / PubMed | https://pubmed.ncbi.nlm.nih.gov/16840701/ | teaching, dangerous-prey handling | wild helpers alter prey provisioning with pup development, accelerating learning | Very high peer-reviewed experimental evidence. |
 | Manser 2001, Proc. Royal Society B | https://pmc.ncbi.nlm.nih.gov/articles/PMC1088882/ | alarm communication | acoustic structure varies with predator type and urgency | Very high peer-reviewed field/acoustic evidence. |
 | Manser, Bell & Fletcher 2001 | https://www.research.ed.ac.uk/en/publications/the-information-that-receivers-extract-from-alarm-calls-in-suricates%2833bb26ef-8bbf-4f86-aed9-e533738c0d80%29/export.html | receiver responses | playback subjects respond differently to aerial, terrestrial and recruitment calls and urgency levels | High peer-reviewed experimental evidence. |
@@ -199,6 +199,6 @@ The key ABS asymmetry is therefore deliberate. Raw Power, Attack, Toughness and 
 ## 12. Cross-animal normalization notes
 - **Versus Magpie (0.23 kg):** Meerkat has greater absolute bite/claw damage and ground robustness, but Magpie retains superior flight-driven mobility. Meerkat Intelligence is similarly high but grounded in teaching and communication rather than mirror/caching evidence.
 - **Versus Japanese Macaque (11.3 kg):** the macaque remains far above Meerkat in Attack and Defense because of the >10x mass gap and stronger absolute weapons. Meerkat's high Tactics does not erase that physical gap.
-- **Versus Lynx (24 kg) and Leopard (60 kg):** direct combat capability is not close. Meerkat survival adaptations center on detection and escape, not trading damage.
+- **Versus Lynx (24 kg) and Leopard (60 kg):** direct combat capability is not close. Meerkat survival traits center on detection and escape, not trading damage.
 - **Versus Mantis Shrimp (0.08 kg):** Mantis Shrimp retains much higher Special because its cavitating strike is a direct exotic weapon system; Meerkat's unusual strengths are behavioral, sensory and ecological.
 - **Anti-leakage check:** digging strength is not converted into Raw Power inflation; group coordination does not multiply individual Attack; venom tolerance does not become general Defense; alarm communication and teaching are not double-counted as physical capability.

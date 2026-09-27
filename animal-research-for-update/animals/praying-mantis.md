@@ -88,7 +88,7 @@ The canonical female is a sit-and-wait predator optimized for economical ambush,
 | Endurance | **43.0** | Energy-efficient ambush lifestyle but limited evidence for sustained high-output exertion. |
 | Recovery | **8.0** | Adult insects have little capacity to repair major appendage or exoskeletal trauma after final molt. |
 | Tactics | **58.0** | Ambush positioning and hunger-dependent strategy shifts show useful behavioral flexibility. |
-| Senses | **88.0** | Motion-specialized stereopsis, large compound eyes and adaptive gaze tracking are exceptional prey-targeting systems. |
+| Senses | **88.0** | Motion-specialized stereopsis, large compound eyes and responsive gaze tracking are exceptional prey-targeting systems. |
 | Ferocity | **74.0** | Bold generalist predation and cannibalism, constrained by tiny absolute size. |
 | Abilities | **78.0** | Raptorial capture integrated with unique motion-based stereopsis is highly specialized and matchup-relevant. |
 
@@ -123,7 +123,7 @@ Adults are solitary predators rather than cooperative hunters. Eggs overwinter i
 ### Conservation and human interaction
 The species is not a conservation-priority native animal in North America. It is introduced there and can consume native insects and hummingbirds, so describing it simply as a beneficial pest-control species is misleading. Humans also keep it in captivity and historically distributed mantis egg cases for garden biological control.
 
-### Adaptations
+### Special features
 - Long prothorax and mobile head expand the visual targeting envelope.
 - Forward-facing compound eyes support stereoscopic prey ranging.
 - Raptorial forelegs combine reach, spines and rapid closure.

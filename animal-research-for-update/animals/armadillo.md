@@ -104,9 +104,9 @@ The armadillo is fundamentally defensive rather than a fighting specialist. Its 
 
 A threatened individual can scramble, scratch at close range, and use a compact low body to force through vegetation or toward a burrow. It lacks long stabbing horns, large carnivore canines, venom, crushing jaws, or a specialized killing strike. Its Attack must therefore remain low on an absolute 225-animal scale.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
-The carapace is the defining combat adaptation. Mineralized osteoderms embedded in the skin create a segmented protective roof over much of the head, back, sides, and tail. The movable bands preserve flexibility. This is real armor, but it is not a complete shell: ventral surfaces and limb openings remain vulnerable, and a much larger predator can bite around, crush, flip, or otherwise defeat the armor. National Wildlife Federation notes predation by mountain lions, black bears, and alligators despite the armor.
+The carapace is the defining combat feature. Mineralized osteoderms embedded in the skin create a segmented protective roof over much of the head, back, sides, and tail. The movable bands preserve flexibility. This is real armor, but it is not a complete shell: ventral surfaces and limb openings remain vulnerable, and a much larger predator can bite around, crush, flip, or otherwise defeat the armor. National Wildlife Federation notes predation by mountain lions, black bears, and alligators despite the armor.
 
 ### Locomotion and maneuverability
 
@@ -152,7 +152,7 @@ The defensive sequence centers on detection, rapid escape, burrow access, low-pr
 - Soft underside remains vulnerable
 - Small body mass means large predators can overpower it
 - Digging defense loses value on hard rock, concrete, ice, or other impenetrable substrate
-- Startle jumping can be maladaptive around vehicles
+- Startle jumping can be counterproductive around vehicles
 
 ### Major weaknesses
 
@@ -228,7 +228,7 @@ Warm forests, brushlands, grasslands, riparian edges, agricultural mosaics, and 
 
 ### Geographic range
 
-Under the revised taxonomy, *D. mexicanus* extends from the central/eastern United States through Mexico toward Costa Rica. The U.S. population has undergone a striking northward and eastward expansion. A 2025 USGS study documented establishment across Missouri, southern Iowa, Georgia, South Carolina, western North Carolina, and expansion in several additional states. Older sources describing *D. novemcinctus* from the United States refer to this same lineage under the former broad taxonomy.
+Under the revised taxonomy, *D. mexicanus* extends from the central/eastern United States through Mexico toward Costa Rica. The U.S. population has undergone a striking northward and eastward expansion. A 2025 USGS study documented establishment across Missouri, southern Iowa, Georgia, South Carolina, western North Carolina, and expansion in several additional states. Older sources describing *D. novemcinctus* from the United States refer to this same population under the former broad taxonomy.
 
 ### Diet
 
@@ -250,7 +250,7 @@ One of the most distinctive mammalian reproductive systems: a single fertilized 
 
 The newly delimited *D. mexicanus* was assessed as **Least Concern** in the 2026 IUCN framework, based on wide distribution, large population, habitat tolerance, and no evidence of major decline. Its U.S. range is expanding rather than contracting.
 
-### Major adaptations
+### Special features
 
 - Mineralized dermal osteoderm armor
 - Flexible transverse bands
@@ -287,7 +287,7 @@ The mistake is turning that defense into imaginary offensive power. The nine-ban
 
 Its mobility is also more interesting than the stereotypical shuffle suggests. Kinematic research documents several gait patterns, including cantering and bounding. A startled animal can launch itself vertically, and in suitable soil it can use digging ability as an escape system. Water is not an absolute barrier either: it can swim and can hold its breath long enough to walk along the bottom of shallow water. These traits make it awkward prey, but they do not justify confusing escape versatility with high combat agility.
 
-The modern taxonomic story is itself notable. The animal spreading across the United States was long treated as *Dasypus novemcinctus*. Genomic and morphological revision of the nine-banded complex now supports four species, with the North American lineage recognized as *D. mexicanus*. ABS should use the current name while retaining geographically appropriate older research as legacy evidence. This is a good example of why the overhaul should track evidence provenance rather than simply copy a familiar species label.
+The modern taxonomic story is itself notable. The animal spreading across the United States was long treated as *Dasypus novemcinctus*. Genomic and morphological revision of the nine-banded complex now supports four species, with the North American population recognized as *D. mexicanus*. ABS should use the current name while retaining geographically appropriate older research as legacy evidence. This is a good example of why the overhaul should track evidence provenance rather than simply copy a familiar species label.
 
 ### Useful future structured-field ideas
 
@@ -317,7 +317,7 @@ The modern taxonomic story is itself notable. The animal spreading across the Un
 | Source | Direct URL | Claims supported | Reported value/finding | Context | Confidence / caveat |
 |---|---|---|---|---|---|
 | Barthe et al., Systematic Biology, 2025 | https://academic.oup.com/sysbio/article/74/2/177/7697439 | Taxonomy | Four species recognized within former *D. novemcinctus* complex, including *D. mexicanus* | Range-wide genomic/museomic revision | **High**; major current systematic evidence |
-| Bist et al., Journal of Mammalogy, 2026 | https://academic.oup.com/jmammal/article-abstract/107/3/546/8684158 | Current U.S. taxon | U.S. expanding lineage treated as Mexican long-nosed armadillo, *D. mexicanus* | U.S. phylogeography | **High** |
+| Bist et al., Journal of Mammalogy, 2026 | https://academic.oup.com/jmammal/article-abstract/107/3/546/8684158 | Current U.S. taxon | U.S. expanding population treated as Mexican long-nosed armadillo, *D. mexicanus* | U.S. genetic study | **High** |
 | University of Michigan / Animal Diversity Web legacy account | https://animaldiversity.org/accounts/Dasypus_novemcinctus/ | Mass, length, physiology, ecology | 3.6–7.7 kg, avg 5.5 kg; 0.615–0.800 m, avg 0.752 m; male larger; low body temperature/metabolism | Older broad taxonomic concept | **Moderate-high** for North American morphology; taxonomy legacy caveat |
 | University of Florida IFAS Extension | https://ask.ifas.ufl.edu/publication/UW082 | Adult mass | 3.5–8 kg | Florida/U.S. armadillos under old name | **High** for regional size |
 | University of Texas DigiMorph | https://www2.geo.utexas.edu/specimens/Dasypus_novemcinctus/ | Size and anatomy | 615–800 mm total length; 3–8 kg | Texas museum material/classic account | **High** for scale; old taxonomy |

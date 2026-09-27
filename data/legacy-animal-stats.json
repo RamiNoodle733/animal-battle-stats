@@ -9064,7 +9064,7 @@
     "attack": 100,
     "battle_profile": {
       "preferred_range": "Close",
-      "primary_environment": "Ancient Oceans",
+      "primary_environment": "Open Ocean",
       "combat_style": "Titan",
       "strengths": [
         "Largest shark ever",
@@ -9080,13 +9080,13 @@
     "class": "Titan",
     "createdAt": "2025-12-02T23:27:46.300Z",
     "defense": 100,
-    "description": "A Colossal creature found in Ancient Oceans.",
+    "description": "A Colossal creature found in Open Ocean.",
     "diet": [
       "Whales",
       "Large Fish",
       "Sharks"
     ],
-    "habitat": "Ancient Oceans",
+    "habitat": "Open Ocean",
     "height_cm": 400,
     "image": "/images/animals/megalodon.png",
     "intelligence": 47.5,

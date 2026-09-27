@@ -38,7 +38,7 @@ No defensible *S. officinalis* bite pressure in PSI was found. `bite_force_psi` 
 
 ### Cuttlebone and defenses
 
-Unlike squid and octopuses, cuttlefish retain a porous internal shell, the **cuttlebone**, which regulates buoyancy. It is not external armor: the mantle, head and arms remain soft and vulnerable. The animal's more important defenses are neurally controlled camouflage, three-dimensional skin papillae, ink release, burial, evasive fin control and jet escape.
+Unlike squid and octopuses, cuttlefish have a porous internal shell, the **cuttlebone**, which regulates buoyancy. It is not external armor: the mantle, head and arms remain soft and vulnerable. The animal's more important defenses are neurally controlled camouflage, three-dimensional skin papillae, ink release, burial, evasive fin control and jet escape.
 
 ## 3. Canonical proposed factual fields
 
@@ -180,7 +180,7 @@ They are not permanently social, but reproduction creates intense interactions. 
 
 Monterey Bay Aquarium reports the common cuttlefish as **Least Concern** under the IUCN assessment it cites, while emphasizing heavy Mediterranean fishing and the species' commercial importance. It is harvested for food in many countries. Its dark ink historically supplied sepia pigment, and washed-up cuttlebones remain familiar calcium/mineral supplements for captive birds.
 
-### Major adaptations
+### Special features
 
 - Eight prey-holding arms plus two retractile feeding tentacles
 - Hard beak and radula

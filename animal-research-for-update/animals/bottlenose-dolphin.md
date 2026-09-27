@@ -54,7 +54,7 @@ The primary direct weapon is the robust toothed rostrum/jaw system, with roughly
 ### Offensive mechanics
 A 260 kg dolphin can accelerate and redirect substantial body mass in water. Its best attacks are dynamic rather than stationary: close rapidly, ram/body-check, bite/grasp, disengage, and reposition. Against small aquatic opponents, speed plus mass is formidable. Against heavily armored animals or very large sharks/cetaceans, its conical teeth and moderate body mass impose a ceiling on raw damage.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 Blubber and a robust fusiform body provide insulation and some tissue depth, but neither should be scored as armor. Survival is primarily active: detect danger early, maneuver rapidly, exploit three-dimensional water space, coordinate socially, and avoid a predator's weapon arc. Sharks are documented predators, so Defense must remain below animals with much greater mass or true armor.
 
 ### Locomotion and maneuverability
@@ -140,7 +140,7 @@ Bottlenose dolphins are not harmless despite their public image. They can be for
 
 ### Proposed special abilities, exactly 2
 1. **Biosonar Lock** - Broadband echolocation actively interrogates underwater targets. Experimental work demonstrates fine angular and spatial discrimination, allowing the dolphin to track and classify objects even when vision is degraded.
-2. **Adaptive Huntcraft** - Bottlenose dolphins learn and deploy locally specialized foraging techniques, including fishwhacking and, in Shark Bay populations, sponge-assisted foraging. The matchup value is behavioral flexibility rather than a magical damage bonus.
+2. **Versatile Huntcraft** - Bottlenose dolphins learn and deploy locally specialized foraging techniques, including fishwhacking and, in Shark Bay populations, sponge-assisted foraging. The matchup value is behavioral flexibility rather than a magical damage bonus.
 
 ### Proposed unique traits, exactly 2
 1. **Alliance Mind** - Male bottlenose dolphins can maintain multilevel cooperative relationships among unrelated individuals, evidence of unusually sophisticated social cognition. Solo ABS scoring credits the cognitive flexibility, not extra allied bodies.
@@ -155,7 +155,7 @@ NOAA describes *T. truncatus* as globally distributed through temperate and trop
 Primarily fishes, squid and crustaceans. Teeth seize prey, which is commonly swallowed rather than chewed. Diet and technique vary strongly by region.
 
 ### Ecology
-A highly adaptable mesopredator/top coastal predator depending on ecosystem. Bottlenose dolphins can influence schooling fish behavior and interact competitively or aggressively with other cetaceans. Population ecology varies greatly, so a Sarasota coastal male should not be treated as representative of every offshore population's dimensions or movement ecology.
+A highly versatile mesopredator/top coastal predator depending on ecosystem. Bottlenose dolphins can influence schooling fish behavior and interact competitively or aggressively with other cetaceans. Population ecology varies greatly, so a Sarasota coastal male should not be treated as representative of every offshore population's dimensions or movement ecology.
 
 ### Social structure
 The species uses **fission-fusion** social organization rather than a permanently fixed pod. Group composition changes frequently. Male alliance networks can persist across multiple social levels.
@@ -166,7 +166,7 @@ NOAA reports reproductive onset generally between 5 and 15 years depending on po
 ### Conservation status
 The common bottlenose dolphin is globally treated as **Least Concern** by IUCN, but NOAA lists several U.S. stocks as depleted under the Marine Mammal Protection Act. Global species status therefore must not erase severe local-stock pressures.
 
-### Major adaptations
+### Special features
 - Active echolocation
 - Streamlined fusiform body and powerful dorsoventral fluke propulsion
 - Large brain and flexible learning
@@ -193,7 +193,7 @@ The common bottlenose dolphin is a 200-plus-kilogram aquatic tactician built aro
 ### Detailed narrative profile
 A bottlenose dolphin's familiar silhouette hides a highly specialized combat geometry. The body is a muscular hydrodynamic projectile: flukes generate thrust, flippers steer, the dorsal fin stabilizes, and the animal can redirect through a three-dimensional water column in ways terrestrial fighters cannot reproduce. At roughly 260 kg for the canonical Sarasota male, there is enough mass behind a body check or rostral strike to matter, while dozens of conical teeth can grip flesh or prey. Yet the dolphin is not a miniature orca. Its teeth are not shark-like saws, its body lacks armor, and its raw damage output should remain below the roster's major marine macropredators.
 
-Its strongest advantage is information. Echolocation allows active interrogation of the underwater environment, and controlled experiments show fine spatial resolution. That sensory stream feeds an unusually flexible brain. Different bottlenose populations develop different foraging traditions, some use tools, and males in Shark Bay maintain layered alliances. In an ABS matchup this should not be translated into fictional foresight or free teammates. It does justify unusually strong perception, tactical adaptation and rapid behavioral switching.
+Its strongest advantage is information. Echolocation allows active interrogation of the underwater environment, and controlled experiments show fine spatial resolution. That sensory stream feeds an unusually flexible brain. Different bottlenose populations develop different foraging traditions, some use tools, and males in Shark Bay maintain layered alliances. In an ABS matchup this should not be translated into fictional foresight or free teammates. It does justify unusually strong perception, tactical adjustment and rapid behavioral switching.
 
 This creates a clear profile: moderate direct Attack and Defense, elite aquatic Agility, strong Stamina, and top-tier Intelligence/Special. The dolphin is most dangerous when it has water, space and time to sense and reposition. Its advantages collapse on land and diminish against opponents so large, armored or lethally armed that superior positioning cannot create a viable damage path.
 
@@ -227,7 +227,7 @@ This creates a clear profile: moderate direct Attack and Defense, elite aquatic 
 
 - **Versus Beluga Whale:** Bottlenose Dolphin is far smaller than the 1,500 kg canonical beluga, so Raw Power/Defense must remain lower. Its Maneuverability and tactical/social cognition can reasonably be higher. Both are echolocating odontocetes, so Bottlenose Special should not gain points merely for being more familiar.
 - **Versus Blue Whale:** Blue Whale dominates Size/Defense and absolute physical scale. Bottlenose Dolphin should dominate maneuverability, tactical flexibility and active echolocation. This prevents body mass from becoming Intelligence or Special.
-- **Versus Barracuda:** Dolphin has far greater mass, cognition and sensory flexibility, while barracuda retains specialized predatory jaws and burst ambush design. Dolphin Attack should not be inflated simply because it is smarter.
+- **Versus Barracuda:** Dolphin has far greater mass, cognition and sensory flexibility, while barracuda retains specialized predatory jaws and burst ambush build. Dolphin Attack should not be inflated simply because it is smarter.
 - **Versus Black Mamba / Black Widow:** Their Special scores are driven by venom systems. Dolphin Special 92.0 is a different axis, active biosonar, and should be revisited during final cross-domain normalization so sensory utility and lethal biochemical bypass are not treated as identical concepts.
 - **Versus African Wild Dog:** Both show sophisticated cooperation, but dolphin Intelligence/Tactics can sit higher due to tool-associated traditions and multilevel alliances. African Wild Dog Stamina remains a terrestrial pursuit specialist and should not be directly equated with dolphin swimming endurance.
 - **Watch item:** Intelligence 94.0 and Senses 96.0 are intentionally elite and require later normalization against chimpanzee, elephant, corvid, orca and sperm-whale research files.

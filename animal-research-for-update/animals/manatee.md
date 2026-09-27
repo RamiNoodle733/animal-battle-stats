@@ -36,7 +36,7 @@ Mass is moderate-high confidence because ordinary-adult institutional figures cl
 
 ## 3. Combat biology
 ### Weapons and offensive mechanics
-Manatees are large herbivores, not predatory fighters. Their strongest offensive tools are simply a roughly half-ton body and a powerful propulsive tail. During mating-herd competition, males push and shove, demonstrating that the body can apply meaningful force, but there are no horns, tusks, claws, killing teeth or venom. The prehensile muzzle and continually replacing grinding cheek teeth are feeding adaptations, not a carnivore-style bite system.
+Manatees are large herbivores, not predatory fighters. Their strongest offensive tools are simply a roughly half-ton body and a powerful propulsive tail. During mating-herd competition, males push and shove, demonstrating that the body can apply meaningful force, but there are no horns, tusks, claws, killing teeth or venom. The prehensile muzzle and continually replacing grinding cheek teeth are feeding tools, not a carnivore-style bite system.
 
 A tail strike or body shove could injure a small opponent, especially in water, but ABS should not turn mass into imaginary weapon specialization. Attack therefore stays below similarly sized animals equipped with horns, hooves, tusks or predatory jaws.
 
@@ -127,7 +127,7 @@ Females can reproduce from roughly 4-5 years, while males mature later. Usually 
 ### Conservation
 The West Indian manatee remains federally protected in the United States. Current FWS material recognizes two subspecies and identifies watercraft collisions, loss of warm-water habitat, forage loss, entanglement, harmful algal blooms and cold stress among major threats. Florida abundance has increased substantially from early-1990s estimates, but recent unusual mortality and habitat problems show continued vulnerability.
 
-### Major adaptations
+### Special features
 A sirenian combines dense/heavy skeletal elements and long lungs for buoyancy control, a powerful paddle tail, flexible prehensile lips, continuous tooth replacement, body-wide tactile hairs and strong site memory. Countercurrent vascular arrangements in the tail help conserve heat, but low metabolic rate leaves the animal fundamentally cold-intolerant.
 
 ### Human interaction
@@ -140,7 +140,7 @@ Boat strikes are among the most important human-caused threats. Manatees are pro
 - A telemetry study recorded median seasonal one-way migration of 280 km and a maximum of 830 km.
 - One tracked adult male ranged across more than 2,300 km of coastline.
 - Resting manatees can remain submerged for as long as about 20 minutes.
-- Their closest living relatives are elephants and hyraxes, not seals or whales.
+- Scientists group manatees with elephants and hyraxes, not with seals or whales.
 
 ### Concise site summary
 The West Indian manatee is a roughly half-ton aquatic herbivore whose strength lies in mass, endurance and sensory specialization rather than weapons. A broad paddle tail drives short bursts and long migrations, while thousands of tactile hairs detect tiny water movements around the body. Its lack of armor, predatory teeth and combat aggression keeps Attack modest despite enormous size.
@@ -148,7 +148,7 @@ The West Indian manatee is a roughly half-ton aquatic herbivore whose strength l
 ### Narrative profile
 A manatee is a sensory tank without a cannon. In warm water, its half-ton body is difficult for small opponents to control, and the paddle tail can move that mass surprisingly quickly for a short burst. Yet there is no horn, tusk, crushing predator bite or claw system to turn that momentum into consistently lethal offense. Its natural contests are mostly pushing and shoving rather than weapon duels.
 
-Its most extraordinary battle-relevant adaptation is invisible at first glance. Sparse hairs covering the body are specialized vibrissae linked to a huge somatosensory investment. Experiments show manatees detecting tiny hydrodynamic disturbances in turbid water, effectively surrounding the animal with a tactile warning field. Good underwater hearing adds another useful channel even though vision is comparatively limited.
+Its most extraordinary battle-relevant feature is invisible at first glance. Sparse hairs covering the body are specialized vibrissae linked to a huge somatosensory investment. Experiments show manatees detecting tiny hydrodynamic disturbances in turbid water, effectively surrounding the animal with a tactile warning field. Good underwater hearing adds another useful channel even though vision is comparatively limited.
 
 The other surprise is travel. Manatees look sedentary, but satellite telemetry documents seasonal journeys of hundreds of kilometers and multi-week migrations. ABS therefore gives the species strong Stamina without confusing migration with explosive athleticism. Low resting metabolism and serious cold sensitivity impose a real physiological ceiling. This profile is intentionally asymmetric: high Size, Endurance, Senses and Special, but only modest Attack and Agility.
 
@@ -176,7 +176,7 @@ The connected GitHub contents writer accepts UTF-8 text only and cannot commit a
 |---|---|---|---|
 | U.S. Fish & Wildlife Service, West Indian Manatee | https://www.fws.gov/species/manatee-trichechus-manatus | taxonomy, range, 9-10 ft adult length, ~1,000 lb typical mass, 15 mph short burst, habitat | High agency source; maxima are exceptional and not canonical. |
 | Florida FWC, Manatee facts | https://myfwc.com/education/wildlife/manatee/facts-and-information/ | dimensions, feeding, burst speed, breath hold, sociality, maturity, 65+ captive longevity | High agency source. |
-| Smithsonian Ocean, sirenians | https://ocean.si.edu/more-manatees-meet-sirenians | ~3 m, 363-544 kg typical range; feeding morphology; relatives | High institutional synthesis. |
+| Smithsonian Ocean, sirenians | https://ocean.si.edu/more-manatees-meet-sirenians | ~3 m, 363-544 kg typical range; feeding morphology; classification | High institutional synthesis. |
 | Animal Diversity Web, *T. manatus* | https://animaldiversity.org/accounts/Trichechus_manatus/ | female-biased size, broad morphology/reproduction | Moderate-high university synthesis; older source base. |
 | Harshaw et al. 2016 / USGS | https://pubs.usgs.gov/publication/70178720 | adult female body-condition differences; male/female morphometrics | High peer-reviewed/agency record. |
 | Deutsch et al. 2003 / USGS | https://pubs.usgs.gov/publication/70026087 | 78-animal telemetry; 280 km median migration, 830 km max, 27.3-33.5 km/day, sex travel differences, site fidelity | High long-term telemetry study. |

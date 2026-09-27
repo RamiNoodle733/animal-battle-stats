@@ -22,9 +22,9 @@
 ### Natural weapons and chemical defense
 The frog has no meaningful macroscopic weapon comparable with fangs, claws, horns or a stinger. Its defining system is **passive poisonous skin**, not venom injection. The 1978 species description reports up to about **1,900 micrograms of batrachotoxin-class toxins** in a freshly caught frog. A 1980 *Science* study confirmed exceptionally high batrachotoxin levels in wild *P. terribilis*, declining in captive animals, while captive-bred F1 frogs reared to maturity had no detectable batrachotoxin.
 
-Batrachotoxin acts on voltage-gated sodium channels, disrupting normal nerve and muscle electrical signaling. This can lead to paralysis and lethal cardiac dysfunction in susceptible animals. The frog itself has evolved resistance to its own toxin system. The bright uniform adult coloration is aposematic warning coloration that reduces the likelihood of predators completing an attack.
+Batrachotoxin acts on voltage-gated sodium channels, disrupting normal nerve and muscle electrical signaling. This can lead to paralysis and lethal cardiac dysfunction in susceptible animals. The frog itself is resistant to its own toxin system. The bright uniform adult coloration is aposematic warning coloration that reduces the likelihood of predators completing an attack.
 
-The toxin is diet-dependent rather than safely assumed to be synthesized de novo. Comparative poison-frog research supports dietary sequestration of defensive alkaloids from ants and other small arthropods, and *Choresine* melyrid beetles contain batrachotoxins and are a plausible source lineage. The exact Colombian dietary source for wild *P. terribilis* remains incompletely resolved.
+The toxin is diet-dependent rather than safely assumed to be synthesized de novo. Comparative poison-frog research supports dietary sequestration of defensive alkaloids from ants and other small arthropods, and *Choresine* melyrid beetles contain batrachotoxins and are a plausible source group. The exact Colombian dietary source for wild *P. terribilis* remains incompletely resolved.
 
 ## 3. Canonical proposed factual fields
 
@@ -44,7 +44,7 @@ Measured facts are kept separate from editorial ABS ratings. No force is convert
 ### Offensive mechanics
 This animal is a poor active attacker. It cannot inject batrachotoxin, spit it, project it, or deliberately coat an opponent at range. Its tiny jaws and limbs have negligible absolute damage output. Toxicity becomes combat-relevant mainly when a predator mouths, bites, swallows, or otherwise contacts the skin secretion in a biologically effective way. Therefore the toxin drives **Special** and deterrent defense far more than **Attack**.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 The primary defense is a two-stage system: conspicuous aposematic coloration discourages experienced predators from attacking, and the skin toxin punishes contact or ingestion if warning fails. This is extraordinary chemical defense but not armor. At only about 6 g, the frog has almost no structural capacity to absorb crushing, tearing, trampling, or a clean strike from a much larger animal. Chemical danger must not be mistaken for physical toughness.
 
 ### Locomotion and maneuverability
@@ -57,7 +57,7 @@ This is an ectothermic forest-floor frog, not a sustained pursuit animal. Daily 
 The species uses vision to detect moving prey, acoustic communication in courtship, and tactile/visual signaling. ADW reports rapid association of terrarium opening with feeding in captivity, supporting basic learning. This is useful but not evidence for high-order tactical cognition.
 
 ### Tactics, fighting and predation
-Prey capture is a fast tongue-assisted strike on ants, termites, beetles and other small invertebrates. Same-sex aggression can include calling, chasing and wrestling, but *P. terribilis* is less aggressively territorial than several related dendrobatids. Breeding males transport developing young/tadpoles to water. None of these behaviors justify predator-style Attack scores.
+Prey capture is a fast tongue-assisted strike on ants, termites, beetles and other small invertebrates. Same-sex aggression can include calling, chasing and wrestling, but *P. terribilis* is less aggressively territorial than several other dendrobatids. Breeding males transport developing young/tadpoles to water. None of these behaviors justify predator-style Attack scores.
 
 ### Environmental strengths
 - Humid tropical forest floor where normal hydration and locomotion are maintained.
@@ -125,12 +125,12 @@ The golden poison frog is endemic to a very restricted humid lowland rainforest 
 Adults are diurnal insectivores feeding on ants, termites, beetles and other small invertebrates captured with a rapid adhesive-tongue strike. Dietary specialization is directly tied to chemical defense because poison frogs sequester defensive alkaloids from arthropod prey.
 
 ### Social structure and life history
-The species is generally terrestrial and not densely aggregated in the wild. Captive observations show relatively low aggression compared with some related poison frogs, although same-sex chasing and wrestling occur. Clutches are small, roughly 8-20 eggs depending on source. Males participate in transporting developing young/tadpoles to water. Sexual maturity is reported by ADW at roughly 12-18 months.
+The species is generally terrestrial and not densely aggregated in the wild. Captive observations show relatively low aggression compared with some other poison frogs, although same-sex chasing and wrestling occur. Clutches are small, roughly 8-20 eggs depending on source. Males participate in transporting developing young/tadpoles to water. Sexual maturity is reported by ADW at roughly 12-18 months.
 
 ### Conservation
 The species is **Endangered** in current conservation references and has a decreasing population trend. Its tiny range makes habitat loss particularly consequential. Reported pressures include deforestation, agriculture, logging, mining/pollution and illegal-crop-related habitat disturbance. Conservation status should be periodically rechecked against the current IUCN assessment before production migration.
 
-### Adaptations
+### Special features
 - Extreme diet-derived alkaloid sequestration.
 - Physiological resistance to batrachotoxin.
 - Bright aposematic adult coloration.
@@ -194,7 +194,7 @@ The distinction between a wild and captive specimen is crucial. Classic experime
 | Myers, Daly & Malkin 1978, AMNH species description (EPA HERO record) | https://hero.epa.gov/reference/8709519/ | species identity, ~47 mm SVL, up to ~1900 µg toxins, Emberá dart use, life-history context | **High**, primary species description; human lethal-dose discussion is indirect and not converted into an ABS damage number |
 | Daly et al. 1980, *Science* | https://pubmed.ncbi.nlm.nih.gov/6246586/ | exceptionally high batrachotoxin, decline in captivity, F1 captive-reared adults lacked detectable BTX, self-resistance | **High**, peer-reviewed experimental work |
 | Darst et al. 2005, *American Naturalist* | https://www.journals.uchicago.edu/doi/10.1086/426599 | dietary sequestration/diet-toxicity relationship across Dendrobatidae | **High**, comparative peer-reviewed evidence; family-level mechanism |
-| Dumbacher et al. 2004, PNAS/PubMed | https://pubmed.ncbi.nlm.nih.gov/15520388/ | *Choresine* beetles contain batrachotoxins and are plausible dietary source lineage | **High** for beetle chemistry, **medium** for direct Colombian *P. terribilis* source |
+| Dumbacher et al. 2004, PNAS/PubMed | https://pubmed.ncbi.nlm.nih.gov/15520388/ | *Choresine* beetles contain batrachotoxins and are plausible dietary source group | **High** for beetle chemistry, **medium** for direct Colombian *P. terribilis* source |
 | Animal Diversity Web | https://animaldiversity.org/accounts/Phyllobates_terribilis/ | 47-55 mm adult size, female-biased size, behavior, diet, reproduction, communication, toxicity overview | **Medium-high** synthesis; some older conservation/lifespan wording conflicts with newer zoo sources |
 | Zoo Liberec | https://zooliberec.cz/zvirata-u-nas/pralesnicka-strasna/ | 4-5.5 cm, 4-6 g, primary rainforest, 100-200 m, diet, clutch size | **High** institutional husbandry/species account |
 | Mill Mountain Zoo | https://www.mmzoo.org/animals/golden-poison-dart-frog | 1.5-2 in, females longer, 6-10 y wild / up to 20 y captive, diet and development | **Medium-high** zoo source |

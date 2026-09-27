@@ -5,7 +5,7 @@
 - **Resolved taxon:** Black-backed jackal, *Lupulella mesomelas* (Schreber, 1775), formerly *Canis mesomelas*.
 - **Status:** Living; IUCN Least Concern.
 - **Canonical specimen:** healthy fully mature male, southern/eastern African population, **8.1 kg**. Males are only modestly larger than females, but the male is retained as the canonical fighting specimen because the best large morphometric series reports male mean 8.1 kg versus female mean 7.4 kg.
-- **Taxonomic note:** Mammal Diversity Database recognizes *Lupulella mesomelas* and notes the transfer from *Canis* following modern phylogenetic work. Two geographically separated population/subspecies groupings occur in eastern and southern Africa.
+- **Taxonomic note:** Mammal Diversity Database recognizes *Lupulella mesomelas* and notes the transfer from *Canis* following modern taxonomic work. Two geographically separated population/subspecies groupings occur in eastern and southern Africa.
 - **Variation:** IUCN Canid Specialist Group morphometrics from former Cape Province give male head-body 690-900 mm, tail 270-395 mm, mass 5.9-12.0 kg (n=59 for mass); females 650-850 mm, tail 260-381 mm, mass 6.2-9.9 kg. This is real but modest sexual dimorphism, not a wolf-like size gulf.
 
 ## 2. Physical measurements
@@ -19,7 +19,7 @@
 | Top speed | **0.0 m/s canonical** | Popular sources give conflicting 32 to 55 km/h figures without a strong species-specific primary measurement. Do not encode false precision. |
 | Lifespan | **8.0 years** wild upper/typical control; captive up to ~14 years | ADW reports at most 8 years in wild and up to 14 years captive. |
 | Bite force | **0.0 PSI** | No defensible species-specific bite pressure measurement found. Published/compiled canid bite-force indices are not PSI and must not be converted without tooth contact area. |
-| Dentition | canid carnassials and canines | Adapted for cutting/shearing flesh; no reliable tooth-length measurement recovered for a representative adult. |
+| Dentition | canid carnassials and canines | Suited to cutting/shearing flesh; no reliable tooth-length measurement recovered for a representative adult. |
 | Coat / armor | dense fur, no true armor | Fur offers weather protection but negligible armor against serious teeth, claws or horns. |
 
 ### Canonical factual fields
@@ -89,7 +89,7 @@ Intraspecific conflict centers on territory, pair bonds, food and social status.
 - **Defense: 27.0** - evasiveness helps avoid damage, while physical protection itself is low.
 - **Agility: 74.0** - light, long-legged, digitigrade and highly mobile on open terrain; not based on a questionable top-speed number.
 - **Stamina: 66.0** - strong terrestrial foraging endurance without evidence for an elite persistence ceiling.
-- **Intelligence: 68.0** - flexible diet, pair/family social behavior, territorial judgment and adaptable foraging support a high but non-primate/non-cetacean placement.
+- **Intelligence: 68.0** - flexible diet, pair/family social behavior, territorial judgment and versatile foraging support a high but non-primate/non-cetacean placement.
 - **Special: 53.0** - strong generalist sensory/ecological toolkit but few truly exotic matchup-changing mechanisms.
 
 ## 7. Exactly two special abilities
@@ -111,9 +111,9 @@ They are opportunistic omnivorous carnivores. Diet includes rodents, hares, bird
 Long-term monogamous pairs are the core social unit. Both parents provision and protect young. Gestation is about 60-65 days; ADW reports 1-7 young and an average around 3-4. Older offspring can remain associated with the family and help. Sexual maturity is reached around the first year.
 
 ### Conservation and human interaction
-The species is Least Concern and broadly adaptable. Conflict is substantial where jackals prey on livestock or are treated as rabies vectors. The IUCN Canid Specialist Group notes that broad control efforts often achieve only temporary local reductions. This is an important human-wildlife-conflict species, not a conservation-dependent specialist.
+The species is Least Concern and highly versatile. Conflict is substantial where jackals prey on livestock or are treated as rabies vectors. The IUCN Canid Specialist Group notes that broad control efforts often achieve only temporary local reductions. This is an important human-wildlife-conflict species, not a conservation-dependent specialist.
 
-### Adaptations
+### Special features
 - Digitigrade cursorial build for efficient terrestrial movement.
 - Large ears and strong canid sensory systems for prey/danger detection.
 - Broad diet and behavioral plasticity across highly variable environments.
@@ -187,7 +187,7 @@ Its ecology reinforces the same pattern. Black-backed jackals switch among small
 - **Versus Hyena (75 kg; Attack 61 / Defense 53 / Agility 61):** the mass and jaw-system gap must remain enormous. Jackal cognition/tactics can be respectable without compressing physical combat scores toward hyena.
 - **Versus Howler Monkey (7 kg; Attack 27 / Defense 20 / Agility 76):** similar mass, but jackal has more combat-specialized dentition and terrestrial predatory behavior, warranting higher Attack while remaining in a similar agility band.
 - **Versus Impala (65 kg; Attack 43 / Defense 31 / Agility 91):** jackal's bite is more directly offensive, but the impala's far greater mass and horn/hoof mechanics prevent jackal from approaching it in absolute raw power. Jackal Agility stays well below the impala's exceptional escape score.
-- **Inflation check:** no headline exceeds 74.0. This is intentional. A successful, adaptable predator does not automatically become a high absolute-combat scorer on an ant-to-megafauna roster.
+- **Inflation check:** no headline exceeds 74.0. This is intentional. A successful, versatile predator does not automatically become a high absolute-combat scorer on an ant-to-megafauna roster.
 
 ## 13. Future field proposals
 - Replace generic speed claims with GPS/IMU or high-speed-video measurements of maximum voluntary and chase velocity in known adults.

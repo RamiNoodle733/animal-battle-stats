@@ -54,7 +54,7 @@ The primary physical weapons are the jaws and canines, backed by grasping hands 
 ### Offensive mechanics
 At close range a gibbon can seize, bite, rake or strike while using branches to alter angle and distance. The strongest direct evidence that its aggression can be consequential comes from a peer-reviewed report of **lethal territorial aggression in *H. lar***: an adult male was seriously wounded by a neighboring adult male during intergroup conflict and disappeared 24 days later after marked deterioration. The death was probably direct or indirect from the wound and subsequent infection. This establishes real injury potential without implying huge instantaneous damage.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 Defense is dominated by not being hit. There is little passive protection. Against a similarly sized terrestrial opponent, the gibbon's light frame is vulnerable if pinned or bitten. In a complex canopy, however, long arms, hook-like hands and rapid support-to-support transitions provide exceptional escape routes.
 
 ### Locomotion and maneuverability
@@ -149,7 +149,7 @@ Groups generally center on a breeding pair and offspring, although gibbon social
 ### Conservation
 The species is listed as **Endangered** in current institutional/IUCN-linked references. Major pressures include forest loss, fragmentation, hunting and capture for the illegal pet trade.
 
-### Adaptations
+### Special features
 - Very long arms and hook-like hands for suspension and brachiation.
 - Highly mobile shoulder and wrist mechanics.
 - Upright balance during bipedal branch or ground walking.

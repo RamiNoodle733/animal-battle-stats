@@ -176,7 +176,7 @@ White sharks grow slowly and mature exceptionally late. NOAA currently estimates
 ### Conservation
 CMS reports the species as **Vulnerable** on the IUCN Red List and lists it on CMS Appendices I and II; international trade is restricted under CITES Appendix II. Principal threats include bycatch, historical targeted fishing/persecution and the species' very slow life history.
 
-### Adaptations
+### Special features
 - Fusiform body and lunate tail for efficient high-speed swimming.
 - Regional endothermy for elevated performance across cool water.
 - Countershading for concealment in the water column.

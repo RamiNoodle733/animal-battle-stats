@@ -55,7 +55,7 @@ ADW reports dense, tough skin with roughly **1 mm epidermis and 18 mm dermis** o
 ### Weapons and offensive mechanics
 The primary weapon is the long anterior keratin horn, with the shorter posterior horn as secondary structure. A white rhino can thrust, hook, butt, shove and charge. The critical fact is not horn length alone: a pointed horn is driven by roughly 2.3 tonnes of body mass, a robust skull and enormous neck/shoulder musculature. Even a glancing body impact can be dangerous before the horn penetrates.
 
-White rhinos are grazers rather than biting predators. Their broad square lips and cheek teeth are feeding adaptations, so Attack should be based on charge momentum, horn delivery and close pushing rather than fabricated bite numbers.
+White rhinos are grazers rather than biting predators. Their broad square lips and cheek teeth are feeding tools, so Attack should be based on charge momentum, horn delivery and close pushing rather than fabricated bite numbers.
 
 ### Defense and durability
 The canonical bull combines extreme terrestrial mass, thick dermis, deep muscle and robust bones. Healthy adults have essentially no routine natural predator pressure. Soft targets remain, especially eyes, mouth, ears, abdomen and distal limbs, and the hide can be penetrated by sufficiently powerful weapons. Defense therefore belongs among the roster's strongest living terrestrial mammals but below elephant-scale protection and body depth.
@@ -158,7 +158,7 @@ ADW reports gestation around **530-550 days**, one calf, weaning around one year
 ### Conservation
 The southern white rhinoceros remains conservation-dependent and heavily affected by horn poaching. The northern white rhinoceros has been reduced to only a tiny nonbreeding remnant, reinforcing why the southern subspecies is the representative living population for this generic roster slot. Conservation status and population estimates can change and should be refreshed at migration time from IUCN/recognized rhino authorities.
 
-### Major adaptations
+### Special features
 - Multi-tonne grazing body plan with enormous neck/shoulder musculature
 - Two keratin nasal horns
 - Thick dermis and robust skeleton

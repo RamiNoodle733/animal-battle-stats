@@ -66,13 +66,13 @@ At around 120 kg, a prime male has substantial body depth, dense fur, fat and ro
 Black bears can sprint rapidly and are excellent climbers because of short curved claws. They are capable swimmers and can negotiate forests, logs and slopes. Their plantigrade body is more maneuverable than megafauna but less explosively agile than felids or small mustelids. Top speed is not itself the Agility rating.
 
 ### Endurance and stamina
-Active black bears spend much of the year ranging and foraging, but they are not specialized persistence runners. Their exceptional physiological endurance story is seasonal: during hibernation they can go **5–7 months without eating, drinking, urinating or defecating**, suppress metabolism to about **25% of basal rates**, and reduce heart rate from about 55 to as few as 9 beats/min in controlled research. This is extraordinary metabolic adaptation, but it does not mean they can fight maximally for months.
+Active black bears spend much of the year ranging and foraging, but they are not specialized persistence runners. Their exceptional physiological endurance story is seasonal: during hibernation they can go **5–7 months without eating, drinking, urinating or defecating**, suppress metabolism to about **25% of basal rates**, and reduce heart rate from about 55 to as few as 9 beats/min in controlled research. This is an extraordinary metabolic specialization, but it does not mean they can fight maximally for months.
 
 ### Senses
 Smell is exceptional; NPS describes fair eyesight and exceptional smell, with hearing also strong. Olfaction is especially useful for food, threat and environmental detection.
 
 ### Intelligence and tactics
-Black bears are curious, behaviorally flexible and capable learners. IBA describes them as highly intelligent, and experimental work has demonstrated learned conditional discrimination using touchscreen tasks. They adapt activity patterns around people and food availability. Combat tactics remain simpler than primate/cetacean cognition, but Intelligence should clearly exceed a simple reflex-driven predator.
+Black bears are curious, behaviorally flexible and capable learners. IBA describes them as highly intelligent, and experimental work has demonstrated learned conditional discrimination using touchscreen tasks. They adjust activity patterns around people and food availability. Combat tactics remain simpler than primate/cetacean cognition, but Intelligence should clearly exceed a simple reflex-driven predator.
 
 ### Hunting behavior
 Most diet is plant material and insects, but black bears opportunistically eat carrion, fish and vertebrates and can kill young ungulates; some populations/individuals prey on larger animals. They are not dedicated pursuit predators.
@@ -125,7 +125,7 @@ All scores use absolute roster-wide scaling.
 | Maneuverability | **69.0** | Strong climbing, forest control and competent swimming; below felid/small-animal precision. |
 | Endurance | **66.0** | Good ranging/foraging capacity, not a persistence-running specialist. |
 | Recovery | **57.0** | Strong seasonal physiology, but no exceptional regeneration. |
-| Tactics | **67.0** | Curious, flexible learner with strong environmental adaptation. |
+| Tactics | **67.0** | Curious, flexible learner with strong environmental versatility. |
 | Senses | **78.0** | Exceptional olfaction plus good hearing. |
 | Ferocity | **53.0** | Dangerous when committed but characteristically shy/conflict-avoidant. |
 | Abilities | **62.0** | Climbing and extreme hibernation physiology are distinctive but not direct lethal bypasses. |
@@ -137,8 +137,8 @@ All scores use absolute roster-wide scaling.
 | **Attack** | **56.0** | 120 kg grappling carnivoran with jaws and claws; serious but far below giant predators and megafauna. |
 | **Defense** | **49.0** | Robust body and fur/fat provide resilience without armor or extreme bulk. |
 | **Agility** | **70.0** | Fast, strong climber and maneuverable in forest terrain; not scored from speed alone. |
-| **Stamina** | **66.0** | Good sustained activity, with extraordinary seasonal metabolic adaptation separated from combat endurance. |
-| **Intelligence** | **68.0** | Flexible learning, curiosity, memory and behavioral adaptation. |
+| **Stamina** | **66.0** | Good sustained activity, with extraordinary seasonal metabolic specialization separated from combat endurance. |
+| **Intelligence** | **68.0** | Flexible learning, curiosity, memory and behavioral flexibility. |
 | **Special** | **61.0** | Tree-climbing specialization and hibernation physiology create unusual environmental advantages but little direct damage bypass. |
 
 ## 7. Abilities and traits
@@ -174,7 +174,7 @@ Mating occurs in late spring/summer with delayed implantation. Cubs are born dur
 ### Conservation status
 **Least Concern** globally according to IUCN/Bear Specialist Group summaries, with a large overall population. Some subspecies/populations have additional legal protection, including the Louisiana black bear's distinct conservation history.
 
-### Major adaptations
+### Special features
 - Short curved climbing claws.
 - Exceptional olfaction.
 - Extreme seasonal hyperphagia and fat storage.
@@ -197,7 +197,7 @@ Black bears often live near people and can become food-conditioned around garbag
 The American black bear is a versatile forest grappler, combining a 120 kg male's jaws and claws with fast sprinting, excellent climbing, powerful smell and unusually flexible behavior. It is dangerous at close range but remains far below giant bears and megafauna in absolute force and defense. Its strangest advantage is physiological: months-long hibernation with extreme metabolic suppression.
 
 ### Detailed narrative profile
-The black bear's battle identity is versatility rather than a single overwhelming weapon. A prime boar can sprint, climb, swim, wrestle and bite, and its forelimbs are powerful enough to control much smaller animals. Yet absolute scaling matters: a 120 kg bear should not approach a 900 kg bison or 5,500 kg elephant in raw force merely because ursids are impressive for their size. The species' strongest comparative advantages appear in cluttered forest terrain, where climbing and maneuverability broaden its options, and in cognition/senses, where exceptional smell and behavioral flexibility support rapid adaptation. Hibernation is biologically spectacular but should not be double-counted as immediate combat toughness. It primarily supports Special and survival physiology, while ordinary active-season endurance remains strong rather than elite.
+The black bear's battle identity is versatility rather than a single overwhelming weapon. A prime boar can sprint, climb, swim, wrestle and bite, and its forelimbs are powerful enough to control much smaller animals. Yet absolute scaling matters: a 120 kg bear should not approach a 900 kg bison or 5,500 kg elephant in raw force merely because ursids are impressive for their size. The species' strongest comparative advantages appear in cluttered forest terrain, where climbing and maneuverability broaden its options, and in cognition/senses, where exceptional smell and behavioral flexibility support rapid adjustment. Hibernation is biologically spectacular but should not be double-counted as immediate combat toughness. It primarily supports Special and survival physiology, while ordinary active-season endurance remains strong rather than elite.
 
 ### Future structured-field ideas
 `canonical_sex`, `seasonal_mass_range_kg`, `claw_length_cm`, `hibernates`, `hibernation_months`, `diet_flexibility`, `climbing_rating`, `olfaction_rating`, `evidence_confidence`.

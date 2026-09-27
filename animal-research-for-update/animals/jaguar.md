@@ -107,7 +107,7 @@ The jaguar's defining predatory advantage is the ability to attack robust prey f
 2. **Riverbank Ambush** - confident swimming plus stealth and powerful forelimb control let the jaguar attack across land-water boundaries and exploit prey such as caimans, turtles and fish without losing its terrestrial ambush toolkit.
 
 ## 8. Exactly two unique traits
-1. **Durophagous Panthera Skull** - among living *Panthera*, the jaguar is unusually adapted to mechanically demanding hard prey, with thick canines and bite leverage that depart upward from expected felid scaling.
+1. **Durophagous Panthera Skull** - among living *Panthera*, the jaguar is unusually well equipped for mechanically demanding hard prey, with thick canines and bite leverage that depart upward from expected felid scaling.
 2. **Rosette Identity Map** - individual coat rosette patterns are stable enough to identify jaguars in camera-trap and field studies, enabling noninvasive population and movement monitoring.
 
 ## 9. Ecology and expanded profile
@@ -126,7 +126,7 @@ ADW reports breeding year-round with regional seasonality, gestation about 91-11
 ### Conservation and human interaction
 The jaguar is globally Near Threatened and has lost a large portion of its historic distribution. Major threats include habitat loss and fragmentation, persecution following livestock depredation, prey depletion and illegal killing/trade. Corridors are especially important because individuals use large areas and isolated populations are more vulnerable.
 
-### Major adaptations
+### Special features
 - compact, muscular large-cat build
 - robust skull and thick canines for hard-prey processing
 - retractile claws and powerful forelimbs for grappling
@@ -151,7 +151,7 @@ A jaguar is not simply a spotted version of another big cat. Its build is unusua
 
 The same ecology that produced that weapon system also makes the jaguar unusually versatile. Forest prey, peccaries, capybaras, turtles, fish and crocodilians all occur in its diet, and water is not a hard boundary. A river or flooded forest can expand rather than shrink its usable attack space. This is why Special is high: not because the jaguar gets fantasy 'skull crushing' power, but because verified durophagous cranial mechanics and aquatic competence create real matchup options that many similarly sized cats lack.
 
-ABS still preserves absolute scale. A 100 kg jaguar remains far below a hippo, rhino, elephant or large bear in mass-driven force and durability. It has no armor, and a failed grapple against a much larger armed opponent can be catastrophic. Its strongest battle profile is therefore the same one evolution built: choose the approach, explode into contact, establish control quickly and end the exchange before the opponent can turn size into sustained force.
+ABS still preserves absolute scale. A 100 kg jaguar remains far below a hippo, rhino, elephant or large bear in mass-driven force and durability. It has no armor, and a failed grapple against a much larger armed opponent can be catastrophic. Its strongest battle profile is therefore the one its anatomy favors: choose the approach, explode into contact, establish control quickly and end the exchange before the opponent can turn size into sustained force.
 
 ### Future field proposals
 - Add `head_body_length_cm` and `tail_length_cm` separately.
@@ -201,7 +201,7 @@ ABS still preserves absolute scale. A 100 kg jaguar remains far below a hippo, r
 ## 12. Cross-animal normalization notes
 - **Versus Cougar:** staged Cougar is 70 kg with Attack 55.0, Defense 34.0, Agility 92.0. Jaguar's 100 kg mass, more robust skull and stronger hard-prey bite system justify Attack 68.0 and Defense 48.0, while the lighter cougar retains the clear Agility lead.
 - **Versus Spotted Hyena:** staged Hyena is 75 kg with Attack 61.0 / Defense 53.0 / Stamina 83.0. Jaguar gets higher Attack from the felid grapple plus durophagous bite, slightly lower Defense, and much lower Stamina because the hyena is a superior sustained terrestrial mover.
-- **Versus Honey Badger:** the jaguar must be dramatically higher in absolute Raw Power and Attack despite the badger's famous toughness and Special adaptations. No pound-for-pound leakage is allowed.
+- **Versus Honey Badger:** the jaguar must be dramatically higher in absolute Raw Power and Attack despite the badger's famous toughness and Special traits. No pound-for-pound leakage is allowed.
 - **Versus Hippopotamus:** staged Hippo Attack 90.0 / Defense 84.0 remains far above the jaguar. A 100 kg cat cannot be compressed toward an 1,800 kg territorial megaherbivore merely because both are dangerous.
 - **Agility:** 82.0 reflects multidomain control, not top speed. It is intentionally below the cougar's 92.0 and below tiny elite maneuverers.
 - **Special:** 75.0 reflects the distinct combination of durophagous bite mechanics and aquatic hunting. The bite itself is primarily counted in Attack/Weaponry, preventing Special from becoming a duplicate Attack score.

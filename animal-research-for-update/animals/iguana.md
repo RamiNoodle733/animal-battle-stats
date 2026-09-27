@@ -122,7 +122,7 @@ Mature males are territorial, especially around breeding. Large dewlaps and body
 | Tactics | **43.0** | Threat assessment, display escalation, escape-route use and territorial signaling show useful behavioral structure. |
 | Senses | **48.0** | Broad vision plus shadow detection and chemosensory input are useful but not extreme. |
 | Ferocity | **39.0** | Mature males can fight and cornered adults defend vigorously, but the species usually prioritizes escape. |
-| Abilities | **62.0** | Tail autotomy/regrowth plus arboreal-aquatic escape versatility are unusual matchup-relevant adaptations. |
+| Abilities | **62.0** | Tail autotomy/regrowth plus arboreal-aquatic escape versatility are unusual matchup-relevant specializations. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -162,7 +162,7 @@ FWC reports females reaching reproductive maturity around **2–4 years**. Femal
 ### Conservation and human interaction
 The green iguana is globally widespread, heavily represented in the pet trade, and invasive in several introduced regions. In Florida it is a **Prohibited species** because of ecological and infrastructure impacts. FWC reports burrowing damage to sidewalks, seawalls, foundations and canal banks. In February 2026, FWC reported **5,195 invasive green iguanas removed** during a cold-weather control operation.
 
-### Adaptations
+### Special features
 - Long tail for balance, swimming propulsion and defensive whipping.
 - Strong claws for arboreal climbing.
 - Dewlap and head-bob signaling for social assessment.

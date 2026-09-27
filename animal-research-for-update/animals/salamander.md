@@ -133,12 +133,12 @@ Adults are carnivorous generalists taking earthworms, insects and other inverteb
 Adults are primarily solitary outside the breeding season. During breeding migrations they aggregate in wetlands. Males generally arrive earlier and court females using nudging and spermatophore deposition rather than parental care or coordinated group behavior.
 
 ### Reproduction and life history
-Breeding occurs in late winter or spring, often following warm rain. Eggs develop in water and larvae are aquatic before metamorphosing into terrestrial juveniles. Some tiger-salamander lineages/populations historically grouped under the broad species concept can retain aquatic adult morphology, one reason taxonomy and life-history context must be recorded carefully.
+Breeding occurs in late winter or spring, often following warm rain. Eggs develop in water and larvae are aquatic before metamorphosing into terrestrial juveniles. Some tiger-salamander populations historically grouped under the broad species concept can retain aquatic adult morphology, one reason taxonomy and life-history context must be recorded carefully.
 
 ### Conservation
 The eastern tiger salamander is globally secure/Least Concern in broad assessments, but status varies sharply by region. NatureServe lists the species G5, while Canada documents the Carolinian population as Extirpated and historically assessed Prairie populations separately. Habitat loss, road mortality, wetland alteration and fish introduction can cause local declines.
 
-### Adaptations
+### Special features
 - thick-bodied fossorial morphology and strong digging/refuge behavior
 - moisture-dependent but comparatively terrestrial adult skin
 - cryptic disruptive coloration
@@ -202,7 +202,7 @@ Feeding is similarly flexible rather than powerful. On land, adults use tongue a
 | Deban/Shaffer tiger-salamander feeding kinematics | https://pubmed.ncbi.nlm.nih.gov/29865626/ | terrestrial tongue mechanics | high-speed adult feeding; tongue projection and muscle mechanics | High, peer-reviewed |
 | Miller & Larsen 1986 | https://scholarsarchive.byu.edu/gbn/vol46/iss2/20/ | aquatic feeding | metamorphosed tiger salamanders use oropharyngeal suction on aquatic invertebrates | High-moderate, peer-reviewed historical study; western subspecies naming predates modern split |
 | NatureServe Explorer | https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.889738/Ambystoma_tigrinum | taxonomy/conservation | modern eastern concept; G5 global rank, N5 U.S.; taxonomic comments | High authority; global rank last reviewed 2016 |
-| Canada COSEWIC 2023 | https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/eastern-tiger-salamander-2023.html | regional conservation/taxonomy | Carolinian population Extirpated; documents split from *A. mavortium* | High, government assessment |
+| Canada COSEWIC 2023 | https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/eastern-tiger-salamander-2023.html | regional conservation/taxonomy | Carolinian population Extirpated; documents taxonomic separation from *A. mavortium* | High, government assessment |
 | Wikimedia Commons / USFWS | https://commons.wikimedia.org/wiki/File:Tiger_Salamander_(Ambystoma_tigrinum).jpg | image provenance | 4450x2708 exact-species USFWS photo, Public Domain Mark | High for species/license/full framing; adulthood and sex not explicit |
 | Jake M. Scott Flickr | https://www.flickr.com/photos/tamers1/51815710915/ | adult-male image verification reference | explicitly adult male *A. tigrinum* | Strong age/sex metadata but All Rights Reserved, so do not redistribute |
 

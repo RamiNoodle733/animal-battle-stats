@@ -50,10 +50,10 @@ Radio-collared lynx studies show sustained predation on roe deer. In one Scandin
 Adults are largely solitary and territorial, with most prolonged association occurring between mothers and dependent young. Males range more widely and make mating excursions. Direct combat between adults is not the defining weapon context in the way it is for male kangaroos or rutting ungulates, so Ferocity is not inflated simply because the species is territorial.
 
 ### Defense and toughness
-There is no armor, thick hide, shell or specialized impact protection. Defense comes from compact felid construction, fur, agility, climbing ability, stealth and avoidance. The animal remains vulnerable to penetrating bites, crushing attacks and major size mismatches. Snow-adapted feet improve mobility, not tissue protection.
+There is no armor, thick hide, shell or specialized impact protection. Defense comes from compact felid construction, fur, agility, climbing ability, stealth and avoidance. The animal remains vulnerable to penetrating bites, crushing attacks and major size mismatches. Snow-suited feet improve mobility, not tissue protection.
 
 ### Locomotion and agility
-Long legs and broad furred paws are major adaptations for cold and snow. ADW and Felidae Conservation Fund describe large, fur-covered paws, and the latter notes interdigital webbing and dense winter hair that improve movement through deep snow. The species can climb and swim, and its stalking lifestyle demands balance, controlled foot placement and explosive short-range repositioning.
+Long legs and broad furred paws equip it well for cold and snow. ADW and Felidae Conservation Fund describe large, fur-covered paws, and the latter notes interdigital webbing and dense winter hair that improve movement through deep snow. The species can climb and swim, and its stalking lifestyle demands balance, controlled foot placement and explosive short-range repositioning.
 
 Agility is therefore very high, but the score is based on felid maneuverability, pouncing, balance and terrain control rather than an unsupported top-speed claim.
 
@@ -107,13 +107,13 @@ All values are absolute across the 225-animal roster, not pound-for-pound.
 |---|---:|---|
 | **Attack** | **48.0** | Efficient claw-grapple and killing-bite system capable of taking roe deer, but absolute damage ceiling is limited by 24 kg mass. |
 | **Defense** | **31.0** | Avoidance and mobility help survival, but physical protection is modest and there is no armor. |
-| **Agility** | **85.0** | Explosive pouncing, feline balance, climbing and broad snow-adapted feet make maneuverability a standout category. |
+| **Agility** | **85.0** | Explosive pouncing, feline balance, climbing and broad snow-suited feet make maneuverability a standout category. |
 | **Stamina** | **68.0** | Strong patrol/activity endurance with 8.9 active hours/day documented, but not a sustained chase specialist. |
 | **Intelligence** | **67.0** | Flexible stalking, prey selection, territorial navigation and learned hunting support strong predator cognition without primate-level inflation. |
-| **Special** | **66.0** | Snow-adapted paws plus stealth/sensory ambush specialization are matchup-changing but less exotic than venom, electricity or extreme sensory systems. |
+| **Special** | **66.0** | Snow-suited paws plus stealth/sensory ambush specialization are matchup-changing but less exotic than venom, electricity or extreme sensory systems. |
 
 ## 6. Exactly two special abilities
-1. **Snowshoe Stalker** - broad, furred paws with interdigital adaptation spread load and improve movement through snow, preserving stalking and pouncing mobility where many terrestrial opponents lose traction or sink more deeply.
+1. **Snowshoe Stalker** - broad, furred paws with interdigital webbing spread load and improve movement through snow, preserving stalking and pouncing mobility where many terrestrial opponents lose traction or sink more deeply.
 2. **Risk-Selected Ambush** - Eurasian lynx use stalking and prey discrimination rather than blind pursuit. Kill data show selection by prey species, sex, size and behavior, allowing the predator to focus its limited body mass on favorable attack opportunities.
 
 ## 7. Exactly two unique traits
@@ -137,7 +137,7 @@ ADW reports mating from February through April, gestation of 67-74 days and typi
 ### Conservation
 The species is globally treated as Least Concern in current conservation summaries, but status varies sharply by population. European populations include reintroduced and fragmented groups, and local threats include illegal killing, habitat fragmentation, roads and conflicts with livestock/game management.
 
-### Adaptations
+### Special features
 - broad furred paws for snow travel
 - long legs and explosive pounce mechanics
 - retractile claws and felid killing dentition
@@ -174,7 +174,7 @@ That efficiency should not be mistaken for pound-for-pound permission to score i
 - `top_speed_evidence_status`: unsupported
 - `prey_strategy`: stalk-and-ambush
 - `primary_prey_class`: small/medium ungulates
-- `snow_adaptation`: broad furred paws
+- `snow_feature`: broad furred paws
 - `activity_pattern`: predominantly crepuscular/nocturnal
 - `conservation_status_global`: Least Concern
 
@@ -211,11 +211,11 @@ That efficiency should not be mistaken for pound-for-pound permission to score i
 3. **Speed claims conflict and are weakly sourced.** Popular values of 50-80 km/h were not accepted without instrumented species-specific evidence.
 4. **Bite-force claims are weak.** No defensible measured PSI value was found, so the field remains unsupported at 0.0.
 5. **Lifespan is maximum longevity, not average survival.** ADW reports wild survival to 17 years, while KORA says up to 20.
-6. **Snow adaptation is strong, but not invulnerability.** Broad paws improve snow travel; they do not eliminate energetic cost or guarantee superiority over every snow-adapted opponent.
+6. **Snow capability is strong, but not invulnerability.** Broad paws improve snow travel; they do not eliminate energetic cost or guarantee superiority over every snow-capable opponent.
 
 ## 11. Cross-animal normalization notes
 - **Bobcat:** Eurasian lynx is larger and more capable against ungulate prey, so its absolute Attack/Raw Power should exceed the bobcat while remaining in the same general felid architecture.
-- **Caracal:** the 24 kg lynx is heavier than the 17 kg caracal control and better adapted to snow, but the caracal's aerial leap specialization can remain competitive in certain agility contexts.
+- **Caracal:** the 24 kg lynx is heavier than the 17 kg caracal control and better suited to snow, but the caracal's aerial leap specialization can remain competitive in certain agility contexts.
 - **Leopard:** the 60 kg leopard control remains decisively above Lynx in Attack and Defense. Lynx prey-killing efficiency does not erase a 2.5x mass gap or leopard grappling power.
 - **Jaguar:** Jaguar Attack 68.0 and Defense 48.0 remain far above Lynx because the jaguar has roughly four times the canonical mass and a much heavier cranial/forelimb weapon system.
 - **Hyena:** Spotted Hyena Attack 61.0 and Stamina 83.0 remain above Lynx. The lynx is more maneuverable and stealth-oriented but lacks hyena mass, bone-processing jaws and pursuit durability.

@@ -19,7 +19,7 @@ San Diego Zoo gives head-body length **68–106 cm**, shoulder height **25–40 
 
 ### Teeth and bite mechanics
 
-Clouded leopards possess exceptionally elongated upper canines. ADW reports canines reaching **4 cm or longer**, and Harano (2018) found evidence consistent with directional selection for elongated upper canines. A peer-reviewed paw/anatomy paper describes sharp-edged posterior canine keels and the longest canine-to-body-size ratio among living felids.
+Clouded leopards possess exceptionally elongated upper canines. ADW reports canines reaching **4 cm or longer**, and Harano (2018) analyzed their exceptional upper canine elongation. A peer-reviewed paw/anatomy paper describes sharp-edged posterior canine keels and the longest canine-to-body-size ratio among living felids.
 
 A peer-reviewed masticatory-muscle study estimated total bite force for *N. nebulosa* at about **108.95 kg-force at the canine**, **133.37 kg-force at P3**, and **161.34 kg-force at the carnassial notch**. These are force estimates, not measured pressure. Another finite-element study reported model-specific forces under standardized loading. Therefore no PSI conversion is made.
 
@@ -163,7 +163,7 @@ Captive breeding programs document dangerous male-female aggression, including m
 
 ### Unique traits
 
-1. **Living Saber Profile** — The clouded leopard has the longest upper canines relative to body size among living felids, an extreme phenotype investigated as an analogue for saber-tooth evolution.
+1. **Living Saber Profile** — The clouded leopard has the longest upper canines relative to body size among living felids, an extreme phenotype studied as a modern comparison for extinct saber-toothed cats.
 2. **Branch-Gripping Forefeet** — Enlarged forefeet and specialized pads improve purchase on supports, helping the cat stabilize and maneuver on branches.
 
 ## 8. Expanded profile
@@ -188,7 +188,7 @@ Generally solitary outside mating and mother-young associations. Smithsonian rep
 
 The species is listed as **Vulnerable**. Major threats include deforestation/fragmentation and illegal hunting/trafficking for pelts, teeth and bones. Conservation modelling emphasizes maintaining connected forest habitat.
 
-### Adaptations
+### Special features
 
 - Extremely elongated upper canines.
 - Wide gape and robust jaw-muscle attachment.
@@ -250,7 +250,7 @@ Those traits make it dangerous in exactly the situations its forest habitat crea
 | San Diego Zoo Wildlife Alliance | https://animals.sandiegozoo.org/animals/clouded-leopard | Size, dimorphism, tail, lifespan, biology | 68–106 cm body, 25–40 cm shoulder, 61–85 cm tail; males 20–25 kg, females 10–14 kg | High institutional; summary values |
 | Smithsonian National Zoo | https://nationalzoo.si.edu/animals/clouded-leopard | Diet, gape, life history, lifespan, conservation | ~100° gape; 12–15 y average, up to 17 human care; prey and reproductive data | High institutional |
 | Animal Diversity Web | https://animaldiversity.org/accounts/Neofelis_nebulosa/ | Morphology, canines, mass, locomotion, lifespan | 11–23 kg; canines 4 cm+; mobile ankles; large padded feet | Moderate-high synthesis |
-| Harano 2018, Journal of Evolutionary Biology | https://doi.org/10.1111/jeb.13309 | Canine evolution | Exceptional upper canine elongation and directional-selection analysis | High, peer-reviewed |
+| Harano 2018, Journal of Evolutionary Biology | https://doi.org/10.1111/jeb.13309 | Canine morphology | Exceptional upper canine elongation | High, peer-reviewed |
 | Hubbard et al. 2009, Anatomical Record | https://doi.org/10.1002/ar.20930 | Paw structure, canines | Enlarged forefeet, gripping morphology, long canine ratio | High, peer-reviewed |
 | Carlon & Hubbard 2012, Anatomical Record | https://doi.org/10.1002/ar.22418 | Hindlimb anatomy, dimensions | 16–23 kg, 60–106 cm head-body; long tail and climbing anatomy | High, peer-reviewed |
 | Hartstone-Rose et al. 2012, Anatomical Record | https://doi.org/10.1002/ar.22518 | Bite-force estimate | 108.95 kg-force canine estimate; larger values farther back in tooth row | High for model; not PSI |

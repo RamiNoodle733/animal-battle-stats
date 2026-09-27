@@ -56,7 +56,7 @@ The primary weapon is a forward charge terminating in a horn-boss/head impact. A
 ### Offensive mechanics
 Muskox offense has two modes. During rut contests, bulls square off, back away and accelerate into frontal collisions, then may repeat the sequence many times. At close range they push, hook and use neck/shoulder strength. Against predators, adults lower the head, present horns and may charge out from the defensive formation. ADW reports muskoxen throwing and trampling wolves.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 The adult bull's strongest defense is concentrated at the front: a massive horn boss, thick frontal skull, compact neck and shoulders, plus substantial body mass. The shaggy coat buffers weather and minor superficial contact but should not be treated as ballistic armor. Group defense is highly effective against coursing predators because adults form a line against a single threat or a circle against multiple threats, horns outward and calves protected inside.
 
 ### Locomotion and maneuverability
@@ -79,12 +79,12 @@ Wolves are major natural predators, with brown and polar bears also capable of t
 
 ### Environmental strengths
 - **Cold/open tundra:** exceptional thermal protection and footing.
-- **Frontal confrontation:** boss and skull are purpose-built for impact.
+- **Frontal confrontation:** boss and skull are specialized for impact.
 - **Group predator pressure:** circle/line formation is highly effective.
 - **Snow and seasonal scarcity:** strong energy-conservation physiology.
 
 ### Environmental limitations
-- **Heat:** extreme cold adaptation creates overheating risk.
+- **Heat:** extreme cold-weather insulation creates overheating risk.
 - **Prolonged pursuit:** not built to outrun wolves or bears over long distances.
 - **Rear/flank attacks:** frontal armor is much stronger than lateral/rear protection.
 - **Solo battle:** loses the herd's circle-defense multiplier.
@@ -134,14 +134,14 @@ All scores use the absolute 0.1-100.0 roster scale.
 
 ### Unique traits, exactly two
 1. **Horn-Wall Defense** - muskoxen switch between outward-facing defensive lines and circles depending on predator pressure, creating a wall of horns around vulnerable herd members.
-2. **Pleistocene Grazer Build** - a compact, short-legged body, heavy coat and seasonally plastic digestion conserve energy on sparse Arctic forage rather than maximizing pursuit speed.
+2. **Tundra Grazer Build** - a compact, short-legged body, heavy coat and seasonally plastic digestion conserve energy on sparse Arctic forage rather than maximizing pursuit speed.
 
 ## 8. Expanded profile
 ### Habitat and geographic range
 Muskoxen inhabit Arctic tundra. Native populations persist principally in northern Canada and Greenland. Alaska's native population was extirpated historically and later re-established from Greenland stock; introduced or reintroduced populations also occur elsewhere at high latitudes, including Norway and Russia.
 
 ### Diet and ecology
-They are ruminant herbivores feeding on grasses, sedges, forbs, willow and other woody plants, plus lichens and mosses when available. Winter scarcity drives low intake and energy conservation, while summer/autumn feeding replenishes reserves. Their rumen physiology is highly seasonal and adapted to coarse forage.
+They are ruminant herbivores feeding on grasses, sedges, forbs, willow and other woody plants, plus lichens and mosses when available. Winter scarcity drives low intake and energy conservation, while summer/autumn feeding replenishes reserves. Their rumen physiology is highly seasonal and suited to coarse forage.
 
 ### Social structure
 Muskoxen are herd-forming. Mixed groups re-form outside the rut, while dominant bulls compete for breeding access. Social hierarchy is maintained through both vocal and postural signals. Predator defense is cooperative and centered on keeping calves behind a wall of adult horns.
@@ -150,9 +150,9 @@ Muskoxen are herd-forming. Mixed groups re-form outside the rut, while dominant 
 Rut occurs in late summer/autumn. Dominant bulls defend harems and expend substantial energy fighting rivals. Cows generally produce one calf in spring. Male life expectancy is shorter than female life expectancy, consistent with the high costs of rut competition.
 
 ### Conservation
-The species is classified **Least Concern** in current IUCN-linked references, although local populations can fluctuate strongly and face climate, disease, predation and weather-related pressures. Alaska populations are reintroduced descendants rather than uninterrupted native survivors.
+The species is classified **Least Concern** in current IUCN-linked references, although local populations can fluctuate strongly and face climate, disease, predation and weather-related pressures. Alaska populations come from reintroduced animals rather than uninterrupted native survivors.
 
-### Adaptations
+### Special features
 - Massive fused horn boss in mature bulls.
 - Curved horn tips for hooking and predator defense.
 - Dense qiviut underwool beneath long guard hairs.
@@ -164,19 +164,19 @@ The species is classified **Least Concern** in current IUCN-linked references, a
 Muskoxen are hunted under regulated systems in parts of their range and are valued for qiviut, an exceptionally fine insulating fiber. They can be dangerous when approached, particularly rutting bulls; NPS advises retreat because threatened animals may charge.
 
 ### Genuine fun facts
-- Despite the name, muskoxen are more closely allied with goats and sheep than with true cattle.
+- Despite the name, muskoxen are grouped with goats and sheep rather than with true cattle.
 - A mature bull's horn bases meet across the forehead to form a solid boss.
 - NPS reports rutting bulls may repeat head-on charges roughly 20 times before one yields.
 - Muskox coat surface can remain only a few degrees above ambient even around -40 C.
 - Their tail is only about 5-10 cm and is largely hidden beneath the coat.
 - Herds can switch from a defensive line against one threat to a circle against multiple threats.
-- Muskoxen survived the Pleistocene while many other northern megafauna disappeared.
+- Muskoxen survived the last Ice Age while many other northern megafauna disappeared.
 
 ### Concise site-ready summary
 The musk ox is a 320 kg Arctic bovid built to hold ground. A mature bull combines a massive horn boss, thick frontal skull, curved hooking horns and repeated collision behavior with one of the most insulating mammal coats known. It is not a pursuit athlete, but frontal attacks against it are dangerous and its cold-weather endurance is exceptional.
 
 ### Rich narrative profile
-A musk ox bull is not simply a shaggy cow. Its battle anatomy is concentrated around a problem that natural selection forces it to solve every breeding season: how to hit another 300-plus-kilogram bull head-on and remain functional. The mature horn bases spread into a thick boss across the forehead, backed by a robust frontal skull and heavy neck and shoulders. Rut contests can progress from threat displays and pushing into repeated running collisions. The same horns that absorb peer impacts end in hooks that can threaten wolves and other attackers.
+A musk ox bull is not simply a shaggy cow. Its battle anatomy is concentrated around a problem it must solve every breeding season: how to hit another 300-plus-kilogram bull head-on and remain functional. The mature horn bases spread into a thick boss across the forehead, backed by a robust frontal skull and heavy neck and shoulders. Rut contests can progress from threat displays and pushing into repeated running collisions. The same horns that absorb peer impacts end in hooks that can threaten wolves and other attackers.
 
 That specialization changes how its ratings should be read. The musk ox is not exceptionally agile and does not need a speculative top-speed number to be dangerous. Its offense is about short-range mass transfer, frontal stability and hooking leverage. Its defense is similarly directional. An attacker meeting the forehead encounters the animal's best-protected surface, while the flanks and rear are ordinary mammalian tissue beneath a very dense coat.
 
@@ -189,7 +189,7 @@ The famous circle defense belongs to the species' social toolkit, not to the sol
 - `horn_boss_thickness_cm`: 15-20 cm reported anatomical range, source-dependent definition
 - `male_mass_range_kg`: 300-400 kg ADW; wild summaries may be lower
 - `male_head_body_length_cm`: 200-250 cm
-- `cold_adaptation`: categorical or evidence-linked field rather than inflating Defense
+- `cold_tolerance`: categorical or evidence-linked field rather than inflating Defense
 - `social_defense_mode`: line/circle formation
 - `locomotion_context`: burst gallop capable, maximum unresolved
 
@@ -229,7 +229,7 @@ The famous circle defense belongs to the species' social toolkit, not to the sol
 - **Mass:** ADW gives male average 320 kg and 300-400 kg range, while a Canadian wild summary reports 270-315 kg. Geographic origin, season and sampling plausibly explain much of the difference. Canonical 320 kg is representative but not universal.
 - **Speed:** popular values around 50 km/h exist, and NPS describes full-speed rut charges, but no strong instrumented maximum was found. `speed_mps` stays 0.0.
 - **Horn dimensions:** boss/skull thickness is well described by agency and ADW sources. Total horn length values are often trophy-derived, so no single horn-length number is elevated to a canonical population mean.
-- **Thermal physiology:** some experimental/modeling work is based on females or managed animals. It robustly establishes species-level cold adaptation but should not imply a precisely measured male combat-endurance advantage.
+- **Thermal physiology:** some experimental/modeling work is based on females or managed animals. It robustly establishes species-level cold tolerance but should not imply a precisely measured male combat-endurance advantage.
 
 ## 11. Cross-animal calibration notes
 - **Mountain Goat:** Musk Ox is roughly three times the canonical mass and has a far more collision-specialized skull, so Attack 64.0 vs 51.0 and Defense 61.0 vs 42.0 are intentionally separated. Mountain Goat remains dramatically superior in cliff maneuverability, Agility 88.0 vs 50.0.

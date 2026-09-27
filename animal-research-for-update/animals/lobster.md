@@ -151,7 +151,7 @@ The species supports one of North America's most important crustacean fisheries 
 ### Human interaction
 American lobsters are commercially valuable and usually captured in baited traps. Human harvest is the dominant mortality pressure on many adult populations. Handling also illustrates the crusher claw's practical danger, but anecdotes about injured fingers are not substitutes for instrumented force data.
 
-### Major adaptations
+### Special features
 - paired but functionally asymmetric crusher and cutter chelae
 - hard calcified exoskeleton
 - powerful abdominal escape response

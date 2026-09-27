@@ -151,7 +151,7 @@ Pairs use scrapes on cliffs and analogous urban structures. Young fledge after r
 ### Conservation
 The peregrine became a flagship pesticide-recovery species after organochlorine contamination caused severe declines and eggshell thinning. North American recovery followed DDT restrictions, protection and captive-breeding/reintroduction programs. Globally the species is currently assessed as Least Concern.
 
-### Major adaptations
+### Special features
 - Long pointed wings for rapid flight.
 - Tail and wing control for precision aerial interception.
 - Powerful grasping feet and curved talons.
@@ -160,7 +160,7 @@ The peregrine became a flagship pesticide-recovery species after organochlorine 
 - Flexible use of natural cliffs and human-built vertical structures.
 
 ### Human interaction
-Peregrines adapted unusually well to some cities, where tall buildings provide nesting ledges and pigeons provide abundant prey. Their recovery is one of the best-known conservation successes associated with pesticide regulation and active reintroduction.
+Peregrines have taken unusually well to some cities, where tall buildings provide nesting ledges and pigeons provide abundant prey. Their recovery is one of the best-known conservation successes associated with pesticide regulation and active reintroduction.
 
 ### Genuine fun facts
 - The name *peregrinus* is associated with wandering, fitting the extreme migrations of northern populations.

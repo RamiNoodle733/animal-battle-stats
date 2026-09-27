@@ -35,7 +35,7 @@ No reliable species-specific bite-force pressure measurement was found. **bite_f
 
 The tongue can extend to approximately body length and uses elastic-energy storage plus a sticky terminal pad to seize prey. Chameleon-family biomechanics demonstrates that ballistic tongue projection maintains unusually high performance across temperature changes: over a 10 C drop, projection velocity/power fell only 10-19%, while muscle-powered retraction declined by more than 42%.
 
-### Defenses and structural adaptations
+### Defenses and structural features
 - Granular/scaly skin provides ordinary reptilian surface protection, not armor.
 - Laterally compressed body and cryptic coloration reduce detection.
 - Zygodactyl feet and a prehensile tail provide exceptional branch grip and stability.
@@ -61,7 +61,7 @@ The chameleon's main specialized strike is its ballistic tongue. It is superb fo
 Common chameleons are deliberate arboreal climbers rather than sprinters. Zygodactyl feet clamp branches, the prehensile tail acts as an additional anchor, and slow controlled stepping gives excellent stability on narrow supports. This produces strong *positional control* in vegetation but poor open-ground escape speed. Agility therefore should be above its raw speed while remaining far below fast aerial or cursorial specialists.
 
 ### Endurance
-The species is ectothermic and generally sedentary. It can maintain slow stalking, climbing, basking and territorial activity, but it is not adapted to prolonged high-output pursuit. Tongue projection is partially buffered against cooling by elastic recoil, which improves feeding performance without implying whole-body endurance.
+The species is ectothermic and generally sedentary. It can maintain slow stalking, climbing, basking and territorial activity, but it is not built for prolonged high-output pursuit. Tongue projection is partially buffered against cooling by elastic recoil, which improves feeding performance without implying whole-body endurance.
 
 ### Senses
 Vision is the standout system. Experiments on *C. chamaeleon* show simultaneous monocular tracking of two targets and context-dependent coordination: disconjugate scanning, binocular convergence/tracking for prey, and coordinated monocular tracking. This gives excellent visual surveillance and depth targeting without requiring the simplistic claim that the eyes are always fully independent.
@@ -146,8 +146,8 @@ Sexual maturity occurs at about one year. Southern Spanish work reports one clut
 ### Conservation
 Conservation status should be resolved against the current IUCN species assessment before production migration because regional populations and legal protections vary. This report does not invent a global status where a current authoritative record was not retrieved in-run.
 
-### Adaptations
-The species combines grasping feet, prehensile tail, laterally compressed body, visually controlled slow stalking, dynamic coloration, panoramic visual surveillance and an elastic projectile feeding system. These adaptations are highly coherent for arboreal ambush predation but do not translate into high absolute fighting power.
+### Special features
+The species combines grasping feet, prehensile tail, laterally compressed body, visually controlled slow stalking, dynamic coloration, panoramic visual surveillance and an elastic projectile feeding system. These features are highly coherent for arboreal ambush predation but do not translate into high absolute fighting power.
 
 ### Human interaction
 Common chameleons are vulnerable to habitat alteration, road mortality and collection in parts of their range. Their slow movement makes road crossings especially hazardous. Captive longevity and health are sensitive to husbandry, thermal environment, hydration and reproductive burden.

@@ -57,7 +57,7 @@ Harpy eagles are canopy ambush predators. They perch, scan and listen, then clos
 
 Field diet studies show the practical result. Central-Amazon breeding pairs were dominated by two sloth species by both number and biomass, with primates, rodents, carnivores and birds also represented. Atlantic Forest research found mean estimated prey masses around **2.834–3.637 kg**, comparable with Amazon estimates of roughly 2.6–4 kg. Guinness documents females capable of killing/carrying prey near their own mass, but this should be treated as an exceptional capability rather than the normal prey baseline.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 Aerial access and vertical separation are the primary defensive advantages. In canopy terrain the eagle can disengage into branches and exploit three-dimensional space. Physical protection is low compared with mammals of similar or greater mass. The legs are exceptionally stout for a raptor, but the torso is not armored.
 
 ### Locomotion and maneuverability
@@ -156,7 +156,7 @@ Harpy eagles reproduce slowly. A classic Guyana nest study documented two eggs, 
 ### Conservation
 The species is threatened by forest loss, fragmentation and shooting. A 2021 study of 16 active nests found prey delivery and reproductive viability deteriorated strongly with forest loss; no nests were supported in landscapes above 70% forest loss, and landscapes above 50% loss could not reliably provision young to independence. Recent Atlantic Forest work continues to document shooting, electrocution and road mortality.
 
-### Major adaptations
+### Special features
 - Massive feet and long rear talons for penetrating grip.
 - Short, broad wings and long tail for forest maneuverability.
 - Acute vision and acoustic assistance from the facial-disc structure.
@@ -174,7 +174,7 @@ Harpy eagles are conservation flagships but are vulnerable to direct persecution
 - A classic nest study found the female performed 97% of incubation.
 - Pairs typically raise only one young and may breed only once every 2–3 years.
 - Harpy eagles can remain perched for extremely long periods while watching and listening for canopy prey.
-- Their wings are not unusually long for their mass; the forest-adapted plan favors maneuvering rather than open-country soaring specialization.
+- Their wings are not unusually long for their mass; the forest-suited plan favors maneuvering rather than open-country soaring specialization.
 
 ### Concise site-ready summary
 The Harpy Eagle is an 8 kg female-biased canopy ambush specialist whose oversized feet and talons let it seize monkeys, sloths and other substantial arboreal prey. Its short broad wings, long tail, acute vision and acoustic targeting make it exceptionally maneuverable in rainforest, but low absolute body mass and minimal armor keep its raw power and defense far below large mammalian predators.

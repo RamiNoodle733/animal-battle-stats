@@ -34,7 +34,7 @@ Portugal et al. (2016), *Current Biology*, DOI **10.1016/j.cub.2015.12.004**, me
 The study is based on one trained captive male, so 195 N should not be treated as a universal species maximum. It is nevertheless a directly measured, behaviorally relevant strike value.
 
 ### Feet, legs, bill and wings
-The long legs provide reach and keep the torso farther from dangerous ground prey. The feet are adapted for walking and striking rather than the powerful grasp-and-carry function of many other raptors. San Diego Zoo explicitly notes limited grasping ability and that food is generally eaten immediately or carried in the bill. The hooked bill is a secondary killing/processing tool.
+The long legs provide reach and keep the torso farther from dangerous ground prey. The feet are built for walking and striking rather than the powerful grasp-and-carry function of many other raptors. San Diego Zoo explicitly notes limited grasping ability and that food is generally eaten immediately or carried in the bill. The hooked bill is a secondary killing/processing tool.
 
 The wingspan is approximately 2.1 m. When confronting snakes the bird can spread its wings, presenting feathers as distracting targets while keeping the vulnerable body farther away. Lower legs are scaled, adding limited mechanical protection.
 
@@ -61,7 +61,7 @@ The Secretary Bird is a terrestrial striking specialist. It walks prey down, pos
 
 The hooked bill is secondary. Unlike eagles, the feet are not optimized for carrying prey away. This matters for ABS because the bird's offensive system is best at repeated precision impacts against relatively small ground targets, not grappling a much heavier opponent.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 Long legs create standoff distance from snakes. Wing spreading can divert strikes toward feathers, and scaled lower legs add some protection. These are meaningful matchup defenses against low ground-level attackers, but they do not make the bird physically durable against large carnivores. At about 4 kg, it has low absolute mass and avian flight structures that can be disabled by a strong bite, claw or impact.
 
 ### Locomotion and maneuverability
@@ -169,7 +169,7 @@ Pairs build large stick nests, commonly in thorny/acacia-type trees, and may reu
 ### Conservation
 Current conservation references including World Land Trust and BirdLife South Africa describe the Secretary Bird as **Endangered** globally. Major threats include habitat loss and degradation, woody encroachment, overgrazing, altered fire regimes, disturbance, hunting/trade, poisoning, and collisions or entanglement with power infrastructure and fences.
 
-### Adaptations
+### Special features
 - Long legs for ground pursuit and standoff striking.
 - Fast, forceful, precision foot strikes.
 - Scaled lower legs.
@@ -195,7 +195,7 @@ The species is culturally prominent, including heraldic use in Africa, but faces
 The Secretary Bird is a long-legged African ground raptor built around precision impact rather than grappling. Its experimentally measured foot strikes hit at about 195 N in roughly 15 milliseconds, while long legs, scaled shanks and wing distraction help it manage dangerous snakes. At only about 4 kg it is not a heavyweight fighter, but its unusual stomp system, footwork and all-day walking endurance make it a formidable specialist against small ground prey.
 
 ### Rich narrative profile
-The Secretary Bird is a good example of why ABS must separate absolute power from specialization. A four-kilogram bird cannot be assigned mammal-predator levels of Raw Power merely because its hunting style looks violent. Against a wolf, big cat or megafaunal opponent, its low mass and exposed avian structure are overwhelming disadvantages. Against the prey it evolved to fight, however, the mechanics are unusually effective.
+The Secretary Bird is a good example of why ABS must separate absolute power from specialization. A four-kilogram bird cannot be assigned mammal-predator levels of Raw Power merely because its hunting style looks violent. Against a wolf, big cat or megafaunal opponent, its low mass and exposed avian structure are overwhelming disadvantages. Against the prey it is built to fight, however, the mechanics are unusually effective.
 
 Its defining weapon is not an internet anecdote. Portugal and colleagues measured a trained male striking a rubber snake over a force plate and recorded roughly 195 N peak force with contact around 15 ms. That very short impact interval makes the strike a rapid ballistic event requiring accurate pre-strike visual targeting. Long legs provide reach, letting the bird attack small dangerous prey while keeping its torso farther away. If a snake retaliates, spread wings can redirect attention toward feathers, and the scaled lower legs provide another modest layer of protection.
 
@@ -232,7 +232,7 @@ The resulting ABS profile is deliberately polarized. Attack is only moderate on 
 |---|---|---|---|
 | Portugal et al. 2016, *Current Biology*, “The fast and forceful kicking strike of the secretary bird” | https://doi.org/10.1016/j.cub.2015.12.004 | Species hunting mechanics; ~195 N peak strike; ~15 ms contact; visual/neuromuscular precision | **High** for measured bird; one trained captive male, so not a universal maximum. |
 | Oxford Biology publication record / Europe PMC metadata | https://www.biology.ox.ac.uk/publication/2022490/europe-pubmed-central | DOI, authorship, journal, predatory behavior context | **High** bibliographic source. |
-| San Diego Zoo Wildlife Alliance | https://animals.sandiegozoo.org/animals/secretary-bird | 2.3-4.3 kg, 1.2-1.5 m height, ~2.1 m wingspan, 10-15 y lifespan / up to 19 y zoo, >32 km daily hunting, diet, feet poorly adapted for grasping, nesting/social behavior | **High-medium** major zoological institution; some values are husbandry/natural-history summaries rather than primary measurements. |
+| San Diego Zoo Wildlife Alliance | https://animals.sandiegozoo.org/animals/secretary-bird | 2.3-4.3 kg, 1.2-1.5 m height, ~2.1 m wingspan, 10-15 y lifespan / up to 19 y zoo, >32 km daily hunting, diet, feet poorly suited to grasping, nesting/social behavior | **High-medium** major zoological institution; some values are husbandry/natural-history summaries rather than primary measurements. |
 | National Geographic | https://www.nationalgeographic.com/animals/birds/facts/secretary-bird | 5-9.4 lb mass, 10-15 y lifespan, habitat, diet, snake-defense behavior | **Medium-high** secondary institutional summary. |
 | World Land Trust Secretarybird profile | https://www.worldlandtrust.org/species/secretarybird/ | 125-150 cm length, >2 m wingspan, ~1.2 m height, habitat/range, Endangered status and threats | **Medium-high**, conservation organization drawing on IUCN context. |
 | BirdLife South Africa infrastructure guidance | https://www.birdlife.org.za/wp-content/uploads/2024/05/Minimising-the-impacts-of-infrastructure-development-on-Secretarybirds-Sagittarius-serpentarius.pdf | Global Endangered classification and infrastructure/habitat threats | **High-medium**, specialist conservation guidance. |

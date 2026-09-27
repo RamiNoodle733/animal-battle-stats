@@ -27,8 +27,8 @@
 - **Canonical `lifespan_years`: 30.0.** Moderate-high confidence as an institutional wild estimate rather than a guaranteed individual lifespan.
 
 ### Teeth, bite mechanics, and venom
-- Smithsonian describes roughly **60 curved, serrated teeth**. A 2024 Nature Ecology & Evolution study found iron enrichment along Komodo tooth cutting edges/tips, an adaptation associated with maintaining sharp serrations.
-- Fry et al. (PNAS 2009) showed a combined wound-and-venom predatory system: the skull is relatively poorly adapted for high compressive bite force but resists pulling loads; deep wounds are potentiated by venom activities including anticoagulation and shock induction.
+- Smithsonian describes roughly **60 curved, serrated teeth**. A 2024 Nature Ecology & Evolution study found iron enrichment along Komodo tooth cutting edges/tips, a feature associated with maintaining sharp serrations.
+- Fry et al. (PNAS 2009) showed a combined wound-and-venom predatory system: the skull is relatively poorly suited to high compressive bite force but resists pulling loads; deep wounds are potentiated by venom activities including anticoagulation and shock induction.
 - Published bite-force values vary with model, gape, specimen and methodology. Force in Newtons cannot responsibly be converted to PSI without a defensible tooth/contact area.
 - **Canonical `bite_force_psi`: 0.0.** This means reliable pressure is unavailable, not that the bite is weak or harmless.
 

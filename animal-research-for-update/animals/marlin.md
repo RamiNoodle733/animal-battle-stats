@@ -133,7 +133,7 @@ Blue marlin are generally encountered as solitary pelagic predators rather than 
 ### Conservation and human interaction
 Blue marlin are heavily interacted with by international pelagic fisheries and are iconic recreational game fish. NOAA manages U.S. Pacific fisheries with international coordination because migrations cross jurisdictions. Catch-and-release tagging has generated important movement and survival data.
 
-### Adaptations
+### Special features
 Streamlined fusiform body, powerful caudal propulsion, a long rostrum, visual pelagic hunting, broad-scale migration and physiological tolerance for repeated vertical excursions.
 
 ### Genuine fun facts

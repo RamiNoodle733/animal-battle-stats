@@ -168,7 +168,7 @@ Young American Crows generally do not breed before age two, and many wait until 
 
 The species is currently widespread and classified as Least Concern in major bird-conservation summaries. Cornell describes it as numerous, though long-term survey trends have varied and West Nile virus has caused important local mortality. The report does not convert abundance into combat capability.
 
-### Adaptations
+### Special features
 
 - Broad, rounded wings and strong terrestrial walking ability
 - Heavy general-purpose bill

@@ -111,7 +111,7 @@ Endurance is a standout. NPS reports routine trotting around 5 mph, travel up to
 Olfaction is the primary long-range terrestrial tracking sense, integrated with acute hearing and useful low-light vision. NPS notes howls can carry roughly 11 km in forest and 16 km in open terrain, supporting long-distance social communication. Exact popular multipliers for smell relative to humans are not treated as measurements.
 
 ### Intelligence and tactics
-Wolves learn prey behavior, coordinate socially, communicate through posture, scent and vocalization, and adapt hunting effort to risk. The bison study is especially useful because wolves initially inexperienced with bison learned to kill them more effectively over time. This is strong tactical cognition, but it does not justify ape/corvid-level general problem-solving scores.
+Wolves learn prey behavior, coordinate socially, communicate through posture, scent and vocalization, and adjust hunting effort to risk. The bison study is especially useful because wolves initially inexperienced with bison learned to kill them more effectively with experience. This is strong tactical cognition, but it does not justify ape/corvid-level general problem-solving scores.
 
 ### Ferocity and risk management
 Wolves are willing to engage dangerous prey and rival packs, but successful predation depends on avoiding catastrophic injury. They probe, abandon poor opportunities and disproportionately exploit vulnerable prey. Ferocity is therefore high without being modeled as reckless aggression.
@@ -184,7 +184,7 @@ The live profile currently exposes twelve substats. These are rescored independe
 ## 8. Expanded profile
 
 ### Habitat and range
-Gray wolves historically occupied one of the broadest ranges of any terrestrial mammal across North America and Eurasia. They use tundra, boreal and temperate forests, mountains, grasslands and other habitats where sufficient prey and human tolerance remain. Smithsonian emphasizes their broad adaptability outside tropical forest.
+Gray wolves historically occupied one of the broadest ranges of any terrestrial mammal across North America and Eurasia. They use tundra, boreal and temperate forests, mountains, grasslands and other habitats where sufficient prey and human tolerance remain. Smithsonian emphasizes their broad habitat flexibility outside tropical forest.
 
 ### Diet
 Primarily carnivorous and strongly oriented toward ungulates where available. Yellowstone diets are dominated by elk, with bison, deer and smaller mammals contributing. Wolves also scavenge and can consume smaller prey opportunistically.
@@ -201,7 +201,7 @@ Breeding generally occurs in winter, with gestation around 62-63 days and pups b
 ### Conservation
 Global status and regional legal status should be verified at production-migration time because wolf management is politically and geographically variable. Populations are robust in some northern regions and absent or recovering in others. The species' conservation story cannot be represented accurately by one local management label.
 
-### Adaptations
+### Special features
 - Digitigrade cursorial limbs for efficient travel.
 - Large feet and strong traction.
 - Dense insulating coat with substantial geographic color variation.
@@ -297,7 +297,7 @@ The NPS Yellowstone page currently repeats a 1,200 PSI bite-pressure value, whil
 - Six headline ratings with one decimal: **yes**
 - Exactly two special abilities: **yes**
 - Exactly two unique traits: **yes**
-- Habitat/range/diet/ecology/social/life history/conservation/adaptations/human interaction: **yes**
+- Habitat/range/diet/ecology/social/life history/conservation/special features/human interaction: **yes**
 - Several genuine fun facts: **yes**
 - Site summary and rich narrative: **yes**
 - Future field proposals: **yes**

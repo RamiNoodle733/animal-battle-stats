@@ -103,7 +103,7 @@ The porcupine is herbivorous and does not hunt animal prey. NPS lists bobcats, c
 | Raw power | **24.0** | stocky rodent with useful tail and climbing strength, but low absolute force compared with serious mammalian fighters |
 | Weaponry | **48.0** | thousands of barbed contact weapons plus active tail delivery, balanced against low reach and inability to project them |
 | Protection | **69.0** | unusually effective dorsal contact deterrent for its size; exposed face/belly and lack of rigid armor cap the score |
-| Toughness | **42.0** | robust cold-adapted mammal, but no evidence of exceptional trauma tolerance once quills are bypassed |
+| Toughness | **42.0** | robust cold-hardy mammal, but no evidence of exceptional trauma tolerance once quills are bypassed |
 | Speed | **20.0** | consistently slow terrestrial mover; no supported maximum is invented |
 | Maneuverability | **46.0** | weak open-ground mobility but competent climbing, bracing and swimming |
 | Endurance | **64.0** | remains active through extreme winter and can sustain broad seasonal ranging, without evidence of elite high-output endurance |
@@ -148,7 +148,7 @@ Porcupines are primarily solitary. Breeding occurs in autumn/early winter and co
 ### Conservation
 Smithsonian lists the species as **Least Concern** and not globally threatened, although local hunting/persecution and predator dynamics can alter populations.
 
-### Major adaptations
+### Special features
 - Dense detachable quill field with microscopic backward-facing barbs.
 - Muscular tail that assists both climbing and defensive quill delivery.
 - Strong climbing feet and arboreal competence.

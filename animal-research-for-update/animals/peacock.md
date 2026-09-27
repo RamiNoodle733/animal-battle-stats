@@ -173,11 +173,11 @@ Breeding is seasonal. ADW reports 3-12 eggs, about 27-29 days incubation and sex
 ### Conservation
 Cornell's current species account cites BirdLife/IUCN 2025 as **Least Concern**, with an extremely large range and increasing global population trend. Local pressures can still include hunting, pesticide poisoning, habitat change and human conflict.
 
-### Adaptations
+### Special features
 - Long powerful legs and terrestrial locomotion.
 - Breeding spurs for rival combat.
 - Short explosive flight sufficient for tree roosting.
-- Extreme sexually selected upper-tail covert train.
+- Extreme display train of upper-tail coverts.
 - Structural coloration and eyespot ornamentation.
 - High vigilance and conspicuous alarm calling.
 - Broad omnivorous diet and habitat flexibility.
@@ -271,7 +271,7 @@ Behavior adds another layer. Free-ranging males establish display territories an
 - Six headline ratings with one decimal: **yes**
 - Exactly two special abilities: **yes**
 - Exactly two unique traits: **yes**
-- Habitat/range/diet/ecology/social/life history/conservation/adaptations/human interaction: **yes**
+- Habitat/range/diet/ecology/social/life history/conservation/special features/human interaction: **yes**
 - Several genuine fun facts: **yes**
 - Site summary and rich narrative: **yes**
 - Future field proposals: **yes**

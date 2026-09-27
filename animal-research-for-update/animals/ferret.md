@@ -70,7 +70,7 @@ Domestic ferrets retain strong mustelid predatory behavior. Historically they ha
 At only about 1.5 kg, the ferret has little absolute damage tolerance against medium or large roster animals. It lacks armor and has relatively delicate small-mammal dimensions. Its best defense is positional: a narrow flexible body, rapid turning, low center of mass and ability to use confined passages where larger opponents cannot maneuver effectively.
 
 ### Locomotion and maneuverability
-Biomechanical work directly supports subterranean adaptation. Ferrets maintained similar average velocity, gait and many force variables in an experimentally restricted tunnel despite major postural compression. This makes the animal exceptionally effective in narrow spaces. High Agility is therefore based on body control and tunnel maneuverability, not on an unsupported sprint-speed claim.
+Biomechanical work directly supports subterranean specialization. Ferrets maintained similar average velocity, gait and many force variables in an experimentally restricted tunnel despite major postural compression. This makes the animal exceptionally effective in narrow spaces. High Agility is therefore based on body control and tunnel maneuverability, not on an unsupported sprint-speed claim.
 
 ### Endurance and recovery
 Ferrets are active in intense bouts but sleep extensively. Laboratory work found roughly 39% wake time and over 60% sleep, while a 2026 international husbandry survey found most owners reporting 12–20 hours of sleep daily. This argues against treating the species as an elite continuous-endurance runner. Its high metabolism and short digestive transit also favor frequent feeding. Stamina should be moderate rather than wolf/dhole-like.
@@ -152,7 +152,7 @@ All scores use the absolute 225-animal scale, not pound-for-pound scaling.
 The domestic ferret is a domesticated animal with worldwide captive distribution rather than a naturally bounded wild range. It lives principally in human-associated environments. Feral populations exist in some regions, most famously New Zealand, but the canonical ABS animal is the domestic form rather than a feral hybrid population.
 
 ### Diet and ecology
-Ferrets are obligate carnivores with rapid gastrointestinal transit and high feeding frequency. Historically, people used them for rabbit hunting and rodent control. Their body form and predatory behavior reflect a lineage specialized for pursuing vertebrate prey in burrows and cluttered cover.
+Ferrets are obligate carnivores with rapid gastrointestinal transit and high feeding frequency. Historically, people used them for rabbit hunting and rodent control. Their body form and predatory behavior are specialized for pursuing vertebrate prey in burrows and cluttered cover.
 
 ### Social structure and behavior
 Domestic ferrets can be social with conspecifics and commonly engage in wrestling, chasing and play. They are inquisitive and exploratory. Activity is naturally crepuscular but readily shifts with husbandry and human schedules.
@@ -163,7 +163,7 @@ Sexual maturity can occur around six months, while full adult status is generall
 ### Conservation
 As a domesticated taxon, the ferret is not meaningfully evaluated as a threatened wild species. This must not be confused with the endangered black-footed ferret, *Mustela nigripes*.
 
-### Adaptations
+### Special features
 - Long, narrow torso and short limbs for confined locomotion.
 - Non-retractile claws useful for traction and digging.
 - Carnassial dentition and prominent canines for a meat diet and prey capture.

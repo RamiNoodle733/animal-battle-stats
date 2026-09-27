@@ -15,7 +15,7 @@ The live ABS profile explicitly identifies Black Panther as *Panthera pardus*. A
 
 A healthy mature **adult male** is the canonical combat specimen because leopards are sexually dimorphic and males are materially larger. Animal Diversity Web gives males at 31–65 kg versus females at 17–58 kg; the IUCN Cat Specialist Group gives a broader species range of 17–90 kg and notes major geographic variation. A representative 60.0 kg male is large and fit without using the 90 kg upper extreme.
 
-Melanism itself does not create a new body plan. The canonical animal therefore uses leopard biomechanics, weapons, locomotion and life history, with the dark phenotype treated separately as a camouflage-related adaptation. A global analysis found melanism in about 10.75% of sampled leopards, concentrated disproportionately in moist Asian forests. In the Malay Peninsula it can approach fixation in sampled populations.
+Melanism itself does not create a new body plan. The canonical animal therefore uses leopard biomechanics, weapons, locomotion and life history, with the dark phenotype treated separately as a camouflage-related trait. A global analysis found melanism in about 10.75% of sampled leopards, concentrated disproportionately in moist Asian forests. In the Malay Peninsula it can approach fixation in sampled populations.
 
 ## 2. Physical measurements
 
@@ -80,7 +80,7 @@ The primary killing system is a **canine bite integrated with forelimb grappling
 
 The leopard is an ambush specialist rather than a frontal charger. ADW describes approaches to roughly 3–10 m before pouncing. Its preferred prey mass in a large comparative study is concentrated around 10–40 kg, with a most-preferred value around 25 kg. This is important calibration evidence: leopards can kill dangerous prey and sometimes much larger animals, but their normal prey ecology should not be inflated into routine domination of animals several times their own mass.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 A 60 kg leopard has meaningful muscularity and can survive hard fights, but it has no true armor. Its best defense is often avoiding clean contact through stealth, climbing, rapid repositioning and choosing the engagement. Defense therefore stays substantially below large bears, bison and megafauna.
 
@@ -160,7 +160,7 @@ All values are absolute across the 225-animal roster.
 | **Maneuverability** | **83.0** | Excellent balance, pouncing, climbing, tree descent and dense-terrain control. |
 | **Endurance** | **61.0** | Multi-kilometer nightly patrol and sustained activity, without persistence-hunter specialization. |
 | **Recovery** | **47.0** | Normal mammalian healing; no exceptional regeneration. |
-| **Tactics** | **69.0** | Flexible ambush, prey selection, caching, avoidance and human-landscape adaptation. |
+| **Tactics** | **69.0** | Flexible ambush, prey selection, caching, avoidance and adjustment to human landscapes. |
 | **Senses** | **76.0** | Strong nocturnal predator sensory suite, but below specialist echolocators and extreme sensory taxa. |
 | **Ferocity** | **66.0** | Will engage dangerous prey/rivals, but risk avoidance is central to solitary survival. |
 | **Abilities** | **62.0** | Arboreal versatility plus habitat-dependent melanistic camouflage meaningfully change some matchups without becoming a universal bypass. |
@@ -173,7 +173,7 @@ All values are absolute across the 225-animal roster.
 | **Defense** | **42.0** | Good evasive survival and functional toughness, but no armor and limited mass. |
 | **Agility** | **83.0** | Elite mixed arboreal/terrestrial control, balance, pouncing and rapid repositioning. |
 | **Stamina** | **61.0** | Strong nightly movement and territorial activity, but not a persistence-pursuit specialist. |
-| **Intelligence** | **67.0** | Flexible solitary hunting, caching, habitat use and behavioral adaptation support high tactical competence. |
+| **Intelligence** | **67.0** | Flexible solitary hunting, caching, habitat use and behavioral versatility support high tactical competence. |
 | **Special** | **65.0** | Melanism can improve concealment in dark/moist forest and arboreal ability changes engagement geometry, but neither is a universal combat superpower. |
 
 ## 7. Exactly two special abilities and two unique traits
@@ -210,7 +210,7 @@ ADW reports breeding year-round, usually 2–3 offspring, gestation around 96 da
 
 The IUCN Cat Specialist Group lists the leopard as **Vulnerable**, citing habitat loss, prey depletion, persecution, illegal wildlife trade and poorly managed hunting among major pressures. “Black panther” has no separate conservation category because melanism is a phenotype within leopard populations.
 
-### Major adaptations
+### Special features
 
 - retractile claws and powerful forelimbs
 - flexible arboreal locomotion and head-first tree descent
@@ -286,7 +286,7 @@ Its limitations are equally important. The body is unarmored, the animal must cl
 3. `height_cm` has lower confidence than mass and head-body length because strong sex-specific primary shoulder-height data were not located.
 4. `speed_mps` remains 0.0 because repeated 58 km/h claims were not backed by a sufficiently transparent instrumented maximum-speed study.
 5. Bite force is supported as modeled force in newtons/kg-force, not PSI. No casual PSI conversion is used.
-6. Melanism is a conditional camouflage adaptation. It must not be double-counted across Agility, Intelligence and Special as if it were three separate powers.
+6. Melanism is a conditional camouflage trait. It must not be double-counted across Agility, Intelligence and Special as if it were three separate powers.
 
 ## 11. Cross-animal calibration notes
 

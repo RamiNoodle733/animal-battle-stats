@@ -9,7 +9,7 @@
 - **Exact ABS animal represented:** *Electrophorus electricus*, not a generic composite of all electric eels.
 - **Canonical specimen:** healthy mature large adult, **15.0 kg** and **200.0 cm standard/functional body length**. Sex is left unspecified because a reliable combat-relevant adult sex-size advantage was not established.
 - **Critical taxonomy correction:** Since the 2019 revision, *Electrophorus* contains three recognized species. The famous **860 V** measurement belongs to *E. voltai*, not *E. electricus*. The revision measured **480 V** in *E. electricus*. ABS must not transfer *E. voltai*'s record to this profile.
-- **Population note:** Modern FishBase restricts *E. electricus* to the Guiana Shield under the revised taxonomy. Older sources describing an Amazon-and-Orinoco-wide *E. electricus* often predate the three-species split and can mix lineages now assigned to *E. voltai* and *E. varii*.
+- **Population note:** Modern FishBase restricts *E. electricus* to the Guiana Shield under the revised taxonomy. Older sources describing an Amazon-and-Orinoco-wide *E. electricus* often predate the three-species split and can mix populations now assigned to *E. voltai* and *E. varii*.
 
 ## 2. Physical measurements and canonical factual fields
 
@@ -80,7 +80,7 @@ The ribbon-like anal fin permits precise forward and backward swimming and fine 
 
 ### Endurance and respiration
 
-Electric eels are obligate/facultative atmospheric-air specialists in hypoxic freshwater and repeatedly surface to gulp air through a vascularized mouth lining. This is a major environmental adaptation but not evidence of elite pursuit stamina. High-voltage attacks are delivered in volleys and are energetically meaningful; prolonged combat should not be treated as unlimited electrical output.
+Electric eels are obligate/facultative atmospheric-air specialists in hypoxic freshwater and repeatedly surface to gulp air through a vascularized mouth lining. This is a major environmental specialization but not evidence of elite pursuit stamina. High-voltage attacks are delivered in volleys and are energetically meaningful; prolonged combat should not be treated as unlimited electrical output.
 
 ### Senses
 
@@ -143,7 +143,7 @@ All values use the absolute 225-animal scale in `CALIBRATION.md`.
 | **Attack** | **49.0** | Electricity gives a 15 kg animal far more practical stopping power than its mass suggests, but absolute damage and prey scale remain far below megafaunal weapons. |
 | **Defense** | **29.0** | Electrical deterrence helps prevent contact, yet passive tissue protection is weak. |
 | **Agility** | **66.0** | Excellent low-speed control, reversal and close positioning, without confusing unsupported top speed with agility. |
-| **Stamina** | **58.0** | Strong hypoxia/air-breathing adaptation, moderate sustained combat output; not an endurance-specialist ceiling. |
+| **Stamina** | **58.0** | Strong hypoxia/air-breathing specialization, moderate sustained combat output; not an endurance-specialist ceiling. |
 | **Intelligence** | **63.0** | Sophisticated predatory sensorimotor tactics, but no evidence for corvid/primate-like domain-general cognition. |
 | **Special** | **98.0** | Bioelectric sensing plus high-voltage neuromuscular attack is an extreme, rare matchup-changing system. |
 
@@ -181,9 +181,9 @@ Electric eels are generally described as solitary outside breeding contexts. ADW
 
 Electric eels have been central to the history of bioelectricity research. Their discharges can be dangerous to humans, especially because incapacitation in water creates drowning risk. They are maintained by major public aquariums but require specialized handling.
 
-### Adaptations
+### Special features
 
-- Three paired electric-organ systems derived from muscle tissue
+- Three paired electric-organ systems formed from specialized muscle tissue
 - High- and low-voltage discharge modes
 - Active electrolocation in visually poor water
 - Long anal fin for controlled bidirectional swimming
@@ -229,7 +229,7 @@ That does not make every statistic elite. It is not a fast pursuit fish, has lit
 
 | Source | Direct URL | Supports | Finding / caveat | Confidence |
 |---|---|---|---|---|
-| de Santana et al. 2019, Nature Communications | https://doi.org/10.1038/s41467-019-11690-z | Taxonomy, voltage | Three *Electrophorus* lineages/species; *E. electricus* 480 V, *E. varii* 572 V, *E. voltai* 860 V | High |
+| de Santana et al. 2019, Nature Communications | https://doi.org/10.1038/s41467-019-11690-z | Taxonomy, voltage | Three *Electrophorus* species; *E. electricus* 480 V, *E. varii* 572 V, *E. voltai* 860 V | High |
 | FishBase | https://www.fishbase.se/summary/Electrophorus-electricus | Size, distribution, morphology, voltage | 250 cm SL max, 20.0 kg max; Guiana Shield under revised taxonomy; 480 V at 760 mm TL | High-moderate |
 | Smithsonian National Zoo | https://nationalzoo.si.edu/animals/electric-eel | Anatomy, habitat, communication, longevity | 2-2.5 m general size; weak/strong organ roles; captive male 10-15 y, female 12-22 y | High for husbandry/reference biology; taxonomy wording may retain broad historical range |
 | Animal Diversity Web | https://animaldiversity.org/accounts/Electrophorus_electricus/ | Reproduction, behavior, lifespan | Dry-season spawning; male parental care; wild lifespan unknown; captive 10-22 y | Moderate-high; older pre-split account |
@@ -258,7 +258,7 @@ That does not make every statistic elite. It is not a fast pursuit fish, has lit
 - **Versus Coyote/Dhole/Dingo:** the canids have better terrestrial mobility, pursuit stamina and conventional bite mechanics. In water, the eel's electrical attack can reverse the mass-combat relationship, but it does not inherit their physical toughness or running ability.
 - **Versus Cougar:** Cougar remains vastly superior in ordinary mechanical Attack, speed and terrestrial killing hardware. Electric Eel's Special is much higher because it can attack neuromuscular function electrically.
 - **Versus Dragonfly/Crow:** tiny flying animals can outrank it in maneuverability or cognition without approaching its absolute damage potential.
-- **Anti-inflation control:** 98.0 Special is not copied into Attack, Defense or Stamina. Electricity is scored where it changes matchups; the same adaptation is not counted as armor, muscular strength and endurance simultaneously.
+- **Anti-inflation control:** 98.0 Special is not copied into Attack, Defense or Stamina. Electricity is scored where it changes matchups; the same trait is not counted as armor, muscular strength and endurance simultaneously.
 
 ## 11. Future field proposals
 

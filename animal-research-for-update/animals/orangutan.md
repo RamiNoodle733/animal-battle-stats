@@ -53,7 +53,7 @@ The jaw and canines are the primary tissue-damaging weapons. The upper limbs pro
 ### Offensive mechanics
 A fighting orangutan is best modeled as a close-range grappler-biter. Long arms create reach for seizing supports or an opponent, while the jaws deliver puncturing trauma once contact is established. Male-male contest competition is biologically real: peer-reviewed work distinguishes flanged males from unflanged males partly by the latter's tendency to avoid male-male contest competition, and zoo/institutional accounts describe adult males warning or defending against rivals. This supports practical fighting capability without inventing a stereotyped duel sequence.
 
-### Defensive adaptations and toughness
+### Defensive features and toughness
 The animal's best defense is reach, grip, spatial control and avoidance in structurally complex habitat. Body mass and a robust great-ape frame provide more trauma reserve than small primates, but there is no armor. The cheek flanges and throat sac are display structures. They can reduce escalation by advertising mature-male status, but that signaling effect belongs primarily in tactics/specialization rather than passive Defense.
 
 ### Locomotion and maneuverability
@@ -102,7 +102,7 @@ All scores use absolute 0.1-100.0 roster scaling.
 | Maneuverability | **75.0** | Excellent four-limb grip, suspension, balance and canopy route control, tempered by large-male mass. |
 | Endurance | **63.0** | Sustained daily foraging/travel but not a high-output pursuit specialist. |
 | Recovery | **50.0** | No exceptional regeneration or physiological recovery mechanism established. |
-| Tactics | **92.0** | Great-ape learning, flexible tool behavior, technical construction and adaptive route choice. |
+| Tactics | **92.0** | Great-ape learning, flexible tool behavior, technical construction and resourceful route choice. |
 | Senses | **70.0** | Strong visuomotor and auditory performance plus informative long-distance calls, without an extreme sensory organ. |
 | Ferocity | **57.0** | Mature males can contest rivals, but spacing, display and avoidance are important and the species is not a habitual predator. |
 | Abilities | **68.0** | Four-limb arboreal control and long-call signaling are distinctive, but neither is a toxin/electricity-class offensive mechanism. |
@@ -145,7 +145,7 @@ Orangutans have an exceptionally slow life history. A seven-site field synthesis
 ### Conservation
 The Bornean orangutan is **Critically Endangered**. Major threats include forest loss and fragmentation, conversion for agriculture including oil palm, hunting, conflict killing and illegal capture. Its low reproductive rate magnifies the demographic effect of adult mortality.
 
-### Major adaptations
+### Special features
 Long powerful arms, grasping hands and feet, highly mobile shoulders, flexible arboreal route planning, fruit-focused foraging knowledge, daily nest construction, cultural/tool-use flexibility, male bimaturism and long-distance vocal signaling.
 
 ### Human interaction

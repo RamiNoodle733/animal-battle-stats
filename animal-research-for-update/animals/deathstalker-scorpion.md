@@ -67,7 +67,7 @@ The exoskeleton protects against desert abrasion and minor contact, and the anim
 Eight-legged terrestrial locomotion gives excellent close-range orientation around rocks and crevices. The body can reverse, pivot and keep the metasoma ready while the pedipalps face a threat. No unsupported internet sprint figure is used. Agility is therefore based on short-range control and strike repositioning rather than maximum speed.
 
 ### Endurance and environmental tolerance
-It is adapted to arid and hyper-arid habitats and avoids daytime thermal extremes by sheltering under rocks or in shallow burrows. This indicates strong ecological tolerance and energy economy, not proof of sustained high-output fighting. Stamina is kept moderate-low on the absolute roster scale.
+It is well suited to arid and hyper-arid habitats and avoids daytime thermal extremes by sheltering under rocks or in shallow burrows. This indicates strong ecological tolerance and energy economy, not proof of sustained high-output fighting. Stamina is kept moderate-low on the absolute roster scale.
 
 ### Senses
 Scorpions combine eyes, tactile hairs and pectines. Modern pecten research supports chemo- and mechanosensory sampling of the substrate, and older *L. quinquestriatus* behavioral work is foundational in scorpion sensory physiology. ADW specifically describes touch and vibration use for prey capture and communication. These senses are highly useful at ground level but do not justify vertebrate-like long-range visual acuity.
@@ -90,7 +90,7 @@ ADW describes small insects, spiders, centipedes, worms and other scorpions as p
 - Thick-skinned or heavily armored targets where the tiny aculeus cannot reliably reach vulnerable tissue.
 
 ### Major weaknesses
-Extreme size disadvantage, short reach, fragile absolute body structure, dependence on successful venom delivery, and uncertain venom efficacy across distantly related opponent taxa.
+Extreme size disadvantage, short reach, fragile absolute body structure, dependence on successful venom delivery, and uncertain venom efficacy across very different opponent taxa.
 
 ### Matchup archetypes
 - **Best:** similarly sized arthropods and small soft-bodied targets susceptible to venom.
@@ -107,7 +107,7 @@ All scores use the absolute 0.1-100.0 roster scale, not pound-for-pound scaling.
 | Weaponry | **35.0** | Excellent sting delivery for its scale, but millimeter reach and tiny absolute force constrain cross-roster effectiveness. |
 | Ferocity | **32.0** | Will sting and prey on arthropods, yet does not warrant folklore-driven aggression inflation. |
 | Protection | **5.0** | Exoskeleton is useful at arthropod scale but offers little against large-force attacks. |
-| Toughness | **7.0** | Desert-adapted and resilient to routine environmental stress, but tiny body is easily catastrophically damaged. |
+| Toughness | **7.0** | Desert-hardy and resilient to routine environmental stress, but tiny body is easily catastrophically damaged. |
 | Maneuverability | **66.0** | Strong close-ground control, rapid reorientation and flexible tail positioning. |
 | Speed | **32.0** | No verified running maximum; score reflects quick short-range movement without inventing a sprint value. |
 | Endurance | **42.0** | Strong energy economy/arid survival, but no evidence for prolonged high-output locomotion. |
@@ -151,7 +151,7 @@ Primarily solitary outside reproductive encounters. Courtship relies on close ta
 ### Conservation
 No robust global population estimate or high-confidence current IUCN assessment was verified in this run. Avoid assigning a conservation category from weak secondary pages. Local collection and human persecution may occur, but population trend should remain unfilled until an authoritative assessment is located.
 
-### Major adaptations
+### Special features
 - Potent peptide-rich venom delivered by a flexible telson.
 - Slender pedipalps optimized more for prey control than crushing.
 - Pectines and tactile/vibration sensing for nocturnal ground-level information.

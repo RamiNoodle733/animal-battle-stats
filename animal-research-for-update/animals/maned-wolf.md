@@ -19,7 +19,7 @@ Smithsonian gives about **23 kg** and **90 cm shoulder height**. Animal Diversit
 No instrumented or otherwise strong species-specific maximum running-speed measurement was recovered. Popular speed figures are therefore not promoted.
 - **Canonical `speed_mps`: 0.0.** This means maximum speed is unresolved, not that the animal lacks locomotor ability.
 
-The exceptionally long limbs are primarily an open-grassland adaptation, improving movement and visual access through tall vegetation. Maned wolves walk and trot extensively but are not built like gray wolves for cooperative pursuit of large prey.
+The exceptionally long limbs are primarily suited to open grassland, improving movement and visual access through tall vegetation. Maned wolves walk and trot extensively but are not built like gray wolves for cooperative pursuit of large prey.
 
 ### Lifespan
 Wild longevity remains poorly constrained. Smithsonian's main species page gives a managed-care median of 6.5 years and maximum 12-15 years, while older Smithsonian releases describe wild median lifespan around 13 years. Zoo sources commonly report 12-15 years.
@@ -48,7 +48,7 @@ A 2020 peer-reviewed canid jaw-muscle/FEA study predicted *C. brachyurus* bite f
 ### Offensive mechanics
 The maned wolf is a small-prey generalist, not a scaled-down gray wolf. Its narrow skull, reduced carnassials and slender canines suit rapid seizure of rodents, rabbits, birds, reptiles and invertebrates. Smithsonian describes a characteristic sequence in which the animal rotates its large ears to locate prey, taps the ground with a forefoot to flush it, then pounces or digs. Against a similarly sized opponent it can bite and use its reach to reposition, but its jaw architecture is not specialized for holding and dismantling large struggling prey.
 
-### Defensive adaptations and toughness
+### Defensive features and toughness
 At roughly 23 kg, the maned wolf has ordinary mammalian soft-tissue vulnerability. Long legs create reach and visibility but are relatively slender and are not defensive armor. Its best defense is early detection, distance control and avoidance. Smithsonian notes pumas and domestic dogs as reported killers, illustrating the limits of its direct defensive package.
 
 ### Locomotion and maneuverability
@@ -67,7 +67,7 @@ Maned wolves are behaviorally flexible omnivores and territorial canids. They co
 Wild pairs share territories while remaining physically independent much of the time. ADW reports growling during agonistic encounters and captive same-sex pairs initially fighting before establishing dominance. The species generally relies on territorial signaling rather than frequent high-risk combat. Ferocity should therefore remain below more confrontational similarly sized carnivores.
 
 ### Hunting and predation
-Diet is unusually omnivorous for a canid. Smithsonian reports fruits and vegetables can make up about half the diet, especially lobeira or wolf apple, alongside rodents, rabbits, insects and other small animal prey. Long legs and large ears are a grassland hunting system, not large-prey pursuit adaptations.
+Diet is unusually omnivorous for a canid. Smithsonian reports fruits and vegetables can make up about half the diet, especially lobeira or wolf apple, alongside rodents, rabbits, insects and other small animal prey. Long legs and large ears are a grassland hunting system, not large-prey pursuit tools.
 
 ### Environmental strengths
 - Tall grass and cerrado: excellent sensory height, obstacle clearance and prey localization.
@@ -114,7 +114,7 @@ All ratings use the absolute roster-wide 0.1-100.0 scale.
 - **Defense: 27.0** - mobility and awareness help avoid damage, but there is no armor and the long limbs are vulnerable at contact range.
 - **Agility: 78.0** - excellent grassland control, pouncing and long-legged repositioning without pretending an unknown top speed is measured agility.
 - **Stamina: 72.0** - extensive territorial ranging supports strong routine endurance, below specialized long-distance pursuit canids.
-- **Intelligence: 67.0** - flexible omnivory, spatial territoriality and adaptive hunting behavior support solid canid cognition without pack-coordination inflation.
+- **Intelligence: 67.0** - flexible omnivory, spatial territoriality and versatile hunting behavior support solid canid cognition without pack-coordination inflation.
 - **Special: 65.0** - the combination of extreme leg length, mobile ears and scent-based territorial awareness is matchup-relevant but not a venom/electric/armor-class mechanism.
 
 ## 7. Abilities and traits
@@ -145,7 +145,7 @@ The IUCN assessment cited by Smithsonian is **Near Threatened**. Major pressures
 ### Human interaction
 Maned wolves sometimes take poultry and are persecuted because of perceived livestock risk, although their natural diet is dominated by smaller prey and plant foods. Road strikes and habitat conversion are major human-caused mortality pressures. Zoo breeding programs maintain genetically managed populations and support reproductive research.
 
-### Major adaptations
+### Special features
 - Extremely elongated limbs for tall grass.
 - Large mobile ears for acoustic prey localization.
 - Strong olfactory scent-marking system.

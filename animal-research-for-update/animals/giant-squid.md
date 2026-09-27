@@ -35,11 +35,11 @@ The beak is a hard cutting structure that slices prey after the arms restrain it
 
 ### Eyes and sensory anatomy
 
-Giant squid possess enormous camera-type eyes adapted to dim mesopelagic/deep-water conditions. Eye size is a major low-light sensory advantage, but the precise upper diameter varies among specimens and preservation state. This report treats large eyes as a high-confidence adaptation without turning uncertain maximum measurements into a canonical numeric field.
+Giant squid possess enormous camera-type eyes suited to dim mesopelagic/deep-water conditions. Eye size is a major low-light sensory advantage, but the precise upper diameter varies among specimens and preservation state. This report treats large eyes as a high-confidence feature without turning uncertain maximum measurements into a canonical numeric field.
 
 ### Buoyancy
 
-*Architeuthis* tissues contain ammonium ions that reduce density and help maintain near-neutral buoyancy. This is an important energetic adaptation for a large pelagic cephalopod. It reduces the cost of staying in the water column, but neutral buoyancy is not armor and does not prove high combat endurance.
+*Architeuthis* tissues contain ammonium ions that reduce density and help maintain near-neutral buoyancy. This is an important energy-saving feature for a large pelagic cephalopod. It reduces the cost of staying in the water column, but neutral buoyancy is not armor and does not prove high combat endurance.
 
 ### Speed and locomotion
 
@@ -132,7 +132,7 @@ Sperm whales are the iconic major predator and giant-squid beaks occur in their 
 
 - Deep pelagic water where large eyes and three-dimensional movement matter.
 - Open-water targets that enter the feeding-tentacle capture envelope.
-- Dim conditions that reduce the value of surface-adapted vision.
+- Dim conditions that reduce the value of surface-oriented vision.
 - Water-supported combat where its soft body and long appendages function normally.
 
 ### Environmental weaknesses
@@ -221,7 +221,7 @@ Sexual dimorphism is pronounced, with females reaching much larger body size. Ma
 
 Population size is difficult to estimate directly because the species occupies deep water and most records come from strandings, fisheries encounters, predator stomach contents and rare live observations. The 2013 mitochondrial study found extremely low global genetic diversity and no clear phylogeographic structure. That pattern may reflect population history or selective processes and should not be casually translated into either abundance or conservation security.
 
-### Adaptations
+### Special features
 
 - Two extremely long retractile feeding tentacles
 - Hundreds of toothed suckers

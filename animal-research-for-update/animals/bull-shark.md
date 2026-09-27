@@ -175,7 +175,7 @@ Bull sharks are placentally viviparous. Florida Museum reports roughly 1-13 pups
 ### Conservation
 The current global IUCN assessment is **Vulnerable**. Coastal habitat use exposes bull sharks to fisheries, bycatch, habitat degradation and pollution. Some older institutional pages still display Near Threatened, so production migration should use the current IUCN assessment rather than stale summaries.
 
-### Major adaptations
+### Special features
 - Euryhaline osmoregulation across marine and freshwater environments
 - Broad force-producing head and jaw musculature
 - Serrated cutting teeth plus prey-seizing lower dentition
@@ -205,7 +205,7 @@ That offense is formidable but must stay on an absolute scale. A representative 
 
 Its defining Special category comes from salinity tolerance. Most sharks cannot simply swim from the sea deep into a river and continue normal life. Bull sharks adjust salt secretion and conservation, renal ion transport and water handling as salinity changes. That allows juveniles and adults to exploit estuaries and freshwater corridors, sometimes far inland. For ABS this matters because it changes where the animal can fight, not because it magically boosts bite force.
 
-The result is a profile with strong Attack, Agility and Stamina, moderate Defense and Intelligence, and a distinctly high Special rating. It should sit above smaller fish predators in raw combat danger, below giant marine macropredators in absolute force and durability, and far below Bottlenose Dolphin in cognition while remaining unusually adaptable as a predator.
+The result is a profile with strong Attack, Agility and Stamina, moderate Defense and Intelligence, and a distinctly high Special rating. It should sit above smaller fish predators in raw combat danger, below giant marine macropredators in absolute force and durability, and far below Bottlenose Dolphin in cognition while remaining unusually versatile as a predator.
 
 ### Future structured-field proposals
 - `canonical_sex: female`
@@ -243,7 +243,7 @@ The result is a profile with strong Attack, Agility and Stamina, moderate Defens
 | Habegger et al. 2012, *Zoology* / PubMed | Bite biomechanics | 36-2,128 N anterior; 170-5,914 N posterior; high mass-specific bite force | **High**, peer reviewed biomechanical model. Not PSI. https://pubmed.ncbi.nlm.nih.gov/23040789/ |
 | Goodman et al. 2022, *Journal of Fish Biology* | Tooth morphology | Ontogenetic changes by jaw position and size; inflection around 135 cm TL | **High**, peer reviewed. https://doi.org/10.1111/jfb.15170 |
 | Pillans et al. 2008, *Journal of Fish Biology* | Rectal gland / salinity physiology | Salt secretion vs conservation across seawater/freshwater acclimation | **High**, experimental. https://doi.org/10.1111/j.1095-8649.2008.01765.x |
-| Imaseki et al. 2019, *Journal of Experimental Biology* | Kidney freshwater adaptation | NCC expression ~10× higher in freshwater-acclimated bull-shark kidney | **High**, experimental transcriptomic/physiology work. https://pubmed.ncbi.nlm.nih.gov/31138636/ |
+| Imaseki et al. 2019, *Journal of Experimental Biology* | Kidney freshwater acclimation | NCC expression ~10× higher in freshwater-acclimated bull-shark kidney | **High**, experimental transcriptomic/physiology work. https://pubmed.ncbi.nlm.nih.gov/31138636/ |
 | Pirog et al. 2019, *Journal of Fish Biology* | Reunion reproduction | Female maturity ~257 cm TL; 5-14 embryos; ~12 mo gestation; frequent multiple paternity | **High**, peer reviewed; population-specific. https://pubmed.ncbi.nlm.nih.gov/31393599/ |
 | Florida FWC | Habitat, diet, longevity | Estuarine/nearshore/offshore apex predator; freshwater entry; 24+ years | **High** state agency synthesis. https://myfwc.com/research/saltwater/sharks-rays/shark-species/bull/ |
 | Wikimedia Commons, 2025 Belize bull shark photo | Image candidate | Exact species, 6839×4559 candidate | **Moderate for image suitability** until full-body/adult/sex inspection is complete. https://commons.wikimedia.org/wiki/Category:Carcharhinus_leucas |

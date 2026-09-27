@@ -4,9 +4,9 @@
 
 - **Common name:** Galápagos giant tortoise / Galapagos Tortoise
 - **Site scientific label:** *Chelonoidis niger* (historically also *C. nigra* / *Geochelone elephantopus*)
-- **Taxonomic treatment:** The site's name is broader than modern island-level taxonomy. Galápagos giant tortoises are a radiation/species complex, and modern treatments split living island populations into multiple *Chelonoidis* taxa. This report therefore treats “Galapagos Tortoise” as the Galápagos giant-tortoise complex represented by the site's *C. niger* label rather than pretending all populations are morphometrically identical.
+- **Taxonomic treatment:** The site's name is broader than modern island-level taxonomy. Galápagos giant tortoises are a species complex, and modern treatments split living island populations into multiple *Chelonoidis* taxa. This report therefore treats “Galapagos Tortoise” as the Galápagos giant-tortoise complex represented by the site's *C. niger* label rather than pretending all populations are morphometrically identical.
 - **Canonical combat specimen:** healthy, mature, large-bodied **male**, using the well-measured western Santa Cruz tortoise *Chelonoidis porteri* as the representative morphometric proxy. Adult male *C. porteri* in a 2021 health study averaged **102.1 ± 33.8 kg** and **109.5 ± 17.9 cm curved carapace length (CCL)**. This is deliberately representative, not a 250–400+ kg exceptional giant.
-- **Living/extinct:** living complex, although individual island lineages have gone extinct.
+- **Living/extinct:** living complex, although individual island populations have gone extinct.
 - **Sexual dimorphism:** males are materially larger than females. In the *C. porteri* sample, adult males averaged 102.1 kg versus 69.5 kg for females, with CCL 109.5 cm versus 91.2 cm. San Diego Zoo gives complex-wide maxima of about 260 kg for males and 136 kg for females.
 - **Population variation:** substantial. Domed and saddleback morphotypes differ in shell architecture, neck clearance and ecology; island taxa also differ strongly in adult mass and dimensions. Combat and factual fields below are therefore representative values, not universal maxima.
 
@@ -30,7 +30,7 @@ San Diego Zoo reports a typical ambling rate of **0.26 km/h = 0.072 m/s**. This 
 **Canonical `speed_mps`: 0.072 m/s**, explicitly a typical ambling speed, not a measured physiological top speed.
 
 ### Lifespan
-Galápagos giant tortoises routinely exceed a century; San Diego Zoo documents an individual estimated at 150 years and older institutional material records one at 171. Genomic research on giant tortoises identified lineage-specific changes associated with DNA repair, immune function, cancer suppression and other aging-related pathways. Because exact wild mean lifespan is difficult to establish for animals that outlive researchers, a single “average” is intrinsically uncertain.
+Galápagos giant tortoises routinely exceed a century; San Diego Zoo documents an individual estimated at 150 years and older institutional material records one at 171. Genomic research on giant tortoises identified distinctive genetic features associated with DNA repair, immune function, cancer suppression and other aging-related pathways. Because exact wild mean lifespan is difficult to establish for animals that outlive researchers, a single “average” is intrinsically uncertain.
 
 **Canonical lifespan:** **100.0 years** as a conservative long-lived adult baseline, with **150+ years** documented for exceptional individuals. This is not a claim that every animal reaches 100.
 
@@ -76,7 +76,7 @@ Vision and olfaction are adequate for foraging, navigation and social assessment
 Galápagos tortoises show spatial memory, seasonal movement decisions, resource tracking and stable movement strategies. Combat tactics are simple: posture high, extend the neck, push, persist, and exploit mass. They do not show the flexible predatory tactics or social coordination of high-scoring mammalian and avian cognition anchors.
 
 ### Fighting and predation behavior
-Adults are herbivores and not predators. Intraspecific male conflict is strongly ritualized around dominance and mating access. Size and neck height help decide contests, reducing the need for damaging combat. Adults historically evolved with little native predation pressure; eggs and juveniles are far more vulnerable than mature giants.
+Adults are herbivores and not predators. Intraspecific male conflict is strongly ritualized around dominance and mating access. Size and neck height help decide contests, reducing the need for damaging combat. Adults historically faced little native predation pressure; eggs and juveniles are far more vulnerable than mature giants.
 
 ### Environmental advantages
 - Excellent in dry, resource-variable terrestrial environments.
@@ -150,9 +150,9 @@ Primarily herbivorous, eating grasses, leaves, cactus pads/fruits and other vege
 Adults are often dispersed but aggregate at resources and breeding areas. Dominance interactions are strongly size/posture based. Sexual maturity is late, roughly two decades or more in institutional summaries. Females lay clutches in excavated nests; hatchlings and juveniles lack the near-invulnerability to many threats enjoyed by giant adults.
 
 ### Conservation
-Conservation status varies by island taxon, and several lineages are Endangered or Critically Endangered while some historical lineages are extinct. Major historical pressures included exploitation by sailors and introduced mammals. Captive breeding, invasive-species control, habitat restoration and reintroduction have rebuilt several populations.
+Conservation status varies by island taxon, and several island taxa are Endangered or Critically Endangered while some historical island populations are extinct. Major historical pressures included exploitation by sailors and introduced mammals. Captive breeding, invasive-species control, habitat restoration and reintroduction have rebuilt several populations.
 
-### Adaptations
+### Special features
 - Bony, keratin-covered shell integrated with the skeleton.
 - Thick, columnar limbs supporting very large terrestrial mass.
 - Long neck and population-specific shell openings for different forage heights.
@@ -212,7 +212,7 @@ Its offense is correspondingly modest. Male-male contests emphasize height, neck
 ## 11. Confidence, conflicts, and cross-animal normalization
 
 ### Confidence and conflicts
-- **Taxonomy:** moderate. The common-name profile represents a species complex/radiation, while the live site collapses it to *C. niger*. The report makes this explicit and uses *C. porteri* only as a well-measured canonical proxy.
+- **Taxonomy:** moderate. The common-name profile represents a species complex, while the live site collapses it to *C. niger*. The report makes this explicit and uses *C. porteri* only as a well-measured canonical proxy.
 - **Mass/length:** high for the canonical *C. porteri* male mean; moderate for transfer to the broad common-name profile because island taxa vary.
 - **Speed:** moderate-low as a canonical factual field because 0.072 m/s is an institutional ambling rate, not a measured top-speed trial.
 - **Lifespan:** moderate. Extreme longevity is certain; a population mean is not.

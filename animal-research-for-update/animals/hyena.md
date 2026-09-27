@@ -58,13 +58,13 @@ The animal's robust cranium is mechanically specialized to tolerate high feeding
 The sloping back is a consequence of relatively long forelimbs, not evidence that the animal is crippled or inherently clumsy. Hyenas can accelerate, turn and fight effectively on land, but their build prioritizes economical distance travel and powerful feeding over cat-like explosive grappling agility. They are also competent swimmers. Agility should be clearly above megafauna but below similarly sized felids specialized for rapid directional changes and vertical grappling.
 
 ### Endurance
-This is one of the species' strongest physical categories. Institutional references describe long-distance trotting at about 10 km/h without tiring, and field ecology consistently characterizes spotted hyenas as endurance hunters and wide-ranging foragers. Sustained pursuit can exhaust ungulate prey. Stamina therefore rates very strongly without turning a travel adaptation into extra Attack.
+This is one of the species' strongest physical categories. Institutional references describe long-distance trotting at about 10 km/h without tiring, and field ecology consistently characterizes spotted hyenas as endurance hunters and wide-ranging foragers. Sustained pursuit can exhaust ungulate prey. Stamina therefore rates very strongly without turning a travel specialization into extra Attack.
 
 ### Senses
 Spotted hyenas use vision, hearing and olfaction in hunting, territoriality and social recognition. African Wildlife Foundation specifically notes excellent night vision and hearing. Scent marking and communal latrines also convey social and territorial information. No single sensory system reaches the extreme specialization of echolocating bats or scent-specialist canids, but the package is strong.
 
 ### Intelligence, learning and tactics
-Spotted-hyena cognition is unusually well studied. Holekamp's Royal Society review documents individual recognition, kin recognition, knowledge of third-party kin and rank relationships, and adaptive use of that social information. Their societies show striking parallels to cercopithecine primates in size, hierarchy, competition and cooperation. Experimental cooperative-problem work also shows hyenas adjust behavior to partner experience and social context.
+Spotted-hyena cognition is unusually well studied. Holekamp's Royal Society review documents individual recognition, kin recognition, knowledge of third-party kin and rank relationships, and flexible use of that social information. Their societies show striking parallels to cercopithecine primates in size, hierarchy, competition and cooperation. Experimental cooperative-problem work also shows hyenas adjust behavior to partner experience and social context.
 
 This supports high Intelligence and Tactics. It does **not** justify placing them at great-ape or human-like cognition, and the review explicitly notes greater reliance than primates on social facilitation and simple decision rules.
 
@@ -105,7 +105,7 @@ All values use the roster-wide absolute 0.1-100.0 scale and are independent of t
 | Toughness | **67.0** | Strong skull/neck, durable frame and capacity for prolonged conflict; constrained by ordinary mammalian soft tissues |
 | Maneuverability | **60.0** | Competent terrestrial fighter with good control, below felid-level explosive agility |
 | Speed | **60.0** | Institutional top speed ~13.9 m/s, useful but not elite roster sprinting |
-| Endurance | **82.0** | Long-distance trotting and pursuit are defining adaptations |
+| Endurance | **82.0** | Long-distance trotting and pursuit are defining traits |
 | Recovery | **53.0** | Robust mammalian recovery, but no exceptional regeneration or rapid physiological reset |
 | Tactics | **84.0** | Flexible solo/group hunting, rank awareness, coalition behavior and context-sensitive cooperation |
 | Senses | **70.0** | Strong hearing, night vision and olfaction with multimodal social recognition |
@@ -147,7 +147,7 @@ San Diego Zoo gives gestation at **98-111 days**, usually **two young**, and mat
 ### Conservation
 Current major conservation organizations list *C. crocuta* as **Least Concern**, with an estimated global population on the order of **27,000-47,000** and a decreasing trend in many areas. Major pressures include persecution, poisoning, trapping, habitat loss/fragmentation and conflict over livestock.
 
-### Major adaptations
+### Special features
 - Bone-cracking skull and premolars with stress-dissipating cranial architecture.
 - Large jaw adductors and strong neck/forequarters.
 - Endurance-oriented terrestrial locomotion.
@@ -163,7 +163,7 @@ Hyenas are frequently persecuted where livestock losses occur and have a longsta
 - Bone cracking is supported by specialized cranial geometry, not simply an oversized generic bite.
 - San Diego Zoo reports they can eat about one-third of their body weight in one meal.
 - Cubs do not reach adult feeding performance immediately after weaning; direct bite studies found bite strength continuing to increase for years after much skull growth had plateaued.
-- Hyenas are more closely related to feliform carnivores than to dogs despite their superficially dog-like build.
+- Hyenas are classified with the feliform (cat-like) carnivores rather than with dogs, despite their superficially dog-like build.
 
 ### Concise site summary
 The spotted hyena is a female-dominated African endurance predator built around powerful bone-cracking jaws, durable forequarters and unusually sophisticated social cognition. Its greatest battle strengths are repeated jaw damage, stamina and tactical flexibility, not armor or cat-like agility.
@@ -208,7 +208,7 @@ Their cognitive ecology is equally important. A clan is not a simple mob. Indivi
 | SeaWorld, Spotted Hyena | https://seaworld.org/animals/facts/mammals/spotted-hyena/ | sex-specific size | female 67-75 kg, 84-89 cm; male 56-63 kg, 79-86 cm | High institutional |
 | Tanner et al. 2008, Biological Journal of the Linnean Society | https://doi.org/10.1111/j.1095-8312.2008.01052.x | skull mechanics | adult FE model; vaulted forehead/sinus/sagittal crest dissipate bite stress | High, peer reviewed |
 | Binder & Van Valkenburgh, Journal of Zoology | https://doi.org/10.1111/j.1469-7998.2000.tb00622.x | bite development and tooth use | direct force-transducer work; bite strength rises to ~5 y; rear premolars improve mechanical advantage | High; study emphasizes ontogeny, not a universal adult PSI |
-| Holekamp 2007, Philosophical Transactions B | https://doi.org/10.1098/rstb.2006.1993 | social cognition | individual/kin/third-party rank recognition and adaptive social decisions | High, peer reviewed |
+| Holekamp 2007, Philosophical Transactions B | https://doi.org/10.1098/rstb.2006.1993 | social cognition | individual/kin/third-party rank recognition and flexible social decisions | High, peer reviewed |
 | Duke University / Drea cooperative study summary | https://today.duke.edu/2009/09/hyenas.html | cooperation | behavior adjusted to partner experience and social context | Moderate-high institutional summary of experimental work |
 | WWF, Spotted Hyena | https://www.worldwildlife.org/species/spotted-hyena/ | conservation, ecology, range | Least Concern; 27,000-47,000; endurance predator | High conservation organization |
 | African Wildlife Foundation, Hyena | https://www.awf.org/wildlife-conservation/hyena | senses, habitat, threats | excellent night vision/hearing; broad African habitats; persecution/conflict | High conservation organization |

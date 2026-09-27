@@ -129,7 +129,7 @@ Troops commonly contain multiple males and females and may range from about 3 to
 ### Conservation and human interaction
 The species is **Endangered**. IUCN's 2020 lemur assessment reported a suspected decline of at least 50% over three generations, driven by habitat destruction/fragmentation and hunting pressure. It is common in captivity but that does not offset loss of wild populations.
 
-### Adaptations
+### Special features
 The long tail supports balance and signaling; grasping extremities support climbing; terrestrial quadrupedalism broadens foraging options; scent glands encode social information; dense fur buffers variable conditions; and behavioral flexibility allows exploitation of diverse southern-Madagascar habitats.
 
 ### Genuine fun facts
@@ -146,7 +146,7 @@ A highly social, ground-using Madagascar primate whose real battle strengths are
 ### Narrative profile
 The ring-tailed lemur is not a miniature ape bruiser. Its combat biology is built around avoiding bad contact, reading social situations and controlling position. On the ground it moves confidently on all fours with its striped tail held conspicuously; in complex terrain it can climb, grasp and jump to turn a flat pursuit into a three-dimensional escape problem. When conflict is unavoidable, canines and grappling provide a real but small-scale weapon set.
 
-Its most distinctive competitive system is chemical. Male scent structures are integrated into ritualized contests in which secretions are applied to the tail and presented toward rivals. This can settle competition without a damaging fight, although jump-fighting and biting show that escalation is possible. Cognitively, experimental transitive reasoning and complex troop hierarchies justify a high Intelligence rating relative to most similarly sized mammals. None of these adaptations erase the central ABS fact: a 2.5 kg lemur remains physically fragile beside foxes, large monkeys, carnivores and megafauna.
+Its most distinctive competitive system is chemical. Male scent structures are integrated into ritualized contests in which secretions are applied to the tail and presented toward rivals. This can settle competition without a damaging fight, although jump-fighting and biting show that escalation is possible. Cognitively, experimental transitive reasoning and complex troop hierarchies justify a high Intelligence rating relative to most similarly sized mammals. None of these traits erase the central ABS fact: a 2.5 kg lemur remains physically fragile beside foxes, large monkeys, carnivores and megafauna.
 
 ### Future field proposals
 - Obtain instrumented maximum ground-running speed for healthy wild adults rather than extrapolating from generic lemur claims.

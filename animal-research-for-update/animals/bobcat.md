@@ -63,7 +63,7 @@ The primary killing system is the felid combination of canines, jaw closure and 
 ### Offensive mechanics
 Bobcats are ambush predators rather than endurance chasers. A documented cottontail attack involved more than an hour of stealthy approach followed by a 12.3-second chase. The cat covered 116 m and took a more direct route than the rabbit. This supports patience, route efficiency and explosive finishing rather than prolonged pursuit.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 A 10 kg bobcat is robust for a small cat but remains soft-bodied. It lacks armor and is vulnerable to bites, horn strikes and crushing force from larger animals. Its real defense is active: rapid direction changes, jumping, climbing, evasive footwork and avoidance of unfavorable frontal exchanges.
 
 ### Locomotion and maneuverability
@@ -88,7 +88,7 @@ Adults are primarily solitary and territorial. Smithsonian describes a land-tenu
 Bobcats can be killed by larger carnivores. NPS lists mountain lions and coyotes among predators, and USFS research documents intraguild interactions. Against larger opponents, escape terrain and climbing matter more than standing combat.
 
 ### Aggression / ferocity
-A hunting bobcat commits decisively once it closes on manageable prey, but it is not selected for sustained head-on fighting with similarly sized social predators. Ferocity is moderate on the full roster scale.
+A hunting bobcat commits decisively once it closes on manageable prey, but it is not built for sustained head-on fighting with similarly sized social predators. Ferocity is moderate on the full roster scale.
 
 ### Environmental strengths
 - Dense brush, forest edge, rocks and broken terrain that provide stalking cover.
@@ -170,7 +170,7 @@ Smithsonian gives gestation around **60–70 days**, averaging about 62, with us
 ### Conservation status
 The species is assessed as **Least Concern** and remains widespread. It is also included in **CITES Appendix II**, meaning international trade is monitored. Local populations can still be affected by habitat fragmentation, vehicle mortality, trapping and toxicant exposure. USGS work in southern California has documented genetic and disease effects associated with urban fragmentation.
 
-### Major adaptations
+### Special features
 - Retractile claws and compact felid killing dentition.
 - Long muscular legs for pouncing and climbing.
 - Large feet and precise stalking placement.

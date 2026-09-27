@@ -67,13 +67,13 @@ Buffalo are large mobile grazers whose daily activity alternates grazing, rumina
 ADW describes acute multimodal threat detection using vision, olfaction and hearing, including alert scanning and auditory-olfactory examination by pathfinders. These senses are useful and should not be reduced to the folklore claim that buffalo simply have “poor vision.”
 
 ### Intelligence and tactics
-Buffalo monitor conspecific alert postures, use threat displays, maintain social associations and alter group behavior under predation. A peer-reviewed lion-reintroduction study found herds amalgamated into larger, more defendable units and shifted toward open habitat when lions were active, with juvenile survival subsequently improving. This supports adaptive antipredator behavior without implying primate-like cognition.
+Buffalo monitor conspecific alert postures, use threat displays, maintain social associations and alter group behavior under predation. A peer-reviewed lion-reintroduction study found herds amalgamated into larger, more defendable units and shifted toward open habitat when lions were active, with juvenile survival subsequently improving. This supports flexible antipredator behavior without implying primate-like cognition.
 
 ### Hunting and predation behavior
 None. Cape buffalo are herbivorous grazers. Attack derives from rivalry and predator defense, not hunting.
 
 ### Intraspecific fighting
-Mature males establish dominance largely through ritualized postures, horn presentation and sparring. Serious fights between closely matched bulls can involve direct high-energy collisions and hooking/butting. The mature boss is therefore a genuine fighting adaptation rather than a decorative horn structure.
+Mature males establish dominance largely through ritualized postures, horn presentation and sparring. Serious fights between closely matched bulls can involve direct high-energy collisions and hooking/butting. The mature boss is therefore a genuine fighting feature rather than a decorative horn structure.
 
 ### Predator defense
 Lion predation is the main large-predator pressure in many populations. Buffalo respond with vigilance, flight, preventive aggression and reciprocal aggression. Research after lion reintroduction in Addo showed larger, more defendable buffalo groups and improved juvenile survival. Herd support is important, but the canonical ABS individual is scored for its own body; colony/herd effects are not silently converted into solo raw power.
@@ -119,7 +119,7 @@ All values are independent research ratings on the absolute 225-animal scale.
 | Maneuverability | **54.0** | Stable and capable for a huge bovine, but inertia and direct frontal mechanics limit fine evasiveness. |
 | Endurance | **72.0** | Large-ranging grazer with sustained daily activity, but water dependence prevents camel-like placement. |
 | Recovery | **46.0** | Normal large-mammal healing with no exceptional regenerative mechanism. |
-| Tactics | **58.0** | Threat displays, vigilance, adaptive grouping and habitat shifts under lion pressure show useful behavioral flexibility. |
+| Tactics | **58.0** | Threat displays, vigilance, flexible grouping and habitat shifts under lion pressure show useful behavioral flexibility. |
 | Senses | **64.0** | Acute visual, olfactory and auditory threat detection, useful but not a specialist sensory ceiling. |
 | Ferocity | **82.0** | Willingness to reciprocate aggression and commit to dangerous horned charges supports a very high, but not mythical, score. |
 | Abilities | **51.0** | Boss architecture and coordinated antipredator behavior matter, but there is no venom, electricity, echolocation or comparable bypass mechanism. |
@@ -132,7 +132,7 @@ All values are independent research ratings on the absolute 225-animal scale.
 | **Defense** | **70.0** | High mass, toughness and frontal boss protection make it hard to disable, without pretending the boss armors the whole body. |
 | **Agility** | **55.0** | Competent large-bovid acceleration and control, substantially below small predators and below Bison's documented quick-pivot evidence. |
 | **Stamina** | **73.0** | Strong large-grazer endurance, moderated by water dependence and lack of pursuit-specialist evidence. |
-| **Intelligence** | **56.0** | Adaptive antipredator grouping, vigilance and social decision behavior support moderate tactical cognition. |
+| **Intelligence** | **56.0** | Flexible antipredator grouping, vigilance and social decision behavior support moderate tactical cognition. |
 | **Special** | **52.0** | The fused mature boss is unusual and matchup-relevant, but Cape buffalo lack an exotic physiological bypass mechanism. |
 
 ## 7. Abilities and traits
@@ -162,13 +162,13 @@ Gestation is about 340 days and normally produces one calf. Females reach reprod
 ### Conservation
 Status sources require date/version care. Older ADW text reports Least Concern, while more recent IUCN-derived summaries commonly report Near Threatened with declining populations. Future production migration should pin the current IUCN assessment/version rather than silently treating the older ADW label as current.
 
-### Major adaptations
+### Special features
 - Fused horn boss in mature bulls.
 - Large sweeping horns in both sexes, especially massive in males.
 - Heavy, low, stable body with strong forequarters.
 - Acute multimodal predator detection.
 - Flexible herd size and habitat use under predation pressure.
-- Ruminant digestion adapted to bulk grazing.
+- Ruminant digestion suited to bulk grazing.
 
 ### Human interaction
 African buffalo are important to tourism and hunting economies but can seriously injure people. They also matter in livestock disease ecology, including bovine tuberculosis and foot-and-mouth disease concerns. Human danger should be described from actual behavior and exposure rather than repeating sensational “Black Death” folklore as biology.
@@ -189,9 +189,9 @@ The Cape buffalo is a massive African savanna bovid whose mature bulls combine r
 ### Rich narrative profile
 A mature Cape buffalo bull is best understood as a collision specialist rather than a generic “angry cow.” The head and neck are integrated into a fighting system: horn bases thicken into the boss, long horns sweep away from the skull and return upward, and the heavy forequarters drive the entire assembly forward. In serious male contests, evenly matched bulls can charge from tens of meters away and accept the impact on their bosses. That is unusually direct evidence for how the anatomy functions under real combat loading.
 
-Its defensive reputation also needs precision. The boss protects a localized frontal region and the bull's mass makes it difficult for most terrestrial opponents to stop quickly, but the animal is not armored across its body. Lion predation remains ecologically important, especially for males outside the protection of mixed herds. The interesting adaptation is therefore not invulnerability but the combination of toughness, counter-aggression and flexible social defense. Buffalo can change group size and habitat use when lion pressure changes, demonstrating a behavioral layer on top of the physical weapon system.
+Its defensive reputation also needs precision. The boss protects a localized frontal region and the bull's mass makes it difficult for most terrestrial opponents to stop quickly, but the animal is not armored across its body. Lion predation remains ecologically important, especially for males outside the protection of mixed herds. The interesting feature is therefore not invulnerability but the combination of toughness, counter-aggression and flexible social defense. Buffalo can change group size and habitat use when lion pressure changes, demonstrating a behavioral layer on top of the physical weapon system.
 
-For ABS normalization, this places Cape buffalo above Bongo in absolute power and weapon threat, near but not identical to American bison in body scale, and below rhinoceros and elephant anchors in raw force and defense. Its horns are more extensive than a bison's and its boss is a distinctive frontal adaptation, supporting higher Weaponry and Attack than Bison even though the canonical Bison is heavier. Its Special score stays moderate because the boss is a specialized mechanical structure, not a venom/electric/sensory bypass.
+For ABS normalization, this places Cape buffalo above Bongo in absolute power and weapon threat, near but not identical to American bison in body scale, and below rhinoceros and elephant anchors in raw force and defense. Its horns are more extensive than a bison's and its boss is a distinctive frontal structure, supporting higher Weaponry and Attack than Bison even though the canonical Bison is heavier. Its Special score stays moderate because the boss is a specialized mechanical structure, not a venom/electric/sensory bypass.
 
 ### Future structured-field proposals
 - `canonical_sex`: male

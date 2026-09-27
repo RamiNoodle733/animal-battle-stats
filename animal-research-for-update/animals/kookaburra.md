@@ -123,7 +123,7 @@ Nests are placed in natural tree hollows or chambers excavated in arboreal termi
 ### Conservation
 BirdLife Australia lists the Laughing Kookaburra as **IUCN Least Concern**. It remains widespread and familiar, including in urbanized landscapes where old trees and feeding habitat persist.
 
-### Major adaptations
+### Special features
 The disproportionately large head and stout bill support capture and handling of relatively large struggling prey. Sit-and-wait hunting reduces the need for prolonged aerial pursuit. Coordinated vocal territoriality and cooperative breeding support stable year-round family territories.
 
 ### Human interaction

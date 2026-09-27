@@ -56,7 +56,7 @@ The American beaver has unusually strong peer-reviewed jaw biomechanics. Cox and
 
 ADW reports upper incisors at least **5 mm wide and 20–25 mm long**. Beaver incisors grow continuously. A 2023 *Acta Biomaterialia* study experimentally demonstrated a two-part enamel microstructure in *C. canadensis* that creates a self-sharpening cutting edge: inner enamel wears substantially faster than outer enamel while the architecture controls fracture propagation.
 
-### Defensive structures and aquatic adaptations
+### Defensive structures and aquatic features
 
 Beavers lack armor, but have a compact heavy rodent body, dense waterproof fur, a broad muscular/scaly tail, webbed hind feet, closable ears and nostrils, and a nictitating membrane. Their lips can close behind the incisors, allowing underwater gnawing. NPS reports submergence up to about 15 minutes, although this is an upper capability statement rather than a typical dive duration.
 
@@ -128,7 +128,7 @@ Beavers are active year-round and routinely perform sustained construction, food
 
 ### Senses
 
-No extraordinary long-range sensory system was found. Vision is adapted for amphibious life with a nictitating membrane; nostrils and ears can close underwater. Smell is important in scent marking and territorial communication. Battle-useful senses are competent rather than elite.
+No extraordinary long-range sensory system was found. Vision is suited to amphibious life with a nictitating membrane; nostrils and ears can close underwater. Smell is important in scent marking and territorial communication. Battle-useful senses are competent rather than elite.
 
 ### Intelligence, learning and tactics
 
@@ -136,7 +136,7 @@ Beavers are sophisticated environmental manipulators. They build and repair dams
 
 ### Hunting behavior
 
-None. Beavers are herbivores, eating woody and non-woody plants. Their incisors are feeding and construction tools that can become defensive weapons, not predatory adaptations.
+None. Beavers are herbivores, eating woody and non-woody plants. Their incisors are feeding and construction tools that can become defensive weapons, not predatory specializations.
 
 ### Intraspecific fighting and aggression
 
@@ -152,7 +152,7 @@ Primary responses include water escape, diving, alarm tail slaps and refuge in b
 - Water greatly improves mobility and escape options.
 - Underwater entrances and diving can break pursuit.
 - Cold-season activity and food caching support year-round persistence.
-- Dense fur and amphibious sensory adaptations support prolonged wet-environment activity.
+- Dense fur and amphibious sensory features support prolonged wet-environment activity.
 
 ### Environmental limitations
 
@@ -182,7 +182,7 @@ Primary responses include water escape, diving, alarm tail slaps and refuge in b
 | Substat | Score | Evidence-based rationale |
 |---|---:|---|
 | Size | **32.0** | A 23 kg adult is substantial for a rodent but small beside major carnivores and megafauna. |
-| Raw Power | **36.0** | Strong jaw musculature and a stocky construction-adapted body, but moderate absolute force on the full roster. |
+| Raw Power | **36.0** | Strong jaw musculature and a stocky body suited to construction work, but moderate absolute force on the full roster. |
 | Weaponry | **50.0** | Large self-sharpening incisors plus 550–740 N modeled bite force make an effective close cutting system. |
 | Protection | **25.0** | Dense fur and compact build provide modest protection, but there is no armor. |
 | Toughness | **38.0** | Robust semi-aquatic mammal, yet vulnerable to wolves and other large predators once caught. |
@@ -191,9 +191,9 @@ Primary responses include water escape, diving, alarm tail slaps and refuge in b
 | Endurance | **68.0** | Year-round activity, sustained construction, efficient swimming and prolonged submergence support strong endurance. |
 | Recovery | **39.0** | Normal mammalian healing with no exceptional regeneration mechanism established. |
 | Tactics | **61.0** | Strong environmental problem solving, spatial construction and territorial behavior, discounted because engineering is not identical to combat tactics. |
-| Senses | **52.0** | Competent smell and amphibious sensory adaptations, but no exceptional long-range combat sense. |
+| Senses | **52.0** | Competent smell and amphibious sensory features, but no exceptional long-range combat sense. |
 | Ferocity | **43.0** | Territorial and capable of forceful defense, but not a specialized predator or persistent combatant. |
-| Abilities | **60.0** | Self-sharpening incisors and integrated semi-aquatic adaptations create meaningful matchup advantages without exotic venom/electricity. |
+| Abilities | **60.0** | Self-sharpening incisors and integrated semi-aquatic features create meaningful matchup advantages without exotic venom/electricity. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -204,7 +204,7 @@ Primary responses include water escape, diving, alarm tail slaps and refuge in b
 | **Agility** | **57.0** | Good three-dimensional aquatic control but mediocre terrestrial mobility prevents a higher whole-animal score. |
 | **Stamina** | **68.0** | Efficient swimming, construction workload, year-round activity and diving physiology support strong sustained output. |
 | **Intelligence** | **63.0** | Sophisticated construction, repair, food storage and family-territory behavior demonstrate strong behavioral complexity, while combat-specific flexibility remains less proven. |
-| **Special** | **60.0** | Self-sharpening incisors plus integrated amphibious adaptations are distinctive and matchup-relevant, but not as transformative as venom, electricity or extreme regeneration. |
+| **Special** | **60.0** | Self-sharpening incisors plus integrated amphibious features are distinctive and matchup-relevant, but not as transformative as venom, electricity or extreme regeneration. |
 
 ## 7. Abilities and traits
 
@@ -244,7 +244,7 @@ Beavers are generally socially monogamous. Sexual maturity is around three years
 
 The North American beaver is widespread and has recovered dramatically from historical overtrapping in many regions. The research pass did not rely on a cached IUCN page for a formal current category, so a production conservation field should be verified directly against the current IUCN assessment before migration rather than inferred here.
 
-### Major adaptations
+### Special features
 
 - Continuously growing, self-sharpening incisors.
 - Highly efficient jaw-force alignment for gnawing.
@@ -271,7 +271,7 @@ Beavers were historically trapped intensively for fur and castoreum. Today they 
 
 ### Concise site-ready summary
 
-The North American beaver is a 20-plus-kilogram semi-aquatic engineer armed with continuously growing, self-sharpening incisors and an exceptionally efficient gnawing bite. It is not fast or heavily armored, especially on land, but in water its webbed feet, broad tail, diving adaptations and strong endurance make it difficult to pin down. Its famous dam-building intelligence is ecologically extraordinary, though ABS separates that engineering skill from direct one-on-one combat power.
+The North American beaver is a 20-plus-kilogram semi-aquatic engineer armed with continuously growing, self-sharpening incisors and an exceptionally efficient gnawing bite. It is not fast or heavily armored, especially on land, but in water its webbed feet, broad tail, diving specializations and strong endurance make it difficult to pin down. Its famous dam-building intelligence is ecologically extraordinary, though ABS separates that engineering skill from direct one-on-one combat power.
 
 ### Detailed narrative profile
 
@@ -319,7 +319,7 @@ The species' deepest specialty is behavioral. Beavers alter hydrology, construct
 
 ## 12. Cross-animal calibration notes
 
-- **Versus Badger (13 kg):** Beaver is heavier and has better quantified jaw mechanics, so Attack **42.0** modestly exceeds Badger **38.0**. Badger remains more terrestrially combat-adapted and should not be treated as inferior merely because beaver gnawing is spectacular.
+- **Versus Badger (13 kg):** Beaver is heavier and has better quantified jaw mechanics, so Attack **42.0** modestly exceeds Badger **38.0**. Badger remains better built for terrestrial combat and should not be treated as inferior merely because beaver gnawing is spectacular.
 - **Versus Baboon (24 kg):** Similar mass, but Baboon's canine weaponry, manual grappling and combat flexibility justify its higher Attack **45.0** and Agility **72.0**. Beaver's Intelligence **63.0** remains below Baboon **78.0**, separating engineering specialization from broader primate cognition.
 - **Versus Barracuda (17 kg):** Barracuda retains higher Attack **48.0** because its dentition and behavior are specialized for rapidly cutting animal prey. Beaver has greater physical protection and terrestrial structural robustness but lower native-environment agility.
 - **Versus Armadillo (5.5 kg):** Beaver's Defense **34.0** stays below Armadillo **47.0** because it lacks osteoderm armor despite being much larger. This prevents body mass from overriding a genuine defensive specialization.

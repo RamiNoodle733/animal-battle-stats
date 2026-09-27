@@ -112,7 +112,7 @@ Sexes tend to segregate in deeper water outside mating/molting areas. Females mu
 ### Conservation and human interaction
 The species supports major commercial, personal-use and subsistence fisheries. NOAA currently manages multiple Alaska stocks separately; stock condition differs geographically. It is also an ecologically consequential introduced species in the Barents Sea.
 
-### Adaptations
+### Special features
 The combination of calcified armor, spines, robust walking legs and asymmetric chelae suits cold benthic life. Molting solves the growth constraint imposed by rigid armor but temporarily reverses the defensive advantage.
 
 ### Fun facts

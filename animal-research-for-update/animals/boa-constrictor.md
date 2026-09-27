@@ -75,9 +75,9 @@ The strike and recurved teeth establish purchase. The bite can lacerate and hold
 
 ### Modular breathing under load
 
-A 2022 *Journal of Experimental Biology* study used XROMM and electromyography to demonstrate modular lung ventilation in *B. constrictor*. When one rib region was mechanically hindered, the snake recruited another region for ventilation. This allows breathing while parts of the trunk are immobilized during constriction or ingestion and is a genuine endurance adaptation for its specialized feeding mechanics.
+A 2022 *Journal of Experimental Biology* study used XROMM and electromyography to demonstrate modular lung ventilation in *B. constrictor*. When one rib region was mechanically hindered, the snake recruited another region for ventilation. This allows breathing while parts of the trunk are immobilized during constriction or ingestion and is a genuine endurance feature supporting its specialized feeding mechanics.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 The boa is muscular and flexible but unarmored. Coiling can shield vulnerable regions and a cornered animal can hiss, strike, bite, writhe, constrict and musk. Florida Museum describes these as defensive responses but emphasizes that the species is not generally aggressive. Its defense is positional rather than structural.
 
@@ -209,7 +209,7 @@ Females give birth to live, independent young. Smithsonian gives gestation of ro
 
 Status reporting is taxonomically messy. Animal Diversity Web lists *B. constrictor* as Not Evaluated in its older IUCN treatment and notes CITES Appendix II for most populations, with some historically recognized forms receiving stronger protection. Commons currently labels the species Least Concern, but production should verify the exact current IUCN assessment and taxonomic scope before presenting a definitive Red List label.
 
-### Major adaptations
+### Special features
 
 - Recurved prey-retention teeth
 - Whole-body constriction that compromises circulation

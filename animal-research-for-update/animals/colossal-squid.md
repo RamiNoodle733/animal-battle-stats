@@ -33,7 +33,7 @@ The two long tentacular clubs carry two rows of sharp swivelling hooks plus rows
 
 ### Eyes and sensory anatomy
 
-Nilsson et al. (2012) directly determined an adult colossal squid eye diameter of roughly **270-280 mm**, among the largest eyes known in any living animal. Their visual model argues that such eyes are especially useful below roughly 500-600 m for detecting very large objects, particularly approaching sperm whales via disturbed bioluminescent plankton. The functional interpretation has been debated in the literature, so the measured eye size is high-confidence while the exclusive evolutionary explanation is moderate-confidence.
+Nilsson et al. (2012) directly determined an adult colossal squid eye diameter of roughly **270-280 mm**, among the largest eyes known in any living animal. Their visual model argues that such eyes are especially useful below roughly 500-600 m for detecting very large objects, particularly approaching sperm whales via disturbed bioluminescent plankton. The functional interpretation has been debated in the literature, so the measured eye size is high-confidence while the exclusive sperm-whale-detection explanation is moderate-confidence.
 
 ### Speed and locomotion
 
@@ -97,7 +97,7 @@ Large fins provide controlled low-speed swimming, while the funnel permits jet p
 
 ### Endurance and metabolism
 
-This is a crucial anti-inflation case. Extreme cold/deep-water adaptation and a slow metabolic pace do not equal high combat stamina. The species appears energetically economical, which is excellent for waiting and surviving in a food-poor environment, but evidence does not support prolonged high-output pursuit. Stamina is therefore moderate rather than elite.
+This is a crucial anti-inflation case. Extreme cold/deep-water specialization and a slow metabolic pace do not equal high combat stamina. The species appears energetically economical, which is excellent for waiting and surviving in a food-poor environment, but evidence does not support prolonged high-output pursuit. Stamina is therefore moderate rather than elite.
 
 ### Senses
 
@@ -259,7 +259,7 @@ No PNG is claimed. Current connected GitHub write actions are UTF-8 text-only an
 | Te Papa, Body of the colossal squid | https://www.tepapa.govt.nz/digital-museum/explore-digital-museum/colossal-squid/anatomy-colossal-squid/body-colossal-squid | 2.5 m mantle, 982 mm width, muscular mantle/chromatophores | **High** |
 | Rosa et al. 2017, Polar Biology / British Antarctic Survey | https://www.bas.ac.uk/data/our-data/publication/biology-and-ecology-of-the-worlds-largest-invertebrate-the-colossal-squid-mesonychoteuthis-hamiltoni-a-short-review/ | range, depth, 6 m upper length, 495 kg record, diet, trophic ecology, ambush interpretation | **High** review; direct observations remain sparse |
 | Rosa & Seibel 2010, JMBA | https://doi.org/10.1017/S0025315409991494 | low metabolic rate, modeled 45.1 kcal/day, 0.03 kg prey/day, sit-and-wait hypothesis | **High for published model**, moderate for exact behavior because it is inferred rather than directly observed |
-| Nilsson et al. 2012, Current Biology | https://doi.org/10.1016/j.cub.2012.02.031 | 27-28 cm adult colossal-squid eye; visual modeling | **High** for measurement, **moderate** for adaptive interpretation |
+| Nilsson et al. 2012, Current Biology | https://doi.org/10.1016/j.cub.2012.02.031 | 27-28 cm adult colossal-squid eye; visual modeling | **High** for measurement, **moderate** for functional interpretation |
 | CEPH REF species account | https://cephref.org/species/mesonychoteuthis-hamiltoni | recent 5.2-year lifespan estimate and explicit daily-increment caveat | **Moderate/low** for lifespan until increment periodicity is validated |
 | Te Papa, 100th birthday | https://www.tepapa.govt.nz/te-papa-celebrates-colossal-squid-s-100th-birthday | heaviest invertebrate, eye/hook context, >500 kg possibility | **High institutional summary**, but >500 kg is probable rather than directly weighed |
 

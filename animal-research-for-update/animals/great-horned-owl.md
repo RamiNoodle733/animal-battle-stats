@@ -149,7 +149,7 @@ Great horned owls often use existing nests, cavities, ledges or other structures
 ### Conservation
 The species is broadly considered **Least Concern** and remains widespread, but local mortality can arise from vehicles, poisoning, electrocution and other human pressures. Conservation status does not imply that all regional populations are equally secure.
 
-### Major adaptations
+### Special features
 Broad wings, soft flight feathers, forward-facing eyes, strong hearing, a sound-directing facial disc, grasping talons, a hooked beak, camouflage and flexible habitat use combine into a coherent nocturnal ambush system.
 
 ### Human interaction
@@ -164,7 +164,7 @@ Great horned owls readily occupy human-modified landscapes where trees and prey 
 - Wild longevity can greatly exceed the roughly 13-year typical figure, with records approaching three decades.
 
 ### Concise site summary
-A large, highly adaptable American owl, the Great Horned Owl combines precise talons, quiet low-light flight and exceptional nocturnal targeting. Its absolute power is limited by a roughly 1.7 kg body, but surprise, aerial control and sensory specialization make it extremely dangerous to prey near its own scale.
+A large, highly versatile American owl, the Great Horned Owl combines precise talons, quiet low-light flight and exceptional nocturnal targeting. Its absolute power is limited by a roughly 1.7 kg body, but surprise, aerial control and sensory specialization make it extremely dangerous to prey near its own scale.
 
 ### Rich narrative profile
 The Great Horned Owl is not a miniature eagle that wins through brute force. Its advantage is a tightly integrated ambush system. A female can wait motionless above a clearing, detect movement with strong hearing and forward vision, descend with little warning, brake precisely and present both feet at the moment of contact. Against rabbit-sized prey or another bird, the result can be a fast puncture-and-restraint event rather than a prolonged wrestling match.

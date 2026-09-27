@@ -50,7 +50,7 @@ The sloth bear has no armor or heavy blubber. Its long shaggy coat is functional
 ## 4. Combat biology
 
 ### Primary weapons
-The principal weapons are long, heavy foreclaws and large canines. The claws evolved for breaking hard termite structures, so they are blunt compared with felid claws but long, powerful and attached to strongly built digging forelimbs. In close defense the bear rises, swipes, grapples and bites. Human attack records demonstrate that this combination can produce deep lacerations and fractures, especially to the face and arms, without requiring an invented bite-pressure number.
+The principal weapons are long, heavy foreclaws and large canines. The claws are built for breaking hard termite structures, so they are blunt compared with felid claws but long, powerful and attached to strongly built digging forelimbs. In close defense the bear rises, swipes, grapples and bites. Human attack records demonstrate that this combination can produce deep lacerations and fractures, especially to the face and arms, without requiring an invented bite-pressure number.
 
 ### Defensive aggression and tiger interactions
 The strongest direct combat evidence comes from Sharp, Garshelis & Larson (2024), who analyzed **43 documented sloth bear–tiger interactions** from 2011–2023. Sloth bears were especially likely to stand and charge when first detecting a tiger at **<3 m**. **86%** of documented interactions ended without contact, while four interactions, about **9%**, ended in the bear's death. This supports unusually forceful predator deterrence while also proving that the tiger remains the superior lethal predator. Ferocity and defensive resolve should be high, but the bear must not be scored as tiger-equivalent in raw offense.
@@ -120,9 +120,9 @@ Additional normalization-only **Size: 57.0**, reflecting a 120 kg mammal: far ab
 
 - **Attack: 65.0** — a 120 kg ursid with powerful forelimbs, long claws and large canines can inflict major trauma, but it is not a specialized large-prey killer and remains clearly below tiger-class offense.
 - **Defense: 57.0** — substantial mass, ursid robustness, shaggy coat and aggressive deterrence help, but there is no real armor and tigers can kill adults.
-- **Agility: 55.0** — surprisingly explosive at close range, yet the digging-adapted feet/claws and terrestrial body plan prevent high-end maneuverability.
+- **Agility: 55.0** — surprisingly explosive at close range, yet the digging-specialized feet/claws and terrestrial body plan prevent high-end maneuverability.
 - **Stamina: 63.0** — active year-round with meaningful ranging capacity, but without evidence for elite pursuit or migratory endurance.
-- **Intelligence: 59.0** — behaviorally adaptable and tactically effective in defense, intentionally moderated by direct failed novel-problem evidence and no basis for primate/cetacean-level cognition.
+- **Intelligence: 59.0** — behaviorally flexible and tactically effective in defense, intentionally moderated by direct failed novel-problem evidence and no basis for primate/cetacean-level cognition.
 - **Special: 65.0** — powerful suction feeding, closable nostrils, extreme excavation claws and predator-deterrent defensive behavior make a distinctive package, but the feeding specializations are not equivalent to venom, electricity or echolocation in direct matchup impact.
 
 ## 7. Exactly two special abilities and two unique traits
@@ -152,7 +152,7 @@ San Diego Zoo reports maturity around **3–5 years**, gestation **4–7 months 
 ### Conservation
 IBA identifies the species as **Vulnerable** with a decreasing overall trend and lists it in **CITES Appendix I**. Major threats include habitat loss/fragmentation, human-bear conflict, retaliatory killing and historical exploitation in the dancing-bear trade. A 2024 Nepal report cited a global estimate below 17,000 individuals, while IBA emphasizes that exact population estimates remain uncertain.
 
-### Adaptations
+### Special features
 The species represents an unusual bear trajectory toward myrmecophagy: long claws, in-turned feet, mobile lips, a dental gap, closable nostrils and strong suction. Unlike an anteater, however, it retains large ursid canines and a robust bear body, making defensive encounters much more dangerous than its insect-heavy diet might suggest.
 
 ### Human interaction
@@ -171,9 +171,9 @@ Sloth bears are responsible for severe conflict in parts of South Asia. The best
 A shaggy South Asian bear specialized for termites but armed for a violent close-range defense. A prime male around 120 kg combines long excavation claws, large canines, powerful forequarters and an unusually aggressive countercharge strategy that can deter even tigers. It is not a large-prey hunting specialist, and its digging morphology limits pursuit and tree escape, but opponents entering grappling range face a dangerous ursid built to stand its ground.
 
 ### Narrative profile
-The sloth bear is a useful warning against equating diet with combat capability. Its skull and limbs are heavily modified for insects, yet the animal retains the mass, canines and forelimb power of a medium-sized bear. The same claws that rip open termite architecture become damaging striking tools when the bear is cornered. Its shaggy coat is not armor, but field observations suggest that it can complicate a predator's bite, especially around the neck.
+The sloth bear is a useful warning against equating diet with combat capability. Its skull and limbs are specialized for eating insects, yet the animal still has the mass, canines and forelimb power of a medium-sized bear. The same claws that rip open termite architecture become damaging striking tools when the bear is cornered. Its shaggy coat is not armor, but field observations suggest that it can complicate a predator's bite, especially around the neck.
 
-Its most remarkable combat adaptation is behavioral. Sloth bears coexist with tigers without possessing the climbing escape system of Asiatic black or sun bears. The 2024 tiger-interaction analysis supports a different solution: when surprised at close range, the bear often rears and countercharges. Most documented encounters ended before contact. That does not make a sloth bear stronger than a tiger; four bears in the dataset were killed. It does mean that Ferocity and close-range deterrence deserve far more weight than the species' insect diet would imply.
+Its most remarkable combat trait is behavioral. Sloth bears coexist with tigers without possessing the climbing escape system of Asiatic black or sun bears. The 2024 tiger-interaction analysis supports a different solution: when surprised at close range, the bear often rears and countercharges. Most documented encounters ended before contact. That does not make a sloth bear stronger than a tiger; four bears in the dataset were killed. It does mean that Ferocity and close-range deterrence deserve far more weight than the species' insect diet would imply.
 
 ABS normalization therefore places the sloth bear in a strong but not elite offensive tier. A 120 kg male is vastly above small carnivores in absolute force, yet clearly below a Siberian tiger's specialized predatory offense and below megafaunal durability. Its Special score comes from genuinely unusual feeding and defensive biology without double-counting claws across every category.
 

@@ -136,7 +136,7 @@ Platypuses are monotremes and lay eggs. Taronga places breeding mainly from earl
 ### Conservation
 The IUCN status remains **Near Threatened** in current conservation references. Australian state status is uneven: endangered in South Australia and vulnerable in Victoria, while federal and NSW listing debates continue. Major pressures include habitat degradation/fragmentation, dams and altered flow, drought, bushfire, pollution, entanglement and climate-driven water stress.
 
-### Adaptations
+### Special features
 - Dense waterproof insulating fur.
 - Streamlined body and broad flattened tail.
 - Webbed forefeet for swimming and strong claws for burrowing.
@@ -238,7 +238,7 @@ Its stamina is likewise unusual in context. Platypuses are not extreme single-di
 - Exactly two special abilities: **yes**
 - Exactly two unique traits: **yes**
 - Combat mechanics, environment, weaknesses and matchups: **yes**
-- Ecology/life history/conservation/adaptations/human interaction: **yes**
+- Ecology/life history/conservation/special features/human interaction: **yes**
 - Several genuine fun facts and site-ready narrative: **yes**
 - Source ledger with direct URLs/conflicts: **yes**
 - Cross-roster normalization: **yes**

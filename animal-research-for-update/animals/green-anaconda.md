@@ -11,7 +11,7 @@
 
 ### Taxonomic uncertainty
 
-Rivas et al. (2024) proposed a northern green-anaconda species, *Eunectes akayima*, based on genetic divergence and geographic structure, while retaining *E. murinus* for the southern lineage. Current taxonomic treatments are not fully settled, and Wikispecies presently lists *E. akayima* as a synonym of *E. murinus*. ABS should therefore keep the site-facing taxon *E. murinus* while preserving this conflict rather than silently treating the 2024 split as universally accepted.
+Rivas et al. (2024) proposed a northern green-anaconda species, *Eunectes akayima*, based on genetic differences and geographic structure, while retaining *E. murinus* for the southern population. Current taxonomic treatments are not fully settled, and Wikispecies presently lists *E. akayima* as a synonym of *E. murinus*. ABS should therefore keep the site-facing taxon *E. murinus* while preserving this conflict rather than silently treating the 2024 split as universally accepted.
 
 ### Sexual dimorphism and population variation
 
@@ -194,9 +194,9 @@ Normally solitary. Temporary aggregations occur during breeding, when numerous m
 Sexual maturity is commonly placed around three to four years. Females bear live young after a long gestation and often reproduce only every other year because of the energetic cost. Smithsonian gives typical litters of roughly 20-40 young and notes an exceptional record of 82.
 
 ### Conservation
-Smithsonian describes green anacondas as Least Concern and notes habitat loss, persecution and trade as threats. International trade is regulated under CITES Appendix II. Taxonomic splitting could alter conservation assessments because a broad old range may contain more than one lineage.
+Smithsonian describes green anacondas as Least Concern and notes habitat loss, persecution and trade as threats. International trade is regulated under CITES Appendix II. Taxonomic splitting could alter conservation assessments because a broad old range may contain more than one distinct taxon.
 
-### Major adaptations
+### Special features
 - Extreme female body size and girth.
 - Recurved prey-holding teeth.
 - Whole-body constriction.

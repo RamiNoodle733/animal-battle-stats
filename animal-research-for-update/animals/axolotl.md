@@ -99,13 +99,13 @@ The mouth is the only meaningful offensive tool. Axolotls ambush small aquatic p
 
 The attack sequence is short-range and prey-capture oriented: detect nearby prey, orient the broad head, open the mouth and expand the buccal cavity rapidly to generate suction. This can be highly effective against tiny aquatic prey but has negligible absolute stopping power against medium or large roster animals.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 Axolotls have no armor, shell, thick hide, spines or major deterrent weapon. Soft skin and exposed external gills make them physically vulnerable. Their extraordinary regenerative biology improves long-term recovery from survivable tissue loss, but it does not prevent acute incapacitation, predation, blood loss or lethal damage during a short encounter.
 
 ### Locomotion and maneuverability
 
-A laterally compressed tail and continuous fin provide aquatic propulsion and turning control. Limbs permit bottom walking and stabilization. The animal is adapted to still or slow freshwater rather than open-water pursuit. It can turn and reposition at small scale, but it is not a fast, acrobatic swimmer.
+A laterally compressed tail and continuous fin provide aquatic propulsion and turning control. Limbs permit bottom walking and stabilization. The animal is suited to still or slow freshwater rather than open-water pursuit. It can turn and reposition at small scale, but it is not a fast, acrobatic swimmer.
 
 ### Endurance/stamina
 
@@ -205,7 +205,7 @@ Primary survival tools are concealment, aquatic movement and habitat structure. 
 
 ### Calibration interpretation
 
-Axolotl is another key anti-pound-for-pound case. Its regenerative biology is among the most extraordinary vertebrate adaptations in the roster, yet its physical combat capacity is tiny. **Attack 2.8** appropriately sits only slightly above the individually scored Army Ant (1.8) and vastly below Arctic Fox (17.0), Alpaca (25.0), Arctic Wolf (52.0), Anaconda (70.0) and Alligator (84.0). **Defense 4.5** stays low because regeneration is not armor. **Special 74.0** can be high without leaking into Attack or immediate Defense.
+Axolotl is another key anti-pound-for-pound case. Its regenerative biology is among the most extraordinary vertebrate traits in the roster, yet its physical combat capacity is tiny. **Attack 2.8** appropriately sits only slightly above the individually scored Army Ant (1.8) and vastly below Arctic Fox (17.0), Alpaca (25.0), Arctic Wolf (52.0), Anaconda (70.0) and Alligator (84.0). **Defense 4.5** stays low because regeneration is not armor. **Special 74.0** can be high without leaking into Attack or immediate Defense.
 
 ## 7. Exactly two special abilities and two unique traits
 
@@ -249,7 +249,7 @@ Sexual maturity can occur within roughly the first year under favorable captive 
 
 **Critically Endangered** in the wild. Principal pressures include severe habitat loss and modification in the Valley of Mexico, water pollution, urbanization and introduced fishes. The contrast between a globally common laboratory/pet animal and an extremely threatened wild species is central to its conservation story.
 
-### Major adaptations
+### Special features
 
 - Extreme complex-tissue regeneration
 - Paedomorphic adulthood
@@ -261,7 +261,7 @@ Sexual maturity can occur within roughly the first year under favorable captive 
 
 ### Human interaction
 
-Axolotls are globally important biomedical model organisms, particularly for regeneration, development and evolutionary biology. MBL notes their enormous genome at roughly **32 billion base pairs**, about ten times the human genome. They are also culturally iconic in Mexico and widely kept as captive animals. Conservation programs focus on restoring Xochimilco habitat rather than treating the abundant captive population as a substitute for the wild lineage.
+Axolotls are globally important biomedical model organisms, particularly for regeneration and developmental biology. MBL notes their enormous genome at roughly **32 billion base pairs**, about ten times the human genome. They are also culturally iconic in Mexico and widely kept as captive animals. Conservation programs focus on restoring Xochimilco habitat rather than treating the abundant captive population as a substitute for the wild population.
 
 ### Strong fun facts
 
@@ -284,7 +284,7 @@ What makes the species exceptional happens after injury. Axolotls can organize c
 
 The axolotl's second defining feature is paedomorphosis. Unlike a typical salamander that transforms into a more terrestrial adult, *A. mexicanum* normally becomes sexually mature while keeping larval external gills, finned tail and aquatic ecology. That specialization makes it effective in its native cool-water habitat but highly environment-dependent in a cross-roster battle framework.
 
-The conservation story is equally unusual. Axolotls are abundant in captivity and foundational laboratory organisms, yet the natural lineage has been pushed into the fragmented Xochimilco canal system by drainage, urbanization, pollution and introduced species. The canonical ABS animal should therefore look like a dark wild-type adult, not automatically like the familiar pink captive morph.
+The conservation story is equally unusual. Axolotls are abundant in captivity and foundational laboratory organisms, yet the wild population has been pushed into the fragmented Xochimilco canal system by drainage, urbanization, pollution and introduced species. The canonical ABS animal should therefore look like a dark wild-type adult, not automatically like the familiar pink captive morph.
 
 ### Useful future structured fields
 

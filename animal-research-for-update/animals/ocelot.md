@@ -63,7 +63,7 @@ ADW describes ocelots as adept climbers, jumpers and swimmers. The Brazilian Ama
 ADW reports activity for **more than 12 hours/day**, with daily travel about **1.8-6.7 km**, males traveling nearly twice as far as females. This supports good routine endurance for a stalking mesopredator, but not cursorial endurance comparable to long-distance canids or migratory specialists.
 
 ### Senses
-ADW describes keen smell and vision, acute binocular vision adapted for night hunting, plus chemical communication and scent marking. South Texas GPS/accelerometer research independently found strongly nocturnal movement, with peak movement rates at night.
+ADW describes keen smell and vision, acute binocular vision suited to night hunting, plus chemical communication and scent marking. South Texas GPS/accelerometer research independently found strongly nocturnal movement, with peak movement rates at night.
 
 ### Intelligence and tactics
 Ocelots are solitary rather than cooperative pack hunters, but their hunting ecology requires stealth, route choice, prey tracking, ambush timing, cover use and spatial memory. Camera-trap research on Barro Colorado Island treats ocelots as the principal mammalian predator there and tests evidence that they dynamically track prey. They also behaviorally partition space and time around competitors and larger predators. This is capable individual tactical behavior, not evidence for primate-like cognition.
@@ -148,7 +148,7 @@ Generally solitary and territorial, with polygynous mating. ADW reports gestatio
 ### Conservation
 The species is globally widespread but locally threatened by habitat loss/fragmentation, road mortality, illegal trade and retaliatory killing. USFWS lists the ocelot as endangered in the United States and notes the historically tiny south-Texas population. A 2022 multi-site study found densities around 10-13 individuals/100 km² at three Colombian/Brazilian landscapes and emphasized the conservation value of private and unprotected habitat.
 
-### Adaptations
+### Special features
 Disruptive spotted coat, large paws, nocturnal binocular vision, strong olfaction, retractile claws, arboreal competence and behavioral flexibility allow one medium-small felid to exploit rainforest, scrub and wetland mosaics.
 
 ### Human interaction

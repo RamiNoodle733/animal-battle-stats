@@ -127,7 +127,7 @@ All ratings use the roster-wide absolute 0.1-100.0 scale.
 
 ### Unique traits
 1. **Female Size Advantage** - females are materially larger than males, so the canonical combat specimen is female even though males perform more reproductive wrestling and calling contests.
-2. **Risk-Sensing Embryos** - embryos can distinguish vibration patterns associated with snake attacks and hatch early to escape, a remarkable life-history adaptation that is documented here but deliberately not counted as an adult combat power.
+2. **Risk-Sensing Embryos** - embryos can distinguish vibration patterns associated with snake attacks and hatch early to escape, a remarkable life-history trait that is documented here but deliberately not counted as an adult combat power.
 
 ## 8. Expanded profile
 
@@ -146,7 +146,7 @@ This species is a classic model for developmental behavioral plasticity. Experim
 ### Conservation
 Current conservation references list *A. callidryas* as **Least Concern**, but the population trend has been reported as decreasing. Habitat alteration, disease and collection/trade remain relevant concerns. CITES trade documentation lists *A. callidryas* in **Appendix II**, reflecting regulation of international trade rather than an Endangered status.
 
-### Adaptations
+### Special features
 - Enlarged adhesive toe discs for arboreal movement.
 - Long limbs and saltatory escape locomotion.
 - Green daytime concealment posture.
@@ -209,7 +209,7 @@ The species' most famous behavioral research actually concerns its embryos. Deve
 | Animal Diversity Web, *Agalychnis callidryas* | https://animaldiversity.org/accounts/Agalychnis_callidryas/ | size, mass, female-biased size, habitat, nocturnality, reproduction, lifespan | 6-15 g; 4-7 cm; females larger; wild average ~5 y; wet-season breeding | **Medium-high** institutional synthesis; some reproductive-age details appear weak/internally awkward, so not used canonically |
 | Davis field guide account, University of Edinburgh-hosted PDF | https://biology.ed.ac.uk/sites/default/files/2024-06/Anuran%20Davis%202003.pdf | adult sex-specific size, morphology | adult males 50-55 mm, females 65-70 mm; adhesive discs/webbing | **High-medium**, field-guide morphology |
 | AmphibiaWeb account mirrored by EOL | https://www.eol.org/pages/1039149/articles | activity, arboreality, breeding ecology, abundance | nocturnal; arboreal; wet-season breeding on vegetation over water | **High-medium**, AmphibiaWeb-derived synthesis |
-| Jacobs 2016, Biological Journal of the Linnean Society | https://onlinelibrary.wiley.com/doi/abs/10.1111/bij.12861 | population variation and mate choice | genetic structure coincides with body-size/color divergence; females preferred local males | **High**, peer-reviewed experiment |
+| Jacobs 2016, Biological Journal of the Linnean Society | https://onlinelibrary.wiley.com/doi/abs/10.1111/bij.12861 | population variation and mate choice | genetic structure coincides with body-size/color differences; females preferred local males | **High**, peer-reviewed experiment |
 | Warkentin, Caldwell & McDaniel 2006, J Exp Biol | https://pubmed.ncbi.nlm.nih.gov/16574797/ | embryo risk sensing | embryos use temporal vibration patterns to cue escape hatching during snake attacks | **High**, peer-reviewed experiment; embryo not adult combat cognition |
 | Caldwell et al. 2009, J Exp Biol | https://doi.org/10.1242/jeb.026518 | vibration-cued hatching | frequency information helps embryos discriminate attack-like disturbances | **High**, peer-reviewed experimental work |
 | 2024 Integrative Organismal Biology | https://academic.oup.com/iob/article/6/1/obae006/7628310 | clutch biomechanics and escape success | premature escape success ~77% in studied *A. callidryas*; clutch mechanics influence response | **High**, peer-reviewed; life-stage-specific |

@@ -5,7 +5,7 @@
 - **Taxon represented:** Australian dingo. Taxonomic naming is contested: current Australian Museum treatment uses *Canis familiaris* (breed Dingo) / *C. familiaris dingo*, while much literature uses *Canis lupus dingo* or *Canis dingo*. This report does not pretend that nomenclature is settled.
 - **Living:** yes.
 - **Canonical combat specimen:** healthy mature male, **18.0 kg**, representative rather than exceptional.
-- **Dimorphism/population variation:** males are generally heavier. On K'gari, 101 adults >12 months averaged 18.0 kg versus 14.8 kg for 81 adult females. Australian Museum gives a broad 12–24 kg species range. Coat, size, ecology and ancestry vary geographically, and domestic-dog introgression complicates some populations.
+- **Dimorphism/population variation:** males are generally heavier. On K'gari, 101 adults >12 months averaged 18.0 kg versus 14.8 kg for 81 adult females. Australian Museum gives a broad 12–24 kg species range. Coat, size, ecology and genetic makeup vary geographically, and domestic-dog introgression complicates some populations.
 
 ## 2. Physical measurements and functional anatomy
 Australian Museum reports shoulder height **44–62 cm**, body length **86–123 cm**, tail **26–38 cm**, and mass **12–24 kg**. The K'gari dataset makes 18.0 kg especially defensible for a representative adult male.
@@ -88,7 +88,7 @@ All scores are absolute roster-wide values.
 ## 8. Expanded profile
 **Habitat/range:** widespread across mainland Australia in deserts, grasslands, forests, tropical wetlands and mountains, with major exclusion/control zones around pastoral land. **Diet:** opportunistic carnivore/scavenger; mammals dominate many diets, but prey varies greatly by region and can include kangaroos, wallabies, rabbits, rodents, wombats, livestock, birds, reptiles and insects. **Social ecology:** solitary individuals and territorial packs both occur; pack structure becomes especially relevant for larger prey. **Life history:** one main annual breeding season; gestation about nine weeks; usually 4–6 pups; both parents and pack helpers can contribute to rearing. **Human interaction:** dingoes have deep cultural relationships with First Nations peoples, while modern livestock conflict, lethal control and human-food conditioning create management conflict. A 2026 Australian Museum report describes a roughly millennium-old carefully buried dingo on the Baaka/Darling River, adding archaeological evidence to those long-known relationships.
 
-### Adaptations
+### Special features
 Lean cursorial build; erect mobile ears; strong olfaction; bushy tail used in balance/communication; flexible social organization; broad dietary and climatic tolerance.
 
 ### Genuine fun facts
@@ -97,10 +97,10 @@ Lean cursorial build; erect mobile ears; strong olfaction; bushy tail used in ba
 - Dingoes rarely bark compared with domestic dogs and rely heavily on howling and scent communication.
 - Packs can switch the feasible prey class from small mammals to kangaroos and ungulates.
 - A comparative mammal study estimated 313 N canine bite force for a 17.5 kg dingo skull, but that is force, not PSI.
-- Archaeological work announced in May 2026 described a millennium-old dingo burial cared for by Barkindji ancestors along the Baaka.
+- Archaeological work announced in May 2026 described a millennium-old dingo burial cared for by Barkindji forebears along the Baaka.
 
 ### Concise site-ready summary
-The dingo is Australia's adaptable wild canid, combining strong senses, agile terrestrial movement, sustained ranging and flexible solitary or cooperative hunting. A representative mature male is about 18 kg. Its individual bite and durability are modest on the full ABS roster, so its strongest advantages are maneuverability, endurance and tactics rather than raw power or armor.
+The dingo is Australia's versatile wild canid, combining strong senses, agile terrestrial movement, sustained ranging and flexible solitary or cooperative hunting. A representative mature male is about 18 kg. Its individual bite and durability are modest on the full ABS roster, so its strongest advantages are maneuverability, endurance and tactics rather than raw power or armor.
 
 ### Rich narrative profile
 The dingo is a useful anti-inflation test for ABS. It is a successful top-order predator in many Australian systems, but ecological importance does not make an 18 kg individual physically equivalent to a wolf, cougar or large hyena. Its combat value comes from mobility, repeated bite delivery, sensory awareness and behavioral flexibility. Cooperative hunting can transform what a pack can kill, yet those extra bodies must not leak into an individual's Raw Power or Defense.

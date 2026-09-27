@@ -67,7 +67,7 @@ Barn owls seize small mammals with long toes and curved talons. The feet are the
 
 ### Defensive structures
 
-There is no armor, shell, thick hide or other major impact-resistant structure. Feathers provide weather and abrasion protection. The specialized flight feathers are primarily stealth/aerodynamic adaptations, not physical armor. At only about 0.35 kg, the owl is highly vulnerable if a substantially larger opponent makes solid contact.
+There is no armor, shell, thick hide or other major impact-resistant structure. Feathers provide weather and abrasion protection. The specialized flight feathers are primarily stealth/aerodynamic features, not physical armor. At only about 0.35 kg, the owl is highly vulnerable if a substantially larger opponent makes solid contact.
 
 ## 3. Canonical proposed factual fields
 
@@ -138,7 +138,7 @@ Low-light vision complements hearing, but the owl should not be reduced to “ni
 
 ### Intelligence, learning and tactics
 
-Barn owls learn hunting locations, adapt search behavior to prey availability and execute precise sensory-motor attacks. This is meaningful predatory competence, but the evidence base does not justify corvid, parrot or primate-level flexible problem solving. Intelligence should be moderate rather than inflated simply because the sensory system is sophisticated.
+Barn owls learn hunting locations, adjust search behavior to prey availability and execute precise sensory-motor attacks. This is meaningful predatory competence, but the evidence base does not justify corvid, parrot or primate-level flexible problem solving. Intelligence should be moderate rather than inflated simply because the sensory system is sophisticated.
 
 ### Hunting behavior
 
@@ -199,7 +199,7 @@ Adults rely on concealment, nocturnal activity and flight. Eggs and nestlings ar
 | Maneuverability | **82.0** | Controlled low-speed flight, braking, aerial repositioning and precise foot-first strikes are exceptional practical movement tools. |
 | Endurance | **55.0** | Repeated nocturnal foraging and brood provisioning support moderate-good endurance, but the species is not an extreme migration/endurance anchor. |
 | Recovery | **24.0** | Ordinary avian healing with no exceptional regenerative mechanism. |
-| Tactics | **57.0** | Skilled sensory-guided ambush hunting and adaptive search behavior, without evidence for high-order primate/corvid tactical cognition. |
+| Tactics | **57.0** | Skilled sensory-guided ambush hunting and flexible search behavior, without evidence for high-order primate/corvid tactical cognition. |
 | Senses | **94.0** | Sound localization in darkness, facial-ruff acoustics and strong low-light vision make this one of the strongest sensory specialists researched so far. |
 | Ferocity | **42.0** | Decisive predator and nest defender, but not a generalized high-risk brawler. |
 | Abilities | **78.0** | Silent-flight structures plus exceptional sound localization fundamentally change nocturnal prey detection and approach. |
@@ -213,7 +213,7 @@ Adults rely on concealment, nocturnal activity and flight. Eggs and nestlings ar
 | **Agility** | **82.0** | Precise low-speed aerial control, braking and three-dimensional attack geometry justify an elite maneuverability score even without a maximum-speed number. |
 | **Stamina** | **55.0** | Sustained nightly hunting is meaningful, but the mostly sedentary ecology does not support elite migratory/endurance placement. |
 | **Intelligence** | **53.0** | Effective learned predatory behavior and sensorimotor integration, but no basis for corvid/parrot/primate-level flexible cognition. |
-| **Special** | **82.0** | Exceptional auditory localization combined with experimentally supported quiet-flight adaptations is highly matchup-changing and unusually specialized. |
+| **Special** | **82.0** | Exceptional auditory localization combined with experimentally supported quiet-flight features is highly matchup-changing and unusually specialized. |
 
 ### Rating interpretation
 
@@ -261,7 +261,7 @@ BTO data give a typical clutch of **4-6 eggs**, mean **4.85 ± 1.48**, with obse
 
 The global status referenced by BTO/BirdLife is **Least Concern**, but local populations can be threatened or legally protected. Habitat loss, road mortality and rodenticide exposure are important regional concerns. A global Least Concern label must not be interpreted as absence of local conservation problems.
 
-### Major adaptations
+### Special features
 
 - Acoustic facial ruff that modifies spatial hearing cues.
 - Highly precise binaural sound localization.

@@ -3,13 +3,13 @@
 ## Research status
 - **ABS roster name:** Megalodon
 - **Canonical taxon:** †*Otodus megalodon* (Agassiz, 1835), Otodontidae
-- **Living/extinct:** Extinct, Early Miocene to Early Pliocene; youngest reliable records approximately 3.6 Ma
+- **Living/extinct:** Extinct; known from fossil teeth and vertebrae
 - **Canonical combat specimen:** large mature individual represented by Belgian vertebral specimen IRSNB P 9893, reconstructed in 2025 at approximately **16.4 m total length and 30,000 kg**. Sex is unknown.
-- **Research confidence:** high for tooth morphology, trophic position and extinction timing; moderate for the 16.4 m / ~30 t reconstruction; low-moderate for exact body form, top speed, longevity ceiling and soft-tissue details.
+- **Research confidence:** high for tooth morphology and trophic position; moderate for the 16.4 m / ~30 t reconstruction; low-moderate for exact body form, top speed, longevity ceiling and soft-tissue details.
 - **Image status:** `REPLACEMENT SOURCE NEEDED`. A real photograph of a living adult is impossible for an extinct species. Illustrations, renders, fossil reconstructions and AI imagery do not satisfy `IMAGE_REQUIREMENTS.md`, so no compliant source is claimed.
 
 ## 1. Identity and canonical specimen
-The roster animal is †*Otodus megalodon*, the giant Neogene otodontid shark, not a giant modern great white. The 2025 multi-author reassessment uses an 11 m precaudal vertebral series in Belgian specimen IRSNB P 9893 plus broad shark comparative proportions to reconstruct that individual at about **16.4 m TL**. The same method scales a much larger Danish vertebra to a possible **24.3 m** and roughly **94 t**, but the authors repeatedly emphasize that these values are hypotheses because no complete skeleton exists.
+The roster animal is †*Otodus megalodon*, the giant extinct otodontid shark, not a giant modern great white. The 2025 multi-author reassessment uses an 11 m precaudal vertebral series in Belgian specimen IRSNB P 9893 plus broad shark comparative proportions to reconstruct that individual at about **16.4 m TL**. The same method scales a much larger Danish vertebra to a possible **24.3 m** and roughly **94 t**, but the authors repeatedly emphasize that these values are hypotheses because no complete skeleton exists.
 
 ABS therefore does not use the 24.3 m extreme as its normal fighter. The canonical animal is the unusually well-constrained 16.4 m Belgian individual, estimated at roughly 30 t. This preserves Megalodon's enormous absolute scale without silently turning the largest known fragment into the average adult.
 
@@ -56,7 +56,7 @@ Useful future fields: `bite_force_n_estimate`, `tooth_height_cm`, `growth_band_a
 The primary weapon is an enormous jaw apparatus carrying multiple rows of very large serrated teeth. The weapon system combines huge absolute force, a broad bite, deep penetration and sawing edges. Secondary offense comes from 30 tonnes of body momentum and a powerful tail, but ramming is not independently demonstrated as a normal attack strategy and is not scored as a separate magical weapon.
 
 ### Offensive mechanics and predation
-Megalodon occupied an exceptionally high trophic position. Nitrogen-isotope work places megatooth sharks, culminating in *O. megalodon*, at extremely high marine trophic levels, while zinc-isotope work shows trophic overlap with Early Pliocene great white sharks and dietary shifts through time. Fossil cetacean remains preserve large shark bite traces, including an *Otodus*-bitten sperm-whale tooth with gouges and serration rake marks. Such traces cannot always distinguish active predation from scavenging, so the report does not treat every bitten whale fossil as a confirmed kill.
+Megalodon occupied an exceptionally high trophic position. Nitrogen-isotope work places megatooth sharks, including *O. megalodon*, at extremely high marine trophic levels, while zinc-isotope work shows trophic overlap with coexisting great white sharks and dietary shifts through time. Fossil cetacean remains preserve large shark bite traces, including an *Otodus*-bitten sperm-whale tooth with gouges and serration rake marks. Such traces cannot always distinguish active predation from scavenging, so the report does not treat every bitten whale fossil as a confirmed kill.
 
 Against large marine mammals, a huge serrated bite could remove tissue, sever vessels and disable locomotor structures. Attack is the roster ceiling because few animals combine this body scale with a specialized macropredatory cutting weapon.
 
@@ -129,7 +129,7 @@ All ratings are absolute across the full roster and are independent of old produ
 
 ## 8. Expanded profile
 ### Habitat and geographic range
-Fossils occur in Neogene marine deposits across much of the world, indicating a broad marine distribution. Occurrences and inferred ecology span coastal to open-ocean settings, with geography shifting as climate, prey and ocean conditions changed.
+Fossils occur in marine deposits across much of the world, indicating a broad marine distribution. Occurrences and inferred ecology span coastal to open-ocean settings, with geography shifting as climate, prey and ocean conditions changed.
 
 ### Diet and ecology
 Stable-isotope studies independently place Megalodon very high in marine food webs. Potential prey included marine mammals and other large vertebrates. Trophic position varied among populations and through time, so the species should not be reduced to a single prey item or universal whale-only diet.
@@ -141,9 +141,9 @@ Unknown. There is no defensible evidence for coordinated pack hunting. ABS score
 The 2025 growth reassessment estimates neonates around **3.6-3.9 m**, supporting live birth with oophagous embryonic nourishment by analogy with lamniform reproduction. This implies very large newborns and probably low fecundity. Exact sexual maturity is unresolved; the paper offers broad female maturity possibilities rather than a precise threshold.
 
 ### Extinction and conservation analogue
-Megalodon is extinct. A rigorous fossil-occurrence reanalysis places its extinction around **3.6 Ma**, substantially earlier than old 2.6 Ma claims. Proposed drivers include ocean cooling and habitat fragmentation, changing prey communities and competition with expanding great white sharks. These are interacting hypotheses, not a single proven cause.
+Megalodon is extinct and known only from fossils. Proposed drivers of its extinction include ocean cooling and habitat fragmentation, changing prey communities and competition with expanding great white sharks. These are interacting hypotheses, not a single proven cause.
 
-### Major adaptations
+### Special features
 Gigantic serrated dentition, enormous body scale, efficient pelagic body design, elevated body temperature relative to ambient water, and the standard elasmobranch sensory suite.
 
 ### Human interaction
@@ -154,10 +154,10 @@ Humans never encountered living Megalodon. Modern interaction consists of fossil
 - The 2025 paper reconstructs that individual at roughly **16.4 m and 30 t**, while a larger isolated Danish vertebra implies a possible **24.3 m / 94 t** extreme.
 - Megalodon teeth reach at least about **16 cm** high and may approach **20 cm** in exceptional cases.
 - Nitrogen isotopes from tooth enameloid place megatooth sharks at exceptionally high trophic levels.
-- Zinc-isotope data indicate Early Pliocene Megalodon and great white populations could overlap in mean trophic position.
+- Zinc-isotope data indicate Megalodon and great white populations could overlap in mean trophic position.
 - The famous giant bite figure is a **model estimate in newtons**, not a direct fossil measurement and not a valid PSI value.
 - Isotope paleothermometry supports a body warmer than surrounding seawater.
-- The youngest reliable global records cluster around **3.6 million years ago**.
+- Megalodon is extinct and known only from fossils such as teeth and vertebrae.
 
 ### Concise site summary
 Megalodon was a gigantic otodontid shark whose fossil teeth, vertebrae and geochemistry reveal a warm-bodied apex macropredator. A well-studied Belgian specimen is now reconstructed around 16.4 m and 30 t, armed with huge serrated teeth and a modeled bite capable of six-figure-newton forces. Its exact body form and maximum speed remain uncertain because no complete skeleton exists.
@@ -180,7 +180,7 @@ Other ratings require more restraint. A 30 t shark is difficult to injure, but m
 - `adult_verified`: not applicable to any photograph because no living specimen was photographed
 - `sex_verified_or_unknown`: unknown
 - `license_status`: no compliant photographic source
-- `notes`: `IMAGE_REQUIREMENTS.md` explicitly requires a real photograph and rejects illustrations, AI images and 3D renders. Megalodon became extinct millions of years before photography. Fossil teeth/skeleton material and scientific reconstructions can document anatomy but cannot truthfully satisfy the current adult full-body real-photo rule. No illustration or reconstruction is mislabeled as a compliant image, and no PNG completion is claimed. A future policy decision is required for extinct taxa.
+- `notes`: `IMAGE_REQUIREMENTS.md` explicitly requires a real photograph and rejects illustrations, AI images and 3D renders. Megalodon became extinct long before photography. Fossil teeth/skeleton material and scientific reconstructions can document anatomy but cannot truthfully satisfy the current adult full-body real-photo rule. No illustration or reconstruction is mislabeled as a compliant image, and no PNG completion is claimed. A future policy decision is required for extinct taxa.
 
 ## 10. Evidence and source ledger
 | Source | Direct URL | Supports | Finding / context | Confidence / conflict |
@@ -189,9 +189,9 @@ Other ratings require more restraint. A 30 t shark is difficult to injure, but m
 | Cooper et al. 2020, *Scientific Reports* | https://doi.org/10.1038/s41598-020-71387-y | Alternative body dimensions | 16 m reconstruction with ~4.65 m head, ~1.62 m dorsal fin and ~3.85 m tail | Peer reviewed; based on different analogue framework |
 | Wroe et al. 2008, *Journal of Zoology* | https://doi.org/10.1111/j.1469-7998.2008.00494.x | Bite mechanics | White-shark FEA with giant Megalodon scaling; approximately order-of-magnitude above largest modeled white shark | Modeled, not measured; force not PSI |
 | Kast et al. 2022, *Science Advances* | https://doi.org/10.1126/sciadv.abl6529 | Trophic position | Enameloid nitrogen isotopes indicate extremely high trophic position | High; trophic proxy, not direct prey list |
-| McCormack et al. 2022, *Nature Communications* | https://doi.org/10.1038/s41467-022-30528-9 | Trophic ecology / competition | Zinc isotopes show population dietary shifts and Early Pliocene trophic overlap with great whites | High; population means vary |
+| McCormack et al. 2022, *Nature Communications* | https://doi.org/10.1038/s41467-022-30528-9 | Trophic ecology / competition | Zinc isotopes show population dietary shifts and trophic overlap with great whites | High; population means vary |
 | Griffiths et al. 2023, PNAS | https://doi.org/10.1073/pnas.2218153120 | Thermophysiology | Body warmer than ambient and coexisting sharks | High for elevated temperature; exact mechanism/degree uncertain |
-| Boessenecker et al. 2019, *PeerJ* | https://doi.org/10.7717/peerj.6088 | Extinction | Youngest reliable records around 3.6 Ma; median modeled extinction ~3.51 Ma | High; possible geographic asynchrony noted |
+| Boessenecker et al. 2019, *PeerJ* | https://doi.org/10.7717/peerj.6088 | Extinction | Reanalysis of the youngest reliable fossil records and modeled extinction timing | High; possible geographic asynchrony noted |
 | Godfrey, Nance & Riker 2021, *Acta Palaeontologica Polonica* | https://doi.org/10.4202/app.00820.2020 | Predatory interaction | Sperm-whale tooth bears *Otodus* gouges and serration rake traces | Strong trace evidence; active predation vs scavenging not certain |
 
 ## 11. Confidence, conflicts and cross-animal normalization

@@ -12,7 +12,7 @@
 
 ### Sexual dimorphism and population notes
 
-This is one of the most extreme vertebrate examples of sexual dimorphism. Adult females are large predatory fishes, while males are dwarfed and adapted primarily to locate and attach to females. Permanent attachment creates tissue fusion and shared circulation. The combat profile must therefore use a female and should never average male and female body sizes.
+This is one of the most extreme vertebrate examples of sexual dimorphism. Adult females are large predatory fishes, while males are dwarfed and built primarily to locate and attach to females. Permanent attachment creates tissue fusion and shared circulation. The combat profile must therefore use a female and should never average male and female body sizes.
 
 The species is circumglobal in tropical to temperate oceans, with records extending into boreal/subarctic waters. Geographic variation is poorly characterized compared with common shallow-water fishes.
 
@@ -120,7 +120,7 @@ The female is an ambush predator rather than a pursuit specialist. The practical
 
 ### Defense and durability
 
-Absolute physical defense is low. A 77 cm soft-bodied fish cannot trade trauma with crocodilians, large sharks, big cats, giant constrictors, or megafauna. Deep-water adaptation is ecologically impressive but should not be mis-scored as armor.
+Absolute physical defense is low. A 77 cm soft-bodied fish cannot trade trauma with crocodilians, large sharks, big cats, giant constrictors, or megafauna. Its deep-water specialization is ecologically impressive but should not be mis-scored as armor.
 
 ### Locomotion and maneuverability
 
@@ -144,7 +144,7 @@ It is a deep-water predator that minimizes pursuit costs by bringing prey close.
 
 ### Intraspecific fighting
 
-There is no strong evidence that adult females are specialized for violent territorial combat. Male biology is overwhelmingly shaped by mate finding and attachment rather than combat between similarly sized adults.
+There is no strong evidence that adult females are specialized for violent territorial combat. Male biology is overwhelmingly centered on mate finding and attachment rather than combat between similarly sized adults.
 
 ### Predator defense
 
@@ -246,13 +246,13 @@ Not social in the conventional pack/herd sense. The extraordinary exception is r
 
 ### Reproduction / life history
 
-Females are oviparous. FishBase notes planktonic larvae and that eggs are presumably released in floating gelatinous rafts. Sexual parasitism solves a fundamental deep-sea problem: finding a mate in an enormous, sparsely populated habitat. Research published in *Science* in 2020 showed that permanent male-female attachment in deep-sea anglerfishes is associated with major modifications to adaptive immune functions.
+Females are oviparous. FishBase notes planktonic larvae and that eggs are presumably released in floating gelatinous rafts. Sexual parasitism solves a fundamental deep-sea problem: finding a mate in an enormous, sparsely populated habitat. Research published in *Science* in 2020 showed that permanent male-female attachment in deep-sea anglerfishes is associated with major modifications to acquired immune functions.
 
 ### Conservation status
 
 FishBase reports **Least Concern**, based on the IUCN assessment dated 9 May 2013. The species is widely distributed and not presently treated as threatened globally.
 
-### Major adaptations
+### Special features
 
 - Luminous prey lure
 - Dark deep-sea coloration
@@ -265,7 +265,7 @@ FishBase reports **Least Concern**, based on the IUCN assessment dated 9 May 201
 
 ### Human interaction
 
-Direct interaction with humans is minimal because the fish normally occupies deep oceanic water. Most human knowledge comes from trawled/captured specimens, museum collections, taxonomy, deep-sea research, and comparative evolutionary studies rather than routine live observation.
+Direct interaction with humans is minimal because the fish normally occupies deep oceanic water. Most human knowledge comes from trawled/captured specimens, museum collections, taxonomy, deep-sea research, and comparative studies rather than routine live observation.
 
 ### Fun facts
 
@@ -288,7 +288,7 @@ A female drifts and maneuvers through dark midwater hundreds to thousands of met
 
 That system is formidable as an ecological specialization but should not be confused with high absolute combat power. A roughly 77 cm fish with no heavy armor and no demonstrated extreme bite force is nowhere near the damage output or durability of an alligator, lion, giant constrictor, or elephant. ABS therefore gives it restrained Attack and Defense scores. Its real competitive identity is Special: it changes the information environment around a matchup by using light and concealment in darkness.
 
-Reproduction is even stranger. The male is dwarfed and built to solve the problem of locating a female in the enormous deep ocean. In sexually parasitic anglerfishes, a male can attach to a female and the pair can fuse tissues and circulation. Genomic research has shown that these reproductive systems are associated with extraordinary changes in adaptive immunity, helping explain how the female tolerates what would resemble a permanent tissue graft in other vertebrates.
+Reproduction is even stranger. The male is dwarfed and built to solve the problem of locating a female in the enormous deep ocean. In sexually parasitic anglerfishes, a male can attach to a female and the pair can fuse tissues and circulation. Genomic research has shown that these reproductive systems are associated with extraordinary changes in acquired immunity, helping explain how the female tolerates what would resemble a permanent tissue graft in other vertebrates.
 
 For battle simulation, environment matters more for this species than for many roster animals. In deep black water against small prey, the anglerfish's lure, camouflage, and three-dimensional ambush geometry are meaningful advantages. In bright water against a large informed opponent, its most distinctive weapon loses much of its deception value. On land, it is effectively nonfunctional. That extreme environmental dependence should remain explicit rather than being hidden inside inflated universal scores.
 
@@ -323,7 +323,7 @@ Confidence: **High** for specimen measurements. ResearchGate is used as an acces
 URL: https://pubmed.ncbi.nlm.nih.gov/32732279/
 DOI: https://doi.org/10.1126/science.aaz9445
 
-Supports: permanent male-female anatomical joining in deep-sea anglerfishes and major evolutionary modifications/losses in adaptive immune functions associated with sexual parasitism.
+Supports: permanent male-female anatomical joining in deep-sea anglerfishes and major modifications/losses in acquired immune functions associated with sexual parasitism.
 
 Confidence: **Very high**, peer-reviewed primary research.
 

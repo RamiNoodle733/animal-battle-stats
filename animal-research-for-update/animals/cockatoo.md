@@ -84,7 +84,7 @@ This is the species' standout domain. Klump et al. documented the geographic spr
 This species is not a dedicated predator or combat bird. Intraspecific disputes and dominance interactions can involve displacement, threat displays, biting, and loud signaling, but there is no basis for treating ordinary cockatoo aggression as equivalent to predatory killing specialization. Flock vigilance and rapid flight are more important defenses than fighting predators directly.
 
 ### Diet and predation behavior
-Primarily granivorous/herbivorous, eating seeds, nuts, fruits, blossoms, grain and some insects/insect larvae. It is not a pursuit predator. The bill evolved primarily in a feeding/manipulation system, even though it can be dangerous defensively.
+Primarily granivorous/herbivorous, eating seeds, nuts, fruits, blossoms, grain and some insects/insect larvae. It is not a pursuit predator. The bill functions primarily as a feeding/manipulation tool, even though it can be dangerous defensively.
 
 ### Environmental strengths
 - **Best:** woodland, forest edge, urban/suburban environments, trees, vertical structures, and open air that permit flight and climbing.
@@ -161,7 +161,7 @@ Breeds once annually in seasonal windows that differ between northern and southe
 ### Conservation
 Widely treated as Least Concern and common in much of its range. Local abundance can create conflict with agriculture and urban infrastructure. Conservation status should be checked again at migration time against the current IUCN assessment.
 
-### Major adaptations
+### Special features
 - Powerful hooked bill and specialized parrot jaw musculature.
 - Zygodactyl feet and precise object handling.
 - Powered flight plus climbing.
@@ -253,7 +253,7 @@ The result is a sharply specialized profile: low absolute power and protection, 
 - Six headline ratings: yes, one decimal each.
 - **Exactly two** named special abilities: yes.
 - **Exactly two** unique traits: yes.
-- Expanded ecology/life history/conservation/adaptations/human interaction/fun facts: yes.
+- Expanded ecology/life history/conservation/special features/human interaction/fun facts: yes.
 - Source ledger with direct URLs and caveats: yes.
 - Image section follows `IMAGE_REQUIREMENTS.md`: yes; no false PNG completion.
 - Cross-roster normalization: yes.

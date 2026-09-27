@@ -134,7 +134,7 @@ Adult size is itself a major deterrent. Smaller predators face height, kicking r
 
 - Exceptional cold-desert and arid-environment tolerance
 - Thick seasonal coat and broad thermal tolerance
-- Strong high-altitude performance and hypoxia adaptation
+- Strong high-altitude performance and hypoxia tolerance
 - Broad padded feet for sand and rough terrain
 - Extreme dehydration tolerance and rapid rehydration capability
 - Large fat reserves in two humps
@@ -145,7 +145,7 @@ Adult size is itself a major deterrent. Smaller predators face height, kicking r
 - Tall, heavy frame reduces tight-space maneuverability
 - No horns, tusks, claws, venom or armor
 - Strong environmental physiology does not prevent mechanical trauma
-- Peak sprint speed is poorly quantified and is not the core adaptation
+- Peak sprint speed is poorly quantified and is not the core strength
 - Soft substrates favor it more than slick or cramped environments
 
 ### Major weaknesses
@@ -189,7 +189,7 @@ Adult size is itself a major deterrent. Smaller predators face height, kicking r
 | **Agility** | **39.0** | Strong footing on desert terrain but limited tight-turning performance due to size and build. |
 | **Stamina** | **90.0** | One of the roster's strongest sustained-environment performers, supported by load carriage, water conservation and extreme-climate physiology. |
 | **Intelligence** | **50.0** | Trainable, socially aware and capable of staged rival assessment, but not an upper-tier cognitive specialist. |
-| **Special** | **72.0** | Extreme dehydration, thermal, hypoxia and desert adaptations materially alter long-duration and harsh-environment matchups. |
+| **Special** | **72.0** | Extreme dehydration, thermal, hypoxia and desert specializations materially alter long-duration and harsh-environment matchups. |
 
 ### Calibration interpretation
 
@@ -229,7 +229,7 @@ Females generally mature earlier than males. San Diego Zoo summarizes gestation 
 
 The domestic *Camelus bactrianus* is not the Critically Endangered wild camel. Conservation sources that label a two-humped camel as Critically Endangered are generally discussing *Camelus ferus*. This distinction is essential for the future site. The wild camel is a separate species and should not supply the domestic Bactrian's conservation status.
 
-### Major adaptations
+### Special features
 
 - Two fat-storing humps
 - Dense winter coat with seasonal shedding
@@ -239,7 +239,7 @@ The domestic *Camelus bactrianus* is not the Critically Endangered wild camel. C
 - Large tolerated body-water losses
 - Flexible body-temperature regulation
 - Expandable oval erythrocytes
-- High-altitude/hypoxia physiological adaptation in highland populations
+- High-altitude/hypoxia physiological tolerance in highland populations
 
 ### Human interaction
 
@@ -263,9 +263,9 @@ The Bactrian camel is a massive two-humped cold-desert specialist built less for
 
 A Bactrian camel looks awkward until the environment becomes hostile. Then its design makes sense. The broad feet spread hundreds of kilograms across loose ground, the winter coat insulates against severe cold, lashes and closable nostrils protect the face from blowing grit, and two humps localize large energy reserves. Internally, water-saving kidneys, unusual blood-cell geometry and flexible thermoregulation allow dehydration and rehydration stresses that would incapacitate many mammals.
 
-In combat, however, those survival adaptations must not be mistaken for armor. The camel remains a large soft-bodied ungulate. Its threat comes from scale and reach: a mature male can bite, shove, kick and trample, and rutting males are willing to fight rivals. Yet a horned bovid or tusked megaherbivore has more specialized offensive hardware, and a big cat has a more refined killing system. The Bactrian's ABS identity is therefore a powerful endurance bruiser rather than an apex damage dealer.
+In combat, however, those survival features must not be mistaken for armor. The camel remains a large soft-bodied ungulate. Its threat comes from scale and reach: a mature male can bite, shove, kick and trample, and rutting males are willing to fight rivals. Yet a horned bovid or tusked megaherbivore has more specialized offensive hardware, and a big cat has a more refined killing system. The Bactrian's ABS identity is therefore a powerful endurance bruiser rather than an apex damage dealer.
 
-That distinction also makes its matchup profile unusual. A small opponent faces an enormous height and mass problem. A similarly sized opponent with dedicated horns or claws can exploit the camel's lack of armor. In a short neutral-arena fight its adaptations are useful but not overwhelming. In cold, dry, high-altitude or prolonged conditions, its physiological advantages become increasingly important.
+That distinction also makes its matchup profile unusual. A small opponent faces an enormous height and mass problem. A similarly sized opponent with dedicated horns or claws can exploit the camel's lack of armor. In a short neutral-arena fight its specializations are useful but not overwhelming. In cold, dry, high-altitude or prolonged conditions, its physiological advantages become increasingly important.
 
 ### Useful future structured fields
 
@@ -298,10 +298,10 @@ That distinction also makes its matchup profile unusual. A small opponent faces 
 | Animal Diversity Web, *Camelus bactrianus* | https://animaldiversity.org/accounts/Camelus_bactrianus/ | 300-690 kg adult range; 2.25-3.45 m body length; 1.80-2.30 m shoulder height; male larger; social/rutting behavior | Institutional synthesis; some older conservation wording may conflate wild and domestic taxa | High for morphology/behavior |
 | San Diego Zoo, Camel | https://animals.sandiegozoo.org/animals/camel | 450-500 kg, 3.2-3.5 m length, 1.6-1.8 m shoulder height, median life expectancy 17.8 y, reproduction | Zoo summary, not sex-specific | Moderate-high |
 | IVIS, The Genus Camelus | https://www.ivis.org/library/theriogenology-camelidae-anatomy-physiology-pathology-and-artificial-breeding/genus-camelus | Breed-specific male/female mass and height: Mongolian, Sunite, Xinjiang | Breed means vary substantially; useful for representative male selection | High |
-| Lamo et al. 2020, BMC Veterinary Research | https://link.springer.com/article/10.1186/s12917-020-02481-6 | High-altitude morphometry, blood physiology, erythrocytes, endurance/load carriage 200-250 kg, hypoxia adaptation | Small Ladakh sample, mostly males; population-specific | High |
+| Lamo et al. 2020, BMC Veterinary Research | https://link.springer.com/article/10.1186/s12917-020-02481-6 | High-altitude morphometry, blood physiology, erythrocytes, endurance/load carriage 200-250 kg, hypoxia tolerance | Small Ladakh sample, mostly males; population-specific | High |
 | 2026 sexual-dimorphism study | https://link.springer.com/article/10.1007/s44338-026-00215-w | Adult males had significantly higher body length/circumference; male work-performance context | Very small high-altitude sample, four adults per sex | Moderate-high |
 | FAO, Biological Characteristics | https://www.fao.org/4/x1700t/x1700t05.htm | 1-2% body-mass water loss/day under deprivation; exceptional 2-3 week survival context; >100 L rehydration; 34-40 C daily temperature fluctuation; hump dimensions/fat | Husbandry synthesis; conditions matter | High-moderate |
-| Wu et al. 2014, Nature Communications | https://www.nature.com/articles/ncomms6188 | Genomic/transcriptomic desert adaptation, water/fat metabolism, renal osmoregulation, >25% water-loss tolerance | Camelid comparative genomics; mechanistic rather than combat study | High |
+| Wu et al. 2014, Nature Communications | https://www.nature.com/articles/ncomms6188 | Genomic/transcriptomic desert tolerance, water/fat metabolism, renal osmoregulation, >25% water-loss tolerance | Camelid comparative genomics; mechanistic rather than combat study | High |
 | Journal of Morphology camelid dentition paper | https://onlinelibrary.wiley.com/doi/10.1002/jmor.21554 | Bactrian cranial caniniform teeth and accommodation of long caniniform teeth | Morphological evidence, not bite-force measurement | High |
 | Zoo New England, Bactrian Camel | https://www.zoonewengland.org/franklin-park-zoo/animals/mammals/hoofed/bactrian-camel/ | 10-20 mph institutional running range; group behavior; pack-animal context | Not an instrumented maximum-speed study | Moderate |
 | 2024 Kazakhstan biology study repository | https://repository.enu.kz/handle/enu/16099 | Kazakh males up to 750 kg; sexual dimorphism; breed size variation | Large-breed context, not canonical average | Moderate-high |
@@ -332,4 +332,4 @@ Cross-roster checks against completed research:
 
 ### Future normalization watch
 
-Revisit **Stamina 90.0** after dromedary Camel, Pronghorn, Wild Horse, Reindeer and other long-distance specialists are researched. Revisit Attack/Defense after Bison, Cape Buffalo, Moose, Rhinoceros and other 500+ kg terrestrial fighters establish stronger megafaunal spacing. Do not increase Special merely because several desert adaptations describe the same underlying water-conservation system.
+Revisit **Stamina 90.0** after dromedary Camel, Pronghorn, Wild Horse, Reindeer and other long-distance specialists are researched. Revisit Attack/Defense after Bison, Cape Buffalo, Moose, Rhinoceros and other 500+ kg terrestrial fighters establish stronger megafaunal spacing. Do not increase Special merely because several desert traits describe the same underlying water-conservation system.

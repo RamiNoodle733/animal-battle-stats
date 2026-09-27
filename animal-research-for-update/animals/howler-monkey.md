@@ -62,7 +62,7 @@ Howlers possess large jaws and teeth suitable for processing plant material and 
 
 ### Prehensile tail
 
-The long tail is a major locomotor adaptation. ADW describes a strong prehensile tail with a hairless tactile underside that functions much like a fifth hand. Comparative anatomical work reports the *A. caraya* prehensile tail at about **6.5% of total body mass**, illustrating unusually substantial investment in the appendage.
+The long tail is a major locomotor feature. ADW describes a strong prehensile tail with a hairless tactile underside that functions much like a fifth hand. Comparative anatomical work reports the *A. caraya* prehensile tail at about **6.5% of total body mass**, illustrating unusually substantial investment in the appendage.
 
 The tail is treated as a support, balance and positional-control structure, not as a constricting weapon.
 
@@ -120,7 +120,7 @@ A howler's plausible physical offense is close-range: grip a support or opponent
 
 The most important pre-contact behavior is acoustic. Playback experiments with stranger-group roars caused alpha males to roar more, leave sooner and travel toward simulated intrusions. Roars can therefore advertise occupancy and reinforce a dispute before costly physical contact.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 There is no armor, thick hide, shell or specialized impact protection. Fur provides little defense from serious teeth or talons. A secured bite or crush from a much larger animal is dangerous.
 
@@ -170,7 +170,7 @@ Howlers are primarily plant eaters rather than predators. Genus-level documented
 - Slow routine movement makes long terrestrial escape poor
 - Water is not a preferred combat environment
 - No armor or specialized killing weapon
-- Leaf-adapted energy economy is poorly suited to prolonged maximal exertion
+- Leaf-based energy economy is poorly suited to prolonged maximal exertion
 - Aerial predators can attack within the canopy space
 
 ### Major weaknesses
@@ -265,7 +265,7 @@ Gestation is around six months in institutional and Argentine references, usuall
 
 The Argentina SIB page reports the current IUCN global category as **Least Concern**, while Argentina's national SAREM assessment lists the species as **Vulnerable (2025)**. This difference is important: broad global status can coexist with serious regional habitat loss, fragmentation, hunting or disease risk.
 
-### Major adaptations
+### Special features
 
 - Fully prehensile tactile tail for arboreal support
 - Enlarged hyoid/laryngeal vocal system

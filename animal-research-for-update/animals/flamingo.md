@@ -65,7 +65,7 @@ The bill is the main contact tool. It is not designed for tearing flesh like a r
 ### Offensive mechanics
 A flamingo's practical offense is repeated jabbing, bill grappling, feather/skin pinching and body displacement. The bird can use its neck reach while keeping its torso farther away. Against tiny animals this is meaningful. Against similarly sized lightly protected birds it can cause pain and control space. Against mammalian predators, armored animals or anything with a major mass advantage, the bill has poor stopping power.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 The species is physically fragile relative to serious terrestrial combatants. Defense comes from detecting danger, maintaining distance, flock vigilance, entering shallow water, and flying. The long legs raise the torso above shallow water but also create exposed, slender targets. Once a larger predator secures the body or a leg, the flamingo has little armor or grappling power to reverse the encounter.
 
 ### Locomotion and maneuverability
@@ -131,7 +131,7 @@ Greater flamingos are filter-feeding omnivores, not active vertebrate hunters. D
 | **Agility** | **72.0** | Multi-modal locomotion and flight provide strong repositioning, kept well below elite aerial maneuverers. |
 | **Stamina** | **68.0** | Good sustained movement and environmental endurance, without evidence for an extreme roster value. |
 | **Intelligence** | **57.0** | Nonrandom social networks, synchronized displays and stable social relationships support moderate cognition. |
-| **Special** | **67.0** | Specialized filter bill, extreme wading proportions, flight and saline-wetland adaptations are distinctive but not highly lethal. |
+| **Special** | **67.0** | Specialized filter bill, extreme wading proportions, flight and saline-wetland specializations are distinctive but not highly lethal. |
 
 ## 7. Exactly two special abilities and exactly two unique traits
 
@@ -160,7 +160,7 @@ Breeding is colonial. Pairs build mud mound nests and normally lay one egg. Both
 ### Conservation
 Major zoo sources list the Greater Flamingo as **Least Concern**. Wetland alteration, disturbance, industrial activity and resource extraction can nevertheless threaten important local breeding and feeding sites.
 
-### Adaptations
+### Special features
 - Very long legs for accessing shallow-water feeding zones.
 - Long flexible neck for inverted feeding.
 - Lamellate down-curved bill and muscular tongue for filtration.

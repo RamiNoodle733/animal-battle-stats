@@ -49,7 +49,7 @@ No credible species-specific bite force or bite pressure was found. The mandible
 **Canonical `bite_force_psi`: 0.0.** This means no defensible PSI value, not a claim of zero mandibular force.
 
 ### Horns and measured force
-Males have a long pronotal/thoracic horn opposing a shorter cephalic horn, forming a clamp. Jarman & Hinton (1974) directly measured forces applied by a large male between these horns and described gripping adaptations, including setae that improve friction. The accessible abstract confirms actual force measurement but does not expose a sufficiently clear numerical result here, so this report does **not** invent a Newton value or repeat viral claims such as “850 times body weight” as a measured *D. hercules* lifting maximum.
+Males have a long pronotal/thoracic horn opposing a shorter cephalic horn, forming a clamp. Jarman & Hinton (1974) directly measured forces applied by a large male between these horns and described gripping features, including setae that improve friction. The accessible abstract confirms actual force measurement but does not expose a sufficiently clear numerical result here, so this report does **not** invent a Newton value or repeat viral claims such as “850 times body weight” as a measured *D. hercules* lifting maximum.
 
 ### Armor and defensive structures
 The beetle's sclerotized exoskeleton and hardened elytra provide meaningful protection at insect scale. This is substantial against similarly sized invertebrate hazards but remains tiny in absolute roster-wide terms and should not be treated like vertebrate armor. Jarman & Hinton also documented defensive stridulation.
@@ -91,13 +91,13 @@ The adult is ectothermic and can remain active through nocturnal foraging and ma
 Like other scarabs, the species uses vision, mechanosensation and chemoreception. ADW reports that males orient toward females in controlled settings, consistent with strong chemical/pheromonal communication. Lamellate antennae are prominent sensory organs. Sensory sophistication is useful but nowhere near vertebrate high-acuity multimodal systems on this roster.
 
 ### Tactics and intelligence
-Male combat has a repeatable geometry: approach, gain purchase, get the opponent between horns, lift and eject. This is an evolved motor program rather than evidence of complex strategic planning. Tactics therefore outrank raw cognition but remain low in absolute cross-roster terms.
+Male combat has a repeatable geometry: approach, gain purchase, get the opponent between horns, lift and eject. This is an innate motor program rather than evidence of complex strategic planning. Tactics therefore outrank raw cognition but remain low in absolute cross-roster terms.
 
 ### Fighting behavior
 Male competition for access to females is intense and can involve repeated body slams until one retreats. This supports meaningful Ferocity for an insect while avoiding anthropomorphic claims of aggression outside the reproductive context.
 
 ### Predation and feeding behavior
-Adults are not active macropredators. They feed on fallen/rotting fruit and sap or similar plant-derived resources. Larvae are saproxylophagous and develop in decaying wood. The species' combat equipment evolved primarily for male competition, not killing prey.
+Adults are not active macropredators. They feed on fallen/rotting fruit and sap or similar plant-derived resources. Larvae are saproxylophagous and develop in decaying wood. The species' combat equipment is used primarily in male competition, not for killing prey.
 
 ### Predator defense
 Defenses include the hard exoskeleton, large intimidating morphology, strong grip, and stridulatory “huffing” sound. Jarman & Hinton specifically investigated defensive mechanisms and male stridulation. These may deter or complicate attacks by small predators but do not make the beetle durable against much larger animals.
@@ -185,7 +185,7 @@ Complete metamorphosis dominates the life history. Development is slow: the thir
 ### Conservation
 No robust IUCN species assessment was recovered in this run. Do not label the species Least Concern merely because secondary sites do. Habitat dependence and collecting pressure may matter locally, but this report does not invent a global population trend.
 
-### Major adaptations
+### Special features
 - Opposing male horns engineered for grip and leverage.
 - Sclerotized exoskeleton and protective elytra.
 - Powered flight despite extreme male horn load.
@@ -244,7 +244,7 @@ The species is also more than its weapon. Its adult phase is a short climax to a
 |---|---|---|---|---|
 | Animal Diversity Web, *Dynastes hercules* | https://animaldiversity.org/accounts/Dynastes_hercules/ | mass, length, dimorphism, combat, habitat, communication, lifespan | 11.5-37.5 g adult range; male avg 34 g; male avg 78 mm; male horn combat; pheromonal orientation | High for synthesis; captive longevity differs from UF/IFAS |
 | UF/IFAS EENY659 | https://ask.ifas.ufl.edu/publication/IN1142 | taxonomy, range, adult morphology, life cycle, activity | males to 180 mm; adults 50-85 mm body dimensions; 3-6 month captive adult stage; detailed development | High institutional synthesis citing primary entomology |
-| Jarman & Hinton 1974, Royal Entomological Society | https://doi.org/10.1111/j.1365-3032.1974.tb00070.x | horn force, grip mechanics, stridulation | measured forces between horns; gripping adaptations; male sound production | High primary source; accessible abstract does not expose a safe numerical force value, so none is invented |
+| Jarman & Hinton 1974, Royal Entomological Society | https://doi.org/10.1111/j.1365-3032.1974.tb00070.x | horn force, grip mechanics, stridulation | measured forces between horns; gripping features; male sound production | High primary source; accessible abstract does not expose a safe numerical force value, so none is invented |
 | Hinton & Jarman 1972, Nature | https://doi.org/10.1038/238160a0 | humidity color change | reversible black to greenish-yellow/black change within minutes | High primary source |
 | Hinton & Jarman 1973, Journal of Insect Physiology | https://doi.org/10.1016/0022-1910(73)90064-4 | optical mechanism | transparent epicuticle and porous yellow layer alter appearance with hydration | High primary source |
 | University of Nebraska State Museum scarab guide | https://unsm-ento.unl.edu/Guide/Scarabaeoidea/Scarabaeidae/Dynastinae/Dynastinae-Tribes/Dynastini/Dynastes/D-hercules/Dhercules.html | biology and life cycle | larvae 570-630 days, adults about 75 days, total about 700 days; horn grip and stridulation summaries | High museum/taxonomic synthesis |

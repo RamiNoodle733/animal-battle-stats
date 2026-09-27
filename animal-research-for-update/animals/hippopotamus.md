@@ -6,7 +6,7 @@
 - **Scientific name:** *Hippopotamus amphibius* Linnaeus, 1758
 - **Exact animal represented:** common hippopotamus, not pygmy hippopotamus (*Choeropsis liberiensis*).
 - **Living/extinct:** living.
-- **Canonical combat specimen:** healthy mature **adult male**, because males are the territorial fighting sex and have disproportionately enlarged jaws and canines. A 2021 analysis of 2,994 aged hippos found mean male body mass only about 5% above female mass, but male jaw mass was 44% greater and canine mass 81% greater, strong evidence that sexual selection is concentrated in the weapon system rather than merely body bulk.
+- **Canonical combat specimen:** healthy mature **adult male**, because males are the territorial fighting sex and have disproportionately enlarged jaws and canines. A 2021 analysis of 2,994 aged hippos found mean male body mass only about 5% above female mass, but male jaw mass was 44% greater and canine mass 81% greater, strong evidence that the sex difference is concentrated in the weapon system rather than merely body bulk.
 - **Canonical representative mass:** **1,800.0 kg**. This sits inside multiple institutional adult-male ranges without using old exceptional bulls. Denver Zoo gives males about 1,440-2,800 kg; San Diego gives 1,600-4,500 kg, while ADW reports broad adult values and continued male growth. The 4,500 kg historical captive maximum is explicitly rejected as canonical.
 - **Canonical representative length:** **400.0 cm** head-body/overall working length. Institutional references place adults around 3.3-5.0 m and ADW up to about 5.05 m. Four metres is a representative mature bull rather than a maximum.
 - **Canonical shoulder height:** **155.0 cm**, within ADW's 150-165 cm and zoo figures near 1.5-1.6 m.
@@ -60,7 +60,7 @@ Therefore the staging field remains conservative:
 Denver Zoo describes skin up to about **two inches (~5 cm)** thick, while Toronto Zoo describes a substantial subcutaneous fat layer. ADW cautions that the outer epidermal layers themselves are thin and that adults acquire wounds during fights. The correct interpretation is not “impenetrable armor”: the hippo has enormous bulk, thick dermal/subcutaneous tissues and a huge damage buffer, but rival tusks can and do wound it.
 
 ### Hipposudoric secretion
-ADW describes red/orange skin secretions containing hipposudoric and norhipposudoric acids that absorb ultraviolet radiation and inhibit bacterial growth. This is a real physiological adaptation, but it is not combat armor and should not be inflated into Defense.
+ADW describes red/orange skin secretions containing hipposudoric and norhipposudoric acids that absorb ultraviolet radiation and inhibit bacterial growth. This is a real physiological feature, but it is not combat armor and should not be inflated into Defense.
 
 ## 3. Proposed canonical factual fields
 
@@ -86,7 +86,7 @@ ADW describes red/orange skin secretions containing hipposudoric and norhipposud
 ## 4. Combat biology
 
 ### Primary weapons
-The primary weapon system is the enormous jaw and continuously growing incisors/canines. In mature bulls, sexual selection disproportionately enlarges jaws and canines. The mouth can open to around 150 degrees, giving the tusks a very large working arc. The lower canines are the principal long stabbing/slashing structures, while incisors and opposing teeth add puncture, tearing and display capability.
+The primary weapon system is the enormous jaw and continuously growing incisors/canines. Mature bulls have disproportionately enlarged jaws and canines. The mouth can open to around 150 degrees, giving the tusks a very large working arc. The lower canines are the principal long stabbing/slashing structures, while incisors and opposing teeth add puncture, tearing and display capability.
 
 ### Secondary weapons
 The head, neck and roughly 1.8-tonne body provide immense shoving and collision force. Short robust limbs support rapid charges and positional drives. The feet are not specialized striking weapons, but a fallen smaller opponent is at obvious risk from body mass and trampling.
@@ -94,7 +94,7 @@ The head, neck and roughly 1.8-tonne body provide immense shoving and collision 
 ### Offensive mechanics
 Hippo combat is not simply “bite hard.” A territorial bull can gape, threaten, lunge, seize or rake with the tusks, then use neck and body mass to drive through the opponent. Long lower canines can create deep lacerating/puncturing wounds rather than the shallow crushing geometry of ordinary herbivore mastication. Denver Zoo notes that male fights can be lethal and that adult male hides commonly bear scars.
 
-The 2021 weapon-dimorphism study is decisive for interpretation: male weapon size is far more sexually selected than body mass. Attack therefore deserves a very high score even though the species is primarily herbivorous.
+The 2021 weapon-dimorphism study is decisive for interpretation: males differ from females far more in weapon size than in body mass. Attack therefore deserves a very high score even though the species is primarily herbivorous.
 
 ### Defense and durability
 Defense begins with enormous mass. Many attacks that would disable a smaller mammal must penetrate much more tissue before reaching critical structures. Thick skin/subcutaneous tissues and a broad barrel body add passive resilience. The animal is nevertheless not armored like a rhinoceros shell or crocodilian osteoderms, and rival tusks demonstrably penetrate its skin. Defense should be elite but not treated as invulnerability.
@@ -120,7 +120,7 @@ This is the central combat evidence. Adult males establish and defend aquatic te
 Adults have few natural predators because of their mass, group presence, aquatic refuge and weaponry. Lions, crocodiles, hyenas and leopards are much more relevant to calves or compromised individuals than to healthy mature bulls. A large adult can aggressively confront threats rather than relying only on escape.
 
 ### Diet and ecological combat context
-Hippos are primarily grazers. They leave water at dusk to feed on short grasses and return before daytime heat. Their enormous weapon system is therefore not a predatory adaptation. This matters for ratings: high Attack comes from territorial weapon mechanics and absolute force, not from invented hunting technique.
+Hippos are primarily grazers. They leave water at dusk to feed on short grasses and return before daytime heat. Their enormous weapon system is therefore not a predatory tool. This matters for ratings: high Attack comes from territorial weapon mechanics and absolute force, not from invented hunting technique.
 
 ### Environmental strengths
 - **Shallow rivers, lakes and channels:** buoyancy reduces effective weight, bottom-contact locomotion remains powerful, and the hippo can keep only eyes/ears/nostrils exposed.
@@ -213,7 +213,7 @@ Gestation is roughly eight months. A female generally gives birth to one calf, o
 ### Conservation
 Current major conservation references continue to list the common hippopotamus as **Vulnerable**, with a commonly cited global estimate around **115,000-130,000**. Major threats include habitat loss/degradation, water diversion, conflict with people, unregulated hunting and trade in hippo ivory. CITES Appendix II regulates international trade.
 
-### Major adaptations
+### Special features
 - Huge male canines and enlarged jaws for sexual combat.
 - High-set eyes, ears and nostrils for sensing while mostly submerged.
 - Nostrils/ears that close during submergence.
@@ -226,21 +226,21 @@ Current major conservation references continue to list the common hippopotamus a
 Hippos can be extremely dangerous where people share waterways, paths or cropland. Exact annual human-fatality figures are poorly standardized and often repeated without strong surveillance data, so this report does not use a viral “kills X people per year” number as a biological fact. Conflict risk is nevertheless real because boats, fishing, river crossings and nighttime crop/grazing areas overlap with hippo movement.
 
 ### Genuine fun facts
-- Hippos are not aquatic “horses”; their closest living relatives are cetaceans within Whippomorpha/Cetancodonta.
+- Hippos are not aquatic “horses”; taxonomists group them with cetaceans in Whippomorpha/Cetancodonta.
 - A 2024 gait study showed fast-moving hippos can have all four feet off the ground during parts of a trot.
 - Underwater they use bottom-contact locomotion with unsupported phases rather than ordinary continuous swimming.
 - Male hippos are only modestly heavier on average than females, but their canine mass is dramatically greater.
 - Their reddish skin secretion is not blood or sweat. It contains pigments with UV-absorbing and antimicrobial properties.
 - Their eyes, ears and nostrils sit high on the skull, allowing most of the body to remain submerged while monitoring the surroundings.
-- The huge tusks are primarily combat/display structures rather than adaptations for cutting grass.
+- The huge tusks are primarily combat/display structures rather than tools for cutting grass.
 
 ### Concise site-ready summary
-The common hippopotamus is a semiaquatic megaherbivore whose mature bulls combine roughly two tonnes of body mass with one of the most formidable close-range weapon systems among living land mammals. Its giant gape and continuously growing tusks evolved heavily under male-male competition, while thick tissues and sheer bulk make it exceptionally hard to stop. Hippos are more mobile than their shape suggests: they trot on land and use buoyancy-assisted bottom contact underwater. Their weakness is not lack of power, but limited fine agility, heat constraints and a combat style that must bring an opponent into very close range.
+The common hippopotamus is a semiaquatic megaherbivore whose mature bulls combine roughly two tonnes of body mass with one of the most formidable close-range weapon systems among living land mammals. Its giant gape and continuously growing tusks are used heavily in male-male competition, while thick tissues and sheer bulk make it exceptionally hard to stop. Hippos are more mobile than their shape suggests: they trot on land and use buoyancy-assisted bottom contact underwater. Their weakness is not lack of power, but limited fine agility, heat constraints and a combat style that must bring an opponent into very close range.
 
 ### Rich narrative profile
-The hippo is a useful calibration test because reputation can easily distort the numbers in both directions. Calling it a clumsy herbivore misses modern locomotor evidence and the extraordinary sexual selection on its jaws. Calling it an invulnerable 4.5-tonne, 2,000-PSI monster makes the opposite error by using exceptional individuals and poorly sourced pressure figures.
+The hippo is a useful calibration test because reputation can easily distort the numbers in both directions. Calling it a clumsy herbivore misses modern locomotor evidence and the extraordinary enlargement of its jaws in males. Calling it an invulnerable 4.5-tonne, 2,000-PSI monster makes the opposite error by using exceptional individuals and poorly sourced pressure figures.
 
-A representative mature bull around 1.8 tonnes is already enormous. The decisive feature is that male competition did not simply make bulls vastly heavier. Instead, the weapon system became disproportionately enlarged. In a dataset of almost three thousand aged animals, males averaged only about five percent heavier than females but carried much heavier jaws and canines. This is exactly the kind of evidence ABS should privilege: a direct biological reason for very high Weaponry and Attack that does not require a fabricated PSI number.
+A representative mature bull around 1.8 tonnes is already enormous. The decisive feature is that bulls are not vastly heavier than cows. Instead, their weapons are disproportionately large. In a dataset of almost three thousand aged animals, males averaged only about five percent heavier than females but carried much heavier jaws and canines. This is exactly the kind of evidence ABS should privilege: a direct biological reason for very high Weaponry and Attack that does not require a fabricated PSI number.
 
 The hippo's fight geometry is brutally close. A bull presents an enormous gape, then drives long lower canines and incisors through the attack arc while its head and body supply leverage. Rival bulls leave scars because those weapons can penetrate hippo tissue itself. Against smaller unarmored animals, the combination of reach, mass and puncture/tearing potential is overwhelming. Against elephants or similarly massive horned megaherbivores, however, the hippo no longer enjoys a simple scale advantage, so it remains below the roster ceiling.
 
@@ -282,7 +282,7 @@ The resulting profile is a close-range megafaunal tank with elite attack and dur
 | Source | Direct URL | Supports | Reported finding | Confidence / caveat |
 |---|---|---|---|---|
 | Animal Diversity Web, *H. amphibius* | https://animaldiversity.org/accounts/Hippopotamus_amphibius/ | mass, dimensions, gape, teeth, skin secretion, locomotion | 1,300-3,200+ kg context; 2.9-5.05 m; 150-165 cm; ~150° gape; canines ~50 cm; hipposudoric secretion | High for synthesis; some old speed claims are not used canonically |
-| Shannon et al. 2021, Biology Letters / PubMed | https://pubmed.ncbi.nlm.nih.gov/34610251/ | sexual dimorphism, weapon selection | n=2,994 aged animals; male mass +5%, jaw mass +44%, canine mass +81% | High; peer-reviewed, large dataset |
+| Shannon et al. 2021, Biology Letters / PubMed | https://pubmed.ncbi.nlm.nih.gov/34610251/ | sexual dimorphism, weapon size | n=2,994 aged animals; male mass +5%, jaw mass +44%, canine mass +81% | High; peer-reviewed, large dataset |
 | Dryad dataset for Shannon et al. | https://datadryad.org/dataset/doi:10.5061/dryad.ttdz08kzw | provenance of dimorphism dataset | Queen Elizabeth NP Uganda data, 1961-1966 | High |
 | Hutchinson & Pringle 2024, PeerJ | https://doi.org/10.7717/peerj.17675 | terrestrial gait | 169 cycles from 32 hippos; trot; aerial phases at faster movement | High; does not establish a clean maximum speed |
 | Coughlin & Fish 2009, Journal of Mammalogy | https://doi.org/10.1644/08-MAMM-A-279R.1 | underwater locomotion | two animals; mean horizontal velocity 0.47 m/s; bottom-contact gait with unsupported intervals | High for measured context; small n, not max speed |
@@ -309,7 +309,7 @@ The resulting profile is a close-range megafaunal tank with elite attack and dur
 - **Versus Great White Shark:** both are elite close-range heavy attackers in their native media. Great White retains stronger sustained aquatic locomotor specialization and predatory tactics; hippo gains land competence and massive tusk-driven territorial combat.
 - **Versus Green Anaconda:** constriction is highly specialized but a representative anaconda is orders of magnitude lighter. The hippo's Raw Power, Defense and Attack must be far higher on the absolute scale.
 - **Anti-inflation check:** no score reaches the 93+ extreme band. This is deliberate. A common hippo is one of the most formidable living terrestrial mammals, but African elephants and some larger/extinct/marine roster anchors preserve meaningful headroom.
-- **No double counting:** tusks/jaw mechanics drive Weaponry and Attack; mass/tissues drive Protection/Toughness and Defense; underwater bottom locomotion and skin chemistry drive Special. The same adaptation is not used to inflate every category.
+- **No double counting:** tusks/jaw mechanics drive Weaponry and Attack; mass/tissues drive Protection/Toughness and Defense; underwater bottom locomotion and skin chemistry drive Special. The same feature is not used to inflate every category.
 - **No proportional leakage:** all physical ratings reflect the representative 1.8-tonne animal in absolute terms.
 - **No speed/agility confusion:** the gait study raises confidence that hippos are dynamically mobile, but unverified top-speed folklore is not converted into elite Agility.
 

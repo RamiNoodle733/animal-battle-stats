@@ -28,7 +28,7 @@ Wild longevity is strongly mortality-skewed. USFS summarizes most wild raccoons 
 Raccoons have carnivoran dentition and useful canines, but their skull is generalized for omnivory. Gorniak's peer-reviewed anatomical work describes carnivore-like masticatory architecture with temporalis, masseter and pterygoid regions supporting vertical closure plus food-processing jaw movements. **No defensible species-specific bite pressure in PSI was recovered**, so `bite_force_psi = 0.0`. Claws are non-retractile and useful for climbing, digging, gripping and defensive scratching, but no reliable canonical claw-length measurement was recovered.
 
 ### Forepaws and tactile apparatus
-The five-digit forepaws are the raccoon's most distinctive manipulation system. Histological research on *P. lotor* digital pads describes specialized sensitive subepidermal sensory equipment and suggests epidermal hyaluronan helps maintain optimal mechanoreceptive function. This is a genuine sensory/manipulation adaptation, not merely folklore about raccoons “washing” food.
+The five-digit forepaws are the raccoon's most distinctive manipulation system. Histological research on *P. lotor* digital pads describes specialized sensitive subepidermal sensory equipment and suggests epidermal hyaluronan helps maintain optimal mechanoreceptive function. This is a genuine sensory/manipulation specialization, not merely folklore about raccoons “washing” food.
 
 ### Defensive structures
 Dense fur provides modest insulation and superficial buffering but is not armor. The raccoon has no shell, osteoderms or thick specialized hide. Defense relies on compact build, mobility, climbing, biting/scratching, concealment and flexible retreat routes.
@@ -150,7 +150,7 @@ Native broadly across North and Central America from southern Canada through muc
 Omnivorous and opportunistic: fruit, nuts, seeds, grain, insects, crayfish, crabs, mollusks, fish, frogs, reptiles, eggs, small mammals, carrion and human-associated food.
 
 ### Ecology
-An adaptable mesopredator and scavenger. Raccoons can influence nesting birds and turtles through egg predation, consume aquatic and terrestrial prey, disperse seeds and exploit human-altered food webs.
+A versatile mesopredator and scavenger. Raccoons can influence nesting birds and turtles through egg predation, consume aquatic and terrestrial prey, disperse seeds and exploit human-altered food webs.
 
 ### Social structure
 Often described as primarily solitary, but social organization is more flexible than that shorthand suggests. Home ranges can overlap, mothers travel with young, adults aggregate at rich food sources, and male movement expands during breeding.
@@ -161,11 +161,11 @@ Typically one litter per year, often **3–7 young** with about **63–65 days g
 ### Conservation
 The common raccoon is globally widespread and commonly treated as **Least Concern** in conservation syntheses. It is also invasive in several non-native regions. Local management is frequently driven by crop/property conflict and disease concerns rather than population scarcity.
 
-### Adaptations
+### Special features
 Dexterous tactile forepaws; non-retractile climbing claws; flexible omnivorous dentition; nocturnal sensory suite; seasonal fat storage; broad den selection; climbing and swimming competence; behavioral innovation.
 
 ### Human interaction
-Raccoons thrive around people, open containers, exploit buildings and eat anthropogenic food. They can damage crops/property and are important hosts for diseases/parasites including rabies and raccoon roundworm. Their adaptability should not be confused with tameness.
+Raccoons thrive around people, open containers, exploit buildings and eat anthropogenic food. They can damage crops/property and are important hosts for diseases/parasites including rabies and raccoon roundworm. Their resourcefulness should not be confused with tameness.
 
 ### Fun facts
 - A raccoon's front feet have five long digits and unusually specialized tactile pads.
@@ -177,10 +177,10 @@ Raccoons thrive around people, open containers, exploit buildings and eat anthro
 - The familiar “washing” behavior should not be interpreted as hygiene; tactile exploration is central to forepaw use.
 
 ### Concise site summary
-The raccoon is a 6.5 kg generalist built less around brute force than dexterity, climbing and behavioral flexibility. Its bite and claws are modest on the full ABS scale, but sensitive five-digit forepaws, strong three-dimensional mobility and experimentally demonstrated problem solving make it unusually adaptable in complex terrain.
+The raccoon is a 6.5 kg generalist built less around brute force than dexterity, climbing and behavioral flexibility. Its bite and claws are modest on the full ABS scale, but sensitive five-digit forepaws, strong three-dimensional mobility and experimentally demonstrated problem solving make it unusually versatile in complex terrain.
 
 ### Rich narrative profile
-The raccoon's reputation for cleverness has stronger empirical support than many animal stereotypes. Multi-access puzzle experiments show repeated innovation and learning, and field experiments with wild raccoons show that successful individuals can discover multiple solution types. That cognition combines with a tactile system that is genuinely specialized: histological work on the digital pads describes sensory equipment adapted for fine mechanoreception.
+The raccoon's reputation for cleverness has stronger empirical support than many animal stereotypes. Multi-access puzzle experiments show repeated innovation and learning, and field experiments with wild raccoons show that successful individuals can discover multiple solution types. That cognition combines with a tactile system that is genuinely specialized: histological work on the digital pads describes sensory equipment suited to fine mechanoreception.
 
 In a fight, however, intelligence does not erase physics. A representative adult male weighs only about 6.5 kg. Its carnivoran jaw, canines and claws can injure a similar-sized opponent, but it lacks the specialized killing anatomy of a cat or mustelid and has no armor. Attack and Defense therefore remain low on the absolute roster scale.
 

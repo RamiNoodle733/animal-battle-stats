@@ -153,7 +153,7 @@ Breeding is associated with seasonal hydrology and rainfall. Zoo accounts descri
 ### Conservation and human interaction
 The species is widespread and locally common. Conservation listings vary among databases, with some institutional sources treating it as not evaluated and general references listing Least Concern. It is harvested as food, caught by anglers and traded internationally as an aquarium fish. Human danger is heavily sensationalized: bites can be serious, but routine attacks on healthy humans are not the normal ecology of the species.
 
-### Major adaptations
+### Special features
 - Deep laterally compressed body for maneuvering.
 - Strong jaw-adductor system.
 - Interlocking triangular serrated teeth.

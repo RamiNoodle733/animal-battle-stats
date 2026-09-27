@@ -24,7 +24,7 @@ A local French Guiana natural-history source reports movement at about **4.5 m/m
 The species is specialized for inverted suspension. Hayssen reports that it forages while hanging beneath branches, can straighten its normally hooked claws, and also swims readily, using the forelimbs prominently for propulsion. Modern experimental locomotor work is much richer for *B. variegatus*, but those kinetics are not silently transferred to *B. tridactylus*.
 
 ### Lifespan
-Species-specific wild longevity is poorly established. Genus-level ADW material places modern captive *Bradypus* commonly around **20-30 years**, while wild lifespan is less certain and predation/disease shorten survival. Because *B. tridactylus* reportedly adapts poorly to zoo settings, a precise species-specific 30-year value is not strongly defensible. A provisional canonical **20.0 years** is used with **low confidence**, explicitly pending better longitudinal evidence.
+Species-specific wild longevity is poorly established. Genus-level ADW material places modern captive *Bradypus* commonly around **20-30 years**, while wild lifespan is less certain and predation/disease shorten survival. Because *B. tridactylus* reportedly adjusts poorly to zoo settings, a precise species-specific 30-year value is not strongly defensible. A provisional canonical **20.0 years** is used with **low confidence**, explicitly pending better longitudinal evidence.
 
 ### Bite force
 No reliable measured or modeled bite pressure for *B. tridactylus* was found. The species can bite, but its documented intraspecific aggression is predominantly claw striking and only rarely biting. `bite_force_psi` is therefore **0.0 unresolved**, not a claim of zero biological force.
@@ -52,14 +52,14 @@ No reliable measured or modeled bite pressure for *B. tridactylus* was found. Th
 ### Offensive mechanics
 The pale-throated sloth is not a pursuit predator and has very low absolute offensive output. Its meaningful weapon is the hooked claw array. Hayssen's species account records same-sex aggression as predominantly claw striking, showing that the claws are not merely locomotor hooks. From a branch, the animal can maintain several points of suspension while swinging or striking with another limb. The bite is secondary and rarely reported in aggression.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 Defense is primarily avoidance rather than tanking damage. Cryptic pelage, canopy residence, low movement rate and long periods of inactivity reduce detection. Dense fur can carry algae that contributes greenish coloration. Tough skin and a compact rib cage provide some physical robustness, but the species remains small and vulnerable to large raptors and cats. Hayssen explicitly notes that behavioral defenses are not effective against most predators.
 
 ### Locomotion and maneuverability
 On its correct substrate, the animal has excellent grip security and can suspend, rotate and reposition around branches. This should not be confused with general agility. Its translation speed is extremely low, terrestrial movement is poor, and open-ground evasion is a severe weakness. Swimming ability is a useful escape option around flooded forest but not enough to make it an aquatic specialist.
 
 ### Endurance and metabolism
-The sloth's low-energy lifestyle is not equivalent to high combat stamina. Hayssen cites one animal sleeping about 18.5 hours per day, and the lineage is strongly energy-conserving. It can maintain suspension for long periods with specialized anatomy, but sustained rapid muscular output is not its ecological strategy. ABS Stamina therefore remains low-moderate rather than rewarding passive hanging endurance as if it were sustained fighting performance.
+The sloth's low-energy lifestyle is not equivalent to high combat stamina. Hayssen cites one animal sleeping about 18.5 hours per day, and sloths as a group are strongly energy-conserving. It can maintain suspension for long periods with specialized anatomy, but sustained rapid muscular output is not its ecological strategy. ABS Stamina therefore remains low-moderate rather than rewarding passive hanging endurance as if it were sustained fighting performance.
 
 ### Senses and intelligence
 The species has strong positional awareness in a complex three-dimensional canopy and enough behavioral flexibility to forage, climb and swim, but there is little evidence for advanced tactical problem solving relative to primates, corvids, parrots or social carnivores. Its extraordinary neck mobility expands visual scanning without requiring fast whole-body repositioning.
@@ -73,7 +73,7 @@ Camouflage and immobility are the first line of defense. Harpy eagles and large 
 ### Environmental strengths
 - Dense canopy with multiple branches strongly favors its grip, suspension and camouflage.
 - Flooded forest gives access to its competent swimming behavior.
-- Complex vertical structure makes it difficult for a ground-adapted opponent to engage cleanly.
+- Complex vertical structure makes it difficult for a ground-dwelling opponent to engage cleanly.
 
 ### Environmental limitations
 - Open ground removes most of its locomotor specialization.
@@ -143,8 +143,8 @@ Mating is arboreal. Hayssen describes observed copulations lasting roughly 1.5-3
 ### Conservation
 Hayssen reported the species as Least Concern because substantial range remained in relatively intact Amazonian habitat. The current report does not infer that all local populations are secure, and future production migration should refresh IUCN status directly at that time.
 
-### Major adaptations
-The body is optimized for suspension rather than terrestrial speed. Hook-like claws, elongated limbs, inverted fur orientation, slow metabolism, cryptic pelage and unusual cervical anatomy all support a low-energy canopy existence. These adaptations are extremely effective ecologically but create a specialized combat profile with sharp environmental dependence.
+### Special features
+The body is optimized for suspension rather than terrestrial speed. Hook-like claws, elongated limbs, inverted fur orientation, slow metabolism, cryptic pelage and unusual cervical anatomy all support a low-energy canopy existence. These features are extremely effective ecologically but create a specialized combat profile with sharp environmental dependence.
 
 ### Human interaction
 The species is not a meaningful threat to humans under ordinary circumstances. Handling can still provoke clawing or biting, and wildlife should not be treated as harmless simply because it moves slowly. Habitat disturbance and forest fragmentation can force dangerous ground crossings.

@@ -98,7 +98,7 @@ The jaws are the main weapon. A wolf closes distance, seizes with the teeth, tea
 - Non-retractile claws provide traction on snow, ice and uneven substrate.
 - Body-checking, pulling and pack positioning supplement the bite.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 A 40 kg wolf has substantially more trauma tolerance than an Arctic fox or African wild dog simply from body scale and robust canid construction, but it has no armor. Dense fur buffers weather and may superficially cushion minor contact, yet teeth, horns and claws can penetrate it. Hunting muskoxen is especially hazardous because both sexes carry recurved horns.
 
@@ -162,7 +162,7 @@ Primary defense is awareness, mobility, pack support and avoidance. The wolf is 
 - Smaller unarmored mammals
 - Similar-sized prey lacking strong counter-weapons
 - Opponents vulnerable to repeated mobile biting
-- Cold-environment opponents with poorer thermal adaptation
+- Cold-environment opponents with poorer cold tolerance
 
 ### Bad matchup archetypes
 
@@ -188,7 +188,7 @@ Primary defense is awareness, mobility, pack support and avoidance. The wolf is 
 | Tactics | **72.0** | Cooperative prey assessment, pack positioning, communication and repeated testing of defended ungulates. |
 | Senses | **70.0** | Strong integrated canid smell/hearing/vision useful for tracking and combat awareness. |
 | Ferocity | **68.0** | Regularly tackles dangerous prey and defends territory, while still using risk-sensitive hunting decisions. |
-| Unique Abilities | **65.0** | Cold adaptation, white camouflage and pack coordination materially change matchups but are not direct disabling mechanisms. |
+| Unique Abilities | **65.0** | Cold tolerance, white camouflage and pack coordination materially change matchups but are not direct disabling mechanisms. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -247,7 +247,7 @@ A ten-year Ellesmere study documented one breeding female producing four to six 
 
 The Arctic wolf is part of the globally widespread gray wolf species, which is generally treated as Least Concern at species level. Subspecies/population assessments are less straightforward. WWF describes Arctic wolves as relatively insulated from historical hunting and habitat destruction because of remoteness, while industrial development and climate-driven prey changes are emerging concerns.
 
-### Major adaptations
+### Special features
 
 - Thick double coat and reduced exposed extremities
 - Predominantly white coat for snowy-background camouflage

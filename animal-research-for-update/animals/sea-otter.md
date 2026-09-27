@@ -31,7 +31,7 @@
 - **Canonical `lifespan_years`: 18.0**, representative rather than record longevity.
 
 ### Dentition and bite force
-- Sea otters possess robust jaws, lower incisors and broad rounded postcanine teeth adapted to crushing hard-shelled invertebrates. USFWS explicitly warns that they have very strong jaws.
+- Sea otters possess robust jaws, lower incisors and broad rounded postcanine teeth suited to crushing hard-shelled invertebrates. USFWS explicitly warns that they have very strong jaws.
 - No defensible species-specific standardized **bite pressure in PSI** was found. `bite_force_psi` is **0.0 unresolved**. Do not convert qualitative jaw strength or modeled forces into PSI without contact area.
 - A 2024 *Science* study of 196 radio-tagged southern sea otters showed tool use lets individuals access harder/larger prey and reduces tooth damage, demonstrating that even their robust teeth face meaningful mechanical limits.
 
@@ -64,7 +64,7 @@ In water the animal is exceptionally controlled: flexible spine, webbed hind fee
 Repeated benthic dives and multi-hour daily foraging demonstrate strong work capacity. The high metabolic rate that supports thermogenesis also imposes a severe energy budget: adults must eat roughly 20-30% of body mass daily. Thus Stamina is strong for repeated marine foraging but not unlimited, and prolonged food deprivation is a serious weakness.
 
 ### Senses
-NOAA reports good vision above and below water, strong smell and hearing, and vibration-sensitive whiskers. Experimental auditory work found sea-otter hearing is primarily air-adapted rather than exceptionally specialized for underwater noise. Senses are broad and useful without being echolocation-tier.
+NOAA reports good vision above and below water, strong smell and hearing, and vibration-sensitive whiskers. Experimental auditory work found sea-otter hearing is primarily suited to air rather than exceptionally specialized for underwater noise. Senses are broad and useful without being echolocation-tier.
 
 ### Intelligence and tactics
 Sea otters are among the clearest non-primate mammalian tool users. Individuals use rocks and other hard objects as hammers or anvils to open prey. The 2024 *Science* study showed this behavior has measurable fitness-relevant mechanical benefits: tool users can access harder/larger prey and suffer less tooth damage. Tool use varies strongly among individuals and is especially beneficial to females, so it should not be treated as an identical behavior performed constantly by every otter.
@@ -142,7 +142,7 @@ Breeding can occur year-round. Delayed implantation contributes to variable gest
 ### Conservation
 The species was driven close to extinction by the maritime fur trade. Southern sea otters remain federally **Threatened** under the U.S. Endangered Species Act; USFWS reaffirmed that status in 2023. Important threats include shark-bite mortality, disease/pathogens, harmful algal blooms, oil spills, limited range and climate-linked ecosystem change. Global status should be recorded separately from U.S. subspecies legal status when production migration occurs.
 
-### Adaptations
+### Special features
 - Extremely dense, air-trapping fur instead of thick blubber.
 - Elevated metabolism and very high food intake.
 - Webbed hind feet and muscular tail for aquatic locomotion.
@@ -162,7 +162,7 @@ Sea otters are protected wildlife and should not be approached or fed. USFWS war
 - A 2024 *Science* study showed tool use is not merely anecdotal: it measurably reduces dental damage and expands prey access.
 
 ### Concise site-ready summary
-The sea otter is a highly intelligent marine mustelid built for cold coastal water. A strong adult male combines crushing jaws, dexterous paws, exceptional underwater control and one of the animal kingdom's best-known tool-use systems. Its dense air-trapping fur replaces blubber, while a huge metabolic demand forces hours of daily foraging. It is dangerous at close range but wins more through maneuverability, problem solving and specialized marine adaptations than raw attack power.
+The sea otter is a highly intelligent marine mustelid built for cold coastal water. A strong adult male combines crushing jaws, dexterous paws, exceptional underwater control and one of the animal kingdom's best-known tool-use systems. Its dense air-trapping fur replaces blubber, while a huge metabolic demand forces hours of daily foraging. It is dangerous at close range but wins more through maneuverability, problem solving and specialized marine features than raw attack power.
 
 ### Rich narrative profile
 Sea otters are a striking example of specialization without gigantism. They surrendered the thick blubber used by most marine mammals and instead maintain a meticulously groomed, extraordinarily dense coat that traps air next to the skin. That solution works only when paired with a high metabolic furnace and near-constant food acquisition, creating an animal that is both cold-water resilient and energetically expensive to operate.

@@ -47,13 +47,13 @@ In water the bird is an accomplished wing-propelled diver with precise depth con
 This is the species' clearest elite capability. Five instrumented adults at Coulman Island averaged 14.9-day foraging commutes and 3,188 dives, about 213 dives/day. Dives over 100 m commonly had descent/ascent rates of 1-2 m/s and the deepest recorded in that study was 534 m. Later experiments documented repeated dives up to 10 min with surface recoveries often under one minute and an exceptional 27 min 36 s dive. Breeding males also undergo a roughly four-month fast. Huddling reduces metabolic expenditure: free-ranging huddling emperors had metabolic rates about 21% lower than loosely grouped birds in a physiological synthesis.
 
 ### Senses, intelligence and tactics
-Vision and underwater prey tracking are well adapted to marine foraging. The species demonstrates complex colony recognition, parental coordination, route finding between colonies and sea, and dynamic huddle organization. These are meaningful behavioral competencies, but there is no evidence warranting corvid- or ape-level flexible problem solving. Intelligence should remain well below the experimentally exceptional Crow control.
+Vision and underwater prey tracking are well suited to marine foraging. The species demonstrates complex colony recognition, parental coordination, route finding between colonies and sea, and dynamic huddle organization. These are meaningful behavioral competencies, but there is no evidence warranting corvid- or ape-level flexible problem solving. Intelligence should remain well below the experimentally exceptional Crow control.
 
 ### Fighting, predation and predator defense
 Emperors pursue fish, squid and krill underwater. They are prey for leopard seals and killer whales, with the transition at the ice edge particularly dangerous. Against similarly sized terrestrial opponents, the penguin's upright posture, short legs and lack of dedicated piercing/claw weapons are limitations. In water, mobility and endurance improve dramatically, but its bill still does not make it a high-damage predator.
 
 ### Environmental pros / cons
-- **Best environment:** cold ocean and ice-edge water, where swimming, diving and thermal adaptations function fully.
+- **Best environment:** cold ocean and ice-edge water, where swimming, diving and thermal features function fully.
 - **Ice advantage:** exceptional cold tolerance and long-duration energy management.
 - **Land weakness:** slow walking, limited lateral evasiveness, no flight and modest weapon reach.
 - **Warm-climate weakness:** extreme cold specialization offers little direct combat benefit and thermal load becomes a concern.
@@ -111,7 +111,7 @@ Colonial breeder. A female lays one egg and transfers it to the male's feet. The
 ### Conservation
 Conservation assessments are changing as sea-ice conditions deteriorate. Older references list Near Threatened; recent 2026 secondary conservation reporting describes an IUCN Endangered reassessment. Future production migration should verify the live IUCN record at migration time rather than freezing a rapidly changing status into combat data.
 
-### Adaptations
+### Special features
 Streamlined body, stiff flippers, dense waterproof plumage, large energy reserves, oxygen-management physiology, cardiovascular dive responses, reduced exposed surface while huddling and behavioral use of ice/water interfaces.
 
 ### Human interaction
@@ -128,7 +128,7 @@ Direct interaction is limited by remoteness and Antarctic protections. The speci
 The Emperor Penguin is a 38 kg Antarctic endurance specialist whose modest bill and low land mobility conceal extraordinary underwater and cold-weather physiology. It can make hundreds of dives per day during foraging trips, reach more than 500 m depth, and breeding males endure a roughly four-month winter fast. Its battle profile is therefore low-to-moderate in direct damage, strong in aquatic control, and elite in Stamina and environmental Special.
 
 ### Rich narrative profile
-An emperor penguin wins survival contests that would defeat far more heavily armed animals, but ABS must not confuse survival specialization with raw combat power. On ice it is a tall, slow, compact bird with a pointed bill and few dedicated weapons. In water the same body becomes a precise hydrodynamic diver. The transformation is ecological rather than magical: stiff flippers generate thrust, oxygen stores and cardiovascular control extend dive performance, and repeated bouts can continue with remarkably short surface intervals. During reproduction, males shift to another extreme, conserving enormous energy reserves through winter darkness while incubating a single egg. Huddling further reduces energetic cost. These adaptations justify extraordinary Stamina and high Special while Attack remains low on a roster containing large cats, bears, ungulates, sharks and megafauna.
+An emperor penguin wins survival contests that would defeat far more heavily armed animals, but ABS must not confuse survival specialization with raw combat power. On ice it is a tall, slow, compact bird with a pointed bill and few dedicated weapons. In water the same body becomes a precise hydrodynamic diver. The transformation is ecological rather than magical: stiff flippers generate thrust, oxygen stores and cardiovascular control extend dive performance, and repeated bouts can continue with remarkably short surface intervals. During reproduction, males shift to another extreme, conserving enormous energy reserves through winter darkness while incubating a single egg. Huddling further reduces energetic cost. These traits justify extraordinary Stamina and high Special while Attack remains low on a roster containing large cats, bears, ungulates, sharks and megafauna.
 
 ### Future field proposals
 - Add `max_verified_dive_depth_m` and `max_verified_dive_duration_min` as evidence-linked fields rather than folding them into speed.
@@ -162,7 +162,7 @@ An emperor penguin wins survival contests that would defeat far more heavily arm
 | Robertson et al., *Ibis* 1994 | https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1474-919X.1994.tb08127.x | chick diet | fish/squid/crustacean contributions differ between two colonies | High, primary; colony-specific |
 | Animal Diversity Web | https://animaldiversity.org/accounts/Aptenodytes_forsteri/ | longevity, behavior | typical wild lifespan 15-20 yr; huddling behavior | Medium-high |
 | Global Penguin Society | https://www.globalpenguinsociety.org/portfolio-species-2.html | dimensions, dimorphism | 112-115 cm, 22-40 kg, males slightly larger | Medium-high |
-| SeaWorld species/adaptation references | https://seaworld.org/animals/facts/birds/emperor-penguin/ | observed speed, size | up to 112 cm, 27-41 kg; observed swim 14.4 km/h | Medium; institutional rather than instrumented maximum |
+| SeaWorld species/biology references | https://seaworld.org/animals/facts/birds/emperor-penguin/ | observed speed, size | up to 112 cm, 27-41 kg; observed swim 14.4 km/h | Medium; institutional rather than instrumented maximum |
 | Wikimedia Commons category/file records | https://commons.wikimedia.org/wiki/Category:Aptenodytes_forsteri | image discovery/provenance | multiple exact-species high-resolution photographs including `Emperor-single hg.jpg` 3559x5310 | High for file metadata, age/sex/full-body still unresolved |
 
 ## 11. Confidence and conflicts
@@ -180,4 +180,4 @@ An emperor penguin wins survival contests that would defeat far more heavily arm
 - Intelligence 57.0 stays far below Crow 96.0 and below the researched canids because emperor sociality and navigation do not equal experimentally demonstrated corvid cognition.
 - Special 88.0 is high for rare environmental physiology but below Electric Eel 98.0 because electricity is a more directly matchup-changing offensive mechanism.
 
-**Verification:** scores were rechecked against `README.md` and `CALIBRATION.md`; physical power was not scaled pound-for-pound, speed was not substituted for Agility, cold tolerance was not counted as armor, and the same dive adaptation was not used to inflate Attack.
+**Verification:** scores were rechecked against `README.md` and `CALIBRATION.md`; physical power was not scaled pound-for-pound, speed was not substituted for Agility, cold tolerance was not counted as armor, and the same diving ability was not used to inflate Attack.

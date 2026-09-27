@@ -24,7 +24,7 @@ The mass has moderate confidence because institutional values conflict. Height i
 ### Speed and locomotion
 ADW reports speeds up to **13.4 m/s** and an approximately 3 m stride. National Zoo and Aquarium gives a sprint near **50 km/h**, equivalent to **13.9 m/s**. Australian zoo material commonly gives 48-50 km/h. The canonical field uses **13.9 m/s** as a strong institutional maximum, while recognizing that this is not an instrumented individual performance record comparable to the cheetah field dataset.
 
-Emus are obligate terrestrial cursorial birds. Peer-reviewed morphology describes reduced toes, unusually developed pelvic-limb musculature and a four-bellied gastrocnemius, adaptations for sustained high-speed running. A 2015 ontogenetic study found positive allometry in many pelvic-limb muscles and force-sustaining tendons as birds grew. Walking-model work found hip contact force around 5.5 times body weight, illustrating substantial routine limb loading without converting that value into kick force.
+Emus are obligate terrestrial cursorial birds. Peer-reviewed morphology describes reduced toes, unusually developed pelvic-limb musculature and a four-bellied gastrocnemius, features suited to sustained high-speed running. A 2015 ontogenetic study found positive allometry in many pelvic-limb muscles and force-sustaining tendons as birds grew. Walking-model work found hip contact force around 5.5 times body weight, illustrating substantial routine limb loading without converting that value into kick force.
 
 ### Lifespan
 Sources conflict. Smithsonian gives roughly **5-10 years** in the wild and longer in human care. San Diego Zoo and National Geographic give **10-20 years** wild, with San Diego reporting up to 35 years in zoos. Because wild longevity is inconsistent among institutions, **`lifespan_years = 10.0`** is a conservative representative value, not a maximum. Confidence: moderate-low.
@@ -64,7 +64,7 @@ Pecking is secondary. The beak lacks the crushing or tearing specialization of a
 The bird's best defense is not passive protection. It uses height, vigilance, acceleration and running ability to avoid contact. Plumage protects from sun and superficial abrasion but is not armor. The neck and lower legs are relatively exposed, and a heavy grappler that gets secure contact can negate much of the emu's advantage.
 
 ### Locomotion and maneuverability
-Emus are specialized runners. Peer-reviewed anatomy identifies strong cursorial adaptations in the pelvic limb, including a large four-bellied gastrocnemius and substantial hindlimb muscle investment. They can make long strides and turn while running, but a tall biped has less low-speed lateral freedom than a small quadruped. Agility is therefore high, not near the cheetah/dragonfly ceiling.
+Emus are specialized runners. Peer-reviewed anatomy identifies strong cursorial specializations in the pelvic limb, including a large four-bellied gastrocnemius and substantial hindlimb muscle investment. They can make long strides and turn while running, but a tall biped has less low-speed lateral freedom than a small quadruped. Agility is therefore high, not near the cheetah/dragonfly ceiling.
 
 ### Endurance and stamina
 This is a genuine strength. The Australian Museum reports movements of **15-25 km per day** under variable resource conditions. A 2026 Ecosphere synthesis notes records of up to **500 km in a year** and up to **25 km in a day**, while peer-reviewed anatomy specifically describes the emu as capable of sustained high-speed running. Male incubation also demonstrates substantial fasting tolerance, but that low-output fasting is not double-counted as athletic endurance.
@@ -117,7 +117,7 @@ All values use the absolute 225-animal roster scale.
 | Recovery | 50.0 | Strong general physiological resilience without exceptional regeneration |
 | Tactics | 47.0 | Effective avoidance, resource tracking, threat response and parental defense |
 | Senses | 58.0 | Strong vision/hearing and demonstrated auditory timing circuitry, not a sensory extreme |
-| Abilities | 52.0 | Cursorial legs, heat-adapted plumage and booming communication are useful but not exotic weapons |
+| Abilities | 52.0 | Cursorial legs, plumage suited to heat and booming communication are useful but not exotic weapons |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -128,7 +128,7 @@ All values use the absolute 225-animal roster scale.
 | **Agility** | **72.0** | Strong running control and acceleration without confusing 50 km/h speed with near-ceiling maneuverability |
 | **Stamina** | **83.0** | Sustained-running anatomy and long daily movements justify very strong endurance, below extreme migration/diving anchors |
 | **Intelligence** | **49.0** | Flexible ranging, parental care and environmental tracking, with limited evidence for advanced general cognition |
-| **Special** | **54.0** | Distinctive cursorial and thermal adaptations matter, but no venom, electricity, armor or similarly matchup-transforming mechanism |
+| **Special** | **54.0** | Distinctive cursorial and thermal specializations matter, but no venom, electricity, armor or similarly matchup-transforming mechanism |
 
 ### Normalization notes
 - Emu Attack is below the 150 kg Donkey (48.0) because of the mass gap, despite dangerous kicks.
@@ -153,7 +153,7 @@ All values use the absolute 225-animal roster scale.
 The emu is endemic to Australia and widespread across much of the mainland. It occupies sclerophyll forest, savanna woodland, grassland, shrubland and sand plains, while being less common in rainforest, dense settlement and the driest regions without adequate resources.
 
 ### Diet and ecology
-Emus are generalist omnivores. CSIRO-era dietary research found fruits, seeds, flowers, insects and green herbage, with seasonal shifts in the dominant food sources. A 2013 study recovered seeds of 29 plant species from 221 scats. A 2006 study found 77 plant species in 112 droppings, at least 68 with viable seeds, demonstrating an important long-distance seed-dispersal role. A 2026 stable-isotope analysis found geographically flexible diets with an overall preference for C3 plants and adaptation to local availability.
+Emus are generalist omnivores. CSIRO-era dietary research found fruits, seeds, flowers, insects and green herbage, with seasonal shifts in the dominant food sources. A 2013 study recovered seeds of 29 plant species from 221 scats. A 2006 study found 77 plant species in 112 droppings, at least 68 with viable seeds, demonstrating an important long-distance seed-dispersal role. A 2026 stable-isotope analysis found geographically flexible diets with an overall preference for C3 plants and adjustment to local availability.
 
 ### Social structure
 Emus are often solitary or in pairs but can aggregate where food or movement conditions concentrate birds. These temporary mobs should not be interpreted as coordinated combat groups. Breeding relationships are behaviorally complex, with pair bonds, extra-pair mating and sequential mating documented.
@@ -164,7 +164,7 @@ Australian Museum gives breeding mainly April-June, 5-15 eggs and about 55 days 
 ### Conservation
 Major contemporary sources classify the species as **Least Concern** overall, but local populations can decline or become isolated. Habitat clearing, fencing, vehicle strikes, drought/fire and regional land-use changes can matter even when the continental species remains widespread.
 
-### Adaptations
+### Special features
 The emu's body is a terrestrial-running package: long legs, reduced toes, large pelvic-limb muscles, specialized gastrocnemius anatomy, long force-sustaining tendons, reduced wings and insulating shaggy plumage. The bird also combines mobility with dietary flexibility, allowing it to track irregular Australian resources.
 
 ### Human interaction
@@ -232,7 +232,7 @@ Ecologically, the same mobility that helps in a matchup shapes the species' Aust
 | MacLeod et al., J Comparative Neurology | https://doi.org/10.1002/cne.20862 | hearing localization physiology | emu brainstem has interaural timing/delay-line circuitry | High, peer reviewed |
 | Dunstan et al., Emu | https://doi.org/10.1071/MU12061 | diet/seed dispersal | 29 plant species from 221 scats; generalist seed disperser | High, peer reviewed |
 | Calviño-Cancela et al., Ecography | https://doi.org/10.1111/j.0906-7590.2006.04677.x | long-distance seed dispersal | 77 plant species in 112 droppings; at least 68 with viable seeds | High, peer reviewed |
-| Ryeland et al., Ecosphere 2026 | https://doi.org/10.1002/ecs2.70687 | geographic diet flexibility/movement context | adaptable diet; records up to 500 km/year and 25 km/day cited | High, recent peer reviewed; movement values derive earlier studies |
+| Ryeland et al., Ecosphere 2026 | https://doi.org/10.1002/ecs2.70687 | geographic diet flexibility/movement context | flexible diet; records up to 500 km/year and 25 km/day cited | High, recent peer reviewed; movement values derive earlier studies |
 | Wikimedia Commons / Donald Hobern | https://commons.wikimedia.org/wiki/File:Dromaius_novaehollandiae_(44507693192).jpg | image provenance | exact species, 5472x3648, CC BY 2.0, wild South Australia | High for identity/license/full-body visual check; sex unknown |
 
 ### Conflicts and uncertainty
@@ -243,6 +243,6 @@ Ecologically, the same mobility that helps in a matchup shapes the species' Aust
 
 ## 11. Cross-animal calibration notes
 
-The emu occupies an intermediate terrestrial combat tier. It is much larger and more dangerous than small birds, but its roughly 58 kg body remains below the 150 kg Donkey and far below Elk or megafauna. Its kick is a credible weapon, but raw leg specialization does not erase that mass gap. Stamina is the strongest headline category because both anatomy and movement ecology support sustained terrestrial travel. Agility is strong but kept far below Cheetah because top speed and maneuverability are separate. Special is only moderate because cursorial anatomy and thermal plumage are distinctive adaptations, not a venom/electric/camouflage mechanism capable of bypassing large mass differences.
+The emu occupies an intermediate terrestrial combat tier. It is much larger and more dangerous than small birds, but its roughly 58 kg body remains below the 150 kg Donkey and far below Elk or megafauna. Its kick is a credible weapon, but raw leg specialization does not erase that mass gap. Stamina is the strongest headline category because both anatomy and movement ecology support sustained terrestrial travel. Agility is strong but kept far below Cheetah because top speed and maneuverability are separate. Special is only moderate because cursorial anatomy and thermal plumage are distinctive traits, not a venom/electric/camouflage mechanism capable of bypassing large mass differences.
 
 The current live placeholders were not used as anchors. This report independently recommends **Attack 44.0 / Defense 30.0 / Agility 72.0 / Stamina 83.0 / Intelligence 49.0 / Special 54.0**.

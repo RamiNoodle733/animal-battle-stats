@@ -160,7 +160,7 @@ The breeding system is polygamous. Territorial males display and mate with one o
 ### Conservation
 The Common Ostrich is generally listed as **Least Concern**, although local populations and subspecies can face habitat loss, hunting, egg collection and regional declines. The historical range was broader than the modern distribution.
 
-### Major adaptations
+### Special features
 The ostrich combines extreme body height, long legs, two-toed feet, a large traction claw, elastic distal tendons, strong proximal limb muscles, reduced flight structures, balancing wings, large eyes and behavioral thermoregulation. The result is a terrestrial bird optimized for detecting danger early and moving away from it quickly and efficiently.
 
 ### Human interaction

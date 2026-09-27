@@ -41,13 +41,13 @@ bite_force_psi: 0.0
 ## 3. Weapons and defenses
 
 ### Bill
-The puffin's stout, laterally compressed bill is its main contact weapon. It is adapted to grasp multiple slippery fish and to social/courtship contact. Against another small bird it can peck, pinch and jab, but a half-kilogram puffin has little absolute damage potential beside raptors, mammalian carnivores or megafauna.
+The puffin's stout, laterally compressed bill is its main contact weapon. It is suited to grasping multiple slippery fish and to social/courtship contact. Against another small bird it can peck, pinch and jab, but a half-kilogram puffin has little absolute damage potential beside raptors, mammalian carnivores or megafauna.
 
 ### Feet and claws
 The feet provide traction at colonies and steering in water. Claws can scratch during close contact, but they are not enlarged raptorial talons. They are secondary weapons only.
 
 ### Dense plumage and compact body
-Waterproof plumage, a compact trunk and cold-water adaptation provide environmental protection. They do not constitute armor against teeth, claws or crushing trauma. Defense therefore remains low-to-moderate in absolute battle terms.
+Waterproof plumage, a compact trunk and cold-water tolerance provide environmental protection. They do not constitute armor against teeth, claws or crushing trauma. Defense therefore remains low-to-moderate in absolute battle terms.
 
 ### Escape defense
 The strongest practical defense is three-dimensional mobility. Puffins can launch into flight, swim on the surface and use their wings for underwater propulsion. A threat optimized for one medium may lose effectiveness when the puffin transitions to another.
@@ -116,7 +116,7 @@ All values use absolute 0.1–100.0 roster scaling.
 | Maneuverability | **77.0** | Competent powered flight plus agile underwater wing propulsion and medium switching. |
 | Speed | **66.0** | Sustained migration context around 17.8 m/s is substantial, but no maximum is claimed. |
 | Endurance | **86.0** | Long migrations, repeated foraging and largely aerobic flight musculature strongly support endurance. |
-| Recovery | **66.0** | Adapted to repeated dive/flight cycles, without evidence for extraordinary injury recovery. |
+| Recovery | **66.0** | Built for repeated dive/flight cycles, without evidence for extraordinary injury recovery. |
 | Tactics | **61.0** | Tidal-drift energy saving and flexible foraging show useful behavioral optimization. |
 | Senses | **65.0** | Functional aerial hearing plus visual demands of flight and underwater pursuit. |
 | Ferocity | **39.0** | Nest defense and social aggression exist, but puffins are not dedicated fighters. |
@@ -160,7 +160,7 @@ Adults generally begin breeding at **3–6 years**. A pair normally raises one c
 ### Conservation
 BirdLife identifies the Atlantic Puffin as **Vulnerable globally**, with long-term declines linked to prey changes, climate effects, invasive predators at colonies, fisheries/bycatch and other marine pressures. BirdLife's March 31, 2026 update also documented severe 2026 North Atlantic winter seabird mortality, including hundreds of puffins found dead in Cornwall after a large stranding event across western Europe. This recent event is conservation context, not a change to the canonical healthy-adult combat specimen.
 
-### Major adaptations
+### Special features
 - Short, strong wings that function in air and underwater.
 - Aerobic flight-muscle architecture suited to repeated dual-medium locomotion.
 - Waterproof marine plumage and cold-water tolerance.
@@ -222,7 +222,7 @@ The puffin's behavior adds another layer. Field tracking shows that some birds u
 | Animal Diversity Web, *Fratercula arctica* | https://animaldiversity.org/accounts/Fratercula_arctica/ | dimorphism, breeding, foraging | male larger; ~500 g average; monogamy; maturity ~5 y; trips up to 66 km | Moderate; some listed dimensions appear internally inconsistent, so only plausible fields used |
 | Piatt & Nettleship 1985, *The Auk* | https://academic.oup.com/auk/article-abstract/102/2/293/5186233 | dive depth | 875 puffins in fishery records; dives to at least 60 m | High; direct field evidence, though incidental-catch method |
 | Johansson & Aldrin 2002, JEB | https://pubmed.ncbi.nlm.nih.gov/11854373/ | underwater mechanics | 3-D kinematics show wing-propelled diving and active upstroke contribution | High; primary biomechanics |
-| Kovacs & Meyers 2000 | https://pubmed.ncbi.nlm.nih.gov/10761049/ | endurance physiology | flight muscles largely aerobic; dual-medium locomotor adaptation | High; anatomical/histochemical primary study |
+| Kovacs & Meyers 2000 | https://pubmed.ncbi.nlm.nih.gov/10761049/ | endurance physiology | flight muscles largely aerobic; dual-medium locomotor specialization | High; anatomical/histochemical primary study |
 | Mooney et al. 2020 | https://pubmed.ncbi.nlm.nih.gov/32561627/ | hearing | wild puffin responses 0.5–6 kHz; strongest sensitivity broadly 0.75–3 kHz | High; nine wild birds, capture-release |
 | Guilford et al. / tidal-drift study | https://pubmed.ncbi.nlm.nih.gov/31288687/ | foraging tactics | tidal drift strategy; modeled 28–46% lower cost than flying between patches | High; field movement plus energetic modeling |
 | Burnham et al. 2021 | https://pmc.ncbi.nlm.nih.gov/articles/PMC8162707/ | migration/endurance | Greenland puffins traveled 7,000 to ≥13,700 km annually; 64 km/h mean sustained-flight assumption | High for migration distance; moderate for speed because it is a literature assumption, not measured maximum |

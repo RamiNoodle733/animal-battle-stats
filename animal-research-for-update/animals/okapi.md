@@ -42,7 +42,7 @@ A robust ungulate body, long legs, hooves, alert hearing, oily water-shedding co
 ### Offensive mechanics
 The okapi is not a dedicated fighter like a bovid with large horns. Its practical offense comes from a heavy ungulate body, long legs and hooves, close-range shoving, and male head strikes involving the skull and short ossicones. EAZA guidance confirms headbanging as real aggressive behavior during introductions. Ossicones add a hard contact point but are short and less dangerous than long horns or antlers.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 At 275 kg, the male has meaningful mass and skeletal robustness, but lacks thick armor, massive horns, tusks or a protective shell. Dense-forest camouflage and early detection are more important than absorbing damage. Leopard predation demonstrates that adult-sized okapi are not beyond the reach of large predators.
 
 ### Locomotion and maneuverability
@@ -88,7 +88,7 @@ All ratings use the absolute 225-animal roster scale.
 | Protection | **34.0** | no armor; coat/camouflage mostly prevent contact rather than absorb it |
 | Toughness | **48.0** | robust large mammal, but still vulnerable to leopard predation and major trauma |
 | Speed | **48.0** | capable runner, but no verified maximum is promoted |
-| Maneuverability | **61.0** | forest-adapted trail movement and long-legged control, not elite evasiveness |
+| Maneuverability | **61.0** | forest trail movement and long-legged control, not elite evasiveness |
 | Endurance | **67.0** | daily travel and sustained browsing support good ordinary endurance |
 | Recovery | **47.0** | no exceptional regeneration or recovery mechanism documented |
 | Tactics | **55.0** | territorial spacing, scent communication and forest familiarity; limited combat flexibility evidence |
@@ -133,14 +133,14 @@ Gestation is roughly **14-16 months** and usually produces one calf. Calves use 
 ### Conservation
 The okapi is **Endangered**. IUCN and major zoo conservation programs identify habitat loss, poaching/bushmeat hunting, illegal mining, human settlement and armed insecurity in the DRC as major threats. Exact wild abundance remains difficult to estimate.
 
-### Major adaptations
+### Special features
 Large independently mobile ears, cryptic dark coat and striped limbs, oily water-shedding fur, long prehensile tongue, long legs, male ossicones and interdigital scent glands.
 
 ### Human interaction
 Okapis are conservation flagships for Congo Basin rainforest. Their restricted range overlaps regions affected by armed conflict, mining and hunting, complicating both protection and field research. Captive populations are managed cooperatively by major zoological institutions.
 
 ### Genuine fun facts
-- The okapi is a giraffid, not a zebra relative, despite its striped legs.
+- The okapi is a giraffid, not a type of zebra, despite its striped legs.
 - Females are generally larger than males, while males alone normally develop prominent ossicones.
 - The ears can rotate independently.
 - The tongue is prehensile and can be used to groom the face and ears.

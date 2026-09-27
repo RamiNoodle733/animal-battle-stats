@@ -35,7 +35,7 @@ Capybaras are competent terrestrial runners and exceptionally capable semi-aquat
 
 ### Dentition and bite
 
-Capybaras are hystricognath rodents with continuously growing incisors adapted to clipping vegetation and gnawing. The incisors can inflict serious close-range wounds, but no defensible standardized *H. hydrochaeris* bite-pressure measurement was located in this run.
+Capybaras are hystricognath rodents with continuously growing incisors suited to clipping vegetation and gnawing. The incisors can inflict serious close-range wounds, but no defensible standardized *H. hydrochaeris* bite-pressure measurement was located in this run.
 
 - **Canonical `bite_force_psi`: 0.0.** No fabricated PSI conversion.
 - **Primary weapon:** paired incisors plus powerful jaw musculature.
@@ -130,7 +130,7 @@ All scores use the absolute 225-animal scale, not pound-for-pound scaling.
 | Raw Power | 28.0 | Strong for a rodent, but absolute force remains modest. |
 | Weaponry | 31.0 | Large incisors can wound seriously at close range; poor reach and no secondary killing weapon. |
 | Protection | 18.0 | Fur and body bulk only; no armor or specialized defensive covering. |
-| Toughness | 33.0 | Robust 54 kg body, but not adapted to absorb major penetrating trauma. |
+| Toughness | 33.0 | Robust 54 kg body, but not built to absorb major penetrating trauma. |
 | Maneuverability | 66.0 | Competent land movement and notably effective water transition/swimming. |
 | Endurance | 52.0 | Sustained grazing/activity and aquatic competence, tempered by heat stress and lack of combat-endurance measurements. |
 | Tactics | 51.0 | Stable hierarchy, alarm behavior and context-sensitive water escape. |
@@ -181,9 +181,9 @@ Breeding can occur year-round. Argentina's SIB reports gestation around four to 
 
 The species is widespread and not presently characterized as globally threatened in the reviewed agency material, though local populations can be reduced by hunting for meat and hide. Capybaras also thrive in some human-modified landscapes, creating management conflicts where populations become dense.
 
-### Major adaptations
+### Special features
 
-Semi-aquatic feet, high-set sensory openings, strong swimming, prolonged submergence, continuously growing incisors, social vigilance and scent-based hierarchy are the main adaptations relevant to the ABS profile.
+Semi-aquatic feet, high-set sensory openings, strong swimming, prolonged submergence, continuously growing incisors, social vigilance and scent-based hierarchy are the main features relevant to the ABS profile.
 
 ### Fun facts
 
@@ -216,7 +216,7 @@ A dominant male capybara is built to hold rank within a social wetland herd, not
 - **original_photo_url:** https://upload.wikimedia.org/wikipedia/commons/8/8e/Capybara_%28Hydrochoerus_hydrochaeris%29_alpha_male.JPG
 - **file_format_verified:** Source is JPEG; final PNG not created.
 - **alpha_verified:** No. No PNG exists.
-- **full_body_verified:** Yes. Direct visual inspection shows the complete head, torso, all four legs/feet and rump; capybaras have only a vestigial/non-visible external tail.
+- **full_body_verified:** Yes. Direct visual inspection shows the complete head, torso, all four legs/feet and rump; capybaras have only a tiny/non-visible external tail.
 - **adult_verified:** Yes, source explicitly identifies an alpha male and the photographed animal has adult proportions.
 - **sex_verified_or_unknown:** Male, explicitly identified by source as alpha male.
 - **license_status:** CC BY-SA 4.0, Charles J. Sharp.

@@ -42,7 +42,7 @@ The Javan mongoose is a tiny feliform carnivore with a pointed muzzle, carnassia
 Historical *H. javanicus* accounts describe vertebrate prey being dispatched by a bite to the back of the head. Because old taxonomy can include *U. auropunctata*, that detail is useful comparative herpestid evidence but is not treated as a modern exact-Javan measurement.
 
 ### Snake interactions and venom caveat
-Exact-Javan fecal studies confirm snakes/squamates as prey, so reptile predation is real. However, the famous claim that "the mongoose is immune to snake venom" must be narrowed. Molecular work on mongoose muscle nicotinic acetylcholine receptors demonstrates strong resistance to alpha-neurotoxins such as alpha-bungarotoxin through altered toxin-binding properties, and other mongoose work documents toxin resistance. Those studies do **not** establish universal immunity to every venom, nor did this run verify that every molecular result used *U. javanica*. Consequently venom resistance is documented as a herpestid comparative adaptation and uncertainty, not promoted to an exact-Javan canonical numerical field.
+Exact-Javan fecal studies confirm snakes/squamates as prey, so reptile predation is real. However, the famous claim that "the mongoose is immune to snake venom" must be narrowed. Molecular work on mongoose muscle nicotinic acetylcholine receptors demonstrates strong resistance to alpha-neurotoxins such as alpha-bungarotoxin through altered toxin-binding properties, and other mongoose work documents toxin resistance. Those studies do **not** establish universal immunity to every venom, nor did this run verify that every molecular result used *U. javanica*. Consequently venom resistance is documented as a herpestid comparative trait and uncertainty, not promoted to an exact-Javan canonical numerical field.
 
 ### Defense and toughness
 There is no armor, shell or thick hide. Defense is primarily behavioral: small target size, rapid repositioning, low profile, coarse coat and threat display. The animal can erect its fur to look larger, but piloerection is intimidation rather than physical armor. At 0.8 kg it remains extremely vulnerable to a clean bite, talon strike, stomp or crushing impact from larger roster animals.
@@ -134,7 +134,7 @@ Legacy *H. javanicus* literature reports a roughly 49-day gestation and litters 
 ### Conservation and human interaction
 The IUCN treatment cited for *H. javanicus* lists Least Concern. Mongooses have a notorious biological-control history, but many classic island introductions involve the small Indian mongoose *U. auropunctata*. This report avoids assigning those invasion histories wholesale to true *U. javanica*. Within Java, Javan mongoose predation can have both agricultural benefits through rodent/insect consumption and costs through poultry/bird predation.
 
-### Major adaptations
+### Special features
 - elongated, low-slung body
 - short limbs and curved claws
 - carnassial dentition and predatory canines

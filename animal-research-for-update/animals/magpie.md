@@ -110,10 +110,10 @@ An opportunistic omnivore, it eats insects and other invertebrates, seeds, fruit
 Breeding pairs can defend territories throughout the year. Nonbreeders flock, and even territorial pairs may temporarily join winter feeding groups. Vines' 18-month field study found higher feeding rates in flocks than for birds alone or in pairs, while aggression increased when birds fed closer together and at richer patches. Nests are substantial domed stick structures. Sexes look similar, with males averaging somewhat larger.
 
 ### Conservation
-The widespread Eurasian Magpie is generally treated as Least Concern. Local control occurs where it is regarded as an agricultural or nest-predation nuisance, but broad adaptability to human-modified landscapes has helped it persist in many cities and farming regions.
+The widespread Eurasian Magpie is generally treated as Least Concern. Local control occurs where it is regarded as an agricultural or nest-predation nuisance, but broad versatility in human-modified landscapes has helped it persist in many cities and farming regions.
 
-### Major adaptations
-Key adaptations are behavioral rather than brute-force: flexible omnivory, food caching, strong spatial memory, sophisticated object representation, rapid learning, social/territorial signaling and maneuverable flight. These traits make the bird highly adaptable without turning its small body into a powerful fighter.
+### Special features
+Key features are behavioral rather than brute-force: flexible omnivory, food caching, strong spatial memory, sophisticated object representation, rapid learning, social/territorial signaling and maneuverable flight. These traits make the bird highly versatile without turning its small body into a powerful fighter.
 
 ### Human interaction
 Magpies are conspicuous urban/suburban corvids and are embedded in European and Asian folklore. Their reputation for indiscriminately stealing shiny objects should not be treated as established biological fact. They can exploit anthropogenic foods and nest in developed landscapes, bringing them into both conflict and familiarity with people.

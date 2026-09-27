@@ -62,11 +62,11 @@ Bongos lack armor. Their defense comes from roughly 300 kg of body mass, robust 
 ### Primary weapons and offense
 The bongo's main weapons are its long, thick, spiraled horns backed by a large bovine body. Adult males spar and can engage in serious fights, though visual displays commonly prevent escalation. A frontal thrust, hook or shove can produce deep penetrating or blunt trauma. The horns approach a meter in length, providing substantially more reach than short-horned bovids.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 A 300 kg bull is difficult for small predators to disable, and horns create a dangerous frontal zone. However, the bongo has no shell, osteoderms or unusually thick armor. Defense should therefore credit mass and structural robustness without turning size into invulnerability.
 
 ### Locomotion and maneuverability
-Bongos are forest specialists with relatively short legs and a body plan adapted to moving through dense vegetation. Denver Zoo notes that they flee at speed through thick undergrowth with the head raised so the horns lie along the back and do not impede passage. This supports good obstacle navigation and forest maneuverability, but not an invented sprint ceiling.
+Bongos are forest specialists with relatively short legs and a body plan suited to moving through dense vegetation. Denver Zoo notes that they flee at speed through thick undergrowth with the head raised so the horns lie along the back and do not impede passage. This supports good obstacle navigation and forest maneuverability, but not an invented sprint ceiling.
 
 ### Endurance and stamina
 They are active across day/night depending on disturbance and move among forest cover, feeding sites and mineral licks. There is no evidence for elite pursuit endurance. Stamina is therefore moderate-strong for a large ungulate, below cursorial endurance specialists.
@@ -81,7 +81,7 @@ Bongos use threat displays, social spacing, herd behavior and flight positioning
 None. Bongos are herbivorous browsers.
 
 ### Intraspecific fighting
-Combat-relevant sexual selection is clear. Mature males display by enlarging their apparent neck profile, eye-rolling, pacing and horn presentation. They spar with horns and serious fights can occur. The male is therefore the correct canonical combat specimen.
+Combat-relevant male rivalry is clear. Mature males display by enlarging their apparent neck profile, eye-rolling, pacing and horn presentation. They spar with horns and serious fights can occur. The male is therefore the correct canonical combat specimen.
 
 ### Predator defense
 Known predators include large carnivores, with young especially vulnerable. Adult survival depends on early detection, rapid movement into cover, camouflage, size and horns. Against a committed large predator, vulnerable flanks, throat and hindquarters remain meaningful weaknesses.
@@ -128,7 +128,7 @@ Bongos are shy and generally prefer escape. Male rivalry can become serious, but
 | Tactics | **46.0** | Displays, spacing, herd behavior and escape positioning are useful but not advanced combat planning. |
 | Senses | **65.0** | Large ears and sharp hearing are particularly valuable in low-visibility forest. |
 | Ferocity | **38.0** | Shy and escape-oriented, though mature males can escalate horn contests. |
-| Abilities | **52.0** | Forest camouflage plus horn-aligned escape mechanics are useful niche adaptations, not broad biological bypasses. |
+| Abilities | **52.0** | Forest camouflage plus horn-aligned escape mechanics are useful niche specializations, not broad biological bypasses. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -139,7 +139,7 @@ Bongos are shy and generally prefer escape. Male rivalry can become serious, but
 | **Agility** | **62.0** | Specialized for rapid movement through dense undergrowth with good obstacle control, though substantial mass limits fine evasiveness. |
 | **Stamina** | **59.0** | Solid large-herbivore sustained capacity with no evidence for elite cursorial endurance. |
 | **Intelligence** | **46.0** | Competent social, threat and escape behavior, without evidence for exceptional flexible problem solving. |
-| **Special** | **52.0** | Disruptive striping, forest-adapted hearing and horn posture improve forest matchups but are not broadly decisive exotic mechanisms. |
+| **Special** | **52.0** | Disruptive striping, forest-suited hearing and horn posture improve forest matchups but are not broadly decisive exotic mechanisms. |
 
 ## 7. Exactly two special abilities and two unique traits
 
@@ -168,7 +168,7 @@ Gestation is about 282-285 days, normally producing one calf. Calves use a hidin
 ### Conservation
 At the species level, the bongo has undergone substantial pressure from hunting, snares, logging and habitat fragmentation. The eastern/mountain bongo is far more imperiled than the widespread lowland form. The Mountain Bongo Project states that fewer than 100 mountain bongos remain in the wild. Production data should avoid applying the mountain subspecies' Critically Endangered status to every bongo without qualification.
 
-### Major adaptations
+### Special features
 - Long backward-sweeping spiral horns in both sexes
 - Dense-forest body proportions
 - Vertical disruptive striping
@@ -192,7 +192,7 @@ Bongos are hunted for meat and trophies and are vulnerable to snares associated 
 The bongo is Africa's largest forest antelope, a heavy, secretive browser armed with long spiraled horns and specialized for moving through dense vegetation. A mature bull combines roughly 300 kg of mass with nearly meter-long horns, sharp hearing and disruptive striping. It is dangerous when cornered or fighting rivals, but normally relies on detection, camouflage and rapid escape rather than prolonged aggression.
 
 ### Detailed narrative profile
-A mature male bongo is a large animal hidden inside a forest specialist's body plan. At roughly 300 kg it outweighs many familiar predators, yet its proportions, coloration and behavior are adapted to dense vegetation rather than open-country confrontation. Pale vertical stripes fracture the chestnut-to-dark-brown body against stems and shafts of light. Broad ears provide useful warning in habitat where sightlines are short.
+A mature male bongo is a large animal hidden inside a forest specialist's body plan. At roughly 300 kg it outweighs many familiar predators, yet its proportions, coloration and behavior are suited to dense vegetation rather than open-country confrontation. Pale vertical stripes fracture the chestnut-to-dark-brown body against stems and shafts of light. Broad ears provide useful warning in habitat where sightlines are short.
 
 The weapon system is unusually impressive. Both sexes grow spiraled horns, while mature males carry the heavier set. Measurements of 75-99 cm mean a bull can threaten an opponent at meaningful distance. Male contests often remain ritualized, with posture and horn presentation reducing the need for injury, but serious fights can occur. This supports a strong but not elite Attack score: the weapon is formidable, yet the bongo lacks the predatory grappling toolkit of a big cat and the mass-backed collision potential of near-tonne bovids.
 

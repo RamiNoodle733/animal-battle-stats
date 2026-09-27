@@ -70,7 +70,7 @@ Mothers can threaten, spit, charge and kick predators, and maternal aggressivene
 
 ### Environmental strengths
 - Open steppe and slopes where sight lines favor early predator detection.
-- Cold, arid and high-elevation environments where guanacos are physiologically adapted.
+- Cold, arid and high-elevation environments for which guanacos are physiologically well equipped.
 - Group contexts where cooperative vigilance improves detection.
 - Broken terrain where sure-footed movement can aid escape.
 
@@ -96,14 +96,14 @@ All ratings are absolute across the 225-animal roster, not pound-for-pound.
 | Weaponry | **34.0** | Enlarged male canines plus kicks and bites are real weapons, but lack horn/antler/tusk specialization |
 | Ferocity | **51.0** | Territorial males engage in frequent, injurious contests, especially around mating/resource defense |
 | Protection | **26.0** | Fur and body mass offer limited protection; no armor or specialized shield |
-| Toughness | **43.0** | Hardy wild ungulate adapted to severe climates; still vulnerable to penetrating trauma and puma attacks |
+| Toughness | **43.0** | Hardy wild ungulate suited to severe climates; still vulnerable to penetrating trauma and puma attacks |
 | Maneuverability | **62.0** | Long-legged, alert open-country escape specialist with good balance and terrain use |
 | Speed | **58.0** | Biologically fast cursorial camelid, but score kept moderate because no strong maximum-speed measurement was promoted |
 | Endurance | **78.0** | Migratory ecology and harsh-range persistence support strong sustained movement |
 | Recovery | **54.0** | Robust field animal, but no unusual rapid recovery mechanism documented |
 | Tactics | **61.0** | Territorial strategy, site fidelity, threat escalation and flexible social contexts |
 | Senses | **65.0** | Effective open-country detection enhanced by cooperative vigilance |
-| Abilities | **46.0** | Vigilance, high-altitude/arid adaptation and spitting are useful but not exotic matchup-ending mechanisms |
+| Abilities | **46.0** | Vigilance, high-altitude/arid tolerance and spitting are useful but not exotic matchup-ending mechanisms |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -141,14 +141,14 @@ Gestation is roughly 345-360 days and typically produces one precocial offspring
 ### Conservation
 The species remains widespread compared with many large South American mammals, but historical hunting, livestock competition, fencing and habitat alteration have caused major local declines and fragmentation. Conservation context varies strongly by country and population, so site copy should avoid implying uniform abundance everywhere.
 
-### Major adaptations
+### Special features
 Long limbs, dense insulating coat, efficient herbivory, flexible migration, social vigilance and tolerance of arid/cold/high-altitude conditions allow guanacos to exploit environments ranging from Andean uplands to Patagonian steppe.
 
 ### Human interaction
 Historically hunted for meat and hides and affected by competition with domestic livestock. Fences can cause direct mortality and fragment movement. Guanacos are also important conservation and tourism animals in protected Patagonian landscapes.
 
 ### Fun facts
-- Guanacos are the wild South American camelid lineage from which domestic llamas derive.
+- Guanacos are the wild South American camelids from which domestic llamas were bred.
 - Adult males and females are similar in overall body size, but males carry enlarged combat canines.
 - Territorial males may spit roughly two meters during aggressive encounters.
 - A long-term Torres del Paine study found 73% of tracked territorial males returned to the same territory location between years.

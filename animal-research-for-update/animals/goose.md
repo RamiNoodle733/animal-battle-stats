@@ -6,10 +6,10 @@
 - **Site legacy taxon:** `Anser`
 - **Resolved research taxon:** **Greylag goose (*Anser anser*)**
 - **Living/extinct:** Living
-- **Why this resolution:** the live record is genus-level *Anser*, so measurements cannot honestly be pooled across every grey goose. *Anser anser* is the most defensible species-level representative because it is the type-like familiar wild grey goose, is the wild ancestor of most domestic geese, and matches the site's generic `Anser` concept better than a *Branta* species such as Canada goose.
+- **Why this resolution:** the live record is genus-level *Anser*, so measurements cannot honestly be pooled across every grey goose. *Anser anser* is the most defensible species-level representative because it is the type-like familiar wild grey goose, is the wild bird from which most domestic geese were bred, and matches the site's generic `Anser` concept better than a *Branta* species such as Canada goose.
 - **Canonical combat specimen:** healthy fully mature **male (gander)** of a wild-type population, approximately **3.5 kg**, not a domestic heavy breed and not an exceptional eastern-subspecies maximum.
 - **Dimorphism:** males and females are similar in plumage, but males are modestly larger. BTO live-bird data give adult males 3.49 ± 0.31 kg versus females 3.18 ± 0.31 kg, and male wing length 458.8 ± 13.7 mm versus 436.3 ± 13.4 mm. Social-rank research also finds males rank higher on average.
-- **Population variation:** *A. a. rubrirostris* tends larger than nominate *A. a. anser*. Published species-wide masses span roughly 2.16-4.56 kg. Domestic descendants are deliberately excluded because artificial selection can produce much heavier birds.
+- **Population variation:** *A. a. rubrirostris* tends larger than nominate *A. a. anser*. Published species-wide masses span roughly 2.16-4.56 kg. Domestic breeds are deliberately excluded because selective breeding can produce much heavier birds.
 
 ## 2. Physical measurements
 
@@ -23,7 +23,7 @@ ADW gives mature body length **76-89 cm**, average about 80 cm. Because the sche
 ADW reports **147-180 cm wingspan**, average 163 cm. BTO reports adult male wing length 458.8 ± 13.7 mm. The broad wings provide lift for a 3-4 kg bird and also function as balance/control surfaces during terrestrial threat displays and close conflict, but no direct wing-strike force measurement was found.
 
 ### Bill, legs, feet
-The greylag has a large orange/pink bill and strong webbed feet. A commonly reported bill length is roughly 6.4-6.9 cm and tarsus 7.1-9.3 cm, but these are morphology references rather than combat-force measurements. The bill is adapted primarily to grazing/cropping vegetation, not to raptorial penetration.
+The greylag has a large orange/pink bill and strong webbed feet. A commonly reported bill length is roughly 6.4-6.9 cm and tarsus 7.1-9.3 cm, but these are morphology references rather than combat-force measurements. The bill is suited primarily to grazing/cropping vegetation, not to raptorial penetration.
 
 ### Speed
 A GPS study of western European migrating Greylag Geese reported mean migratory flight speed **69 ± 2 km/h**, range **45-130 km/h**. This is actual tracked movement rather than a generic web maximum. The upper 130 km/h is not adopted as a normal top speed because wind and migration context can contribute strongly. **Canonical `speed_mps`: 19.2 m/s (69 km/h)** as a defensible representative sustained migratory flight speed, not a physiological maximum. Controlled juvenile flight work also used a 60 km/h microlight cruising pace that trained birds could follow.
@@ -91,7 +91,7 @@ Aggression is not an internet meme artifact. Peer-reviewed work demonstrates sta
 - **Open air:** strongest escape/repositioning environment.
 - **Shallow water/lakes:** strong safety and mobility environment.
 - **Open grassland:** good visibility and room for takeoff.
-- **Cold/temperate wetlands:** well adapted through plumage and migratory behavior.
+- **Cold/temperate wetlands:** well equipped through plumage and migratory behavior.
 
 ### Environmental weaknesses
 - **Confined terrestrial space:** flight advantage may disappear.
@@ -136,7 +136,7 @@ All scores use the absolute 225-animal scale in `CALIBRATION.md`.
 
 ### Special abilities
 1. **Aerial Breakaway** - powerful sustained flight lets the goose rapidly leave ground-bound threat envelopes and reposition across water or open terrain; this is escape/repositioning, not a damage multiplier.
-2. **Family Countercharge** - grounded in documented serial agonistic support, where family members repeatedly attack the same opponent and can reverse a relative's lost encounter. For solo ABS this is contextual rather than free extra combatants.
+2. **Family Countercharge** - grounded in documented serial agonistic support, where family members repeatedly attack the same opponent and can reverse a family member's lost encounter. For solo ABS this is contextual rather than free extra combatants.
 
 ### Unique traits
 1. **Gander Dominance** - males are modestly larger and, in studied flocks, tend to occupy higher social rank, matching the canonical mature-male combat specimen.
@@ -159,7 +159,7 @@ Breeding is seasonal in spring. ADW reports typically 4-6 eggs within a broader 
 ### Conservation
 The species is globally treated as **Least Concern** in the conservation references recovered. Local management can be complicated because abundant or naturalized populations may conflict with agriculture and human recreation, while some regional native populations receive protection.
 
-### Adaptations
+### Special features
 - Broad wings and aerobic capacity for migration.
 - Webbed feet for efficient surface swimming.
 - Broad grazing bill with lamellae suited to cropping/filtering food.
@@ -168,10 +168,10 @@ The species is globally treated as **Least Concern** in the conservation referen
 - Strong spatial fidelity to breeding areas.
 
 ### Human interaction
-Greylags are the principal wild ancestor of most domestic European goose lineages. Wild, feral and domestic-derived populations can occur near people, and nesting adults may aggressively defend space. Their crop use can create agricultural conflict.
+Most domestic European geese were bred principally from greylags. Wild, feral and domestic-bred populations can occur near people, and nesting adults may aggressively defend space. Their crop use can create agricultural conflict.
 
 ### Genuine fun facts
-- Greylag geese are the wild ancestors of most familiar European domestic geese.
+- Most familiar European domestic geese were bred from wild greylag geese.
 - BTO's displayed ring record exceeds 19 years, more than twice the typical 8-year expectancy for a bird reaching breeding age.
 - GPS-tracked western European migrants averaged about 69 km/h while migrating and returned to breeding grounds with very high site fidelity.
 - Greylag family members sometimes launch serial attacks on the same opponent; researchers documented sequences of up to five follow-up attackers.

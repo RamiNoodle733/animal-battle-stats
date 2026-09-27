@@ -248,7 +248,7 @@ USFWS reports pair bonds that commonly persist for life, hatching after roughly 
 
 The species is globally treated as Least Concern, but local populations face important human-caused mortality. USFWS highlights concern over U.S. population trends, and USGS research identifies electrocution, collision and other anthropogenic mortality as major management issues. Golden eagles are protected in the United States under the Bald and Golden Eagle Protection Act, Migratory Bird Treaty Act and Lacey Act.
 
-### Major adaptations
+### Special features
 
 - Reversed sexual size dimorphism with larger females.
 - Broad wings for soaring and atmospheric-lift exploitation.

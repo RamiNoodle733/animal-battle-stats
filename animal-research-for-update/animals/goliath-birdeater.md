@@ -49,7 +49,7 @@ The paired chelicerae carry large downward-projecting fangs that penetrate prey 
 
 ### Urticating setae and stridulation
 
-The abdomen carries detachable urticating setae used defensively. Smithsonian also documents audible defensive stridulation produced by rubbing hairs together, audible from about **15 ft**, followed by rearing and fang display when threatened. Theraphosid phylogenomics confirms urticating setae are a major evolved defensive system within the family.
+The abdomen carries detachable urticating setae used defensively. Smithsonian also documents audible defensive stridulation produced by rubbing hairs together, audible from about **15 ft**, followed by rearing and fang display when threatened. Family-wide theraphosid research confirms urticating setae are a major defensive system within the family.
 
 ### Defensive structure
 
@@ -208,7 +208,7 @@ Adults are solitary outside reproduction. Females are dramatically longer lived 
 
 No current IUCN Red List assessment was verified in this run. Do not assign a fabricated global category. Habitat loss and collection/trade can be discussed as plausible pressures only with local evidence rather than presented as a quantified global trend.
 
-### Adaptations
+### Special features
 
 The combination of very large theraphosid body size, burrow use, vibration sensitivity, adhesive locomotor structures, venomous fangs, urticating setae and stridulation makes this species a highly specialized close-range forest-floor ambusher.
 
@@ -267,7 +267,7 @@ That toolkit makes the animal much more interesting than a simple 'largest spide
 | World Spider Catalog | https://wsc.nmbe.ch/lsid/urn:lsid:nmbe.ch:spidersp:002488 | accepted taxonomy and range | accepted *T. blondi*; Venezuela, Brazil, Guyana | High taxonomic authority |
 | Guinness World Records, largest spider | https://www.guinnessworldrecords.com/world-records/largest-spider | maximum mass and span | up to 175 g; 28 cm documented span | High for record context; not representative mean |
 | Silva et al. 2021, J Comp Physiol A | https://pubmed.ncbi.nlm.nih.gov/33386944/ | theraphosid locomotion/adhesion | biomechanics of adhesion and locomotion in large theraphosids | High peer-reviewed; not *T. blondi*-specific maximum speed |
-| Foley et al. 2019, Mol Phylogenet Evol | https://pubmed.ncbi.nlm.nih.gov/31374259/ | urticating-setae evolutionary context | theraphosid phylogenomics and urticating setae evolution | High peer-reviewed family-level context |
+| Foley et al. 2019, Mol Phylogenet Evol | https://pubmed.ncbi.nlm.nih.gov/31374259/ | urticating-setae family-level context | classification of theraphosid groups and the distribution of urticating setae among them | High peer-reviewed family-level context |
 | Commons, *T. blondi* Brazil | https://commons.wikimedia.org/wiki/File:Theraphosa_blondi_240637455.jpg | image candidate | exact species, 2048x1536, CC BY-SA 4.0 | Reusable but adult/full-body strict verification pending |
 | Commons/Muséum de Toulouse female | https://commons.wikimedia.org/wiki/File:Theraphosa_blondi_MHNT.jpg | sex and span reference | female, 23.5 cm, 5041x7360, CC BY-SA 4.0 | Excellent measurement/photo reference but mounted specimen, therefore rejected as final live-animal asset |
 

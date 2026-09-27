@@ -194,7 +194,7 @@ Winged reproductive forms conduct mating/dispersal, while workers are sterile ad
 ### Conservation
 No global IUCN threat category was relied upon in this report. The species remains widespread across suitable Neotropical forest, but local populations depend on forest habitat and nesting structure. A formal current conservation assessment should be added if an authoritative species-level assessment becomes available.
 
-### Adaptations
+### Special features
 - Large worker body for an ant
 - Powerful sting apparatus with specialized musculature
 - Complex venom rich in peptides and proteins

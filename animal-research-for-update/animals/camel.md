@@ -87,9 +87,9 @@ Dromedaries use walking, pacing and running gaits and are highly effective over 
 
 This is the camel's standout conventional performance domain. Classic Sahara experiments found dromedaries could tolerate water loss equivalent to **30% of body weight** under severe desert heat. The same work recorded very low urine output during deprivation and a camel lasting **17 days** on dry food without drinking in hot summer conditions while not working. Modern work on lactating camels found about **21% body-mass loss after 16 days** of water deprivation in animals completing the treatment.
 
-Heat management is equally unusual. Dromedaries use adaptive heterothermy, allowing body temperature to vary much more under heat and dehydration so that heat can be stored during the day and dissipated later, reducing evaporative water loss. Experimental literature reports dehydrated animals cycling roughly from the mid-30s °C in the morning toward ~41-42 °C later under severe conditions.
+Heat management is equally unusual. Dromedaries use flexible heterothermy, allowing body temperature to vary much more under heat and dehydration so that heat can be stored during the day and dissipated later, reducing evaporative water loss. Experimental literature reports dehydrated animals cycling roughly from the mid-30s °C in the morning toward ~41-42 °C later under severe conditions.
 
-These adaptations justify elite environmental endurance, but not infinite high-output fighting stamina. Prolonged dehydration still causes major physiological changes, including reduced plasma volume and renal filtration.
+These traits justify elite environmental endurance, but not infinite high-output fighting stamina. Prolonged dehydration still causes major physiological changes, including reduced plasma volume and renal filtration.
 
 ### Senses
 
@@ -143,7 +143,7 @@ All values use the roster-wide absolute 0.1-100.0 scale.
 | Tactics | 49.0 | Flexible social/rut behavior and rival guarding, but limited evidence for advanced combat planning. |
 | Senses | 53.0 | Functional mammalian senses plus excellent ocular/nasal protection; no evidence for elite sensory acuity. |
 | Ferocity | 60.0 | Rutting males can become dangerous and inflict severe injuries; baseline temperament is much calmer. |
-| Abilities | 77.0 | Adaptive heterothermy, water conservation and rapid rehydration are unusually powerful environmental adaptations, though not direct damage systems. |
+| Abilities | 77.0 | Flexible heterothermy, water conservation and rapid rehydration are unusually powerful environmental specializations, though not direct damage systems. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -152,7 +152,7 @@ All values use the roster-wide absolute 0.1-100.0 scale.
 - **Agility: 58.0** — Effective open-ground and sand locomotion with useful neck reach, but not a high-turn-rate specialist.
 - **Stamina: 91.0** — Elite heat and dehydration endurance supported by classic and modern physiology. The rating recognizes persistence rather than pretending a dehydrated camel maintains maximum sprint output indefinitely.
 - **Intelligence: 52.0** — Social recognition, handling learning and flexible rut/guarding behavior justify moderate cognition, without evidence for elite problem solving.
-- **Special: 78.0** — Adaptive heterothermy, extreme water conservation, rapid rehydration and sand-protection systems can strongly alter environmental matchups.
+- **Special: 78.0** — Flexible heterothermy, extreme water conservation, rapid rehydration and sand-protection systems can strongly alter environmental matchups.
 
 ## 7. Abilities and traits
 
@@ -170,7 +170,7 @@ All values use the roster-wide absolute 0.1-100.0 scale.
 
 ### Habitat and range
 
-Dromedaries are associated with hot deserts, semi-deserts and other arid/semi-arid landscapes across North Africa, the Arabian Peninsula, parts of the Middle East and South Asia. They are domestic or semi-domestic across most of this range. Australia supports extensive feral populations descended from animals introduced during the nineteenth century; Northern Territory government material reports feral camels across more than 37% of mainland Australia.
+Dromedaries are associated with hot deserts, semi-deserts and other arid/semi-arid landscapes across North Africa, the Arabian Peninsula, parts of the Middle East and South Asia. They are domestic or semi-domestic across most of this range. Australia supports extensive feral populations established from animals introduced during the nineteenth century; Northern Territory government material reports feral camels across more than 37% of mainland Australia.
 
 ### Diet and ecology
 
@@ -190,10 +190,10 @@ Because *C. dromedarius* is a domesticated species without a surviving native wi
 
 Camel-human conflict deserves respect. Medical literature documents severe bites with penetrating and crushing injury, including fractures, vascular injury and nerve damage. Rutting adult males are particularly hazardous to handlers.
 
-### Major adaptations
+### Special features
 
 - Extreme dehydration tolerance and low water expenditure.
-- Adaptive heterothermy reducing evaporative cooling demand.
+- Flexible heterothermy reducing evaporative cooling demand.
 - Strong renal/endocrine response to dehydration.
 - Rapid high-volume rehydration.
 - Broad padded feet for sand.
@@ -208,7 +208,7 @@ Camel-human conflict deserves respect. Medical literature documents severe bites
 - In the same classic work, one non-working camel on dry food went **17 days without drinking** in hot summer conditions.
 - A thirsty camel can replace an enormous water deficit rapidly; modern watering experiments recorded lactating camels drinking roughly **72 ± 7 kg of water** after an eight-day deprivation treatment.
 - Dromedary males display the **dulla**, an inflatable/extrudable soft palate used prominently during rut.
-- The species no longer has a native truly wild population, yet Australia has a major feral population descended from introduced domestic animals.
+- The species no longer has a native truly wild population, yet Australia has a major feral population established from introduced domestic animals.
 
 ### Concise site-ready summary
 
@@ -259,7 +259,7 @@ Against a smaller opponent in open desert, the camel combines a difficult-to-ove
 | MDPI Animals, housing management of rutting male dromedaries | https://www.mdpi.com/2076-2615/10/9/1621 | Modern behavioral observations | 48 adult males; group/housing conditions affected teeth grinding, dulla, vocalization, tail/urine behaviors | High; managed adult males |
 | Calleo et al., *Camel Bites* | https://journals.sagepub.com/doi/full/10.1016/j.wem.2018.02.009 | Dentition and injury mechanics | 34 teeth; bites cause crush/incisional injury; lifting/shaking can worsen trauma | Moderate-high; clinical review. Pressure claim not accepted as canonical PSI without primary protocol |
 | Schmidt-Nielsen et al., *Water Balance of the Camel* | https://journals.physiology.org/doi/abs/10.1152/ajplegacy.1956.185.1.185 | Dehydration tolerance and water economy | ~30% body-mass water loss tolerated; low urine/evaporative losses; rapid rehydration; 17 d dry-food trial | High, classic primary physiology; small historical experimental series |
-| Bouâouda et al., *Daily regulation of body temperature rhythm* | https://physoc.onlinelibrary.wiley.com/doi/10.14814/phy2.12151 | Adaptive heterothermy | Heat/dehydration produce large regulated body-temperature variation reducing evaporative loss | High, peer-reviewed experimental physiology |
+| Bouâouda et al., *Daily regulation of body temperature rhythm* | https://physoc.onlinelibrary.wiley.com/doi/10.14814/phy2.12151 | Flexible heterothermy | Heat/dehydration produce large regulated body-temperature variation reducing evaporative loss | High, peer-reviewed experimental physiology |
 | Hormonal control of water and sodium during dehydration | https://pubmed.ncbi.nlm.nih.gov/8335227/ | Endocrine/renal response | ~30% mass loss; plasma volume -42%; vasopressin/renin rise; urine production falls strongly | High; experimental physiology |
 | APS, watering intervals in lactating camels | https://journals.physiology.org/doi/full/10.1152/ajpregu.00015.2013 | Modern dehydration/rehydration performance | ~21% mass loss after 16 d in completing animals; 72 ± 7 kg water intake after 8 d treatment | High; lactating females, so not direct male performance |
 | Northern Territory Government | https://nt.gov.au/environment/animals/feral-animals/feral-camel | Australian feral range and ecological impacts | Feral camels across >37% of mainland Australia; vegetation/waterhole/infrastructure impacts | High agency source; Australia-specific |
@@ -274,7 +274,7 @@ Against a smaller opponent in open desert, the camel combines a difficult-to-ove
 - **Speed:** unresolved. Institutional and popular figures conflict and instrumented maximum-speed evidence was not found. Keep 0.0.
 - **Lifespan:** moderate-high confidence at 40 years representative, with 40-50 years commonly reported under care.
 - **Bite PSI:** unresolved. Clinical bite severity is real, but the repeated pressure number lacks sufficiently transparent primary methodology for the site's canonical PSI field.
-- **Wild status:** dromedary is domesticated with feral populations; do not label Australian feral animals as a surviving native wild lineage.
+- **Wild status:** dromedary is domesticated with feral populations; do not label Australian feral animals as a surviving native wild population.
 
 ## 13. Cross-animal normalization notes
 
@@ -283,7 +283,7 @@ Against a smaller opponent in open desert, the camel combines a difficult-to-ove
 - **Versus Bison:** Camel remains clearly below Bison in direct collision/megaherbivore power. Do not let desert stamina inflate Attack or Defense.
 - **Versus Black Rhinoceros:** Camel is far below the rhino's Attack 82.0 / Defense 76.0 because it lacks a comparable horn system, armor-like hide/build and mass concentration.
 - **Versus Bobcat and Bullfrog:** Camel's much higher absolute power preserves roster-wide scaling, while those smaller animals can still outrank it in maneuverability/agility.
-- **Special/Stamina double-counting check:** Stamina 91.0 represents prolonged physiological persistence; Special 78.0 represents matchup-changing mechanisms such as adaptive heterothermy and water conservation. These are related, so Special is deliberately not pushed into the 90s.
+- **Special/Stamina double-counting check:** Stamina 91.0 represents prolonged physiological persistence; Special 78.0 represents matchup-changing mechanisms such as flexible heterothermy and water conservation. These are related, so Special is deliberately not pushed into the 90s.
 
 ### Final calibration verification
 

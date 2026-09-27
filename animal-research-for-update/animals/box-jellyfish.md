@@ -163,7 +163,7 @@ The life cycle alternates between sexual medusae and tiny benthic polyps. Planul
 ### Conservation
 No global IUCN category is used here as a canonical status because a current species-level assessment was not established in this run. Local abundance is seasonal and difficult to measure. Do not equate public-health control with conservation status.
 
-### Adaptations
+### Special features
 - Nematocyst venom injection
 - Long extensible tentacle arrays
 - Transparent bell
@@ -191,7 +191,7 @@ Box Jellyfish is one of the clearest examples of why ABS cannot turn body size i
 
 That asymmetry defines the matchup. The jellyfish does not need to overpower an opponent. It needs contact. Its long tentacle curtain turns a relatively small bell into a much larger hazard zone, while transparency makes that zone difficult to read. Active swimming and visual sensory organs improve positioning enough that calling it a passive drifter is inaccurate. But those advantages disappear if the opponent can avoid or resist the sting and directly damage the bell.
 
-This produces deliberately polarized ratings. Raw Power, Protection and Toughness belong near the roster floor. Weaponry, Abilities and Special belong near the ceiling. Attack lands much lower than Special because ABS Attack asks about practical damage delivery across matchups, not the theoretical severity of one toxin system. Intelligence also stays low despite the fascinating 24-eye system because visual control is not equivalent to flexible cognition. This separation prevents one extraordinary adaptation from inflating every category.
+This produces deliberately polarized ratings. Raw Power, Protection and Toughness belong near the roster floor. Weaponry, Abilities and Special belong near the ceiling. Attack lands much lower than Special because ABS Attack asks about practical damage delivery across matchups, not the theoretical severity of one toxin system. Intelligence also stays low despite the fascinating 24-eye system because visual control is not equivalent to flexible cognition. This separation prevents one extraordinary feature from inflating every category.
 
 ### Future structured-field proposals
 - `bell_diameter_cm`

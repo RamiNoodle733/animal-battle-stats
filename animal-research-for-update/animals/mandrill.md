@@ -3,7 +3,7 @@
 ## 1. Identity and canonical specimen
 - **Common name:** Mandrill
 - **Scientific name:** *Mandrillus sphinx* (Linnaeus, 1758)
-- **Exact taxon represented:** living mandrill, not the closely related drill (*Mandrillus leucophaeus*).
+- **Exact taxon represented:** living mandrill, not the drill (*Mandrillus leucophaeus*), which belongs to the same genus.
 - **Canonical combat specimen:** healthy fully mature **adult male**, represented at **32.0 kg**. Adult males are the much larger and more heavily armed sex and are the principal direct intrasexual fighters.
 - **Dimorphism:** exceptionally strong. Long-term growth work found adult males about **3.4 times female body mass** and about **1.3 times female crown-rump length**; females reach adult mass around 7 years, males around 10 years. Reviews give adult male asymptotic/average mass around 31-33 kg versus roughly 9-13 kg in females. Adult male canines average about 44-45 mm exposed crown height versus about 10 mm in females. Exceptional males up to about 54 kg are reported, but are not the canonical baseline.
 
@@ -62,7 +62,7 @@ Canine weaponry is not ornamental trivia. Long-term demographic/morphometric res
 A 32 kg male has meaningful muscular bulk and can deter similarly sized opponents with its teeth, but passive protection is modest. Fur and skin do not function as armor. Against large carnivores, penetrating weapons or major size disadvantages, tissue remains vulnerable. Defense therefore stays far below heavily armored animals and large megafauna.
 
 ### Locomotion and maneuverability
-Mandrills are semiterrestrial quadrupeds but retain strong climbing competence. Their shoulder anatomy and grasping hands permit climbing, branch use and terrestrial locomotion. Wild groups may travel several kilometers in a day. They are more maneuverable than their heavy male build suggests, especially in cluttered forest, but there is no basis for granting elite small-primate agility or substituting an unsupported top-speed number for maneuverability.
+Mandrills are semiterrestrial quadrupeds but still show strong climbing competence. Their shoulder anatomy and grasping hands permit climbing, branch use and terrestrial locomotion. Wild groups may travel several kilometers in a day. They are more maneuverable than their heavy male build suggests, especially in cluttered forest, but there is no basis for granting elite small-primate agility or substituting an unsupported top-speed number for maneuverability.
 
 ### Endurance
 Wild mandrills range over large forest areas and recorded daily paths reached 6.5 km. Seasonal field research shows behavioral flexibility, with groups ranging more broadly during fruit-scarce periods. This supports solid routine locomotor endurance. It does not demonstrate cursorial pursuit specialization or extreme sustained high-output performance.
@@ -154,7 +154,7 @@ The species is generally assessed as **Vulnerable**. Major threats include comme
 ### Human interaction
 Mandrills are hunted for bushmeat and may raid crops or oil-palm fruit where forest foods are scarce. Close contact also matters for zoonotic research: naturally infected mandrills have been studied for simian foamy virus and cross-species transmission. Captive animals require substantial behavioral enrichment and careful management because adult males are powerful, well-armed primates.
 
-### Major adaptations
+### Special features
 - Large male canine weaponry.
 - Extreme sex-specific growth and body size.
 - Cheek pouches for temporary food storage.
@@ -174,7 +174,7 @@ Mandrills are hunted for bushmeat and may raid crops or oil-palm fruit where for
 The mandrill is the world's largest living monkey and an unusually formidable close-range primate. A mature male combines a roughly 32 kg muscular body with 4.5 cm canine weapons, climbing/grappling control and sophisticated rival assessment. Its real strength is a balanced package of weaponry, maneuverability and primate tactics rather than the exaggerated speed or bite-PSI figures often repeated online.
 
 ### Rich narrative profile
-A mature male mandrill is built around costly competition. Its huge size advantage over females develops slowly, with males continuing physical maturation years after females. At adulthood the male carries long canine weapons whose size is directly associated with reproductive success. Those teeth make escalated fights dangerous enough that mandrills have evolved an equally important second layer of combat biology: assessment. Color, posture, facial displays and scent help males decide whether to press, threaten, appease or retreat.
+A mature male mandrill is built around costly competition. Its huge size advantage over females develops slowly, with males continuing physical maturation years after females. At adulthood the male carries long canine weapons whose size is directly associated with reproductive success. Those teeth make escalated fights dangerous enough that mandrills also rely on an equally important second layer of combat biology: assessment. Color, posture, facial displays and scent help males decide whether to press, threaten, appease or retreat.
 
 That combination matters for ABS calibration. The mandrill is much more dangerous than its old placeholder Attack score suggested, but it is not a miniature gorilla or leopard. At about 32 kg, it lacks the absolute muscular mass of great apes and the dedicated killing anatomy of a large cat. Its canines are formidable at contact range, yet reaching that range against horns, tusks, armor or a larger predator is itself the problem.
 

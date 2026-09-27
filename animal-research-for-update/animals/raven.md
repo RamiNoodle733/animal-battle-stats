@@ -116,9 +116,9 @@ Breeding birds commonly occur as territorial pairs. Nonbreeders aggregate at con
 ADW reports annual breeding, usually 3-7 eggs, incubation around 20-25 days, fledging at roughly 5-7 weeks and sexual maturity near three years. Females incubate, while both parents provision and defend young.
 
 ### Conservation and human interaction
-The species is widespread and currently treated as Least Concern/G5. Human food sources can increase raven abundance locally. This adaptability can create conflict where ravens prey on threatened wildlife or exploit refuse and livestock-associated resources.
+The species is widespread and currently treated as Least Concern/G5. Human food sources can increase raven abundance locally. This versatility can create conflict where ravens prey on threatened wildlife or exploit refuse and livestock-associated resources.
 
-### Major adaptations
+### Special features
 - large robust bill for a passerine
 - powerful, highly controlled flight with wedge-shaped tail
 - scatter-hoarding and spatial memory

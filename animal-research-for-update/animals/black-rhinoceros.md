@@ -166,14 +166,14 @@ All ratings use the absolute full-roster scale.
 | **Agility** | **59.0** | Fast acceleration and useful pivoting for megafauna, but fine maneuverability is constrained by mass. |
 | **Stamina** | **68.0** | Strong sustained daily movement and arid-land resilience, but high-output combat is burst-limited. |
 | **Intelligence** | **48.0** | Functional spatial/social learning and threat assessment without evidence for elite flexible cognition. |
-| **Special** | **51.0** | Distinctive browsing and sensory adaptations are useful, but the main battle advantages are already captured by Attack/Defense rather than double-counted as Special. |
+| **Special** | **51.0** | Distinctive browsing and sensory features are useful, but the main battle advantages are already captured by Attack/Defense rather than double-counted as Special. |
 
 ## 7. Abilities and traits
 
 ### Proposed special abilities, exactly 2
 
 1. **Horn-Lance Charge** — The long anterior keratin horn concentrates a mass-backed rush into a penetrating or hooking point, giving the rhino exceptional frontal reach and injury potential.
-2. **Thornland Bulwark** — Thick skin, huge body depth and a browsing ecology adapted to thorny scrub let the rhino push through abrasive vegetation and remain difficult for ordinary teeth and claws to disable. This is toughness, not invulnerability.
+2. **Thornland Bulwark** — Thick skin, huge body depth and a browsing ecology suited to thorny scrub let the rhino push through abrasive vegetation and remain difficult for ordinary teeth and claws to disable. This is toughness, not invulnerability.
 
 ### Proposed unique traits, exactly 2
 
@@ -202,7 +202,7 @@ ADW reports gestation around 15 months, usually one calf, weaning around 18 mont
 
 **IUCN Red List: Critically Endangered.** IRF's 2026 State of the Rhino reports an estimated **6,788 black rhinos at the end of 2024**, up from 6,195 in 2022. The recovery from the roughly 2,300 animals left in the mid-1990s is substantial, but poaching remains the principal threat and the species is still far below historical abundance.
 
-### Major adaptations
+### Special features
 
 - Long keratin horns for defense, competition and vegetation manipulation
 - Pointed prehensile upper lip for browsing

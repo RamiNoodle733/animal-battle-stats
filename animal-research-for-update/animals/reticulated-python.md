@@ -200,7 +200,7 @@ Reticulated pythons are oviparous. Female reproductive investment can be substan
 ### Conservation and trade
 The species is widespread and heavily involved in Southeast Asian skin and meat trade systems. Harvest studies provide unusually large morphological datasets, but those datasets can contain capture and market-selection biases. Conservation/trade management should therefore be kept separate from claims about a universal adult size.
 
-### Adaptations
+### Special features
 - Highly flexible axial skeleton and powerful trunk musculature for constriction.
 - Recurved teeth for prey retention.
 - Heat-sensitive labial pits for warm-target detection.

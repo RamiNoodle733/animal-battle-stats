@@ -2377,7 +2377,7 @@
     "size_score": 43.9,
     "special_abilities": [
       "Biosonar Lock",
-      "Adaptive Huntcraft"
+      "Versatile Huntcraft"
     ],
     "speed_mps": 8,
     "stamina": 76,
@@ -2922,7 +2922,7 @@
     "class": "Rogue",
     "createdAt": "2025-12-02T23:27:42.802Z",
     "defense": 17,
-    "description": "The tufted capuchin is a small but exceptionally adaptable South American primate. A mature male weighs around 4 kg and relies on quick arboreal movement, grasping hands, a stabilizing tail, biting…",
+    "description": "The tufted capuchin is a small but exceptionally versatile South American primate. A mature male weighs around 4 kg and relies on quick arboreal movement, grasping hands, a stabilizing tail, biting…",
     "diet": [
       "Varied"
     ],
@@ -3844,7 +3844,7 @@
     "class": "Pack Hunter",
     "createdAt": "2025-12-02T23:27:43.285Z",
     "defense": 25,
-    "description": "A fast, lean and exceptionally adaptable North American canid, the coyote wins through mobility, endurance, sharp senses and tactical flexibility rather than brute force.",
+    "description": "A fast, lean and exceptionally versatile North American canid, the coyote wins through mobility, endurance, sharp senses and tactical flexibility rather than brute force.",
     "diet": [
       "rodents",
       "rabbits",
@@ -3862,7 +3862,7 @@
     "size": "Small",
     "size_score": 30.8,
     "special_abilities": [
-      "Adaptive Hunt Switch",
+      "Versatile Hunt Switch",
       "Long-Range Chorus"
     ],
     "speed_mps": 20.1,
@@ -4192,7 +4192,7 @@
     "class": "Pack Hunter",
     "createdAt": "2025-12-02T23:27:43.481Z",
     "defense": 24,
-    "description": "The dingo is Australia's adaptable wild canid, combining strong senses, agile terrestrial movement, sustained ranging and flexible solitary or cooperative hunting. A representative mature male is…",
+    "description": "The dingo is Australia's versatile wild canid, combining strong senses, agile terrestrial movement, sustained ranging and flexible solitary or cooperative hunting. A representative mature male is…",
     "diet": [
       "kangaroos",
       "rodents",
@@ -6032,7 +6032,7 @@
     "class": "Hunter",
     "createdAt": "2025-12-02T23:27:44.519Z",
     "defense": 18,
-    "description": "A large, highly adaptable American owl, the Great Horned Owl combines precise talons, quiet low-light flight and exceptional nocturnal targeting.",
+    "description": "A large, highly versatile American owl, the Great Horned Owl combines precise talons, quiet low-light flight and exceptional nocturnal targeting.",
     "diet": [
       "Varied"
     ],
@@ -6286,7 +6286,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Interior Heavyweight",
-      "Adaptive Omnivore"
+      "Versatile Omnivore"
     ],
     "updatedAt": "2026-09-19T00:00:00.000Z",
     "weight_kg": 220,
@@ -7696,7 +7696,7 @@
     "type": "Marsupial",
     "unique_traits": [
       "Power-Tail Pentapod",
-      "Sexually Selected Grappler Build"
+      "Male Grappler Build"
     ],
     "updatedAt": "2026-09-20T00:00:00.000Z",
     "weight_kg": 80,
@@ -9259,7 +9259,7 @@
     "attack": 100,
     "battle_profile": {
       "preferred_range": "Close",
-      "primary_environment": "Ancient Oceans",
+      "primary_environment": "Open Ocean",
       "combat_style": "Titan",
       "strengths": [
         "Largest shark ever",
@@ -9281,7 +9281,7 @@
       "Large Fish",
       "Sharks"
     ],
-    "habitat": "Ancient Oceans",
+    "habitat": "Open Ocean",
     "height_cm": 0,
     "image": "/images/animals/megalodon.png?v=35aa05e8276e",
     "intelligence": 58,
@@ -9810,7 +9810,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Horn-Wall Defense",
-      "Pleistocene Grazer Build"
+      "Tundra Grazer Build"
     ],
     "updatedAt": "2026-09-22T00:00:00.000Z",
     "weight_kg": 320,
@@ -10161,7 +10161,7 @@
     },
     "type": "Cephalopod",
     "unique_traits": [
-      "Adaptive Shellbreaker",
+      "Versatile Shellbreaker",
       "Beak-Limited Body"
     ],
     "updatedAt": "2026-09-22T00:00:00.000Z",
@@ -12458,7 +12458,7 @@
     "class": "Migrator",
     "createdAt": "2025-12-02T23:27:48.110Z",
     "defense": 46,
-    "description": "Reindeer are large, cold-adapted deer built around endurance, traction and seasonal survival. A mature bull combines a 170 kg body with a long branched antler rack, broad snow-ready hooves and elite…",
+    "description": "Reindeer are large, cold-hardy deer built around endurance, traction and seasonal survival. A mature bull combines a 170 kg body with a long branched antler rack, broad snow-ready hooves and elite…",
     "diet": [
       "lichens",
       "plants",
@@ -13517,7 +13517,7 @@
     "class": "Ambush Predator",
     "createdAt": "2025-12-02T23:27:48.703Z",
     "defense": 61,
-    "description": "The Amur tiger is a cold-adapted, solitary heavyweight cat built around stealth, explosive acceleration and close-range control.",
+    "description": "The Amur tiger is a cold-hardy, solitary heavyweight cat built around stealth, explosive acceleration and close-range control.",
     "diet": [
       "deer",
       "wild boar",

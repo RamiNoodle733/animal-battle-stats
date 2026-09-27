@@ -20,12 +20,12 @@ Sunda pangolins are terrestrial, fossorial and capable climbers. ADW records qua
 Long-term wild lifespan is poorly known. ADW explicitly says no long-term published Sunda-pangolin lifespan study is available and cites a congeneric Indian pangolin that lived nearly 20 years. Because a species-specific representative lifespan is not defensible, `lifespan_years` remains **0.0**.
 
 ### Weapons and armor
-- Forefeet have large, powerful digging claws used to tear into ant/termite nests. These can scratch or hook at close range but are not evolved as pursuit-predator killing claws.
+- Forefeet have large, powerful digging claws used to tear into ant/termite nests. These can scratch or hook at close range but are not built as pursuit-predator killing claws.
 - The body and tail carry overlapping keratinized scales. Histological work on *M. javanica* directly supports specialized keratinization of this scale armor.
 - The ventral surface is comparatively soft and unscaled. Rolling into a ball hides the vulnerable underside and presents the scales outward.
 - The tail can be used defensively; sharp scale edges make a tail swing hazardous at close range.
 - The species is edentulous. No meaningful bite-pressure field exists: `bite_force_psi = 0.0`.
-- The tongue can extend about **25 cm** according to ADW, but it is a feeding adaptation, not a combat weapon.
+- The tongue can extend about **25 cm** according to ADW, but it is a feeding tool, not a combat weapon.
 
 ## 3. Canonical proposed factual fields
 ```yaml
@@ -43,7 +43,7 @@ bite_force_psi: 0.0
 Absolute offense is low. A 7 kg pangolin has strong forelimbs and formidable excavation claws, but its normal strategy is digging and defense, not seizing vertebrate prey. It cannot bite. Tail swings and clawing can punish a close attacker, yet reach and damage potential remain far below similarly sized carnivores.
 
 ### Defense
-Defense is the defining combat adaptation. Overlapping keratin scales cover most of the dorsal body and tail. When threatened, the pangolin curls tightly, protecting the soft belly and head while presenting scale armor. This is excellent protection against many small-to-medium biting/scratching opponents but not invulnerability to crushing, very large jaws, horns, fire, drowning or human tools.
+Defense is the defining combat trait. Overlapping keratin scales cover most of the dorsal body and tail. When threatened, the pangolin curls tightly, protecting the soft belly and head while presenting scale armor. This is excellent protection against many small-to-medium biting/scratching opponents but not invulnerability to crushing, very large jaws, horns, fire, drowning or human tools.
 
 ### Locomotion and agility
 The animal can dig, climb and swim and uses a prehensile tail as a climbing aid. These are versatile abilities, but it is not a high-speed evasive specialist. Its large foreclaws constrain ordinary forefoot posture. Agility is therefore moderate rather than inflated by climbing skill.
@@ -115,7 +115,7 @@ Mostly solitary and nocturnal. A Singapore radio-telemetry study of a female and
 ### Conservation and human interaction
 The Sunda pangolin is **Critically Endangered** and protected from international commercial trade under CITES Appendix I. Poaching for scales/meat and habitat loss are major threats. Its instinct to curl defensively, highly effective against natural attackers, makes an individual easy for a human to pick up and is therefore an ecological defense with an anthropogenic downside.
 
-### Adaptations
+### Special features
 Overlapping keratin scales, strong foreclaws, long sticky tongue, sealable/reduced ear and nasal openings, prehensile tail, burrowing and climbing form an integrated ant-and-termite specialist package.
 
 ### Genuine fun facts

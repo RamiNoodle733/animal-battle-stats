@@ -124,7 +124,7 @@ Adults are primarily solitary outside reproductive and seasonal aggregation cont
 ### Conservation and human interaction
 The species is widespread and generally assessed as Least Concern, but local populations face road mortality, habitat conversion, persecution and rattlesnake roundups. It is medically important to people because bites can be severe. Human safety should rely on distance and professional wildlife handling, not attempts to provoke or move the animal by hand.
 
-### Major adaptations
+### Special features
 - Hinged solenoglyphous venom fangs and active venom-expulsion mechanics.
 - Directionally sensitive infrared facial pits.
 - Cryptic dorsal pattern and still ambush behavior.

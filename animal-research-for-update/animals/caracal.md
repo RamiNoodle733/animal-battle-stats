@@ -157,7 +157,7 @@ All values use the absolute 225-animal roster scale.
 | Protection | **16.0** | Fur and ordinary mammalian tissue only; no armor. |
 | Toughness | **27.0** | Muscular felid frame, but limited mass buffer against major trauma. |
 | Speed | **63.0** | Explosive runner by reliable qualitative evidence; exact maximum intentionally unresolved. |
-| Maneuverability | **90.0** | Exceptional pouncing, climbing, balance and vertical interception are central adaptations. |
+| Maneuverability | **90.0** | Exceptional pouncing, climbing, balance and vertical interception are central specializations. |
 | Endurance | **53.0** | Useful active-period travel but not a sustained pursuit specialist; heat constrains activity. |
 | Recovery | **43.0** | Ordinary mammalian recovery with no unusual regenerative mechanism. |
 | Tactics | **64.0** | Ambush, caching, flexible prey choice and habitat-sensitive activity support strong predatory tactics. |
@@ -171,7 +171,7 @@ All values use the absolute 225-animal roster scale.
 - **Defense: 25.0** - Evasion helps survival but is not physical armor; direct trauma resistance is modest.
 - **Agility: 90.0** - Elite acceleration, jumping, climbing, balance and aerial interception justify one of the stronger agility scores among terrestrial mammals.
 - **Stamina: 53.0** - Capable active-period travel, but field activity is temperature-sensitive and the species is not a pursuit-endurance specialist.
-- **Intelligence: 60.0** - Flexible ambush behavior, caching, learned hunting and adaptable diet support above-average tactical cognition without upper-primate inflation.
+- **Intelligence: 60.0** - Flexible ambush behavior, caching, learned hunting and flexible diet support above-average tactical cognition without upper-primate inflation.
 - **Special: 61.0** - Its vertical interception system materially changes matchups against birds and evasive small prey, but it lacks a rare biochemical or electrical weapon.
 
 ## 7. Exactly two special abilities and exactly two unique traits
@@ -208,7 +208,7 @@ Breeding can occur year-round. Smithsonian reports gestation around 69-78 days a
 
 The species is globally **Least Concern**, but status is much poorer in portions of Asia and North Africa. Habitat loss, fragmentation, road mortality and persecution for livestock predation are important regional threats. CITES treatment differs geographically, with Asian populations under stricter controls than most African populations.
 
-### Major adaptations
+### Special features
 
 - Powerful elongated hind limbs for explosive vertical launch
 - Retractile claws and large paws for grappling and climbing

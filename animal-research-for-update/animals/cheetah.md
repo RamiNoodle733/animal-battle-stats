@@ -220,7 +220,7 @@ The modern species survives mainly in fragmented populations in sub-Saharan Afri
 
 ### Diet and ecology
 
-Cheetahs are obligate carnivores specializing largely on small to medium ungulates, supplemented by smaller vertebrates. Their ecological niche is shaped by speed and by competition with larger carnivores. A successful kill does not guarantee possession; kleptoparasitism by stronger competitors can erase the energetic payoff of a chase.
+Cheetahs are obligate carnivores specializing largely on small to medium ungulates, supplemented by smaller vertebrates. Their ecological niche is defined by speed and by competition with larger carnivores. A successful kill does not guarantee possession; kleptoparasitism by stronger competitors can erase the energetic payoff of a chase.
 
 ### Social structure
 
@@ -234,7 +234,7 @@ Females raise cubs without male parental care. Cubs face heavy predation pressur
 
 Cheetahs face habitat loss and fragmentation, prey depletion, conflict with livestock owners, illegal trade and low-density population challenges. Conservation is complicated by the fact that substantial portions of the remaining range lie outside protected areas. USGS-supported work in north-central Namibia, for example, documented cheetahs in human-used conservancy landscapes and emphasized the importance of nonprotected areas.
 
-### Major adaptations
+### Special features
 
 - Flexible spine and long limbs for extreme stride mechanics.
 - Powerful axial/hindlimb systems for acceleration.

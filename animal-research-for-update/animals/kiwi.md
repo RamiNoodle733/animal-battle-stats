@@ -49,7 +49,7 @@ Tokoeka routinely forage through the night, patrol and advertise territories, an
 This is the kiwi's standout combat-relevant biology. Kiwi have nostrils near the bill tip, enlarged olfactory structures, and a specialized bill-tip organ containing mechanoreceptors. Peer-reviewed work supports remote-touch/vibrotactile prey detection, used together with olfaction. Free-living brown kiwi observations also show reliance on hearing, smell and touch. Vision is comparatively weak. The sensory package is exceptional for a bird but optimized for close ground foraging rather than long-range target acquisition.
 
 ### Intelligence and tactics
-Kiwi show spatial territorial behavior, pair communication and adaptive nocturnal foraging, but there is no basis for primate/corvid-level tactical intelligence. Their fight plan is simple: warning calls and territorial defense, escape when threatened, and strong clawed-leg defense if conflict closes.
+Kiwi show spatial territorial behavior, pair communication and flexible nocturnal foraging, but there is no basis for primate/corvid-level tactical intelligence. Their fight plan is simple: warning calls and territorial defense, escape when threatened, and strong clawed-leg defense if conflict closes.
 
 ### Fighting and predation behavior
 Tokoeka eat mainly soil and litter invertebrates such as earthworms, beetle and moth larvae, spiders, orthopterans and centipedes, with some plant material. They locate buried prey by tapping, sniffing and probing. They are not macropredators. Territorial conflicts can become physical, and sharp claws are the documented intraspecific weapon.
@@ -83,7 +83,7 @@ Tokoeka eat mainly soil and litter invertebrates such as earthworms, beetle and 
 | Speed | 32.0 | Can run readily, but no reliable species-specific top speed supports a high absolute speed score. |
 | Endurance | 62.0 | Sustained nocturnal foraging and territorial movement support moderate-good endurance without pursuit-runner evidence. |
 | Recovery | 48.0 | Long-lived bird with normal avian healing; no extraordinary regeneration or rapid recovery mechanism. |
-| Tactics | 48.0 | Territorial warning, pair communication and adaptive foraging, but simple close-combat behavior. |
+| Tactics | 48.0 | Territorial warning, pair communication and flexible foraging, but simple close-combat behavior. |
 | Senses | 84.0 | Exceptional avian olfaction plus bill-tip remote touch and useful hearing; weak vision prevents a still higher all-around score. |
 | Ferocity | 47.0 | Territorial and willing to claw conspecifics, yet typically escapes threats rather than pressing dangerous combat. |
 | Abilities | 74.0 | Olfactory and vibrotactile bill systems are genuinely unusual and useful, though not directly lethal. |
@@ -103,7 +103,7 @@ Tokoeka eat mainly soil and litter invertebrates such as earthworms, beetle and 
 
 ### Unique traits
 1. **Clawed Territorial Kicker** — powerful legs and sharp feet are documented weapons in fights between tokoeka, giving the otherwise lightly armed bird a credible close-range defense.
-2. **Wingless Forest Specialist** — vestigial wings, no external tail and a ground-focused body plan trade aerial escape for efficient nocturnal terrestrial life in dense New Zealand habitat.
+2. **Wingless Forest Specialist** — tiny flightless wings, no external tail and a ground-focused body plan rule out aerial escape but suit efficient nocturnal terrestrial life in dense New Zealand habitat.
 
 ## 8. Expanded profile
 ### Habitat and geographic range
@@ -118,7 +118,7 @@ Pairs are generally monogamous and territorial, advertising territory and pair c
 ### Conservation
 NZ Birds Online lists southern brown kiwi as endemic and Naturally Uncommon at the species level, with some geographic forms having more threatened national classifications. Introduced mammalian predators remain a central conservation problem. Population status differs among Stewart Island, Fiordland and Haast management units.
 
-### Adaptations
+### Special features
 The kiwi sensory shift is unusually mammal-like for a bird: smell and touch play major roles in nocturnal ground foraging. Hair-like feathers lack the tightly interlocking vane structure typical of flight feathers. Strong legs, large feet and reduced wings reflect complete terrestrial specialization.
 
 ### Human interaction
@@ -128,7 +128,7 @@ Kiwi are a major New Zealand national symbol and a taonga to Māori. Conservatio
 - Kiwi nostrils are near the **tip** of the bill rather than near its base as in typical birds.
 - Their bill contains a specialized mechanosensory organ capable of detecting cues from buried prey.
 - Female southern brown kiwi are larger than males and have substantially longer bills.
-- Kiwi have only vestigial wings hidden in their shaggy plumage and **no external tail**.
+- Kiwi have only tiny wings hidden in their shaggy plumage and **no external tail**.
 - Stewart Island tokoeka are unusually likely for kiwi to forage during daylight.
 - DOC notes kiwi can live roughly **25–50 years**.
 - Kiwi chicks hatch fully feathered and begin feeding for themselves within days rather than being provisioned extensively by parents.
@@ -137,7 +137,7 @@ Kiwi are a major New Zealand national symbol and a taonga to Māori. Conservatio
 The southern brown kiwi is a powerful-legged, flightless New Zealand ground bird whose real superpower is perception: tip-mounted nostrils and a vibration-sensitive bill locate hidden prey in darkness. A larger adult female can fight with sharp claws, but at only about three kilograms the kiwi remains a low-power combatant whose unusual senses matter far more than raw damage.
 
 ### Narrative profile
-A tokoeka is built for a world close to the ground. Its shaggy feathers conceal tiny vestigial wings, while a pear-shaped body sits over strong legs and large clawed feet. The long bill looks like a weapon but is more remarkable as a sensory probe. Nostrils sit near its tip, and mechanoreceptors embedded in specialized bill-tip pits help detect buried prey through remote touch. At night the bird can combine smell, vibration, hearing and tactile cues while moving through leaf litter with relatively little dependence on vision. In combat, however, sensory sophistication does not erase scale. A representative female weighs about 3.1 kg. Her best weapons are the feet and claws used in territorial fights, not a crushing jaw or piercing raptor beak. Against a similarly small ground opponent those legs matter. Against a fox-sized predator or anything larger, the kiwi's lack of flight, armor and high-damage weaponry becomes decisive. ABS should therefore keep its physical ratings low-to-moderate while recognizing the extraordinary sensory biology in Special and Senses.
+A tokoeka is built for a world close to the ground. Its shaggy feathers conceal tiny wings, while a pear-shaped body sits over strong legs and large clawed feet. The long bill looks like a weapon but is more remarkable as a sensory probe. Nostrils sit near its tip, and mechanoreceptors embedded in specialized bill-tip pits help detect buried prey through remote touch. At night the bird can combine smell, vibration, hearing and tactile cues while moving through leaf litter with relatively little dependence on vision. In combat, however, sensory sophistication does not erase scale. A representative female weighs about 3.1 kg. Her best weapons are the feet and claws used in territorial fights, not a crushing jaw or piercing raptor beak. Against a similarly small ground opponent those legs matter. Against a fox-sized predator or anything larger, the kiwi's lack of flight, armor and high-damage weaponry becomes decisive. ABS should therefore keep its physical ratings low-to-moderate while recognizing the extraordinary sensory biology in Special and Senses.
 
 ### Future structured-field proposals
 - `bill_length_cm`

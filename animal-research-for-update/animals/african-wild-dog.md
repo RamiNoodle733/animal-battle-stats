@@ -17,7 +17,7 @@ The African Wild Dog entry represents *Lycaon pictus*, the only living species o
 
 ABS should use a **healthy mature adult male**. Sexual dimorphism is small compared with lions: published synthesis indicates only about a 3–7% sex difference in skeletal and muscular size, while San Diego Zoo notes males are slightly heavier. Using a male follows the project combat-specimen convention without pretending males are dramatically larger.
 
-African wild dogs are lightly built cursorial hypercarnivores. Their key combat identity is not individual brute force. It is the combination of efficient slicing/gripping dentition, exceptional running performance, stamina, large ears and useful senses, and highly developed pack behavior. Individual ABS ratings must not grant extra pack bodies, but tactics and social cognition can reflect the animal's evolved behavioral repertoire.
+African wild dogs are lightly built cursorial hypercarnivores. Their key combat identity is not individual brute force. It is the combination of efficient slicing/gripping dentition, exceptional running performance, stamina, large ears and useful senses, and highly developed pack behavior. Individual ABS ratings must not grant extra pack bodies, but tactics and social cognition can reflect the animal's natural behavioral repertoire.
 
 ---
 
@@ -57,7 +57,7 @@ Unlike many internet speed claims, this value has modern instrumented field supp
 
 African wild dogs are built for sustained movement. Instrumented studies found mean daily movement around **13–14 km**, with individual days up to **42.9 km**. Broader literature documents packs traveling up to roughly **50 km/day**, and dispersers can cover more than 50 km in 24 hours. Their hunts can involve repeated high-speed chases, and some populations use longer pursuits.
 
-Anatomical work supports cursorial specialization: elongated limbs, reduced wrist-rotation musculature favoring stability, and reduction/loss of the first digit are consistent with efficient forward running.
+Anatomical work supports cursorial specialization: elongated limbs, reduced wrist-rotation musculature favoring stability, and a reduced or absent first digit are consistent with efficient forward running.
 
 ### Lifespan
 
@@ -140,7 +140,7 @@ This is a major strength. Instrumented field studies support ~19 m/s top speed, 
 
 ### Stamina and endurance
 
-Stamina is elite among terrestrial predators on the ABS roster. Wild dogs routinely cover long daily distances, can make repeated high-speed hunting attempts, and have anatomical adaptations associated with endurance running. The old stereotype that every hunt is a single many-kilometer persistence chase is too simplistic: Botswana woodland research found many short, opportunistic chases. The important point is that they can repeat those costly efforts and maintain high daily movement.
+Stamina is elite among terrestrial predators on the ABS roster. Wild dogs routinely cover long daily distances, can make repeated high-speed hunting attempts, and have anatomical features associated with endurance running. The old stereotype that every hunt is a single many-kilometer persistence chase is too simplistic: Botswana woodland research found many short, opportunistic chases. The important point is that they can repeat those costly efforts and maintain high daily movement.
 
 ### Senses
 
@@ -262,7 +262,7 @@ These ratings use the absolute full-roster scale. They are calibrated against th
 
 ### Unique traits
 
-1. **Four-Toed Runner** — *Lycaon pictus* is uniquely specialized among living canids with four functional toes on each foot and loss of the typical first digit, associated with cursorial efficiency.
+1. **Four-Toed Runner** — *Lycaon pictus* is uniquely specialized among living canids with four functional toes on each foot and no typical first digit, associated with cursorial efficiency.
 2. **Painted Pack Code** — Every individual has a distinctive mottled coat, while the species uses rich vocal, scent and social communication within an unusually cooperative pack system.
 
 Exactly two abilities and exactly two traits are proposed.
@@ -299,7 +299,7 @@ Gestation is roughly **71–73 days** in the Mammalian Species synthesis. Averag
 
 The species is **Endangered**. The 2022 Mammalian Species review summarized approximately **6,700 individuals** and about **1,400 mature adults** from the then-current IUCN assessment. Major threats include habitat fragmentation, conflict with humans, road mortality, disease transmitted from domestic dogs, and competition with larger carnivores. Current conservation organizations still describe fewer than roughly 7,000 remaining across Africa.
 
-### Major adaptations
+### Special features
 
 - Long limbs and digit reduction for efficient cursorial locomotion
 - Robust hypercarnivore skull and slicing dentition
@@ -331,7 +331,7 @@ The African wild dog (*Lycaon pictus*) is a 25 kg cursorial hypercarnivore built
 
 African wild dogs are a useful test of whether ABS can separate proportional impressiveness from absolute battle power. At roughly 25 kg, an adult is much smaller than the site's large felids and tiny beside megafauna. Giving it lion-like Attack or Defense because it is an exceptionally successful predator would violate the absolute scaling rule. Its body simply cannot deliver or absorb the same absolute forces as a 190 kg male lion.
 
-Where the wild dog legitimately climbs the roster is locomotion. Modern collars and inertial sensors have measured speeds around 19 m/s, and long-term field studies show repeated high-speed chases layered on top of large daily travel distances. Anatomical studies provide a mechanical explanation: long cursorial limbs, reduced wrist-rotation musculature and loss of the first digit favor stable, efficient forward running. This is not merely a fast animal. It is a predator whose entire locomotor system is tuned to repeatedly cover ground.
+Where the wild dog legitimately climbs the roster is locomotion. Modern collars and inertial sensors have measured speeds around 19 m/s, and long-term field studies show repeated high-speed chases layered on top of large daily travel distances. Anatomical studies provide a mechanical explanation: long cursorial limbs, reduced wrist-rotation musculature and the absent first digit favor stable, efficient forward running. This is not merely a fast animal. It is a predator whose entire locomotor system is tuned to repeatedly cover ground.
 
 The skull is similarly specialized. *Lycaon* is a hypercarnivore with a robust cranium, strong mechanical advantage and carnassial dentition suited to holding and slicing. Recent anatomical work reinforces older biomechanical findings that its bite performance is exceptional relative to body size. ABS should reward that through Weaponry and a strong Attack for its mass, but should not convert relative bite-force claims into an invented PSI number or inflate the animal to large-felid absolute damage levels.
 
@@ -375,8 +375,8 @@ In a one-on-one ABS fight, the wild dog loses one of its largest ecological adva
 | Bucci, Nicholson & Krausman, *Mammalian Species* (2022), “Lycaon pictus (Carnivora: Canidae)” | https://academic.oup.com/mspecies/article/54/1017/seac002/6565923 | Taxonomy, dimensions, range, morphology, ecology, diet, reproduction, conservation, social behavior | 76–112 cm head-body, 30–41 cm tail, 61–78 cm shoulder, 17–36 kg; no recognized subspecies; Endangered; broad ecological synthesis | **High.** Peer-reviewed species account synthesizing primary literature. |
 | Hubel et al., *Nature Communications* (2016), “Energy cost and return for hunting in African wild dogs and cheetahs” | https://www.nature.com/articles/ncomms11034 | Speed, repeated chases, daily movement, hunting energetics | Instrumented 1,119 high-speed chases; mean daily movement ~13 km; days up to 42.9 km; maximum ~19 m/s | **High.** Direct GPS/inertial field measurements. |
 | Creel et al., recent long-term energetics analysis (PMC) | https://pmc.ncbi.nlm.nih.gov/articles/PMC11831116/ | Speed, pursuit length, prey, energetic ecology | Upper speed limit ~1,148 m/min; high-speed chases often >500 m and sometimes kilometers; long-term observed kills | **High.** Peer-reviewed field dataset; reinforces instrumented speed. |
-| Hartstone-Rose et al. / anatomical study, *Anatomical Record* (2024) | https://pmc.ncbi.nlm.nih.gov/articles/PMC13431924/ | Jaw musculature, hypercarnivore adaptations, bite mechanics | Robust jaw architecture and mechanical advantage; bite force among highest relative reports for carnivorans | **High** for anatomy; does not provide a standardized ABS-ready PSI value. |
-| Hartstone-Rose et al., cursorial forelimb anatomy (2020) | https://pmc.ncbi.nlm.nih.gov/articles/PMC7482643/ | Four-toed condition, limb anatomy, endurance-running adaptation | Reduced wrist rotators/stabilization and digit reduction associated with cursorial specialization | **High.** Peer-reviewed anatomical study. |
+| Hartstone-Rose et al. / anatomical study, *Anatomical Record* (2024) | https://pmc.ncbi.nlm.nih.gov/articles/PMC13431924/ | Jaw musculature, hypercarnivore specializations, bite mechanics | Robust jaw architecture and mechanical advantage; bite force among highest relative reports for carnivorans | **High** for anatomy; does not provide a standardized ABS-ready PSI value. |
+| Hartstone-Rose et al., cursorial forelimb anatomy (2020) | https://pmc.ncbi.nlm.nih.gov/articles/PMC7482643/ | Four-toed condition, limb anatomy, endurance-running specialization | Reduced wrist rotators/stabilization and digit reduction associated with cursorial specialization | **High.** Peer-reviewed anatomical study. |
 | San Diego Zoo Wildlife Alliance, Painted Dog | https://animals.sandiegozoo.org/animals/painted-dog-african-hunting-dog | Institutional size/lifespan cross-check, litter/fun facts | 18–34 kg, 61–76 cm shoulder, ~10-year managed-care median; males slightly heavier | **High** institutional secondary source. |
 | Animal Diversity Web, *Lycaon pictus* | https://animaldiversity.org/accounts/Lycaon_pictus/ | Reproduction, life expectancy, cooperative breeding | ~10-year life expectancy; dominant breeding pair; cooperative breeding | **Moderate-high** university-curated synthesis; older account. |
 | Woodroffe et al., *Journal of Mammalogy* (2007) | https://academic.oup.com/jmammal/article-abstract/88/1/181/926501 | Diet flexibility and pack hunting | Northern Kenya packs obtained ~70% prey biomass from dik-dik despite typical large-prey specialization | **High.** Peer-reviewed ecological study. |
@@ -410,7 +410,7 @@ No physical-power category should be close. The wild dog can outrun, outturn and
 Revisit this profile after Gray Wolf, Dhole, Spotted Hyena, Cheetah, Leopard, Jaguar, Siberian Tiger and other medium carnivores are researched. Key checks:
 
 - Stamina 82.0 should remain near the top of terrestrial pursuit predators without automatically becoming the dataset ceiling.
-- Attack 47.0 must remain well below large felids/hyenas but above many similar-mass animals with weaker killing adaptations.
+- Attack 47.0 must remain well below large felids/hyenas but above many similar-mass animals with weaker killing tools.
 - Special 54.0 should not inflate merely because digit reduction is unusual; it reflects real cursorial and jaw specializations, not a magical power.
 - Intelligence 64.0 should be checked against wolves/dholes and against higher-cognition anchors such as great apes, elephants, corvids and cetaceans.
 

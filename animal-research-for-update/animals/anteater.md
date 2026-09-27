@@ -103,7 +103,7 @@ The animal has no armor, horns or protective shell. Its main defense is active: 
 
 ### Primary weapons
 
-**Enlarged foreclaws backed by unusually powerful forelimbs.** Mammalian Species notes that forelimb musculature weighs roughly twice the hindlimb musculature. The claws evolved to tear open resistant insect nests, but the same system can inflict deep punctures and lacerations.
+**Enlarged foreclaws backed by unusually powerful forelimbs.** Mammalian Species notes that forelimb musculature weighs roughly twice the hindlimb musculature. The claws are built to tear open resistant insect nests, but the same system can inflict deep punctures and lacerations.
 
 This is not hypothetical danger. Peer-reviewed medical literature documents rare human fatalities in which defensive giant anteaters caused penetrating wounds, severe hemorrhage and femoral-artery injury. The species is normally nonaggressive, so these cases demonstrate weapon potential rather than typical behavior.
 
@@ -273,13 +273,13 @@ Mostly solitary except for mating associations and mothers with offspring. Indiv
 
 **Vulnerable**. Major threats include habitat loss and fragmentation, fires, road mortality, hunting and conflict with domestic dogs. Populations have disappeared from parts of the historical range.
 
-### Major adaptations
+### Special features
 
 - Enlarged digging/defensive foreclaws
 - Forelimb musculature heavily emphasized relative to hindlimbs
 - Knuckle-style forefoot posture protecting claws
 - Long protrusible tongue with rapid cycling
-- Reduced jaw musculature and complete loss of teeth
+- Reduced jaw musculature and a complete absence of teeth
 - Strong olfactory specialization
 - Bushy tail used in thermoregulatory/resting behavior and balance
 
@@ -306,7 +306,7 @@ The giant anteater (*Myrmecophaga tridactyla*) is a roughly 40 kg South American
 
 ### Detailed narrative profile
 
-The roster's generic `Anteater` entry is best represented by the giant anteater, *Myrmecophaga tridactyla*. It is the largest living member of the anteater lineage and one of the most morphologically specialized terrestrial mammals. A representative adult weighs around 40 kg and measures roughly two meters from snout to tail tip, though much of that apparent length comes from its elongated skull and enormous bushy tail.
+The roster's generic `Anteater` entry is best represented by the giant anteater, *Myrmecophaga tridactyla*. It is the largest living anteater and one of the most morphologically specialized terrestrial mammals. A representative adult weighs around 40 kg and measures roughly two meters from snout to tail tip, though much of that apparent length comes from its elongated skull and enormous bushy tail.
 
 Almost everything about its feeding anatomy is strange by ordinary mammalian standards. It has no teeth, reduced jaw musculature, a tiny mouth opening and a long narrow tongue capable of extremely rapid protrusion and retraction. Its primary prey is not subdued by biting. Instead, the animal tears open ant and termite nests using massive forelimbs, then harvests insects with sticky saliva and rapid tongue movements.
 
@@ -314,7 +314,7 @@ Those nest-opening forelimbs are what transform the giant anteater from a seemin
 
 That does not make the giant anteater a high-tier predator. It lacks a killing bite, armor, pursuit anatomy and predatory tactics. Jaguars and pumas can prey upon it. Its normal response is avoidance or escape, and serious attacks are exceptional defensive events. Its physiology also includes a low body temperature and limited thermoregulatory capacity, with field studies showing movement patterns shifting in response to ambient temperature.
 
-ABS should therefore treat the animal as a dangerous defensive specialist rather than a miniature apex predator. Its Attack comes from unusually effective claws, while its Defense, Agility and Ferocity remain moderate or low. This separation preserves the absolute roster scale and avoids turning one impressive adaptation into inflated scores across every category.
+ABS should therefore treat the animal as a dangerous defensive specialist rather than a miniature apex predator. Its Attack comes from unusually effective claws, while its Defense, Agility and Ferocity remain moderate or low. This separation preserves the absolute roster scale and avoids turning one impressive feature into inflated scores across every category.
 
 ### Useful future structured fields
 

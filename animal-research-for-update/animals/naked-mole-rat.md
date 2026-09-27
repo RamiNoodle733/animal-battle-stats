@@ -19,7 +19,7 @@ Smithsonian gives 28–42 g for typical animals, up to 57 g for soldiers and 71 
 San Diego Zoo reports **8–10 cm body length** and tail length up to **8 cm**; Smithsonian gives a usual body length of 7.5 cm. Use **10.0 cm body length** as the canonical `length_cm` for the large defensive adult. A reliable standardized standing height is not biologically useful for this low, cylindrical burrower, so `height_cm` is **0.0** pending a defensible measurement.
 
 ### Speed
-No robust species-specific maximum sprint speed was recovered. A recent comparative locomotion paper cites a secondary report that naked mole-rats are about 1.3 times faster forward than backward, but does not provide the experimental conditions needed for a maximum-speed field. The animal is well adapted to rapid bidirectional tunnel movement, but **`speed_mps = 0.0`** rather than recycling the live site's unsupported 36 km/h placeholder.
+No robust species-specific maximum sprint speed was recovered. A recent comparative locomotion paper cites a secondary report that naked mole-rats are about 1.3 times faster forward than backward, but does not provide the experimental conditions needed for a maximum-speed field. The animal is well suited to rapid bidirectional tunnel movement, but **`speed_mps = 0.0`** rather than recycling the live site's unsupported 36 km/h placeholder.
 
 ### Longevity
 Naked mole-rats are extraordinary for a mouse-sized rodent. A large eLife demographic dataset reported survival beyond 30 years without the usual age-associated exponential increase in mortality hazard over the observed range. A 2024 *Nature Communications* paper describes a **37-year lifespan**. Use **37.0 years** as a demonstrated maximum-longevity anchor, not an expected wild lifespan.
@@ -57,7 +57,7 @@ Short limbs and claws assist excavation and close-quarters scrambling, but the t
 ### Offensive mechanics
 In its native tunnel geometry the animal can approach head-first, bite in very close quarters, reverse rapidly without turning around, and exploit a passage barely wider than its body. Larger subordinate animals are documented defenders. A direct bite study notes that subordinate animals initiated biting sooner than dominant animals and links strong incisor performance to defensive and excavation demands.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 Mechanical defense is poor on the full-roster scale. At 57 g, a naked mole-rat is vulnerable to any much larger opponent that can reach it. Its exceptional defenses are physiological. In laboratory experiments it survives **18 minutes of total anoxia without apparent injury** and hours of extreme hypoxia. It also lacks normal pain behavior to acid and capsaicin, while retaining other nociception including formalin responses and mechanical hyperalgesia. Therefore the correct interpretation is **selective pain insensitivity**, not “cannot feel pain.”
 
 ### Hypoxia/anoxia mechanism
@@ -79,7 +79,7 @@ Naked mole-rats live in highly organized eusocial colonies averaging about 70 in
 Large workers act as defenders. Smithsonian describes soldier animals piling at tunnel entrances when predators attempt entry; snakes are important predators. Females may fight lethally when a queen dies and the reproductive vacancy opens. The species therefore has genuine intraspecific aggression and defensive combat behavior despite its herbivorous diet.
 
 ### Predation and diet
-This is not a predator. It primarily consumes underground plant storage organs such as tubers and roots and practices coprophagy to improve nutrient extraction. Strong incisors evolved chiefly for digging and processing tough underground resources, with defense as a secondary combat use.
+This is not a predator. It primarily consumes underground plant storage organs such as tubers and roots and practices coprophagy to improve nutrient extraction. The strong incisors are used chiefly for digging and processing tough underground resources, with defense as a secondary combat use.
 
 ### Environmental strengths
 - Narrow underground tunnels strongly favor its body plan, tactile senses and bidirectional locomotion.
@@ -153,8 +153,8 @@ Gestation is about 70 days. Smithsonian reports a queen can produce a litter abo
 ### Conservation
 Smithsonian currently presents the species as **Least Concern** and notes no immediate major threat, although agricultural conflict and habitat fragmentation may matter locally. The species is well represented in zoological research colonies.
 
-### Major adaptations
-The animal's biology is a coherent response to a crowded subterranean niche: huge relative jaw musculature for tooth digging, lips sealing behind the incisors, tactile body hairs, poor reliance on vision, vibration/air-current sensitivity, behavioral thermoregulation, hypoxia tolerance and highly cooperative colony behavior.
+### Special features
+The animal's biology fits a crowded subterranean niche: huge relative jaw musculature for tooth digging, lips sealing behind the incisors, tactile body hairs, poor reliance on vision, vibration/air-current sensitivity, behavioral thermoregulation, hypoxia tolerance and highly cooperative colony behavior.
 
 ### Human interaction
 Naked mole-rats are major biomedical research organisms for aging, cancer biology, nociception, cardiovascular physiology and oxygen-deprivation biology. In agricultural areas they can be considered pests when they consume crop roots and tubers.
@@ -174,7 +174,7 @@ The naked mole-rat is a tiny East African eusocial burrower whose absolute fight
 ### Rich narrative profile
 A naked mole-rat is easy to underestimate if battle ability is judged only by size. At roughly the mass of a small handful of coins, it has almost no answer to the raw mechanics of a fox, mongoose or larger predator. Yet its head is built around an unusually serious tool. The incisors sit outside the lips, can be manipulated with surprising precision, and are powered by jaw musculature vastly overbuilt for an ordinary mouse-sized mammal. Direct experiments confirm that the bite is substantially stronger than body mass alone predicts.
 
-Its real advantage is not conventional damage. Naked mole-rats evolved in long, crowded burrow systems where darkness, stale air and narrow geometry define the rules. Vision contributes little. Touch, vibration, smell and the incisors themselves help map the immediate world. The animal can reverse through a tunnel without turning, and a defender can confront an intruder where the passage limits the attacker's angles.
+Its real advantage is not conventional damage. Naked mole-rats live in long, crowded burrow systems where darkness, stale air and narrow geometry define the rules. Vision contributes little. Touch, vibration, smell and the incisors themselves help map the immediate world. The animal can reverse through a tunnel without turning, and a defender can confront an intruder where the passage limits the attacker's angles.
 
 The physiology is more unusual still. When oxygen disappears completely, most mammals lose neural function within minutes. Naked mole-rats can suppress demand and redirect metabolism, using fructose to keep glycolysis running. Their pain system is also selectively altered so acid and capsaicin do not provoke the normal responses, likely useful in carbon-dioxide-rich burrows. These are not invulnerability feats. A bite, talon, crush or stomp still causes real tissue damage. The correct ABS interpretation is therefore a tiny animal with low Attack and Defense but exceptionally high Stamina and Special, plus strong tunnel-specific Agility and social Intelligence.
 
@@ -208,7 +208,7 @@ The physiology is more unusual still. When oxygen disappears completely, most ma
 |---|---|---|---|---|
 | Smithsonian National Zoo, Naked mole-rat | https://nationalzoo.si.edu/animals/naked-mole-rat | taxonomy, size, range, lifespan, senses, sociality, diet, burrows, jaws, reproduction, conservation | 28–42 g usual; soldiers to 57 g; queens to 71 g; ~7.5 cm usual body; 10–30 y stated lifespan; eusocial colony; 25% muscle mass involved in jaw closure | **High** institutional synthesis; longevity page wording is older than newer 37-y literature |
 | San Diego Zoo, Naked mole-rat | https://animals.sandiegozoo.org/animals/naked-mole-rat | dimensions, maturity, jaw fact, locomotion | 8–10 cm body, tail to 8 cm, 30–50 g, full grown by ~1 y, forward/backward tunnel movement | **High-moderate** zoological synthesis |
-| Hart et al., *Nature Communications* 2024 | https://doi.org/10.1038/s41467-024-46470-x | longevity, cardiometabolic/hypoxia adaptations | describes 37-y lifespan and extraordinary hypoxia resistance | **High**, peer-reviewed; 37 y is maximum longevity, not average |
+| Hart et al., *Nature Communications* 2024 | https://doi.org/10.1038/s41467-024-46470-x | longevity, cardiometabolic/hypoxia traits | describes 37-y lifespan and extraordinary hypoxia resistance | **High**, peer-reviewed; 37 y is maximum longevity, not average |
 | Ruby, Smith & Buffenstein, eLife 2018 | https://elifesciences.org/articles/31157 | longevity/aging | >3,000 historical data points; mortality hazard did not increase with age across observed range | **High**, peer-reviewed; interpretation of “non-aging” has published debate, so report uses the observation rather than claiming literal immortality |
 | Park et al., *Science* 2017 via MDC | https://www.mdc-berlin.de/research/publications/fructose-driven-glycolysis-supports-anoxia-resistance-naked-mole-rat | anoxia mechanism | 18 min total anoxia survival without apparent injury; fructose-driven glycolysis, GLUT5 and ketohexokinase | **Very high**, primary experimental research |
 | Ilacqua et al., *Biology Letters* 2017 | https://doi.org/10.1098/rsbl.2017.0545 | behavioral hypoxia/anoxia tolerance | hours at 3% O2, days at 8% O2, 18 min anoxia summarized and behavioral responses studied | **High**, peer-reviewed |
@@ -250,7 +250,7 @@ The physiology is more unusual still. When oxygen disappears completely, most ma
 - All 12 current substats rescored independently with one decimal.
 - All six headline ratings use one decimal and absolute roster scaling.
 - **Exactly two special abilities** and **exactly two unique traits** are present.
-- Habitat, range, diet, ecology, sociality, life history, conservation, adaptations, human interaction, fun facts, summary and narrative profile are included.
+- Habitat, range, diet, ecology, sociality, life history, conservation, special features, human interaction, fun facts, summary and narrative profile are included.
 - Source ledger maps major claims to direct URLs with confidence/caveats.
 - Cross-roster normalization explicitly checks proportional-strength leakage, speed/agility confusion and double-counting.
 - Image status follows `IMAGE_REQUIREMENTS.md`; no URL is misrepresented as a completed transparent PNG.

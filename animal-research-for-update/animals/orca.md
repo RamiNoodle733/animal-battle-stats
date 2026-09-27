@@ -105,7 +105,7 @@ Many populations center on stable matrilineal social units. Vocal dialects are s
 ### Conservation
 Species-level assessments are complicated by distinct populations/ecotypes. NOAA lists Southern Resident killer whales as endangered under the U.S. ESA and identifies prey limitation, contaminants, vessel/noise disturbance, entanglement and oil spills among threats.
 
-### Adaptations
+### Special features
 Fusiform body, powerful flukes, large pectoral flippers, countershading, thick blubber, large conical dentition, sophisticated hearing and biosonar, and unusually flexible learned foraging behavior.
 
 ### Human interaction
@@ -159,7 +159,7 @@ An orca's danger is not reducible to size. A prime male carries several tonnes o
 9. **Pitman & Durban 2012, Marine Mammal Science** - https://onlinelibrary.wiley.com/doi/10.1111/j.1748-7692.2010.00453.x - pack-ice cooperative wave washing, prey selection and attack success. High confidence, Antarctic type B context only.
 10. **Rice et al. 2022, Frontiers in Marine Science** - https://doi.org/10.3389/fmars.2022.854893 - tagged offshore whales, dives to 479.5 m and 12.3 min. High confidence for tagged animals.
 11. **Stewart et al. 2026, Marine Mammal Science** - https://onlinelibrary.wiley.com/doi/10.1111/mms.70133 - 4,002 km tagged movement and dives to 528 m in Pacific Mexico. High confidence, three tagged whales; do not universalize exact values.
-12. **Filatova et al. 2015, Animal Behaviour** - https://pubmed.ncbi.nlm.nih.gov/25817037/ - socially learned group-specific vocal dialects and cultural-evolution modeling. High confidence for dialect phenomenon.
+12. **Filatova et al. 2015, Animal Behaviour** - https://pubmed.ncbi.nlm.nih.gov/25817037/ - socially learned group-specific vocal dialects and modeling of dialect change. High confidence for dialect phenomenon.
 13. **Reeves et al. 2025, Ecology and Evolution** - https://onlinelibrary.wiley.com/doi/10.1002/ece3.70786 - genetic confirmation of killer-whale predation on a 4.7 m white shark. High confidence for the documented event.
 14. **Commons USFWS male photo** - https://commons.wikimedia.org/wiki/File:Male_killer_whale_orcinus_orca.jpg ; original https://upload.wikimedia.org/wikipedia/commons/a/a2/Male_killer_whale_orcinus_orca.jpg - public domain, explicit male, but body is submerged and unsuitable for strict cutout.
 

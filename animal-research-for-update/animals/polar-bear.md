@@ -37,7 +37,7 @@ The International Association for Bear Research and Management states that well-
 Polar Bears International reports a wild average of **15-18 years**, with tagged animals reaching their early 30s. The recommended representative field is **18.0 years**, while acknowledging 30+ year exceptional longevity.
 
 ### Bite force
-No direct species-standard bite-pressure measurement with defensible tooth contact area was found. A comparative anatomical paper found polar bears had the smallest mandibular leverage effect among three examined bear species and emphasized adaptations of the masticatory musculature to the flatter skull. A tooth study documents polar-bear dental material properties, but neither provides a valid species PSI. Popular values such as 1,200 PSI are therefore rejected.
+No direct species-standard bite-pressure measurement with defensible tooth contact area was found. A comparative anatomical paper found polar bears had the smallest mandibular leverage effect among three examined bear species and emphasized specializations of the masticatory musculature associated with the flatter skull. A tooth study documents polar-bear dental material properties, but neither provides a valid species PSI. Popular values such as 1,200 PSI are therefore rejected.
 
 **Canonical `bite_force_psi`: 0.0**, meaning unavailable/unreliable, not literally no bite.
 
@@ -45,7 +45,7 @@ No direct species-standard bite-pressure measurement with defensible tooth conta
 Polar Bears International reports paws up to **30 cm across** and thick, curved, sharp claws **more than 5 cm long**. The broad forepaws act as paddles; hind paws act as rudders. Papillae and fur on the soles improve traction and insulation. The International Association for Bear Research and Management notes enlarged canines for grasping seals and smaller, sharper cheek teeth than brown bears, consistent with a more carnivorous diet.
 
 ### Defensive structures and insulation
-The animal has no rigid armor. Defense comes from exceptional absolute body mass, thick skin/fur, substantial fat, robust bone and muscle, and a double coat. Polar Bears International reports two fur layers with extremely effective insulation; USGS documents seasonal body-fat accumulation that can approach 49% in heavily provisioned bears. These adaptations provide cold protection and some soft-tissue buffering but must not be scored like shell or osteoderm armor.
+The animal has no rigid armor. Defense comes from exceptional absolute body mass, thick skin/fur, substantial fat, robust bone and muscle, and a double coat. Polar Bears International reports two fur layers with extremely effective insulation; USGS documents seasonal body-fat accumulation that can approach 49% in heavily provisioned bears. These features provide cold protection and some soft-tissue buffering but must not be scored like shell or osteoderm armor.
 
 ## 3. Canonical proposed factual fields
 | Field | Proposed value | Basis / caveat |
@@ -168,7 +168,7 @@ Females generally first breed at 4-5 years and give birth at 5-6. Males usually 
 ### Conservation
 USFWS estimates roughly **26,000** polar bears globally as of 2023 and recognizes 19 subpopulations. The species remains **Threatened** under the U.S. Endangered Species Act, while the IUCN classification is **Vulnerable**. Continued sea-ice loss is the central long-term threat, with status varying among subpopulations.
 
-### Major adaptations
+### Special features
 Transparent hollow-core fur, black skin, dense insulation, large paws, papillated footpads, furred soles, >5 cm recurved claws, a streamlined head/neck, strong swimming mechanics, enormous seasonal fat storage and specialized seal-hunting behavior.
 
 ### Human interaction
@@ -188,7 +188,7 @@ The polar bear is a half-tonne Arctic marine predator built around ambush, grapp
 ### Rich narrative profile
 A polar bear is not merely a large bear transplanted onto ice. Its long neck and relatively streamlined head help it work breathing holes and ice edges, its dinner-plate paws distribute weight and propel it through water, and the soles combine fur and papillae for traction. The fighting system is built around getting close: approach quietly, rush, hook with the forequarters, bite and use hundreds of kilograms of body mass to control the target.
 
-The species' most extraordinary performance is sustained survival and travel rather than explosive speed. Bears can cross immense distances of shifting sea ice, swim for days, accumulate enormous fat reserves during good hunting periods and fast when prey becomes inaccessible. Those same adaptations have costs. Heavy insulation makes hard running thermally expensive, long swims burn enormous energy, and a bear stranded away from seals can lose mass rapidly despite behavioral flexibility.
+The species' most extraordinary performance is sustained survival and travel rather than explosive speed. Bears can cross immense distances of shifting sea ice, swim for days, accumulate enormous fat reserves during good hunting periods and fast when prey becomes inaccessible. Those same traits have costs. Heavy insulation makes hard running thermally expensive, long swims burn enormous energy, and a bear stranded away from seals can lose mass rapidly despite behavioral flexibility.
 
 On the ABS absolute scale, the polar bear belongs well above the American black bear and most large cats in size, raw power, toughness and endurance. It still should not be compressed upward into elephant, hippo, giant crocodilian, orca or extinct-megafauna territory. Its high ratings arise from a rare combination of half-tonne carnivoran power, marine mobility, sensory hunting and endurance, not from reputation.
 
@@ -252,7 +252,7 @@ Secondary original: https://upload.wikimedia.org/wikipedia/commons/e/ed/Ursus_ma
 - **vs. Orca (5,000 kg; Attack 94.0 / Defense 78.0 / Intelligence 99.0):** the polar bear remains decisively below the ten-times-heavier orca in absolute Attack and cognition. Its Defense can approach but not exceed the orca because of robust terrestrial mass and insulation, while open-water matchups overwhelmingly favor the orca.
 - **vs. megafauna:** elephants, rhinos, hippos and giant bovids retain major size/structural advantages. The polar bear's fame as the largest living bear must not leak into near-ceiling absolute scores.
 - **Agility control:** 8.9 m/s speed does not justify elite Agility. A 500 kg plantigrade animal is capable but not a high-turn-rate specialist.
-- **Special control:** Arctic adaptations are integrated here, but insulation, swimming and olfaction are not separately inflated into Attack or Defense multiple times.
+- **Special control:** Arctic specializations are integrated here, but insulation, swimming and olfaction are not separately inflated into Attack or Defense multiple times.
 
 ## Verification against staging rules
 - Representative healthy adult male, not a record individual: **yes**.

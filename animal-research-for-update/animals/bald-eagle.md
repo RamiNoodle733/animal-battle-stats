@@ -72,7 +72,7 @@ Claims of 700-1,000 PSI eagle grip strength are not accepted. Popular grip-press
 
 ### Defensive structures
 
-Bald eagles have no armor, shell, osteoderms, thick hide or blubber. Protection comes from feathers, aerial evasion, strong skeletal/muscular construction for flight, and keeping dangerous opponents at talon distance. Hollow/pneumatized avian skeletal adaptations are advantageous for flight but do not justify mammal-like trauma resistance.
+Bald eagles have no armor, shell, osteoderms, thick hide or blubber. Protection comes from feathers, aerial evasion, strong skeletal/muscular construction for flight, and keeping dangerous opponents at talon distance. Hollow/pneumatized avian skeletal features are advantageous for flight but do not justify mammal-like trauma resistance.
 
 ## 3. Canonical proposed factual fields
 
@@ -203,7 +203,7 @@ Healthy adults have few routine predators because flight, size among North Ameri
 | **Defense** | **22.0** | Flight avoidance is excellent but physical protection is poor once contact is made. Defense does not double-count Agility. |
 | **Agility** | **79.0** | Aerial three-dimensional control, approach-angle selection, braking and rapid disengagement create elite practical maneuverability. |
 | **Stamina** | **75.0** | Long-distance migration and energy-efficient soaring support strong sustained travel, while remaining well below Albatross 96.0 and below elite terrestrial endurance anchors. |
-| **Intelligence** | **65.0** | Flexible foraging and learned piracy indicate meaningful behavioral adaptability, but evidence does not support corvid/primate-level cognition. |
+| **Intelligence** | **65.0** | Flexible foraging and learned piracy indicate meaningful behavioral flexibility, but evidence does not support corvid/primate-level cognition. |
 | **Special** | **63.0** | Flight plus specialized fish-grasping talons is highly matchup-changing, though it is not a rare biochemical or physiological weapon. |
 
 ### Cross-scale interpretation
@@ -252,7 +252,7 @@ Adults typically reach full white-head/white-tail plumage around 4-5 years and c
 
 The bald eagle was removed from the U.S. Endangered Species Act list in 2007 after a major recovery. USFWS estimated **316,700 individuals** and **71,467 occupied nests** in the lower 48 from 2018-2019 data. It remains protected under the Bald and Golden Eagle Protection Act and Migratory Bird Treaty Act. Globally it is generally treated as Least Concern.
 
-### Major adaptations
+### Special features
 
 - Reversed sexual size dimorphism, with larger females.
 - Broad soaring wings and energy-efficient use of atmospheric lift.

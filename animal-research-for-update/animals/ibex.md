@@ -186,7 +186,7 @@ Alpine ibex occupy the European Alps, particularly steep rocky slopes, alpine me
 
 ### Diet and ecology
 
-They are herbivorous grazers/browsers feeding chiefly on grasses, herbs, leaves and other available alpine vegetation. Seasonal food quality and snow strongly shape body condition. Their grazing links high-alpine plant communities with a large native herbivore adapted to terrain unavailable to many competitors.
+They are herbivorous grazers/browsers feeding chiefly on grasses, herbs, leaves and other available alpine vegetation. Seasonal food quality and snow strongly shape body condition. Their grazing links high-alpine plant communities with a large native herbivore suited to terrain unavailable to many competitors.
 
 ### Social structure
 
@@ -200,7 +200,7 @@ Gestation is roughly **165–170 days**. Usually one kid is born, with twins unc
 
 *Capra ibex* is currently treated as **Least Concern** in modern conservation references. The species nevertheless has an important conservation history because Alpine ibex were reduced to a small remnant population before protection and reintroduction rebuilt populations across the Alps. The bottleneck remains biologically relevant when discussing genetic diversity and population management.
 
-### Adaptations
+### Special features
 
 - Large permanent horns for male competition and signaling.
 - Strongly sexually dimorphic body size and weapon size.
@@ -210,7 +210,7 @@ Gestation is roughly **165–170 days**. Usually one kid is born, with twins unc
 
 ### Human interaction
 
-The Alpine ibex is a major European conservation success and an iconic alpine wildlife species. Hunting management can impose selection on horn phenotypes, which is why the large Swiss horn-growth dataset is especially valuable for separating trophy selection from natural morphology.
+The Alpine ibex is a major European conservation success and an iconic alpine wildlife species. Hunting management can target males by horn size, which is why the large Swiss horn-growth dataset is especially valuable for separating trophy selection from natural morphology.
 
 ### Fun facts
 
@@ -227,7 +227,7 @@ A heavily armed mountain goat of the European Alps, the Alpine ibex combines a r
 
 ### Narrative profile
 
-The Alpine ibex is a terrain specialist whose biology turns mountain geometry into a defensive weapon. A mature male is not merely a goat with long horns: he is a late-maturing, heavily dimorphic bovid whose permanent horns can approach a metre and whose social system has evolved around assessing and safely deploying those weapons. Rivals posture, compare, remember previous outcomes, run shoulder-to-shoulder, butt, rear and crash horn against horn. Those contests reward mass, neck strength, balance and weapon geometry while limiting unnecessary lethal damage.
+The Alpine ibex is a terrain specialist whose biology turns mountain geometry into a defensive weapon. A mature male is not merely a goat with long horns: he is a late-maturing, heavily dimorphic bovid whose permanent horns can approach a metre and whose social system centers on assessing and safely deploying those weapons. Rivals posture, compare, remember previous outcomes, run shoulder-to-shoulder, butt, rear and crash horn against horn. Those contests reward mass, neck strength, balance and weapon geometry while limiting unnecessary lethal damage.
 
 In an ABS matchup, its best environment matters enormously. On steep rock an opponent may be forced to slow, lose turning options, or expose itself while the ibex keeps stable footing. On level ground that advantage shrinks, leaving a powerful but still unarmored 100 kg herbivore. This is why its Agility can be strong without granting inflated Attack, Defense or Raw Power. The ibex is a good test case for the project's absolute-scaling rule: exceptional specialization should appear where it actually matters, not leak into every score.
 
@@ -295,7 +295,7 @@ In an ABS matchup, its best environment matters enormously. On steep rock an opp
 - Six headline ratings scored with one decimal: **yes**
 - Exactly two special abilities: **yes**
 - Exactly two unique traits: **yes**
-- Habitat/range/diet/ecology/social/life history/conservation/adaptations/human interaction: **yes**
+- Habitat/range/diet/ecology/social/life history/conservation/special features/human interaction: **yes**
 - Several genuine fun facts: **yes**
 - Site summary and narrative profile: **yes**
 - Source ledger with direct URLs/confidence/conflicts: **yes**

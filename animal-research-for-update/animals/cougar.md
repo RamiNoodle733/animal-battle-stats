@@ -157,7 +157,7 @@ All ratings use the absolute 225-animal scale and were reassessed independently 
 |---|---:|---|
 | **Raw Power** | **50.0** | Strong 70 kg felid with powerful hindquarters, forelimbs and neck, but far below true megafaunal force. |
 | **Weaponry** | **61.0** | Canines plus retractile claws and grappling form an efficient multi-part close-range kill system. |
-| **Ferocity** | **67.0** | Territorial males can kill rivals and tackle dangerous ungulate prey, while injury avoidance remains adaptive. |
+| **Ferocity** | **67.0** | Territorial males can kill rivals and tackle dangerous ungulate prey, while injury avoidance remains advantageous. |
 | **Protection** | **24.0** | Ordinary fur/skin/muscle with no armor. |
 | **Toughness** | **43.0** | Robust predator but vulnerable to penetrating, crushing and limb trauma. |
 | **Maneuverability** | **91.0** | Exceptional jumping, balance, climbing and broken-terrain repositioning. |
@@ -213,7 +213,7 @@ Breeding can occur year-round. Females raise kittens without male parental care.
 
 The species remains broadly distributed but was historically eliminated from much of eastern North America. Roads, habitat fragmentation, prey depletion, persecution and livestock conflict remain important pressures. CatSG lists the puma as Least Concern globally and CITES Appendix II. Human attacks are rare relative to the species' geographic overlap with people, and cougars commonly avoid humans.
 
-### Adaptations
+### Special features
 
 - long powerful hind limbs for burst acceleration and jumping
 - retractile claws and strong forelimbs for grappling
@@ -235,7 +235,7 @@ The species remains broadly distributed but was historically eliminated from muc
 
 ### Concise site-ready summary
 
-The cougar is a 70 kg-class solitary ambush cat built around stealth, explosive jumping, forelimb grappling and a killing neck bite. Its greatest matchup advantages are agility, terrain control and attack efficiency rather than armor or brute megafaunal force. It routinely kills deer-sized prey, caches carcasses and adapts to environments from mountains and forests to deserts, but avoids prolonged frontal conflict with larger carnivores when possible.
+The cougar is a 70 kg-class solitary ambush cat built around stealth, explosive jumping, forelimb grappling and a killing neck bite. Its greatest matchup advantages are agility, terrain control and attack efficiency rather than armor or brute megafaunal force. It routinely kills deer-sized prey, caches carcasses and occupies environments from mountains and forests to deserts, but avoids prolonged frontal conflict with larger carnivores when possible.
 
 ### Narrative profile
 

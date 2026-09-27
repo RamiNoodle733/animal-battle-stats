@@ -43,7 +43,7 @@ bite_force_psi: 0.0
 The primary damaging weapons are the enormous hind limbs and elongated feet. A fighting male can brace on the muscular tail and forelimbs, bring both hind legs forward, and kick/rake an opponent at close range. The feet provide both impact and clawed contact. This is a real specialized fighting mechanism, but no reliable species-specific kick-force value in Newtons was recovered in this run, so ABS does not invent one.
 
 ### Secondary weapons
-The forelimbs are important control tools. Male kangaroos grapple, clasp, shove and pull rivals to create position for hind-leg attacks. Comparative macropod research demonstrates that male forelimb muscularity is sexually selected and that larger macropod species show stronger forelimb dimorphism. The forelimbs should therefore not be reduced to cosmetic 'boxing.' The tail is also mechanically important: it provides balance during hopping and can act as a powerful support during fighting and slow pentapedal locomotion.
+The forelimbs are important control tools. Male kangaroos grapple, clasp, shove and pull rivals to create position for hind-leg attacks. Comparative macropod research shows that males carry much more forelimb muscle than females and that larger macropod species show stronger forelimb dimorphism. The forelimbs should therefore not be reduced to cosmetic 'boxing.' The tail is also mechanically important: it provides balance during hopping and can act as a powerful support during fighting and slow pentapedal locomotion.
 
 ### Offensive mechanics
 Male kangaroo fighting is a positional sequence rather than simple punching. Rivals stand tall, paw/grapple with the forelimbs, wrestle for upper-body control and may lean back onto the tail to free both hind limbs for forceful kicks. Work on western grey kangaroos directly describes males clasping opponents with the forelimbs, standing on the tail, and bringing up the hind legs to kick. Red kangaroos share the large-bodied macropod combat plan, and cross-species work shows combat-related forelimb dimorphism strengthens with body size.
@@ -82,7 +82,7 @@ The first-line defense is detection and escape across open ground. If cornered o
 
 **Strong environments:** open plains, grassland, shrubland, desert, woodland and open forest with room to bound. Australian Museum and Taronga both emphasize open/arid habitats.
 
-**Environmental advantages:** long-distance hopping becomes mechanically economical; open sight lines help early detection; heat and drought adaptations support persistence in arid landscapes; a large male has enough open space to establish distance and choose when to engage.
+**Environmental advantages:** long-distance hopping becomes mechanically economical; open sight lines help early detection; heat and drought tolerance supports persistence in arid landscapes; a large male has enough open space to establish distance and choose when to engage.
 
 **Environmental disadvantages:** tight interiors, dense entangling vegetation, slick confined surfaces and terrain that prevents a stable tail/hindlimb brace reduce the value of the normal locomotor and kicking system. Steep uphill travel is metabolically more expensive than level hopping.
 
@@ -98,7 +98,7 @@ All scores are absolute across the full roster, not pound-for-pound.
 
 | Substat | Score | Justification |
 |---|---:|---|
-| **Raw Power** | **51.0** | An 80 kg male with exceptionally developed hindquarters, large feet, strong tail and sexually selected upper body has substantial absolute power, but remains far below great apes, large bears and megafauna. |
+| **Raw Power** | **51.0** | An 80 kg male with exceptionally developed hindquarters, large feet, strong tail and heavily muscled male upper body has substantial absolute power, but remains far below great apes, large bears and megafauna. |
 | **Weaponry** | **52.0** | Double hind-leg kicks plus clawed feet and grappling forelimbs are dangerous and specialized, but lack the continuous grip/lethality of large carnivore jaws and claws. |
 | **Ferocity** | **53.0** | Males engage in real dominance fights and can escalate to kicking; still an herbivore whose normal strategy toward danger is often escape. |
 | **Protection** | **28.0** | No armor or specialized trauma-resistant covering; mass and fur provide only modest protection. |
@@ -127,7 +127,7 @@ All scores are absolute across the full roster, not pound-for-pound.
 
 ## 8. Exactly two unique traits
 1. **Power-Tail Pentapod** - during slow pentapedal locomotion the tail is not merely a passive balance pole: force-platform work shows it can supply as much propulsive force as the limbs combined and substantial positive mechanical work.
-2. **Sexually Selected Grappler Build** - large male macropods show disproportionate forelimb development tied to male-male competition, giving the canonical boomer a much more combat-oriented upper body than the familiar lightweight female silhouette suggests.
+2. **Male Grappler Build** - large male macropods show disproportionate forelimb development tied to male-male competition, giving the canonical boomer a much more combat-oriented upper body than the familiar lightweight female silhouette suggests.
 
 ## 9. Expanded profile
 
@@ -141,16 +141,16 @@ The species is a grazing herbivore, eating native grasses and other small green 
 Red kangaroos form loose social groups commonly called mobs. ADW describes groups averaging around ten, usually dominated numerically by females and young with one or more males, while much larger temporary aggregations can form at rich forage. Sociality supplies vigilance and mating context but does not create pack-hunting power for an individual battle profile.
 
 ### Reproduction and life history
-Breeding can occur through the year when conditions permit. ADW reports gestation around 33 days, pouch attachment early in development and prolonged maternal investment. Females can use embryonic diapause, pausing development when environmental or reproductive conditions make immediate progression unfavorable. Taronga highlights delayed birth under poor food/water conditions. This is a major ecological adaptation but not a direct combat mechanism.
+Breeding can occur through the year when conditions permit. ADW reports gestation around 33 days, pouch attachment early in development and prolonged maternal investment. Females can use embryonic diapause, pausing development when environmental or reproductive conditions make immediate progression unfavorable. Taronga highlights delayed birth under poor food/water conditions. This is a major ecological strategy but not a direct combat mechanism.
 
 ### Conservation
 Taronga lists *Osphranter rufus* as **Least Concern**. The species is widespread, but abundance can fluctuate with drought and rainfall. Human land use, fencing, roads and regulated harvesting all shape local populations.
 
-### Major adaptations
+### Special features
 - enormous elastic hindlimb tendons for economical hopping
 - elongated hind feet and powerful hindquarters
 - muscular load-bearing tail used in balance, fighting support and pentapedal propulsion
-- sexually selected male forelimb/upper-body development
+- heavily muscled male forelimb/upper-body development
 - arid-zone heat and water economy
 - flexible reproductive timing including embryonic diapause
 
@@ -171,7 +171,7 @@ Red kangaroos are among Australia's most recognizable native mammals. They inter
 The Red Kangaroo is the world's largest living marsupial and an 80 kg male is a specialized open-ground striker. Its danger comes from a grapple-and-brace fighting system that frees both powerful hind legs for kicks, while elastic tendons make sustained hopping exceptionally economical. It is fast, mobile and enduring, but lacks armor and the penetrating killing weapons of a large carnivore.
 
 ### Rich narrative profile
-A mature male red kangaroo is not simply a large rabbit-like hopper. Its entire body plan is organized around oversized hindquarters, long feet, elastic tendons and a muscular tail, while sexual selection has added a stronger upper body for male competition. In a fight the forelimbs establish contact and position; the tail can become a support; and the hind limbs provide the most dangerous strike. That makes the animal unusually capable of turning a locomotor system into a close-range weapon.
+A mature male red kangaroo is not simply a large rabbit-like hopper. Its entire body plan is organized around oversized hindquarters, long feet, elastic tendons and a muscular tail, while mature males also carry a stronger upper body for male competition. In a fight the forelimbs establish contact and position; the tail can become a support; and the hind limbs provide the most dangerous strike. That makes the animal unusually capable of turning a locomotor system into a close-range weapon.
 
 The same anatomy explains why its best battlefield is open, firm ground. At distance, the kangaroo can bound rapidly and efficiently. At close range, it wants enough space and traction to orient its hips, brace and kick. A predator that collapses that geometry, attacks from an unfavorable angle or overwhelms the kangaroo before it establishes the tripod posture can sharply reduce its offensive ceiling. Conversely, a smaller opponent forced to enter from the front risks a severe reach and power disadvantage.
 
@@ -212,7 +212,7 @@ Stamina is arguably the species' most exceptional broad physical trait. Red-kang
 | Animal Diversity Web, Red Kangaroo | https://animaldiversity.org/accounts/Macropus_rufus/ | morphology, tail, life history, longevity, social behavior | male 1.3-1.6 m head/body description; 1.0-1.2 m tail; up to 90 kg; wild record to 22 y; mobs | synthesis account | **Moderate-high**; some displayed length labels are confusing, so used cautiously |
 | Kram & Dawson 1998, Energetics and biomechanics of locomotion by red kangaroos | https://pubmed.ncbi.nlm.nih.gov/9787777/ | locomotor economy, stamina | oxygen consumption nearly constant as level hopping speed rises; uphill hopping much more costly; measured maximal oxygen consumption 3 ml O2 kg-1 s-1 | peer-reviewed red-kangaroo biomechanics | **High** |
 | O'Connor et al. 2014, The kangaroo's tail propels and powers pentapedal locomotion | https://pubmed.ncbi.nlm.nih.gov/24990111/ | tail mechanics | tail can provide as much propulsive force as fore/hind limbs combined during pentapedal gait and major positive mechanical work | force-platform red-kangaroo study | **High** |
-| Warburton, Bateman & Fleming 2013 | https://academic.oup.com/biolinnean/article-abstract/109/4/923/2415678 | fighting mechanics, sexual selection | males clasp opponents with forelimbs, support on tail and kick; male forelimb muscles show combat-linked positive allometry | western grey kangaroo, comparative combat mechanism | **High for macropod mechanism**, indirect for red-kangaroo muscle measurements |
+| Warburton, Bateman & Fleming 2013 | https://academic.oup.com/biolinnean/article-abstract/109/4/923/2415678 | fighting mechanics, male competition | males clasp opponents with forelimbs, support on tail and kick; male forelimb muscles show combat-linked positive allometry | western grey kangaroo, comparative combat mechanism | **High for macropod mechanism**, indirect for red-kangaroo muscle measurements |
 | Richards et al. 2015, Strong arm tactics | https://zslpublications.onlinelibrary.wiley.com/doi/10.1111/jzo.12264 | cross-macropod dimorphism | forelimb dimorphism increases with body size across 15 promiscuous macropodid species | comparative skeletal sample | **High**, cross-species rather than red-kangaroo-only |
 | Wikimedia Commons, Red kangaroo (8454551677) | https://commons.wikimedia.org/wiki/File:Red_kangaroo_(8454551677).jpg | image provenance | exact species, 3648x2736, CC BY 2.0, Flickr license reviewed | Al Ain zoo photograph | **High provenance; insufficient strict anatomy/adult verification** |
 

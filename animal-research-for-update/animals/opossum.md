@@ -53,8 +53,8 @@ The primary weapon is a tooth-rich jaw with prominent canines and incisors. Fift
 ### Offensive mechanics and predation
 Virginia opossums are opportunistic omnivores that take insects, worms, small mammals, birds, eggs, reptiles and amphibians in addition to fruit, seeds and carrion. Their offense is close-range and unspecialized: seize or bite small prey rather than pursue and overpower large vertebrates. Venom resistance can permit interactions with some vipers that would be disproportionately dangerous to similarly sized mammals.
 
-### Defensive adaptations and toughness
-The strongest unusual defense is biochemical. A 1998 Toxicon study found Virginia-opossum serum antihemorrhagins bind and neutralize hemorrhagic activities of snake-venom proteins. A 2008 Toxicon study found Virginia-opossum serum neutralized lethality and proteolytic activities of Malayan pit-viper venom. More recent evolutionary work supports venom-target resistance in didelphid opossums. This is **not universal toxin immunity** and should not be generalized to every venom mechanism.
+### Defensive features and toughness
+The strongest unusual defense is biochemical. A 1998 Toxicon study found Virginia-opossum serum antihemorrhagins bind and neutralize hemorrhagic activities of snake-venom proteins. A 2008 Toxicon study found Virginia-opossum serum neutralized lethality and proteolytic activities of Malayan pit-viper venom. More recent molecular work supports venom-target resistance in didelphid opossums. This is **not universal toxin immunity** and should not be generalized to every venom mechanism.
 
 Death-feigning is a second distinctive defense, but its combat value is conditional. It may discourage predators motivated by live prey, yet becoming limp is dangerous against opponents that scavenge, continue attacking, or simply ignore the display.
 
@@ -113,7 +113,7 @@ All ratings use absolute 0.1-100.0 roster scaling and were derived independently
 | **Defense** | **28.0** | Little physical armor; venom resistance and conditional thanatosis improve survival without stopping ordinary trauma. |
 | **Agility** | **71.0** | Strong climbing and complex-terrain control, but not a high-speed terrestrial specialist. |
 | **Stamina** | **56.0** | Regular kilometer-scale nocturnal movement supports moderate sustained activity; cold sharply suppresses performance. |
-| **Intelligence** | **59.0** | Flexible generalist with demonstrated maze alternation and adaptive foraging, but no basis for elite cognition. |
+| **Intelligence** | **59.0** | Flexible generalist with demonstrated maze alternation and versatile foraging, but no basis for elite cognition. |
 | **Special** | **90.0** | Well-supported snake-venom resistance plus extreme involuntary death-feigning create rare matchup-specific capabilities. |
 
 ### Cross-animal normalization
@@ -121,7 +121,7 @@ At 2.8 kg, Opossum Attack 25.0 remains far below Ocelot 38.0 (13 kg), Monitor Li
 
 ## 7. Exactly two special abilities and exactly two unique traits
 ### Special abilities
-1. **Viper-Venom Countermeasure** - serum antihemorrhagic factors and venom-target adaptations provide experimentally supported resistance to important components of several snake venoms, reducing a normally decisive toxin advantage without implying universal immunity.
+1. **Viper-Venom Countermeasure** - serum antihemorrhagic factors and venom-resistant target proteins provide experimentally supported resistance to important components of several snake venoms, reducing a normally decisive toxin advantage without implying universal immunity.
 2. **Involuntary Thanatosis** - extreme stress can trigger a catatonic death-feigning state that may cause some predators to disengage, though it is unreliable against scavengers or persistent attackers.
 
 ### Unique traits
@@ -144,7 +144,7 @@ The mating system is polygynous. Females can mature around six months and males 
 ### Conservation
 ADW reports **IUCN Least Concern**, no special US federal status and no CITES listing. The species tolerates human-altered habitats exceptionally well and can have higher survival near settlements, although road mortality and persecution are important local hazards.
 
-### Major adaptations
+### Special features
 Marsupial pouch reproduction, prehensile tail, opposable hind hallux, generalized omnivorous dentition, nocturnal behavior, broad habitat tolerance, venom-neutralizing serum factors and involuntary thanatosis.
 
 ### Human interaction
@@ -165,7 +165,7 @@ The Virginia opossum is a 2.8 kg nocturnal marsupial with modest direct fighting
 ### Rich narrative profile
 The Virginia opossum wins ecological battles through versatility rather than force. A mature male is only a few kilograms, lacks armor and is not a fast pursuit predator. Its direct weapons are conventional small-mammal tools: jaws, fifty teeth and claws. Against an ocelot, bobcat, coyote or similarly serious predator, those tools do not erase the enormous size and power gap.
 
-What changes matchups is the opossum's unusual physiology and behavior. Toxinology research shows that its serum can neutralize important hemorrhagic and proteolytic snake-venom activities, while evolutionary studies reveal broader molecular adaptations associated with venom resistance in didelphids. This can specifically undermine venomous snakes, but the evidence does not justify fantasy-level immunity to all toxins. At the opposite extreme, overwhelming stress can push the animal into involuntary catatonic death-feigning. That response can deter some predators but can be useless or harmful against opponents willing to scavenge.
+What changes matchups is the opossum's unusual physiology and behavior. Toxinology research shows that its serum can neutralize important hemorrhagic and proteolytic snake-venom activities, while genetic studies reveal broader molecular features associated with venom resistance in didelphids. This can specifically undermine venomous snakes, but the evidence does not justify fantasy-level immunity to all toxins. At the opposite extreme, overwhelming stress can push the animal into involuntary catatonic death-feigning. That response can deter some predators but can be useless or harmful against opponents willing to scavenge.
 
 Its mobility is similarly broad rather than extreme. A prehensile tail and opposable hind hallux support climbing, it can swim, and field studies document substantial nightly travel. Yet no defensible maximum sprint speed was found, so ABS does not convert ecological versatility into fake speed precision. The result is intentionally asymmetric: low absolute power, moderate Defense and Stamina, good complex-terrain Agility, and an elite Special rating driven by genuinely unusual mechanisms.
 
@@ -199,7 +199,7 @@ Its mobility is similarly broad rather than extreme. A prehensile tail and oppos
 | Ryser 1995, Florida Museum Bulletin | https://flmnhbulletin.com/index.php/flmnh/article/view/flmnh-vol38-no6 | activity, movement, home range, temperature effects | males 234 m/h and 1,835 m/night average; max 4,665 m/night; nocturnal; cold suppresses activity | High, primary field study; movement is not top speed |
 | Sánchez et al. 1998, Toxicon | https://pubmed.ncbi.nlm.nih.gov/9723843/ | venom resistance | opossum serum antihemorrhagins bind/neutralize hemorrhagic venom proteins | High, peer reviewed; component-specific, not universal immunity |
 | Pornmanee et al. 2008, Toxicon | https://pubmed.ncbi.nlm.nih.gov/18617212/ | venom resistance | Virginia-opossum serum neutralized Malayan pit-viper venom lethality/proteolytic activity | High, peer reviewed; serum experiment does not imply all venoms |
-| Voss & Jansa 2012, Biological Reviews | https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-185X.2012.00222.x | mechanism/context of venom resistance | toxin-neutralizing serum proteins and venom-target adaptations in didelphids | High review; broader didelphid context |
+| Voss & Jansa 2012, Biological Reviews | https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-185X.2012.00222.x | mechanism/context of venom resistance | toxin-neutralizing serum proteins and venom-resistant target proteins in didelphids | High review; broader didelphid context |
 | Tilley et al. 1966 | https://openalex.org/W2029344176 | cognition | five adult Virginia opossums significantly alternated in T-maze trials | Moderate/high primary behavioral evidence; small sample |
 | Wikimedia Commons, Lauren McLaurin | https://commons.wikimedia.org/wiki/File:Didelphis_virginiana_189957925.jpg | image provenance | exact species, 2048x1365, CC BY 4.0 | Strong reuse provenance; adulthood/strict complete body unresolved |
 | ADW adult image | https://animaldiversity.org/collections/contributors/Wright_Lisa/Didelphis_adult/ | adult image provenance | exact species, adult/sexually mature, CC BY-NC-SA 3.0 | Adult verified, but not promoted without stronger full-body framing |

@@ -94,7 +94,7 @@ They are nocturnal opportunistic scavengers and predators, feeding primarily on 
 | Endurance | **64.0** | Routine diel depth migration and low-cost buoyancy support prolonged activity, not high-output pursuit. |
 | Recovery | **31.0** | No exceptional regeneration or rapid trauma recovery established. |
 | Tactics | **42.0** | Functional nocturnal foraging and retreat behavior without evidence for advanced flexible combat tactics. |
-| Senses | **58.0** | Strong chemical/tactile search partly compensates for primitive pinhole vision. |
+| Senses | **58.0** | Strong chemical/tactile search partly compensates for simple pinhole vision. |
 | Ferocity | **20.0** | Opportunistic feeder/scavenger with little evidence of dangerous conspecific combat. |
 | Abilities | **80.0** | Chambered buoyancy, external shell/hood, many chemosensory tentacles and directional jet propulsion form an unusual integrated system. |
 
@@ -130,13 +130,13 @@ The species is not treated as a cooperative fighter. Sexes are separate, and mal
 ### Conservation and human interaction
 NOAA lists the chambered nautilus as **Threatened under the U.S. Endangered Species Act** and all nautiluses are regulated under **CITES Appendix II**. International shell trade is a major threat. Slow growth, late maturity, low reproductive output and geographically isolated populations make removal difficult to replace.
 
-### Major adaptations
+### Special features
 - Chambered external shell combining buoyancy regulation and armor.
 - Siphuncle-mediated chamber-fluid regulation.
 - Directional funnel jet propulsion.
 - More than 90 suckerless adhesive/chemosensory tentacles.
 - Retractable soft body and protective hood.
-- Pinhole eyes adapted to a sensory system that emphasizes smell/touch.
+- Pinhole eyes working within a sensory system that emphasizes smell/touch.
 - Long lifespan and repeated reproduction rather than the short semelparous life typical of many coleoids.
 
 ### Genuine fun facts
@@ -147,7 +147,7 @@ NOAA lists the chambered nautilus as **Threatened under the U.S. Endangered Spec
 - The shell is not merely decorative: pressure experiments show it can withstand tens of atmospheres before implosion.
 - The nautilus has **more than 90 tentacles**, but no suckers.
 - Its eye is a true biological pinhole camera without a lens.
-- Unlike octopuses and squids, it retains a large external shell.
+- Unlike octopuses and squids, it has a large external shell.
 
 ### Concise site-ready summary
 The chambered nautilus is a slow, shelled cephalopod whose strength lies in defense and specialization rather than raw attack. A mature male weighs well under a kilogram and swims at only about 0.25 m/s, but its chambered shell regulates buoyancy, its hood can seal the vulnerable body inside, and more than 90 chemosensory tentacles locate and grip food in dark reef habitat.

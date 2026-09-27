@@ -167,7 +167,7 @@ Sexes are visually dimorphic, with mature males generally brighter green and fem
 ### Conservation
 A robust global IUCN category was not recovered in this run; Fishipedia lists the species as **Not Evaluated**. The research file therefore records conservation status as **not securely assessed here**, rather than inventing a threat category.
 
-### Adaptations
+### Special features
 - Elastic latch-spring raptorial mechanism.
 - Mineralized impact-resistant dactyl club.
 - Cavitation-assisted shell breaking.

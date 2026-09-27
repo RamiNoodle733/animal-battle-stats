@@ -32,7 +32,7 @@ The US Forest Service synthesis gives a greatest recorded longevity of **25 year
 - **Uncertainty:** moderate. Sources differ on whether their lifespan summaries represent averages, maxima or banding records, so the site should eventually distinguish expected adult lifespan from maximum longevity.
 
 ### Feet, talons and fish-grip system
-The feet are the main weapons and one of the most specialized raptorial grasping systems. ADW documents relatively long legs, long sharp curved claws, **spiny footpads (spicules)** and a **reversible outer toe**. The reversible fourth toe can oppose the second and third toes, producing a stronger two-forward/two-back hold on slippery fish. A peer-reviewed Ibis paper specifically discusses this reversible fourth toe as a well-known osprey adaptation for catching and carrying fish.
+The feet are the main weapons and one of the most specialized raptorial grasping systems. ADW documents relatively long legs, long sharp curved claws, **spiny footpads (spicules)** and a **reversible outer toe**. The reversible fourth toe can oppose the second and third toes, producing a stronger two-forward/two-back hold on slippery fish. A peer-reviewed Ibis paper specifically discusses this reversible fourth toe as a well-known osprey feature for catching and carrying fish.
 
 A 2018 *Brain and Behavior* study of fish-carrying posture found that live fish are seized with the talons rather than the bill, and that in two-foot carriage the bird usually aligns the fish head-forward under its body. In the study's Ospreys Only dataset, 112 fish were head-forward versus 10 backward. This is strong behavioral evidence that the osprey actively stabilizes captured prey and reduces aerodynamic penalty after the strike.
 
@@ -45,7 +45,7 @@ The hooked bill tears fish after the feet establish control. No defensible ospre
 - The old live-site 100 PSI placeholder is rejected as unsupported.
 
 ### Water-entry defenses
-ADW and National Wildlife Federation describe dense/oily water-resistant plumage and nostril valves that close during plunge-dives. These are real fishing adaptations, but they are not armor. They reduce the physiological and aerodynamic cost of entering water and help the bird remain functional after a strike.
+ADW and National Wildlife Federation describe dense/oily water-resistant plumage and nostril valves that close during plunge-dives. These are real fishing specializations, but they are not armor. They reduce the physiological and aerodynamic cost of entering water and help the bird remain functional after a strike.
 
 ## 3. Canonical proposed factual fields
 
@@ -168,7 +168,7 @@ All scores are absolute across the full 225-animal roster.
 | Tactics | **69.0** | Flexible prey/habitat selection, strike timing and consistent aerodynamic fish handling. |
 | Senses | **85.0** | High-grade visual targeting through the air-water interface is central to hunting. |
 | Ferocity | **53.0** | Territorial and decisive in attacks, but a specialized fisher rather than a reckless generalized fighter. |
-| Abilities | **77.0** | Reversible toe, spicules, water-entry adaptations and aerial plunge geometry combine into a genuinely unusual package. |
+| Abilities | **77.0** | Reversible toe, spicules, water-entry features and aerial plunge geometry combine into a genuinely unusual package. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -211,7 +211,7 @@ Typical clutches contain two to four eggs. Young fledge at roughly two months an
 ### Conservation
 The osprey is currently a conservation success story across much of North America. DDT and other contaminants caused severe twentieth-century declines and reproductive failure, but populations rebounded after restrictions. USGS continues to use ospreys as useful indicators of aquatic contaminant exposure because they occupy a high trophic position and depend strongly on fish.
 
-### Major adaptations
+### Special features
 - Reversible fourth toe.
 - Spicules on the footpads.
 - Long sharp talons and relatively long legs.
@@ -221,7 +221,7 @@ The osprey is currently a conservation success story across much of North Americ
 - Behaviorally optimized head-first fish carriage.
 
 ### Human interaction
-Ospreys readily use utility poles, channel markers and purpose-built nest platforms, sometimes placing them near human activity. This adaptability aided recovery in many areas, but fishing line, contaminants, collision/electrocution and habitat changes remain hazards.
+Ospreys readily use utility poles, channel markers and purpose-built nest platforms, sometimes placing them near human activity. This flexibility aided recovery in many areas, but fishing line, contaminants, collision/electrocution and habitat changes remain hazards.
 
 ### Genuine fun facts
 - Ospreys can reverse the outer toe so the foot can grip fish with two toes forward and two backward.
@@ -268,7 +268,7 @@ A second real-photo candidate from Michael Orgill/iNaturalist clearly shows a co
 | Washburn et al. 2014 / USGS | https://www.usgs.gov/publications/wintering-ecology-adult-north-american-ospreys | winter ecology | adults showed strong site fidelity; winter periods ~154 d males, 167 d females | High, telemetry |
 | Martell et al. 2014 / USGS | https://www.usgs.gov/publications/spring-migration-adult-north-american-ospreys | migration strategy | spring timing/routes and sex/population effects; time-minimizing migration | High, telemetry |
 | Allen 2018, *Brain and Behavior* | https://onlinelibrary.wiley.com/doi/10.1002/brb3.1126 | fish grip and carriage | talon capture; 112 head-forward vs 10 backward fish in one dataset; consistent stance pattern | Peer-reviewed; image-based observational design |
-| Londei 2020, *Ibis* | https://onlinelibrary.wiley.com/doi/10.1111/ibi.12812 | reversible toe | rotation of fourth toe is a known osprey adaptation for stronger fish grip | Peer-reviewed morphology note |
+| Londei 2020, *Ibis* | https://onlinelibrary.wiley.com/doi/10.1111/ibi.12812 | reversible toe | rotation of fourth toe is a known osprey feature for stronger fish grip | Peer-reviewed morphology note |
 | Kalvans & Bajinskis 2016 | https://eeb.lu.lv/EEB/201610/EEB_XIV_Kalvans.shtml | prey size and diet | 1,501 prey from 119 nests, all fish; mean measured fish 27.8 cm / 368 g | Strong field diet sample |
 | Francour & Thibault 1996 | https://www.tandfonline.com/doi/abs/10.1080/00063659609461004 | marine diet | Corsican mullets averaged 297 mm and 235 g; prey tracked locally abundant surface fish | Peer-reviewed field study |
 | Edwards 1988, *The Auk* | https://academic.oup.com/auk/article-pdf/105/2/244/28175545/auk0244.pdf | prey-selection flexibility | Florida adults shifted prey and foraging habitat with fish abundance | Peer-reviewed |
@@ -285,7 +285,7 @@ A second real-photo candidate from Michael Orgill/iNaturalist clearly shows a co
 ## 11. Cross-animal normalization notes
 - **Golden Eagle:** 5.0 kg female, Attack 40.0. Osprey at 1.8 kg is kept at Attack 31.0 and Raw Power 11.5 despite superb proportional fishing performance. This prevents proportional-strength leakage.
 - **Golden Eagle Agility 88.0 vs Osprey 87.0:** both are elite aerial predators. The osprey's specialized plunge control does not require a higher generalized maneuverability score than the larger eagle.
-- **Special 83.0:** intentionally above Golden Eagle's 70.0 because reversible toe + spicules + water-entry adaptations are a rarer integrated mechanism. This does not imply greater overall power.
+- **Special 83.0:** intentionally above Golden Eagle's 70.0 because reversible toe + spicules + water-entry features are a rarer integrated mechanism. This does not imply greater overall power.
 - **Stamina 82.0:** supported by migration telemetry, but not inflated to albatross-like ceiling territory because much movement is energy-efficient flight rather than continuous maximal muscular output.
 - **Defense 17.0:** flight is not counted again as physical armor. Avoidance contributes mainly to Agility and matchup context.
 - **Intelligence 65.0:** flexible fishing and navigation justify solid cognition, but sociality and migration are not used to inflate it into corvid/parrot/primate tiers.

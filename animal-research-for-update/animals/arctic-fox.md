@@ -63,7 +63,7 @@ The Arctic fox is a small canid with carnassial teeth and a functional predatory
 
 ### Fur, paws and thermal defense
 
-A scientific review by Pål Prestrud describes Arctic fox fur as having exceptionally high insulation, with a lower critical temperature below **-40 °C**. Short muzzle, ears and legs reduce heat loss, while vascular adaptations in the feet help prevent freezing on cold substrate. Dense fur covers the paws, reflected in the species name *lagopus* (hare-footed).
+A scientific review by Pål Prestrud describes Arctic fox fur as having exceptionally high insulation, with a lower critical temperature below **-40 °C**. Short muzzle, ears and legs reduce heat loss, while specialized blood vessels in the feet help prevent freezing on cold substrate. Dense fur covers the paws, reflected in the species name *lagopus* (hare-footed).
 
 These are extraordinary environmental defenses, but insulation is not physical armor against teeth, claws or blunt trauma.
 
@@ -105,7 +105,7 @@ The jaws and teeth are the primary weapons. Arctic foxes kill small vertebrate p
 
 Typical offense is a fast close-range bite after stalking, searching or pouncing. The fox is optimized for prey far smaller than itself, especially lemmings and voles, rather than for fighting similarly sized carnivores. It lacks long claws, horns, venom, armor-breaking jaws or large body mass.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 Against Arctic weather, its defenses are elite: dense insulating fur, compact extremities, furred feet, counter-current/vascular heat conservation and behavioral sheltering. Against animal attacks, those same traits offer little true armor. A larger red fox can dominate, displace and kill Arctic foxes, demonstrating the limits of its physical defense.
 
@@ -135,7 +135,7 @@ Territorial and reproductive conflict occurs, but the species is not built aroun
 
 ### Predator defense and interspecific competition
 
-Larger predators and competitors are a serious problem. Peer-reviewed work documents interference competition from the larger red fox, including exclusion from dens and food and direct killing. This is a critical calibration point: Arctic fox cold adaptation does not translate into high general Defense.
+Larger predators and competitors are a serious problem. Peer-reviewed work documents interference competition from the larger red fox, including exclusion from dens and food and direct killing. This is a critical calibration point: Arctic fox cold tolerance does not translate into high general Defense.
 
 ### Environmental strengths
 
@@ -162,14 +162,14 @@ Larger predators and competitors are a serious problem. Peer-reviewed work docum
 3. No true passive armor
 4. Short reach
 5. Larger red foxes can displace and kill it
-6. Extreme cold adaptations do not directly stop trauma
+6. Extreme cold-weather features do not directly stop trauma
 7. No venom, electricity or other direct disabling mechanism
 
 ### Good matchup archetypes
 
 - Tiny mammals, birds and similarly fragile prey-sized opponents
 - Slow small animals vulnerable to pouncing and biting
-- Cold-environment opponents with poorer thermal adaptation
+- Cold-environment opponents with poorer thermal protection
 - Small opponents that struggle to detect a seasonally camouflaged fox
 
 ### Bad matchup archetypes
@@ -194,11 +194,11 @@ All ratings use the absolute 225-animal scale and the repository's current subst
 | Speed | **45.0** | Qualitatively quick terrestrial predator, but exact top speed is unresolved and this score avoids relying on weak internet sprint figures. |
 | Maneuverability | **66.0** | Small, light, sure-footed, capable of pouncing and repositioning effectively on tundra/snow. |
 | Endurance | **78.0** | Extraordinary long-distance movement evidence for its size, including intercontinental sea-ice dispersal. |
-| Recovery | **53.0** | Strong energetic/cold adaptations and caching support survival through scarcity, without evidence for exceptional injury recovery. |
+| Recovery | **53.0** | Strong energetic/cold-weather traits and caching support survival through scarcity, without evidence for exceptional injury recovery. |
 | Tactics | **52.0** | Flexible opportunistic hunting, caching and habitat use, but no advanced combat coordination. |
 | Senses | **61.0** | Strong hearing/olfaction for locating small prey and carrion in snow-covered landscapes. |
 | Ferocity | **40.0** | Active predator and territorial canid, but generally avoids physically superior competitors. |
-| Unique Abilities | **70.0** | Extreme insulation, cold-substrate adaptations, seasonal camouflage and sea-ice mobility are unusually powerful environmental specializations. |
+| Unique Abilities | **70.0** | Extreme insulation, cold-substrate specializations, seasonal camouflage and sea-ice mobility are unusually powerful environmental specializations. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -209,7 +209,7 @@ All ratings use the absolute 225-animal scale and the repository's current subst
 | **Agility** | **65.0** | Low mass, pouncing ability, snow/tundra footing and quick repositioning produce strong maneuverability independent of uncertain top speed. |
 | **Stamina** | **79.0** | Exceptional sustained movement and cold-weather travel are directly supported by telemetry and comparative migration research. |
 | **Intelligence** | **52.0** | Flexible foraging, caching, prey switching and opportunistic scavenging show solid canid behavioral flexibility without elite cognition. |
-| **Special** | **72.0** | Best-in-class mammalian fur insulation, furred feet, vascular cold adaptations and seasonal camouflage strongly alter performance in Arctic conditions. |
+| **Special** | **72.0** | Best-in-class mammalian fur insulation, furred feet, vascular cold-weather features and seasonal camouflage strongly alter performance in Arctic conditions. |
 
 ### Calibration interpretation
 
@@ -224,7 +224,7 @@ Arctic Fox is an important anti-inflation case. Being an accomplished predator d
 
 ### Unique traits
 
-1. **Hare-Footed Grip** - Dense fur covers the paws and combines with cold-adapted circulation to protect contact surfaces while maintaining mobility on snow and frozen ground.
+1. **Hare-Footed Grip** - Dense fur covers the paws and combines with cold-tolerant circulation to protect contact surfaces while maintaining mobility on snow and frozen ground.
 2. **Ice-Road Nomad** - Arctic foxes can use sea ice as a dispersal corridor and sustain movements of thousands of kilometers, giving this tiny canid an exceptional geographic mobility profile.
 
 ## 8. Expanded profile content
@@ -262,7 +262,7 @@ Often organized around breeding pairs and family groups, though movement and mat
 
 Globally **Least Concern**, with broad circumpolar distribution. However, some regional populations, particularly in Fennoscandia, have required intensive conservation. Red-fox competition, changing prey cycles, disease and climate-driven ecosystem shifts can be locally important.
 
-### Major adaptations
+### Special features
 
 - Extremely insulating winter fur
 - Compact body, short muzzle and small ears reducing heat loss
@@ -289,17 +289,17 @@ Historically trapped extensively for fur. Arctic foxes may use dumps and anthrop
 
 ### Concise site-ready summary
 
-The Arctic fox (*Vulpes lagopus*) is a small circumpolar canid built less for brute-force combat than for surviving and moving through one of Earth's harshest environments. At roughly 4 kg, its bite is dangerous mainly to prey-sized animals, but extraordinary fur insulation, furred paws, seasonal camouflage, flexible scavenging and thousand-kilometer dispersal give it elite cold-weather endurance and specialization. Its greatest weakness is simple scale: larger canids such as red foxes can dominate and kill it despite its remarkable Arctic adaptations.
+The Arctic fox (*Vulpes lagopus*) is a small circumpolar canid built less for brute-force combat than for surviving and moving through one of Earth's harshest environments. At roughly 4 kg, its bite is dangerous mainly to prey-sized animals, but extraordinary fur insulation, furred paws, seasonal camouflage, flexible scavenging and thousand-kilometer dispersal give it elite cold-weather endurance and specialization. Its greatest weakness is simple scale: larger canids such as red foxes can dominate and kill it despite its remarkable Arctic specializations.
 
 ### Detailed narrative profile
 
 The Arctic fox is a strong example of why Animal Battle Stats must separate absolute fighting power from biological excellence. A healthy adult male weighs only a few kilograms. Against a lion, wolf, alligator or even many medium mammals, there is no plausible amount of cold tolerance that closes the mechanical gap in bite force, reach and body mass. Its Attack and Defense therefore belong low on a roster-wide scale.
 
-Where the Arctic fox becomes exceptional is environmental performance. Its winter coat is among the most effective mammalian insulation systems studied. Its compact anatomy reduces exposed surface area, its feet are densely furred, and vascular adaptations help maintain function on frozen substrate. It can curl into a heat-conserving posture, use snow or dens as shelter, cache food and alter activity when resources are scarce. These traits let a tiny carnivore remain active through conditions that would rapidly incapacitate many larger animals.
+Where the Arctic fox becomes exceptional is environmental performance. Its winter coat is among the most effective mammalian insulation systems studied. Its compact anatomy reduces exposed surface area, its feet are densely furred, and specialized blood vessels help maintain function on frozen substrate. It can curl into a heat-conserving posture, use snow or dens as shelter, cache food and alter activity when resources are scarce. These traits let a tiny carnivore remain active through conditions that would rapidly incapacitate many larger animals.
 
 Its movement ecology is equally striking. Satellite tracking and comparative movement research show that Arctic foxes can cover extraordinary distances, including journeys across sea ice between land masses. That supports a high Stamina score even though the fox is not a heavyweight fighter. It is a persistent traveler rather than a sustained grappling machine.
 
-In combat, the fox behaves like what it is: a small canid. Teeth and jaws are the main weapon, with paws and claws helping traction and prey handling. It can pounce and reposition quickly, and seasonal camouflage can aid approach or evasion. But it has no armor and little ability to absorb major trauma. Peer-reviewed research on expanding red foxes demonstrates that a larger, closely related canid can exclude Arctic foxes from food and dens and can kill them directly. That real ecological interaction is more useful for calibration than folklore about Arctic toughness.
+In combat, the fox behaves like what it is: a small canid. Teeth and jaws are the main weapon, with paws and claws helping traction and prey handling. It can pounce and reposition quickly, and seasonal camouflage can aid approach or evasion. But it has no armor and little ability to absorb major trauma. Peer-reviewed research on expanding red foxes demonstrates that a larger fellow canid can exclude Arctic foxes from food and dens and can kill them directly. That real ecological interaction is more useful for calibration than folklore about Arctic toughness.
 
 The result is a deliberately asymmetric profile: low absolute Attack and Defense, strong Agility, very strong Stamina, moderate Intelligence and a high Special rating grounded in genuine cold physiology and seasonal camouflage. This preserves both biological reality and the large power gaps demanded by the 225-animal scale.
 
@@ -343,7 +343,7 @@ The result is a deliberately asymmetric profile: low absolute Attack and Defense
 
 ### Confidence and caveats
 
-- **High confidence:** species identity, approximate body scale, Arctic insulation adaptations, furred feet, broad diet/range, red-fox competitive disadvantage, long-distance movement capability.
+- **High confidence:** species identity, approximate body scale, Arctic insulation features, furred feet, broad diet/range, red-fox competitive disadvantage, long-distance movement capability.
 - **Moderate confidence:** one canonical global mass/length because populations and measurement conventions vary; shoulder height; representative wild lifespan.
 - **Low/unresolved:** exact top sprint speed and species-specific bite force. Both remain `0.0` rather than importing weak figures.
 - Do not interpret exceptional >3,500 km dispersal as a normal journey for every fox. It demonstrates physiological/movement capacity and informs Stamina, not baseline daily travel.
@@ -351,7 +351,7 @@ The result is a deliberately asymmetric profile: low absolute Attack and Defense
 
 ## 11. Cross-animal calibration notes
 
-- **Versus African Elephant:** Arctic Fox is incomparably lower in Size, Raw Power, Attack and physical Defense. No cold adaptation closes that absolute mechanical gap.
+- **Versus African Elephant:** Arctic Fox is incomparably lower in Size, Raw Power, Attack and physical Defense. No cold-weather specialization closes that absolute mechanical gap.
 - **Versus African Lion:** Lion remains vastly superior in damage, reach, mass and toughness. Arctic Fox can exceed it in cold specialization and may warrant higher fine-movement agility, but not combat power.
 - **Versus African Wild Dog:** Wild dog is many times heavier and a much stronger absolute combatant. Arctic Fox receives higher environmental Special and comparable/strong endurance credit without inflating Attack.
 - **Versus Albatross:** Both are extraordinary movers. Albatross remains the earlier elite long-range endurance anchor at Stamina 96.0; Arctic Fox 79.0 recognizes exceptional terrestrial/sea-ice travel without equating powered terrestrial locomotion to dynamic-soaring ocean travel.

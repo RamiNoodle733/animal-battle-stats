@@ -128,7 +128,7 @@ All ratings use absolute roster-wide scaling, not pound-for-pound scaling.
 | Protection | **31.0** | Thick coat helps against weather but provides limited trauma protection; no armor |
 | Toughness | **47.0** | Robust alpine bovid physiology and compact body, but adult predation by cougars proves no exceptional invulnerability |
 | Speed | **42.0** | Capable terrestrial mover, but maximum speed unresolved; score kept conservative rather than importing weak web claims |
-| Maneuverability | **91.0** | Elite footing, balance, ledge control, and steep-rock repositioning are defining adaptations |
+| Maneuverability | **91.0** | Elite footing, balance, ledge control, and steep-rock repositioning are defining traits |
 | Endurance | **70.0** | Sustained alpine movement and seasonal movements support strong endurance, tempered by winter energetic constraints |
 | Recovery | **57.0** | Solid mammalian recovery baseline; no evidence for exceptional regeneration or rapid physiological recovery |
 | Tactics | **65.0** | Threat displays, dominance behavior, risk-sensitive terrain selection, and escape-route use are meaningful but not highly flexible predator tactics |
@@ -175,7 +175,7 @@ The rut peaks in late autumn, chiefly November in much of the range. Males may t
 ### Conservation
 The species remains broadly established across western North America and is generally treated as Least Concern globally, but local populations can be vulnerable to disturbance, harvest, habitat change, disease, and climate-driven changes in alpine environments. Management must be population-specific.
 
-### Major adaptations
+### Special features
 - High-traction specialized hooves.
 - Powerful limbs and balance for steep terrain.
 - Dense insulating double coat.
@@ -292,7 +292,7 @@ Its best battle profile is therefore a terrain controller rather than a bruiser.
 - Six headline ratings scored with one decimal: **yes**
 - Exactly two special abilities: **yes**
 - Exactly two unique traits: **yes**
-- Habitat/range/diet/ecology/social/life history/conservation/adaptations/human interaction covered: **yes**
+- Habitat/range/diet/ecology/social/life history/conservation/special features/human interaction covered: **yes**
 - Several genuine fun facts: **yes**
 - Site summary and narrative profile: **yes**
 - Source ledger with direct URLs/conflicts/confidence: **yes**

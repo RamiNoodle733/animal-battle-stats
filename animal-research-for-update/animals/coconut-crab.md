@@ -37,7 +37,7 @@ The claw is asymmetrical, with the left chela normally larger. Morphometric work
 
 ### Exoskeleton and terrestrial respiration
 
-Adults no longer rely on a gastropod shell. The abdomen becomes hardened and calcified, producing substantial protection for an arthropod. Terrestrialization also includes a highly modified branchiostegal respiratory system. Comparative physiology shows that in fully terrestrial *Birgus latro*, the branchiostegite participates strongly in gas exchange. Adults are therefore air-breathing terrestrial crustaceans, not amphibious crabs that can remain underwater indefinitely.
+Adults no longer rely on a gastropod shell. The abdomen becomes hardened and calcified, producing substantial protection for an arthropod. Life on land also relies on a highly modified branchiostegal respiratory system. Comparative physiology shows that in fully terrestrial *Birgus latro*, the branchiostegite participates strongly in gas exchange. Adults are therefore air-breathing terrestrial crustaceans, not amphibious crabs that can remain underwater indefinitely.
 
 This armor is meaningful against tiny attackers and abrasion, but it is still an arthropod exoskeleton around a 3 kg animal. It should not be scored as if it were mammalian megafauna armor. Molting is the critical exception: the animal retreats underground for weeks while the new exoskeleton hardens, making that life-history phase dramatically more vulnerable than the canonical hard-shelled adult state.
 
@@ -208,8 +208,8 @@ The claw drives Weaponry and contributes to Attack, but does not inflate Raw Pow
 
 ### Unique traits
 
-1. **Shell-Free Land Giant** - unlike juvenile terrestrial hermit-crab relatives, the adult hardens its abdomen and abandons borrowed shells, becoming the largest living terrestrial arthropod.
-2. **Branchiostegal Land Lung** - highly modified branchiostegal respiratory surfaces support a fully terrestrial adult existence, a major crustacean transition that also makes prolonged underwater exposure a liability.
+1. **Shell-Free Land Giant** - unlike its own juvenile stage and the terrestrial hermit crabs it is grouped with, the adult hardens its abdomen and abandons borrowed shells, becoming the largest living terrestrial arthropod.
+2. **Branchiostegal Land Lung** - highly modified branchiostegal respiratory surfaces support a fully terrestrial adult existence, a rare trait among crustaceans that also makes prolonged underwater exposure a liability.
 
 ## 8. Expanded profile content
 
@@ -231,13 +231,13 @@ Primarily solitary. Agonistic encounters around food are strongly size-dependent
 
 ### Reproduction and life history
 
-Adults live on land, but reproduction retains an obligatory marine larval phase. Females carry large broods and migrate toward the coast to release embryos around favorable tidal conditions. ADW reports roughly 50,000-138,000 embryos per spawn, with larvae passing through several marine zoeal stages before the amphibious glaucothoe stage. Young animals use gastropod shells before later hardening the abdomen and becoming fully terrestrial. Both sexes can shift between inland and coastal areas during the reproductive season.
+Adults live on land, but reproduction still includes an obligatory marine larval phase. Females carry large broods and migrate toward the coast to release embryos around favorable tidal conditions. ADW reports roughly 50,000-138,000 embryos per spawn, with larvae passing through several marine zoeal stages before the amphibious glaucothoe stage. Young animals use gastropod shells before later hardening the abdomen and becoming fully terrestrial. Both sexes can shift between inland and coastal areas during the reproductive season.
 
 ### Conservation
 
 The current global assessment is **Vulnerable**, replacing the older Data Deficient treatment still repeated by some legacy sources. Major concerns include harvest for food, slow growth, late maturity, habitat degradation and local population depletion. Conservation status should be rechecked against the current IUCN entry at production migration time.
 
-### Major adaptations
+### Special features
 
 - Enormous asymmetrical crushing chelae.
 - Hardened adult abdomen without a borrowed shell.
@@ -322,7 +322,7 @@ The adult exoskeleton gives it real protection against small opponents, while th
 - **Versus Camel Spider:** coconut crab is much slower but far larger, better armored and enormously stronger in absolute weapon force. It should win Raw Power, Weaponry, Protection and Defense while losing rapid close-range movement.
 - **Versus Chameleon:** coconut crab is physically dominant in Attack and Defense despite lower Agility. Chameleon's high Special comes from a different specialization profile and should not imply combat parity.
 - **Versus Cockatoo:** the crab's Attack/Defense are higher because of armor and claw mechanics, while Cockatoo should dominate Agility and Intelligence. The matchup is terrain-sensitive because flight can prevent the crab from ever securing a grip.
-- **Versus Capuchin Monkey:** the monkey has far superior Agility, Intelligence and tactical flexibility. The crab's claw is dangerous enough that careless contact is costly, but this does not justify rating the 3 kg crab near a primate in overall combat adaptability.
+- **Versus Capuchin Monkey:** the monkey has far superior Agility, Intelligence and tactical flexibility. The crab's claw is dangerous enough that careless contact is costly, but this does not justify rating the 3 kg crab near a primate in overall combat versatility.
 - **Versus Bighorn Sheep / Cape Buffalo / Camel:** the crab's spectacular proportional strength must not leak upward into comparable Attack. These vertebrates carry tens to hundreds of kilograms more mass and deliver much larger whole-body forces.
 - **Special 78.0:** intentionally high because the combination of extreme claw mechanics, aerial olfaction and full terrestrialization is rare. It is not a proxy for overall battle power.
 

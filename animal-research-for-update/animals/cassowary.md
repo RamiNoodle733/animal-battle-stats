@@ -90,7 +90,7 @@ The cassowary is a leg-driven fighter. Its main attack couples a 60+ kg body wit
 
 A cassowary does not hunt large prey or routinely use its weapon system offensively. Most feeding is frugivorous. In conflict it closes quickly, may chase or charge, then kicks or jumps toward the opponent. Kofron's incident dataset is valuable because it separates reputation from observed behavior: in human incidents, chasing/charging was much more common than kicking, and serious injuries were uncommon relative to all recorded attacks. Attack therefore reflects dangerous weapon delivery without turning folklore into megafauna-level lethality.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 The bird's large mass, dense plumage and robust ratite legs provide meaningful toughness against small opponents. Scaly lower legs help protect the weapon-delivery structures. However, there is no true armor over the torso. The casque has a demonstrated thermoregulatory function, not demonstrated helmet-grade protection. Against large carnivores, heavy ungulates or piercing weapons, Defense is limited by an exposed neck and ordinary soft tissues.
 
@@ -104,7 +104,7 @@ Cassowaries spend substantial time walking and foraging across home ranges, but 
 
 ### Senses
 
-Vision and hearing are important in dense forest. Cassowaries produce unusually low-frequency booming calls, and their sensory ecology is adapted to rainforest communication. A 2026 study also demonstrated species-specific ultraviolet biofluorescent patterns in cassowary casques and UV reflectivity, but whether cassowaries use these patterns in natural communication remains unproven. This is recorded as emerging biology, not a battle super-sense.
+Vision and hearing are important in dense forest. Cassowaries produce unusually low-frequency booming calls, and their sensory ecology is suited to rainforest communication. A 2026 study also demonstrated species-specific ultraviolet biofluorescent patterns in cassowary casques and UV reflectivity, but whether cassowaries use these patterns in natural communication remains unproven. This is recorded as emerging biology, not a battle super-sense.
 
 ### Intelligence and tactics
 
@@ -161,7 +161,7 @@ All ratings use the absolute 225-animal roster scale and were reassessed indepen
 | Toughness | **43.0** | Robust large bird, but exposed soft tissues and neck cap durability. |
 | Speed | **65.0** | Institutional short-sprint value of 13.3 m/s is fast but not elite roster-wide. |
 | Maneuverability | **73.0** | Strong balance, jumping, forest navigation and swimming for a large flightless bird. |
-| Endurance | **57.0** | Sustained foraging and tropical adaptation are useful; sprinting remains burst-oriented. |
+| Endurance | **57.0** | Sustained foraging and tolerance of tropical conditions are useful; sprinting remains burst-oriented. |
 | Recovery | **43.0** | No unusual regeneration or trauma recovery mechanism established. |
 | Tactics | **49.0** | Threat assessment, charging/kicking choices and learned food association show flexibility without advanced tactical cognition. |
 | Senses | **57.0** | Strong rainforest vision/hearing and low-frequency communication; no evidence for extraordinary battle sensing. |
@@ -211,7 +211,7 @@ The female lays a clutch and the male assumes incubation and chick care. Smithso
 
 Smithsonian and current Queensland material describe the global species as **Least Concern**, while emphasizing serious regional pressure and a declining Australian population. Habitat fragmentation, road strikes, dogs, feral pigs, hunting/poaching and development are major threats. Older zoo pages may display outdated Vulnerable language, so global status should be checked against the current IUCN assessment at production-migration time.
 
-### Major adaptations
+### Special features
 
 - Long, powerful ratite legs for terrestrial acceleration and kicking
 - Enlarged inner-toe claw for defense
@@ -241,11 +241,11 @@ The southern cassowary is a 60-plus-kilogram rainforest ratite whose main weapon
 
 ### Rich narrative profile
 
-A southern cassowary is built less like a predatory bird and more like a compact terrestrial runner with a knife attached to each foot. Its body is deep and heavy, its wings are vestigial, and nearly all meaningful combat mechanics originate in the hindquarters. When threatened, it can rapidly close distance, jump and drive the feet toward an opponent. The long inner claw can turn a kick into a penetrating slash, giving the bird much more damage potential than an ordinary 65 kg herbivore or frugivore might suggest.
+A southern cassowary is built less like a predatory bird and more like a compact terrestrial runner with a knife attached to each foot. Its body is deep and heavy, its wings are tiny and useless for flight, and nearly all meaningful combat mechanics originate in the hindquarters. When threatened, it can rapidly close distance, jump and drive the feet toward an opponent. The long inner claw can turn a kick into a penetrating slash, giving the bird much more damage potential than an ordinary 65 kg herbivore or frugivore might suggest.
 
 That weapon should not erase the animal's limits. Cassowaries are primarily fruit eaters and do not routinely subdue large prey. They have no armored torso, grappling forelimbs or specialized killing bite. If a kick fails to stop a large predator and the opponent gains control of the neck or body, the cassowary's matchup deteriorates quickly. This is why its Attack belongs above similarly sized poorly armed animals but well below Cape buffalo and true megafaunal weapon systems.
 
-Its strangest adaptation is not actually the claw. Thermal imaging shows that the casque can alter heat exchange, radiating more heat when conditions are hot and conserving heat when cool. This gives the bird a rare, experimentally verified physiological mechanism suitable for Special, while avoiding the older unsupported claim that the casque is simply a battering helmet. Combined with low-frequency communication, seed-dispersal ecology and unusual female-biased size, the southern cassowary is biologically distinctive without needing exaggerated folklore.
+Its strangest feature is not actually the claw. Thermal imaging shows that the casque can alter heat exchange, radiating more heat when conditions are hot and conserving heat when cool. This gives the bird a rare, experimentally verified physiological mechanism suitable for Special, while avoiding the older unsupported claim that the casque is simply a battering helmet. Combined with low-frequency communication, seed-dispersal ecology and unusual female-biased size, the southern cassowary is biologically distinctive without needing exaggerated folklore.
 
 ### Future structured-field proposals
 
@@ -315,7 +315,7 @@ Its strangest adaptation is not actually the claw. Thermal imaging shows that th
 - Six headline ratings scored with one decimal: **Yes**
 - Exactly two named special abilities: **Yes**
 - Exactly two unique traits: **Yes**
-- Habitat, range, diet, ecology, social/life history, conservation, adaptations and human interaction covered: **Yes**
+- Habitat, range, diet, ecology, social/life history, conservation, special features and human interaction covered: **Yes**
 - Several genuine fun facts: **Yes**
 - Site summary and rich narrative profile: **Yes**
 - Source ledger with direct URLs, confidence and conflicts: **Yes**

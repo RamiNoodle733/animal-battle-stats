@@ -51,7 +51,7 @@ A tooth-based bite PSI value is biologically inappropriate for a baleen whale, a
 
 ### Engulfment capacity and lunge mechanics
 
-Modern rorqual biomechanics estimates that a 28 m blue whale can engulf **more than 150,000 liters** of prey-laden water during a lunge. This is an extraordinary feeding adaptation, but it is not a conventional bite attack. Tag studies show blue whales accelerate before mouth opening and then decelerate sharply under enormous engulfment drag.
+Modern rorqual biomechanics estimates that a 28 m blue whale can engulf **more than 150,000 liters** of prey-laden water during a lunge. This is an extraordinary feeding specialization, but it is not a conventional bite attack. Tag studies show blue whales accelerate before mouth opening and then decelerate sharply under enormous engulfment drag.
 
 ### Diving performance
 
@@ -191,7 +191,7 @@ All scores use the absolute 225-animal scale.
 
 ### Proposed special abilities, exactly 2
 
-1. **Ocean-Scale Resonance** — Blue whales produce powerful low-frequency calls adapted for communication through the marine environment. This supports long-range awareness and coordination but is not treated as a damaging “sonic attack.”
+1. **Ocean-Scale Resonance** — Blue whales produce powerful low-frequency calls suited to communication through the marine environment. This supports long-range awareness and coordination but is not treated as a damaging “sonic attack.”
 2. **Titanic Lunge** — The expandable ventral-groove feeding apparatus allows an enormous mouthful of prey-laden water, with modeled engulfment exceeding 150,000 L in a 28 m animal. In ABS this represents exceptional whole-body acceleration, gape and hydrodynamic specialization, not a fabricated bite.
 
 ### Proposed unique traits, exactly 2
@@ -229,7 +229,7 @@ Gestation is about 11–12 months. Calves are already roughly 7–8 m at birth a
 
 NOAA lists the blue whale as **Endangered** under the U.S. Endangered Species Act and depleted under the Marine Mammal Protection Act. International commercial whaling protection dates to 1966. Modern threats include vessel strikes, entanglement, ocean noise and changes in prey distribution/productivity.
 
-### Major adaptations
+### Special features
 
 - Largest body size of any living animal
 - Streamlined rorqual body and powerful flukes
@@ -261,7 +261,7 @@ The blue whale is the living size ceiling: a roughly 120-ton adult female built 
 
 ### Detailed narrative profile
 
-Blue whales demonstrate why ABS must keep body size, weaponry and special biology separate. The largest living animal is not automatically the best attacker. A mature female may weigh around 120 metric tons, giving it more raw moving mass than any living opponent, but its mouth is a baleen filtration system designed for krill rather than a toothed killing apparatus. Its Attack therefore comes from momentum, body contact and the muscular tail, not a fictional giant bite.
+Blue whales demonstrate why ABS must keep body size, weaponry and special biology separate. The largest living animal is not automatically the best attacker. A mature female may weigh around 120 metric tons, giving it more raw moving mass than any living opponent, but its mouth is a baleen filtration system built for krill rather than a toothed killing apparatus. Its Attack therefore comes from momentum, body contact and the muscular tail, not a fictional giant bite.
 
 Defensively, the scale is transformative. A medium predator that can kill a deer or seal simply does not have an easy path to rapid incapacitation of an adult blue whale. The whale's blubber and tissue depth are not armor, yet they create a huge buffer around vital structures. Coordinated killer whales can overcome some of this advantage through repeated attacks and targeting, which is why Defense should remain below a perfect ceiling.
 

@@ -65,7 +65,7 @@ Leopards combine terrestrial stalking and explosive pouncing with exceptional cl
 They are not persistence hunters, but tracking studies show substantial nightly movement and flexible home ranges. A 2021 synthesis used tracking data from 74 leopards, while a 2023 African synthesis analyzed 147 individuals and found that animals with larger home ranges spent longer active and traveled faster/straighter. This supports solid, not elite, Stamina.
 
 ### Senses and intelligence
-Low-light vision, hearing, olfaction and tactile whisker feedback make a strong nocturnal predator sensory package. Cognitively, leopards show flexible prey selection, caching, route choice, human avoidance and adaptation to highly variable habitats. This is high tactical competence for a solitary carnivore without implying primate-level general cognition.
+Low-light vision, hearing, olfaction and tactile whisker feedback make a strong nocturnal predator sensory package. Cognitively, leopards show flexible prey selection, caching, route choice, human avoidance and adjustment to highly variable habitats. This is high tactical competence for a solitary carnivore without implying primate-level general cognition.
 
 ### Environmental strengths
 Dense vegetation, broken terrain, darkness and trees strongly favor the leopard by shortening ambush distance and providing vertical escape/caching options. Complex terrain rewards balance and maneuverability.
@@ -104,7 +104,7 @@ All scores use absolute roster-wide scaling.
 | **Defense** | **43.0** | Good functional toughness and evasive survival, little actual armor. |
 | **Agility** | **84.0** | Exceptional mixed arboreal/terrestrial control, balance and pouncing. |
 | **Stamina** | **62.0** | Strong territorial movement, below endurance-specialized canids and migrants. |
-| **Intelligence** | **68.0** | Flexible solitary hunting, caching and habitat adaptation. |
+| **Intelligence** | **68.0** | Flexible solitary hunting, caching and habitat versatility. |
 | **Special** | **63.0** | Vertical terrain control and stealth are matchup-changing but not exotic physiology. |
 
 ## 7. Exactly two special abilities and two unique traits
@@ -129,7 +129,7 @@ Leopards are predominantly solitary. Adults communicate through scent, scrapes a
 ### Conservation and humans
 The IUCN SSC Cat Specialist Group lists *Panthera pardus* as **Vulnerable**, citing habitat loss, prey depletion, persecution, illegal wildlife trade, medicinal/ceremonial exploitation and poorly managed hunting. Leopards can persist near people, but livestock predation and fear can produce severe conflict.
 
-### Major adaptations
+### Special features
 Retractile claws, powerful forelimbs, flexible climbing mechanics, low-light sensory performance, ambush behavior, carcass caching, broad diet and habitat flexibility.
 
 ### Genuine fun facts
@@ -165,7 +165,7 @@ That flexibility should not be confused with heavyweight durability. A represent
 |---|---|---|---|---|
 | IUCN SSC Cat Specialist Group, Leopard | https://www.catsg.org/living-species-leopard | taxonomy, dimensions, range, conservation | 17–90 kg; 91–191 cm body; 51–101 cm tail; Vulnerable | High; broad species-wide ranges. |
 | Animal Diversity Web, *Panthera pardus* | https://animaldiversity.org/accounts/Panthera_pardus/ | sex dimorphism, mass, length, lifespan, behavior, diet, reproduction | males 31–65 kg; females 17–58 kg; typical wild lifespan 10–12 y; 3–10 m stalk context | Moderate-high; compiled account, some older references. |
-| Stein & Hayssen 2013, Mammalian Species | https://academic.oup.com/mspecies/article/45/900/30/2643006 | taxonomy, ecology, adaptability | solitary adaptable *Panthera* across very broad habitat/range | High peer-reviewed species account; conservation category has since changed. |
+| Stein & Hayssen 2013, Mammalian Species | https://academic.oup.com/mspecies/article/45/900/30/2643006 | taxonomy, ecology, versatility | solitary versatile *Panthera* across very broad habitat/range | High peer-reviewed species account; conservation category has since changed. |
 | Snider et al. 2021, Journal of Mammalogy | https://academic.oup.com/jmammal/article/102/4/1138/6317594 | space use / behavioral flexibility | synthesis includes tracking data from 74 leopards | High; home range is not direct combat endurance. |
 | Journal of Mammalogy 2023 home-range synthesis | https://academic.oup.com/jmammal/article/104/6/1353/7268784 | movement/endurance context | 147 African leopards; larger ranges associated with longer activity and faster/straighter travel | High; not a maximum-speed trial. |
 | Farhadinia et al. 2018, Journal of Mammalogy | https://academic.oup.com/jmammal/article-abstract/99/3/713/4996220 | predation / kill rate | 6 collared adults, 130 kills; ~3.3 kills/month per adult male | High, regional Persian-leopard context. |

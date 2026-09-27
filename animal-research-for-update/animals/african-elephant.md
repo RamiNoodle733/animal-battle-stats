@@ -77,7 +77,7 @@ Strong against nearly all much-smaller terrestrial animals and close-range preda
 | Toughness | **95.0** | Exceptional absolute trauma tolerance and mass. |
 | Speed | **40.0** | Moderate absolute top speed despite extraordinary mass. |
 | Maneuverability | **43.0** | Functional for megafauna but limited fine evasion. |
-| Endurance | **82.0** | Sustained travel/foraging and heat-adapted activity. |
+| Endurance | **82.0** | Sustained travel/foraging and heat-tolerant activity. |
 | Recovery | **54.0** | Normal mammalian healing, no unusual regeneration. |
 | Tactics | **82.0** | High learning, assessment, memory and behavioral flexibility. |
 | Senses | **88.0** | Exceptional olfaction, hearing and multimodal communication. |
@@ -122,11 +122,11 @@ Gestation is about 22 months, among the longest known in mammals. Reproduction i
 ### Conservation
 The African savanna elephant is listed **Endangered** by IUCN. Major threats include ivory poaching, habitat conversion and human-elephant conflict.
 
-### Adaptations
+### Special features
 Large heat-dissipating ears, highly dexterous trunk, continuously growing tusks, huge grinding molars replaced sequentially, thick skin, padded feet, sophisticated acoustic/chemical communication and remarkable memory.
 
 ### Human interaction
-Elephants are culturally and ecologically important but can be dangerous around settlements and crops. Ivory demand has caused intense selective pressure and population losses. Conflict mitigation and landscape connectivity are central conservation issues.
+Elephants are culturally and ecologically important but can be dangerous around settlements and crops. Ivory demand has led to intense targeting of large-tusked animals and to population losses. Conflict mitigation and landscape connectivity are central conservation issues.
 
 ### Strong fun facts
 - It is the largest living land animal.
@@ -166,7 +166,7 @@ A prime African savanna elephant bull wins terrestrial matchups primarily throug
 |---|---|---|---|
 | Animal Diversity Web, *Loxodonta africana* | https://animaldiversity.org/accounts/Loxodonta_africana/ | Adult male/female mass and height, skin thickness, tusks, morphology | High institutional species account. |
 | Laws 1966, African Journal of Ecology | https://onlinelibrary.wiley.com/doi/10.1111/j.1365-2028.1966.tb00878.x | Growth, male/female maximum mass, shoulder-height asymptotes, age/tusk growth | High, classic population study; regional. |
-| Chiyo et al. 2015, Ecology and Evolution | https://onlinelibrary.wiley.com/doi/10.1002/ece3.1769 | Tusk-size decline and selective effects of ivory harvest | High peer-reviewed; population-specific. |
+| Chiyo et al. 2015, Ecology and Evolution | https://onlinelibrary.wiley.com/doi/10.1002/ece3.1769 | Tusk-size decline linked to selective ivory harvest | High peer-reviewed; population-specific. |
 | African Wildlife Foundation | https://www.awf.org/wildlife-conservation/elephant | Broad size, lifespan, habitat, diet, conservation context | Strong conservation organization; broad summary. |
 | National Geographic, African savanna elephant | https://www.nationalgeographic.com/animals/mammals/facts/african-savanna-elephant | Size/lifespan, musth and life-history overview | Strong secondary natural-history source. |
 | Wikimedia Commons, Charles J. Sharp 2024 male Kruger | https://commons.wikimedia.org/wiki/File:African_bush_elephant_(Loxodonta_africana)_male_Kruger.jpg | Exact-species male image, 6000×4000, CC BY-SA 4.0, Quality Image | High provenance for image. |

@@ -54,7 +54,7 @@ Zoa Nature lists **32 years**, while zoo sources for robust capuchins commonly r
 
 ### Bite, teeth and jaws
 
-Capuchins have incisors, canines and robust postcanine teeth adapted to an omnivorous diet that includes hard seeds and animal matter. Their bite can injure similarly sized opponents, but no credible species-specific bite-pressure PSI measurement was found.
+Capuchins have incisors, canines and robust postcanine teeth suited to an omnivorous diet that includes hard seeds and animal matter. Their bite can injure similarly sized opponents, but no credible species-specific bite-pressure PSI measurement was found.
 
 - **Canonical `bite_force_psi`: 0.0**
 - **Do not convert:** jaw-muscle morphology, food-processing performance, or bite-force estimates for other capuchin taxa are not species-specific PSI measurements.
@@ -95,7 +95,7 @@ The primary built-in weapons are the jaws and canines, backed by strong forelimb
 
 A capuchin's best natural attack sequence is close and mobile: seize or stabilize with hands, bite exposed tissue, disengage, and reposition. Dexterity lets it control small objects and exploit openings more flexibly than a similarly sized animal limited to mouth attacks. Tool use can expand the behavioral repertoire, but ABS should not assume that a convenient stone or stick is always present in a neutral arena.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 There is no armor, thick hide, shell or specialized shock-resistant structure. Fur and flexible movement provide little direct protection against teeth, talons or crushing attacks. Defense is therefore primarily active: evasion, climbing, branch choice, group vigilance and intelligent avoidance. A 4 kg primate is physically fragile against much larger roster animals.
 
@@ -105,7 +105,7 @@ Brown capuchins are versatile arboreal quadrupeds. Their hands and feet grasp su
 
 ### Endurance
 
-Daily life includes prolonged travel and foraging, but there is no evidence that *S. apella* is an elite pursuit-endurance specialist. Its stamina should exceed a pure burst ambusher but remain below animals selected for long-distance pursuit, migration, sustained cursorial travel or extreme environmental endurance.
+Daily life includes prolonged travel and foraging, but there is no evidence that *S. apella* is an elite pursuit-endurance specialist. Its stamina should exceed a pure burst ambusher but remain below animals built for long-distance pursuit, migration, sustained cursorial travel or extreme environmental endurance.
 
 ### Senses
 
@@ -226,7 +226,7 @@ Zoo references report gestation around **150-160 days** and usually one infant. 
 
 Mammal Diversity Database links the current *S. apella* IUCN assessment, and major zoological references list the species as **Least Concern**. A 2024 habitat-conversion analysis notes that its broad extent of occurrence has nevertheless experienced substantial conversion, especially to pasture. Least Concern should therefore not be interpreted as absence of regional habitat pressure or wildlife-trade risk.
 
-### Major adaptations
+### Special features
 
 - Grasping hands and feet
 - Tail-assisted arboreal stability
@@ -246,13 +246,13 @@ Capuchins have a long history in captivity, behavioral research and the wildlife
 - Controlled brown-capuchin experiments showed subjects could remember which tool was needed after walking **8 m** away from the apparatus and losing visual contact with it.
 - Captive tufted capuchins have learned tool-food-hindrance problems and generalized solutions to new versions.
 - Historical *Cebus apella* experiments documented hammer use to open nuts as early as 1990.
-- Robust capuchin relatives can routinely handle stones exceeding 1 kg, an extraordinary proportional load, but ABS does not convert that proportional feat into great-ape-level raw power.
+- Other robust capuchins can routinely handle stones exceeding 1 kg, an extraordinary proportional load, but ABS does not convert that proportional feat into great-ape-level raw power.
 - Male appearance and body size can change with dominance context and access to females.
 - A 44-month field diet study documented consumption of **71 plant species** in one semideciduous-forest population.
 
 ### Concise site-ready summary
 
-The tufted capuchin is a small but exceptionally adaptable South American primate. A mature male weighs around 4 kg and relies on quick arboreal movement, grasping hands, a stabilizing tail, biting and unusually flexible problem solving. Its natural weapons are modest on the full ABS scale, but experiments demonstrate sophisticated memory and functional tool selection. In trees or around manipulable objects it can outmaneuver and outthink many similarly sized opponents; against a much larger predator, however, intelligence cannot compensate for the enormous gap in mass, armor and stopping power.
+The tufted capuchin is a small but exceptionally versatile South American primate. A mature male weighs around 4 kg and relies on quick arboreal movement, grasping hands, a stabilizing tail, biting and unusually flexible problem solving. Its natural weapons are modest on the full ABS scale, but experiments demonstrate sophisticated memory and functional tool selection. In trees or around manipulable objects it can outmaneuver and outthink many similarly sized opponents; against a much larger predator, however, intelligence cannot compensate for the enormous gap in mass, armor and stopping power.
 
 ### Rich narrative profile
 

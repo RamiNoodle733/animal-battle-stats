@@ -47,7 +47,7 @@ The primary weapons are paired chelicerae with small fangs connected to venom gl
 
 ### Venom
 
-The venom system is exceptionally well characterized molecularly. Bhere et al. (2014) characterized the *L. hesperus* alpha-latrotoxin gene and a paralog, with venom-gland-specific transcription. Haney et al. (2014) found a much broader toxin arsenal, including at least 20 divergent latrotoxin paralogs expressed in venom glands and 49 venom proteins detected by mass spectrometry, 24 with toxin similarity. Latrotoxins can cause massive neurotransmitter release from neurons.
+The venom system is exceptionally well characterized molecularly. Bhere et al. (2014) characterized the *L. hesperus* alpha-latrotoxin gene and a paralog, with venom-gland-specific transcription. Haney et al. (2014) found a much broader toxin arsenal, including at least 20 distinct latrotoxin paralogs expressed in venom glands and 49 venom proteins detected by mass spectrometry, 24 with toxin similarity. Latrotoxins can cause massive neurotransmitter release from neurons.
 
 A clinical/experimental widow-venom study showed antivenom binding to *L. hesperus* venom and prevention of characteristic neurotoxicity in experimental preparations. The biological effect is therefore strongly supported without resorting to the popular but misleading “X times stronger than a rattlesnake” comparison.
 
@@ -86,7 +86,7 @@ A widow can maneuver precisely through a three-dimensional web and rapidly orien
 
 ### Endurance / stamina
 
-The species is adapted to low-energy ambush living, web maintenance and waiting rather than sustained athletic exertion. Physiological persistence is useful, but there is no basis for a high combat-endurance score comparable with cursorial mammals or migratory birds.
+The species is built for low-energy ambush living, web maintenance and waiting rather than sustained athletic exertion. Physiological persistence is useful, but there is no basis for a high combat-endurance score comparable with cursorial mammals or migratory birds.
 
 ### Senses
 
@@ -199,7 +199,7 @@ Females produce silk egg sacs containing many eggs. Spiderlings disperse after e
 
 No major global conservation concern was identified for this widespread synanthropic species. A formal IUCN global category was not found in the sources used here, so the report does not invent one.
 
-### Major adaptations
+### Special features
 
 - Neuroactive venom specialized for prey capture and defense
 - Irregular three-dimensional cobweb with gum-footed prey-capture lines
@@ -270,7 +270,7 @@ This profile therefore deliberately creates a dramatic split: near-floor Size, R
 | UC Statewide IPM, Black Widow Spider | https://ipm.ucanr.edu/agriculture/grape/black-widow-spider/ | Adult female size and morphology | Female body 5/16–5/8 in excluding legs; shiny black with red/orange hourglass | **High**, university IPM |
 | Utah State University Extension, Black Widow Spider | https://extension.usu.edu/planthealth/ipm/notes_nuisance/black-widow | Sex dimorphism, diet, nesting, medical significance | Males ~1/3 female size; insects/spiders; protected dark sites; adult female medically significant | **High**, university extension |
 | Bhere et al. 2014, FEBS Letters | https://doi.org/10.1016/j.febslet.2014.08.034 | Alpha-latrotoxin genetics | Characterized alpha-latrotoxin gene and venom-gland-specific paralog in *L. hesperus* | **High**, peer reviewed |
-| Haney et al. 2014, BMC Genomics / PubMed | https://pubmed.ncbi.nlm.nih.gov/24916504/ | Venom proteomics and toxin diversity | ≥20 divergent latrotoxin paralogs expressed; 49 venom proteins detected, 24 toxin-like | **High**, peer reviewed |
+| Haney et al. 2014, BMC Genomics / PubMed | https://pubmed.ncbi.nlm.nih.gov/24916504/ | Venom proteomics and toxin diversity | ≥20 distinct latrotoxin paralogs expressed; 49 venom proteins detected, 24 toxin-like | **High**, peer reviewed |
 | Graudins et al. 2001, Annals of Emergency Medicine / PubMed | https://pubmed.ncbi.nlm.nih.gov/11174232/ | Widow venom neurotoxicity | Antivenom bound *L. hesperus* venom and prevented experimental neurotoxicity | **High**, peer reviewed; experimental model, not a battle-dose metric |
 | Blackledge & Zevenbergen 2007, Animal Behaviour | https://doi.org/10.1016/j.anbehav.2006.10.014 | Web architecture and silk allocation | Feeding condition altered web allocation; fed spiders spun twice-thicker threads, raising web strength 225% | **High**, peer reviewed |
 | Thompson et al. 2020, Ethology | https://doi.org/10.1111/eth.12972 | Web architecture variation | Repeatable individual variation in gum-footed-line component, r=.56 | **High**, peer reviewed |
@@ -291,5 +291,5 @@ This profile therefore deliberately creates a dramatic split: near-floor Size, R
 - **Versus Army Ant:** Both are tiny arthropods and must remain near the absolute floor for Raw Power and Defense. The widow receives much higher individual Special because a single animal carries a potent neurotoxic venom system and web trap rather than relying on colony-scale behavior.
 - **Versus Black Mamba:** Black Mamba remains vastly higher in Attack because it is a kilogram-scale, mobile vertebrate venom-delivery system with much greater reach, dose capacity and ability to bite large opponents. Both can be extreme in Special without being close in direct battle power.
 - **Versus Barn Owl:** The owl overwhelmingly exceeds the widow in absolute Attack, Defense, speed and physical force. The widow's extreme Special is mechanism-specific and should not compress those real physical gaps.
-- **Versus Axolotl:** Regeneration and widow venom occupy different Special niches. Neither adaptation should be double-counted as ordinary physical Defense.
+- **Versus Axolotl:** Regeneration and widow venom occupy different Special niches. Neither trait should be double-counted as ordinary physical Defense.
 - **Normalization watch:** After more venomous arthropods are researched, compare Black Widow Special 92.0 against Deathstalker Scorpion, Box Jellyfish, Bullet Ant and other toxin specialists to prevent venom-category inflation.

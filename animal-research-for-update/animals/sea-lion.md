@@ -113,7 +113,7 @@ Sea lions are highly social at haul-outs. Breeding is strongly polygynous and te
 ### Conservation and human interaction
 NOAA lists California sea lions as protected under the MMPA. The U.S. population recovered strongly after historical exploitation. Modern threats include harmful algal toxins, disease, fishing-gear entanglement and human-caused injuries. Their learning ability has made the species important in zoos, research and the U.S. Navy Marine Mammal Program.
 
-### Major adaptations
+### Special features
 Streamlined body form, foreflipper-powered swimming, forward-rotating hind flippers for terrestrial support, substantial oxygen stores, dive bradycardia/oxygen management, vibrissal hydrodynamic sensing, social vocal recognition and extreme male-biased body size all contribute to ecological success.
 
 ### Fun facts

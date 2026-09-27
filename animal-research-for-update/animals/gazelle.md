@@ -121,9 +121,9 @@ All scores are absolute across the 225-animal roster and were assigned independe
 | Toughness | **28.0** | Desert-hardy physiology but slender limbs and low mass provide limited trauma tolerance |
 | Maneuverability | **89.0** | Light cursorial build, evasive running and stotting make rapid repositioning a major strength |
 | Speed | **86.0** | Qualitatively an elite runner, conservatively scored because a defensible measured species maximum was not established |
-| Endurance | **73.0** | Large space use, desert travel and heat-adapted activity support strong sustained mobility without implying pursuit-athlete extremes |
+| Endurance | **73.0** | Large space use, desert travel and heat-tolerant activity support strong sustained mobility without implying pursuit-athlete extremes |
 | Recovery | **55.0** | Solid mammalian recovery and resource flexibility, without evidence for exceptional regeneration or trauma recovery |
-| Tactics | **59.0** | Territorial behavior, flexible grouping/activity timing and adaptive foraging are useful but not cognitively complex |
+| Tactics | **59.0** | Territorial behavior, flexible grouping/activity timing and versatile foraging are useful but not cognitively complex |
 | Senses | **74.0** | Keen visual predator detection plus alarm/social channels are highly useful in open terrain |
 | Abilities | **62.0** | Stotting, desert water economy and flexible activity timing materially improve survival but are not direct superweapons |
 
@@ -136,7 +136,7 @@ All scores are absolute across the 225-animal roster and were assigned independe
 | **Agility** | **90.0** | Evasion, acceleration, balance and light cursorial control are the core combat advantage |
 | **Stamina** | **73.0** | Strong desert travel and sustained activity, distinct from simple heat tolerance |
 | **Intelligence** | **58.0** | Flexible activity, territorial and foraging behavior without advanced problem-solving evidence |
-| **Special** | **64.0** | Stotting/alert signaling and desert water-economy adaptations alter survival matchups but do not directly amplify damage |
+| **Special** | **64.0** | Stotting/alert signaling and desert water-economy traits alter survival matchups but do not directly amplify damage |
 
 ## 7. Exactly two special abilities and exactly two unique traits
 
@@ -165,7 +165,7 @@ Gestation is roughly six months, usually producing one fawn. Wild females genera
 ### Conservation
 The Dorcas gazelle is treated as **Vulnerable** in the IUCN assessment cited by major zoological institutions, with populations declining from hunting/poaching, habitat degradation, agriculture, overgrazing and drought. Protected areas and managed breeding programs remain important. Some institutional pages report differing global abundance estimates, so this report does not promote a single current population number without a fresh range-wide assessment.
 
-### Major adaptations
+### Special features
 - Long, light cursorial limbs for rapid escape.
 - Male-biased horn size for territorial rivalry.
 - Seasonal and climatic shifts in activity timing.
@@ -251,7 +251,7 @@ Desert physiology also needs careful calibration. Popular summaries sometimes sa
 - Exactly two unique traits: **yes**
 - Six one-decimal headline ratings: **yes**
 - Current ABS-style substats justified: **yes**
-- Habitat/range/diet/ecology/social/life history/conservation/adaptations/human interaction: **yes**
+- Habitat/range/diet/ecology/social/life history/conservation/special features/human interaction: **yes**
 - Fun facts, concise summary, narrative profile, future structured proposal context, source ledger and conflicts: **yes**
 - Image status truthful under `IMAGE_REQUIREMENTS.md`: **yes**
 - Production data/site/live images changed: **no**

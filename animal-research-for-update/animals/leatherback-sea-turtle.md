@@ -141,7 +141,7 @@ Leatherbacks are gelatinous-prey specialists rather than active vertebrate hunte
 | **Defense** | **60.0** | Mass, tough leathery carapace, fat and dermal ossicles provide strong survival value without rigid armor. |
 | **Agility** | **59.0** | Excellent pelagic control and diving but substantial bulk and near-total terrestrial awkwardness prevent a higher score. |
 | **Stamina** | **95.0** | Continuous swimming and migrations exceeding 10,000 miles annually make endurance a defining roster-level strength. |
-| **Intelligence** | **49.0** | Long-distance navigation and adaptive diving are strong orientation behaviors without evidence for high flexible cognition. |
+| **Intelligence** | **49.0** | Long-distance navigation and flexible diving are strong orientation behaviors without evidence for high flexible cognition. |
 | **Special** | **89.0** | Thermoregulation, counter-current heat retention and extreme deep-diving ability give this reptile an unusual environmental envelope. |
 
 ## 7. Exactly two special abilities and exactly two unique traits
@@ -171,7 +171,7 @@ Only females come ashore to nest. NOAA reports females generally return every 2-
 ### Conservation
 NOAA lists the species as **Endangered under the U.S. Endangered Species Act throughout its range** and notes an estimated global decline of about 40% over three generations. Pacific populations have undergone especially severe declines. Major threats include fisheries bycatch, harvest, habitat loss, marine debris, vessel strikes and changing environmental conditions. Global IUCN and regional assessments can differ in category, so the report does not collapse all population statuses into a single regional claim.
 
-### Major adaptations
+### Special features
 - Long, high-aspect front flippers for efficient pelagic propulsion.
 - Hydrodynamic tapered carapace with seven ridges.
 - Thick connective tissue, fat and dermal ossicles instead of a hard shell.

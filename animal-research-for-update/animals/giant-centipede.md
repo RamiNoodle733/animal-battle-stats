@@ -171,7 +171,7 @@ Adults are primarily solitary predators. Reproduction is indirect: the male depo
 
 No robust IUCN global assessment was located for *S. gigantea* in this run. Conservation status should therefore be recorded as **not evaluated / no verified assessment found**, not assumed from abundance in the pet trade.
 
-### Adaptations
+### Special features
 
 - Venom-delivering forcipules
 - Many-legged traction and rapid low-profile locomotion
@@ -190,7 +190,7 @@ Bites can be intensely painful and medically significant. A peer-reviewed neonat
 - *S. gigantea* is among the world's largest living centipedes, reaching roughly 30 cm in strong references.
 - The famous Venezuelan cave observations show it can hang from ceilings and capture bats in flight or at roost.
 - The bat study explicitly reports prey substantially heavier than the centipedes themselves.
-- Its “fangs” are not true jaws: they are the first pair of trunk limbs modified into venomous forcipules.
+- Its “fangs” are not true jaws: they are a pair of venomous forcipules on the first body segment.
 - Females brood their eggs rather than abandoning them immediately.
 - Taxonomic revision showed that some famous “giant centipede” records from western South America belong to *S. galapagoensis*, illustrating why exact-species sourcing matters.
 

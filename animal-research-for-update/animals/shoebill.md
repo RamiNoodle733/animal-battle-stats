@@ -10,7 +10,7 @@
 - **Image status:** `SOURCE FOUND - FULL-BODY NOT VERIFIED`
 
 ## 1. Identity and canonical specimen
-The roster Shoebill is the exact living species *Balaeniceps rex*. Modern phylogenetic work places the shoebill among pelecaniform birds rather than true storks, despite its long-legged stork-like silhouette. It is the only living species of *Balaeniceps* and Balaenicipitidae.
+The roster Shoebill is the exact living species *Balaeniceps rex*. Modern taxonomic work places the shoebill among pelecaniform birds rather than true storks, despite its long-legged stork-like silhouette. It is the only living species of *Balaeniceps* and Balaenicipitidae.
 
 Shoebills show limited size dimorphism, with males averaging slightly heavier than females. National Geographic gives approximately **12 lb (5.4 kg) for males** and **11 lb (5.0 kg) for females**, while broader references place adults around **4-7 kg** and roughly **100-152 cm tall**. ABS therefore uses a healthy prime adult male at **5.4 kg** and **130.0 cm standing height**, a representative strong-sex specimen rather than the upper 7 kg record-like end of the range.
 
@@ -21,7 +21,7 @@ Adults are predominantly slate-grey, while juveniles are browner. The species is
 Institutional and conservation sources converge on an adult mass range around **4-7 kg**. National Geographic explicitly separates sexes at about 5.4 kg for males and 5.0 kg for females. Standing height is commonly about **110-140 cm**, with BirdLife reporting size up to about **152 cm**. A canonical 130.0 cm is representative rather than maximal.
 
 ### Bill and weapon dimensions
-National Geographic describes the bill as about **one foot long** and **five inches wide**, approximately **30.5 × 12.7 cm**, with sharp cutting edges and a sharp hook at the tip. This is a very large bill relative to a 5 kg bird. It is adapted to seize and process large slippery aquatic prey, especially catfish and lungfish. The bill is not a crushing mammalian jaw and no credible standardized PSI measurement was found.
+National Geographic describes the bill as about **one foot long** and **five inches wide**, approximately **30.5 × 12.7 cm**, with sharp cutting edges and a sharp hook at the tip. This is a very large bill relative to a 5 kg bird. It is suited to seizing and processing large slippery aquatic prey, especially catfish and lungfish. The bill is not a crushing mammalian jaw and no credible standardized PSI measurement was found.
 
 ### Wings and flight
 Shoebills can fly and use broad wings for movement between wetland patches, but they spend much of their foraging time standing or walking. No robust instrumented species-specific maximum flight speed was recovered. The live site's legacy 20 km/h is therefore not retained as a factual maximum. `speed_mps` remains 0.0 unresolved.
@@ -124,7 +124,7 @@ Shoebill Attack **34.0** is slightly below Secretary Bird **36.0** because the S
 
 ### Unique traits
 1. **Marsh Platform Hunter** - long legs and broad toes let the bird hunt from floating vegetation and flooded grassland where heavy terrestrial predators cannot move as effectively.
-2. **Monotypic Marsh Giant** - *Balaeniceps rex* is the sole living species of its genus and family, representing a highly distinctive pelecaniform lineage specialized for central-east African wetlands.
+2. **Monotypic Marsh Giant** - *Balaeniceps rex* is the sole living species of its genus and family, representing a highly distinctive pelecaniform bird specialized for central-east African wetlands.
 
 ## 8. Expanded profile
 ### Habitat and geographic range
@@ -142,7 +142,7 @@ Breeding pairs construct large nests on floating or emergent vegetation. Nationa
 ### Conservation
 BirdLife currently treats the Shoebill as **Vulnerable**, with a declining population and an estimate of roughly **3,300-5,300 mature individuals**. Major threats include wetland habitat loss and degradation, disturbance around nests, hunting, drought/climate effects and illegal live-bird trade.
 
-### Major adaptations
+### Special features
 The defining package is long-legged marsh locomotion, broad weight-distributing toes, an enormous hooked sharp-edged bill, visually guided still-hunting, a rapid collapse strike and low-energy patience between capture opportunities.
 
 ### Human interaction
@@ -194,7 +194,7 @@ That specialization comes with clear limits. Shoebills are not raptors with gras
 | Mullers & Amar, Shoebill foraging behaviour, Ostrich | https://doi.org/10.2989/00306525.2014.977364 | 170.1 h observation, 85% low-energy behavior, 1 prey/8.3 h, 71% catfish, habitat-specific capture rates | High, peer-reviewed field study; one Zambian population and modest strike sample. |
 | Guillet, Aspects of the foraging behaviour of the Shoebill | https://doi.org/10.1080/00306525.1979.9634120 | Shallow-water hunting, floating vegetation platforms, specialized collapsing capture technique | High for behavior; older study. |
 | John & Lee, Tanzania Journal of Science | https://doi.org/10.65085/2507-7961.1705 | Fish-eagle kleptoparasitism, 138 successful attempts, long shoebill prey handling, non-retaliation | Peer-reviewed field observation; context-specific and not a universal predator-defense experiment. |
-| Mayr 2003, Journal für Ornithologie | https://doi.org/10.1046/j.1439-0361.2003.03002.x | Phylogenetic affinities and anatomical evidence placing shoebill away from traditional stork grouping | High peer-reviewed phylogenetic/anatomical source. |
+| Mayr 2003, Journal für Ornithologie | https://doi.org/10.1046/j.1439-0361.2003.03002.x | Classification and anatomical evidence placing shoebill away from traditional stork grouping | High peer-reviewed taxonomic/anatomical source. |
 | Wikimedia Commons / Michael Gäbler | https://commons.wikimedia.org/wiki/File:Balaeniceps_rex_(Gould,_1850)_2.jpg | Exact-species reusable real-photo candidate, 1438×2126, CC BY 3.0 | High provenance and framing; adulthood and sex not explicitly verified. |
 
 ### Source conflicts and uncertainty

@@ -158,7 +158,7 @@ They are principally solitary predators. Females are larger-bodied; males are ty
 
 No defensible species-level IUCN category was found in this run. Do not copy web pages claiming an Endangered status without an actual IUCN assessment.
 
-### Adaptations
+### Special features
 
 - Large raptorial chelicerae.
 - Adhesive pedipalpal organs for prey capture.

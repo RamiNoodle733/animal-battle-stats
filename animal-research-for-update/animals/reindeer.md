@@ -40,13 +40,13 @@ The bull's antlers are the primary weapon. During the rut, males posture, clash 
 A reindeer has no armor, but its large body, robust cervid skeleton, thick seasonal coat and powerful neck/shoulder complex make it much harder to disable than small ungulates. Dense winter insulation is physiologically exceptional against cold, but it should not be scored as armor against teeth or claws. Long legs remain vulnerable to trauma, and the abdomen/flanks are not structurally protected.
 
 ### Locomotion and maneuverability
-Broad splaying hooves are adapted to tundra, snow, bog and ice. They support efficient walking, trotting, running and swimming across seasonally difficult terrain. Reindeer are mobile and sure-footed for their size, but a large antlered bull is not an elite close-quarter turner. Top speed is unresolved, so Agility is based on control, footing and practical repositioning rather than a copied sprint claim.
+Broad splaying hooves are suited to tundra, snow, bog and ice. They support efficient walking, trotting, running and swimming across seasonally difficult terrain. Reindeer are mobile and sure-footed for their size, but a large antlered bull is not an elite close-quarter turner. Top speed is unresolved, so Agility is based on control, footing and practical repositioning rather than a copied sprint claim.
 
 ### Endurance and recovery
 Endurance is a major strength. *Rangifer* populations perform some of the longest terrestrial migrations known among mammals, and experimental reindeer sustained treadmill running for 40 minutes under thermal measurement. This supports elite sustained locomotor capacity. Seasonal fat loss and the energetic cost of the rut can reduce a bull's condition, so canonical combat assumes a healthy prime animal rather than a depleted post-rut individual.
 
 ### Senses
-Smell is important for finding forage beneath snow and detecting environmental cues. Vision is unusually interesting: reindeer ocular media transmit UV and the retina responds to short wavelengths; studies show vegetation can contrast strongly against snow in UV. More recent synthesis cautions that this does not require a unique UV-specific opsin and that some visual features may not be uniquely evolved Arctic adaptations. The evidence supports unusual short-wavelength sensitivity without exaggerating it into supernatural vision.
+Smell is important for finding forage beneath snow and detecting environmental cues. Vision is unusually interesting: reindeer ocular media transmit UV and the retina responds to short wavelengths; studies show vegetation can contrast strongly against snow in UV. More recent synthesis cautions that this does not require a unique UV-specific opsin and that some visual features may not be unique Arctic specializations. The evidence supports unusual short-wavelength sensitivity without exaggerating it into supernatural vision.
 
 ### Intelligence and tactics
 Reindeer have herd communication, migration memory, predator vigilance and rutting assessment behavior, but no evidence supports high-order tactical cognition comparable with corvids, apes or cetaceans. A bull's combat tactics are cervid-typical: assess, display, align antlers, drive with neck/body force, disengage and re-engage.
@@ -126,7 +126,7 @@ Females generally produce one calf after a strongly seasonal breeding cycle. Cal
 ### Conservation
 Global assessments have treated *Rangifer tarandus* as Vulnerable with a decreasing trend, while regional status varies greatly among populations and taxonomic units. Major pressures include habitat fragmentation, industrial development, climate-driven ecological change, disturbance and altered predator-prey systems.
 
-### Major adaptations
+### Special features
 Dense hollow-haired winter pelage, broad seasonal hooves, nasal heat exchange, strong migration physiology and unusual visual performance in short wavelengths allow reindeer to function in cold, dark, snowy environments that severely constrain many other large mammals.
 
 ### Human interaction
@@ -142,7 +142,7 @@ Reindeer are central to northern Indigenous cultures and pastoral systems, provi
 - Controlled experiments have measured reindeer exercising for 40 minutes at 9.2 km/h while researchers quantified heat balance.
 
 ### Concise site summary
-Reindeer are large, cold-adapted deer built around endurance, traction and seasonal survival. A mature bull combines a 170 kg body with a long branched antler rack, broad snow-ready hooves and elite migration stamina. Its attack is dangerous rather than apex-predator level, while its strongest ABS advantages are endurance and a remarkable Arctic sensory/physiological toolkit.
+Reindeer are large, cold-hardy deer built around endurance, traction and seasonal survival. A mature bull combines a 170 kg body with a long branched antler rack, broad snow-ready hooves and elite migration stamina. Its attack is dangerous rather than apex-predator level, while its strongest ABS advantages are endurance and a remarkable Arctic sensory/physiological toolkit.
 
 ### Narrative profile
 A prime bull reindeer is not merely a deer wearing oversized antlers. Its entire body is configured for movement through an environment that punishes ordinary feet, ordinary insulation and ordinary endurance. Broad hooves spread over snow and bog, seasonal foot changes improve winter purchase, hollow guard hairs trap insulating air, and respiratory physiology helps control heat exchange. In the rut that survival machine becomes a fighter. A mature male lowers a rack approaching a metre or more in beam length, meets another bull head-on and converts neck, shoulder and body mass into leverage through interlocked antlers. That makes the reindeer dangerous to animals that must approach from the front, but it is not armored and does not possess a carnivore's finishing bite. Its legs and flanks remain vulnerable once a predator bypasses the rack. ABS should therefore keep Attack and Defense in the large-ungulate middle while giving Stamina elite placement and Special strong credit for the species' unusually integrated cold, traction and sensory biology.
@@ -179,7 +179,7 @@ A prime bull reindeer is not merely a deer wearing oversized antlers. Its entire
 | Joly et al. movement study — https://doi.org/10.7557/2.25.2.254 | winter movement | GPS-collared females averaged ~6.2 km/day in winter sampling | **High**, GPS study; not sprint performance |
 | Joly et al. 2019, *Scientific Reports* — https://doi.org/10.1038/s41598-019-51884-5 | migration/endurance | caribou/reindeer dominated longest terrestrial migrations; only taxa in review exceeding 1,000 km RTD besides one wolf population | **High**, peer-reviewed comparative movement analysis |
 | Tyler et al. 2014, *Arctic* — https://doi.org/10.14430/arctic4381 | UV visual ecology | ocular media transmit UV; plants showed greater contrast against snow in UV images | **High**, peer-reviewed; ecological benefit partly inferential |
-| Tyler et al. 2025, *Functional Ecology* — https://doi.org/10.1111/1365-2435.14669 | visual nuance | strong short-wavelength performance but no conclusive uniquely boreal photoreceptor adaptation | **High**, recent synthesis; prevents overclaiming “special UV opsin” |
+| Tyler et al. 2025, *Functional Ecology* — https://doi.org/10.1111/1365-2435.14669 | visual nuance | strong short-wavelength performance but no conclusive uniquely boreal photoreceptor specialization | **High**, recent synthesis; prevents overclaiming “special UV opsin” |
 | Animal Diversity Web — https://animaldiversity.org/accounts/Rangifer_tarandus/ | diet, smell, herd defense | variable herbivorous diet, winter lichens, keen smell, herd vigilance | **Moderate-high**, university-curated synthesis |
 | Mercer et al. 1985, AJP — https://pubmed.ncbi.nlm.nih.gov/4003579/ | nasal heat exchange | expired-air temperature/nasal heat exchange under central thermoregulatory control | **High**, controlled physiology |
 | Commons / Diego Delso — https://commons.wikimedia.org/wiki/File:Carib%C3%BA_(Rangifer_tarandus),_Parque_nacional_y_reserva_Denali,_Alaska,_Estados_Unidos,_2017-08-30,_DD_40.jpg | image provenance | exact species, 5908×3939, CC BY-SA 4.0, wild Denali photograph, Quality Image | **High provenance**, adulthood/sex not explicit |
@@ -189,7 +189,7 @@ A prime bull reindeer is not merely a deer wearing oversized antlers. Its entire
 - **Moderate confidence:** canonical 170 kg/120 cm/200 cm specimen, because *Rangifer* varies strongly among ecotypes and season.
 - **Unresolved:** defensible maximum sprint speed and bite PSI. Tertiary ~80 km/h claims were not promoted.
 - **Conservation caveat:** global status and population trends can change and differ sharply among regional caribou/reindeer units.
-- **Vision caveat:** reindeer detect short wavelengths including UV, but current synthesis cautions against describing this as a unique UV-specific photoreceptor adaptation.
+- **Vision caveat:** reindeer detect short wavelengths including UV, but current synthesis cautions against describing this as a unique UV-specific photoreceptor specialization.
 
 ## 12. Cross-animal normalization notes
 - At **170 kg**, Reindeer should substantially exceed Red Fox, Raccoon, Raven and Red-tailed Hawk in absolute Raw Power, Attack and Defense.
@@ -197,5 +197,5 @@ A prime bull reindeer is not merely a deer wearing oversized antlers. Its entire
 - Defense **46.0** recognizes size without pretending fur is armor.
 - Agility **66.0** stays far below Pronghorn **94.0** because the latter's roster role is exceptional acceleration/speed/control, while reindeer specialization is terrain and endurance.
 - Stamina **93.0** is intentionally near Pronghorn **96.0** and above many predators because peer-reviewed migration and sustained-exercise evidence supports an elite endurance tier.
-- Special **80.0** credits the integrated hoof/cold/visual package without reusing those adaptations to inflate Attack or Defense.
+- Special **80.0** credits the integrated hoof/cold/visual package without reusing those features to inflate Attack or Defense.
 - No proportional-strength leakage is used: antler size is evaluated as a weapon on a 170 kg animal, not rewarded merely for being impressive relative to body mass.

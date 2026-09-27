@@ -3,7 +3,7 @@
 ## 1. Identity and canonical specimen
 - **Common name:** Lionfish / Red lionfish
 - **Scientific name:** *Pterois volitans* (Linnaeus, 1758)
-- **Site taxon represented:** Red lionfish, not the whole genus *Pterois* and not the closely related devil firefish *P. miles*.
+- **Site taxon represented:** Red lionfish, not the whole genus *Pterois* and not the similar devil firefish *P. miles*.
 - **Status:** Living marine ray-finned fish, family Scorpaenidae.
 - **Canonical combat specimen:** healthy fully mature male, approximately **0.5 kg** and **38.0 cm total length**. Males are used because large invasive-population samples show clear male-biased size and weight, with males reaching larger asymptotic lengths than females.
 - **Dimorphism / variation:** Northern Gulf of Mexico work found males larger and heavier than females, with sex and ecoregion affecting length-weight and growth relationships. A Flower Garden Banks sample (n=1,665) ranged 75-444 mm TL and 4-1,153 g; sexed males ranged 118-444 mm and 18-1,153 g versus females 137-348 mm and 21-586 g. Therefore a 0.5 kg, 38 cm male is a robust mature representative rather than a record specimen.
@@ -144,7 +144,7 @@ Northern Gulf research found mature females capable of spawning approximately ev
 ### Conservation / invasion context
 The red lionfish is native in the Indo-Pacific but a major invasive predator in the western Atlantic. Management commonly emphasizes repeated removals because high reproductive output and broad diet make eradication difficult once established.
 
-### Major adaptations
+### Special features
 - Venom-bearing mechanically specialized spines.
 - Enlarged pectoral fins used in close prey approach and control.
 - Highly successful suction strike despite relatively slow pursuit.
@@ -218,7 +218,7 @@ That does not make a half-kilogram lionfish a physical peer of large predators. 
 - **Defense 38.0** is high for its tiny mass because close contact genuinely carries puncture/envenomation risk, but remains below heavily armored or massively durable animals.
 - **Agility 52.0** separates precise reef positioning from top speed. The persistent-pursuit paper explicitly describes success despite slow locomotion.
 - **Special 87.0** is the standout. It is below King Cobra's 94.0 because the cobra's venom is a primary actively delivered killing system, whereas lionfish venom is primarily passive defense, but it remains near other major venom specialists because 18 distributed delivery structures strongly alter matchup behavior.
-- The venom adaptation is not double-counted into high Attack, Defense, Toughness and Special simultaneously. Most of its value is concentrated in Special and Protection.
+- The venom system is not double-counted into high Attack, Defense, Toughness and Special simultaneously. Most of its value is concentrated in Special and Protection.
 
 ## Final verification
 - Exact taxon and canonical adult assumption documented: **yes**.

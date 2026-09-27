@@ -94,7 +94,7 @@ All are absolute roster-wide 0.1–100.0 editorial ratings, not pound-for-pound.
 | Weaponry | **45.0** | Four-toed raptorial feet and hooked talons are efficient small-prey weapons, with a hooked bill secondary. |
 | Ferocity | **55.0** | Nest defense against major threats and winter intraspecific combat show real willingness to engage. |
 | Protection | **13.0** | Dense feathers insulate and camouflage but do not provide meaningful armor. |
-| Toughness | **24.0** | Arctic physiology is robust, but flight-adapted anatomy remains trauma-sensitive. |
+| Toughness | **24.0** | Arctic physiology is robust, but anatomy built for flight remains trauma-sensitive. |
 | Maneuverability | **87.0** | Precise low flight, pouncing, aerial capture and three-dimensional control; below the most extreme aerial specialists. |
 | Speed | **58.0** | Capable raptor flight, but no measured maximum supports elite speed placement. |
 | Endurance | **83.0** | Multi-thousand-kilometre seasonal search movements and prolonged prospecting demonstrate strong sustained locomotor capacity. |
@@ -136,7 +136,7 @@ Usually solitary outside breeding pairs/family groups. Breeding density and repr
 ### Conservation
 Globally assessed as **Vulnerable** by IUCN according to Canada's 2025 COSEWIC assessment. Canada designated Snowy Owl **Threatened in May 2025** after evidence including a 42.6% Christmas Bird Count decline over 24 years. Threats include collisions, electrocution, disease, rodenticides and climate-driven changes to Arctic systems.
 
-### Adaptations
+### Special features
 Dense insulation, feathered feet, pale camouflage, broad wings, raptorial talons, acute hearing/vision, daylight hunting flexibility, prey caching and large-scale nomadic movement.
 
 ### Human interaction

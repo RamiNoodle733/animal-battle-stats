@@ -142,7 +142,7 @@ Mating can occur through much of the active season. Females leave water to excav
 ### Conservation
 Globally widespread and generally secure, but regional populations face wetland loss, road mortality, harvest and pollution. NatureServe currently ranks the species globally G4G5/G4, while Canadian assessments emphasize the vulnerability created by delayed maturity and long adult lifespan.
 
-### Adaptations
+### Special features
 - hooked keratinous beak rather than teeth;
 - long, highly mobile neck;
 - webbed, clawed feet;

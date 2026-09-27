@@ -226,7 +226,7 @@ Chimpanzees have slow life histories. Gestation is roughly eight months, offspri
 
 *Pan troglodytes* is threatened across its range by habitat loss and fragmentation, hunting, disease and human-wildlife conflict. Production migration should confirm the current IUCN assessment and assessment date directly before publishing a conservation field because status records can be revised.
 
-### Major adaptations
+### Special features
 
 - Long arms and grasping extremities for climbing and suspension.
 - Opposable digits and precision/power manipulation.
@@ -248,7 +248,7 @@ Chimpanzees are behaviorally sophisticated wild apes, not safe human analogues. 
 4. Chimpanzee communities have local tool traditions. A behavior common at one site may be absent at another despite similar raw materials.
 5. A Smithsonian male *P. t. verus* specimen in the national collection is recorded at exactly 46 kg, matching this report's canonical mass.
 6. Wild chimpanzees commonly travel several kilometers in a day, while some populations may travel up to around 10 km depending on ecology.
-7. Chimpanzees have no external tail, despite their highly arboreal ancestry and climbing ability.
+7. Chimpanzees have no external tail, despite their strong climbing ability.
 8. Their arms are proportionally very long; ADW describes arm spread at roughly 1.5 times body height.
 
 ### Concise site-ready summary
@@ -257,7 +257,7 @@ Chimpanzees are behaviorally sophisticated wild apes, not safe human analogues. 
 
 ### Rich narrative profile
 
-The chimpanzee's danger is best understood as integration rather than a single extreme weapon. At roughly 46 kg, a representative adult male is not especially large on the ABS roster. It lacks claws, horns, armor and the crushing jaws of heavyweight predators. What it does have is a rare combination of explosive muscle, grasping limbs, mobile shoulders, dangerous canines and a brain capable of adapting behavior to circumstances.
+The chimpanzee's danger is best understood as integration rather than a single extreme weapon. At roughly 46 kg, a representative adult male is not especially large on the ABS roster. It lacks claws, horns, armor and the crushing jaws of heavyweight predators. What it does have is a rare combination of explosive muscle, grasping limbs, mobile shoulders, dangerous canines and a brain capable of adjusting behavior to circumstances.
 
 Modern biomechanics corrects one of the species' most persistent myths. Chimpanzees are not several times stronger than humans in every sense. Direct muscle research instead indicates a meaningful but much more modest mass-specific advantage, driven in part by a high fast-twitch fiber fraction. That distinction matters for roster-wide scaling. A chimp can be extraordinarily powerful for a 46 kg primate while still remaining far below a gorilla or megafaunal mammal in absolute force.
 

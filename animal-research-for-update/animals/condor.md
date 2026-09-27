@@ -8,7 +8,7 @@
 - **Living/extinct:** Living.
 - **Canonical combat specimen:** healthy mature adult male, **10.0 kg**, about **105 cm standing height**, with approximately **2.9 m wingspan**.
 - **Sex choice:** male. USFWS reports adults at 17-25 lb (7.7-11.3 kg) and 3-3.5 ft tall, with males generally slightly larger than females. Sexes otherwise look similar.
-- **Population/age notes:** adults have bald pink-to-orange heads and extensive white underwing linings; juveniles have darker feathered heads and reduced white. Sexual maturity is about 5-7 years. The species passed through an extreme genetic bottleneck and all living birds descend from a very small founder population.
+- **Population/age notes:** adults have bald pink-to-orange heads and extensive white underwing linings; juveniles have darker feathered heads and reduced white. Sexual maturity is about 5-7 years. The species passed through an extreme genetic bottleneck and all living birds were bred from a very small founder population.
 
 ## 2. Physical measurements and ranges
 
@@ -73,7 +73,7 @@ The live placeholders of 12 kg, 100 cm, 36 km/h, 15 years and 100 PSI were not u
 
 ### Offensive mechanics
 
-The condor's only serious natural weapon is its hooked beak. It is adapted to open carcasses and can penetrate tough mammalian hide. In a matchup it can peck, slash and tear exposed tissue, especially eyes, face and soft extremities. However, the bird is an obligate scavenger rather than a predator, and its feet lack the sharp grasping talons that make eagles much more effective aerial attackers. A condor should not be modeled as a giant eagle.
+The condor's only serious natural weapon is its hooked beak. It is well suited to opening carcasses and can penetrate tough mammalian hide. In a matchup it can peck, slash and tear exposed tissue, especially eyes, face and soft extremities. However, the bird is an obligate scavenger rather than a predator, and its feet lack the sharp grasping talons that make eagles much more effective aerial attackers. A condor should not be modeled as a giant eagle.
 
 ### Defense and toughness
 
@@ -193,7 +193,7 @@ Sexual maturity occurs around 5-7 years. Pairs typically lay one egg, with incub
 
 The species remains one of North America's most intensively managed endangered birds. Its historical collapse culminated in removal of the last wild birds for captive breeding in 1987, followed by reintroductions. Lead ammunition exposure remains a major threat, alongside microtrash, power infrastructure and other anthropogenic hazards. Conservation status should be checked against the current IUCN/USFWS release when production migration occurs.
 
-### Adaptations
+### Special features
 
 - Bald head/neck reduces feather fouling while feeding inside carcasses.
 - Huge wings support economical soaring.

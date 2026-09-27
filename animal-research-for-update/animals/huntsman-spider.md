@@ -36,7 +36,7 @@ No credible *H. maxima* bite force in Newtons or PSI was found. `bite_force_psi`
 Heteropoda spiders are active hunters rather than prey-capture-web users. Published genus-level work describes strong chelicerae gripping prey followed by venom injection. That is appropriate behavioral context, but species-specific venom potency for *H. maxima* was not recovered.
 
 ### Defensive structures
-The main defenses are evasive locomotion, a low flattened profile, long laterigrade legs, camouflage and the arthropod exoskeleton. This is not heavy armor. The species should not receive tarantula urticating-hair defenses: those belong to Theraphosidae and are not a huntsman adaptation.
+The main defenses are evasive locomotion, a low flattened profile, long laterigrade legs, camouflage and the arthropod exoskeleton. This is not heavy armor. The species should not receive tarantula urticating-hair defenses: those belong to Theraphosidae and are not a huntsman feature.
 
 ## 3. Proposed canonical factual fields
 
@@ -139,7 +139,7 @@ No robust *H. maxima*-specific social or reproductive field dataset was recovere
 ### Conservation
 No IUCN Red List assessment for *H. maxima* was recovered in this run. Its apparently restricted cave/karst distribution makes habitat specificity relevant, but assigning a threatened category without an assessment would be inappropriate.
 
-### Major adaptations
+### Special features
 The defining package is extreme leg elongation, laterigrade stance, flattened cursorial body plan, cheliceral/venom prey capture and sensory systems suited to active hunting in complex surfaces.
 
 ### Human interaction

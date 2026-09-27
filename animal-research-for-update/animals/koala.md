@@ -17,13 +17,13 @@
 
 ### Length and height
 - Australian Museum gives species size range **68-82 cm**.
-- ADW reports southern males averaging **78 cm head-body length** and females 72 cm. Koalas have only a vestigial tail, so head-body length is the biologically useful length.
+- ADW reports southern males averaging **78 cm head-body length** and females 72 cm. Koalas have only a very small tail, so head-body length is the biologically useful length.
 - Historical anatomical descriptions place all-fours height around 10-11 in (25-28 cm), but this is not strong enough or standardized enough for a modern canonical site height.
 - **Canonical `length_cm`: 78.0.**
 - **Canonical `height_cm`: 0.0**, pending a defensible standardized adult-male standing/shoulder-height dataset.
 
 ### Speed and locomotion
-- Queensland Government states that disturbed koalas can break into a bounding gallop at **up to 30 km/h**, equivalent to **8.3 m/s**. The same source stresses that they are poorly adapted to terrestrial walking.
+- Queensland Government states that disturbed koalas can break into a bounding gallop at **up to 30 km/h**, equivalent to **8.3 m/s**. The same source stresses that they are poorly suited to terrestrial walking.
 - They are powerful climbers. Strong arms, powerful legs, sharp claws, two opposed foredigits and rough gripping pads support vertical climbing and branch control.
 - **Canonical `speed_mps`: 8.3**, as an official-government reported terrestrial maximum, not as a measure of agility or sustainable pace. **Confidence: moderate.**
 
@@ -39,7 +39,7 @@
 
 ### Natural weapons and defensive structures
 - **Fore/hind claws:** Queensland Government describes sharp claws, strong arms and powerful legs; San Diego Zoo describes sharp bark-gripping claws and strong arm/shoulder musculature. Exact claw length was not located in a sufficiently authoritative morphometric source, so no dimension is invented.
-- **Teeth/jaws:** capable of defensive biting, but the skull and dentition are primarily adapted to browsing rather than predation.
+- **Teeth/jaws:** capable of defensive biting, but the skull and dentition are primarily suited to browsing rather than predation.
 - **Body/fur:** stocky body and dense woolly fur offer modest superficial protection but no armor.
 - **Grip:** two opposed digits on each forepaw plus rough pads make the forelimbs effective grappling/clinging structures in trees.
 
@@ -155,7 +155,7 @@ Females can mature around two years; males are physiologically fertile young but
 ### Conservation
 The combined Queensland, NSW and ACT populations have been listed **Endangered under Australia's EPBC Act since 12 February 2022**. Major threats include habitat loss/fragmentation, drought and heat, bushfire, climate change, disease including chlamydia and koala retrovirus, dog attacks and vehicle strikes. Victoria and South Australia are outside that federal listed population.
 
-### Major adaptations
+### Special features
 - Opposed foredigits, rough pads, sharp claws and strong shoulders for climbing.
 - Dense fur and geographic body-size/fur variation.
 - Highly specialized hindgut fermentation and microbial community for Eucalyptus foliage.
@@ -171,7 +171,7 @@ Koalas are a major Australian conservation flagship. Urban expansion and roads i
 - Koala forepaws have **two opposed digits**, not the single opposed thumb arrangement familiar in humans.
 - They can gallop at up to about **30 km/h** when disturbed despite spending most of their lives in trees.
 - Their gut microbiome is measurably tied to which Eucalyptus species individuals can use effectively.
-- Koalas have only a vestigial external tail.
+- Koalas have only a very small external tail.
 
 ### Concise site-ready summary
 A stocky Australian tree-dwelling marsupial specialized for Eucalyptus life, the koala combines a powerful double-thumb grip, sharp climbing claws and surprising short-burst ground speed with a very low-energy lifestyle. Mature southern males are the largest fighters, but the species remains a modest absolute combatant whose best defense is vertical terrain rather than raw damage or armor.
@@ -179,9 +179,9 @@ A stocky Australian tree-dwelling marsupial specialized for Eucalyptus life, the
 ### Rich narrative profile
 The koala is often misread as simply slow. Its biology is better understood as extreme specialization. A mature southern male is a muscular 12 kg arboreal grappler with sharp claws, opposed foredigits and enough short-burst speed to bound at roughly 30 km/h when forced onto the ground. In a tree, the same anatomy provides secure purchase and rapid vertical escape. In a close encounter it can bite and scratch, and breeding males do compete for space and access to females.
 
-That does not make the koala a high-tier fighter. Its teeth are primarily a browsing system, its claws evolved for climbing, and it lacks armor, venom, horns or a large-carnivore killing bite. More importantly, its entire energy economy is constrained by a fibrous, chemically defended diet. The koala succeeds by extracting value from food that excludes many competitors and by conserving energy for most of the day, not by sustaining prolonged high-output activity.
+That does not make the koala a high-tier fighter. Its teeth are primarily a browsing system, its claws are built for climbing, and it lacks armor, venom, horns or a large-carnivore killing bite. More importantly, its entire energy economy is constrained by a fibrous, chemically defended diet. The koala succeeds by extracting value from food that excludes many competitors and by conserving energy for most of the day, not by sustaining prolonged high-output activity.
 
-Its most extraordinary adaptations therefore belong in Special rather than Attack. The gastrointestinal system and microbiome help process Eucalyptus secondary compounds, while males possess a specialized vocal apparatus capable of producing remarkably low bellows used in reproductive competition. These features make the koala biologically unusual without pretending that unusual biology equals heavyweight combat power.
+Its most extraordinary features therefore belong in Special rather than Attack. The gastrointestinal system and microbiome help process Eucalyptus secondary compounds, while males possess a specialized vocal apparatus capable of producing remarkably low bellows used in reproductive competition. These features make the koala biologically unusual without pretending that unusual biology equals heavyweight combat power.
 
 ### Future structured-field proposals
 - `canonical_population`: southern/Victorian-size population
@@ -202,7 +202,7 @@ Its most extraordinary adaptations therefore belong in Special rather than Attac
 - `adult_verified`: false; source explicitly says male but not adult
 - `sex_verified_or_unknown`: male explicitly stated
 - `license_status`: CC BY-SA 3.0, uploader's own work
-- `notes`: 2407x3496 exact-species male source with strong provenance and useful body framing. Direct visual inspection shows the animal substantially, but strict visibility of every foot/digit and the vestigial tail region cannot be certified because the tree/body overlap parts of the lower anatomy. Do not cut out or promote as complete under the mandatory rule. Current GitHub writer is text-only, so no binary PNG is fabricated.
+- `notes`: 2407x3496 exact-species male source with strong provenance and useful body framing. Direct visual inspection shows the animal substantially, but strict visibility of every foot/digit and the small tail region cannot be certified because the tree/body overlap parts of the lower anatomy. Do not cut out or promote as complete under the mandatory rule. Current GitHub writer is text-only, so no binary PNG is fabricated.
 
 ## 10. Source ledger
 | Source | Direct URL | Supports | Context / value | Confidence / caveat |
@@ -210,7 +210,7 @@ Its most extraordinary adaptations therefore belong in Special rather than Attac
 | Australian Museum, Koala | https://australian.museum/learn/animals/mammals/koala/ | taxonomy, size, habitat | *P. cinereus*; 68-82 cm | High; museum |
 | Australian Museum koala fact sheet | https://media.australian.museum/media/dd/Uploads/Documents/27761/Koala%20fact%20sheet%20May%202014.ea2c198.pdf | dimorphism/geography/mass | Victoria male 12.0 kg; QLD male 6.5 kg; females smaller | High; museum synthesis |
 | Queensland Government, Koala facts | https://environment.qld.gov.au/wildlife/animals/living-with/koalas/facts | adult masses, claws, locomotion, speed | QLD males 6-8 kg; VIC males 12 kg; sharp claws; up to 30 km/h | High; government; speed is reported maximum, not lab trial |
-| Animal Diversity Web | https://animaldiversity.org/accounts/Phascolarctos_cinereus/ | dimensions, anatomy, reproduction, longevity | southern male 78 cm/11.8 kg; northern male 6.5 kg; vestigial tail | Moderate-high; synthesis citing literature |
+| Animal Diversity Web | https://animaldiversity.org/accounts/Phascolarctos_cinereus/ | dimensions, anatomy, reproduction, longevity | southern male 78 cm/11.8 kg; northern male 6.5 kg; very small tail | Moderate-high; synthesis citing literature |
 | DCCEEW action plan profile | https://www.dcceew.gov.au/environment/biodiversity/threatened/action-plan/koala | mass, diet, habitat, threats | 4-15 kg; eucalypt forests; specialized diet | High; Australian government |
 | DCCEEW listing page | https://www.dcceew.gov.au/environment/biodiversity/threatened/species/koalas/listing-under-national-environmental-law | conservation | QLD/NSW/ACT listed Endangered 12 Feb 2022 | High; primary government status |
 | DCCEEW koala overview | https://www.dcceew.gov.au/environment/biodiversity/threatened/species/koalas | range/threats | east/southeast Australia; climate, disease, habitat, cars/dogs | High |

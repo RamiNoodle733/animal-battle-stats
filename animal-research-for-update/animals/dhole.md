@@ -108,7 +108,7 @@ All scores are absolute roster-wide values, not pound-for-pound ratings.
 | Speed | **75.0** | 15.3 m/s institutional maximum is fast, but well below cheetah-class speed. |
 | Endurance | **86.0** | Male telemetry around 19.3 km/day plus pursuit ecology supports very strong sustained movement without a near-ceiling rating. |
 | Recovery | **72.0** | Good working-canid recovery is plausible, but direct species-specific physiological recovery trials are lacking, so this stays below the old placeholder. |
-| Tactics | **88.0** | Cooperative pursuit, pack coordination, flanking and flexible prey selection are central adaptations. |
+| Tactics | **88.0** | Cooperative pursuit, pack coordination, flanking and flexible prey selection are central traits. |
 | Senses | **87.0** | Strong canid smell/hearing/vision plus forest contact communication, without evidence for an extreme sensory mechanism such as echolocation. |
 | Abilities | **69.0** | Pack-coordination whistles and specialized pursuit cooperation matter, but they are context-dependent and not supernatural individual powers. |
 
@@ -157,7 +157,7 @@ Dholes live in social packs/clans with cooperative hunting and pup care. Pack si
 
 The dhole is **Endangered**. Cornell reports severe historical range contraction, small isolated populations and threats including habitat loss/fragmentation, persecution, prey depletion, competition and disease. A recent Cornell-linked model summarizes a current estimate around **2,000–2,200 adults**, while older IUCN-era figures differ, so population numbers should be dated rather than treated as timeless constants.
 
-### Major adaptations
+### Special features
 
 - Lean cursorial body for sustained terrestrial travel.
 - Cooperative hunting and flexible pack organization.

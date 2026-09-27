@@ -51,7 +51,7 @@ Greater kudu are tall, long-legged woodland antelope. Their strongest evasive lo
 They range through dry woodland and can obtain water from food, but available behavioral sources emphasize concealment and obstacle-clearing escape rather than prolonged cursorial pursuit. Stamina is therefore moderate-strong, not elite. No unusual regenerative or rapid recovery mechanism is documented.
 
 ### Senses
-Large mobile ears are a conspicuous adaptation. MNHN emphasizes hearing, and Safari West describes extremely sensitive ears. Vision and olfaction also support predator detection. The striped coat and freeze response exploit broken woodland light, combining sensory vigilance with concealment rather than creating a supernatural camouflage effect.
+Large mobile ears are a conspicuous feature. MNHN emphasizes hearing, and Safari West describes extremely sensitive ears. Vision and olfaction also support predator detection. The striped coat and freeze response exploit broken woodland light, combining sensory vigilance with concealment rather than creating a supernatural camouflage effect.
 
 ### Intelligence and tactics
 Kudu use assessment and ritualization in male competition. Dominance is often settled by posture and lateral display rather than maximal combat, while evenly matched bulls may escalate to horn locking. This supports moderate tactical assessment. It does not justify primate/corvid-level Intelligence.
@@ -132,7 +132,7 @@ Gestation is about 7–9 months, generally producing one calf. Calves are hidden
 ### Conservation
 The Greater Kudu is currently listed as **Least Concern** in modern conservation summaries. Local populations nevertheless face hunting and habitat conversion. Horns are prized as trophies and have also been used culturally as instruments and containers.
 
-### Adaptations
+### Special features
 - Extreme male-biased horn development for display and combat.
 - Long legs and narrow build for moving through woodland and clearing obstacles.
 - Large mobile ears for acoustic vigilance.
@@ -207,4 +207,4 @@ Outside the rut, the kudu's survival strategy changes completely. It is a woodla
 - **Versus Kangaroo (80 kg, Attack 52.0):** Kudu's greater mass and long horns justify higher Attack, while Kangaroo's elastic hopping system and locomotor endurance justify higher Agility/Stamina.
 - **Versus Jaguar (100 kg, Attack 68.0):** despite greater mass, Kudu stays below Jaguar in Attack because the cat has a dedicated killing bite, claws, grappling control and predatory targeting. Body size alone is not Attack.
 - **Versus Hyena (75 kg, Attack 61.0 / Stamina 83.0):** Kudu has more mass and reach but a less lethal finishing toolkit and far less pursuit endurance. Its Attack therefore remains slightly lower and Stamina substantially lower.
-- No score is based on pound-for-pound performance, disputed sprint claims, or repeated counting of the same horn adaptation.
+- No score is based on pound-for-pound performance, disputed sprint claims, or repeated counting of the same horn feature.

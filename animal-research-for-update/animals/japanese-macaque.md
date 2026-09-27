@@ -87,10 +87,10 @@ Against danger, the strongest options are detection, alarm/social response, rapi
 | Maneuverability | **79.0** | Ground movement, climbing, leaping, gripping and swimming provide strong multidomain control. |
 | Endurance | **67.0** | Multi-kilometer daily ranging and year-round activity in difficult seasonal environments support strong sustained performance. |
 | Recovery | **48.0** | Normal primate healing and recovery, with no unusual regeneration. |
-| Tactics | **84.0** | Dominance tracking, social learning, flexible manipulation and learned traditions support excellent behavioral adaptation. |
+| Tactics | **84.0** | Dominance tracking, social learning, flexible manipulation and learned traditions support excellent behavioral versatility. |
 | Senses | **66.0** | Strong visual/social monitoring and broad vocal communication, but no extraordinary sensory specialization. |
 | Ferocity | **55.0** | Directed aggression and dominance fighting are real, but the species is not a dedicated macropredator and frequently manages conflict socially. |
-| Abilities | **70.0** | Cold adaptation plus versatile semi-terrestrial/arboreal/aquatic locomotion materially broaden survivable environments and escape options. |
+| Abilities | **70.0** | Cold tolerance plus versatile semi-terrestrial/arboreal/aquatic locomotion materially broaden survivable environments and escape options. |
 
 ## 6. Proposed six headline ABS ratings
 | Rating | Score | Rationale |
@@ -100,10 +100,10 @@ Against danger, the strongest options are detection, alarm/social response, rapi
 | **Agility** | **79.0** | Strong balance and control across ground, branches, leaps and water justify a high agility score independent of unknown top speed. |
 | **Stamina** | **67.0** | Year-round activity, multi-kilometer daily travel and harsh seasonal conditions support strong but not elite endurance. |
 | **Intelligence** | **84.0** | Social learning, behavioral traditions, manual coordination, hierarchy tracking and flexible foraging put this species among the roster's stronger nonhuman cognitive performers. |
-| **Special** | **72.0** | Exceptional cold-climate primate adaptation plus flexible multi-domain locomotion and socially transmitted behaviors create unusual matchup and survival options without inflating physical power. |
+| **Special** | **72.0** | Exceptional cold-climate tolerance for a primate plus flexible multi-domain locomotion and socially transmitted behaviors create unusual matchup and survival options without inflating physical power. |
 
 ## 7. Exactly two special abilities
-1. **Snow-Forest Thermoregulation** - unusually dense seasonally responsive fur plus behavioral heat conservation allows Japanese macaques to remain active through severe snowy winters. Local populations can add learned behaviors such as huddling and hot-spring bathing, but the ability is grounded primarily in species-level cold adaptation rather than assuming every macaque uses hot springs.
+1. **Snow-Forest Thermoregulation** - unusually dense seasonally responsive fur plus behavioral heat conservation allows Japanese macaques to remain active through severe snowy winters. Local populations can add learned behaviors such as huddling and hot-spring bathing, but the ability is grounded primarily in species-level cold tolerance rather than assuming every macaque uses hot springs.
 2. **Three-Domain Escape** - semi-terrestrial quadrupedal movement, capable climbing/leaping and strong swimming let the macaque change locomotor domain when pressured, complicating pursuit by opponents specialized for only one substrate.
 
 ## 8. Exactly two unique traits
@@ -126,7 +126,7 @@ Breeding is seasonal in many populations. Females typically produce a single inf
 ### Conservation
 Tokyo Zoo lists *Macaca fuscata* as IUCN Least Concern while noting locally threatened populations in Japan. The species can be locally abundant, but habitat change, conflict with agriculture, management/culling and population isolation matter regionally.
 
-### Major adaptations
+### Special features
 - dense winter coat responsive to cold climate
 - short tail that reduces exposed appendage area relative to many macaques
 - semi-terrestrial quadrupedal locomotion with strong climbing ability
@@ -149,7 +149,7 @@ Japanese macaques are iconic in tourism and research, especially at Jigokudani a
 - Male body weight can keep increasing until around eight years of age.
 
 ### Concise site-ready summary
-The Japanese Macaque is an 11.3 kg cold-climate primate whose real advantages are dexterity, terrain versatility, endurance and sophisticated social learning rather than raw damage. Mature males can grapple and bite with enlarged canines, but the species' standout adaptations are winter survival, climbing/swimming flexibility and culturally transmitted behavior.
+The Japanese Macaque is an 11.3 kg cold-climate primate whose real advantages are dexterity, terrain versatility, endurance and sophisticated social learning rather than raw damage. Mature males can grapple and bite with enlarged canines, but the species' standout traits are winter survival, climbing/swimming flexibility and culturally transmitted behavior.
 
 ### Rich narrative profile
 The Japanese macaque occupies a combat niche very different from that of a similarly sized carnivore. An adult male has grasping hands, useful canine teeth and enough strength to make close contact dangerous, but it is not built around a dedicated killing apparatus. Its better strategy is positional: read the opponent, exploit rocks or trees, use hands and feet to control balance, disengage when necessary, and avoid turning a flexible primate body into a static target for stronger jaws or claws.
@@ -182,7 +182,7 @@ Cognition is the clearest roster-level strength. These macaques do not merely fo
 ## 11. Evidence and source ledger
 | Source | Direct URL | Supports | Reported finding / context | Confidence / caveat |
 |---|---|---|---|---|
-| Wisconsin National Primate Research Center, Japanese macaque factsheet | https://primate.wisc.edu/primate-info-net/pin-factsheets/pin-factsheet-japanese-macaque/ | mass, dimensions, tail, longevity, locomotion, swimming, cold adaptation | males 11.3 kg and 570.1 mm body length; male tail 92.51 mm; confirmed male longevity 28 y; semi-terrestrial; >0.5 km swimming reported; fur thickens in colder habitat | **High** synthesis drawing on primary literature; swimming statement is secondary citation |
+| Wisconsin National Primate Research Center, Japanese macaque factsheet | https://primate.wisc.edu/primate-info-net/pin-factsheets/pin-factsheet-japanese-macaque/ | mass, dimensions, tail, longevity, locomotion, swimming, cold tolerance | males 11.3 kg and 570.1 mm body length; male tail 92.51 mm; confirmed male longevity 28 y; semi-terrestrial; >0.5 km swimming reported; fur thickens in colder habitat | **High** synthesis drawing on primary literature; swimming statement is secondary citation |
 | Animal Diversity Web, *Macaca fuscata* | https://animaldiversity.org/accounts/Macaca_fuscata/ | dimorphism, skull, home/day range, social/ecology context | male 11.3 kg; female 8.4 kg; provisioning changes skull size; home range/day-range summaries | **High-moderate** curated secondary source |
 | Tokyo Zoological Park, Japanese Macaque | https://www.tokyo-zoo.net/en/ueno/encyclopedia/japanese-macaque/index.html | dimensions, range, diet, group structure, vocal communication, IUCN status | males 50-60 cm and 10-18 kg; 6-13 cm tail; plant-heavy omnivory; multi-male/multi-female groups; >30 sounds; IUCN LC | **High-moderate** major zoological institution |
 | Inoue 1988, Folia Primatologica | https://pubmed.ncbi.nlm.nih.gov/3254854/ | maturity/growth | body weight increased to ~8 y in males, then stabilized | **High**, peer reviewed |
@@ -226,7 +226,7 @@ Cognition is the clearest roster-level strength. These macaques do not merely fo
 - [x] Six headline ratings provided with one decimal
 - [x] Exactly two named special abilities
 - [x] Exactly two unique traits
-- [x] Ecology, life history, conservation, adaptations and human interaction included
+- [x] Ecology, life history, conservation, special features and human interaction included
 - [x] Several genuine fun facts included
 - [x] Concise summary and rich narrative profile included
 - [x] Future field proposals included

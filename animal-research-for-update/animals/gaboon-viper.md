@@ -55,7 +55,7 @@ The venom is medically dangerous and predominantly cytotoxic/hemotoxic in clinic
 Routine locomotion is slow and deliberate. This snake is not a pursuit predator. Its head and anterior body, however, can accelerate very rapidly over strike distance. Agility must therefore distinguish **strike reflex** from whole-body repositioning. In open terrain it is poor at sustained pursuit or repeated rapid direction changes compared with fast terrestrial vertebrates.
 
 ### Endurance
-Energy economy is excellent for an ambush ectotherm, but low metabolic expenditure is not equivalent to high sustained combat output. A Gaboon viper can wait motionless for long periods, yet it is not adapted to prolonged chase or high-output fighting. Stamina is therefore below the roster's endurance specialists.
+Energy economy is excellent for an ambush ectotherm, but low metabolic expenditure is not equivalent to high sustained combat output. A Gaboon viper can wait motionless for long periods, yet it is not built for prolonged chase or high-output fighting. Stamina is therefore below the roster's endurance specialists.
 
 ### Senses
 Like other advanced snakes it combines chemoreception through tongue-flick/Jacobson's organ with vision and vibration sensitivity. Its broad head and ambush ecology support precise close-range prey localization. Claims of exceptional binocular vision are not used as a scored fact without stronger primary evidence.
@@ -137,7 +137,7 @@ Viviparous. Smithsonian reports females can produce 50-60 live young, illustrati
 ### Conservation
 Recent IUCN-linked references list *B. gabonica* as **Vulnerable**, with habitat loss an important concern. Older sources may still describe it as common or use outdated assessments.
 
-### Adaptations
+### Special features
 Its broad leaf-like head, disruptive geometric pattern, heavy body, large venom glands and long rotating fangs form a coherent ambush system. The species invests in concealment and a decisive close-range strike rather than pursuit.
 
 ### Human interaction

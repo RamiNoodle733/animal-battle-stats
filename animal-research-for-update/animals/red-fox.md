@@ -47,7 +47,7 @@ Animal Diversity Web reports an average wild lifespan around **3 years**, with m
 
 ### Bite, teeth and jaw mechanics
 
-Red foxes have the normal canid predatory dentition: incisors, enlarged canines, premolars and carnassials adapted to seize prey and shear tissue. A study of 2,849 specimens found the strongest sexual dimorphism in the canines. A morphometric comparison of adult red fox and golden jackal mandibles found the jackal mandible longer and more massive, useful evidence against overrating red-fox jaw power.
+Red foxes have the normal canid predatory dentition: incisors, enlarged canines, premolars and carnassials suited to seizing prey and shearing tissue. A study of 2,849 specimens found the strongest sexual dimorphism in the canines. A morphometric comparison of adult red fox and golden jackal mandibles found the jackal mandible longer and more massive, useful evidence against overrating red-fox jaw power.
 
 No defensible species-specific **bite pressure in PSI** was recovered. Skull morphology, bite-force quotient estimates or force predictions cannot be converted into PSI without a defensible contact area.
 
@@ -171,7 +171,7 @@ All values use the absolute roster-wide 0.1-100.0 scale.
 | Maneuverability | **82.0** | Light frame, acceleration, pouncing, bounding and balance support excellent short-range repositioning. |
 | Endurance | **67.0** | Routine ranging and occasional long dispersal show strong ecological endurance without wolf-like pursuit specialization. |
 | Recovery | **49.0** | Ordinary mammalian healing and energetic recovery; no special regeneration. |
-| Tactics | **72.0** | Flexible stalking, pouncing, caching, habitat use and opportunistic diet support strong practical behavioral adaptability. |
+| Tactics | **72.0** | Flexible stalking, pouncing, caching, habitat use and opportunistic diet support strong practical behavioral versatility. |
 | Senses | **82.0** | Acute prey-localizing hearing, strong olfaction and useful low-light/motion vision provide an excellent small-predator sensory package. |
 | Ferocity | **49.0** | Territorial predator willing to bite and pursue prey, but generally avoids physically superior carnivores and is not a specialized stand-and-fight species. |
 | Abilities | **76.0** | Concealed-prey localization, highly developed mousing behavior and the peer-reviewed directional hunting effect create unusual prey-capture advantages. |
@@ -184,7 +184,7 @@ All values use the absolute roster-wide 0.1-100.0 scale.
 | **Defense** | **25.0** | Evasion and awareness are useful, but the fox has little passive protection and limited trauma tolerance. |
 | **Agility** | **82.0** | Acceleration, pouncing, jumping, balance and rapid terrestrial repositioning are genuine strengths independent of top speed alone. |
 | **Stamina** | **67.0** | Sustained ranging and dispersal are strong, but this is not an elite pursuit-endurance canid. |
-| **Intelligence** | **73.0** | Caching, flexible foraging, urban adaptation, prey switching and tactical hunting support high behavioral flexibility without elite corvid/primate cognition. |
+| **Intelligence** | **73.0** | Caching, flexible foraging, urban living, prey switching and tactical hunting support high behavioral flexibility without elite corvid/primate cognition. |
 | **Special** | **78.0** | Exceptional concealed-prey hearing plus the experimentally observed directional mousing effect can materially improve prey targeting, while the still-hypothetical magnetic mechanism is not overstated. |
 
 ## 7. Exactly two special abilities
@@ -223,7 +223,7 @@ Breeding generally occurs in winter, with pups born in dens after roughly seven 
 
 The red fox is globally widespread and commonly assessed as Least Concern. Local management varies dramatically: it can be protected or valued as native wildlife in some regions, hunted/trapped in others, and intensively controlled as an invasive predator in Australia.
 
-### Major adaptations
+### Special features
 
 - mobile pinnae and acute hearing for concealed prey
 - long-legged light canid build for acceleration and pouncing
@@ -250,7 +250,7 @@ Red foxes live successfully around farms, suburbs and cities, where they exploit
 
 ### Concise site-ready summary
 
-The Red Fox is a roughly 7.2 kg male canid built around speed, hearing, precision pouncing and behavioral flexibility rather than brute force. Its bite is dangerous to prey-sized animals, but its strongest ABS advantages are agility, senses, adaptable tactics and an unusual directional mousing effect observed in wild hunting trials.
+The Red Fox is a roughly 7.2 kg male canid built around speed, hearing, precision pouncing and behavioral flexibility rather than brute force. Its bite is dangerous to prey-sized animals, but its strongest ABS advantages are agility, senses, versatile tactics and an unusual directional mousing effect observed in wild hunting trials.
 
 ### Rich narrative profile
 
@@ -336,7 +336,7 @@ Its broader ecological story reinforces the same pattern. Red foxes prosper by c
 - Six headline ratings with one decimal: **yes**
 - Exactly two special abilities: **yes**
 - Exactly two unique traits: **yes**
-- Habitat/range/diet/ecology/social/life history/conservation/adaptations/human interaction: **yes**
+- Habitat/range/diet/ecology/social/life history/conservation/special features/human interaction: **yes**
 - Several genuine fun facts: **yes**
 - Site summary and rich narrative: **yes**
 - Future field proposals: **yes**

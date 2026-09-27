@@ -12,7 +12,7 @@
 
 ### Taxonomy caveat
 
-The familiar label “green anaconda” is currently taxonomically contested. Rivas et al. (2024) proposed a northern lineage as *Eunectes akayima* and retained *E. murinus* for the southern lineage, based primarily on deep genetic divergence and later morphological work. Subsequent work has treated *E. akayima* as a junior synonym of *E. murinus*. Because the live ABS roster simply says `Anaconda`, this research file uses the traditional green-anaconda concept and *E. murinus* as the stable site-facing name, while flagging the dispute for a later taxonomy pass. Production should not silently imply that this controversy is settled.
+The familiar label “green anaconda” is currently taxonomically contested. Rivas et al. (2024) proposed a northern population as *Eunectes akayima* and retained *E. murinus* for the southern population, based primarily on marked genetic differences and later morphological work. Subsequent work has treated *E. akayima* as a junior synonym of *E. murinus*. Because the live ABS roster simply says `Anaconda`, this research file uses the traditional green-anaconda concept and *E. murinus* as the stable site-facing name, while flagging the dispute for a later taxonomy pass. Production should not silently imply that this controversy is settled.
 
 ### Sexual dimorphism and population notes
 
@@ -106,7 +106,7 @@ The animal is optimized for wetlands. Dorsal eyes/nostrils, heavy musculature an
 
 ### Endurance and stamina
 
-Green anacondas excel at low-output ambush, waiting and prolonged grappling rather than sustained high-speed pursuit. Ectothermy reduces energetic demand but also limits repeated high-output performance compared with endurance-adapted mammals and birds. Their stamina is therefore moderate in a fight, despite excellent patience.
+Green anacondas excel at low-output ambush, waiting and prolonged grappling rather than sustained high-speed pursuit. Ectothermy reduces energetic demand but also limits repeated high-output performance compared with endurance-specialized mammals and birds. Their stamina is therefore moderate in a fight, despite excellent patience.
 
 ### Senses
 
@@ -234,7 +234,7 @@ Green anacondas bear live young. Institutional accounts commonly describe litter
 
 Smithsonian currently presents the green anaconda as **Least Concern**, while older databases may show Not Evaluated. CITES lists anacondas in Appendix II. Taxonomic changes complicate older range-wide status summaries, so a future production pass should confirm the status under whichever species concept ABS adopts.
 
-### Major adaptations
+### Special features
 
 - Extreme female body size and girth
 - Whole-body constriction
@@ -267,7 +267,7 @@ Anaconda fights are positional. The snake does not need claws, horns or venom be
 
 That strength is also the source of important limitations. A 4.5 m snake is long, but length is not the same as mass or armor. The representative ABS female is around 50 kg, placing her far below elephants, hippos, rhinos and other megafauna in absolute body scale. She also lacks the osteoderms of a crocodilian or the compact mobility of a cat. On dry open ground, an opponent that avoids the first strike can exploit the anaconda’s comparatively awkward repositioning. A failed coil can leave large sections of the body exposed to teeth, claws, horns or trampling.
 
-Water changes the matchup. The anaconda becomes stealthier, better supported and harder for many terrestrial animals to read or maneuver against. Its dorsal eyes and nostrils are classic aquatic-ambush adaptations, and its camouflage makes the first contact difficult to predict. This environment dependence is why ABS should not reduce the animal to a single “strong snake” stereotype. It is a specialized wetland grappler whose power spikes when terrain lets it force close contact.
+Water changes the matchup. The anaconda becomes stealthier, better supported and harder for many terrestrial animals to read or maneuver against. Its dorsal eyes and nostrils are classic aquatic-ambush features, and its camouflage makes the first contact difficult to predict. This environment dependence is why ABS should not reduce the animal to a single “strong snake” stereotype. It is a specialized wetland grappler whose power spikes when terrain lets it force close contact.
 
 ### Useful future structured fields
 
@@ -304,7 +304,7 @@ The current GitHub connector safely writes UTF-8 text but does not provide a saf
 | Animal Diversity Web, *Eunectes murinus* | https://animaldiversity.org/accounts/Eunectes_murinus/ | Dimorphism, anatomy, habitat, predation, defensive behavior | Strong female-biased dimorphism; dorsal nostrils/eyes; males ~3 m vs females ~6 m in older summary; large females face less predation | Good secondary academic synthesis; some older giant-size figures should be treated cautiously |
 | Muséum national d’Histoire naturelle | https://www.mnhn.fr/fr/anaconda-vert | Sex-specific broad length ranges, mass, lifespan, hunting | Females 6–8 m, males 3–5 m, 70–100 kg broad profile; aquatic ambush/constriction | Strong institution, but size ranges are broad and not means |
 | Shedd Aquarium | https://www.sheddaquarium.org/animals/reptiles/anaconda | Aquatic ecology, prey, upper size, dragging prey into water | Semi-aquatic ambush, mammals/reptiles/birds/fish; up to 8 m/182 kg | Strong institution; upper values are maxima |
-| Rivas et al. 2024, Diversity | https://doi.org/10.3390/d16020127 | Taxonomy controversy | Proposed northern *E. akayima* distinct from southern *E. murinus* based on deep genetic divergence | Peer reviewed; species split remains contested |
+| Rivas et al. 2024, Diversity | https://doi.org/10.3390/d16020127 | Taxonomy controversy | Proposed northern *E. akayima* distinct from southern *E. murinus* based on marked genetic differences | Peer reviewed; species split remains contested |
 | Rivas et al. 2024, Diversity follow-up | https://doi.org/10.3390/d16070418 | Taxonomy clarification, dimorphism | Formal clarification/description of *E. akayima* and morphological/SSD discussion | Peer reviewed; contested by other taxonomic treatments |
 | Onary et al. 2025, Journal of Vertebrate Paleontology | https://www.tandfonline.com/doi/abs/10.1080/02724634.2025.2572967 | Current taxonomy caveat | Treats *E. akayima* as junior synonym of *E. murinus* following contrary taxonomic view | Peer reviewed; demonstrates dispute is unresolved |
 | Haddad & Duarte 2024 | https://journals.sagepub.com/doi/abs/10.1177/10806032241230242 | Human interaction, persistence of constriction | Documented predatory attempt on a child; snake maintained bite/coils despite attempts to remove it | Peer-reviewed case report; single event, not population-level aggression evidence |

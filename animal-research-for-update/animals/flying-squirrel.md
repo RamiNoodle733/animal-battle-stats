@@ -31,7 +31,7 @@ No defensible species-specific maximum running or gliding speed for *P. volans* 
 
 Species-specific movement evidence is strong even without a maximum speed: radiotelemetry in Finland found male home ranges averaging **59.9 ha**, female home ranges **8.3 ha**, mean nightly male displacement from the nest of **292 m**, and longest recorded movements **over 2 km**. The authors explicitly identify gliding as a plausible mechanism enabling this exceptional mobility for body size.
 
-Related flying-squirrel biomechanics should be used only as comparative mechanism evidence, not silently transferred into *P. volans* factual fields. In northern flying squirrels (*Glaucomys sabrinus*), 168 measured glides averaged roughly 12.5-14.4 m, reached 65 m, and mean air speeds ranged 6.26-8.11 m/s. Southern flying squirrel (*G. volans*) 3-D kinematics measured mean glide velocity 5.11 m/s. These studies establish how controlled gliding works, but they are not measurements of *P. volans*.
+Biomechanics from other flying-squirrel species should be used only as comparative mechanism evidence, not silently transferred into *P. volans* factual fields. In northern flying squirrels (*Glaucomys sabrinus*), 168 measured glides averaged roughly 12.5-14.4 m, reached 65 m, and mean air speeds ranged 6.26-8.11 m/s. Southern flying squirrel (*G. volans*) 3-D kinematics measured mean glide velocity 5.11 m/s. These studies establish how controlled gliding works, but they are not measurements of *P. volans*.
 
 ### Lifespan
 - Animal Diversity Web gives **3.8 years average wild lifespan** from demographic data.
@@ -54,7 +54,7 @@ There is no armor, thick hide, shell, venom, or large-body damage buffer. Defens
 | `weight_kg` | **0.16** | Representative robust adult female within 95-200 g species range; females are larger in long-term data. |
 | `height_cm` | **0.0** | No defensible standardized standing-height measurement; posture-dependent and not useful here. |
 | `length_cm` | **31.0** | Representative total length including tail within institutional 22-34 cm range and published component ranges. |
-| `speed_mps` | **0.0** | No defensible species-specific maximum speed found; related *Glaucomys* glide speeds are not transferred. |
+| `speed_mps` | **0.0** | No defensible species-specific maximum speed found; *Glaucomys* glide speeds are not transferred. |
 | `lifespan_years` | **3.8** | ADW demographic wild average. |
 | `bite_force_psi` | **0.0** | No reliable species-specific pressure measurement. |
 
@@ -72,7 +72,7 @@ A flying squirrel is not a pursuit predator. Its combat offense is reactive: eva
 Physical protection is poor. The skeleton and soft tissues of a 0.16 kg mammal are vulnerable to bites, talons, crushing, falls without controlled posture, and much larger opponents. Its real defense is avoiding contact. Cavity refuges, trees, darkness, cryptic pelage, rapid climbing, and gliding can break line of pursuit.
 
 ### Locomotion and maneuverability
-This is the species' defining combat-relevant strength. The patagium stretches between fore- and hind limbs. Limb position changes membrane geometry and allows active steering, while the flattened tail contributes to aerial stability/control. Comparative flying-squirrel biomechanics show that controlled gliding can change angle of attack and camber, pitch up before landing, and distribute landing loads across limbs. Those mechanical principles explain why the adaptation is much more than passive falling.
+This is the species' defining combat-relevant strength. The patagium stretches between fore- and hind limbs. Limb position changes membrane geometry and allows active steering, while the flattened tail contributes to aerial stability/control. Comparative flying-squirrel biomechanics show that controlled gliding can change angle of attack and camber, pitch up before landing, and distribute landing loads across limbs. Those mechanical principles explain why its gliding is much more than passive falling.
 
 *P. volans* itself shows extraordinary landscape mobility for its body mass. The Finnish telemetry work found especially large male home ranges and movements beyond 2 km. In a tree-rich arena this translates to excellent route choice and escape potential.
 
@@ -105,7 +105,7 @@ Likely successful defense consists of early detection, climbing, disappearing in
 ### Environmental weaknesses
 - **Open flat ground:** severe disadvantage. Gliding requires elevation and a landing target.
 - **Water:** no specialized aquatic defense.
-- **Confined ground arena:** removes the adaptation responsible for most of its Special and Agility value.
+- **Confined ground arena:** removes the feature responsible for most of its Special and Agility value.
 - **Large aerial predator:** gliding may expose it rather than guarantee escape.
 
 ### Matchup archetypes
@@ -125,7 +125,7 @@ All values use the roster-wide absolute 0.1-100.0 framework.
 | Protection | **5.0** | Fur and small target profile only; no armor or thick hide. |
 | Toughness | **8.0** | Normal small-mammal resilience but extremely low trauma buffer against larger animals. |
 | Maneuverability | **96.0** | Exceptional 3-D repositioning through climbing plus actively controlled gliding in suitable habitat. |
-| Speed | **48.0** | Quick arboreal movement and gliding, but no verified *P. volans* maximum and speed is not allowed to inherit related-species measurements. |
+| Speed | **48.0** | Quick arboreal movement and gliding, but no verified *P. volans* maximum and speed is not allowed to inherit other-species measurements. |
 | Endurance | **61.0** | Nightly movement and unusually large home-range mobility for mass; not a cursorial endurance specialist. |
 | Recovery | **50.0** | No evidence for exceptional injury recovery or regeneration; ordinary mammalian recovery baseline. |
 | Tactics | **65.0** | Route selection, multiple nests and complex arboreal navigation support flexible escape tactics. |
@@ -140,7 +140,7 @@ All values use the roster-wide absolute 0.1-100.0 framework.
 - **Agility: 96.0** - elite maneuverability is biologically justified. Climbing plus controlled three-dimensional gliding creates unusual repositioning options, though the score does not imply high straight-line speed.
 - **Stamina: 61.0** - meaningful nightly mobility and >2 km recorded movement support above-average sustained travel for a small arboreal mammal, but not endurance-athlete status.
 - **Intelligence: 66.0** - complex spatial navigation, nest switching and controlled glide decisions support solid behavioral flexibility without approaching corvid/primate ceilings.
-- **Special: 87.0** - the patagium is a rare, matchup-changing locomotor adaptation. The score is high because it changes terrain access and escape geometry, not because it increases damage.
+- **Special: 87.0** - the patagium is a rare, matchup-changing locomotor feature. The score is high because it changes terrain access and escape geometry, not because it increases damage.
 
 ## 7. Exactly two special abilities and exactly two unique traits
 
@@ -169,7 +169,7 @@ ADW summarizes one or two litters annually, commonly 2-3 young in newer accounts
 ### Conservation
 The species is globally treated as **Least Concern**, but that global label hides significant regional decline. A 2025 conservation-genomics paper notes declining trends through much of the range, Near Threatened treatment across Europe, Vulnerable status in Finland, Critically Endangered status in Estonia, and recent disappearance from Latvia and Lithuania. Mature forest loss and fragmentation are therefore important human pressures.
 
-### Major adaptations
+### Special features
 - Furred patagium connecting fore- and hind limbs.
 - Flattened tail contributing to aerial control.
 - Large eyes suited to nocturnal activity.
@@ -188,7 +188,7 @@ Direct conflict with people is minimal. The main interaction is conservation-rel
 - The species does not need fictional speed numbers to be remarkable: its documented home-range size is already unusually large for its body mass.
 
 ### Concise site-ready summary
-A tiny nocturnal squirrel with almost no physical protection but extraordinary aerial control, *Pteromys volans* turns forest structure into an escape network. Its patagium, flattened tail and precise limb control let it glide between trees, while large home ranges show how effectively that adaptation expands its movement. In a direct ground fight it is fragile and weak; in a mature canopy it is one of the roster's most elusive small mammals.
+A tiny nocturnal squirrel with almost no physical protection but extraordinary aerial control, *Pteromys volans* turns forest structure into an escape network. Its patagium, flattened tail and precise limb control let it glide between trees, while large home ranges show how effectively that gliding ability expands its movement. In a direct ground fight it is fragile and weak; in a mature canopy it is one of the roster's most elusive small mammals.
 
 ### Rich narrative profile
 The Flying Squirrel is a strong example of why ABS categories must remain separate. At roughly 160 grams, it cannot trade damage with serious predators. Its incisors are real weapons, but absolute attack power is tiny, and its body has essentially no armor. Giving it high Attack or Defense because it can escape would erase the distinction between surviving contact and preventing contact.
@@ -243,7 +243,7 @@ That power is highly conditional. Put the same squirrel on flat open ground and 
 
 - **Taxon conflict:** live profile uses tribe `Pteromyini`, while this report selects *Pteromys volans* to make the roster animal biologically testable. Production taxonomy should eventually decide whether the generic name should be renamed to Siberian Flying Squirrel or whether a different representative species is intended.
 - **Mass:** broad references span 95-200 g and ADW gives 130 g average. Female-biased size is strongly supported, but 160 g is a representative editorial canonical selection rather than a directly published female mean.
-- **Speed:** live 36 km/h is unsupported. Related flying-squirrel species have measured glide velocities, but those are not copied into *P. volans*.
+- **Speed:** live 36 km/h is unsupported. Other flying-squirrel species have measured glide velocities, but those are not copied into *P. volans*.
 - **Glide distance:** popular references frequently state 35 m, 60 m, or even >100 m. Because strong species-specific experimental verification was not located in this run, none is made a canonical field. The >2 km telemetry movement is cumulative movement through habitat, not one glide.
 - **Bite force:** no credible PSI measurement found. Remains 0.0 rather than guessed.
 - **Reproduction:** historical sources conflict over one versus two litters and litter size; ADW explicitly flags this uncertainty.

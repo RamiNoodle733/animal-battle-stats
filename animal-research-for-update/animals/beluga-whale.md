@@ -120,7 +120,7 @@ These are genuine endurance/foraging capabilities but are not treated as continu
 
 Belugas normally capture fish and invertebrates rather than large vertebrate prey. Their mouths and teeth are therefore less specialized for killing large opponents than those of major macropredatory cetaceans. Offensive potential comes from body mass, close-range bite/grab capability and maneuvering in three dimensions. Attack is strong in absolute terms because a 1.5-tonne animal can deliver substantial mechanical force, but it remains well below giant marine predators with purpose-built killing weapons.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 
 Large body mass and exceptionally thick blubber provide meaningful cushioning and thermal reserve. The rounded, robust body is substantial, but there is no rigid armor. Killer whales and polar bears can prey on belugas, demonstrating that blubber and size do not make them invulnerable. The lack of a dorsal fin and presence of a tough dorsal ridge are specifically useful under ice.
 
@@ -197,10 +197,10 @@ Known predators include killer whales and polar bears. Belugas can exploit shall
 | Maneuverability | **71.0** | Flexible neck, reverse swimming, broad flippers and three-dimensional aquatic control are unusually useful in confined water and ice. |
 | Endurance | **84.0** | Repeated deep dives, long breath holds and seasonal movements support very strong sustained aquatic performance. |
 | Recovery | **50.0** | Normal mammalian healing; no exceptional regeneration mechanism. |
-| Tactics | **72.0** | Flexible social structure, communication, learning opportunities and sophisticated foraging support strong behavioral adaptability. |
+| Tactics | **72.0** | Flexible social structure, communication, learning opportunities and sophisticated foraging support strong behavioral versatility. |
 | Senses | **91.0** | Sensitive ultrasonic hearing plus active echolocation are elite battle-relevant sensing tools, especially in darkness/turbidity. |
 | Ferocity | **45.0** | Capable large odontocete but not a specialized large-prey killer or unusually conflict-driven species. |
-| Abilities | **78.0** | Biosonar, flexible neck/reverse swimming, ice-adapted dorsal ridge and extreme cold-water physiology create multiple distinctive matchup tools. |
+| Abilities | **78.0** | Biosonar, flexible neck/reverse swimming, an ice-suited dorsal ridge and extreme cold-water physiology create multiple distinctive matchup tools. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -255,7 +255,7 @@ NOAA reports female maturity around 6–14 years, with males somewhat later. Ges
 
 Species-wide status should be verified directly against the current IUCN assessment before production migration. Population status varies sharply. Under the U.S. ESA, NOAA lists the **Cook Inlet distinct population segment as Endangered**; all belugas are protected under the U.S. Marine Mammal Protection Act, and some stocks are designated depleted. Do not apply Cook Inlet's endangered status to every global beluga.
 
-### Major adaptations
+### Special features
 
 - Thick blubber for Arctic insulation and energy storage.
 - No dorsal fin, reducing heat loss/injury and aiding under-ice travel.
@@ -283,7 +283,7 @@ Belugas have long cultural and subsistence importance to Arctic Indigenous commu
 
 ### Concise site-ready summary
 
-The beluga is a 1.5-tonne Arctic toothed whale built less for raw predatory violence than for survival and sensory control in an icy three-dimensional world. Thick blubber, deep-diving endurance, a flexible neck, reverse swimming and exceptional biosonar make it difficult to surprise or outmaneuver underwater. Its simple conical teeth keep Attack below similarly sized specialist predators, but elite hearing, echolocation and cold-water adaptations give it unusually high Stamina, Intelligence and Special ratings.
+The beluga is a 1.5-tonne Arctic toothed whale built less for raw predatory violence than for survival and sensory control in an icy three-dimensional world. Thick blubber, deep-diving endurance, a flexible neck, reverse swimming and exceptional biosonar make it difficult to surprise or outmaneuver underwater. Its simple conical teeth keep Attack below similarly sized specialist predators, but elite hearing, echolocation and cold-water specializations give it unusually high Stamina, Intelligence and Special ratings.
 
 ### Detailed narrative profile
 

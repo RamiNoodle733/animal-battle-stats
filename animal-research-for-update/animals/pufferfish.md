@@ -150,7 +150,7 @@ Adults are described as solitary and territorial. The high-resolution Commons so
 ### Life history and conservation
 The species is currently listed as **Least Concern** in the references consulted and is not CITES-listed. Strong wild longevity and detailed reproductive-demography data were not recovered in this run. A captive lifespan near 15 years is plausible but should remain low-confidence until a stronger longevity source is found.
 
-### Adaptations
+### Special features
 - Expandable body/foregut system for emergency inflation.
 - Small body spinules that increase defensive texture when the body expands.
 - Four fused dental plates for hard benthic foods.
@@ -208,7 +208,7 @@ That combination must be scored carefully. TTX does not make a 1.5 kg puffer hit
 | Smithsonian STRI Shorefishes | https://biogeodb.stri.si.edu/sftep/en/thefishes/species/2425 | Habitat, diet, max size, depth, conservation | 50 cm max; 1–90 m; omnivore; Least Concern | **High** institutional database |
 | Campbell et al. 2009, Natural Product Research | https://pubmed.ncbi.nlm.nih.gov/19851930/ | TTX presence/distribution | TTX detected in *A. hispidus* flesh, pectoral fin, kidney and skin slime; bacterial isolates examined | **High**, peer-reviewed; bacterial-origin interpretation should not be generalized beyond study conditions |
 | Bane et al. 2015, Toxins | https://www.mdpi.com/2072-6651/7/9/3436 | Toxin concentration and geographic variation | Skin TTX highest among sampled organs; up to 51.0 µg/g in Solomon samples and 12.7 µg/g in Okinawa *A. hispidus*; STX also found in Okinawa fish | **High**, peer-reviewed; small samples and strong individual/regional variation |
-| Wainwright & Turingan 1997, Evolution | https://academic.oup.com/evolut/article/51/2/506/6757989 | Inflation evolution | Inflation occurs across Tetraodontidae and Diodontidae; specialized buccal compression mechanics | **High**, peer-reviewed family-level evidence |
+| Wainwright & Turingan 1997, Evolution | https://academic.oup.com/evolut/article/51/2/506/6757989 | Inflation mechanics and distribution | Inflation occurs across Tetraodontidae and Diodontidae; specialized buccal compression mechanics | **High**, peer-reviewed family-level evidence |
 | Brainerd 1994, Journal of Morphology | https://pubmed.ncbi.nlm.nih.gov/29865387/ | Inflation functional morphology | *Diodon holocanthus* can triple volume; expandable stomach/skin and stiffened inflated body | **High**, peer-reviewed but porcupinefish, so no species-specific multiplier assigned to *A. hispidus* |
 | McGee & Clark 2014, Biology Letters / JCU repository | https://researchonline.jcu.edu.au/37227/ | Inflation physiology/recovery | Inflated puffer continues gill oxygen uptake; aerobic recovery averaged 5.6 h | **High**, peer-reviewed but *Canthigaster valentini*, used only as family-level recovery evidence |
 | Gordon et al. 1996, Journal of Fish Biology | https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1095-8649.1996.tb00026.x | Swimming mechanics | *Arothron* congeners use pectoral+dorsal+anal fins at 1–3.5 BL/s and recruit tail for burst swimming above ~3 BL/s | **High**, peer-reviewed congener evidence; not used as *A. hispidus* top speed |

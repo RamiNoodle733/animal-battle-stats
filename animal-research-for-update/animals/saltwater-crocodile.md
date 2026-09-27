@@ -158,7 +158,7 @@ Females construct mound nests and guard nesting areas. Historical IUCN material 
 ### Conservation
 The species is globally assessed as **Least Concern**, but local status varies. Northern Australia supports major managed populations. The Northern Territory’s 2024–2034 management program explicitly balances conservation, sustainable use and public-safety risk.
 
-### Adaptations
+### Special features
 - Dorsal osteoderms and robust skull.
 - Powerful tail-driven swimming.
 - Top-mounted eyes and nostrils for near-submerged surveillance.

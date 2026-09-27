@@ -104,7 +104,7 @@ All ratings use the roster-wide absolute 0.1-100.0 scale.
 | Size | 34.0 | 65 kg is substantial relative to small fauna but far below large predators, great apes and megafauna |
 | Raw Power | 34.0 | Athletic 65 kg bovid, but absolute force remains well below much larger bovids and megafauna |
 | Weaponry | 50.0 | Mature male has long 45-91.7 cm horns with real intraspecific combat use |
-| Protection | 20.0 | No armor; thin/gracile escape-adapted body |
+| Protection | 20.0 | No armor; thin/gracile body built for escape |
 | Toughness | 35.0 | Functional wild ungulate robustness, but poor tolerance of successful grappling or major trauma |
 | Speed | 91.0 | 80 km/h institutional maximum is among the roster's high terrestrial sprint values |
 | Maneuverability | 88.0 | Exceptional bounding, obstacle clearance and evasive direction changes |
@@ -151,8 +151,8 @@ Gestation is roughly 6-7 months and females usually produce one offspring. Young
 ### Conservation
 The species is assessed as **Least Concern** and the common impala population is estimated at roughly two million, with substantial numbers in protected areas and on private land. The black-faced form has a much smaller distribution and has required targeted conservation attention. The common form's secure status should not be generalized to every regional population.
 
-### Adaptations
-The impala combines long cursorial limbs, extreme bounding, rapid acceleration, high-speed escape, large vigilant eyes/ears, seasonal mixed feeding and male horn weaponry. These adaptations solve two different problems: avoiding predators and competing with conspecific males.
+### Special features
+The impala combines long cursorial limbs, extreme bounding, rapid acceleration, high-speed escape, large vigilant eyes/ears, seasonal mixed feeding and male horn weaponry. These features solve two different problems: avoiding predators and competing with conspecific males.
 
 ### Human interaction
 Impala are prominent in protected-area tourism and are also hunted for meat and trophies in parts of southern Africa. Habitat alteration and management can affect local populations even though the species as a whole remains common.

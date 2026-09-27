@@ -47,7 +47,7 @@ There is no armor, shell, thick hide, venom or other dedicated structural defens
 ## 4. Combat biology
 
 ### Weapons and offensive mechanics
-A quokka is a small browsing macropod, not a specialized fighter or predator. Its jaws can bite at contact range and the forefeet can grasp/scratch, but neither is a high-damage roster weapon. The hind limbs are the strongest mechanical system. They are adapted for saltatory propulsion and can produce forceful kicks, yet there is no species-specific kick-force dataset supporting dramatic numerical claims. Attack therefore stays low on the absolute roster scale.
+A quokka is a small browsing macropod, not a specialized fighter or predator. Its jaws can bite at contact range and the forefeet can grasp/scratch, but neither is a high-damage roster weapon. The hind limbs are the strongest mechanical system. They are built for saltatory propulsion and can produce forceful kicks, yet there is no species-specific kick-force dataset supporting dramatic numerical claims. Attack therefore stays low on the absolute roster scale.
 
 ### Defense and durability
 At roughly 3.5 kg the canonical animal is physically vulnerable to medium and large predators. It lacks armor and has no chemically protected skin. Coarse fur and a stocky body offer limited passive protection. Its real defense is avoiding contact through dense cover, nocturnal movement, hopping and climbing.
@@ -56,7 +56,7 @@ At roughly 3.5 kg the canonical animal is physically vulnerable to medium and la
 Australian Museum reports a bounding gait interspersed with hopping and the ability to climb trees for food. Quokkas create paths through dense vegetation that function as feeding and escape runways. Their compact macropod form, strong hind legs and ability to move through thickets support good maneuverability for a small mammal, but no measured top-speed value is available and speed is not used as a proxy for agility.
 
 ### Endurance and water economy
-The species can survive long periods without free food or water according to Australian Museum. A University of Western Australia physiological study compared Rottnest animals at sites completely lacking free water with animals using brackish water, demonstrating substantial water-balance adaptation. This is ecological resilience, not proof of exceptional continuous sprint endurance, so Stamina is moderate rather than elite.
+The species can survive long periods without free food or water according to Australian Museum. A University of Western Australia physiological study compared Rottnest animals at sites completely lacking free water with animals using brackish water, demonstrating a substantial ability to maintain water balance. This is ecological resilience, not proof of exceptional continuous sprint endurance, so Stamina is moderate rather than elite.
 
 ### Senses
 ADW notes color vision and suggests it may aid predator detection. Like other nocturnal mammals, quokkas also use olfactory and auditory information, but no evidence recovered here supports extreme sensory specialization. Senses are useful but not a high-roster special weapon.
@@ -102,7 +102,7 @@ All values are absolute across the 225-animal roster.
 | Maneuverability | **72.0** | Compact hopping, bounding, climbing and thicket-runway use support strong evasive control |
 | Endurance | **55.0** | Good routine movement and dry-environment persistence, without evidence for elite sustained output |
 | Recovery | **43.0** | Ordinary small-mammal recovery; no regeneration or exceptional trauma recovery demonstrated |
-| Tactics | **48.0** | Shelter/runway use and adaptive space use, but limited evidence for complex combat decisions |
+| Tactics | **48.0** | Shelter/runway use and flexible space use, but limited evidence for complex combat decisions |
 | Senses | **53.0** | Useful nocturnal sensory package plus documented color vision, not an extreme specialist |
 | Ferocity | **25.0** | Male dominance competition exists, but species is not a predatory or highly combative specialist |
 | Abilities | **51.0** | Climbing and dry-environment water economy matter situationally but do not create a lethal special mechanism |
@@ -113,7 +113,7 @@ All values are absolute across the 225-animal roster.
 - **Defense: 18.0** - no armor or chemical deterrent; defense relies mainly on avoiding contact.
 - **Agility: 73.0** - hopping, bounding, climbing and use of dense runways support strong small-mammal evasiveness without inventing a top-speed value.
 - **Stamina: 56.0** - respectable routine endurance and water economy, but no evidence of elite prolonged high-output locomotion.
-- **Intelligence: 49.0** - competent spatial and foraging behavior with adaptation to altered habitat, below cognitively specialized carnivores, primates and cetaceans.
+- **Intelligence: 49.0** - competent spatial and foraging behavior with the ability to adjust to altered habitat, below cognitively specialized carnivores, primates and cetaceans.
 - **Special: 48.0** - water economy and climbing broaden survival options, but neither is a decisive offensive mechanism.
 
 ## 7. Exactly two special abilities and exactly two unique traits
@@ -143,7 +143,7 @@ Australian Museum reports about one month gestation, a single young, roughly six
 ### Conservation
 The species is **Vulnerable**. The WA recovery plan and Australian Museum identify habitat loss and introduced predators as major pressures. Mainland populations are much more fragmented than historically, while island populations provide important refuges.
 
-### Major adaptations
+### Special features
 - Powerful hind limbs and saltatory locomotion.
 - Ability to climb low trees and shrubs.
 - Dense-cover runway use for movement and escape.
@@ -165,7 +165,7 @@ Rottnest Island tourism places quokkas in frequent proximity to people. Peer-rev
 The quokka is a small Western Australian macropod whose battle strengths are evasive hopping, thicket mobility, climbing and dry-environment resilience. A healthy adult male has stronger hind limbs and slightly greater mass than a female, but at only about 3.5 kg it remains a low-power combatant with no armor or specialized lethal weapon.
 
 ### Rich narrative profile
-The quokka's reputation is built around its face, but its real biology is more interesting than the “smiling animal” label. It is a compact macropod adapted to a patchwork of dense vegetation and seasonally dry habitat. Powerful hind limbs move the body in hops and bounds, while established paths through thickets act as practical escape corridors. Unlike many animals with a similar ground-oriented body plan, it can also climb low vegetation to reach food or reposition vertically.
+The quokka's reputation is built around its face, but its real biology is more interesting than the “smiling animal” label. It is a compact macropod at home in a patchwork of dense vegetation and seasonally dry habitat. Powerful hind limbs move the body in hops and bounds, while established paths through thickets act as practical escape corridors. Unlike many animals with a similar ground-oriented body plan, it can also climb low vegetation to reach food or reposition vertically.
 
 Those abilities make the quokka evasive, not powerful. At roughly 3.5 kg, even a robust adult male has little absolute capacity to injure a medium predator. Its bite and claws are unspecialized and the species lacks armor, venom or a long weapon. ABS Attack and Defense therefore stay low even though maneuverability is comparatively good. This distinction is central to roster-wide scaling: impressive locomotion for a small wallaby does not become gorilla-level power.
 

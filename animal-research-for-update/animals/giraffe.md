@@ -24,7 +24,7 @@ Ossicones are permanent bony cranial structures covered by skin; males tend to h
 ### Defense and cardiovascular structure
 Giraffes have no true armor, but their enormous mass, height, robust skeleton, thick collagenous skin in parts of the body, long kicking reach and ability to remain standing make adult bulls difficult prey. Veterinary/anatomical literature describes thicker skin along the neck/lateral body and a lower-limb integument system relevant to edema control. Their greatest defensive failure mode is being toppled: lion-predation research emphasizes that a giraffe becomes extremely vulnerable once brought to the ground.
 
-Their cardiovascular system is extraordinary. Adult giraffes maintain mean systemic arterial pressures around **200–250 mmHg** at heart level, more than twice typical mammalian values, to perfuse a brain over 2 m above the heart. Vessel, ventricular and pressure-regulation adaptations maintain cerebral circulation as the head changes height.
+Their cardiovascular system is extraordinary. Adult giraffes maintain mean systemic arterial pressures around **200–250 mmHg** at heart level, more than twice typical mammalian values, to perfuse a brain over 2 m above the heart. Vessel, ventricular and pressure-regulation features maintain cerebral circulation as the head changes height.
 
 ### Lifespan and bite force
 Wild longevity is commonly reported to about **25 years**, while older syntheses give typical wild spans closer to 10–15 years and zoo averages around 20–25. For the site's canonical lifespan field, **25.0 years** is retained as a defensible adult longevity reference, explicitly not a population mean.
@@ -52,7 +52,7 @@ No credible species-specific bite-pressure measurement was found. Giraffes are b
 ### Offensive mechanics
 A bull's offense is unusual for a herbivore. Against a low opponent, stamping/kicking offers the most practical damage path. Against another tall ungulate, lateral neck swings create reach and impact. Size alone does not guarantee contact: the giraffe must orient its long legs and body, and its high center of mass makes poor footing costly. There is no evidence for a meaningful combat bite specialization.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 At 1.2 tonnes, a mature bull has a huge absolute survivability advantage over small and medium predators. Height makes many targets hard to reach. Long legs create a dangerous exclusion zone. Thick skin and robust limb bones add modest structural protection, but the giraffe lacks armor, thick blubber or a shell. Defense is therefore high but not megafaunal-ceiling. Falling is catastrophic because ground-level predators can access the neck and torso.
 
 ### Locomotion, maneuverability and endurance
@@ -112,7 +112,7 @@ All scores use absolute roster-wide 0.1–100.0 calibration.
 | **Agility** | **48.0** | Faster and more coordinated than its shape suggests, but high center of mass and long limbs constrain tight evasive movement. |
 | **Stamina** | **72.0** | Good sustained movement and meaningful lower-speed running endurance without equating migration/browsing persistence to fight output. |
 | **Intelligence** | **61.0** | Flexible social behavior, dominance assessment and threat-cue discrimination, but no evidence for elite problem-solving. |
-| **Special** | **69.0** | Extreme vertical reach, specialized male necking system and cardiovascular adaptations are distinctive without double-counting raw size. |
+| **Special** | **69.0** | Extreme vertical reach, specialized male necking system and cardiovascular specializations are distinctive without double-counting raw size. |
 
 ## 7. Exactly two special abilities and exactly two unique traits
 ### Special abilities
@@ -120,12 +120,12 @@ All scores use absolute roster-wide 0.1–100.0 calibration.
 2. **Hoof Exclusion Zone** — long front and rear limbs let an adult defend a broad perimeter with kicks dangerous enough that lion attacks carry serious injury risk.
 
 ### Unique traits
-1. **High-Pressure Tower** — cardiovascular adaptations maintain brain perfusion across an extreme heart-to-head height difference and rapid posture changes.
+1. **High-Pressure Tower** — cardiovascular specializations maintain brain perfusion across an extreme heart-to-head height difference and rapid posture changes.
 2. **Five-Metre Vantage** — exceptional standing height combines high browsing reach with long-distance visual surveillance over open habitat.
 
 ## 8. Expanded profile
 ### Habitat and geographic range
-Giraffes inhabit African savannas, open woodlands, shrublands and semi-arid systems where woody browse is available. The old one-species concept spans multiple geographically distinct lineages. Modern four-species treatments divide that range among northern, reticulated, Masai and southern giraffes.
+Giraffes inhabit African savannas, open woodlands, shrublands and semi-arid systems where woody browse is available. The old one-species concept spans multiple geographically distinct populations. Modern four-species treatments divide that range among northern, reticulated, Masai and southern giraffes.
 
 ### Diet and ecology
 They are selective browsers, feeding heavily on woody plants including acacias/senegalias and other trees and shrubs. Their height allows access to foliage unavailable to most sympatric browsers. Field experiments support vertical resource partitioning: giraffes preferentially browse high in canopies, where leaf availability is less depleted by smaller browsers.
@@ -139,9 +139,9 @@ Gestation is roughly 15 months and usually produces a single calf. Newborns are 
 ### Conservation
 Taxonomy matters here. The older IUCN single-species assessment listed giraffe as Vulnerable, but modern work recognizes four species with very different trajectories. GCF's State of Giraffe 2025 estimated about 140,000 giraffes total, including roughly 7,037 northern, 20,901 reticulated, 43,926 Masai and 68,837 southern giraffes. Three of the four are described as highly threatened under the newer framework, while southern giraffe are doing substantially better.
 
-### Major adaptations
+### Special features
 - Extreme cervical and limb elongation with specialized vertebral mechanics.
-- High-pressure cardiovascular physiology and lower-limb vascular/skin adaptations.
+- High-pressure cardiovascular physiology and lower-limb vascular/skin specializations.
 - Long prehensile tongue for selective browsing.
 - Coat patterning and behavioral orientation that aid thermoregulation/camouflage context.
 - Ossicone/skull development and necking behavior in males.
@@ -195,7 +195,7 @@ Its physiology is equally distinctive. Supplying a brain metres above the heart 
 6. **Mitchell 2021, How Giraffes Work, exercise chapter** — https://academic.oup.com/book/41222/chapter-abstract/350699407 — observational ~60 km/h short-period running and ~40 km/h longer running. **Moderate-high specialist synthesis; exact top-speed protocol unavailable.**
 7. **Strauss 2013, Journal of Zoology** — https://doi.org/10.1111/j.1469-7998.2012.00972.x — lion claw-mark/predation evidence; front/rear kicks can maim or kill lions; ground-down vulnerability. **High peer-reviewed field context.**
 8. **Granweiler et al. 2021, Ethology** — https://onlinelibrary.wiley.com/doi/abs/10.1111/eth.13199 — quantitative male sparring dynamics and laterality. **High peer-reviewed behavioral evidence.**
-9. **Mitchell et al. 2013, Journal of Zoology** — https://zslpublications.onlinelibrary.wiley.com/doi/abs/10.1111/jzo.12013 — head/neck growth, heavier mature male skulls/ossicones, sexual dimorphism; cautions against assuming neck evolved primarily as weapon. **High.**
+9. **Mitchell et al. 2013, Journal of Zoology** — https://zslpublications.onlinelibrary.wiley.com/doi/abs/10.1111/jzo.12013 — head/neck growth, heavier mature male skulls/ossicones, sexual dimorphism; cautions against treating the neck primarily as a weapon. **High.**
 10. **Van Sittert et al. 2015, Journal of Morphology** — https://pubmed.ncbi.nlm.nih.gov/25503961/ — appendicular skeletal scaling across fetuses, females and males. **High anatomical evidence.**
 11. **Kudo et al. 2016, functional cervicothoracic boundary** — https://pubmed.ncbi.nlm.nih.gov/26998330/ — first thoracic vertebra contributes cervical-like mobility. **High anatomical evidence.**
 12. **Mitchell et al. 2006, J Exp Biol** — https://pubmed.ncbi.nlm.nih.gov/16788035/ — origin of giraffe arterial/jugular pressures. **High physiology evidence.**
@@ -221,6 +221,6 @@ Its physiology is equally distinctive. Supplying a brain metres above the heart 
 - **Vs Cougar/Lion-class cats:** the giraffe's absolute impact potential and mass are much higher, but cats retain far superior close-quarter maneuverability and predatory weapon precision. This is why Giraffe Attack 73.0 does not imply Agility inflation.
 - **Vs Galapagos Tortoise:** giraffe is vastly more mobile/offensive, while the tortoise's shell provides qualitatively stronger passive protection. Defense should not simply track mass.
 - **Vs Giant Squid:** both are large and unusual, but giraffe's terrestrial kick mechanics and one-tonne mass justify higher Raw Power; squid retains more specialized multi-limb capture and aquatic matchup effects.
-- **Anti-inflation checks:** speed does not substitute for Agility; cardiovascular adaptation is not counted as raw power; necking does not make the neck armored; mass does not automatically become Defense; no unverified PSI or invented strike-force number is used.
+- **Anti-inflation checks:** speed does not substitute for Agility; cardiovascular specialization is not counted as raw power; necking does not make the neck armored; mass does not automatically become Defense; no unverified PSI or invented strike-force number is used.
 
 **Final staging recommendation:** Attack **73.0**, Defense **66.0**, Agility **48.0**, Stamina **72.0**, Intelligence **61.0**, Special **69.0**.

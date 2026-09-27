@@ -47,9 +47,9 @@ Defense comes from speed, maneuvering room, streamlined body form, countershadin
 
 ## 4. Combat biology
 ### Weapons and offense
-The bill is the primary offensive adaptation. Sailfish approach schooling prey, insert the slender bill with surprisingly little hydrodynamic warning, then tap individual prey or whip the bill laterally through the school. The weapon works by speed, reach and rapid lateral acceleration rather than by behaving like a rigid stabbing sword. The jaws then seize disabled prey.
+The bill is the primary offensive tool. Sailfish approach schooling prey, insert the slender bill with surprisingly little hydrodynamic warning, then tap individual prey or whip the bill laterally through the school. The weapon works by speed, reach and rapid lateral acceleration rather than by behaving like a rigid stabbing sword. The jaws then seize disabled prey.
 
-### Defensive adaptations and toughness
+### Defensive features and toughness
 The fusiform body and high-performance swimming make interception difficult in open water. Countershading reduces visual contrast. The sail can be folded to reduce drag. Physical toughness is moderate for a 70 kg pelagic fish, but there is no armor and the long bill and fins are exposed structures.
 
 ### Maneuverability
@@ -131,8 +131,8 @@ External spawning occurs in warm waters. Growth is rapid in the first year and t
 ### Conservation
 FishBase/Fishes of Texas reports the 2021 IUCN assessment as **Vulnerable**. Sailfish are also important gamefish and encounter commercial fisheries, including longline gear.
 
-### Adaptations
-Key adaptations include the elongated rostrum, high-aspect forked tail, streamlined compressed body, depressible sail, paired-fin control, countershading and visually precise prey-school attacks.
+### Special features
+Key features include the elongated rostrum, high-aspect forked tail, streamlined compressed body, depressible sail, paired-fin control, countershading and visually precise prey-school attacks.
 
 ### Human interaction
 Sailfish are major recreational gamefish. Handling and release practices matter because long fight times and air exposure can impose physiological stress. Historical claims that they routinely reach roughly 110 km/h remain common in popular sources but should not be propagated as measured fact.
@@ -148,9 +148,9 @@ Sailfish are major recreational gamefish. Handling and release practices matter 
 A fast, highly maneuverable pelagic predator, the sailfish uses a long hydrodynamically stealthy bill to enter prey schools and deliver lightning lateral slashes. Its giant dorsal sail aids control and can fold away for streamlined swimming. Modern biomechanics put its plausible maximum speed far below the famous 110 km/h myth, but its acceleration, precision and specialized weapon still make it an elite aquatic skirmisher.
 
 ### Narrative profile
-The sailfish is less a straight-line speed caricature than a precision weapons platform. Its body is shaped for sustained pelagic movement, but the decisive adaptation sits ahead of the eyes: a long, slender rostrum that can be threaded into a dense school of fish without producing enough disturbance to trigger an immediate escape. Once positioned, the head whips laterally. High-speed field work showed that these slashes combine extraordinary angular motion with surprise, damaging or disorienting prey that can then be seized by the jaws.
+The sailfish is less a straight-line speed caricature than a precision weapons platform. Its body is shaped for sustained pelagic movement, but the decisive feature sits ahead of the eyes: a long, slender rostrum that can be threaded into a dense school of fish without producing enough disturbance to trigger an immediate escape. Once positioned, the head whips laterally. High-speed field work showed that these slashes combine extraordinary angular motion with surprise, damaging or disorienting prey that can then be seized by the jaws.
 
-Its enormous dorsal fin is similarly functional rather than ornamental. The sail can be deployed when control and prey manipulation matter, then depressed when reducing drag matters. Together with a forked tail and paired fins, this gives the fish excellent three-dimensional control in open water. The result is high Agility and Special, but not exaggerated Attack or Defense: a sailfish is still a lightly protected ~70 kg fish whose weapon evolved principally against much smaller prey.
+Its enormous dorsal fin is similarly functional rather than ornamental. The sail can be deployed when control and prey manipulation matter, then depressed when reducing drag matters. Together with a forked tail and paired fins, this gives the fish excellent three-dimensional control in open water. The result is high Agility and Special, but not exaggerated Attack or Defense: a sailfish is still a lightly protected ~70 kg fish whose weapon is used principally against much smaller prey.
 
 The profile also corrects one of zoology's most persistent speed claims. Older rod-and-reel calculations helped popularize values around 110 km/h. Modern muscle-contraction and stride-length analysis estimated 8.3 ± 1.4 m/s and argued that extreme older values are biomechanically implausible. ABS therefore rewards verified maneuvering and strike mechanics rather than folklore velocity.
 

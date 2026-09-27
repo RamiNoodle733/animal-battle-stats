@@ -199,7 +199,7 @@ Northern-Sumatran work found a mean clutch around 24.2 eggs, each exceeding 250 
 ### Conservation
 The global species is treated as **Least Concern**, but it is heavily harvested for skins and other trade. CITES technical review material notes that available evidence supports population stability in studied areas while also documenting intense harvest in portions of Peninsular Malaysia. Least Concern does not mean harvest pressure is biologically irrelevant.
 
-### Major adaptations
+### Special features
 - Highly elongate, muscular constricting body.
 - Recurved teeth for prey retention.
 - Infrared-sensitive labial pits with specialized neural pathways.

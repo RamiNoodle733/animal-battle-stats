@@ -51,7 +51,7 @@ GPS telemetry demonstrates large-scale movement and home ranges rather than spri
 As a felid, the snow leopard combines strong low-light vision, hearing, olfaction and whisker/tactile input. Its tactical strengths are stalking, use of elevation, route selection, concealment and timing. There is evidence of flexible spatial behavior over huge ranges, but no basis for elevating cognition into ape/corvid/cetacean tiers.
 
 ### Environmental pros and cons
-**Best:** steep cliffs, ridges, rocky gullies, snow and broken alpine terrain where camouflage, grip, jumping and balance matter. **Worse:** flat open ground against larger predators, where terrain-specific advantages shrink. Deep cold is physiologically manageable, but low oxygen is an adaptation context rather than a combat bonus by itself.
+**Best:** steep cliffs, ridges, rocky gullies, snow and broken alpine terrain where camouflage, grip, jumping and balance matter. **Worse:** flat open ground against larger predators, where terrain-specific advantages shrink. Deep cold is physiologically manageable, but low oxygen is a habitat context rather than a combat bonus by itself.
 
 ### Weaknesses and matchup archetypes
 - Only ~50 kg canonically, so large cats, bears and megafauna have major absolute mass/power advantages.
@@ -108,7 +108,7 @@ Females generally produce small litters after roughly three months gestation. Cu
 ### Conservation and human interaction
 The snow leopard is listed **Vulnerable** on the IUCN Red List. Major threats include prey depletion, retaliatory killing after livestock losses, poaching/illegal trade, habitat fragmentation and climate-related landscape change. Community livestock protection and prey conservation are therefore central to coexistence.
 
-### Adaptations
+### Special features
 Dense fur, small rounded ears, enlarged nasal passages, broad furred paws, long hind limbs, a compact body and a long bushy tail all suit cold, high-elevation terrain. Pale rosetted coloration provides disruptive camouflage against rock and snow.
 
 ### Genuine fun facts

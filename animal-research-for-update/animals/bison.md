@@ -52,7 +52,7 @@ Bison lack armor, but a bull combines very high mass, thick skin, dense winter u
 ### Primary weapons and offensive mechanics
 A bull's primary system is a mass-backed head-and-horn charge. At roughly 900 kg, even without inventing a collision-force number, its momentum is enormous relative to medium animals. Short pointed horns add penetrating and hooking potential at close range, while the massive head and shoulder complex supports pushing, tossing and ramming. During the rut, bulls compete directly for access to cows, so the canonical male is biologically built for dangerous intraspecific contests.
 
-### Defensive adaptations and durability
+### Defensive features and durability
 The greatest defense is scale. Healthy adults are relatively safe from natural predation, with ADW and Smithsonian noting that predation disproportionately affects calves, weak, old or ill animals. Dense hair, thick skin, fat and heavy musculoskeletal construction add resilience. However, this is not dermal armor: vulnerable soft tissue, limbs and hindquarters remain attackable.
 
 ### Locomotion and maneuverability
@@ -65,7 +65,7 @@ Bison spend roughly 9–11 hours per day foraging, migrate and move seasonally i
 Yellowstone describes excellent hearing, vision and smell. Broad situational awareness helps detect predators and rival bulls, but there is no unusual sensory mechanism warranting specialist-level scores comparable with echolocators or highly specialized raptors.
 
 ### Intelligence and tactics
-Bison show social organization, dominance, mate tending, threat displays and adaptive antipredator responses. Bulls during rut use displays and direct competition. This supports functional tactical behavior but not evidence for exceptional problem-solving comparable with primates, cetaceans or corvids.
+Bison show social organization, dominance, mate tending, threat displays and flexible antipredator responses. Bulls during rut use displays and direct competition. This supports functional tactical behavior but not evidence for exceptional problem-solving comparable with primates, cetaceans or corvids.
 
 ### Hunting behavior
 None. Bison are herbivorous grazers. Offensive ratings derive from defense, rivalry and natural weapon use rather than predation.
@@ -81,7 +81,7 @@ Bison are not indiscriminately aggressive, but they are dangerous when threatene
 
 ### Environmental strengths
 - Open prairie and grassland give room for acceleration and threat detection.
-- Cold and snow favor the bison's insulation and snow-clearing adaptations.
+- Cold and snow favor the bison's insulation and snow-clearing abilities.
 - Strong swimming broadens mobility.
 - Large body size makes rough contact with smaller opponents disproportionately dangerous.
 
@@ -120,7 +120,7 @@ All ratings use the absolute full-roster scale.
 | Tactics | **51.0** | Threat displays, dominance behavior, mate tending and antipredator responses, but limited evidence for advanced flexible combat planning. |
 | Senses | **63.0** | NPS describes excellent hearing, vision and smell, useful but not uniquely specialized. |
 | Ferocity | **70.0** | Rutting bulls and threatened adults can press dangerous direct confrontations and charges. |
-| Abilities | **55.0** | Snow-clearing forequarters, cold adaptation and unusual size-speed combination are useful but not exotic matchup bypasses. |
+| Abilities | **55.0** | Snow-clearing forequarters, cold tolerance and unusual size-speed combination are useful but not exotic matchup bypasses. |
 
 ## 6. Proposed six headline ABS ratings
 
@@ -141,7 +141,7 @@ All ratings use the absolute full-roster scale.
 
 ### Proposed unique traits, exactly 2
 1. **Pivoting Bulk** — Despite its size, a bison can pivot quickly, jump substantial obstacles and swim strongly, making the common “slow tank” mental model inaccurate.
-2. **Rutting Vanguard** — Prime bulls are strongly selected for direct male-male competition, combining dominance displays, bellowing, tending behavior and willingness to physically contest rivals.
+2. **Rutting Vanguard** — Prime bulls are built for direct male-male competition, combining dominance displays, bellowing, tending behavior and willingness to physically contest rivals.
 
 ## 8. Expanded profile content
 
@@ -166,7 +166,7 @@ Females generally begin breeding around 2–3 years. Gestation is about 9.5 mont
 ### Conservation status
 The American Society of Mammalogists reports the IUCN status as **Near Threatened**, emphasizing dependence on conservation programs and the fact that most continental bison are managed in private commercial settings rather than functioning as free-ranging wildlife. Conservation status should not be confused with raw headcount of domestic/commercial herds.
 
-### Major adaptations
+### Special features
 - Enormous shoulder hump supported by elongated thoracic processes and powerful musculature.
 - Thick winter insulation concentrated strongly on the head and forebody.
 - Permanent pointed horns in both sexes.
@@ -185,10 +185,10 @@ Bison are culturally and historically central to many Indigenous peoples and bec
 - The shoulder hump is not a fat camel-like hump; it reflects elongated vertebral processes and massive supporting musculature.
 - Bison sweep their heads side-to-side to clear snow and expose winter forage.
 - Wallowing helps shed fur and deter biting insects, and rutting bulls also use wallows in scent/display behavior.
-- Yellowstone retains a continuously free-ranging bison lineage that has persisted there since prehistoric times.
+- Yellowstone retains a free-ranging bison herd that has lived there continuously.
 
 ### Concise site-ready summary
-The American bison is North America's largest land mammal, a near-tonne bull built around enormous forequarter power, permanent horns and explosive speed. Its greatest battle advantages are a devastating frontal charge, high durability and agility that is extraordinary for its mass. Bison are not armored tanks, however: their defenses come from bulk, thick integument and toughness rather than a shell, and their combat style is direct. Prime bulls add a biology of intense rut competition to an animal already adapted to harsh winters, long daily foraging and rapid predator-facing pivots.
+The American bison is North America's largest land mammal, a near-tonne bull built around enormous forequarter power, permanent horns and explosive speed. Its greatest battle advantages are a devastating frontal charge, high durability and agility that is extraordinary for its mass. Bison are not armored tanks, however: their defenses come from bulk, thick integument and toughness rather than a shell, and their combat style is direct. Prime bulls add a biology of intense rut competition to an animal already built for harsh winters, long daily foraging and rapid predator-facing pivots.
 
 ### Detailed narrative profile
 A mature American bison bull is a misleading combination of dimensions. Its outline looks heavy and front-loaded because it is heavy and front-loaded, with an immense head, a high shoulder hump and a body approaching a metric tonne. Yet Yellowstone reports speeds around 55 km/h and specifically notes rapid pivoting. This changes the battle interpretation: the bison is not merely a stationary wall of flesh. It can actively close distance, turn to keep horns and head toward a threat, jump, and swim.
@@ -197,7 +197,7 @@ The forequarters are the key mechanical center. Large shoulder and neck muscles 
 
 Its defense is similarly easy to exaggerate. Thick skin, dense winter hair, fat, robust bones and sheer body volume make a healthy bull difficult for predators to bring down. Authoritative natural-history sources accordingly note that adult bison are relatively safe from predators compared with calves and compromised animals. But hair and hide are not armor plating. A large predator that can avoid the head and repeatedly damage legs, flanks or hindquarters still has a route to victory.
 
-The ABS profile should therefore place bison firmly among strong terrestrial megafauna without letting fame or size push every score toward the ceiling. Its Attack and Defense are high because of real absolute mass and weapon delivery. Agility is strong because its acceleration, turning and obstacle ability are genuinely exceptional for an animal this large, but it remains below smaller precision movers. Intelligence is moderate. Special is also moderate because cold-weather and snow-foraging adaptations are biologically impressive but do not bypass normal combat rules in the way venom, electricity or echolocation can.
+The ABS profile should therefore place bison firmly among strong terrestrial megafauna without letting fame or size push every score toward the ceiling. Its Attack and Defense are high because of real absolute mass and weapon delivery. Agility is strong because its acceleration, turning and obstacle ability are genuinely exceptional for an animal this large, but it remains below smaller precision movers. Intelligence is moderate. Special is also moderate because cold-weather and snow-foraging specializations are biologically impressive but do not bypass normal combat rules in the way venom, electricity or echolocation can.
 
 ### Useful future structured fields
 - `sex_canon`: male

@@ -68,7 +68,7 @@ Large males are the stronger combat sex. Close conflict can employ biting, clawi
 ### Environmental strengths
 - **Wetlands, rivers, mangroves:** best overall environment; swimming and shoreline foraging expand attack/escape routes.
 - **Forest/riverbank:** climbing and cover improve escape and positioning.
-- **Human-modified canals/agriculture:** unusually adaptable generalist; persists in disturbed landscapes.
+- **Human-modified canals/agriculture:** unusually versatile generalist; persists in disturbed landscapes.
 
 ### Environmental limitations and weaknesses
 - Ectothermy makes output temperature-dependent.
@@ -78,7 +78,7 @@ Large males are the stronger combat sex. Close conflict can employ biting, clawi
 - Jaws and claws are dangerous but far below giant varanids, crocodilians and large mammalian predators in absolute damage potential.
 
 ### Matchup archetypes
-**Favorable:** similarly sized lightly protected animals that can be seized, opponents poorly adapted to water, and fragile animals vulnerable to repeated bites/claws.
+**Favorable:** similarly sized lightly protected animals that can be seized, opponents poorly suited to water, and fragile animals vulnerable to repeated bites/claws.
 
 **Unfavorable:** armored/shelled opponents too large to manipulate, large mammalian carnivores with superior burst power, crocodilians in direct grappling range, and any much larger animal capable of crushing or disabling the trunk.
 
@@ -141,7 +141,7 @@ The species is currently treated as **Least Concern** and remains widespread, bu
 ### Human interaction
 Water monitors readily occur around cities and canals in parts of Southeast Asia. Their size, claws and bite warrant respect, but this profile does not convert human fear or reputation into a battle-stat bonus.
 
-### Major adaptations
+### Special features
 - laterally compressed swimming tail
 - powerful clawed limbs for land movement, digging and climbing
 - forked tongue and chemical tracking

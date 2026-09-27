@@ -69,7 +69,7 @@ Intraspecific conflict can be severe. Modern forensic work documents lethal brow
 - No true armor.
 - Heavy body limits fine evasive maneuverability.
 - Heat and prolonged maximal exertion are less favorable than cool conditions.
-- Long claws are primarily digging-adapted rather than retractile cutting weapons.
+- Long claws are primarily digging tools rather than retractile cutting weapons.
 - Large horned/tusked megafauna can outrange the bear and exceed its mass.
 - Aquatic specialists and aerial opponents can deny its preferred contact geometry.
 
@@ -92,7 +92,7 @@ All scores are absolute across the 225-animal roster.
 | Maneuverability | **57.0** | Agile for size and competent on rough terrain, but inertia limits fine evasion. |
 | Endurance | **74.0** | 20–40 mile travel days and large ranges support strong sustained movement. |
 | Recovery | **58.0** | Strong mammalian condition/seasonal physiology, no exceptional regeneration. |
-| Tactics | **73.0** | Flexible foraging/hunting, individual learning and problem solving support high behavioral adaptability. |
+| Tactics | **73.0** | Flexible foraging/hunting, individual learning and problem solving support high behavioral flexibility. |
 | Senses | **82.0** | Exceptional olfaction plus useful vision/night vision and hearing. |
 | Ferocity | **69.0** | Serious lethal intraspecific conflict and defensive aggression, moderated by avoidance and strong individual variation. |
 | Abilities | **62.0** | Hibernation physiology and powerful digging/terrain use are distinctive but not direct bypass weapons. |
@@ -110,11 +110,11 @@ All scores are absolute across the 225-animal roster.
 ## 7. Exactly two special abilities and exactly two unique traits
 ### Special abilities
 1. **Shoulder-Hump Grapple** — Massive shoulder and forelimb musculature, long claws and plantigrade leverage let a grizzly dig, hook, pull, shove and control opponents at close range.
-2. **Winter Metabolic Fortress** — Months-long true hibernation sharply reduces heart/respiration rates while preserving enough body temperature for arousal, an exceptional survival adaptation rather than instant combat regeneration.
+2. **Winter Metabolic Fortress** — Months-long true hibernation sharply reduces heart/respiration rates while preserving enough body temperature for arousal, an exceptional survival trait rather than instant combat regeneration.
 
 ### Unique traits
 1. **Interior Heavyweight** — A representative grizzly is substantially larger and more powerfully armed than a black bear while remaining distinctly smaller than Kodiak/coastal brown-bear giants.
-2. **Adaptive Omnivore** — Individuals can switch among roots, insects, nuts, fish, carrion and active ungulate predation, with documented learning and strong behavioral individuality.
+2. **Versatile Omnivore** — Individuals can switch among roots, insects, nuts, fish, carrion and active ungulate predation, with documented learning and strong behavioral individuality.
 
 ## 8. Expanded profile content
 ### Habitat and range
@@ -132,7 +132,7 @@ Mating occurs in late spring/summer with delayed implantation. Yellowstone femal
 ### Conservation and humans
 The brown bear species is widespread globally, while North American grizzly populations have a complex jurisdiction-specific conservation history. USFWS reports recovering but geographically restricted Lower-48 populations. Human-caused mortality remains a major management issue. Conflict often involves food conditioning, livestock, hunters/carcasses or surprise encounters. Bear-safe food storage and distance are critical coexistence tools.
 
-### Adaptations
+### Special features
 - Massive shoulder/forelimb musculature and long digging claws.
 - Exceptional olfaction.
 - Seasonal hyperphagia and large fat stores.

@@ -28,14 +28,14 @@
 - Canonical representative wild lifespan: **12.0 years**, not the captive record.
 
 ### Dentition and bite
-- Adult dental formula: **I 3/3, C 1/1, P 4/3, M 1/2 = 36 teeth**. Teeth are adapted to cutting/crushing, including robust postcanines for hard prey.
+- Adult dental formula: **I 3/3, C 1/1, P 4/3, M 1/2 = 36 teeth**. Teeth are suited to cutting/crushing, including robust postcanines for hard prey.
 - A 2025 pathology study examined 165 Alaskan river-otter skulls, 128 of them skeletally mature adults, demonstrating substantial tooth wear/fracture exposure in real animals but not measuring bite pressure.
 - No defensible species-specific bite pressure in PSI was found. The legacy site's 615 PSI should not be carried forward. Canonical `bite_force_psi`: **0.0** pending direct measurement or a defensible force-plus-contact-area model.
 - No reliable standardized canine/claw length appropriate for a canonical weapon field was recovered in this run; do not invent one from skull photographs.
 
 ### Defensive structures
 - Dense water-resistant pelage is the main insulation system; DigiMorph summarizes about **57,800 hairs/cm²** from the species literature and notes that river otters lack the heavy subcutaneous/abdominal fat typical of more marine mammals.
-- Compact ears, closable nostrils, fully webbed clawed feet, streamlined body and powerful tail are aquatic adaptations, not armor.
+- Compact ears, closable nostrils, fully webbed clawed feet, streamlined body and powerful tail are aquatic features, not armor.
 - Defense is behavioral and locomotor rather than structural: evasive swimming, water escape, flexible spine/body, and access to dens or underwater routes.
 
 ## 3. Proposed canonical factual fields
@@ -64,7 +64,7 @@ This is the strongest conventional combat dimension. Fully webbed feet, short li
 River otters are active year-round and can make long movements. Smithsonian reports terrestrial travel of 16–29 km in search of food, while the species account summarized on Zenodo reports daily movements averaging about 4–5 km for males and occasional single-day travel exceeding 40 km. This supports high sustained mobility for a 12 kg mammal, but not the extreme aerobic specialization of long-distance cursorial or migratory animals.
 
 ### Senses
-Long, thick vibrissae are prominent and important in sensory perception. Smell and hearing are well developed in species accounts; vision is adapted to aquatic use. These systems help locate prey and maintain awareness in turbid or structurally complex water.
+Long, thick vibrissae are prominent and important in sensory perception. Smell and hearing are well developed in species accounts; vision is suited to aquatic use. These systems help locate prey and maintain awareness in turbid or structurally complex water.
 
 ### Intelligence and tactics
 River otters are behaviorally flexible, manipulate prey with the forepaws, switch swimming modes, exploit multiple prey classes and maintain variable social systems. Peer-reviewed work has specifically investigated male social networks in *L. canadensis*. Evidence supports strong mammalian tactical flexibility, but not ape/cetacean-level cognition and not the tool-use reputation of sea otters, which is a different roster animal.
@@ -119,7 +119,7 @@ All are absolute roster-wide scores, not pound-for-pound.
 - **Defense: 29.0** — evasive aquatic locomotion helps survival, while lack of armor and low mass keep direct durability low.
 - **Agility: 91.0** — elite semi-aquatic control supported by direct swimming-kinematics evidence, flexible body motion and propulsion-mode switching. This is not derived from top speed.
 - **Stamina: 76.0** — active year-round with substantial routine and occasional long-distance movement.
-- **Intelligence: 78.0** — flexible predator, dexterous prey manipulation, social complexity and behavioral adaptability, but below primate/cetacean cognitive anchors.
+- **Intelligence: 78.0** — flexible predator, dexterous prey manipulation, social complexity and behavioral versatility, but below primate/cetacean cognitive anchors.
 - **Special: 77.0** — the combined vibrissal sensing, closable nostrils, webbed feet, water-resistant dense fur and tail/body propulsion make water a strongly favorable combat medium.
 
 ## 7. Exactly two special abilities and two unique traits
@@ -149,7 +149,7 @@ Sexual maturity is generally reached around 2–3 years. Delayed implantation se
 ### Conservation
 IUCN/SSC Otter Specialist Group lists the species as **Least Concern**. Historic trapping, pollution and habitat degradation caused severe regional declines, while water cleanup, harvest management and reintroductions restored many populations. Current threats include pollution, habitat loss, accidental trapping and road mortality.
 
-### Adaptations
+### Special features
 Its locomotor system is a true land-water compromise: short webbed feet, a streamlined body, powerful tail, flexible axial motion, water-resistant fur and closable nostrils. Sensory vibrissae remain useful when underwater vision is compromised.
 
 ### Human interaction
@@ -169,7 +169,7 @@ A sleek North American semi-aquatic mustelid built around control rather than br
 ### Narrative profile
 The North American river otter is not a miniature aquatic powerhouse in absolute terms. Its battle value comes from forcing the encounter into a medium where body control matters more than raw mass. The animal can paddle with different limb combinations, undulate the trunk and tail during submerged travel, turn sharply, dive and transition onto shore. Its teeth are those of a real carnivore, including canines, carnassials and crushing postcanines, but a 12 kg otter still lacks the reach and mechanical damage of medium cats, canids or large mustelids.
 
-That distinction drives the proposed ratings. Attack and Defense remain modest on a 225-animal absolute scale. Agility rises into the elite band because direct kinematic work demonstrates genuine multi-mode aquatic control rather than merely a fast swim speed. Stamina is high because river otters remain active year-round and can cover substantial distances. Intelligence is strong but intentionally below the roster's apes and cetaceans. Special reflects a coherent amphibious package rather than counting each adaptation as a separate superpower.
+That distinction drives the proposed ratings. Attack and Defense remain modest on a 225-animal absolute scale. Agility rises into the elite band because direct kinematic work demonstrates genuine multi-mode aquatic control rather than merely a fast swim speed. Stamina is high because river otters remain active year-round and can cover substantial distances. Intelligence is strong but intentionally below the roster's apes and cetaceans. Special reflects a coherent amphibious package rather than counting each feature as a separate superpower.
 
 ### Future structured-field proposals
 - `tail_length_cm`
@@ -204,10 +204,10 @@ Reusable alternative original: https://upload.wikimedia.org/wikipedia/commons/4/
 | Animal Diversity Web | https://animaldiversity.org/accounts/Lontra_canadensis/ | morphology and dimorphism | 5–14 kg, 889–1300 mm, males larger, webbed clawed feet, thick vibrissae | High-moderate synthesis |
 | Fish 1994, Journal of Mammalogy | https://academic.oup.com/jmammal/article-abstract/75/4/989/848801 | swimming mechanics | six otters filmed; multiple paddling modes and dorsoventral undulation | High, direct kinematics; captive sample |
 | NPS Isle Royale | https://www.nps.gov/isro/learn/nature/river-otter.htm | alternate speed, activity, size/longevity | claims 15 mph max swim; active year-round | Moderate; methodology for maximum not shown |
-| NPS Lassen | https://www.nps.gov/lavo/learn/nature/otter.htm | habitat, predators/defense context, size/lifespan | 11–31 lb, 2–3 ft; aquatic adaptations; maternal aggression | High institutional summary |
+| NPS Lassen | https://www.nps.gov/lavo/learn/nature/otter.htm | habitat, predators/defense context, size/lifespan | 11–31 lb, 2–3 ft; aquatic features; maternal aggression | High institutional summary |
 | IUCN SSC Otter Specialist Group | https://www.otterspecialistgroup.org/otter-species/north-american-river-otter-lontra-canadensis/ | status, ecology, sociality, threats | Least Concern; mainly crepuscular; fish/molluscs/crustaceans; family groups | High specialist authority |
 | Larivière & Walton 1998, Mammalian Species | https://www.science.smith.edu/departments/biology/VHAYSSEN/msi/pdf/i0076-3519-587-01-0001.pdf | dentition, ecology, life history | 36-tooth formula; broad prey base; species synthesis | High scholarly species account |
-| Southern mammal management review | https://www.nrs.fs.usda.gov/pubs/jrnl/2007/nrs_2007_trani_005.pdf | measurements, dimorphism, dentition | 4.5–15 kg, 890–1200 mm; females 3–21% smaller; teeth adapted for crushing/cutting | High-moderate technical synthesis |
+| Southern mammal management review | https://www.nrs.fs.usda.gov/pubs/jrnl/2007/nrs_2007_trani_005.pdf | measurements, dimorphism, dentition | 4.5–15 kg, 890–1200 mm; females 3–21% smaller; teeth suited to crushing/cutting | High-moderate technical synthesis |
 | Hansen et al. 2009, Ethology | https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1439-0310.2009.01624.x | male sociality | behavioral interactions among 15 Prince William Sound males | High peer-reviewed; captive observation phase |
 | Evenhuis et al. 2025 | https://escholarship.org/uc/item/47j960ss | dental robustness/pathology | 165 Alaskan skulls; 128 mature adults; common wear/fracture/pathology | High peer-reviewed; not a bite-force study |
 | National Wildlife Federation | https://nwf.org/Educational-Resources/Wildlife-Guide/Mammals/North-American-River-Otter | range, diet, dimensions, threats | 0.9–1.2 m, 5–14 kg; males larger; aquatic prey and conservation context | Moderate-high institutional synthesis |

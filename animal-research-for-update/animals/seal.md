@@ -136,7 +136,7 @@ Females generally mature earlier than males. A single pup is typical, and pups a
 ### Conservation
 NOAA lists harbor seals as protected under the U.S. Marine Mammal Protection Act. The species is broadly assessed as Least Concern globally, but regional populations face entanglement, disturbance, contaminants, disease, oil spills, habitat change and vessel noise.
 
-### Adaptations
+### Special features
 - Streamlined fusiform body with low hydrodynamic drag.
 - Hind-flipper/posterior-body propulsion.
 - Blubber insulation and energy storage.
@@ -161,7 +161,7 @@ The harbor seal is a compact true seal built around underwater control, repeated
 ### Rich narrative profile
 The harbor seal's strength is not one oversized weapon. It is an integrated aquatic system. A streamlined trunk and hind-flipper propulsion make the animal efficient underwater, while blubber buffers cold and specialized physiology supports repeated dives. Most unusually, the whiskers function as a remote-motion detector: experiments show a seal can extract direction from the decaying wake of a moving object long after the object itself has passed.
 
-That sensory advantage changes how a matchup should be modeled. In dark, turbid or visually cluttered water, an opponent cannot assume that leaving the seal's sight means escaping detection. Yet the harbor seal remains a moderate-sized predator whose jaws evolved mainly for fish and other aquatic prey. It has no tusk, shell or extreme bite-force evidence. Its ratings therefore emphasize aquatic information, maneuvering and endurance rather than inflated Attack.
+That sensory advantage changes how a matchup should be modeled. In dark, turbid or visually cluttered water, an opponent cannot assume that leaving the seal's sight means escaping detection. Yet the harbor seal remains a moderate-sized predator whose jaws are built mainly for fish and other aquatic prey. It has no tusk, shell or extreme bite-force evidence. Its ratings therefore emphasize aquatic information, maneuvering and endurance rather than inflated Attack.
 
 The environment is decisive. In water the seal can turn, roll, dive and reposition in three dimensions. On shore, the same true-seal anatomy becomes a liability because the hind limbs cannot support a normal quadrupedal gait. That sharp water-versus-land contrast is one of the clearest matchup dependencies in the roster.
 

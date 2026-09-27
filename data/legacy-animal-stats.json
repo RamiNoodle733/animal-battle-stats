@@ -155,7 +155,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -206,7 +206,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:14.781Z",
     "weight_kg": 25,
@@ -224,7 +224,7 @@
       "combat_style": "Traveler",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -275,7 +275,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:14.824Z",
     "weight_kg": 9,
@@ -506,7 +506,7 @@
       "combat_style": "Lure",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -557,7 +557,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.001Z",
     "weight_kg": 0.05,
@@ -645,7 +645,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "seasonal coat change",
-        "extreme cold adaptation",
+        "extreme cold tolerance",
         "food caching"
       ],
       "weaknesses": [
@@ -697,7 +697,7 @@
     "type": "Mammal",
     "unique_traits": [
       "seasonal coat change",
-      "extreme cold adaptation",
+      "extreme cold tolerance",
       "food caching"
     ],
     "updatedAt": "2025-12-02T23:28:15.108Z",
@@ -716,7 +716,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -767,7 +767,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.153Z",
     "weight_kg": 45,
@@ -856,7 +856,7 @@
       "combat_style": "Swarm",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -907,7 +907,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.238Z",
     "weight_kg": 0.000001,
@@ -996,7 +996,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -1045,7 +1045,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.326Z",
     "weight_kg": 24,
@@ -1063,7 +1063,7 @@
       "combat_style": "Survivor",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -1112,7 +1112,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.371Z",
     "weight_kg": 800,
@@ -1273,7 +1273,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -1322,7 +1322,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.508Z",
     "weight_kg": 0.5,
@@ -1340,7 +1340,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -1389,7 +1389,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.555Z",
     "weight_kg": 5,
@@ -1688,7 +1688,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -1737,7 +1737,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.785Z",
     "weight_kg": 150,
@@ -1825,7 +1825,7 @@
       "combat_style": "Assassin",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -1874,7 +1874,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.878Z",
     "weight_kg": 60,
@@ -1892,7 +1892,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -1941,7 +1941,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.921Z",
     "weight_kg": 1100,
@@ -1959,7 +1959,7 @@
       "combat_style": "Assassin",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -2008,7 +2008,7 @@
     "type": "Arachnid",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:15.964Z",
     "weight_kg": 0.001,
@@ -2096,7 +2096,7 @@
       "combat_style": "Grappler",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -2145,7 +2145,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.055Z",
     "weight_kg": 15,
@@ -2163,7 +2163,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -2212,7 +2212,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.097Z",
     "weight_kg": 10,
@@ -2230,7 +2230,7 @@
       "combat_style": "Stealth",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -2279,7 +2279,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.141Z",
     "weight_kg": 280,
@@ -2510,7 +2510,7 @@
       "combat_style": "Soldier",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -2559,7 +2559,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.340Z",
     "weight_kg": 0.002,
@@ -2577,7 +2577,7 @@
       "combat_style": "Jumper",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -2626,7 +2626,7 @@
     "type": "Amphibian",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.380Z",
     "weight_kg": 0.5,
@@ -2644,7 +2644,7 @@
       "combat_style": "Endurance",
       "strengths": [
         "water storage",
-        "desert adaptation",
+        "desert survivor",
         "can bite and kick"
       ],
       "weaknesses": [
@@ -2695,7 +2695,7 @@
     "type": "Mammal",
     "unique_traits": [
       "water storage",
-      "desert adaptation",
+      "desert survivor",
       "can bite and kick"
     ],
     "updatedAt": "2025-12-02T23:28:16.422Z",
@@ -2714,7 +2714,7 @@
       "combat_style": "Berserker",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -2763,7 +2763,7 @@
     "type": "Arachnid",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.466Z",
     "weight_kg": 0.06,
@@ -2851,7 +2851,7 @@
       "combat_style": "Rogue",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -2900,7 +2900,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.555Z",
     "weight_kg": 3,
@@ -3131,7 +3131,7 @@
       "combat_style": "Stealth",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -3180,7 +3180,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.736Z",
     "weight_kg": 0.12,
@@ -3283,7 +3283,7 @@
     "class": "Skirmisher",
     "createdAt": "2025-12-02T23:27:43.070Z",
     "defense": 53.2,
-    "description": "Our closest relatives, capable of extreme violence and coordinated warfare. They are fast, strong for their size, and use tools.",
+    "description": "Powerful great apes, capable of extreme violence and coordinated warfare. They are fast, strong for their size, and use tools.",
     "diet": [
       "fruits",
       "insects",
@@ -3413,7 +3413,7 @@
       "combat_style": "Bard",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -3462,7 +3462,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.906Z",
     "weight_kg": 0.6,
@@ -3480,7 +3480,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -3529,7 +3529,7 @@
     "type": "Invertebrate",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.950Z",
     "weight_kg": 4,
@@ -3547,7 +3547,7 @@
       "combat_style": "Grappler",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -3596,7 +3596,7 @@
     "type": "Invertebrate",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:16.996Z",
     "weight_kg": 500,
@@ -3614,7 +3614,7 @@
       "combat_style": "Scavenger",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -3663,7 +3663,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.041Z",
     "weight_kg": 12,
@@ -3682,7 +3682,7 @@
       "strengths": [
         "Leaping ability",
         "Stealth",
-        "Adaptability"
+        "Versatility"
       ],
       "weaknesses": [
         "Lighter build",
@@ -3734,7 +3734,7 @@
     "type": "Mammal",
     "unique_traits": [
       "powerful jumper",
-      "adaptable habitat",
+      "lives almost anywhere",
       "solitary hunter"
     ],
     "updatedAt": "2025-12-02T23:28:17.085Z",
@@ -3752,7 +3752,7 @@
       "primary_environment": "Grasslands",
       "combat_style": "Pack Hunter",
       "strengths": [
-        "adaptable",
+        "versatile",
         "howling communication",
         "pack/solo hunting"
       ],
@@ -3784,7 +3784,7 @@
     "size_score": 30.8,
     "special_abilities": [
       "Pack Communication",
-      "Adaptive Hunter"
+      "Versatile Hunter"
     ],
     "speed_mps": 18.06,
     "stamina": 67.7,
@@ -3804,7 +3804,7 @@
     },
     "type": "Mammal",
     "unique_traits": [
-      "adaptable",
+      "versatile",
       "howling communication",
       "pack/solo hunting"
     ],
@@ -3824,7 +3824,7 @@
       "combat_style": "Scout",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -3873,7 +3873,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.170Z",
     "weight_kg": 0.45,
@@ -3891,7 +3891,7 @@
       "combat_style": "Mage",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -3940,7 +3940,7 @@
     "type": "Invertebrate",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.218Z",
     "weight_kg": 10,
@@ -3958,7 +3958,7 @@
       "combat_style": "Assassin",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -4007,7 +4007,7 @@
     "type": "Arachnid",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.262Z",
     "weight_kg": 0.003,
@@ -4025,7 +4025,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -4074,7 +4074,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.304Z",
     "weight_kg": 15,
@@ -4163,7 +4163,7 @@
       "combat_style": "Worker",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -4212,7 +4212,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.401Z",
     "weight_kg": 200,
@@ -4230,7 +4230,7 @@
       "combat_style": "Ace",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -4279,7 +4279,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.442Z",
     "weight_kg": 0.001,
@@ -4652,7 +4652,7 @@
       "combat_style": "Scout",
       "strengths": [
         "large ears for heat dissipation",
-        "desert adaptation",
+        "desert survivor",
         "social structure"
       ],
       "weaknesses": [
@@ -4704,7 +4704,7 @@
     "type": "Mammal",
     "unique_traits": [
       "large ears for heat dissipation",
-      "desert adaptation",
+      "desert survivor",
       "social structure"
     ],
     "updatedAt": "2025-12-02T23:28:17.697Z",
@@ -4723,7 +4723,7 @@
       "combat_style": "Rogue",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -4772,7 +4772,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.745Z",
     "weight_kg": 1,
@@ -4860,7 +4860,7 @@
       "combat_style": "Glider",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -4909,7 +4909,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.828Z",
     "weight_kg": 0.15,
@@ -4927,7 +4927,7 @@
       "combat_style": "Assassin",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -4976,7 +4976,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.870Z",
     "weight_kg": 16,
@@ -5135,7 +5135,7 @@
       "combat_style": "Climber",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -5184,7 +5184,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:17.999Z",
     "weight_kg": 0.065,
@@ -5273,7 +5273,7 @@
       "combat_style": "Grappler",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -5322,7 +5322,7 @@
     "type": "Invertebrate",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.087Z",
     "weight_kg": 275,
@@ -5340,7 +5340,7 @@
       "combat_style": "Scout",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -5389,7 +5389,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.145Z",
     "weight_kg": 7,
@@ -5407,7 +5407,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -5456,7 +5456,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.190Z",
     "weight_kg": 2,
@@ -5544,7 +5544,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -5593,7 +5593,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.279Z",
     "weight_kg": 5,
@@ -5897,7 +5897,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -5946,7 +5946,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.493Z",
     "weight_kg": 1.5,
@@ -6036,7 +6036,7 @@
       "combat_style": "Grappler",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6085,7 +6085,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.590Z",
     "weight_kg": 60,
@@ -6176,7 +6176,7 @@
       "combat_style": "Survivor",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6225,7 +6225,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.675Z",
     "weight_kg": 115,
@@ -6386,7 +6386,7 @@
       "combat_style": "Defender",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6435,7 +6435,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.803Z",
     "weight_kg": 0.5,
@@ -6453,7 +6453,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6502,7 +6502,7 @@
     "type": "Amphibian",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.847Z",
     "weight_kg": 2,
@@ -6520,7 +6520,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6569,7 +6569,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:18.890Z",
     "weight_kg": 0.1,
@@ -6729,7 +6729,7 @@
       "combat_style": "Soldier",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6778,7 +6778,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.020Z",
     "weight_kg": 0.002,
@@ -6796,7 +6796,7 @@
       "combat_style": "Bard",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6845,7 +6845,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.063Z",
     "weight_kg": 6.5,
@@ -6863,7 +6863,7 @@
       "combat_style": "Speedster",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6912,7 +6912,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.105Z",
     "weight_kg": 0.004,
@@ -6930,7 +6930,7 @@
       "combat_style": "Speedster",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -6979,7 +6979,7 @@
     "type": "Arachnid",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.147Z",
     "weight_kg": 0.17,
@@ -7139,7 +7139,7 @@
       "combat_style": "Civilian",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -7188,7 +7188,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.280Z",
     "weight_kg": 5,
@@ -7277,7 +7277,7 @@
       "strengths": [
         "opportunistic feeder",
         "pairs for life",
-        "adaptable diet"
+        "varied diet"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -7329,7 +7329,7 @@
     "unique_traits": [
       "opportunistic feeder",
       "pairs for life",
-      "adaptable diet"
+      "varied diet"
     ],
     "updatedAt": "2025-12-02T23:28:19.362Z",
     "weight_kg": 10,
@@ -7419,7 +7419,7 @@
       "combat_style": "Survivor",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -7468,7 +7468,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.444Z",
     "weight_kg": 10,
@@ -7627,7 +7627,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -7676,7 +7676,7 @@
     "type": "Invertebrate",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.580Z",
     "weight_kg": 11,
@@ -7694,7 +7694,7 @@
       "combat_style": "Scout",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -7743,7 +7743,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.621Z",
     "weight_kg": 2.5,
@@ -7761,7 +7761,7 @@
       "combat_style": "Civilian",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -7810,7 +7810,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.669Z",
     "weight_kg": 7,
@@ -7900,7 +7900,7 @@
       "combat_style": "Bard",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -7949,7 +7949,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.750Z",
     "weight_kg": 0.35,
@@ -7967,7 +7967,7 @@
       "combat_style": "Scout",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8016,7 +8016,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.793Z",
     "weight_kg": 270,
@@ -8034,7 +8034,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8083,7 +8083,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.836Z",
     "weight_kg": 500,
@@ -8114,7 +8114,7 @@
     "class": "Ambush Predator",
     "createdAt": "2025-12-02T23:27:45.745Z",
     "defense": 65.7,
-    "description": "The most adaptable big cat, capable of hauling heavy prey up trees. They are masters of stealth and ambush.",
+    "description": "The most versatile big cat, capable of hauling heavy prey up trees. They are masters of stealth and ambush.",
     "diet": [
       "deer",
       "monkeys",
@@ -8155,7 +8155,7 @@
     "unique_traits": [
       "excellent climber",
       "stores prey in trees",
-      "adaptable hunter"
+      "versatile hunter"
     ],
     "updatedAt": "2025-12-02T23:28:19.880Z",
     "weight_kg": 70,
@@ -8173,7 +8173,7 @@
       "combat_style": "Toxic",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8222,7 +8222,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:19.923Z",
     "weight_kg": 1.1,
@@ -8241,7 +8241,7 @@
       "strengths": [
         "spits when angry",
         "guard animal",
-        "mountain adapted"
+        "built for mountains"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8292,7 +8292,7 @@
     "unique_traits": [
       "spits when angry",
       "guard animal",
-      "mountain adapted"
+      "built for mountains"
     ],
     "updatedAt": "2025-12-02T23:28:19.964Z",
     "weight_kg": 140,
@@ -8310,7 +8310,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8359,7 +8359,7 @@
     "type": "Invertebrate",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.005Z",
     "weight_kg": 10,
@@ -8431,7 +8431,7 @@
     "unique_traits": [
       "tufted ears",
       "excellent hearing",
-      "snow adaptation"
+      "built for snow"
     ],
     "updatedAt": "2025-12-02T23:28:20.053Z",
     "weight_kg": 25,
@@ -8449,7 +8449,7 @@
       "combat_style": "Bard",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8498,7 +8498,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.094Z",
     "weight_kg": 1,
@@ -8516,7 +8516,7 @@
       "combat_style": "Thief",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8565,7 +8565,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.134Z",
     "weight_kg": 0.22,
@@ -8724,7 +8724,7 @@
       "combat_style": "Scout",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8773,7 +8773,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.269Z",
     "weight_kg": 23,
@@ -8791,7 +8791,7 @@
       "combat_style": "Glider",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8840,7 +8840,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.313Z",
     "weight_kg": 2000,
@@ -8930,7 +8930,7 @@
       "combat_style": "Speedster",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -8979,7 +8979,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.398Z",
     "weight_kg": 400,
@@ -9139,7 +9139,7 @@
       "combat_style": "Civilian",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -9188,7 +9188,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.524Z",
     "weight_kg": 0.0005,
@@ -9277,7 +9277,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -9326,7 +9326,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.612Z",
     "weight_kg": 80,
@@ -9415,7 +9415,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -9464,7 +9464,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.699Z",
     "weight_kg": 30,
@@ -9624,7 +9624,7 @@
       "combat_style": "Survivor",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -9673,7 +9673,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.827Z",
     "weight_kg": 0.035,
@@ -9762,7 +9762,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -9811,7 +9811,7 @@
     "type": "Invertebrate",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.912Z",
     "weight_kg": 0.8,
@@ -9829,7 +9829,7 @@
       "combat_style": "Rogue",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -9878,7 +9878,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:20.954Z",
     "weight_kg": 11,
@@ -10253,7 +10253,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -10302,7 +10302,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:21.239Z",
     "weight_kg": 225,
@@ -10320,7 +10320,7 @@
       "combat_style": "Fisher",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -10369,7 +10369,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:21.288Z",
     "weight_kg": 1.5,
@@ -10599,7 +10599,7 @@
       "combat_style": "Bard",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -10648,7 +10648,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:21.461Z",
     "weight_kg": 5,
@@ -11031,7 +11031,7 @@
     "class": "Bruiser",
     "createdAt": "2025-12-02T23:27:47.359Z",
     "defense": 86.1,
-    "description": "The largest land carnivore, perfectly adapted to the frozen north. They are tireless swimmers and powerful hunters of seals.",
+    "description": "The largest land carnivore, perfectly built for the frozen north. They are tireless swimmers and powerful hunters of seals.",
     "diet": [
       "seals",
       "walrus",
@@ -11161,7 +11161,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -11210,7 +11210,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:21.831Z",
     "weight_kg": 0.005,
@@ -11228,7 +11228,7 @@
       "combat_style": "Civilian",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -11277,7 +11277,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:21.869Z",
     "weight_kg": 20,
@@ -11295,7 +11295,7 @@
       "combat_style": "Speedster",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -11344,7 +11344,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:21.925Z",
     "weight_kg": 55,
@@ -11432,7 +11432,7 @@
       "combat_style": "Fisher",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -11481,7 +11481,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.006Z",
     "weight_kg": 0.45,
@@ -11639,7 +11639,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -11688,7 +11688,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.130Z",
     "weight_kg": 2,
@@ -11707,7 +11707,7 @@
       "strengths": [
         "dexterous hands",
         "problem-solving",
-        "urban adaptation"
+        "thrives in cities"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -11759,7 +11759,7 @@
     "unique_traits": [
       "dexterous hands",
       "problem-solving",
-      "urban adaptation"
+      "thrives in cities"
     ],
     "updatedAt": "2025-12-02T23:28:22.171Z",
     "weight_kg": 8,
@@ -11777,7 +11777,7 @@
       "combat_style": "Assassin",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -11826,7 +11826,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.210Z",
     "weight_kg": 2.3,
@@ -11844,7 +11844,7 @@
       "combat_style": "Mage",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -11893,7 +11893,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.253Z",
     "weight_kg": 1.2,
@@ -11910,7 +11910,7 @@
       "primary_environment": "Forests",
       "combat_style": "Clever Hunter",
       "strengths": [
-        "adaptable",
+        "versatile",
         "clever problem solver",
         "pouncing technique"
       ],
@@ -11943,7 +11943,7 @@
     "size_score": 26.7,
     "special_abilities": [
       "Mouse Pounce",
-      "Urban Adaptation"
+      "City Survivor"
     ],
     "speed_mps": 13.89,
     "stamina": 62,
@@ -11963,7 +11963,7 @@
     },
     "type": "Mammal",
     "unique_traits": [
-      "adaptable",
+      "versatile",
       "clever problem solver",
       "pouncing technique"
     ],
@@ -12054,7 +12054,7 @@
       "combat_style": "Climber",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -12103,7 +12103,7 @@
     "type": "Amphibian",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.374Z",
     "weight_kg": 0.01,
@@ -12121,7 +12121,7 @@
       "combat_style": "Hunter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -12170,7 +12170,7 @@
     "type": "Bird",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.417Z",
     "weight_kg": 1.2,
@@ -12188,7 +12188,7 @@
       "combat_style": "Migrator",
       "strengths": [
         "antlers on both sexes",
-        "arctic adaptation",
+        "built for the Arctic",
         "long migrations"
       ],
       "weaknesses": [
@@ -12240,7 +12240,7 @@
     "type": "Mammal",
     "unique_traits": [
       "antlers on both sexes",
-      "arctic adaptation",
+      "built for the Arctic",
       "long migrations"
     ],
     "updatedAt": "2025-12-02T23:28:22.465Z",
@@ -12259,7 +12259,7 @@
       "combat_style": "Grappler",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -12308,7 +12308,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.516Z",
     "weight_kg": 100,
@@ -12339,7 +12339,7 @@
     "class": "Tank",
     "createdAt": "2025-12-02T23:28:22.563Z",
     "defense": 94.4,
-    "description": "A prehistoric-looking tank with thick skin and a deadly horn. Rhinos are nearsighted but will charge anything that smells like a threat.",
+    "description": "An armored tank with thick skin and a deadly horn. Rhinos are nearsighted but will charge anything that smells like a threat.",
     "diet": [
       "grass",
       "leaves"
@@ -12397,7 +12397,7 @@
       "combat_style": "Scout",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -12446,7 +12446,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.612Z",
     "weight_kg": 3,
@@ -12464,7 +12464,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -12513,7 +12513,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.665Z",
     "weight_kg": 230,
@@ -12531,7 +12531,7 @@
       "combat_style": "Speedster",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -12580,7 +12580,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.714Z",
     "weight_kg": 80,
@@ -12598,7 +12598,7 @@
       "combat_style": "Survivor",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -12647,7 +12647,7 @@
     "type": "Amphibian",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.764Z",
     "weight_kg": 0.02,
@@ -12737,7 +12737,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -12786,7 +12786,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:22.855Z",
     "weight_kg": 350,
@@ -13086,7 +13086,7 @@
       "combat_style": "Assassin",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -13135,7 +13135,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.074Z",
     "weight_kg": 14,
@@ -13509,7 +13509,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -13558,7 +13558,7 @@
     "type": "Reptile",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.331Z",
     "weight_kg": 12,
@@ -13719,7 +13719,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -13768,7 +13768,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.455Z",
     "weight_kg": 120,
@@ -13786,7 +13786,7 @@
       "combat_style": "Scout",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -13835,7 +13835,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.496Z",
     "weight_kg": 9,
@@ -13853,7 +13853,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -13902,7 +13902,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.539Z",
     "weight_kg": 0.004,
@@ -13920,7 +13920,7 @@
       "combat_style": "Stealth",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -13969,7 +13969,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.580Z",
     "weight_kg": 90,
@@ -13987,7 +13987,7 @@
       "combat_style": "Assassin",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -14036,7 +14036,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.629Z",
     "weight_kg": 0.25,
@@ -14125,7 +14125,7 @@
       "combat_style": "Glider",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -14174,7 +14174,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.713Z",
     "weight_kg": 0.13,
@@ -14192,7 +14192,7 @@
       "combat_style": "Fighter",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -14241,7 +14241,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.754Z",
     "weight_kg": 50,
@@ -14469,7 +14469,7 @@
       "combat_style": "Slayer",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -14518,7 +14518,7 @@
     "type": "Insect",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:23.928Z",
     "weight_kg": 0.015,
@@ -14748,7 +14748,7 @@
       "combat_style": "Speedster",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -14797,7 +14797,7 @@
     "type": "Fish",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:24.102Z",
     "weight_kg": 200,
@@ -14884,7 +14884,7 @@
       "combat_style": "Jumper",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -14933,7 +14933,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:24.198Z",
     "weight_kg": 18,
@@ -15165,7 +15165,7 @@
       "combat_style": "Runner",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -15214,7 +15214,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:24.395Z",
     "weight_kg": 500,
@@ -15373,7 +15373,7 @@
       "combat_style": "Tank",
       "strengths": [
         "Distinctive appearance",
-        "Adapted to environment"
+        "Suited to its habitat"
       ],
       "weaknesses": [
         "Specific weaknesses unknown",
@@ -15422,7 +15422,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Distinctive appearance",
-      "Adapted to environment"
+      "Suited to its habitat"
     ],
     "updatedAt": "2025-12-02T23:28:24.531Z",
     "weight_kg": 30,
@@ -15439,7 +15439,7 @@
       "primary_environment": "Himalayan mountains",
       "combat_style": "Mountain Tank",
       "strengths": [
-        "high altitude adaptation",
+        "high-altitude endurance",
         "thick fur",
         "strong horns"
       ],
@@ -15490,7 +15490,7 @@
     },
     "type": "Mammal",
     "unique_traits": [
-      "high altitude adaptation",
+      "high-altitude endurance",
       "thick fur",
       "strong horns"
     ],

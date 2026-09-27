@@ -464,7 +464,7 @@ Example structure:
 
 **ABS verdict: Tiger favored**
 
-> In ABS's neutral 1v1 model, the Siberian tiger is favored because of its larger average body mass, agility and solitary predatory adaptations, although the lion remains highly competitive due to stamina, weaponry and experience fighting rival lions.
+> In ABS's neutral 1v1 model, the Siberian tiger is favored because of its larger average body mass, agility and solitary predatory skills, although the lion remains highly competitive due to stamina, weaponry and experience fighting rival lions.
 
 Then show the probability.
 

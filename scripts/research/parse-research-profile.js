@@ -495,7 +495,7 @@ function parseResearchProfile(markdown, { slug = '' } = {}) {
             social: textOf(sub([/social/i])),
             reproduction: textOf(sub([/reproduction/i, /life history/i])),
             conservation: textOf(conservationBody),
-            adaptations: textOf(sub([/adaptation/i])),
+            features: textOf(sub([/special features/i, /adaptation/i])),
             humanInteraction: textOf(sub([/human/i]))
         },
         conservationStatus: parseConservationStatus(conservationBody || text),

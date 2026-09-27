@@ -1,5 +1,6 @@
 // Rewards screen: paints the player's economy (/api/auth?action=hub) onto the
-// page built from lib/economy.js, and claims, buys and wears through the same API.
+// page built from lib/economy.js, switches the menu pages, and claims, buys and
+// wears through the same API.
 import { authApi, escapeHtml, showReward, toast } from './site.js';
 import { sfx } from './sfx.js';
 
@@ -7,14 +8,40 @@ const root = document.querySelector('[data-rw]');
 const $ = (selector) => root.querySelector(selector);
 const $$ = (selector) => [...root.querySelectorAll(selector)];
 const fmt = (value) => Number(value || 0).toLocaleString('en-US');
-const COIN = '/images/icons/abs/coin.webp';
+const BP = '/images/icons/abs/coin.webp';
+const PAGES = ['daily', 'quests', 'pass', 'shop', 'earn'];
+// Where each quest kind is played, and its icon.
+const QUEST_GO = {
+    matchup_call: ['swords', '/compare'],
+    call_correct: ['target', '/compare'],
+    vote: ['medal', '/rankings'],
+    talk: ['book', '/community'],
+    tournament: ['trophy', '/tournament']
+};
 let hub = null;
+let chosen = false;
+
+function show(page, { sound = false } = {}) {
+    if (!PAGES.includes(page)) page = 'daily';
+    $$('[data-go]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.go === page)));
+    $$('[data-pg]').forEach((node) => { node.hidden = node.dataset.pg !== page; });
+    root.dataset.page = page;
+    if (sound) sfx.select();
+    if (page === 'pass') centerTrack();
+    const hash = `#${page}`;
+    if (location.hash !== hash) history.replaceState(history.state, '', page === 'daily' ? location.pathname : hash);
+}
+
+function badge(page, count) {
+    const node = $(`[data-badge="${page}"]`);
+    node.hidden = !count;
+    node.textContent = count > 9 ? '9+' : String(count);
+}
 
 function paintWallet(data) {
-    $('[data-w-coins]').textContent = fmt(data.wallet);
+    $('[data-w-bp]').textContent = fmt(data.wallet);
     $('[data-w-level]').textContent = data.progression.level;
     $('[data-w-call]').textContent = data.call.streak;
-    $('[data-w-best]').textContent = data.call.best;
     $('[data-w-run]').textContent = data.login.claimable ? Math.max(0, data.login.run - 1) : data.login.run;
     const need = data.progression.xpToNext;
     const pct = Number.isFinite(need) && need > 0 ? Math.min(100, Math.round((data.progression.xp / need) * 100)) : 100;
@@ -23,38 +50,42 @@ function paintWallet(data) {
 }
 
 function paintDaily(login) {
+    const claimedStep = login.claimable ? login.step - 1 : login.step;
     $$('.d-ladder li').forEach((node) => {
         const day = Number(node.dataset.day);
-        const claimedStep = login.claimable ? login.step - 1 : login.step;
         node.classList.toggle('done', day <= claimedStep);
         node.classList.toggle('now', login.claimable && day === login.step);
     });
-    const button = $('[data-claim="daily"]');
-    button.disabled = !login.claimable;
-    $('[data-d-label]').textContent = login.claimable ? `Claim ${login.reward.coins} Coins` : 'Claimed today';
-    $('[data-d-aside]').textContent = login.claimable ? `Day ${login.step} is ready` : `Day ${login.step} claimed · back tomorrow`;
+    $('[data-claim="daily"]').disabled = !login.claimable;
+    $('[data-d-label]').textContent = login.claimable ? `Claim ${login.reward.coins} BattlePoints` : 'Come back tomorrow';
+    $('[data-d-aside]').textContent = login.claimable ? `Day ${login.step} is ready` : `Day ${login.step} claimed`;
     $('[data-d-note]').textContent = login.shielded
         ? 'You missed a day, and your streak shield saved it.'
         : login.shieldIn > 0
-            ? `Streak shield recharges in ${login.shieldIn} day${login.shieldIn === 1 ? '' : 's'}.`
-            : 'Miss one day and your streak shield saves it (once a week).';
+            ? `Your streak shield recharges in ${login.shieldIn} day${login.shieldIn === 1 ? '' : 's'}.`
+            : 'Miss a day and your streak shield saves it (once a week).';
+    badge('daily', login.claimable ? 1 : 0);
+}
+
+function questRow(quest) {
+    const [icon, href] = QUEST_GO[quest.kind] || ['scroll', '/compare'];
+    const pct = Math.round((quest.progress / quest.goal) * 100);
+    const end = quest.claimed
+        ? `<img src="/images/icons/abs/check.webp" alt="Claimed" width="34" height="34">`
+        : quest.done
+            ? `<button class="btn btn-gold" type="button" data-claim="quest" data-slot="${quest.slot}">Claim</button>`
+            : `<span class="q-count">${quest.progress}/${quest.goal}</span><a class="btn btn-sm" href="${href}">Go</a>`;
+    return `<div class="quest${quest.done ? ' done' : ''}${quest.claimed ? ' claimed' : ''}">
+        <img src="/images/icons/abs/${icon}.webp" alt="" width="48" height="48">
+        <b>${escapeHtml(quest.text)}</b>
+        <span class="q-bar"><i style="width:${pct}%"></i></span>
+        <span class="q-pay"><span><img src="${BP}" alt="">+${quest.coins}</span><span class="x">+${quest.xp} XP</span><span class="p">+${quest.pass} pass XP</span></span>
+        <span class="q-end">${end}</span>
+    </div>`;
 }
 
 function paintQuests(data) {
-    $('[data-q-list]').innerHTML = data.quests.map((quest) => {
-        const pct = Math.round((quest.progress / quest.goal) * 100);
-        const action = quest.claimed
-            ? '<span class="q-state">Done</span>'
-            : quest.done
-                ? `<button class="btn btn-sm btn-gold" type="button" data-claim="quest" data-slot="${quest.slot}">Claim</button>`
-                : `<span class="q-state">${quest.progress}/${quest.goal}</span>`;
-        return `<div class="quest${quest.done ? ' done' : ''}${quest.claimed ? ' claimed' : ''}">
-            <b>${escapeHtml(quest.text)}</b>
-            <span class="q-bar"><i style="width:${pct}%"></i></span>
-            <span class="q-pay"><span><img src="${COIN}" alt="">+${quest.coins}</span><span>+${quest.xp} XP</span><span>+${quest.pass} Pass</span></span>
-            ${action}
-        </div>`;
-    }).join('');
+    $('[data-q-list]').innerHTML = data.quests.map(questRow).join('');
     const chest = $('[data-chest]');
     chest.classList.toggle('ready', data.chest.ready);
     chest.classList.toggle('opened', data.chest.opened);
@@ -63,6 +94,15 @@ function paintQuests(data) {
     button.textContent = data.chest.opened ? 'Opened' : 'Open';
     const hours = Math.max(1, Math.round((new Date(data.resetsAt) - Date.now()) / 3600000));
     $('[data-q-reset]').textContent = `New quests in ${hours}h`;
+    badge('quests', data.quests.filter((quest) => quest.done && !quest.claimed).length + (data.chest.ready ? 1 : 0));
+}
+
+function centerTrack() {
+    const track = $('[data-p-track]');
+    const tier = hub ? Math.max(1, hub.pass.tier) : 1;
+    const current = $(`[data-tier="${tier}"]`);
+    if (!track || !current || !track.clientWidth) return;
+    track.scrollLeft = Math.max(0, current.offsetLeft - track.offsetLeft - track.clientWidth / 2 + current.clientWidth / 2);
 }
 
 function paintPass(pass) {
@@ -72,8 +112,7 @@ function paintPass(pass) {
         ? 'Season 1 has ended. Claim anything you reached.'
         : pass.need ? `${fmt(pass.into)} / ${fmt(pass.need)} pass XP to tier ${pass.tier + 1}` : 'Every tier reached!';
     const ready = pass.tiers.filter((tier) => tier.reached && !tier.claimed).length;
-    const button = $('[data-claim="pass"]');
-    button.disabled = !ready;
+    $('[data-claim="pass"]').disabled = !ready;
     $('[data-p-claim]').textContent = ready ? `Claim ${ready} tier${ready === 1 ? '' : 's'}` : 'Claim';
     for (const tier of pass.tiers) {
         const node = $(`[data-tier="${tier.tier}"]`);
@@ -86,10 +125,8 @@ function paintPass(pass) {
         node.classList.toggle('got', Boolean(tier?.claimed));
         node.querySelector('small').textContent = tier?.claimed ? 'Yours' : tier?.reached ? 'Claim it' : `Tier ${tier?.tier}`;
     }
-    // Bring the current tier into view inside the track (not the page).
-    const track = $('[data-p-track]');
-    const current = $(`[data-tier="${Math.max(1, pass.tier)}"]`);
-    if (track && current) track.scrollLeft = Math.max(0, current.offsetLeft - track.clientWidth / 2 + current.clientWidth / 2);
+    badge('pass', ready);
+    if (root.dataset.page === 'pass') centerTrack();
 }
 
 function paintShop(data) {
@@ -111,16 +148,16 @@ function paintShop(data) {
             wear.textContent = wearing ? 'Wearing' : 'Wear';
         }
     });
-    $$('[data-buy]').forEach((button) => {
-        const price = Number(button.textContent.replace(/[^\d]/g, ''));
-        button.classList.toggle('short', price > data.wallet);
-    });
+    $$('[data-buy]').forEach((button) => button.classList.toggle('short', Number(button.dataset.price) > data.wallet));
 }
 
 function paintCaps(data) {
     for (const node of $$('[data-cap]')) {
         const cap = data.caps[node.dataset.cap];
-        node.textContent = cap ? `Today: ${cap.used} of ${cap.cap} paid` : '';
+        if (!cap) continue;
+        node.textContent = `Today: ${cap.used} of ${cap.cap} paid`;
+        const bar = $(`[data-cap-bar="${node.dataset.cap}"]`);
+        if (bar) bar.style.width = `${Math.min(100, Math.round((cap.used / cap.cap) * 100))}%`;
     }
 }
 
@@ -133,6 +170,13 @@ function paint(data) {
     paintPass(data.pass);
     paintShop(data);
     paintCaps(data);
+    // Open on the page the player asked for, else the first one with something to claim.
+    if (!chosen) {
+        chosen = true;
+        const asked = location.hash.slice(1);
+        const ready = PAGES.find((page) => !$(`[data-badge="${page}"]`)?.hidden);
+        show(PAGES.includes(asked) ? asked : ready || 'daily');
+    }
 }
 
 async function refresh() {
@@ -163,6 +207,11 @@ async function act(button, action, body) {
 }
 
 root.addEventListener('click', (event) => {
+    const go = event.target.closest('[data-go]');
+    if (go) {
+        show(go.dataset.go, { sound: true });
+        return;
+    }
     const claim = event.target.closest('[data-claim]');
     if (claim && !claim.disabled) {
         const what = claim.dataset.claim;
@@ -185,7 +234,14 @@ $$('[data-shop-tab]').forEach((tab) => tab.addEventListener('click', () => {
     $$('[data-shop]').forEach((grid) => { grid.hidden = grid.dataset.shop !== tab.dataset.shopTab; });
 }));
 
-// Rewards earned elsewhere on the page (none today) or in another tab keep this fresh.
+// Links such as /rewards#pass (the HUD, the daily reward popup) pick the page.
+window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+if (PAGES.includes(location.hash.slice(1))) {
+    chosen = true;
+    show(location.hash.slice(1));
+}
+
+// Rewards earned in another tab keep this fresh.
 document.addEventListener('visibilitychange', () => { if (!document.hidden && hub) refresh(); });
 
 if (window.ABS_AUTH === 'user') refresh();

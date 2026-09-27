@@ -483,14 +483,24 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     /* Phones and tablets: the stage keeps a real height and the whole screen scrolls,
        instead of squeezing the photo and the stats into half a screen each. */
     @media (max-width: 900px) {
-        .profile { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; min-height: 100%; }
-        .stage { grid-template-rows: auto clamp(230px, 44vh, 440px) auto; }
+        /* A character screen on phones: a compact portrait on top, the tabbed dossier
+           filling the rest (its panes scroll inside). */
+        .profile { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
+        .stage { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto clamp(90px, 18vh, 240px) auto; }
+        .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+        .chips::-webkit-scrollbar { display: none; }
+        .chips > * { flex: none; }
+        .stage-bottom { flex-wrap: nowrap; justify-content: space-between; }
+        .quick { display: none; }
+        .actions { flex-wrap: nowrap; gap: 6px; }
+        .actions [data-share] { font-size: 0; gap: 0; padding: 0 10px; }
+        /* Stats first, the write-up after them. */
+        #pane-stats:not([hidden]) { display: flex; flex-direction: column; }
+        #pane-stats .summary { order: 2; }
         .badges .screen-title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
         .tier-badge.lg { height: 38px; min-width: 44px; font-size: 1.5rem; }
         .crumbs, .credit { display: none; }
-        .chips { margin-top: 8px; }
-        .quick { gap: 12px; }
-        .quick b { font-size: 1.1rem; }
+        .chips { margin-top: 6px; }
         .stage-bottom { gap: 8px; }
         .power { padding: 4px 12px; }
         .power strong { font-size: 1.8rem; }

@@ -10,6 +10,7 @@ const Animal = require('../lib/models/Animal');
 const BattleStats = require('../lib/models/BattleStats');
 const ChatMessage = require('../lib/models/ChatMessage');
 const Comment = require('../lib/models/Comment');
+const Presence = require('../lib/models/Presence');
 const SiteStats = require('../lib/models/SiteStats');
 const TournamentSubmission = require('../lib/models/TournamentSubmission');
 const User = require('../lib/models/User');
@@ -139,7 +140,8 @@ test('community stats expose persisted comparison and tournament counters withou
         commentCount: Comment.countDocuments,
         chatCount: ChatMessage.countDocuments,
         battleAggregate: BattleStats.aggregate,
-        statsFind: SiteStats.findOne
+        statsFind: SiteStats.findOne,
+        presenceCount: Presence.countDocuments
     };
     User.countDocuments = async () => 20;
     Vote.countDocuments = async () => 8;
@@ -147,6 +149,7 @@ test('community stats expose persisted comparison and tournament counters withou
     ChatMessage.countDocuments = async () => 2;
     BattleStats.aggregate = async () => [{ totalMatches: 77 }];
     SiteStats.findOne = async () => ({ totalVisits: 11, totalComparisons: 0, totalTournaments: 0 });
+    Presence.countDocuments = async () => 0;
 
     try {
         await withApi('community', { '../lib/mongodb': databaseMock }, async (handler) => {
@@ -172,6 +175,7 @@ test('community stats expose persisted comparison and tournament counters withou
         ChatMessage.countDocuments = originals.chatCount;
         BattleStats.aggregate = originals.battleAggregate;
         SiteStats.findOne = originals.statsFind;
+        Presence.countDocuments = originals.presenceCount;
     }
 });
 

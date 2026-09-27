@@ -54,9 +54,9 @@ function paintCard(user, own) {
     const have = Number(user.xpProgress ?? user.xp) || 0;
     $('[data-p-xpbar]').style.width = `${need ? Math.min(100, Math.round((have / need) * 100)) : 100}%`;
     $('[data-p-xptext]').textContent = need ? `${fmt(have)} / ${fmt(need)} XP to level ${(user.level || 1) + 1}` : 'Max level';
-    // Public profiles have no Coins or lifetime XP; show level instead.
+    // Public profiles have no BattlePoints or lifetime XP; show level instead.
     const nums = own
-        ? [[fmt(user.battlePoints), 'Coins'], [fmt(user.lifetimeXp), 'Lifetime XP'], [fmt(user.prestige), 'Prestige']]
+        ? [[fmt(user.battlePoints), 'BattlePoints'], [fmt(user.lifetimeXp), 'Lifetime XP'], [fmt(user.prestige), 'Prestige']]
         : [[fmt(user.level || 1), 'Level'], [fmt(user.prestige), 'Prestige'], [user.createdAt ? new Date(user.createdAt).getFullYear() : '–', 'Joined']];
     $$('.p-nums > div').forEach((cell, index) => {
         cell.querySelector('b').textContent = nums[index][0];
@@ -255,7 +255,7 @@ $('[data-rb-unlink]').addEventListener('click', async () => {
     toast('Roblox account disconnected');
 });
 $('[data-p-prestige-btn]').addEventListener('click', async () => {
-    if (!confirm('Prestige resets you to level 1 and awards a prestige star plus Coins. Continue?')) return;
+    if (!confirm('Prestige resets you to level 1 and awards a prestige star plus BattlePoints. Continue?')) return;
     const result = await api('action=prestige', { method: 'POST', body: {} });
     if (!result.ok) { sfx.error(); toast(result.body.error || 'Prestige failed.'); return; }
     sfx.win();

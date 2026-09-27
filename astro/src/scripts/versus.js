@@ -2,7 +2,7 @@
 // watch an animated fight. The fight's winner is drawn with the model's
 // probability, so an underdog can still pull off the upset now and then.
 // CALL IT (signed in): pick the winner first. The server draws the fight you
-// called (once per matchup a day), pays Coins and XP, and a right call builds a
+// called (once per matchup a day), pays BattlePoints and XP, and a right call builds a
 // streak with a bonus, like the game's Who Would Win? show.
 import engine from '../../../js/battle-engine.js';
 import { loadAnimalIndex, escapeHtml, toast, artVars, showReward } from './site.js';
@@ -230,7 +230,7 @@ async function callFight(button) {
     if (!a || !b || state.fighting || callBox.dataset.state !== 'open') return;
     if (!window.ABS_USER) {
         sfx.error();
-        callNote.innerHTML = `<a href="/login?returnTo=${encodeURIComponent(location.pathname)}">Log in</a> to call fights: every call pays Coins and XP.`;
+        callNote.innerHTML = `<a href="/login?returnTo=${encodeURIComponent(location.pathname)}">Log in</a> to call fights: every call pays BattlePoints and XP.`;
         return;
     }
     const votedFor = button.dataset.voteSide === 'a' ? a.n : b.n;

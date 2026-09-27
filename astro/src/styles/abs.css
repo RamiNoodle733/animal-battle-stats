@@ -280,11 +280,18 @@ body.game {
 
 .play-btn { height: 42px; }
 
-@media (max-width: 1180px) {
+@media (max-width: 1366px) {
+    .play-btn .long { display: none; }
+}
+@media (max-width: 1300px) {
     .menu a { padding: 0 9px; font-size: 0.92rem; }
     .menu a img { width: 22px; height: 22px; }
+    .player-chip .who { display: none; }
 }
-@media (max-width: 1020px) {
+@media (max-width: 1100px) {
+    .brand-word { display: none; }
+}
+@media (max-width: 1160px) {
     .menu a span { display: none; }
     .menu a img { width: 28px; height: 28px; }
 }
@@ -295,6 +302,12 @@ body.game {
     .play-btn .long { display: none; }
     .player-chip .who, .player-chip .bp { display: none; }
     .player-chip { padding: 0 4px; }
+}
+@media (max-width: 420px) {
+    .hud { gap: 8px; }
+    .hud-right { gap: 5px; }
+    .hud-btn { width: 36px; height: 36px; }
+    .play-btn { padding: 0 10px; }
 }
 
 /* Mobile dock: the bottom tab bar of a phone game. */
@@ -912,7 +925,7 @@ body.game {
 }
 
 /* ---------------------------------------------------------------- rewards (scripts/site.js showReward)
-   Coins fly into the HUD counter like the game's RewardFly; the Rewards button
+   BattlePoints fly into the HUD counter like the game's RewardFly; the Rewards button
    carries a badge for anything ready to claim. */
 
 .rewards-btn { color: inherit; }

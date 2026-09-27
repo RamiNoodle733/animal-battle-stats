@@ -12,9 +12,9 @@
  */
 
 const { connectToDatabase } = require('../lib/mongodb');
-const { verifyToken, getAuthUser } = require('../lib/auth');
+const { getAuthUser } = require('../lib/auth');
 const { setCorsHeaders } = require('../lib/cors');
-const { sanitizeEventData } = require('../lib/activity-logger');
+const { sanitizeEventData, pseudonymize } = require('../lib/activity-logger');
 const { consumeRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 const { enforceRequestSecurity } = require('../lib/request-security');
 const { xpToNext } = require('../lib/xpSystem');
@@ -22,16 +22,20 @@ const { waitUntil } = require('@vercel/functions');
 const { robloxSnapshot } = require('../lib/roblox-game');
 const { ITEM_BY_ID } = require('../lib/economy');
 
-// In-memory presence store with TTL (would use Redis in production)
-// Structure: { userId: { username, displayName, profileAnimal, lastSeen, page } }
-const presenceStore = new Map();
-const PRESENCE_TTL = 90 * 1000; // 90 seconds
+// Presence lives in Mongo (lib/models/Presence.js) so every serverless instance
+// sees the same visitors. Pages ping every ~45 seconds while visible, so a tab
+// counts as online for two minutes after its last ping.
+const PRESENCE_WINDOW_MS = 2 * 60 * 1000;
 const PUBLIC_LOCATION_MINIMUM = 1;
+// Every page view is a site_visit; the first page of a visit (metadata.pages 1,
+// or no count on events from before counts were sent) is the visit itself.
+const IS_PAGE_VIEW = { $eq: ['$eventType', 'site_visit'] };
+const IS_LANDING = { $and: [IS_PAGE_VIEW, { $lte: [{ $ifNull: ['$metadata.pages', 1] }, 1] }] };
 const PUBLIC_GLOBE_SCHEMA_VERSION = 2;
 const INVALID_PUBLIC_COORDINATE_SOURCES = new Set(['world-center', 'world-hash', 'country-hash', 'unresolved']);
 
 const ACTION_LABELS = Object.freeze({
-    site_visit: 'Site Visits',
+    site_visit: 'Page Views',
     site_leave: 'Site Exits',
     fight: 'Animal Fights',
     vote: 'Votes Cast',
@@ -51,6 +55,10 @@ const PAGE_LABELS = Object.freeze({
     '/stats': 'Stats Landing',
     '/stats/:animal': 'Animal Profiles',
     '/compare': 'Compare',
+    '/compare/:pair': 'Matchups',
+    '/tier-list': 'Tier List',
+    '/roblox': 'Roblox Game',
+    '/rewards': 'Rewards',
     '/rankings': 'Rankings',
     '/community': 'Community',
     '/community/:tab': 'Community Tabs',
@@ -63,14 +71,13 @@ const PAGE_LABELS = Object.freeze({
     '/signup': 'Signup'
 });
 
-// Clean up stale presence entries
-function cleanupPresence() {
-    const now = Date.now();
-    for (const [userId, data] of presenceStore.entries()) {
-        if (now - data.lastSeen > PRESENCE_TTL) {
-            presenceStore.delete(userId);
-        }
-    }
+function presenceCutoff() {
+    return new Date(Date.now() - PRESENCE_WINDOW_MS);
+}
+
+function countOnline() {
+    const Presence = require('../lib/models/Presence');
+    return Presence.countDocuments({ lastSeen: { $gte: presenceCutoff() } });
 }
 
 function titleCase(rawValue) {
@@ -105,6 +112,7 @@ function normalizePagePath(rawPath) {
     }
 
     if (path.startsWith('/stats/')) return '/stats/:animal';
+    if (path.startsWith('/compare/')) return '/compare/:pair';
     if (path.startsWith('/profile/')) return '/profile/:user';
     if (path.startsWith('/community/')) return '/community/:tab';
 
@@ -196,6 +204,7 @@ function toPublicPoint(point = {}) {
         lng: Number(Number(point.lng).toFixed(1)),
         totalEvents: Number(point.totalEvents) || 0,
         totalVisits: Number(point.totalVisits) || 0,
+        pageViews: Number(point.pageViews) || 0,
         uniqueVisitors: Number(point.uniqueVisitors) || 0,
         lastSeen: toPublicDay(point.lastSeen)
     };
@@ -587,68 +596,84 @@ async function handleLeaderboard(req, res) {
 
 /**
  * GET /api/community?action=presence
- * Returns list of currently online users
+ * Returns how many tabs are online and which signed-in players they belong to.
+ * Guests are only counted.
  */
 async function handleGetPresence(req, res) {
-    // Clean up stale entries first
-    cleanupPresence();
+    const Presence = require('../lib/models/Presence');
+    const User = require('../lib/models/User');
+    const cutoff = presenceCutoff();
 
+    const [count, guests, members] = await Promise.all([
+        Presence.countDocuments({ lastSeen: { $gte: cutoff } }),
+        Presence.countDocuments({ lastSeen: { $gte: cutoff }, userId: null }),
+        Presence.find({ lastSeen: { $gte: cutoff }, userId: { $ne: null } })
+            .sort({ lastSeen: -1 })
+            .limit(100)
+            .select('userId page')
+            .lean()
+    ]);
+
+    const users = members.length
+        ? await User.find({ _id: { $in: members.map((row) => row.userId) } })
+            .select('username displayName profileAnimal')
+            .lean()
+        : [];
+    const usersById = new Map(users.map((user) => [String(user._id), user]));
     const onlineUsers = [];
-    for (const data of presenceStore.values()) {
+    for (const row of members) {
+        const user = usersById.get(String(row.userId));
+        if (!user) continue;
         onlineUsers.push({
-            username: data.displayName || data.username,
-            profileAnimal: data.profileAnimal,
-            page: data.page || null
+            username: user.displayName || user.username,
+            profileAnimal: user.profileAnimal || null,
+            page: row.page || null
         });
     }
 
     return res.status(200).json({
         success: true,
-        count: onlineUsers.length,
+        count,
+        guests,
         data: onlineUsers
     });
 }
 
 /**
  * POST /api/community?action=ping
- * Updates user's presence (heartbeat)
+ * Presence heartbeat from any open page, signed in or not.
  */
 async function handlePing(req, res) {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        // Anonymous ping - just count as visitor, don't track
-        return res.status(200).json({ success: true, tracked: false });
-    }
+    const mongoose = require('mongoose');
+    const Presence = require('../lib/models/Presence');
+    const authUser = getAuthUser(req);
+    const userId = authUser && mongoose.isValidObjectId(authUser.id) ? String(authUser.id) : null;
+    const identity = requestIdentity(req, userId);
 
-    const token = authHeader.split(' ')[1];
-    const user = verifyToken(token);
-    if (!user) {
+    // A tab pings on load and every ~45 seconds while visible. This leaves room
+    // for fast browsing and several tabs while capping writes per visitor.
+    const budget = await consumeRateLimit({
+        scope: 'community-presence-ping',
+        identity,
+        max: 60,
+        windowMs: 5 * 60 * 1000
+    });
+    if (!budget.allowed) {
         return res.status(200).json({ success: true, tracked: false });
     }
 
     const { page } = req.body || {};
-    const User = require('../lib/models/User');
+    const safePage = sanitizeEventData('ping', { page }).page || null;
+    // Guests are keyed by a keyed hash of network + browser, never the raw values.
+    const key = userId ? `user:${userId}` : `visitor:${pseudonymize(identity)}`;
 
-    // Get current user data
-    const userDoc = await User.findById(user.id).select('displayName username profileAnimal');
-    if (!userDoc) {
-        return res.status(200).json({ success: true, tracked: false });
-    }
+    await Presence.updateOne(
+        { _id: key },
+        { $set: { userId, page: safePage, lastSeen: new Date() } },
+        { upsert: true }
+    );
 
-    // Update presence
-    presenceStore.set(user.id, {
-        username: userDoc.username,
-        displayName: userDoc.displayName || userDoc.username,
-        profileAnimal: userDoc.profileAnimal,
-        lastSeen: Date.now(),
-        page: page || null
-    });
-
-    return res.status(200).json({
-        success: true,
-        tracked: true,
-        onlineCount: presenceStore.size
-    });
+    return res.status(200).json({ success: true, tracked: true });
 }
 
 /**
@@ -680,7 +705,8 @@ async function handleStats(req, res) {
         totalVotes,
         totalComments,
         totalChatMessages,
-        battleStatsAgg
+        battleStatsAgg,
+        onlineNow
     ] = await Promise.all([
         User.countDocuments({}),
         Vote.countDocuments({}),
@@ -689,12 +715,11 @@ async function handleStats(req, res) {
         // Sum up all tournament battles (matches)
         BattleStats.aggregate([
             { $group: { _id: null, totalMatches: { $sum: '$tournamentBattles' } } }
-        ]).then(r => r[0]?.totalMatches || 0)
+        ]).then(r => r[0]?.totalMatches || 0),
+        // Tabs (guests and players) that pinged in the presence window
+        countOnline()
     ]);
 
-    // Clean up presence to get accurate count
-    cleanupPresence();
-    
     // Total matches is sum of all tournamentBattles
     const totalMatches = battleStatsAgg;
     return res.status(200).json({
@@ -707,7 +732,7 @@ async function handleStats(req, res) {
             totalComparisons: siteStats.totalComparisons || 0,
             totalTournaments: siteStats.totalTournaments || 0,
             totalVisits: siteStats.totalVisits || 0,
-            onlineNow: presenceStore.size
+            onlineNow
         }
     });
 }
@@ -800,11 +825,8 @@ async function handleGlobe(req, res) {
                 $group: {
                     _id: null,
                     totalEvents: { $sum: 1 },
-                    totalVisits: {
-                        $sum: {
-                            $cond: [{ $eq: ['$eventType', 'site_visit'] }, 1, 0]
-                        }
-                    },
+                    totalVisits: { $sum: { $cond: [IS_LANDING, 1, 0] } },
+                    pageViews: { $sum: { $cond: [IS_PAGE_VIEW, 1, 0] } },
                     uniqueVisitors: { $addToSet: '$visitorHash' }
                 }
             },
@@ -813,6 +835,7 @@ async function handleGlobe(req, res) {
                     _id: 0,
                     totalEvents: 1,
                     totalVisits: 1,
+                    pageViews: 1,
                     uniqueVisitors: {
                         $size: {
                             $setDifference: ['$uniqueVisitors', [null, '']]
@@ -840,11 +863,8 @@ async function handleGlobe(req, res) {
                     lng: { $avg: '$coordinates.lng' },
                     coordinateSource: { $first: '$coordinates.source' },
                     totalEvents: { $sum: 1 },
-                    totalVisits: {
-                        $sum: {
-                            $cond: [{ $eq: ['$eventType', 'site_visit'] }, 1, 0]
-                        }
-                    },
+                    totalVisits: { $sum: { $cond: [IS_LANDING, 1, 0] } },
+                    pageViews: { $sum: { $cond: [IS_PAGE_VIEW, 1, 0] } },
                     uniqueVisitors: { $addToSet: '$visitorHash' },
                     lastSeen: { $max: '$occurredAt' }
                 }
@@ -862,6 +882,7 @@ async function handleGlobe(req, res) {
                     lng: { $round: ['$lng', 5] },
                     totalEvents: 1,
                     totalVisits: 1,
+                    pageViews: 1,
                     uniqueVisitors: {
                         $size: {
                             $setDifference: ['$uniqueVisitors', [null, '']]
@@ -909,7 +930,8 @@ async function handleGlobe(req, res) {
                 }
             },
             { $sort: { count: -1 } },
-            { $limit: 8 }
+            // Raw paths: animal and matchup pages share one bucket after cleanPageBuckets.
+            { $limit: 2000 }
         ]),
         SiteActivity.aggregate([
             { $match: trendDateMatch },
@@ -922,11 +944,8 @@ async function handleGlobe(req, res) {
                         }
                     },
                     events: { $sum: 1 },
-                    visits: {
-                        $sum: {
-                            $cond: [{ $eq: ['$eventType', 'site_visit'] }, 1, 0]
-                        }
-                    },
+                    visits: { $sum: { $cond: [IS_LANDING, 1, 0] } },
+                    pageViews: { $sum: { $cond: [IS_PAGE_VIEW, 1, 0] } },
                     visitors: { $addToSet: '$visitorHash' }
                 }
             },
@@ -937,6 +956,7 @@ async function handleGlobe(req, res) {
                     day: '$_id',
                     events: 1,
                     visits: 1,
+                    pageViews: 1,
                     cohortSize: { $size: { $setDifference: ['$visitors', [null, '']] } }
                 }
             }
@@ -988,7 +1008,7 @@ async function handleGlobe(req, res) {
         },
         data: {
             schemaVersion: PUBLIC_GLOBE_SCHEMA_VERSION,
-            summary: summaryAgg[0] || { totalEvents: 0, totalVisits: 0, uniqueVisitors: 0 },
+            summary: summaryAgg[0] || { totalEvents: 0, totalVisits: 0, pageViews: 0, uniqueVisitors: 0 },
             windows: {
                 last24h,
                 last7d,
@@ -1027,11 +1047,8 @@ async function handleGlobePoint(req, res) {
                     country: { $first: '$country' },
                     locationRaw: { $first: '$locationRaw' },
                     totalEvents: { $sum: 1 },
-                    totalVisits: {
-                        $sum: {
-                            $cond: [{ $eq: ['$eventType', 'site_visit'] }, 1, 0]
-                        }
-                    },
+                    totalVisits: { $sum: { $cond: [IS_LANDING, 1, 0] } },
+                    pageViews: { $sum: { $cond: [IS_PAGE_VIEW, 1, 0] } },
                     uniqueVisitors: { $addToSet: '$visitorHash' },
                     firstSeen: { $min: '$occurredAt' },
                     lastSeen: { $max: '$occurredAt' }
@@ -1047,6 +1064,7 @@ async function handleGlobePoint(req, res) {
                     locationRaw: 1,
                     totalEvents: 1,
                     totalVisits: 1,
+                    pageViews: 1,
                     uniqueVisitors: {
                         $size: {
                             $setDifference: ['$uniqueVisitors', [null, '']]
@@ -1150,6 +1168,7 @@ async function handleGlobePoint(req, res) {
                 granularity: getPublicGranularity(summary),
                 totalEvents: Number(summary.totalEvents) || 0,
                 totalVisits: Number(summary.totalVisits) || 0,
+                pageViews: Number(summary.pageViews) || 0,
                 uniqueVisitors: Number(summary.uniqueVisitors) || 0,
                 firstSeen: toPublicDay(summary.firstSeen),
                 lastSeen: toPublicDay(summary.lastSeen)

@@ -364,7 +364,21 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
         :global(.r-card) { flex-basis: 76px; }
     }
     @media (max-width: 900px) {
-        .vs { grid-template-columns: 1fr 1fr; grid-template-rows: clamp(190px, 34vh, 340px) auto; height: auto; min-height: 100%; gap: 8px; }
+        /* One screen on phones too: short fighter stage, the stat tabs scroll inside the
+           console, and Call it stays pinned at its foot. */
+        .vs { grid-template-columns: 1fr 1fr; grid-template-rows: clamp(140px, 25vh, 280px) minmax(0, 1fr); gap: 6px; }
+        .console { overflow: hidden; }
+        .vs-q, .call-note { display: none; }
+        .fighter { grid-template-rows: auto minmax(0, 1fr); }
+        .f-foot { position: absolute; left: 0; right: 0; bottom: 2px; z-index: 3; pointer-events: none; }
+        .f-foot .btn { pointer-events: auto; min-height: 30px; padding: 0 9px; font-size: 0.78rem; }
+        .call-head { flex-wrap: nowrap; }
+        .call-pay { display: block; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 0.68rem; }
+        .call-pay :global(img) { vertical-align: -3px; }
+        .call-streak, .call-head b { flex: none; white-space: nowrap; }
+        .verdict-line { margin-bottom: 0; }
+        .c-pane { padding: 6px 10px; }
+        .duel { gap: 4px; }
         .console { grid-column: 1 / -1; grid-row: 2; }
         .side-a { grid-column: 1; grid-row: 1; }
         .side-b { grid-column: 2; grid-row: 1; }

@@ -1,6 +1,7 @@
-// The Roblox game page: the trailer stage and screenshot row, gameplay clips,
-// live game numbers and leaderboards (from /api/community?action=roblox), and
-// the Connect Roblox section, shown once Roblox sign-in is configured.
+// The Roblox game screen: the stage tabs (trailer and screenshots, gameplay clips,
+// codes, leaderboards, questions), live game numbers and leaderboards (from
+// /api/community?action=roblox), and the Roblox account row, shown once Roblox
+// sign-in is configured.
 import { escapeHtml, toast } from './site.js';
 
 const root = document.querySelector('[data-rbx]');
@@ -54,6 +55,44 @@ thumbs.addEventListener('click', (event) => {
     if (thumb && thumb.getAttribute('aria-pressed') !== 'true') select(thumb);
 });
 
+// ---------------------------------------------------------------- stage tabs
+
+const tabs = [...root.querySelectorAll('[data-tab]')];
+const panes = [...root.querySelectorAll('[data-pane]')];
+// Players started in a pane stop when the player switches away from it.
+const started = new Map();
+
+function stopPane(pane) {
+    pane.querySelectorAll('video').forEach((video) => video.pause());
+    for (const [node, html] of started) {
+        if (!pane.contains(node)) continue;
+        node.outerHTML = html;
+        started.delete(node);
+    }
+    if (pane.contains(stage) && stage.querySelector('iframe, video[controls]')) {
+        stage.innerHTML = trailerPoster;
+        stage.querySelectorAll('img').forEach(posterFallback);
+    }
+}
+
+function showTab(id, { remember = true } = {}) {
+    const tab = tabs.find((node) => node.dataset.tab === id && !node.hidden) || tabs[0];
+    tabs.forEach((node) => node.setAttribute('aria-selected', String(node === tab)));
+    for (const pane of panes) {
+        const on = pane.dataset.pane === tab.dataset.tab;
+        if (!on && !pane.hidden) stopPane(pane);
+        pane.hidden = !on;
+    }
+    if (remember) history.replaceState(history.state, '', tab === tabs[0] ? location.pathname : `#${tab.dataset.tab}`);
+}
+
+root.querySelector('.rbx-tabs').addEventListener('click', (event) => {
+    const tab = event.target.closest('[data-tab]');
+    if (tab) showTab(tab.dataset.tab);
+});
+const wanted = location.hash.slice(1);
+if (wanted && wanted !== 'boards') showTab(wanted, { remember: false });
+
 // ---------------------------------------------------------------- gameplay clips
 
 // Clips play muted on a loop while on screen, like a store page. With reduced
@@ -72,7 +111,11 @@ if (reducedMotion) {
 }
 root.addEventListener('click', (event) => {
     const button = event.target.closest('.clip-yt[data-youtube]');
-    if (button) button.outerHTML = youtubeFrame(button.dataset.youtube, button.getAttribute('aria-label') || 'Gameplay video');
+    if (!button) return;
+    const holder = button.parentElement;
+    const html = button.outerHTML;
+    button.outerHTML = youtubeFrame(button.dataset.youtube, button.getAttribute('aria-label') || 'Gameplay video');
+    started.set(holder.querySelector('iframe'), html);
 });
 
 // ---------------------------------------------------------------- live game data
@@ -112,7 +155,9 @@ function paintBoards(boards) {
         filled += 1;
         list.innerHTML = board.top.slice(0, 5).map((entry) => `<li><span class="lb-rank">${Number(entry.rank) || ''}</span><span class="lb-name">${escapeHtml(entry.name)}</span><b>${compact(entry.value)}</b></li>`).join('');
     }
-    if (filled) root.querySelector('[data-boards-section]').hidden = false;
+    if (!filled) return;
+    root.querySelector('[data-boards-tab]').hidden = false;
+    if (location.hash === '#boards') showTab('boards', { remember: false });
 }
 
 fetch('/api/community?action=roblox', { headers: { Accept: 'application/json' } })
@@ -140,16 +185,16 @@ function paintConnect(state, user) {
     if (state === 'linked') {
         const name = user.roblox.displayName || user.roblox.username;
         button.href = '/profile?tab=roblox';
-        label.textContent = 'View your profile';
-        note.textContent = `Connected as ${name}${user.roblox.username && user.roblox.username !== name ? ` (@${user.roblox.username})` : ''}.`;
+        label.textContent = 'Profile';
+        note.textContent = `Connected as ${name}${user.roblox.username && user.roblox.username !== name ? ` (@${user.roblox.username})` : ''}`;
     } else if (state === 'user') {
         button.href = '/api/auth?action=link-roblox&returnTo=%2Froblox';
-        label.textContent = 'Connect Roblox';
-        note.textContent = `Links to ${user.displayName || user.username}, the account you are signed in to.`;
+        label.textContent = 'Connect';
+        note.textContent = `Link it to ${user.displayName || user.username} for your in-game stats`;
     } else {
         button.href = '/api/auth?action=roblox-start&returnTo=%2Froblox';
-        label.textContent = 'Continue with Roblox';
-        note.innerHTML = 'Already have an account? <a href="/login?returnTo=%2Froblox">Log in</a> first to connect it.';
+        label.textContent = 'Sign in';
+        note.innerHTML = 'Sign in with Roblox, or <a href="/login?returnTo=%2Froblox">log in</a> first';
     }
 }
 

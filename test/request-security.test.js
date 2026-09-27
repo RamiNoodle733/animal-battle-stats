@@ -161,7 +161,9 @@ test('request boundary is wired into the assigned API surface', () => {
 
     const animals = fs.readFileSync(path.join(root, 'api', 'animals.js'), 'utf8');
     const community = fs.readFileSync(path.join(root, 'api', 'community.js'), 'utf8');
-    assert.match(animals, /scope: 'browser-lifecycle-notify'/u);
+    // Page views get their own generous budget; leave/logout keep a small shared one.
+    assert.match(animals, /site_visit: \{ scope: 'browser-visit-notify', max: 120, windowMs: 30 \* 60 \* 1000 \}/u);
+    assert.match(animals, /lifecycle: \{ scope: 'browser-lifecycle-notify', max: 20, windowMs: 30 \* 60 \* 1000 \}/u);
     assert.match(animals, /requireAllowedOrigin: req\.query\?\.action === 'notify'/u);
     assert.match(community, /const \{ page \} = req\.body \|\| \{\}/u);
 });

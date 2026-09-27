@@ -12,12 +12,14 @@ const dbPath = require.resolve('../lib/mongodb');
 require.cache[dbPath] = { id: dbPath, filename: dbPath, loaded: true, exports: { connectToDatabase: async () => {} } };
 
 const SiteActivity = require('../lib/models/SiteActivity');
+const { sanitizeEventData } = require('../lib/activity-logger');
 const {
     createEmbed,
     createSlackPayload,
     getSlackWebhookUrl,
     sanitizeDeliveryError,
-    deliverActivity
+    deliverActivity,
+    notifyDiscord
 } = require('../lib/discord');
 
 const EVENT_TYPES = [
@@ -154,4 +156,92 @@ test('rate-limited deliveries are retried after Retry-After', async () => {
         else process.env.DISCORD_WEBHOOK_URL = originalUrl;
         stub.restore();
     }
+});
+
+test('a site visit shows the page-reported referrer as Came From, not the beacon Referer header', async () => {
+    const contextKey = Symbol.for('@vercel/request-context');
+    const originals = {
+        create: SiteActivity.create,
+        findOneAndUpdate: SiteActivity.findOneAndUpdate,
+        updateOne: SiteActivity.updateOne,
+        find: SiteActivity.find,
+        fetch: global.fetch,
+        context: globalThis[contextKey],
+        discord: process.env.DISCORD_WEBHOOK_URL,
+        slack: process.env.SLACK_WEBHOOK_URL
+    };
+    const background = [];
+    const posted = [];
+    let created = null;
+    let claimable = null;
+
+    process.env.DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1/secret';
+    delete process.env.SLACK_WEBHOOK_URL;
+    // Capture the delivery that notifyDiscord hands to waitUntil so it can be awaited.
+    globalThis[contextKey] = { get: () => ({ waitUntil: (promise) => background.push(promise) }) };
+    SiteActivity.create = async (payload) => {
+        created = payload;
+        claimable = { _id: 'visit-1', ...payload, discordDelivery: { ...payload.discordDelivery, attempts: 1 } };
+        return { _id: 'visit-1' };
+    };
+    SiteActivity.findOneAndUpdate = () => ({ lean: async () => { const doc = claimable; claimable = null; return doc; } });
+    SiteActivity.updateOne = async () => ({ acknowledged: true });
+    SiteActivity.find = () => ({ sort: () => ({ limit: () => ({ select: () => ({ lean: async () => [] }) }) }) });
+    global.fetch = async (_url, options) => {
+        posted.push(JSON.parse(options.body));
+        return new Response(JSON.stringify({ id: 'message-1' }), { status: 200 });
+    };
+
+    try {
+        await notifyDiscord('site_visit', {
+            username: 'Anonymous',
+            page: '/stats/african-lion',
+            referrer: 'https://www.google.com/',
+            screenSize: '390x844',
+            language: 'en-US',
+            pages: 1,
+            sessionId: 'visit-session'
+        }, {
+            headers: {
+                // A beacon's own Referer is always the site page that sent it.
+                referer: 'https://animalbattlestats.com/stats/african-lion',
+                'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Version/17.0 Mobile/15E148 Safari/604.1'
+            }
+        });
+        await Promise.all(background);
+
+        assert.equal(created.metadata.referrer, 'https://www.google.com/');
+        assert.match(created.metadata.sessionHash, /^[a-f0-9]{32}$/);
+        assert.equal(posted.length, 1);
+        const cameFrom = posted[0].embeds[0].fields.find((field) => field.name.endsWith('Came From'));
+        assert.equal(cameFrom?.value, 'https://www.google.com/');
+    } finally {
+        SiteActivity.create = originals.create;
+        SiteActivity.findOneAndUpdate = originals.findOneAndUpdate;
+        SiteActivity.updateOne = originals.updateOne;
+        SiteActivity.find = originals.find;
+        global.fetch = originals.fetch;
+        if (originals.context === undefined) delete globalThis[contextKey];
+        else globalThis[contextKey] = originals.context;
+        if (originals.discord === undefined) delete process.env.DISCORD_WEBHOOK_URL;
+        else process.env.DISCORD_WEBHOOK_URL = originals.discord;
+        if (originals.slack === undefined) delete process.env.SLACK_WEBHOOK_URL;
+        else process.env.SLACK_WEBHOOK_URL = originals.slack;
+    }
+});
+
+test('the Referer header is only a fallback, and our own pages never show as Came From', () => {
+    const headerOnly = sanitizeEventData('site_visit', { referer: 'https://animalbattlestats.com/rankings' });
+    assert.equal(headerOnly.referrer, 'https://animalbattlestats.com/rankings');
+    assert.equal(sanitizeEventData('site_visit', {
+        referer: 'https://animalbattlestats.com/rankings',
+        referrer: 'https://www.google.com/'
+    }).referrer, 'https://www.google.com/');
+    assert.equal(createEmbed('site_visit', headerOnly).fields.some((field) => field.name.endsWith('Came From')), false);
+
+    // Internal page views carry their place in the visit; the landing does not show it.
+    const internal = createEmbed('site_visit', sanitizeEventData('site_visit', { page: '/rankings', pages: 3 }));
+    assert.equal(internal.fields.find((field) => field.name.endsWith('Pages This Visit'))?.value, '3');
+    const landing = createEmbed('site_visit', sanitizeEventData('site_visit', { page: '/', pages: 1 }));
+    assert.equal(landing.fields.some((field) => field.name.endsWith('Pages This Visit')), false);
 });

@@ -47,6 +47,7 @@ export function mountComments(root, target) {
                 <span class="cm-score">${Number(comment.score) || 0}</span>
                 <button type="button" class="cm-vote down${comment.userVote === 'down' ? ' on' : ''}" data-vote="downvote" aria-label="Downvote">▼</button>
                 ${depth === 0 ? '<button type="button" class="cm-link" data-reply>Reply</button>' : ''}
+                ${comment.canDelete ? '<button type="button" class="cm-link" data-delete>Delete</button>' : ''}
             </footer>
             ${replies.join('')}
         </article>`;
@@ -92,6 +93,21 @@ export function mountComments(root, target) {
             replyTo = comment.dataset.id;
             text.placeholder = `Reply to ${comment.querySelector('b').textContent}…`;
             text.focus();
+            return;
+        }
+        if (event.target.closest('[data-delete]')) {
+            if (!confirm('Delete this comment? Replies to it are deleted too.')) return;
+            const response = await fetch(`/api/comments?id=${encodeURIComponent(comment.dataset.id)}`, { method: 'DELETE', credentials: 'same-origin', headers: headers() }).catch(() => null);
+            const result = await response?.json().catch(() => ({}));
+            if (!response?.ok || !result?.success) { sfx.error(); toast(result?.error || 'Could not delete. Try again.'); return; }
+            // The server removes the replies under it too, and so does removing the element.
+            if (replyTo === comment.dataset.id) {
+                replyTo = null;
+                text.placeholder = `What do you think about ${label}?`;
+            }
+            comment.remove();
+            if (!list.querySelector('.cm')) list.innerHTML = `<p class="cm-empty">No comments yet. Start the debate about ${escapeHtml(label)}.</p>`;
+            toast('Comment deleted');
             return;
         }
         const vote = event.target.closest('[data-vote]');

@@ -113,4 +113,7 @@ test('public community clients and endpoints do not depend on leaked account IDs
     }
     assert.match(community, /message\.userVote === 'up'/);
     assert.match(comments, /comment\.userVote === 'up'/);
+    // Delete is offered from the server's canDelete flag, never from author IDs.
+    assert.match(comments, /comment\.canDelete \?/);
+    assert.match(comments, /method: 'DELETE'/);
 });

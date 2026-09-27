@@ -4,6 +4,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 
 process.env.JWT_SECRET ||= 'test-secret-that-is-long-enough-for-hmac-verification';
+process.env.MONGODB_URI ||= 'mongodb://127.0.0.1:1/economy-test';
 
 const mongoose = require('mongoose');
 const User = require('../lib/models/User');
@@ -104,7 +105,7 @@ function harness(fields = {}) {
     };
 }
 
-test('fight calls pay Coins, XP and pass XP up to the daily cap, and correct calls build a streak', async () => {
+test('fight calls pay BattlePoints, XP and pass XP up to the daily cap, and correct calls build a streak', async () => {
     const h = harness();
     try {
         const first = await rewards.awardUserReward({ userId: h.user._id, action: 'matchup_call', sourceId: 'A::B:2026-10-01', call: { correct: true }, now: NOW });
@@ -157,7 +158,7 @@ test('the daily reward, quests, the chest and the pass are each claimable once, 
     }
 });
 
-test('looks cost Coins, are bought by name once, and only owned looks can be worn', async () => {
+test('looks cost BattlePoints, are bought by name once, and only owned looks can be worn', async () => {
     const h = harness({ battlePoints: 500 });
     try {
         await assert.rejects(rewards.buyItem(h.user._id, 'frame_gold', NOW), { status: 409 }, 'not enough Coins');
@@ -170,6 +171,29 @@ test('looks cost Coins, are bought by name once, and only owned looks can be wor
         await rewards.equipItem(h.user._id, 'frame', null, NOW);
         assert.equal(h.user.economy.frame, null);
     } finally {
+        h.restore();
+    }
+});
+
+test('a level-up posts to the activity feed once, after the reward commits', async () => {
+    const discord = require('../lib/discord');
+    const original = discord.notifyDiscord;
+    const posts = [];
+    discord.notifyDiscord = async (type, data) => { posts.push([type, data]); };
+    // Level 1 needs 25 XP; the first daily reward pays 10.
+    const h = harness({ xp: 20, level: 1 });
+    try {
+        const daily = await rewards.claimDaily(h.user._id, NOW);
+        assert.equal(daily.leveledUp, true);
+        assert.deepEqual(posts, [['level_up', { username: 'caller', level: 2 }]]);
+
+        posts.length = 0;
+        h.user.xp = 0;
+        const quiet = await rewards.awardUserReward({ userId: h.user._id, action: 'vote', sourceId: 'Lion', now: NOW });
+        assert.equal(quiet.leveledUp, false);
+        assert.equal(posts.length, 0, 'no level, no post');
+    } finally {
+        discord.notifyDiscord = original;
         h.restore();
     }
 });

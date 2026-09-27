@@ -17,9 +17,9 @@
  * GET /api/auth?action=link-roblox - Begin linking Roblox to the current user
  * POST /api/auth?action=unlink-roblox - Unlink Roblox from the current user
  * GET /api/auth?action=roblox-player - The current user's linked Roblox account and in-game stats
- * GET /api/auth?action=hub - Coins, daily streak, quests, Season Pass and looks (lib/economy.js)
+ * GET /api/auth?action=hub - BattlePoints, daily streak, quests, Season Pass and looks (lib/economy.js)
  * POST /api/auth?action=claim - Claim { what: daily | quest (slot) | chest | pass }
- * POST /api/auth?action=buy - Buy a look with Coins { item }
+ * POST /api/auth?action=buy - Buy a look with BattlePoints { item }
  * POST /api/auth?action=equip - Wear a frame or title { kind, item }
  * GET/PUT /api/auth?action=notification-preferences - Manage email notification settings
  * GET /api/auth?action=unsubscribe - Public signed-token email unsubscribe
@@ -1101,7 +1101,7 @@ async function handleRobloxPlayer(req, res) {
 }
 
 // ==================== ECONOMY ====================
-// The Rewards screen: Coins, daily streak, quests, Season Pass and looks.
+// The Rewards screen: BattlePoints, daily streak, quests, Season Pass and looks.
 
 function publicLooks(user) {
     const eco = normalizeEconomy(user.economy);

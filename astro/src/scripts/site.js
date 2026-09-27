@@ -219,11 +219,11 @@ function paintChip(user) {
     chip.classList.add('signed-in');
     chip.innerHTML = `<span class="lvl" title="Level ${level}">${level}</span>
         <span class="who"><span>${escapeHtml(user.displayName || user.username)}</span><span class="xpbar"><i style="width:${progress}%"></i></span></span>
-        <span class="bp" title="Coins" data-wallet><img src="${COIN}" alt="" width="20" height="20"><span data-wallet-n>${Number(user.battlePoints || 0).toLocaleString('en-US')}</span></span>`;
+        <span class="bp" title="BattlePoints" data-wallet><img src="${COIN}" alt="" width="20" height="20"><span data-wallet-n>${Number(user.battlePoints || 0).toLocaleString('en-US')}</span></span>`;
     paintBadge(user.economy?.ready);
 }
 
-// Where flying coins land: the Coins counter, or the Rewards button on narrow screens.
+// Where flying coins land: the BattlePoints counter, or the Rewards button on narrow screens.
 function walletTarget() {
     const wallet = document.querySelector('[data-wallet]');
     const box = wallet?.getBoundingClientRect();
@@ -284,7 +284,7 @@ function rewardPill(from, text) {
 }
 
 // Shows a reward from the API (lib/rewards.js payload): the gain above `from`,
-// Coins flying into the counter, level-ups and new looks, and refreshes the HUD.
+// BattlePoints flying into the counter, level-ups and new looks, and refreshes the HUD.
 export function showReward(reward, from = null) {
     if (!reward) return;
     const user = window.ABS_USER;
@@ -302,10 +302,10 @@ export function showReward(reward, from = null) {
         rewardPill(from, parts.join(''));
         flyCoins(from, Math.min(8, Math.max(2, Math.ceil((reward.coins || 0) / 12))));
     } else if (reward.capped) {
-        toast('Daily Coins limit reached for that. It still counts for quests.');
+        toast('Daily BattlePoints limit reached for that. It still counts for quests.');
     }
     if (reward.leveledUp && reward.newLevel) {
-        setTimeout(() => { sfx.win(); toast(`Level ${reward.newLevel}! Level-up Coins added.`); }, 900);
+        setTimeout(() => { sfx.win(); toast(`Level ${reward.newLevel}! Level-up BattlePoints added.`); }, 900);
     }
     for (const [index, item] of (reward.unlocked || []).entries()) {
         setTimeout(() => { sfx.win(); toast(`New ${item.kind}: ${item.name}! Wear it from Rewards.`); }, 1600 + index * 2200);
@@ -337,7 +337,7 @@ async function openDaily() {
                 <small>Day ${reward.day}</small><img src="${reward.day === 7 ? '/images/icons/abs/chest.webp' : COIN}" alt="" width="34" height="34"><b>${reward.coins}</b>
             </li>`).join('')}</ol>
         <div class="dd-actions">
-            <button class="btn btn-gold btn-lg" type="button" data-dd-claim><img src="${COIN}" alt="" width="26" height="26">Claim ${login.reward.coins} Coins</button>
+            <button class="btn btn-gold btn-lg" type="button" data-dd-claim><img src="${COIN}" alt="" width="26" height="26">Claim ${login.reward.coins} BattlePoints</button>
             <button class="btn btn-sm" type="button" data-dd-later>Later</button>
         </div>`;
     document.body.appendChild(dialog);
@@ -355,7 +355,7 @@ async function openDaily() {
         const result = await authApi('claim', { method: 'POST', body: { what: 'daily' } });
         if (!result.ok) { sfx.error(); toast(result.body.error || 'Could not claim. Try again.'); claim.disabled = false; return; }
         dialog.querySelector('.dd-ladder .now')?.classList.add('done');
-        // The dialog sits above everything, so the Coins fly once it has closed.
+        // The dialog sits above everything, so the BattlePoints fly once it has closed.
         const spot = claim.getBoundingClientRect();
         setTimeout(() => { close(); showReward(result.body.data, spot); }, 450);
     });

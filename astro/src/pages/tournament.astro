@@ -24,7 +24,7 @@ const description = `Run an 8 to 64 animal tournament bracket from ${animals.len
 const faq = [
     { q: 'How does the animal tournament work?', a: 'Choose a bracket size (8, 16, 32 or 64 animals) and a division. Animals are drawn at random and paired up, and you pick the winner of every fight until one champion is left. Stats odds are shown as a hint, and the fan vote is revealed after each pick. Turn on Guess the crowd to score a streak for matching the fan majority.' },
     { q: 'What is a battle rating?', a: 'Every ranked tournament updates an Elo-style battle rating for each animal that fought, starting at 1000. Beating a higher-rated animal moves the rating more than beating a lower-rated one, so the ratings show which animals players keep picking to win.' },
-    { q: 'What is the difference between ranked and casual?', a: 'Signed-in players play ranked: the server draws the bracket, records every pick and updates the battle ratings, and the first finished ranked bracket each day earns XP and Coins. Casual brackets run in your browser and are not recorded.' },
+    { q: 'What is the difference between ranked and casual?', a: 'Signed-in players play ranked: the server draws the bracket, records every pick and updates the battle ratings, and the first finished ranked bracket each day earns XP and BattlePoints. Casual brackets run in your browser and are not recorded.' },
     { q: 'Are the stats odds the real answer?', a: 'They come from the Animal Battle Stats model, which weighs attack, defense, agility, stamina, intelligence and special abilities. Real fights depend on size, setting and motivation, so upsets happen and you can always pick against the numbers.' }
 ];
 const jsonLd = [
@@ -57,7 +57,7 @@ const jsonLd = [
                     </button>
                     <div class="t-mode" data-mode>
                         <Icon name="lock" size={30} />
-                        <p data-mode-text><b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and Coins once a day.</p>
+                        <p data-mode-text><b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and BattlePoints once a day.</p>
                     </div>
                     <button class="btn btn-hot btn-lg t-start" type="button" data-start><Icon name="swords" size={30} />Start tournament</button>
                     <div class="t-recent" data-recent hidden>
@@ -83,7 +83,7 @@ const jsonLd = [
                     <ol class="t-steps">
                         <li><Icon name="cards" size={30} lazy /><span><b>Draw a bracket</b>8 to 64 random animals, from every class or a single division.</span></li>
                         <li><Icon name="vs" size={30} lazy /><span><b>Pick every winner</b>Tap the animal you think wins. Stats odds are your hint; the fan vote is revealed after you pick.</span></li>
-                        <li><Icon name="crown" size={30} lazy /><span><b>Crown a champion</b>Ranked brackets update the battle ratings and pay XP and Coins once a day.</span></li>
+                        <li><Icon name="crown" size={30} lazy /><span><b>Crown a champion</b>Ranked brackets update the battle ratings and pay XP and BattlePoints once a day.</span></li>
                     </ol>
                     <div class="faq">{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
                 </div>
@@ -95,7 +95,7 @@ const jsonLd = [
             <header class="panel t-bar">
                 <div class="t-round"><b data-round>Round of 16</b><span data-fight-label>Fight 1 of 8</span></div>
                 <div class="t-progress" aria-hidden="true"><i data-progress></i></div>
-                <span class="chip t-streak" data-streak hidden title="Crowd guess streak">🔥 <b>0</b></span>
+                <span class="chip t-streak" data-streak hidden title="Crowd guess streak"><Icon name="fire" size={16} /><b>0</b></span>
                 <span class="chip" data-mode-chip>Casual</span>
                 <button class="btn btn-sm t-quit" type="button" data-quit aria-label="Quit tournament"><Icon name="close" size={20} /><span>Quit</span></button>
             </header>
@@ -398,8 +398,9 @@ const jsonLd = [
     }
     @media (max-width: 900px) {
         .tourney, .tourney > [data-pane] { height: auto; min-height: 100%; }
-        .t-setup { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto; gap: 8px; }
-        .t-ratings { max-height: 60vh; }
+        /* The setup is one screen: ratings and how-it-works scroll inside their panel. */
+        .tourney[data-stage="setup"], .tourney[data-stage="setup"] > .t-setup { height: 100%; min-height: 0; }
+        .t-setup { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(140px, 1fr); gap: 8px; }
         .t-config { grid-row: 1; }
         .t-info-tabs { grid-column: 1; grid-row: 2; padding-top: 0; }
         .t-board, .t-how { grid-column: 1; grid-row: 3; }

@@ -11,18 +11,18 @@ import { SITE, ROBLOX } from '../lib/site.js';
 const RB_STATS = [['POWER', 'Team power'], ['COLLECTION', 'Animals collected'], ['WINS', 'Battles won'], ['SHOW', 'Best show streak']];
 
 const { ACTIONS } = economy;
-const pay = (def) => `+${def.coins} Coins · +${def.xp} XP`;
+const pay = (def) => `+${def.coins} BP · +${def.xp} XP`;
 const EARN = [
-    ['target', 'Call a fight', pay(ACTIONS.matchup_call), 'Bonus Coins when you call it right'],
+    ['target', 'Call a fight', pay(ACTIONS.matchup_call), 'Bonus BattlePoints when you call it right'],
     ['medal', 'Vote on an animal', pay(ACTIONS.vote), 'Each animal, once a day'],
     ['book', 'Comment on an animal', pay(ACTIONS.comment), `Replies earn ${pay(ACTIONS.reply)}`],
     ['trophy', 'Finish a ranked tournament', pay(ACTIONS.tournament_participate), 'Once a day'],
-    ['gift', 'Daily reward and quests', 'Up to 250 Coins', 'Claim them on the Rewards page'],
-    ['crown', 'Level up', 'Coins', 'Bigger payouts at milestone levels']
+    ['gift', 'Daily reward and quests', 'Up to 250 BP', 'Claim them on the Rewards page'],
+    ['crown', 'Level up', 'BattlePoints', 'Bigger payouts at milestone levels']
 ];
 ---
 
-<Base title={`Player profile | ${SITE.name}`} description="Your Animal Battle Stats player profile: level, XP, Coins and profile animal." path="/profile" noindex active="" biome="mountains" seed={9}>
+<Base title={`Player profile | ${SITE.name}`} description="Your Animal Battle Stats player profile: level, XP, BattlePoints and profile animal." path="/profile" noindex active="" biome="mountains" seed={9}>
     <div class="prof" data-profile data-state="loading">
         <section class="panel gold p-card enter" aria-live="polite">
             <div class="p-art" data-p-art><div class="p-pick-hint" data-p-hint hidden><Icon name="paw" size={40} /><span>Pick a profile animal</span></div></div>
@@ -36,7 +36,7 @@ const EARN = [
             </div>
             <div class="p-xp"><div class="p-xpbar"><i data-p-xpbar></i></div><span data-p-xptext>0 / 0 XP</span></div>
             <div class="p-nums">
-                <div><b data-p-bp>0</b><span>Coins</span></div>
+                <div><b data-p-bp>0</b><span>BattlePoints</span></div>
                 <div><b data-p-life>0</b><span>Lifetime XP</span></div>
                 <div><b data-p-prestige>0</b><span>Prestige</span></div>
             </div>
@@ -107,13 +107,13 @@ const EARN = [
                     <h3 class="sub-h">Sign-in</h3>
                     <div class="p-row"><span><b>Google</b><span data-p-google>Not linked</span></span><button class="btn btn-sm" type="button" data-p-google-btn>Link</button></div>
                 </div>
-                <div class="p-row p-prestige" data-p-prestige-row hidden><span><b>Prestige ready</b><span>Reset to level 1 for a prestige star and bonus Coins.</span></span><button class="btn btn-gold btn-sm" type="button" data-p-prestige-btn>Prestige</button></div>
+                <div class="p-row p-prestige" data-p-prestige-row hidden><span><b>Prestige ready</b><span>Reset to level 1 for a prestige star and bonus BattlePoints.</span></span><button class="btn btn-gold btn-sm" type="button" data-p-prestige-btn>Prestige</button></div>
                 <button class="btn btn-sm p-logout" type="button" data-p-logout><Icon name="close" size={20} />Log out</button>
             </div>
         </section>
 
         <aside class="panel hot p-earn enter-3" aria-labelledby="earn-title">
-            <div class="panel-head"><Icon name="xp" size={28} /><h2 id="earn-title" class="panel-title">Earn Coins &amp; XP</h2></div>
+            <div class="panel-head"><Icon name="xp" size={28} /><h2 id="earn-title" class="panel-title">Earn BP &amp; XP</h2></div>
             <ul class="p-earn-list panel-body">
                 {EARN.map(([icon, title, value, note]) => <li><Icon name={icon} size={30} lazy /><span><b>{title}</b><small>{note}</small></span><em>{value}</em></li>)}
             </ul>

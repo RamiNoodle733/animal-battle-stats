@@ -126,20 +126,31 @@ async function handleHealthCheck(req, res) {
     }
 }
 
+// Every page view posts a site_visit, so visits get a budget sized for fast
+// browsing; leaving and logging out happen once per visit and get a small one.
+const NOTIFY_RATE_LIMITS = Object.freeze({
+    site_visit: { scope: 'browser-visit-notify', max: 120, windowMs: 30 * 60 * 1000 },
+    lifecycle: { scope: 'browser-lifecycle-notify', max: 20, windowMs: 30 * 60 * 1000 }
+});
+
 async function handleNotification(req, res) {
     try {
         const authenticatedUser = getAuthUser(req);
-        if (!await enforceRateLimit(res, {
-            scope: 'browser-lifecycle-notify',
-            identity: requestIdentity(req, authenticatedUser?.id),
-            max: 4,
-            windowMs: 30 * 60 * 1000
-        })) return;
         let body = req.body;
         if (typeof body === 'string') {
             try { body = JSON.parse(body); } catch (_e) { body = {}; }
         }
         const { type, page, referrer, sessionId, duration, screenSize, language, pages } = body || {};
+        const notificationType = type === 'logout'
+            ? 'logout'
+            : type === 'site_leave'
+                ? 'site_leave'
+                : 'site_visit';
+        const limit = NOTIFY_RATE_LIMITS[notificationType] || NOTIFY_RATE_LIMITS.lifecycle;
+        if (!await enforceRateLimit(res, {
+            ...limit,
+            identity: requestIdentity(req, authenticatedUser?.id)
+        })) return;
         const username = authenticatedUser?.username || 'Anonymous';
         
         // Build notification data with all available info
@@ -154,11 +165,6 @@ async function handleNotification(req, res) {
             pages: pages || null
         };
         
-        const notificationType = type === 'logout'
-            ? 'logout'
-            : type === 'site_leave'
-                ? 'site_leave'
-                : 'site_visit';
         const notificationData = notificationType === 'logout'
             ? { username: username || 'Unknown' }
             : notifyData;

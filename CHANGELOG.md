@@ -2,9 +2,13 @@
 
 ## 3.3.0 — 2026-09-27
 
-- Coins, like the Roblox game: BattlePoints are now Coins, and every fight call, animal vote, comment and ranked tournament pays Coins, XP and Season Pass XP (up to a daily limit each), with the Coins flying into the header.
+- BattlePoints, like the Roblox game's coins: every fight call, animal vote, comment and ranked tournament pays BattlePoints, XP and Season Pass XP (up to a daily limit each), and they fly into the header.
 - Call it on every Who Would Win? matchup: pick the winner, then watch the fight the server drew for you. Right calls build a streak that pays a growing bonus and earns titles.
-- New Rewards page: a 7-day daily reward with a weekly streak shield (it also greets you once a day), three daily quests and a chest, the free Season 1 Pass (30 tiers, ends December 1 like the game's), and a shop of profile card frames and titles. Looks only; nothing random or sold for money.
+- New Rewards screen, built like the game's menus: a menu on the left (daily reward, quests, Season Pass, shop, how to earn) with badges for anything ready to claim, and one page at a time. A 7-day daily reward with a weekly streak shield, three daily quests and a chest, the free Season 1 Pass (30 tiers, ends December 1 like the game's), and a shop of profile card frames and titles. Looks only; nothing random or sold for money.
+- The Roblox page is now one game screen: the game card (Play on Roblox, live numbers, Discord, your Roblox account) beside a stage with Trailer, Gameplay, Codes, Leaderboards and Questions tabs.
+- Community has a World stats view again, with the in-depth numbers the old site had: who is online now, site visits and page views, members, votes, comparisons, comments and tournaments, the visitor globe, activity by day over 14 days to all time, the busiest places, pages and actions, a searchable list of places with each place's pages, actions and devices, and for the owner the live event stream with Discord delivery and retries. The Arena gains animal records (most compared, most discussed, tournament champions, best win rate, risers) and more comments on demand.
+- The Discord activity feed posts every page view again (as the old site did), shows where visitors came from again, and posts deleted comments and level-ups. "Online now" counts are real again.
+- Every screen fits the window without scrolling the page, on desktop and on phones: Home, Versus, animal profiles, Tournament, Rewards, Roblox and Community. The top bar no longer runs off the edge on mid-size screens.
 - Profiles and the player leaderboard show the frame and title a player wears.
 - The home page's spinning cards turn smoothly at the same speed on every screen and pause when off screen.
 - The PLAY buttons now carry the game's website join gift, and the Roblox page lists the game's codes.

@@ -91,7 +91,7 @@ test('public point serializer exposes anonymous aggregate fields only', () => {
 
     assert.deepEqual(Object.keys(publicPoint).sort(), [
         'city', 'coordinateQuality', 'country', 'granularity', 'key', 'label', 'lastSeen',
-        'lat', 'lng', 'region', 'totalEvents', 'totalVisits', 'uniqueVisitors'
+        'lat', 'lng', 'pageViews', 'region', 'totalEvents', 'totalVisits', 'uniqueVisitors'
     ].sort());
     assert.equal(publicPoint.lat, 29.8);
     assert.equal(publicPoint.lng, -95.4);

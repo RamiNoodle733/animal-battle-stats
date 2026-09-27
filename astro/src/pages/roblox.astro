@@ -1,7 +1,8 @@
 ---
-// The game's official page: trailer and gameplay videos, Play on Roblox, live
-// numbers, Roblox account linking and the in-game leaderboards. Everything
-// game-specific comes from data/roblox-game.json (see astro/src/lib/site.js).
+// The game's official page, as one game screen: the game card on the left (Play
+// on Roblox, live numbers, Discord, Roblox account linking) and a tabbed stage on
+// the right (trailer, gameplay videos, codes, in-game leaderboards, questions).
+// Everything game-specific comes from data/roblox-game.json (see astro/src/lib/site.js).
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import HoloCard from '../components/HoloCard.astro';
@@ -19,6 +20,8 @@ const clips = ROBLOX.videos.map((clip) => ({ ...clip, art: clip.animal ? getAnim
 const thumbCount = screenshots.length + (trailer ? 1 : 0);
 // Same boards as lib/roblox-game.js; the section shows once the API has entries.
 const BOARDS = [['POWER', 'Team power', 'bolt'], ['COLLECTION', 'Animals collected', 'cards'], ['WINS', 'Battles won', 'swords'], ['SHOW', 'Best show streak', 'tv']];
+const TABS = [['trailer', 'tv', 'Trailer'], ['gameplay', 'swords', 'Gameplay'], ['codes', 'gift', 'Codes'], ['boards', 'trophy', 'Leaderboards'], ['faq', 'book', 'Questions']]
+    .filter(([id]) => (id !== 'gameplay' || ROBLOX.videos.length) && (id !== 'codes' || ROBLOX.codes.length));
 const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>';
 const faq = [
     { q: 'Is Animal Battle Stats on Roblox?', a: ROBLOX.live ? `Yes. Animal Battle Stats is live on Roblox and free to play: ${ROBLOX.gameUrl}` : 'The Animal Battle Stats game is in development for Roblox. Join the Discord or check this page for the launch.' },
@@ -47,59 +50,73 @@ const jsonLd = [
 ---
 
 <Base title={title} description={description} path="/roblox" image="/images/og/roblox.jpg" imageAlt="Animal Battle Stats on Roblox" jsonLd={jsonLd} active="roblox" biome="ocean" seed={11}>
-    <div class="rbx" data-rbx data-shots={screenshots.length}>
-        <section class="rbx-hero">
-            <div class="rbx-copy enter">
-                <div class="rbx-id">
-                    <span class="rbx-icon"><img src="/images/logo.png" alt="" width="84" height="84" data-game-icon /></span>
-                    <div class="rbx-id-text">
-                        <span class={`rbx-status ${ROBLOX.live ? 'is-live' : ''}`}><i></i>{ROBLOX.live ? 'Live on Roblox' : 'Coming soon to Roblox'}</span>
-                        <h1 class="screen-title rbx-title">Animal Battle Stats</h1>
-                        <p class="rbx-by"><RobloxMark size={14} /><span>A Roblox experience</span><span data-creator></span></p>
-                    </div>
+    <div class="rbx screen-grid" data-rbx data-shots={screenshots.length}>
+        <aside class="panel rbx-card enter">
+            <div class="rbx-id">
+                <span class="rbx-icon"><img src="/images/logo.png" alt="" width="84" height="84" data-game-icon /></span>
+                <div class="rbx-id-text">
+                    <span class={`rbx-status ${ROBLOX.live ? 'is-live' : ''}`}><i></i>{ROBLOX.live ? 'Live on Roblox' : 'Coming soon'}</span>
+                    <h1 class="rbx-title">Animal Battle Stats</h1>
+                    <p class="rbx-by"><RobloxMark size={14} /><span>Roblox experience</span><span data-creator></span></p>
                 </div>
-                <p class="rbx-pitch">{ROBLOX.pitch}</p>
-                <div class="rbx-cta">
-                    {ROBLOX.live
-                        ? <a class="btn btn-play btn-lg" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={24} />Play on Roblox</a>
-                        : <span class="btn btn-play btn-lg" aria-disabled="true"><RobloxMark size={24} />Coming soon</span>}
-                    {discord && <a class="btn btn-lg" href={discord.url} rel="noopener" target="_blank"><Icon name="friends" size={26} />{ROBLOX.live ? 'Join the Discord' : 'Get launch news'}</a>}
-                </div>
-                <ul class="rbx-tags" aria-label="At a glance">
-                    <li><Icon name="check" size={18} />Free to play</li>
-                    <li><Icon name="shield" size={18} />No loot boxes</li>
-                    <li><Icon name="paw" size={18} />{animals.length} real animals</li>
-                    <li><Icon name="friends" size={18} />Multiplayer</li>
-                </ul>
-                <dl class="rbx-live" data-live-stats hidden>
-                    <div><dt>Playing now</dt><dd data-stat="playing">–</dd></div>
-                    <div><dt>Visits</dt><dd data-stat="visits">–</dd></div>
-                    <div><dt>Favorites</dt><dd data-stat="favorites">–</dd></div>
-                    <div><dt>Likes</dt><dd data-stat="likes">–</dd></div>
-                </dl>
+            </div>
+            <div class="rbx-cta">
+                {ROBLOX.live
+                    ? <a class="btn btn-play btn-lg" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={26} />Play on Roblox</a>
+                    : <span class="btn btn-play btn-lg" aria-disabled="true"><RobloxMark size={26} />Coming soon</span>}
+                {discord && <a class="btn" href={discord.url} rel="noopener" target="_blank"><Icon name="friends" size={24} />{ROBLOX.live ? 'Join the Discord' : 'Get launch news'}</a>}
+            </div>
+            <dl class="rbx-live" data-live-stats hidden>
+                <div><dt>Playing</dt><dd data-stat="playing">–</dd></div>
+                <div><dt>Visits</dt><dd data-stat="visits">–</dd></div>
+                <div><dt>Favorites</dt><dd data-stat="favorites">–</dd></div>
+                <div><dt>Likes</dt><dd data-stat="likes">–</dd></div>
+            </dl>
+            <ul class="rbx-tags" aria-label="At a glance">
+                <li><Icon name="check" size={20} />Free to play</li>
+                <li><Icon name="shield" size={20} />No loot boxes</li>
+                <li><Icon name="paw" size={20} />{animals.length} real animals</li>
+                <li><Icon name="friends" size={20} />Multiplayer</li>
+            </ul>
+            <div class="rbx-connect" id="connect" data-connect data-state="loading" hidden>
+                <span class="cn-tile"><RobloxMark size={26} /></span>
+                <span class="cn-copy"><b>Your Roblox account</b><small data-cn-note>&nbsp;</small></span>
+                {/* No static href: crawlers must never start a sign-in. roblox.js sets it. */}
+                <a class="btn btn-roblox btn-sm" aria-disabled="true" data-cn-btn><span data-cn-label>Connect</span></a>
+            </div>
+            <p class="rbx-legal"><RobloxMark size={11} />Roblox and the Roblox logo are trademarks of Roblox Corporation. Animal Battle Stats is an independent game on Roblox, not made, sponsored or endorsed by Roblox Corporation.</p>
+        </aside>
+
+        <section class="panel rbx-stage-panel enter-2">
+            <div class="tabs rbx-tabs" role="tablist" aria-label="Game">
+                {TABS.map(([id, icon, label], index) => (
+                    <button type="button" role="tab" data-tab={id} aria-selected={index === 0 ? 'true' : 'false'} hidden={id === 'boards'} data-boards-tab={id === 'boards' ? '' : undefined}><Icon name={icon} size={22} />{label}</button>
+                ))}
             </div>
 
-            <div class="rbx-media enter-2">
-                <div class="rbx-stage" data-stage data-youtube={trailer?.youtubeId || undefined} data-src={trailer?.src || undefined}>
-                    {trailer ? (
-                        <button class="stage-video" type="button" data-play aria-label="Play the official trailer">
-                            {trailer.poster
-                                ? <img src={trailer.poster} alt="" width="1280" height="720" data-poster />
-                                : <video src={trailer.src} muted playsinline preload="metadata"></video>}
-                            <span class="play-disc" set:html={PLAY_SVG} />
-                            <span class="stage-label"><b>Official trailer</b></span>
-                        </button>
-                    ) : screenshots.length ? (
-                        <img class="stage-img" src={screenshots[0].src} alt={screenshots[0].alt} width="1280" height="720" />
-                    ) : (
-                        <div class="stage-soon bio-ocean">
-                            <div class="soon-cards" aria-hidden="true">
-                                {fan.map((animal, index) => <HoloCard animal={animal} tag="span" sizes="200px" priority={index === 1} />)}
+            <div class="pane pane-trailer" data-pane="trailer">
+                <div class="stage-box">
+                    <div class="rbx-stage" data-stage data-youtube={trailer?.youtubeId || undefined} data-src={trailer?.src || undefined}>
+                        {trailer ? (
+                            <button class="stage-video" type="button" data-play aria-label="Play the official trailer">
+                                {trailer.poster
+                                    ? <img src={trailer.poster} alt="" width="1280" height="720" data-poster />
+                                    : <video src={trailer.src} muted playsinline preload="metadata"></video>}
+                                <span class="play-disc" set:html={PLAY_SVG} />
+                                <span class="stage-label"><b>Official trailer</b></span>
+                            </button>
+                        ) : screenshots.length ? (
+                            <img class="stage-img" src={screenshots[0].src} alt={screenshots[0].alt} width="1280" height="720" />
+                        ) : (
+                            <div class="stage-soon bio-ocean">
+                                <div class="soon-cards" aria-hidden="true">
+                                    {fan.map((animal, index) => <HoloCard animal={animal} tag="span" sizes="220px" priority={index === 1} />)}
+                                </div>
+                                <span class="play-disc is-off" aria-hidden="true" set:html={PLAY_SVG} />
+                                <span class="stage-label"><b>Official trailer</b><span>Video pending</span></span>
                             </div>
-                            <span class="play-disc is-off" aria-hidden="true" set:html={PLAY_SVG} />
-                            <span class="stage-label"><b>Official trailer</b><span>Video pending</span></span>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
                 <div class="rbx-thumbs" data-thumbs hidden={thumbCount < 2}>
                     {trailer && (
@@ -115,88 +132,65 @@ const jsonLd = [
                     ))}
                 </div>
             </div>
-        </section>
 
-        {clips.length > 0 && (
-            <section class="rbx-section" aria-labelledby="clips-title">
-                <h2 id="clips-title" class="rbx-h2">Gameplay</h2>
-                <div class="clips">
-                    {clips.map((clip, index) => (
-                        <figure class:list={['clip', `bio-${clip.art?.biome || 'ocean'}`, { 'is-big': index === 0, 'is-pending': !clip.ready }]}>
-                            {clip.src ? (
-                                <video src={clip.src} poster={clip.poster || undefined} muted loop playsinline preload="metadata" aria-label={clip.title} data-autoplay></video>
-                            ) : clip.youtubeId ? (
-                                <button class="clip-yt" type="button" data-youtube={clip.youtubeId} aria-label={`Play: ${clip.title}`}>
-                                    <img src={clip.poster} alt="" loading="lazy" width="640" height="360" data-poster />
-                                    <span class="play-disc" set:html={PLAY_SVG} />
+            {clips.length > 0 && (
+                <div class="pane" data-pane="gameplay" hidden>
+                    <div class="clips">
+                        {clips.map((clip, index) => (
+                            <figure class:list={['clip', `bio-${clip.art?.biome || 'ocean'}`, { 'is-big': index === 0, 'is-pending': !clip.ready }]}>
+                                {clip.src ? (
+                                    <video src={clip.src} poster={clip.poster || undefined} muted loop playsinline preload="none" aria-label={clip.title} data-autoplay></video>
+                                ) : clip.youtubeId ? (
+                                    <button class="clip-yt" type="button" data-youtube={clip.youtubeId} aria-label={`Play: ${clip.title}`}>
+                                        <img src={clip.poster} alt="" loading="lazy" width="640" height="360" data-poster />
+                                        <span class="play-disc" set:html={PLAY_SVG} />
+                                    </button>
+                                ) : (
+                                    <div class="clip-pending" aria-hidden="true">
+                                        {clip.art && <span class="clip-art"><AnimalImage animal={clip.art} sizes={index === 0 ? '480px' : '240px'} alt="" class="animal-art" /></span>}
+                                        <span class="play-disc is-off" set:html={PLAY_SVG} />
+                                    </div>
+                                )}
+                                <figcaption><b>{clip.title}</b>{!clip.ready && <span class="pending-chip">Video pending</span>}</figcaption>
+                            </figure>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {ROBLOX.codes.length > 0 && (
+                <div class="pane pane-codes" data-pane="codes" hidden>
+                    <ul class="codes">
+                        {ROBLOX.codes.map((entry) => (
+                            <li>
+                                <button class="code" type="button" data-copy={entry.code} aria-label={`Copy code ${entry.code}`}>
+                                    <b>{entry.code}</b>
+                                    <span class="code-copy"><Icon name="check" size={18} lazy /><span>Copy</span></span>
                                 </button>
-                            ) : (
-                                <div class="clip-pending" aria-hidden="true">
-                                    {clip.art && <span class="clip-art"><AnimalImage animal={clip.art} sizes={index === 0 ? '480px' : '240px'} alt="" class="animal-art" /></span>}
-                                    <span class="play-disc is-off" set:html={PLAY_SVG} />
-                                </div>
-                            )}
-                            <figcaption><b>{clip.title}</b>{!clip.ready && <span class="pending-chip">Video pending</span>}</figcaption>
-                        </figure>
+                                <span class="code-reward">{entry.reward}</span>
+                                {entry.ends && <small>Until {new Date(`${entry.ends}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' })}</small>}
+                            </li>
+                        ))}
+                    </ul>
+                    <p class="plate"><Icon name="gear" size={24} /><span>Tap a code to copy it, then in the game open <b>Settings</b>, then <b>Codes</b>, and paste it.</span></p>
+                </div>
+            )}
+
+            <div class="pane" data-pane="boards" hidden>
+                <div class="boards">
+                    {BOARDS.map(([id, label, icon]) => (
+                        <div class="board" data-board={id}>
+                            <h3><Icon name={icon} size={24} lazy />{label}</h3>
+                            <ol>{[1, 2, 3, 4, 5].map((rank) => <li class="is-empty"><span class="lb-rank">{rank}</span><span class="lb-name"><i></i></span><b>–</b></li>)}</ol>
+                        </div>
                     ))}
                 </div>
-            </section>
-        )}
-
-        {ROBLOX.codes.length > 0 && (
-            <section class="rbx-section" aria-labelledby="codes-title">
-                <div class="rbx-head"><h2 id="codes-title" class="rbx-h2">Codes</h2><span class="small muted">Redeem in the game: Settings, then Codes</span></div>
-                <ul class="codes">
-                    {ROBLOX.codes.map((entry) => (
-                        <li>
-                            <button class="code" type="button" data-copy={entry.code} aria-label={`Copy code ${entry.code}`}><b>{entry.code}</b><Icon name="check" size={18} lazy /></button>
-                            <span>{entry.reward}{entry.ends && <small> · until {new Date(`${entry.ends}T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })}</small>}</span>
-                        </li>
-                    ))}
-                </ul>
-            </section>
-        )}
-
-        <section class="panel rbx-connect" id="connect" data-connect data-state="loading" aria-labelledby="connect-title" hidden>
-            <div class="cn-art" aria-hidden="true">
-                <span class="cn-tile"><img src="/images/logo.png" alt="" width="52" height="52" /></span>
-                <span class="cn-link"><i></i><i></i><i></i></span>
-                <span class="cn-tile cn-rbx"><RobloxMark size={34} /></span>
             </div>
-            <div class="cn-copy">
-                <h2 id="connect-title" class="rbx-h2">Connect your Roblox account</h2>
-                <p>Sign in with Roblox, or link it to the account you already have. Your profile then shows your Roblox name and avatar, plus your in-game stats{ROBLOX.live ? '' : ' once the game is live'}.</p>
-                <ul class="cn-points">
-                    <li><Icon name="lock" size={20} />Roblox handles sign-in. We never see your password.</li>
-                    <li><Icon name="check" size={20} />Only your public Roblox name and avatar</li>
-                    <li><Icon name="gear" size={20} />Disconnect any time from your profile</li>
-                </ul>
-            </div>
-            <div class="cn-action">
-                {/* No static href: crawlers must never start a sign-in. roblox.js sets it. */}
-                <a class="btn btn-roblox btn-lg" aria-disabled="true" data-cn-btn><RobloxMark size={24} /><span data-cn-label>Continue with Roblox</span></a>
-                <p class="cn-note" data-cn-note>&nbsp;</p>
+
+            <div class="pane pane-faq" data-pane="faq" hidden>
+                <div class="faq">{faq.map((item, index) => <details name="rbx-faq" open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
             </div>
         </section>
-
-        <section class="rbx-section" aria-labelledby="boards-title" data-boards-section hidden>
-            <div class="rbx-head"><h2 id="boards-title" class="rbx-h2">Leaderboards</h2><span class="small muted">Global, from the game</span></div>
-            <div class="boards">
-                {BOARDS.map(([id, label, icon]) => (
-                    <div class="panel board" data-board={id}>
-                        <div class="panel-head"><Icon name={icon} size={24} lazy /><h3 class="panel-title">{label}</h3></div>
-                        <ol>{[1, 2, 3, 4, 5].map((rank) => <li class="is-empty"><span class="lb-rank">{rank}</span><span class="lb-name"><i></i></span><b>–</b></li>)}</ol>
-                    </div>
-                ))}
-            </div>
-        </section>
-
-        <section class="rbx-section faq-wrap" aria-labelledby="faq-title">
-            <h2 id="faq-title" class="rbx-h2">Questions</h2>
-            <div class="panel faq">{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
-        </section>
-
-        <p class="rbx-legal"><RobloxMark size={12} />Roblox and the Roblox logo are trademarks of Roblox Corporation. Animal Battle Stats is an independent game on Roblox and is not made, sponsored or endorsed by Roblox Corporation.</p>
     </div>
 </Base>
 
@@ -205,48 +199,62 @@ const jsonLd = [
 </script>
 
 <style>
-    .rbx { max-width: 1320px; margin: 0 auto; display: grid; gap: clamp(18px, 2.6vw, 30px); padding-bottom: 12px; }
-    .small { font-size: 0.8rem; }
-    .muted { color: var(--muted); }
-    .rbx-h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 900; line-height: 1; letter-spacing: 0.03em; text-transform: uppercase; }
-    .rbx-section > .rbx-h2 { margin-bottom: 12px; }
-    .rbx-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .rbx { grid-template-columns: minmax(290px, 360px) minmax(0, 1fr); max-width: 1500px; margin: 0 auto; }
 
-    /* ---- hero */
-    .rbx-hero { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.2fr); align-items: center; gap: clamp(18px, 3vw, 44px); padding-top: clamp(4px, 1.5vw, 18px); }
-    .rbx-copy { display: grid; gap: 16px; align-content: center; }
-    .rbx-id { display: flex; align-items: center; gap: 16px; }
-    .rbx-icon { flex: none; display: grid; place-items: center; width: 96px; height: 96px; overflow: hidden; background: linear-gradient(160deg, #1a2750, #070b1a); border: 1px solid var(--line-2); border-radius: 22px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
-    .rbx-icon img { width: 84px; height: 84px; object-fit: cover; }
-    .rbx-icon img.is-roblox { width: 100%; height: 100%; }
-    .rbx-id-text { display: grid; gap: 6px; min-width: 0; }
-    .rbx-status { display: inline-flex; align-items: center; gap: 7px; justify-self: start; padding: 4px 10px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-2); background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.35); border-radius: 999px; }
-    .rbx-status i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 0 currentColor; animation: pulse 2s ease-out infinite; }
+    /* ---- the game card (left) */
+    .rbx-card { --trim: #3be58f; padding: clamp(12px, 2vh, 20px) 16px; gap: clamp(10px, 1.8vh, 16px); overflow: hidden; }
+    .rbx-id { display: flex; align-items: center; gap: 14px; }
+    .rbx-icon { flex: none; display: grid; place-items: center; width: 84px; height: 84px; overflow: hidden; background: linear-gradient(160deg, #1a2750, #070b1a); border: 1px solid var(--line-2); border-radius: 20px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+    .rbx-icon :global(img) { width: 72px; height: 72px; object-fit: cover; }
+    .rbx-icon :global(img).is-roblox { width: 100%; height: 100%; }
+    .rbx-id-text { display: grid; gap: 5px; min-width: 0; }
+    .rbx-status { display: inline-flex; align-items: center; gap: 7px; justify-self: start; padding: 3px 10px; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-2); background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.35); border-radius: 999px; }
+    .rbx-status i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 2s ease-out infinite; }
     .rbx-status.is-live { color: #7cf5b4; background: rgba(53, 220, 143, 0.1); border-color: rgba(53, 220, 143, 0.45); }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 60%, transparent); } 100% { box-shadow: 0 0 0 9px transparent; } }
-    .rbx-title { font-size: clamp(2.3rem, 4.6vw, 4.2rem); }
-    .rbx-by { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; margin: 0; font-size: 0.84rem; font-weight: 600; color: var(--muted); }
+    .rbx-title { margin: 0; font-family: var(--font-display); font-size: clamp(1.6rem, 2.2vw, 2.1rem); font-weight: 900; line-height: 0.92; letter-spacing: 0.02em; text-transform: uppercase; transform: skewX(-6deg); transform-origin: left bottom; text-shadow: 0 3px 0 rgba(0, 0, 0, 0.45); }
+    .rbx-by { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; margin: 0; font-size: 0.78rem; font-weight: 600; color: var(--muted); }
     .rbx-by span { white-space: nowrap; }
     .rbx-by :global(.rbx-mark) { color: var(--text-2); }
-    .rbx-pitch { margin: 0; max-width: 54ch; font-size: 1.06rem; color: var(--text-2); }
-    .rbx-cta { display: flex; flex-wrap: wrap; gap: 10px; }
-    .rbx-tags { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0; padding: 0; list-style: none; }
-    .rbx-tags li { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: var(--text-2); }
-    .rbx-tags img { width: 18px; height: 18px; }
-    .rbx-live { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0; }
-    .rbx-live div { padding: 9px 12px; background: rgba(4, 7, 18, 0.65); border: 1px solid var(--line); border-radius: 12px; }
-    .rbx-live dt { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-    .rbx-live dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; line-height: 1; }
+    .rbx-cta { display: grid; gap: 8px; }
+    .rbx-cta .btn-lg { min-height: clamp(54px, 8vh, 68px); font-size: clamp(1.3rem, 2.4vh, 1.6rem); }
+    .rbx-live { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; }
+    .rbx-live[hidden] { display: none; }
+    .rbx-live div { padding: 7px 10px; background: rgba(4, 7, 18, 0.65); border: 1px solid var(--line); border-radius: 10px; }
+    .rbx-live dt { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .rbx-live dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; }
+    .rbx-tags { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; margin: 0; padding: 0; list-style: none; }
+    .rbx-tags li { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; color: var(--text-2); white-space: nowrap; }
+    .rbx-tags :global(img) { flex: none; }
+    .rbx-connect { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 10px; background: rgba(4, 7, 18, 0.65); border: 1px solid var(--line-2); border-radius: 12px; }
+    .rbx-connect[hidden] { display: none; }
+    .cn-tile { display: grid; place-items: center; width: 40px; height: 40px; color: #fff; background: linear-gradient(160deg, #3a3d44, #0d0e10); border-radius: 10px; }
+    .cn-copy { display: grid; min-width: 0; }
+    .cn-copy b { font-size: 0.84rem; }
+    .cn-copy small { font-size: 0.7rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cn-copy :global(a) { color: var(--cyan-2); text-decoration: underline; text-underline-offset: 2px; }
+    .rbx-connect[data-state="linked"] { border-color: rgba(53, 220, 143, 0.5); }
+    .rbx-connect[data-state="loading"] [data-cn-btn] { opacity: 0.6; }
+    .rbx-legal { display: flex; align-items: flex-start; gap: 5px; margin: auto 0 0; font-size: 0.64rem; line-height: 1.35; color: var(--dim); }
+    .rbx-legal :global(.rbx-mark) { flex: none; margin-top: 2px; }
 
-    /* ---- shared video bits: play disc and labels (also used by roblox.js) */
+    /* ---- the stage (right) */
+    .rbx-stage-panel { min-height: 0; }
+    .pane { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 10px; padding: clamp(10px, 1.8vh, 18px) clamp(10px, 1.4vw, 18px); }
+    .pane[hidden] { display: none; }
+    .plate { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 14px; font-size: 0.86rem; color: var(--text-2); background: rgba(3, 6, 16, 0.55); border: 1px solid var(--line); border-radius: 10px; }
+    .plate :global(img) { flex: none; }
+    .plate b { color: var(--text); }
+
+    /* shared video bits: play disc and labels (also used by roblox.js) */
     .rbx :global(.play-disc) { position: relative; z-index: 2; display: grid; place-items: center; width: clamp(56px, 8vw, 92px); aspect-ratio: 1; color: #fff; background: rgba(8, 12, 26, 0.55); border: 2px solid rgba(255, 255, 255, 0.85); border-radius: 50%; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); transition: transform 0.2s var(--spring), background 0.2s; }
     .rbx :global(.play-disc svg) { width: 44%; margin-left: 6%; }
     .rbx :global(button:hover > .play-disc) { transform: scale(1.08); background: #10a95c; border-color: #fff; }
     .rbx :global(.play-disc.is-off) { z-index: 3; opacity: 0.9; }
 
-    /* ---- media: stage + thumbnail row */
-    .rbx-media { display: grid; gap: 10px; min-width: 0; }
-    .rbx-stage { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #03050c; border: 1px solid var(--line-2); border-radius: 16px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.5); }
+    /* trailer: the 16:9 stage as big as the pane allows */
+    .stage-box { flex: 1; min-height: 0; display: grid; place-items: center; container-type: size; }
+    .rbx-stage { position: relative; width: min(100cqw, 100cqh * 16 / 9); aspect-ratio: 16 / 9; overflow: hidden; background: #03050c; border: 1px solid var(--line-2); border-radius: 14px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.5); }
     .rbx-stage :global(.stage-img), .rbx-stage :global(iframe), .rbx-stage :global(video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; background: #000; }
     .rbx-stage :global(.stage-video) { position: absolute; inset: 0; display: grid; place-items: center; padding: 0; background: none; border: 0; cursor: pointer; }
     .rbx-stage :global(.stage-video img), .rbx-stage :global(.stage-video video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease), filter 0.3s; }
@@ -254,7 +262,6 @@ const jsonLd = [
     .rbx-stage :global(.stage-label) { position: absolute; left: 16px; bottom: 14px; z-index: 2; display: grid; gap: 1px; text-align: left; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
     .rbx-stage :global(.stage-label b) { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
     .rbx-stage :global(.stage-label span) { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-2); }
-
     .stage-soon { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(70% 80% at 50% 45%, color-mix(in srgb, var(--bio-glow) 34%, transparent), transparent 70%), linear-gradient(180deg, var(--bio-sky), #040712 88%); }
     .stage-soon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 5, 12, 0.15), rgba(3, 5, 12, 0.35) 55%, rgba(3, 5, 12, 0.85)); pointer-events: none; }
     /* The bottom fifth stays clear for the label. */
@@ -263,66 +270,52 @@ const jsonLd = [
     .soon-cards :global(.card:nth-child(1)) { transform: rotate(-10deg) translateY(6%) scale(0.86); }
     .soon-cards :global(.card:nth-child(2)) { z-index: 2; }
     .soon-cards :global(.card:nth-child(3)) { transform: rotate(10deg) translateY(6%) scale(0.86); }
-
-    .rbx-thumbs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-    .rbx-thumbs :global(.thumb) { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; padding: 0; background: #070b1a; border: 1px solid var(--line-2); border-radius: 10px; cursor: pointer; transition: transform 0.15s var(--ease), border-color 0.15s, box-shadow 0.15s; }
+    .rbx-thumbs { flex: none; display: flex; justify-content: center; gap: 10px; }
+    .rbx-thumbs[hidden] { display: none; }
+    .rbx-thumbs :global(.thumb) { position: relative; flex: 0 1 150px; display: block; aspect-ratio: 16 / 9; overflow: hidden; padding: 0; background: #070b1a; border: 1px solid var(--line-2); border-radius: 10px; cursor: pointer; transition: transform 0.15s var(--ease), border-color 0.15s, box-shadow 0.15s; }
     .rbx-thumbs :global(.thumb img), .rbx-thumbs :global(.thumb video) { width: 100%; height: 100%; object-fit: cover; }
     .rbx-thumbs :global(.thumb:hover) { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.5); }
     .rbx-thumbs :global(.thumb[aria-pressed="true"]) { border-color: #fff; box-shadow: 0 0 0 2px #fff; }
     .rbx-thumbs :global(.thumb-play) { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; background: rgba(0, 0, 0, 0.25); }
     .rbx-thumbs :global(.thumb-play svg) { width: 30%; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)); }
 
-    /* ---- gameplay videos */
-    .clips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .clip { position: relative; margin: 0; aspect-ratio: 16 / 9; overflow: hidden; background: #03050c; border: 1px solid var(--line-2); border-radius: 14px; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45); }
-    .clip.is-big { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-    .clip > video, .clip :global(iframe), .clip-yt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+    /* gameplay: a fitted 3x3 wall, the first clip big */
+    .clips { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .clip { position: relative; margin: 0; min-height: 0; overflow: hidden; background: #03050c; border: 1px solid var(--line-2); border-radius: 12px; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45); }
+    .clip.is-big { grid-column: span 2; grid-row: span 2; }
+    .clip > video, .clip :global(iframe), .clip-yt :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
     .clip-yt { position: absolute; inset: 0; display: grid; place-items: center; padding: 0; background: none; border: 0; cursor: pointer; }
     .clip-pending { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(70% 80% at 50% 40%, color-mix(in srgb, var(--bio-glow) 38%, transparent), transparent 72%), linear-gradient(180deg, var(--bio-sky), #040712 90%); }
     .clip-art { position: absolute; inset: 8% 10% 26%; display: grid; place-items: center; container-type: size; opacity: 0.8; }
     .clip-art :global(.animal-art) { --fit: 0.95; filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.6)); }
-    .clip figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; padding: 30px 14px 12px; background: linear-gradient(180deg, transparent, rgba(3, 5, 12, 0.9)); pointer-events: none; }
-    .clip figcaption b { font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; line-height: 1; letter-spacing: 0.03em; text-transform: uppercase; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8); }
+    .clip:not(.is-big) :global(.play-disc) { width: 44px; margin-bottom: 12%; }
+    .clip figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; padding: 26px 12px 10px; background: linear-gradient(180deg, transparent, rgba(3, 5, 12, 0.9)); pointer-events: none; }
+    .clip figcaption b { font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; line-height: 1; letter-spacing: 0.03em; text-transform: uppercase; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8); }
     .clip.is-big figcaption { padding: 40px 20px 18px; }
     .clip.is-big figcaption b { font-size: clamp(1.4rem, 2.4vw, 2rem); }
-    .pending-chip { flex: none; padding: 3px 9px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; color: var(--gold-2); background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 215, 0, 0.45); border-radius: 999px; }
+    .pending-chip { flex: none; padding: 3px 9px; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; color: var(--gold-2); background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 215, 0, 0.45); border-radius: 999px; }
 
-    /* ---- codes */
-    .codes { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
-    .codes li { display: grid; gap: 6px; padding: 12px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
-    .codes li > span { font-size: 0.82rem; color: var(--text-2); }
-    .codes small { color: var(--muted); }
-    .code { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 12px; color: var(--gold-2); background: rgba(255, 215, 0, 0.07); border: 1px dashed rgba(255, 215, 0, 0.5); border-radius: 10px; cursor: pointer; }
-    .code b { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; letter-spacing: 0.1em; }
-    .code :global(img) { opacity: 0; transition: opacity 0.2s; }
+    /* codes */
+    .pane-codes { justify-content: center; gap: 16px; }
+    .codes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .codes li { display: grid; align-content: start; gap: 8px; padding: 14px; background: linear-gradient(180deg, rgba(24, 36, 76, 0.7), rgba(6, 10, 24, 0.85)); border: 1px solid var(--line-2); border-radius: 14px; }
+    .code-reward { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .codes small { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-2); }
+    .code { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; color: var(--gold-2); background: rgba(255, 215, 0, 0.07); border: 1px dashed rgba(255, 215, 0, 0.5); border-radius: 10px; cursor: pointer; transition: transform 0.12s; }
+    .code:hover { transform: translateY(-1px); border-style: solid; }
+    .code b { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; letter-spacing: 0.1em; }
+    .code-copy { display: inline-flex; align-items: center; gap: 4px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .code-copy :global(img) { display: none; }
     .code.copied { border-style: solid; border-color: var(--green); }
-    .code.copied :global(img) { opacity: 1; }
+    .code.copied .code-copy { color: var(--green); }
+    .code.copied .code-copy :global(img) { display: block; }
 
-    /* ---- connect */
-    .rbx-connect { --trim: #fff; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(16px, 3vw, 36px); padding: clamp(18px, 2.4vw, 28px); }
-    .cn-art { display: flex; align-items: center; gap: 10px; }
-    .cn-tile { display: grid; place-items: center; width: 72px; height: 72px; background: linear-gradient(160deg, #1a2750, #070b1a); border: 1px solid var(--line-2); border-radius: 18px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12); }
-    .cn-tile img { width: 52px; height: 52px; }
-    .cn-rbx { color: #fff; background: linear-gradient(160deg, #3a3d44, #0d0e10); }
-    .cn-link { display: flex; gap: 5px; }
-    .cn-link i { width: 6px; height: 6px; border-radius: 50%; background: var(--line-2); }
-    .rbx-connect[data-state="linked"] .cn-link i { background: var(--green); box-shadow: 0 0 8px var(--green); }
-    .cn-copy { display: grid; gap: 8px; }
-    .cn-copy p { margin: 0; max-width: 62ch; color: var(--text-2); font-size: 0.92rem; }
-    .cn-points { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 2px 0 0; padding: 0; list-style: none; }
-    .cn-points li { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
-    .cn-points img { width: 20px; height: 20px; }
-    .cn-action { display: grid; justify-items: center; gap: 8px; min-width: 250px; }
-    .cn-action .btn { width: 100%; }
-    .cn-note { margin: 0; max-width: 30ch; text-align: center; font-size: 0.78rem; color: var(--muted); }
-    .cn-note :global(a) { color: var(--cyan-2); text-decoration: underline; text-underline-offset: 3px; }
-    .rbx-connect[data-state="loading"] [data-cn-btn] { opacity: 0.6; }
-
-    /* ---- leaderboards */
-    .boards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .board ol { margin: 0; padding: 8px 12px 12px; list-style: none; display: grid; gap: 4px; }
-    .board .panel-title { font-size: 1.05rem; }
-    .board :global(li) { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 5px 6px; font-size: 0.86rem; border-radius: 8px; }
+    /* leaderboards */
+    .boards { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-content: center; }
+    .board { display: grid; align-content: start; gap: 8px; padding: 12px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .board h3 { display: flex; align-items: center; gap: 8px; margin: 0; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
+    .board ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+    .board :global(li) { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 6px; font-size: 0.86rem; border-radius: 8px; }
     .board :global(li:nth-child(odd)) { background: rgba(255, 255, 255, 0.03); }
     .board :global(.lb-rank) { font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; text-align: center; color: var(--muted); }
     .board :global(li:nth-child(1) .lb-rank) { color: var(--gold); }
@@ -333,47 +326,79 @@ const jsonLd = [
     .board :global(li b) { font-family: var(--font-display); font-size: 1.05rem; font-variant-numeric: tabular-nums; color: var(--gold-2); }
     .board :global(li.is-empty b) { color: var(--dim); }
 
-    /* ---- faq + legal */
-    .faq { padding: 4px 18px; }
-    .rbx-legal { display: flex; align-items: flex-start; justify-content: center; gap: 6px; margin: 0; font-size: 0.72rem; color: var(--dim); text-align: center; }
-    .rbx-legal :global(.rbx-mark) { flex: none; margin-top: 3px; }
+    /* questions: one open at a time */
+    .pane-faq { justify-content: center; }
+    .faq { display: grid; gap: 8px; }
+    .faq details { background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .faq details[open] { border-color: var(--line-2); background: linear-gradient(180deg, rgba(24, 36, 76, 0.6), rgba(6, 10, 24, 0.8)); }
+    .faq summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; cursor: pointer; list-style: none; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: ""; flex: none; width: 10px; height: 10px; border-right: 3px solid var(--cyan); border-bottom: 3px solid var(--cyan); transform: rotate(45deg); transition: transform 0.2s; }
+    .faq details[open] summary::after { transform: rotate(-135deg); }
+    .faq p { margin: 0; padding: 0 16px 14px; font-size: 0.92rem; color: var(--text-2); max-width: 80ch; }
 
-    @media (max-width: 1100px) {
+    @media (max-height: 800px) and (min-width: 901px) {
+        .rbx-icon { width: 64px; height: 64px; border-radius: 16px; }
+        .rbx-icon :global(img) { width: 54px; height: 54px; }
+        .rbx-tags { display: none; }
+    }
+    @media (max-height: 680px) and (min-width: 901px) {
+        .rbx-legal { display: none; }
+    }
+    @media (max-width: 1200px) and (min-width: 901px) {
         .boards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .rbx-connect { grid-template-columns: minmax(0, 1fr) auto; }
-        .cn-art { display: none; }
+        .board ol :global(li:nth-child(n + 4)) { display: none; }
     }
+
+    /* phones and tablets: the game card on top, then the tabs and one pane */
     @media (max-width: 900px) {
-        .rbx-hero { grid-template-columns: minmax(0, 1fr); }
-        .rbx-live { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .rbx-connect { grid-template-columns: minmax(0, 1fr); }
-        .cn-action { min-width: 0; justify-items: stretch; }
-        .cn-note { max-width: none; }
-    }
-    @media (max-width: 760px) {
-        .clips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-        .clip.is-big { grid-row: auto; aspect-ratio: 16 / 9; }
-        .clip:last-child:nth-child(even) { grid-column: span 2; }
-        .clip figcaption { flex-direction: column; align-items: flex-start; gap: 5px; padding: 24px 9px 8px; }
-        .clip figcaption b { font-size: 0.86rem; }
-        .clip.is-big figcaption b { font-size: 1.3rem; }
-        .pending-chip { padding: 2px 7px; font-size: 0.55rem; }
-        /* Small tiles: a smaller play button, lifted clear of the caption. */
-        .clip:not(.is-big) :global(.play-disc) { width: 36px; margin-bottom: 34%; }
+        .rbx { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
+        .rbx-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px 12px; padding: 10px 12px; }
+        .rbx-icon { width: 52px; height: 52px; border-radius: 13px; }
+        .rbx-icon :global(img) { width: 44px; height: 44px; }
+        .rbx-id { gap: 10px; min-width: 0; }
+        .rbx-title { font-size: 1.2rem; }
+        .rbx-status { padding: 2px 8px; font-size: 0.56rem; letter-spacing: 0.1em; white-space: nowrap; }
+        .rbx-by { display: none; }
+        .rbx-cta { display: flex; }
+        .rbx-cta .btn-lg { min-height: 48px; padding: 0 16px; font-size: 1.1rem; white-space: nowrap; }
+        .rbx-cta > .btn:not(.btn-play) { display: none; }
+        .rbx-live { grid-column: 1 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+        .rbx-live div { padding: 5px 7px; }
+        .rbx-live dd { font-size: 1.1rem; }
+        .rbx-live dt { font-size: 0.5rem; }
+        .rbx-tags, .rbx-legal { display: none; }
+        .rbx-connect { grid-column: 1 / -1; padding: 6px 8px; }
+        .cn-tile { width: 32px; height: 32px; }
+        .rbx-tabs button { padding: 8px 9px 9px; font-size: 0.84rem; }
+        .rbx-tabs :global(img) { width: 18px; height: 18px; }
+        .pane { overflow-y: auto; overscroll-behavior: contain; }
+        .clips { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: minmax(110px, 1fr); }
+        .clip.is-big { grid-row: span 1; }
+        .clip figcaption { flex-direction: column; align-items: flex-start; gap: 4px; padding: 22px 8px 7px; }
+        .clip figcaption b { font-size: 0.8rem; }
+        .clip.is-big figcaption b { font-size: 1.2rem; }
+        .clip:not(.is-big) :global(.play-disc) { width: 34px; margin-bottom: 30%; }
         .clip:not(.is-big) .clip-art { inset: 4% 10% 40%; }
-    }
-    @media (max-width: 600px) {
-        .rbx-icon { width: 72px; height: 72px; border-radius: 18px; }
-        .rbx-icon img { width: 62px; height: 62px; }
-        .rbx-cta .btn { flex: 1 1 100%; }
-        .rbx-thumbs { gap: 6px; }
-        .rbx-stage :global(.stage-label) { left: 12px; bottom: 8px; }
-        .rbx-stage :global(.stage-label b) { font-size: 1rem; }
-        .rbx-stage :global(.stage-label span) { font-size: 0.6rem; }
-        .boards { gap: 8px; }
-        .board .panel-head { padding: 10px 10px 8px; gap: 6px; }
-        .board .panel-title { font-size: 0.86rem; }
-        .board ol { padding: 6px 6px 8px; }
+        .pending-chip { padding: 2px 6px; font-size: 0.52rem; }
+        .codes { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+        .codes li { grid-template-columns: auto minmax(0, 1fr); align-items: center; padding: 8px 10px; gap: 2px 12px; }
+        .codes li .code { grid-row: span 2; padding: 8px 10px; }
+        .code b { font-size: 1.1rem; letter-spacing: 0.06em; }
+        .code-copy span { display: none; }
+        .code-reward { font-size: 0.8rem; }
+        .pane-codes .plate { font-size: 0.76rem; }
+        .boards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; align-content: start; }
+        .board { padding: 8px; }
+        .board h3 { font-size: 0.86rem; }
         .board :global(li) { grid-template-columns: 16px minmax(0, 1fr) auto; gap: 5px; padding: 4px; font-size: 0.78rem; }
+        .faq summary { font-size: 0.95rem; padding: 10px 12px; }
+        .faq p { font-size: 0.84rem; padding: 0 12px 12px; }
+    }
+    @media (max-width: 480px) {
+        .rbx-tabs :global(img) { display: none; }
+        .rbx-tabs button { padding: 8px 8px 9px; }
+        .rbx-cta .btn-lg { padding: 0 12px; font-size: 0.95rem; }
+        .rbx-cta .btn-lg :global(.rbx-mark) { width: 20px; height: 20px; }
     }
 </style>

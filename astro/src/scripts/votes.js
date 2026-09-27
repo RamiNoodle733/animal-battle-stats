@@ -1,5 +1,5 @@
 // Community up/down votes on animals (existing /api/rankings and /api/votes).
-// One vote per animal per day for signed-in users; each vote earns Coins and XP
+// One vote per animal per day for signed-in users; each vote earns BattlePoints and XP
 // (lib/economy.js), shown with showReward.
 
 function normalizeVote(value) {

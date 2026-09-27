@@ -134,7 +134,7 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
             if (!button) return;
             const row = button.closest('li');
             const result = await castVote(row.dataset.id, row.dataset.name, button.dataset.vote, votes.get(row.dataset.name));
-            if (result.needsLogin) { toast('Log in to vote and earn Coins'); setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent(location.pathname)}`; }, 900); return; }
+            if (result.needsLogin) { toast('Log in to vote and earn BattlePoints'); setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent(location.pathname)}`; }, 900); return; }
             if (result.error) { sfx.error(); toast(result.error); return; }
             votes.set(row.dataset.name, result.entry);
             paint();

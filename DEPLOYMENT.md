@@ -284,10 +284,10 @@ no email, so these accounts have none (no email sign-in, reset or notifications)
 Google is linked. Linking stores the Roblox user id as a sign-in provider, so one
 Roblox account can belong to only one site account.
 
-### Coins, quests and the Season Pass (the site economy)
+### BattlePoints, quests and the Season Pass (the site economy)
 
-The site pays **Coins** (stored as `battlePoints`), XP and Season Pass XP the way the Roblox
-game does. Every number is in `lib/economy.js`; every payout goes through `lib/rewards.js` in a
+The site pays **BattlePoints** (stored as `battlePoints`), XP and Season Pass XP the way the
+Roblox game pays its coins. Every number is in `lib/economy.js`; every payout goes through `lib/rewards.js` in a
 MongoDB transaction with a unique `RewardClaim`, so nothing can be paid twice.
 
 - **Paid actions**, each up to a daily cap (then they still count for quests): calling a fight
@@ -298,10 +298,10 @@ MongoDB transaction with a unique `RewardClaim`, so nothing can be paid twice.
 - **Daily reward**: a 7-day ladder on the UTC day with a weekly streak shield.
 - **Daily quests**: three a day, the same for everyone, and a chest for finishing all three.
 - **Season 1 Pass**: 30 free tiers (the game's season and end date, 2026-12-01).
-- **Looks**: profile card frames and titles, bought with Coins or earned. Looks only.
+- **Looks**: profile card frames and titles, bought with BattlePoints or earned. Looks only.
 
 The site and the game keep separate wallets: Roblox does not allow in-game rewards for things
-done off the platform, so site Coins never pay out in the game. Game codes on `/roblox` are
+done off the platform, so site BattlePoints never pay out in the game. Game codes on `/roblox` are
 public, as Roblox requires.
 
 ### The Roblox game page (`/roblox`)
@@ -326,16 +326,32 @@ Everything is in `data/roblox-game.json`:
 - The PLAY buttons link to `roblox.com/games/start?placeId=...&launchData=site`, so the game
   can give a first-time player from the website its join gift.
 
-### Battle Points Shop (Coming Soon)
+### Site activity feed (Discord) and Community stats
 
-The Battle Points shop is currently disabled due to Vercel Hobby plan limits (max 12 serverless functions).
-When upgrading to Vercel Pro, the following will need to be configured:
+- Every page view posts a `site_visit` (page, place, device, where the visitor came from, and
+  how many pages into the visit it is), like the old site. The first page of a visit also
+  counts toward the Site visits total. Limits per visitor (or signed-in player): 120 page views
+  and 20 exits or log-outs per 30 minutes. Discord is posted from the saved event, and failed
+  posts are retried by the daily cron.
+- Comments deleted, level-ups and prestige also post.
+- "Online now" comes from a heartbeat every 45 seconds from each open tab, stored in the
+  `presence` collection with a 2-minute TTL index (created automatically).
+- Community → World stats shows the numbers; its Events tab (the site owner, `role: admin`,
+  only) lists the raw event stream with each event's Discord delivery and retries failed posts.
 
-- `STRIPE_SECRET_KEY` - Stripe API secret key
-- `STRIPE_WEBHOOK_SECRET` - Stripe webhook signing secret
-- `APP_BASE_URL` - Base URL for redirects
+### Selling BattlePoints (Stripe, not live)
 
-See git history for the full Stripe integration code that was prepared.
+A Stripe checkout for BattlePoints packs was built in commit `c59251f8` (packs, Checkout,
+signed webhook, idempotent grants, refunds) and removed in `3f7783ec` because the Vercel Hobby
+plan allows 12 serverless functions and the site uses all 12. Before bringing it back:
+
+- Vercel's Hobby plan is for non-commercial use; taking payments needs the Pro plan (which also
+  lifts the function limit). Or fold the endpoints into an existing `api/` file as actions.
+- Bought BattlePoints must stay on the site. Roblox does not allow selling in-game items or
+  currency outside Roblox, so nothing bought here may unlock anything in the game, and the game
+  should not send players to the site to buy.
+- Most players are young: plan for parental consent, refunds and chargebacks.
+- Environment: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `APP_BASE_URL`.
 
 ## 🛠️ Development
 

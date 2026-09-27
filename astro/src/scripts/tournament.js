@@ -132,8 +132,8 @@ function paintMode() {
     mode.classList.toggle('ranked', Boolean(user));
     mode.querySelector('img').src = `/images/icons/abs/${user ? 'medal' : 'lock'}.webp`;
     $('[data-mode-text]').innerHTML = user
-        ? `<b>Ranked</b> Playing as ${escapeHtml(user.displayName || user.username)}. The server draws your bracket, every pick moves the battle ratings and your first finished bracket each day earns XP and Coins.`
-        : '<b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and Coins once a day.';
+        ? `<b>Ranked</b> Playing as ${escapeHtml(user.displayName || user.username)}. The server draws your bracket, every pick moves the battle ratings and your first finished bracket each day earns XP and BattlePoints.`
+        : '<b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and BattlePoints once a day.';
 }
 
 async function paintRecent() {
@@ -595,7 +595,7 @@ function paintReward(result) {
     }
     const reward = result.body.reward;
     if (result.body.duplicate) box.textContent = result.body.message || 'This ranked bracket was already recorded.';
-    else if (reward?.awarded) box.innerHTML = `Ranked result recorded. <b>+${reward.coins} Coins</b> · <b>+${reward.xp} XP</b>${reward.leveledUp ? ' · <b>Level up!</b>' : ''}`;
+    else if (reward?.awarded) box.innerHTML = `Ranked result recorded. <b>+${reward.coins} BattlePoints</b> · <b>+${reward.xp} XP</b>${reward.leveledUp ? ' · <b>Level up!</b>' : ''}`;
     else box.textContent = 'Ranked result recorded. Today’s tournament reward was already claimed.';
     if (reward?.awarded) showReward(reward, box);
 }

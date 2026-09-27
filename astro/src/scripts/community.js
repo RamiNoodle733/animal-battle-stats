@@ -1,8 +1,10 @@
-// Community hub: arena discussion, comment feed, fan favorites, player
-// leaderboard, Roblox game panel and site numbers. All user text is escaped.
+// Community hub. Arena view: discussion, fan favorites, animal records, the
+// comment feed, the player leaderboard, the Roblox game panel and site numbers.
+// World stats view (community-stats.js): who is online, the visitor globe and
+// the site's activity in depth. All user text is escaped.
 import { loadAnimalIndex, escapeHtml, toast } from './site.js';
 import { sfx } from './sfx.js';
-import { mountWorld } from './world.js';
+import { mountStats } from './community-stats.js';
 
 const hub = document.querySelector('[data-hub]');
 const animalsPromise = loadAnimalIndex().then((list) => new Map(list.map((animal) => [animal.n.toLowerCase(), animal])));
@@ -31,38 +33,56 @@ function compact(value) {
     return Number(value || 0).toLocaleString('en-US', { notation: value >= 100000 ? 'compact' : 'standard', maximumFractionDigits: 1 });
 }
 
+const fmt = (value) => Number(value || 0).toLocaleString('en-US');
+
 async function avatar(name) {
     const animals = await animalsPromise;
     const animal = name ? animals.get(String(name).toLowerCase()) : null;
     return animal ? `<img class="av" src="${animal.i}" alt="" width="36" height="36" loading="lazy">` : '<span class="av av-blank"></span>';
 }
 
-// ---------------------------------------------------------------- tabs
+// ---------------------------------------------------------------- views and tabs
 
-// Phones show one column at a time; the middle column's own tabs stay for
-// Trending and Comments, while Players gets its own top-level tab.
-let midShown = 'world';
+// Two views: the Arena (three columns) and World stats. Phones show one column
+// at a time; Players and Stats get their own top-level tabs there.
+const statsRoot = hub.querySelector('[data-view-pane="stats"]');
+let stats = null;
+function showView(name, { remember = true } = {}) {
+    hub.dataset.view = name;
+    hub.querySelectorAll('.hub-views [data-view-tab]').forEach((tab) => tab.setAttribute('aria-pressed', String(tab.dataset.viewTab === name)));
+    hub.querySelectorAll('[data-view-pane]').forEach((pane) => { pane.hidden = pane.dataset.viewPane !== name; });
+    if (name === 'stats') {
+        stats ||= mountStats(statsRoot, { avatar });
+        stats.start();
+    } else stats?.stop();
+    if (remember) history.replaceState(history.state, '', name === 'stats' ? `${location.pathname}#stats` : location.pathname);
+}
 function showHub(name) {
     hub.dataset.show = name;
     hub.querySelectorAll('[data-hub-tab]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.hubTab === name)));
-    if (name === 'players' || name === 'world') showMid(name);
-    else if (name === 'trending' && (midShown === 'players' || midShown === 'world')) showMid('trending');
+    if (name === 'stats') { showView('stats'); return; }
+    if (hub.dataset.view !== 'arena') showView('arena');
+    if (name === 'players') showMid('players');
+    else if (name === 'trending' && midShown === 'players') showMid('trending');
 }
+let midShown = 'trending';
 function showMid(name) {
     midShown = name;
     hub.querySelectorAll('[data-mid-tab]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.midTab === name)));
     hub.querySelectorAll('[data-mid]').forEach((pane) => { pane.hidden = pane.dataset.mid !== name; });
     if (name === 'comments') loadComments();
-    if (name === 'world') mountWorld(hub.querySelector('[data-world]'));
 }
+hub.querySelectorAll('[data-view-tab]').forEach((tab) => tab.addEventListener('click', () => {
+    if (matchMedia('(max-width: 1100px)').matches) showHub(tab.dataset.viewTab === 'stats' ? 'stats' : 'talk');
+    else showView(tab.dataset.viewTab);
+}));
 hub.querySelectorAll('[data-hub-tab]').forEach((tab) => tab.addEventListener('click', () => showHub(tab.dataset.hubTab)));
 hub.querySelectorAll('[data-mid-tab]').forEach((tab) => tab.addEventListener('click', () => showMid(tab.dataset.midTab)));
-// Old links: /community/chat, /community/feed and /community/map.
+// Old links: /community/chat, /community/feed and /community/map; #stats opens the stats view.
 const legacyTab = location.pathname.split('/')[2];
-const narrow = matchMedia('(max-width: 1100px)').matches;
 if (legacyTab === 'feed') { showHub('trending'); showMid('comments'); }
-else if (legacyTab === 'chat') { showHub('talk'); showMid('world'); }
-else { showHub(narrow ? 'world' : 'talk'); showMid('world'); }
+else if (legacyTab === 'map' || location.hash === '#stats') showHub('stats');
+else showHub('talk');
 
 // ---------------------------------------------------------------- arena discussion
 
@@ -133,40 +153,86 @@ talkFeed.addEventListener('click', async (event) => {
 // ---------------------------------------------------------------- animal comments feed
 
 let commentsLoaded = false;
-async function loadComments() {
-    if (commentsLoaded) return;
+let commentsSkip = 0;
+const COMMENTS_PAGE = 20;
+async function loadComments(more = false) {
+    if (commentsLoaded && !more) return;
     commentsLoaded = true;
     const box = hub.querySelector('[data-comment-feed]');
+    const moreButton = hub.querySelector('[data-comments-more]');
+    moreButton.disabled = true;
     try {
-        const [body, animals] = await Promise.all([getJson('/api/chat?feed=true&limit=30'), animalsPromise]);
+        const [body, animals] = await Promise.all([getJson(`/api/chat?feed=true&limit=${COMMENTS_PAGE}&skip=${commentsSkip}`), animalsPromise]);
         const items = await Promise.all((body.data || []).map(async (comment) => {
             const animal = comment.animalName ? animals.get(comment.animalName.toLowerCase()) : null;
             const tag = animal ? `<a class="chip chip-cyan" href="/stats/${animal.s}"><img src="${animal.i}" alt="" width="16" height="16">${escapeHtml(animal.n)}</a>` : '';
             return `<article class="msg"><header>${await avatar(comment.profileAnimal)}<b>${escapeHtml(comment.authorUsername)}</b><time>${ago(comment.createdAt)}</time>${tag}</header><p>${escapeHtml(comment.content)}</p>${comment.replyCount ? `<footer class="small muted">${comment.replyCount} ${comment.replyCount === 1 ? 'reply' : 'replies'}</footer>` : ''}</article>`;
         }));
-        box.innerHTML = items.length ? items.join('') : '<p class="empty-state">No comments yet.</p>';
+        if (!more) box.innerHTML = items.length ? items.join('') : '<p class="empty-state">No comments yet.</p>';
+        else box.insertAdjacentHTML('beforeend', items.join(''));
+        commentsSkip += items.length;
+        moreButton.hidden = !body.hasMore;
+        moreButton.textContent = body.total ? `Load more (${fmt(Math.max(0, body.total - commentsSkip))} left)` : 'Load more';
     } catch {
-        box.innerHTML = '<p class="empty-state">Comments are unavailable right now.</p>';
+        if (!more) box.innerHTML = '<p class="empty-state">Comments are unavailable right now.</p>';
     }
+    moreButton.disabled = false;
 }
+hub.querySelector('[data-comments-more]').addEventListener('click', () => loadComments(true));
 
 // ---------------------------------------------------------------- fan favorites and players
+
+const rankingsPromise = getJson('/api/rankings').then((body) => body.data || []);
 
 async function loadFavorites() {
     const box = hub.querySelector('[data-favs]');
     try {
-        const [body, animals] = await Promise.all([getJson('/api/rankings'), animalsPromise]);
-        const top = (body.data || [])
+        const [rows, animals] = await Promise.all([rankingsPromise, animalsPromise]);
+        const top = rows
             .map((row) => ({ name: row.animal.name, net: (row.upvotes || 0) - (row.downvotes || 0), up: row.upvotes || 0 }))
             .filter((row) => row.up > 0)
             .sort((a, b) => b.net - a.net || b.up - a.up)
             .slice(0, 10);
         box.innerHTML = top.length ? top.map((row, index) => {
             const animal = animals.get(row.name.toLowerCase());
-            return `<li class="fav"><b class="pos">${index + 1}</b>${animal ? `<img src="${animal.i}" alt="" width="52" height="40" loading="lazy">` : ''}<a href="/stats/${animal?.s || ''}">${escapeHtml(row.name)}</a><span class="net">▲ ${row.net}</span></li>`;
+            return `<li class="fav"><b class="pos">${index + 1}</b>${animal ? `<img src="${animal.i}" alt="" width="52" height="40" loading="lazy">` : ''}<a href="/stats/${animal?.s || ''}">${escapeHtml(row.name)}</a><span class="net">+${row.net}</span></li>`;
         }).join('') : '<li class="muted small">No votes yet. <a class="link" href="/rankings">Vote on the rankings</a>.</li>';
     } catch {
         box.innerHTML = '<li class="muted small">Votes are unavailable right now.</li>';
+    }
+}
+
+// Animal records: the same numbers the rankings keep, sorted a few ways.
+const RECORDS = [
+    ['swords', 'Most compared', (row) => row.comparisonCount, (value) => `${compact(value)}`],
+    ['book', 'Most discussed', (row) => row.commentCount, (value) => `${compact(value)}`],
+    ['trophy', 'Tournament champions', (row) => row.tournamentsFirst, (value) => `${compact(value)} won`],
+    ['target', 'Best win rate', (row) => ((row.totalFights || 0) >= 10 ? row.winRate : null), (value) => `${Math.round(value)}%`],
+    ['ascend', 'Rising today', (row) => (row.trend > 0 ? row.trend : null), (value) => `+${value}`, 'up'],
+    ['medal', 'Most votes', (row) => row.totalVotes, (value) => `${compact(value)}`],
+    ['alert', 'Most disliked', (row) => row.downvotes, (value) => `${compact(value)}`, 'down'],
+    ['bolt', 'Top battle rating', (row) => row.battleRating, (value) => `${Math.round(value)}`]
+];
+
+async function loadLeaders() {
+    const box = hub.querySelector('[data-leaders]');
+    try {
+        const [rows, animals] = await Promise.all([rankingsPromise, animalsPromise]);
+        const boards = RECORDS.map(([icon, label, pick, show, tone = '']) => {
+            const top = rows
+                .map((row) => ({ name: row.animal?.name, value: Number(pick(row)) }))
+                .filter((row) => row.name && Number.isFinite(row.value) && row.value > 0)
+                .sort((a, b) => b.value - a.value)
+                .slice(0, 5);
+            if (!top.length) return '';
+            return `<section class="rec"><h4><img src="/images/icons/abs/${icon}.webp" alt="" width="20" height="20">${label}</h4><ol>${top.map((row, index) => {
+                const animal = animals.get(row.name.toLowerCase());
+                return `<li><span>${index + 1}</span>${animal ? `<img src="${animal.i}" alt="" width="30" height="24" loading="lazy">` : '<span></span>'}<a href="/stats/${animal?.s || ''}">${escapeHtml(row.name)}</a><b class="${tone}">${show(row.value)}</b></li>`;
+            }).join('')}</ol></section>`;
+        }).join('');
+        box.innerHTML = boards || '<p class="empty-state">No records yet. Call some fights and vote on the rankings.</p>';
+    } catch {
+        box.innerHTML = '<p class="empty-state">Animal records are unavailable right now.</p>';
     }
 }
 
@@ -210,8 +276,21 @@ async function loadSiteStats() {
     try {
         const { data } = await getJson('/api/community?action=stats');
         for (const node of hub.querySelectorAll('[data-ss]')) node.textContent = compact(data?.[node.dataset.ss]);
+        paintOnline(data?.onlineNow);
     } catch { /* optional panel */ }
 }
+
+// The "online now" pill beside the view switch, refreshed every half minute.
+function paintOnline(count) {
+    const pill = hub.querySelector('[data-online-pill]');
+    if (!Number.isFinite(Number(count)) || Number(count) < 1) return;
+    hub.querySelector('[data-online-count]').textContent = fmt(count);
+    pill.hidden = false;
+}
+setInterval(() => {
+    if (document.hidden) return;
+    getJson('/api/community?action=presence').then((body) => paintOnline(body.count)).catch(() => {});
+}, 30000);
 
 document.addEventListener('abs:user', () => {
     hub.querySelector('[data-composer-note]').textContent = `Posting as ${window.ABS_USER.displayName || window.ABS_USER.username}. Be kind.`;
@@ -219,6 +298,7 @@ document.addEventListener('abs:user', () => {
 
 loadTalk();
 loadFavorites();
+loadLeaders();
 loadPlayers();
 loadRoblox();
 loadSiteStats();

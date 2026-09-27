@@ -26,10 +26,20 @@ export const SOCIAL = Object.freeze([
 // shows the game as live (a Play button) only once `status` is "live": the ids
 // can be filled in while the place is still private.
 const robloxLive = Boolean(robloxGame.placeId) && robloxGame.status === 'live';
+// Trailer: a YouTube video id (the 11 characters after watch?v=). Poster defaults to YouTube's.
+// Screenshots: [{ "src": "/images/roblox/<file>.webp", "alt": "..." }], 16:9, shown in order.
+const mediaUrl = (value) => typeof value === 'string' && (/^\/[^/]/.test(value) || /^https:\/\//.test(value));
+const youtubeId = /^[A-Za-z0-9_-]{11}$/.test(robloxGame.trailer?.youtubeId || '') ? robloxGame.trailer.youtubeId : null;
 export const ROBLOX = Object.freeze({
     ...robloxGame,
     live: robloxLive,
-    playUrl: robloxLive ? `https://www.roblox.com/games/${robloxGame.placeId}` : null
+    playUrl: robloxLive ? `https://www.roblox.com/games/${robloxGame.placeId}` : null,
+    trailer: youtubeId
+        ? { youtubeId, poster: mediaUrl(robloxGame.trailer.poster) ? robloxGame.trailer.poster : `https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg` }
+        : null,
+    screenshots: (robloxGame.screenshots || [])
+        .filter((shot) => mediaUrl(shot?.src))
+        .map((shot) => ({ src: shot.src, alt: shot.alt || 'Animal Battle Stats on Roblox' }))
 });
 
 export const NAV = Object.freeze([

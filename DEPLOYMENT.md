@@ -255,6 +255,46 @@ Defines:
 | `SLACK_WEBHOOK_URL` | No | Slack incoming webhook (`https://hooks.slack.com/services/...`) that receives the same activity feed |
 | `CRON_SECRET` | No | Authorizes the daily `/api/cron/discord-retry` job that retries failed Discord and Slack deliveries |
 | `APP_URL` | No | Overrides the base URL for email and sign-in links (production defaults to the project's production domain) |
+| `ROBLOX_CLIENT_ID` | No | Roblox OAuth 2.0 app client ID. With the secret, turns on Continue with Roblox and Connect Roblox (see below) |
+| `ROBLOX_CLIENT_SECRET` | No | Roblox OAuth 2.0 app secret |
+| `ROBLOX_REDIRECT_URI` | No | Overrides the Roblox redirect URL (default `<site>/api/auth?action=roblox-callback`) |
+| `ROBLOX_OPEN_CLOUD_KEY` | No | Open Cloud API key with ordered DataStore read access: game leaderboards and each linked player's in-game stats |
+| `ROBLOX_UNIVERSE_ID` / `ROBLOX_PLACE_ID` | No | Override the ids in `data/roblox-game.json` |
+
+### Roblox sign-in (Continue with Roblox / Connect Roblox)
+
+Players can sign in with Roblox or connect Roblox to an existing account. The site
+uses Roblox OAuth 2.0 (authorization code flow with PKCE, scopes `openid profile`),
+so it only ever receives the player's Roblox user id, username and display name.
+The buttons show "Opens at launch" until both variables below are set.
+
+1. On https://create.roblox.com/dashboard/credentials open **OAuth 2.0 Apps** and
+   create an app (registering one needs an ID-verified Roblox account).
+2. Add the redirect URL `https://animalbattlestats.com/api/auth?action=roblox-callback`
+   (add a preview or `http://localhost:3000/...` URL too if you test there) and the
+   scopes `openid` and `profile`.
+3. Set `ROBLOX_CLIENT_ID` and `ROBLOX_CLIENT_SECRET` in Vercel and redeploy.
+4. Until Roblox reviews the app it runs in private mode (10 users), which is enough to
+   test. To open it to everyone, submit it for review; Roblox asks for a privacy
+   policy URL, a terms of service URL, a short demo video of the sign-in and a thumbnail.
+
+A first Roblox sign-in creates an account named after the Roblox player. Roblox shares
+no email, so these accounts have none (no email sign-in, reset or notifications) until
+Google is linked. Linking stores the Roblox user id as a sign-in provider, so one
+Roblox account can belong to only one site account.
+
+### Launching the Roblox game
+
+Everything is in `data/roblox-game.json`:
+
+- `status`: set to `"live"` when the place goes public. The Play on Roblox buttons,
+  live player numbers, the game's Roblox icon and screenshots, and the leaderboards
+  switch on with it.
+- `trailer.youtubeId`: the 11-character id of the YouTube trailer (the part after
+  `watch?v=`). `trailer.poster` optionally replaces YouTube's thumbnail with your own image.
+- `screenshots`: `[{ "src": "/images/roblox/<file>.webp", "alt": "..." }]`, 16:9, put the
+  files in `images/roblox/`. Without any, the page uses the game's screenshots from
+  Roblox once it is live, and island placeholders before that.
 
 ### Battle Points Shop (Coming Soon)
 

@@ -43,6 +43,7 @@ function paintCard(user, own) {
     const name = user.displayName || user.username;
     $('[data-p-name]').textContent = name;
     $('[data-p-handle]').textContent = `@${user.username}${user.role === 'admin' ? ' · Admin' : ''}`;
+    $('[data-p-rbx]').hidden = !user.robloxLinked;
     $('[data-p-level]').textContent = user.level || 1;
     const need = Number(user.xpToNext || user.xpNeeded) || 0;
     const have = Number(user.xpProgress ?? user.xp) || 0;
@@ -66,17 +67,68 @@ function paintOwner(user) {
     form.elements.username.value = user.username;
     $('[data-p-flag]').hidden = !user.requiresUsernameChange;
     if (typeof user.usernameChangesRemaining === 'number') $('[data-p-rename]').textContent = `Your login name. ${user.usernameChangesRemaining} of 3 changes left this week.`;
-    $('[data-p-email]').textContent = user.email || '–';
+    // Accounts made by Roblox sign-in have no email, so nothing to verify or notify.
+    const hasEmail = user.hasEmail !== false;
+    $('[data-p-email]').textContent = hasEmail ? (user.email || '–') : 'None (you sign in with Roblox)';
     const verified = $('[data-p-verified]');
+    verified.hidden = !hasEmail;
     verified.textContent = user.emailVerified ? 'Verified' : 'Not verified';
     verified.className = `chip ${user.emailVerified ? 'chip-green' : 'chip-gold'}`;
+    $('[data-p-notify-head]').hidden = !hasEmail;
+    $('[data-p-notify]').hidden = !hasEmail;
     const prefs = user.emailNotifications || {};
     $$('[data-n]').forEach((box) => { box.checked = Boolean(prefs[box.dataset.n]); box.disabled = box.dataset.n !== 'enabled' && !prefs.enabled; });
     $('[data-p-google]').textContent = user.googleLinked ? 'Linked' : 'Not linked';
     $('[data-p-google-btn]').textContent = user.googleLinked ? 'Unlink' : 'Link';
     $('[data-p-prestige-row]').hidden = !user.isPrestigeReady;
+    paintRoblox(user);
     picked = user.profileAnimal || null;
     $$('.p-opt').forEach((option) => option.setAttribute('aria-pressed', String(option.dataset.name === picked)));
+}
+
+// ---------------------------------------------------------------- roblox tab
+
+let robloxCardFor = null;
+
+function paintRoblox(user) {
+    const account = user.robloxLinked ? user.roblox : null;
+    $('[data-rb-linked]').hidden = !account;
+    $('[data-rb-empty]').hidden = Boolean(account);
+    if (!account) {
+        robloxCardFor = null;
+        return;
+    }
+    $('[data-rb-display]').textContent = account.displayName || account.username || 'Roblox player';
+    $('[data-rb-user]').textContent = account.username ? `@${account.username}` : '';
+    $('[data-rb-profile]').href = account.profileUrl;
+    if (robloxCardFor !== account.userId) loadRobloxCard(account.userId);
+}
+
+async function loadRobloxCard(userId) {
+    robloxCardFor = userId;
+    const result = await api('action=roblox-player');
+    const card = result.ok ? result.body.data : null;
+    if (!card?.linked || robloxCardFor !== userId) return;
+    const head = $('[data-rb-head]');
+    if (card.headshot) {
+        head.src = card.headshot;
+        head.hidden = false;
+    }
+    const values = new Map((card.stats || []).map((stat) => [stat.id, stat.value]));
+    $$('[data-rb-stat]').forEach((cell) => {
+        const value = values.get(cell.dataset.rbStat);
+        cell.textContent = value == null ? '–' : fmt(value);
+    });
+    $('[data-rb-note]').textContent = !card.live
+        ? 'Your stats show up here once the game is live.'
+        : card.stats ? 'From the game\'s global leaderboards.' : 'In-game stats are unavailable right now.';
+}
+
+function paintRobloxAvailability(enabled) {
+    const link = $('[data-rb-link]');
+    $('[data-rb-off]').hidden = enabled;
+    if (enabled) link.removeAttribute('aria-disabled');
+    else link.setAttribute('aria-disabled', 'true');
 }
 
 async function saveProfile(changes, message) {
@@ -139,6 +191,7 @@ async function loadOwn() {
     // (or the account already has Google linked, so it can be unlinked).
     api('action=providers', { auth: false }).then((providers) => {
         $('[data-p-google-row]').hidden = !(providers.body?.data?.google || me.googleLinked);
+        paintRobloxAvailability(Boolean(providers.body?.data?.roblox));
     });
 }
 
@@ -185,6 +238,15 @@ $('[data-p-google-btn]').addEventListener('click', async () => {
     paintOwner(me);
     toast('Google account unlinked');
 });
+$('[data-rb-unlink]').addEventListener('click', async () => {
+    if (!confirm('Disconnect your Roblox account from this profile? You can connect it again any time.')) return;
+    const result = await api('action=unlink-roblox', { method: 'POST', body: {} });
+    if (!result.ok) { sfx.error(); toast(result.body.error || 'Could not disconnect Roblox.'); return; }
+    me = { ...me, ...result.body.data.user };
+    paintCard(me, true);
+    paintOwner(me);
+    toast('Roblox account disconnected');
+});
 $('[data-p-prestige-btn]').addEventListener('click', async () => {
     if (!confirm('Prestige resets you to level 1 and awards a prestige star plus BattlePoints. Continue?')) return;
     const result = await api('action=prestige', { method: 'POST', body: {} });
@@ -200,9 +262,18 @@ $('[data-p-logout]').addEventListener('click', async () => {
     location.href = '/';
 });
 
-// Old links: /profile?tab=... and /battlepoints land here.
+// Old links: /profile?tab=... and /battlepoints land here. Roblox sign-in
+// comes back with ?roblox_welcome, ?roblox_linked or ?roblox_error.
 const params = new URLSearchParams(location.search);
 if (params.get('google_error')) toast(params.get('message') || 'Google linking failed.');
+if (params.get('roblox_welcome') === '1') toast('Welcome! Your account is ready. Pick a profile animal.');
+else if (params.get('roblox_linked') === '1') toast('Roblox account connected');
+else if (params.get('roblox_error')) toast(params.get('message') || 'Roblox linking failed.');
+const startTab = params.get('roblox_welcome') === '1' ? 'animal' : params.get('tab');
+if (!publicName && ['edit', 'animal', 'roblox', 'account'].includes(startTab)) showTab(startTab);
+if (['roblox_welcome', 'roblox_linked', 'roblox_error', 'google_error'].some((key) => params.has(key))) {
+    history.replaceState(null, '', location.pathname + (startTab ? `?tab=${startTab}` : ''));
+}
 
 loadAnimalIndex().then((list) => {
     byName = new Map(list.map((animal) => [animal.n.toLowerCase(), animal]));

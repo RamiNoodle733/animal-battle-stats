@@ -72,18 +72,20 @@ test('production auth redirects use the site domain, not the deployment URL', ()
 
 test('the providers check reports whether Google sign-in is configured', () => withEnv({
     GOOGLE_CLIENT_ID: undefined,
-    GOOGLE_CLIENT_SECRET: undefined
+    GOOGLE_CLIENT_SECRET: undefined,
+    ROBLOX_CLIENT_ID: undefined,
+    ROBLOX_CLIENT_SECRET: undefined
 }, async () => {
     const { handler, restore } = loadHandler();
     try {
         const off = response();
         await handler({ method: 'GET', query: { action: 'providers' }, headers: {} }, off);
-        assert.deepEqual(off.body, { success: true, data: { google: false } });
+        assert.deepEqual(off.body, { success: true, data: { google: false, roblox: false } });
         process.env.GOOGLE_CLIENT_ID = 'id';
         process.env.GOOGLE_CLIENT_SECRET = 'secret';
         const on = response();
         await handler({ method: 'GET', query: { action: 'providers' }, headers: {} }, on);
-        assert.deepEqual(on.body, { success: true, data: { google: true } });
+        assert.deepEqual(on.body, { success: true, data: { google: true, roblox: false } });
     } finally {
         restore();
     }

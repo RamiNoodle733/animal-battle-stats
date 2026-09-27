@@ -1,7 +1,12 @@
 ---
+// The game's official page: trailer and screenshots, Play on Roblox, live numbers,
+// Roblox account linking and the in-game leaderboards. Everything game-specific
+// comes from data/roblox-game.json (see astro/src/lib/site.js).
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import HoloCard from '../components/HoloCard.astro';
+import AnimalImage from '../components/AnimalImage.astro';
+import RobloxMark from '../components/RobloxMark.astro';
 import { getAnimal, animals } from '../lib/catalog.js';
 import { SITE, ROBLOX, SOCIAL, absoluteUrl } from '../lib/site.js';
 
@@ -10,11 +15,20 @@ const title = `Animal Battle Stats on Roblox: Collect 225 Real Animals & Battle 
 const description = `The Animal Battle Stats Roblox game: collect all ${animals.length} real animals as holo-cards, power them up and battle across eight biome islands. Free to play, no loot boxes. ${ROBLOX.live ? 'Play now on Roblox.' : 'Coming soon to Roblox.'}`;
 const ICONS = ['cards', 'map', 'swords', 'tv', 'target', 'check'];
 const discord = SOCIAL.find((item) => item.name === 'Discord');
+const { trailer, screenshots } = ROBLOX;
+// Island tiles hold the screenshot row until real screenshots exist.
+const ISLANDS = [['Savanna', 'african-lion'], ['Ocean', 'orca'], ['Arctic', 'polar-bear'], ['Jungle', 'jaguar']]
+    .map(([name, slug]) => ({ name, animal: getAnimal(slug) }))
+    .filter((island) => island.animal)
+    .slice(0, Math.max(0, 4 - screenshots.length - (trailer ? 1 : 0)));
+// Same boards as lib/roblox-game.js; the API fills them once the game is live.
+const BOARDS = [['POWER', 'Team power', 'bolt'], ['COLLECTION', 'Animals collected', 'cards'], ['WINS', 'Battles won', 'swords'], ['SHOW', 'Best show streak', 'tv']];
 const faq = [
     { q: 'Is Animal Battle Stats on Roblox?', a: ROBLOX.live ? `Yes. Animal Battle Stats is live on Roblox and free to play: ${ROBLOX.playUrl}` : 'The Animal Battle Stats game is in development for Roblox. Join the Discord or check this page for the launch.' },
     { q: 'Is it free?', a: 'Yes, it is free to play. There are no loot boxes or paid packs, and nothing you can buy makes an animal stronger.' },
     { q: 'Are the animals the same as on the website?', a: `Yes. All ${animals.length} animals, their stats and their home biomes come straight from this site, so new research here changes the game too.` },
-    { q: 'What do you do in the game?', a: 'Fly your champion card across floating biome islands, fight and recruit wild animals, level them up, beat island bosses (the Ocean boss is the Megalodon), and join server-wide shows, tournaments and raids.' }
+    { q: 'What do you do in the game?', a: 'Fly your champion card across floating biome islands, fight and recruit wild animals, level them up, beat island bosses (the Ocean boss is the Megalodon), and join server-wide shows, tournaments and raids.' },
+    { q: 'How do I connect my Roblox account?', a: 'Press Continue with Roblox on this page or Connect Roblox on your profile. Roblox asks you to approve it, and your profile then shows your Roblox name and your in-game stats. Roblox handles the sign-in, so this site never sees your Roblox password, and you can disconnect at any time.' }
 ];
 const jsonLd = [
     {
@@ -36,99 +50,299 @@ const jsonLd = [
 ---
 
 <Base title={title} description={description} path="/roblox" image="/images/og/roblox.jpg" imageAlt="Animal Battle Stats on Roblox" jsonLd={jsonLd} active="roblox" biome="ocean" seed={11}>
-    <div class="rbx screen-grid">
-        <section class="hero-col enter">
-            <p class="eyebrow"><Icon name="cards" size={22} />{ROBLOX.live ? 'Live now on Roblox' : 'Coming to Roblox'}</p>
-            <h1 class="screen-title">Animal Battle Stats<br /><span>on Roblox</span></h1>
-            <p class="pitch">{ROBLOX.pitch}</p>
-            <div class="live" data-live hidden>
-                <div><b data-stat="playing">–</b><span>Playing now</span></div>
-                <div><b data-stat="visits">–</b><span>Visits</span></div>
-                <div><b data-stat="favorites">–</b><span>Favorites</span></div>
-                <div><b data-stat="likes">–</b><span>Likes</span></div>
+    <div class="rbx" data-rbx data-live={ROBLOX.live ? 'true' : 'false'} data-shots={screenshots.length} data-trailer={trailer ? trailer.youtubeId : undefined}>
+        <section class="rbx-hero">
+            <div class="rbx-copy enter">
+                <div class="rbx-id">
+                    <span class="rbx-icon"><img src="/images/logo.png" alt="" width="84" height="84" data-game-icon /></span>
+                    <div class="rbx-id-text">
+                        <span class={`rbx-status ${ROBLOX.live ? 'is-live' : ''}`}><i></i>{ROBLOX.live ? 'Live on Roblox' : 'Coming soon to Roblox'}</span>
+                        <h1 class="screen-title rbx-title">Animal Battle Stats</h1>
+                        <p class="rbx-by"><RobloxMark size={14} />A Roblox experience<span data-creator></span></p>
+                    </div>
+                </div>
+                <p class="rbx-pitch">{ROBLOX.pitch}</p>
+                <div class="rbx-cta">
+                    {ROBLOX.live
+                        ? <a class="btn btn-play btn-lg" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={24} />Play on Roblox</a>
+                        : <span class="btn btn-play btn-lg" aria-disabled="true"><RobloxMark size={24} />Coming soon</span>}
+                    {ROBLOX.live
+                        ? <a class="btn btn-lg" href="#connect"><Icon name="friends" size={26} />Connect account</a>
+                        : discord && <a class="btn btn-lg" href={discord.url} rel="noopener" target="_blank"><Icon name="alert" size={26} />Get launch news</a>}
+                </div>
+                <ul class="rbx-tags" aria-label="At a glance">
+                    <li><Icon name="check" size={18} />Free to play</li>
+                    <li><Icon name="shield" size={18} />No loot boxes</li>
+                    <li><Icon name="paw" size={18} />{animals.length} real animals</li>
+                    <li><Icon name="friends" size={18} />Multiplayer</li>
+                </ul>
+                <dl class="rbx-live" data-live-stats hidden>
+                    <div><dt>Playing now</dt><dd data-stat="playing">–</dd></div>
+                    <div><dt>Visits</dt><dd data-stat="visits">–</dd></div>
+                    <div><dt>Favorites</dt><dd data-stat="favorites">–</dd></div>
+                    <div><dt>Likes</dt><dd data-stat="likes">–</dd></div>
+                </dl>
             </div>
-            <div class="btn-row cta">
-                {ROBLOX.live
-                    ? <a class="btn btn-white btn-lg" href={ROBLOX.playUrl} rel="noopener" target="_blank"><Icon name="cards" size={30} />Play free</a>
-                    : <a class="btn btn-hot btn-lg" href={discord?.url} rel="noopener" target="_blank"><Icon name="alert" size={30} />Get launch news</a>}
-                <a class="btn btn-lg" href="/compare"><Icon name="vs" size={30} />Try battles here</a>
-            </div>
-            <div class="fan-cards" aria-hidden="true">
-                {fan.map((animal) => <HoloCard animal={animal} tag="span" sizes="180px" />)}
+
+            <div class="rbx-media enter-2">
+                <div class="rbx-stage" data-stage>
+                    {trailer ? (
+                        <button class="stage-video" type="button" data-play-trailer aria-label="Play the official trailer">
+                            <img src={trailer.poster} alt="" width="1280" height="720" data-poster />
+                            <span class="play-disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg></span>
+                            <span class="stage-label"><b>Official trailer</b></span>
+                        </button>
+                    ) : screenshots.length ? (
+                        <img class="stage-img" src={screenshots[0].src} alt={screenshots[0].alt} width="1280" height="720" />
+                    ) : (
+                        <div class="stage-soon bio-ocean">
+                            <div class="soon-cards" aria-hidden="true">
+                                {fan.map((animal, index) => <HoloCard animal={animal} tag="span" sizes="200px" priority={index === 1} />)}
+                            </div>
+                            <span class="play-disc is-off" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg></span>
+                            <span class="stage-label"><b>Official trailer</b><span>Drops at launch</span></span>
+                        </div>
+                    )}
+                </div>
+                <div class="rbx-thumbs" data-thumbs>
+                    {trailer && (
+                        <button class="thumb" type="button" data-kind="video" aria-pressed="true" aria-label="Trailer">
+                            <img src={trailer.poster} alt="" loading="lazy" width="320" height="180" data-poster />
+                            <span class="thumb-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg></span>
+                        </button>
+                    )}
+                    {screenshots.map((shot, index) => (
+                        <button class="thumb" type="button" data-kind="image" data-src={shot.src} data-alt={shot.alt} aria-pressed={!trailer && index === 0 ? 'true' : 'false'} aria-label={`Screenshot ${index + 1}`}>
+                            <img src={shot.src} alt="" loading="lazy" width="320" height="180" />
+                        </button>
+                    ))}
+                    {ISLANDS.map((island) => (
+                        <div class={`thumb soon bio-${island.animal.biome}`} data-soon>
+                            <span class="soon-art"><AnimalImage animal={island.animal} sizes="140px" alt="" class="animal-art" /></span>
+                            <span class="soon-text"><b>{island.name}</b>Screenshot soon</span>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
 
-        <section class="panel features" id="features" aria-labelledby="feat-title">
-            <div class="panel-head"><Icon name="star" size={28} /><h2 id="feat-title" class="panel-title">What's inside</h2><span class="aside">{ROBLOX.live ? 'Free to play' : 'In development'}</span></div>
-            <div class="feat-grid scroll">
+        <section class="panel rbx-connect" id="connect" data-connect data-state="loading" aria-labelledby="connect-title">
+            <div class="cn-art" aria-hidden="true">
+                <span class="cn-tile"><img src="/images/logo.png" alt="" width="52" height="52" /></span>
+                <span class="cn-link"><i></i><i></i><i></i></span>
+                <span class="cn-tile cn-rbx"><RobloxMark size={34} /></span>
+            </div>
+            <div class="cn-copy">
+                <h2 id="connect-title" class="rbx-h2">Connect your Roblox account</h2>
+                <p>Sign in with Roblox, or link it to the account you already have. Your profile then shows your Roblox name and avatar, plus your in-game stats{ROBLOX.live ? '' : ' once the game is live'}.</p>
+                <ul class="cn-points">
+                    <li><Icon name="lock" size={20} />Roblox handles sign-in. We never see your password.</li>
+                    <li><Icon name="check" size={20} />Only your public Roblox name and avatar</li>
+                    <li><Icon name="gear" size={20} />Disconnect any time from your profile</li>
+                </ul>
+            </div>
+            <div class="cn-action">
+                {/* No static href: crawlers must never start a sign-in. roblox.js sets it. */}
+                <a class="btn btn-roblox btn-lg" aria-disabled="true" data-cn-btn><RobloxMark size={24} /><span data-cn-label>Continue with Roblox</span></a>
+                <p class="cn-note" data-cn-note>&nbsp;</p>
+            </div>
+        </section>
+
+        <section class="rbx-section" aria-labelledby="feat-title">
+            <div class="rbx-head"><h2 id="feat-title" class="rbx-h2">What's inside</h2><span class="chip chip-cyan">{ROBLOX.live ? 'Free to play' : 'In development'}</span></div>
+            <div class="feat-grid">
                 {ROBLOX.features.map((feature, index) => (
                     <article class="feat">
-                        <Icon name={ICONS[index] || 'star'} size={40} />
+                        <Icon name={ICONS[index] || 'star'} size={40} lazy />
                         <h3>{feature.title}</h3>
                         <p>{feature.text}</p>
                     </article>
                 ))}
                 <article class="feat wide">
-                    <Icon name="bolt" size={40} />
-                    <h3>One universe, two ways to play</h3>
-                    <p>The website is the research lab: stats, tiers and matchups. The Roblox game is the arena: collect, level and battle the same {animals.length} animals. Research updates here show up in the game's cards.</p>
+                    <Icon name="bolt" size={40} lazy />
+                    <div>
+                        <h3>One universe, two ways to play</h3>
+                        <p>The website is the research lab: stats, tiers and matchups. The Roblox game is the arena: collect, level and battle the same {animals.length} animals. Research updates here show up in the game's cards.</p>
+                    </div>
+                    <a class="btn btn-sm" href="/compare"><Icon name="vs" size={20} />Try a battle here</a>
                 </article>
-                <div class="faq">{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
             </div>
         </section>
+
+        <section class="rbx-section" aria-labelledby="boards-title">
+            <div class="rbx-head"><h2 id="boards-title" class="rbx-h2">Leaderboards</h2><span class="small muted" data-boards-note>{ROBLOX.live ? 'Global, from the game' : 'Fill up at launch'}</span></div>
+            <div class="boards">
+                {BOARDS.map(([id, label, icon]) => (
+                    <div class="panel board" data-board={id}>
+                        <div class="panel-head"><Icon name={icon} size={24} lazy /><h3 class="panel-title">{label}</h3></div>
+                        <ol>{[1, 2, 3, 4, 5].map((rank) => <li class="is-empty"><span class="lb-rank">{rank}</span><span class="lb-name"><i></i></span><b>–</b></li>)}</ol>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <section class="rbx-section faq-wrap" aria-labelledby="faq-title">
+            <h2 id="faq-title" class="rbx-h2">Questions</h2>
+            <div class="panel faq">{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+        </section>
+
+        <p class="rbx-legal"><RobloxMark size={12} />Roblox and the Roblox logo are trademarks of Roblox Corporation. Animal Battle Stats is an independent game on Roblox and is not made, sponsored or endorsed by Roblox Corporation.</p>
     </div>
 </Base>
 
 <script>
-    // Live game numbers from the Roblox public API (proxied and cached by our API).
-    fetch('/api/community?action=roblox', { headers: { Accept: 'application/json' } })
-        .then((response) => (response.ok ? response.json() : null))
-        .then((body) => {
-            const game = body?.data?.game;
-            if (!game) return;
-            const box = document.querySelector('[data-live]');
-            const fmt = (value) => Number(value || 0).toLocaleString('en-US', { notation: value >= 100000 ? 'compact' : 'standard', maximumFractionDigits: 1 });
-            box.querySelector('[data-stat="playing"]').textContent = fmt(game.playing);
-            box.querySelector('[data-stat="visits"]').textContent = fmt(game.visits);
-            box.querySelector('[data-stat="favorites"]').textContent = fmt(game.favorites);
-            box.querySelector('[data-stat="likes"]').textContent = game.likeRatio != null ? `${Math.round(game.likeRatio * 100)}%` : fmt(game.upVotes);
-            box.hidden = false;
-        })
-        .catch(() => {});
+    import '../scripts/roblox.js';
 </script>
 
 <style>
-    .rbx { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); max-width: 1500px; margin: 0 auto; }
-    .hero-col { min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 0 clamp(4px, 2vw, 24px); }
-    .hero-col .screen-title { font-size: clamp(2.6rem, 5.4vw, 5rem); }
-    .hero-col .screen-title span { color: var(--cyan); }
-    .pitch { font-size: 1.05rem; color: var(--text-2); max-width: 52ch; margin: 0; }
-    .live { display: flex; flex-wrap: wrap; gap: 8px; }
-    .live div { display: flex; flex-direction: column; min-width: 100px; padding: 8px 12px; background: rgba(4, 7, 18, 0.7); border: 1px solid var(--line-2); clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
-    .live b { font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; line-height: 1; }
-    .live span { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-    .fan-cards { position: relative; height: 230px; margin-top: 6px; }
-    .fan-cards :global(.card) { position: absolute; width: 150px; top: 0; }
-    .fan-cards :global(.card:nth-child(1)) { left: 4%; transform: rotate(-12deg) translateY(18px); }
-    .fan-cards :global(.card:nth-child(2)) { left: 26%; z-index: 2; }
-    .fan-cards :global(.card:nth-child(3)) { left: 48%; transform: rotate(11deg) translateY(18px); }
-    .features { min-height: 0; }
-    .feat-grid { flex: 1; min-height: 0; padding: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
-    .feat { padding: 14px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 10px; }
-    .feat h3 { margin: 8px 0 6px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; }
-    .feat p { margin: 0; font-size: 0.86rem; color: var(--text-2); }
-    .feat.wide, .feat-grid .faq { grid-column: 1 / -1; }
-    @media (max-height: 820px) and (min-width: 901px) {
-        .hero-col { gap: 10px; }
-        .hero-col .screen-title { font-size: clamp(2.2rem, 4.2vw, 3.6rem); }
-        .pitch { font-size: 0.95rem; }
-        .fan-cards { height: 176px; }
-        .fan-cards :global(.card) { width: 118px; }
+    .rbx { max-width: 1320px; margin: 0 auto; display: grid; gap: clamp(18px, 2.6vw, 30px); padding-bottom: 12px; }
+    .small { font-size: 0.8rem; }
+    .muted { color: var(--muted); }
+    .rbx-h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 900; line-height: 1; letter-spacing: 0.03em; text-transform: uppercase; }
+    .rbx-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+
+    /* ---- hero */
+    .rbx-hero { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.2fr); align-items: center; gap: clamp(18px, 3vw, 44px); padding-top: clamp(4px, 1.5vw, 18px); }
+    .rbx-copy { display: grid; gap: 16px; align-content: center; }
+    .rbx-id { display: flex; align-items: center; gap: 16px; }
+    .rbx-icon { flex: none; display: grid; place-items: center; width: 96px; height: 96px; overflow: hidden; background: linear-gradient(160deg, #1a2750, #070b1a); border: 1px solid var(--line-2); border-radius: 22px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+    .rbx-icon img { width: 84px; height: 84px; object-fit: cover; }
+    .rbx-icon img.is-roblox { width: 100%; height: 100%; }
+    .rbx-id-text { display: grid; gap: 6px; min-width: 0; }
+    .rbx-status { display: inline-flex; align-items: center; gap: 7px; justify-self: start; padding: 4px 10px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-2); background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.35); border-radius: 999px; }
+    .rbx-status i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 0 currentColor; animation: pulse 2s ease-out infinite; }
+    .rbx-status.is-live { color: #7cf5b4; background: rgba(53, 220, 143, 0.1); border-color: rgba(53, 220, 143, 0.45); }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 60%, transparent); } 100% { box-shadow: 0 0 0 9px transparent; } }
+    .rbx-title { font-size: clamp(2.3rem, 4.6vw, 4.2rem); }
+    .rbx-by { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 0.84rem; font-weight: 600; color: var(--muted); }
+    .rbx-by :global(.rbx-mark) { color: var(--text-2); }
+    .rbx-pitch { margin: 0; max-width: 54ch; font-size: 1.06rem; color: var(--text-2); }
+    .rbx-cta { display: flex; flex-wrap: wrap; gap: 10px; }
+    .rbx-tags { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0; padding: 0; list-style: none; }
+    .rbx-tags li { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: var(--text-2); }
+    .rbx-tags img { width: 18px; height: 18px; }
+    .rbx-live { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0; }
+    .rbx-live div { padding: 9px 12px; background: rgba(4, 7, 18, 0.65); border: 1px solid var(--line); border-radius: 12px; }
+    .rbx-live dt { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .rbx-live dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; line-height: 1; }
+
+    /* ---- media: stage + thumbnail row */
+    .rbx-media { display: grid; gap: 10px; min-width: 0; }
+    .rbx-stage { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #03050c; border: 1px solid var(--line-2); border-radius: 16px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.5); }
+    .rbx-stage :global(.stage-img), .rbx-stage :global(iframe), .stage-video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+    .rbx-stage :global(.stage-video) { position: absolute; inset: 0; display: grid; place-items: center; padding: 0; background: none; border: 0; cursor: pointer; }
+    .rbx-stage :global(.stage-video img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease), filter 0.3s; }
+    .rbx-stage :global(.stage-video:hover img) { transform: scale(1.02); filter: brightness(0.85); }
+    .rbx-stage :global(.play-disc) { position: relative; z-index: 2; display: grid; place-items: center; width: clamp(64px, 9vw, 92px); aspect-ratio: 1; color: #fff; background: rgba(8, 12, 26, 0.55); border: 2px solid rgba(255, 255, 255, 0.85); border-radius: 50%; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); transition: transform 0.2s var(--spring), background 0.2s; }
+    .rbx-stage :global(.play-disc svg) { width: 44%; margin-left: 6%; }
+    .rbx-stage :global(.stage-video:hover .play-disc) { transform: scale(1.08); background: #10a95c; border-color: #fff; }
+    .rbx-stage :global(.stage-label) { position: absolute; left: 16px; bottom: 14px; z-index: 2; display: grid; gap: 1px; text-align: left; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
+    .rbx-stage :global(.stage-label b) { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
+    .rbx-stage :global(.stage-label span) { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan-2); }
+
+    .stage-soon { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(70% 80% at 50% 45%, color-mix(in srgb, var(--bio-glow) 34%, transparent), transparent 70%), linear-gradient(180deg, var(--bio-sky), #040712 88%); }
+    .stage-soon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 5, 12, 0.15), rgba(3, 5, 12, 0.35) 55%, rgba(3, 5, 12, 0.85)); pointer-events: none; }
+    /* The bottom fifth stays clear for the label. */
+    .soon-cards { position: absolute; inset: 6% 0 21%; display: flex; justify-content: center; align-items: center; }
+    .soon-cards :global(.card) { height: 100%; width: auto; margin: 0 -3%; pointer-events: none; }
+    .soon-cards :global(.card:nth-child(1)) { transform: rotate(-10deg) translateY(6%) scale(0.86); }
+    .soon-cards :global(.card:nth-child(2)) { z-index: 2; }
+    .soon-cards :global(.card:nth-child(3)) { transform: rotate(10deg) translateY(6%) scale(0.86); }
+    .play-disc.is-off { z-index: 3; opacity: 0.92; }
+
+    .rbx-thumbs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .rbx-thumbs :global(.thumb) { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; padding: 0; background: #070b1a; border: 1px solid var(--line-2); border-radius: 10px; cursor: pointer; transition: transform 0.15s var(--ease), border-color 0.15s, box-shadow 0.15s; }
+    .rbx-thumbs :global(.thumb img:not(.animal-art)) { width: 100%; height: 100%; object-fit: cover; }
+    .rbx-thumbs :global(button.thumb:hover) { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.5); }
+    .rbx-thumbs :global(.thumb[aria-pressed="true"]) { border-color: #fff; box-shadow: 0 0 0 2px #fff; }
+    .rbx-thumbs :global(.thumb-play) { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; background: rgba(0, 0, 0, 0.25); }
+    .rbx-thumbs :global(.thumb-play svg) { width: 30%; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)); }
+    .thumb.soon { cursor: default; background: radial-gradient(80% 100% at 50% 100%, color-mix(in srgb, var(--bio-glow) 40%, transparent), transparent 70%), linear-gradient(180deg, var(--bio-sky), #060a18); border-style: dashed; }
+    .soon-art { position: absolute; inset: 8% 4% 30%; display: grid; place-items: center; container-type: size; opacity: 0.9; }
+    .soon-art :global(.animal-art) { --fit: 0.9; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6)); }
+    .soon-text { position: absolute; left: 8px; right: 8px; bottom: 6px; display: flex; flex-direction: column; line-height: 1.1; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .soon-text b { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.04em; color: #fff; }
+
+    /* ---- connect */
+    .rbx-connect { --trim: #fff; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(16px, 3vw, 36px); padding: clamp(18px, 2.4vw, 28px); }
+    .cn-art { display: flex; align-items: center; gap: 10px; }
+    .cn-tile { display: grid; place-items: center; width: 72px; height: 72px; background: linear-gradient(160deg, #1a2750, #070b1a); border: 1px solid var(--line-2); border-radius: 18px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+    .cn-tile img { width: 52px; height: 52px; }
+    .cn-rbx { color: #fff; background: linear-gradient(160deg, #3a3d44, #0d0e10); }
+    .cn-link { display: flex; gap: 5px; }
+    .cn-link i { width: 6px; height: 6px; border-radius: 50%; background: var(--line-2); }
+    .rbx-connect[data-state="linked"] .cn-link i { background: var(--green); box-shadow: 0 0 8px var(--green); }
+    .cn-copy { display: grid; gap: 8px; }
+    .cn-copy p { margin: 0; max-width: 62ch; color: var(--text-2); font-size: 0.92rem; }
+    .cn-points { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 2px 0 0; padding: 0; list-style: none; }
+    .cn-points li { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
+    .cn-points img { width: 20px; height: 20px; }
+    .cn-action { display: grid; justify-items: center; gap: 8px; min-width: 250px; }
+    .cn-action .btn { width: 100%; }
+    .cn-note { margin: 0; max-width: 30ch; text-align: center; font-size: 0.78rem; color: var(--muted); }
+    .cn-note :global(a) { color: var(--cyan-2); text-decoration: underline; text-underline-offset: 3px; }
+    .rbx-connect[data-state="loading"] [data-cn-btn] { opacity: 0.6; }
+
+    /* ---- features */
+    .feat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .feat { padding: 16px; background: linear-gradient(180deg, rgba(24, 36, 76, 0.7), rgba(10, 16, 36, 0.8)); border: 1px solid var(--line); border-radius: 14px; transition: border-color 0.2s, transform 0.2s var(--ease); }
+    .feat:hover { border-color: var(--line-2); transform: translateY(-2px); }
+    .feat h3 { margin: 10px 0 6px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; }
+    .feat p { margin: 0; font-size: 0.87rem; color: var(--text-2); }
+    .feat.wide { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px; }
+    .feat.wide h3 { margin-top: 0; }
+
+    /* ---- leaderboards */
+    .boards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .board ol { margin: 0; padding: 8px 12px 12px; list-style: none; display: grid; gap: 4px; }
+    .board .panel-title { font-size: 1.05rem; }
+    .board :global(li) { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 5px 6px; font-size: 0.86rem; border-radius: 8px; }
+    .board :global(li:nth-child(odd)) { background: rgba(255, 255, 255, 0.03); }
+    .board :global(.lb-rank) { font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; text-align: center; color: var(--muted); }
+    .board :global(li:nth-child(1) .lb-rank) { color: var(--gold); }
+    .board :global(li:nth-child(2) .lb-rank) { color: #d8e0f5; }
+    .board :global(li:nth-child(3) .lb-rank) { color: #e59a5b; }
+    .board :global(.lb-name) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+    .board :global(li.is-empty .lb-name i) { display: block; height: 8px; width: 70%; border-radius: 4px; background: rgba(255, 255, 255, 0.08); }
+    .board :global(li b) { font-family: var(--font-display); font-size: 1.05rem; font-variant-numeric: tabular-nums; color: var(--gold-2); }
+    .board :global(li.is-empty b) { color: var(--dim); }
+
+    /* ---- faq + legal */
+    .faq-wrap .rbx-h2 { margin-bottom: 12px; }
+    .faq { padding: 4px 18px; }
+    .rbx-legal { display: flex; align-items: flex-start; justify-content: center; gap: 6px; margin: 0; font-size: 0.72rem; color: var(--dim); text-align: center; }
+    .rbx-legal :global(.rbx-mark) { flex: none; margin-top: 3px; }
+
+    @media (max-width: 1100px) {
+        .boards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .rbx-connect { grid-template-columns: minmax(0, 1fr) auto; }
+        .cn-art { display: none; }
     }
     @media (max-width: 900px) {
-        .rbx { grid-template-columns: 1fr; height: auto; min-height: 100%; }
-        .fan-cards { height: 170px; max-width: 360px; }
-        .fan-cards :global(.card) { width: 112px; }
-        .feat-grid { grid-template-columns: 1fr; }
+        .rbx-hero { grid-template-columns: minmax(0, 1fr); }
+        .rbx-live { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .rbx-connect { grid-template-columns: minmax(0, 1fr); }
+        .cn-action { min-width: 0; justify-items: stretch; }
+        .cn-note { max-width: none; }
+    }
+    @media (max-width: 600px) {
+        .rbx-icon { width: 72px; height: 72px; border-radius: 18px; }
+        .rbx-icon img { width: 62px; height: 62px; }
+        .rbx-cta .btn { flex: 1 1 100%; }
+        .rbx-stage :global(.stage-label) { left: 12px; bottom: 8px; }
+        .rbx-stage :global(.stage-label b) { font-size: 1rem; }
+        .rbx-stage :global(.stage-label span) { font-size: 0.6rem; }
+        .rbx-thumbs { gap: 6px; }
+        .soon-text { font-size: 0; }
+        .soon-text b { font-size: 0.72rem; }
+        .feat-grid { grid-template-columns: minmax(0, 1fr); }
+        .boards { gap: 8px; }
+        .board .panel-head { padding: 10px 10px 8px; gap: 6px; }
+        .board .panel-title { font-size: 0.86rem; }
+        .board ol { padding: 6px 6px 8px; }
+        .board :global(li) { grid-template-columns: 16px minmax(0, 1fr) auto; gap: 5px; padding: 4px; font-size: 0.78rem; }
+        .feat.wide { grid-template-columns: auto minmax(0, 1fr); }
+        .feat.wide .btn { grid-column: 1 / -1; }
     }
 </style>

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import HoloCard from '../components/HoloCard.astro';
 import AnimalImage from '../components/AnimalImage.astro';
+import RobloxMark from '../components/RobloxMark.astro';
 import { animals, researchedCount, sourceCount, fmtScore } from '../lib/catalog.js';
 import { PAIRS } from '../lib/matchups.js';
 import { SITE, ROBLOX, absoluteUrl } from '../lib/site.js';
@@ -102,10 +103,10 @@ const jsonLd = [
                     </span>
                 </a>
                 <a class="tile panel hot roblox" href="/roblox">
-                    <span class="tile-k"><Icon name="cards" size={22} />{ROBLOX.live ? 'Live on Roblox' : 'Coming to Roblox'}</span>
+                    <span class="tile-k"><RobloxMark size={16} />{ROBLOX.live ? 'Live on Roblox' : 'Coming to Roblox'}</span>
                     <strong>Collect all 225 as holo-cards</strong>
                     <small>Battle them in a 3D world, run the goofy crowd fights and climb the leaderboards.</small>
-                    <span class="btn btn-white btn-sm">{ROBLOX.live ? 'Play free' : 'See the game'}</span>
+                    <span class={`btn btn-sm ${ROBLOX.live ? 'btn-play' : 'btn-white'}`}><RobloxMark size={18} />{ROBLOX.live ? 'Play free' : 'See the game'}</span>
                 </a>
             </div>
 

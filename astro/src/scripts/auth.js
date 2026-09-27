@@ -24,22 +24,28 @@ function show(message, error = false) {
     note.hidden = !message;
 }
 
-// Carry ?returnTo across the log in / sign up tabs and into Google sign-in.
+// Carry ?returnTo across the log in / sign up tabs and into Roblox and Google sign-in.
 if (returnTo !== '/') {
     root.querySelectorAll('[data-keep-return]').forEach((link) => { link.href = `${link.getAttribute('href')}?returnTo=${encodeURIComponent(returnTo)}`; });
 }
-const google = root.querySelector('[data-google]');
-if (google) {
-    google.href = `/api/auth?action=google-start&returnTo=${encodeURIComponent(returnTo)}`;
-    // Offer Google only once the server confirms it is configured.
+const providerRow = root.querySelector('[data-providers-row]');
+if (providerRow) {
+    const buttons = { google: root.querySelector('[data-google]'), roblox: root.querySelector('[data-roblox]') };
+    buttons.google.href = `/api/auth?action=google-start&returnTo=${encodeURIComponent(returnTo)}`;
+    buttons.roblox.href = `/api/auth?action=roblox-start&returnTo=${encodeURIComponent(returnTo)}`;
+    // Offer each provider only once the server confirms it is configured.
     fetch('/api/auth?action=providers', { headers: { Accept: 'application/json' } })
         .then((response) => (response.ok ? response.json() : null))
-        .then((body) => { if (body?.data?.google) root.querySelector('[data-google-row]').hidden = false; })
+        .then((body) => {
+            Object.entries(buttons).forEach(([name, button]) => { button.hidden = !body?.data?.[name]; });
+            providerRow.hidden = !body?.data?.google && !body?.data?.roblox;
+        })
         .catch(() => {});
 }
 
 if (params.get('verified') === '1') show('Email verified. You can log in now.');
 if (params.get('google_error')) show(params.get('message') || 'Google sign-in failed. Please try again.', true);
+if (params.get('roblox_error')) show(params.get('message') || 'Roblox sign-in failed. Please try again.', true);
 if (mode === 'reset' && (!params.get('email') || !params.get('token'))) {
     show('This reset link is incomplete. Request a new one from the forgot password page.', true);
 }

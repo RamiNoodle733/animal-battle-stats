@@ -317,6 +317,8 @@ body.game {
     .dock a img { width: 30px; height: 30px; transition: transform 0.2s var(--spring); }
     .dock a[aria-current="page"] { color: #fff; }
     .dock a[aria-current="page"] img { transform: translateY(-3px) scale(1.12); filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.55)); }
+    .dock a .dock-mark { width: 26px; height: 26px; margin: 2px 0; color: var(--text-2); transition: transform 0.2s var(--spring); }
+    .dock a[aria-current="page"] .dock-mark { color: #fff; transform: translateY(-3px) scale(1.12); filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.55)); }
 }
 
 /* Settings/more sheet */
@@ -340,6 +342,7 @@ body.game {
 .sheet nav a { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; font-weight: 700; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); }
 .sheet nav a:hover { border-color: var(--line-2); background: rgba(255, 255, 255, 0.06); }
 .sheet nav a img { width: 26px; height: 26px; }
+.sheet .sheet-mark { flex: none; display: grid; place-items: center; width: 26px; height: 26px; }
 .sheet .socials { display: flex; flex-wrap: wrap; gap: 6px; }
 .sheet .fine { margin-top: 18px; font-size: 0.78rem; color: var(--dim); }
 
@@ -473,6 +476,12 @@ body.game {
 .btn-sm { min-height: 36px; padding: 0 14px; font-size: 0.92rem; }
 .btn-lg { min-height: 54px; padding: 0 28px; font-size: 1.3rem; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+/* Roblox: the green Play button and the black Roblox sign-in button. */
+.btn-play { --c1: #3be58f; --c2: #10a95c; --edge: #07703b; --fg: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3); }
+.btn-roblox { --c1: #33363c; --c2: #121316; --edge: #000; --fg: #fff; }
+.btn .rbx-mark { flex: none; width: 20px; height: 20px; }
+.btn-lg .rbx-mark { width: 24px; height: 24px; }
+.btn[aria-disabled="true"] { opacity: 0.55; filter: none; transform: none; cursor: default; pointer-events: none; }
 
 .chip {
     display: inline-flex; align-items: center; gap: 5px;

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import RobloxMark from '../components/RobloxMark.astro';
 import { PAIRS } from '../lib/matchups.js';
 import { SITE, ROBLOX, SOCIAL, absoluteUrl } from '../lib/site.js';
 
@@ -20,7 +21,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
             <button type="button" aria-selected="true" data-hub-tab="talk"><Icon name="friends" size={22} />Talk</button>
             <button type="button" aria-selected="false" data-hub-tab="trending"><Icon name="fire" size={22} />Trending</button>
             <button type="button" aria-selected="false" data-hub-tab="players"><Icon name="medal" size={22} />Players</button>
-            <button type="button" aria-selected="false" data-hub-tab="roblox"><Icon name="cards" size={22} />Roblox</button>
+            <button type="button" aria-selected="false" data-hub-tab="roblox"><RobloxMark size={18} />Roblox</button>
         </nav>
 
         <section class="panel talk" data-col="talk" aria-labelledby="talk-title">
@@ -87,7 +88,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
 
         <aside class="side" data-col="roblox">
             <section class="panel hot rbx-panel">
-                <div class="panel-head"><Icon name="cards" size={28} /><h2 class="panel-title">Roblox game</h2><span class="aside" data-rbx-status>{ROBLOX.live ? 'Live' : 'Coming soon'}</span></div>
+                <div class="panel-head"><span class="rbx-tile"><RobloxMark size={18} /></span><h2 class="panel-title">Roblox game</h2><span class="aside" data-rbx-status>{ROBLOX.live ? 'Live' : 'Coming soon'}</span></div>
                 <div class="panel-body">
                     <div class="rbx-stats" data-rbx-stats hidden>
                         <div><b data-rs="playing">–</b><span>Playing</span></div>
@@ -102,7 +103,9 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                         ))}
                     </ul>
                     <div class="btn-row">
-                        <a class="btn btn-white btn-sm" href="/roblox"><Icon name="cards" size={22} />The game</a>
+                        {ROBLOX.live
+                            ? <a class="btn btn-play btn-sm" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={18} />Play</a>
+                            : <a class="btn btn-white btn-sm" href="/roblox"><RobloxMark size={18} />The game</a>}
                         {discord && <a class="btn btn-sm" href={discord.url} rel="noopener" target="_blank">Discord</a>}
                     </div>
                 </div>
@@ -140,6 +143,8 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .match-chips .chip:hover { border-color: var(--orange); color: var(--orange-2); }
     .side { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 12px; min-height: 0; }
     .rbx-panel { min-height: 0; }
+    .rbx-tile { flex: none; display: grid; place-items: center; width: 30px; height: 30px; color: #fff; background: linear-gradient(160deg, #3a3d44, #0d0e10); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; }
+    .hub-tabs :global(.rbx-mark) { width: 18px; height: 18px; }
     .rbx-panel .panel-body { overflow-y: auto; }
     .rbx-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
     .big-nums { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }

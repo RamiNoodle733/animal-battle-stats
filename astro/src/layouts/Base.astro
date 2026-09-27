@@ -5,6 +5,7 @@ import '../styles/abs.css';
 import packageJson from '../../../package.json';
 import Arena from '../components/Arena.astro';
 import Icon from '../components/Icon.astro';
+import RobloxMark from '../components/RobloxMark.astro';
 import { SITE, SOCIAL, ROBLOX, absoluteUrl } from '../lib/site.js';
 
 const {
@@ -33,7 +34,7 @@ const MENU = [
     { key: 'tournament', href: '/tournament', label: 'Tourney', icon: 'trophy' },
     { key: 'community', href: '/community', label: 'Community', icon: 'friends' }
 ];
-const DOCK = [MENU[0], MENU[1], MENU[2], MENU[5], { key: 'roblox', href: '/roblox', label: 'Roblox', icon: 'cards' }];
+const DOCK = [MENU[0], MENU[1], MENU[2], MENU[5], { key: 'roblox', href: '/roblox', label: 'Roblox', roblox: true }];
 const graph = [
     {
         '@type': 'Organization',
@@ -126,9 +127,9 @@ const year = new Date().getFullYear();
                 <button class="hud-btn" type="button" data-sound-toggle aria-label="Sound effects" aria-pressed="true">
                     <Icon name="roar" size={26} />
                 </button>
-                <a class="btn btn-white btn-sm play-btn" href="/roblox" aria-current={active === 'roblox' ? 'page' : undefined}>
-                    <Icon name="cards" size={26} /><span>Play<span class="long"> on Roblox</span></span>
-                </a>
+                {ROBLOX.live
+                    ? <a class="btn btn-play btn-sm play-btn" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={20} /><span>Play<span class="long"> on Roblox</span></span></a>
+                    : <a class="btn btn-white btn-sm play-btn" href="/roblox" aria-current={active === 'roblox' ? 'page' : undefined}><RobloxMark size={20} /><span>Roblox<span class="long"> game</span></span></a>}
                 <a class="player-chip" href="/login" data-player-chip><span class="lvl">?</span><span class="who">Log in</span></a>
                 <button class="hud-btn" type="button" data-sheet-toggle aria-expanded="false" aria-controls="more-sheet" aria-label="Menu">
                     <Icon name="gear" size={26} />
@@ -143,7 +144,7 @@ const year = new Date().getFullYear();
         <nav class="dock" aria-label="Quick">
             {DOCK.map((item) => (
                 <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>
-                    <Icon name={item.icon} size={30} />
+                    {item.roblox ? <RobloxMark size={26} class="dock-mark" /> : <Icon name={item.icon} size={30} />}
                     <span>{item.label}</span>
                 </a>
             ))}
@@ -154,7 +155,7 @@ const year = new Date().getFullYear();
             <nav aria-label="All pages">
                 <a href="/"><Icon name="home" size={26} />Home</a>
                 {MENU.map((item) => <a href={item.href}><Icon name={item.icon} size={26} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label === 'Tourney' ? 'Tournament' : item.label}</a>)}
-                <a href="/roblox"><Icon name="cards" size={26} />{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
+                <a href="/roblox"><span class="sheet-mark"><RobloxMark size={18} /></span>{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
                 <a href="/about"><Icon name="book" size={26} />About &amp; how ratings work</a>
                 <a href="/credits"><Icon name="scroll" size={26} />Sources &amp; photo credits</a>
                 <a href="/llms.txt"><Icon name="bolt" size={26} />Data for AI assistants</a>
@@ -162,7 +163,7 @@ const year = new Date().getFullYear();
             <div class="socials">
                 {SOCIAL.map((item) => <a class="chip" href={item.url} rel="me noopener" target="_blank">{item.name}</a>)}
             </div>
-            <p class="fine">© {year} {SITE.name} · v{version}<br />Hypothetical matchups for fun and learning. Never approach wild animals.</p>
+            <p class="fine">© {year} {SITE.name} · v{version}<br />Hypothetical matchups for fun and learning. Never approach wild animals.<br />Roblox is a trademark of Roblox Corporation. This site is not affiliated with or endorsed by Roblox.</p>
         </aside>
 
         <dialog class="search-dialog" id="search-dialog" aria-label="Search animals">

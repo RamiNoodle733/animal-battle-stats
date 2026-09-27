@@ -53,3 +53,18 @@ The site reads these OrderedDataStores, scope `global`, top 10 by value:
 Each entry's key must be the player's numeric `UserId` (as a string) and
 its value a whole number. The site shows only Roblox display names, never
 user ids or avatars. The game writes these stores in that format (LeaderboardService).
+
+## Trailer and screenshots on /roblox
+
+`data/roblox-game.json` also holds `trailer` (`youtubeId`, optional `poster`) and
+`screenshots` (`[{ "src", "alt" }]`, 16:9 files in `images/roblox/`). Until they are
+filled in, the page shows a "trailer drops at launch" placeholder and island tiles;
+once `status` is `"live"` and no screenshots are set, it uses the game's own
+screenshots from its Roblox page.
+
+## Roblox accounts on the site
+
+Players can connect their Roblox account (Roblox OAuth, see DEPLOYMENT.md). A
+linked account's profile shows the player's value on each `ABS_LB_*` store above,
+read by UserId through Open Cloud, so those stores double as the per-player stats
+the site shows. Nothing is needed in the game for this.

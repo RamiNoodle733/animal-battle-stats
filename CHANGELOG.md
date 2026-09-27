@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Rebuilt the Roblox game page as the game's official page: Play on Roblox, a trailer player and screenshot row (placeholders until `data/roblox-game.json` has a trailer and screenshots), live player numbers, the game's global leaderboards and a FAQ.
+- Added Roblox sign-in: Continue with Roblox on log in and sign up, and Connect Roblox on the Roblox page and a new Roblox tab on the profile, which shows the player's Roblox name, avatar and in-game stats. OAuth 2.0 with PKCE; switched on by `ROBLOX_CLIENT_ID` and `ROBLOX_CLIENT_SECRET`.
+- The Roblox logo now marks the Play and sign-in buttons, the header, the mobile dock and the Community panel, with a trademark notice.
+
 ## 3.1.0 — 2026-09-24
 
 - Replaced 216 animal images with real photographs of adult animals from Wikimedia Commons, cut out and credited (photographer and license on `/credits` and each animal's Sources tab). Image URLs carry a content hash so replacements reach every visitor.

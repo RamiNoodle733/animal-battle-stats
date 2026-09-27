@@ -12,6 +12,11 @@
  * GET /api/auth?action=google-callback - Complete Google OAuth sign in
  * GET /api/auth?action=link-google - Begin linking Google to the current user
  * POST /api/auth?action=unlink-google - Unlink Google from the current user
+ * GET /api/auth?action=roblox-start - Begin Roblox OAuth sign in (PKCE)
+ * GET /api/auth?action=roblox-callback - Complete Roblox OAuth sign in or linking
+ * GET /api/auth?action=link-roblox - Begin linking Roblox to the current user
+ * POST /api/auth?action=unlink-roblox - Unlink Roblox from the current user
+ * GET /api/auth?action=roblox-player - The current user's linked Roblox account and in-game stats
  * GET/PUT /api/auth?action=notification-preferences - Manage email notification settings
  * GET /api/auth?action=unsubscribe - Public signed-token email unsubscribe
  */
@@ -21,7 +26,8 @@ const User = require('../lib/models/User');
 const Animal = require('../lib/models/Animal');
 const crypto = require('crypto');
 const { notifyDiscord } = require('../lib/discord');
-const { verifyToken, signToken } = require('../lib/auth');
+const { verifyToken, signToken, verifyPurposeToken } = require('../lib/auth');
+const { robloxPlayerCard } = require('../lib/roblox-game');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
 const { consumeRateLimit, clearRateLimit, clientAddress } = require('../lib/distributed-rate-limit');
@@ -45,12 +51,21 @@ const RESET_TOKEN_MINUTES = 60;
 const LOGIN_LIMIT = { windowMs: 15 * 60 * 1000, ipMax: 30, identifierMax: 6 };
 const SIGNUP_LIMIT = { windowMs: 60 * 60 * 1000, ipMax: 10, identifierMax: 5 };
 const GENERIC_AUTH_ERROR = 'Unable to complete this request. Please check your details and try again later.';
-const INVALID_LOGIN_ERROR = 'Invalid credentials. If you use Google sign-in, continue with Google.';
+const INVALID_LOGIN_ERROR = 'Invalid credentials. If you use Google sign-in or Roblox sign-in, continue with that button.';
 const GOOGLE_PROVIDER = 'google';
 const GOOGLE_OAUTH_SCOPES = ['openid', 'email', 'profile'];
 const GOOGLE_STATE_COOKIE = 'abs_google_oauth_state';
 const GOOGLE_STATE_MAX_AGE_SECONDS = 10 * 60;
 const GOOGLE_AUTO_LINK_VERIFIED_EMAILS = process.env.GOOGLE_AUTO_LINK_VERIFIED_EMAILS === 'true';
+const ROBLOX_PROVIDER = 'roblox';
+const ROBLOX_OAUTH_SCOPES = ['openid', 'profile'];
+const ROBLOX_STATE_COOKIE = 'abs_roblox_oauth';
+const ROBLOX_STATE_MAX_AGE_SECONDS = 10 * 60;
+const ROBLOX_OAUTH_BASE = 'https://apis.roblox.com/oauth/v1';
+// Roblox never shares an email address. Accounts created by Roblox sign-in get a
+// unique address on the reserved .invalid TLD (RFC 2606), so nothing can ever be
+// delivered to it; the API reports these accounts as having no email.
+const NO_EMAIL_DOMAIN = 'no-email.invalid';
 
 function normalizeIdentifier(value) {
     return String(value || '').trim().toLowerCase();
@@ -210,21 +225,41 @@ function isValidEmail(value) {
         && /^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(value);
 }
 
+function hasRealEmail(user) {
+    return Boolean(user?.email) && !String(user.email).endsWith(`@${NO_EMAIL_DOMAIN}`);
+}
+
+function robloxAccountPayload(user) {
+    const account = user?.roblox;
+    if (!account?.userId) return null;
+    return {
+        userId: account.userId,
+        username: account.username || null,
+        displayName: account.displayName || account.username || null,
+        profileUrl: `https://www.roblox.com/users/${account.userId}/profile`,
+        linkedAt: account.linkedAt || null
+    };
+}
+
 function buildUserPayload(user) {
     const authProviders = (user.authProviders || []).map((provider) => ({
         provider: provider.provider,
         email: provider.email,
         linkedAt: provider.linkedAt
     }));
+    const roblox = robloxAccountPayload(user);
 
     return {
         id: user._id,
         username: user.username,
-        email: user.email,
+        email: hasRealEmail(user) ? user.email : null,
+        hasEmail: hasRealEmail(user),
         emailVerified: Boolean(user.emailVerified),
         emailNotifications: normalizeNotificationPreferences(user.emailNotifications || {}),
         authProviders,
         googleLinked: authProviders.some((provider) => provider.provider === GOOGLE_PROVIDER),
+        robloxLinked: Boolean(roblox),
+        roblox,
         displayName: user.displayName,
         avatar: user.avatar,
         role: user.role,
@@ -268,7 +303,7 @@ module.exports = async function handler(req, res) {
     if (action === 'providers') {
         if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
         res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
-        return res.status(200).json({ success: true, data: { google: Boolean(getGoogleConfig(req)) } });
+        return res.status(200).json({ success: true, data: { google: Boolean(getGoogleConfig(req)), roblox: Boolean(getRobloxConfig(req)) } });
     }
 
     try {
@@ -310,6 +345,36 @@ module.exports = async function handler(req, res) {
                     return res.status(405).json({ success: false, error: 'Method not allowed' });
                 }
                 return await handleUnlinkGoogle(req, res);
+
+            case 'roblox-start':
+                if (req.method !== 'GET') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return handleRobloxStart(req, res, 'login');
+
+            case 'link-roblox':
+                if (req.method !== 'GET') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return handleRobloxStart(req, res, 'link');
+
+            case 'roblox-callback':
+                if (req.method !== 'GET') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleRobloxCallback(req, res);
+
+            case 'unlink-roblox':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleUnlinkRoblox(req, res);
+
+            case 'roblox-player':
+                if (req.method !== 'GET') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleRobloxPlayer(req, res);
 
             case 'verify-email':
                 if (req.method !== 'GET' && req.method !== 'POST') {
@@ -448,14 +513,20 @@ function addOrUpdateGoogleProvider(user, googleProfile) {
     });
 }
 
-async function buildUniqueUsername(googleProfile) {
+function googleUsernameBase(googleProfile) {
     const emailPrefix = String(googleProfile.email || '').split('@')[0];
     const namePrefix = String(googleProfile.name || '').replace(/[^a-zA-Z0-9_]/g, '').slice(0, 20);
-    const base = (emailPrefix || namePrefix || 'google_user')
+    return emailPrefix || namePrefix;
+}
+
+// A free username close to `preferred`; `prefix` names the fallbacks (google_user, google_1a2b...).
+async function buildUniqueUsername(preferred, prefix = 'google') {
+    const fallback = `${prefix}_user`;
+    const base = String(preferred || fallback)
         .replace(/[^a-zA-Z0-9_]/g, '_')
         .replace(/_+/g, '_')
         .replace(/^_+|_+$/g, '')
-        .slice(0, 16) || 'google_user';
+        .slice(0, 16) || fallback;
     const normalizedBase = base.length >= 3 ? base : `${base}_abs`;
 
     for (let index = 0; index < 50; index += 1) {
@@ -465,7 +536,7 @@ async function buildUniqueUsername(googleProfile) {
         if (!exists) return candidate;
     }
 
-    return `google_${crypto.randomBytes(5).toString('hex')}`.slice(0, 20);
+    return `${prefix}_${crypto.randomBytes(5).toString('hex')}`.slice(0, 20);
 }
 
 async function fetchGoogleProfile(req, code) {
@@ -606,6 +677,10 @@ async function handleGoogleCallback(req, res) {
             }
 
             addOrUpdateGoogleProvider(currentUser, googleProfile);
+            // Accounts made by Roblox sign-in have no email; adopt Google's verified one if it is free.
+            if (!hasRealEmail(currentUser) && !await User.exists({ email: googleProfile.email, _id: { $ne: currentUser._id } })) {
+                currentUser.email = googleProfile.email;
+            }
             if (currentUser.email === googleProfile.email) currentUser.emailVerified = true;
             await currentUser.save();
 
@@ -643,7 +718,7 @@ async function handleGoogleCallback(req, res) {
             );
         }
 
-        const username = await buildUniqueUsername(googleProfile);
+        const username = await buildUniqueUsername(googleUsernameBase(googleProfile), 'google');
         const user = new User({
             username,
             email: googleProfile.email,
@@ -699,6 +774,307 @@ async function handleUnlinkGoogle(req, res) {
         success: true,
         message: 'Google account unlinked.',
         data: { user: buildUserPayload(user) }
+    });
+}
+
+// ==================== ROBLOX SIGN-IN ====================
+// Authorization code flow with PKCE and the client secret. The code verifier,
+// nonce and mode live in a short-lived signed HttpOnly cookie scoped to this API;
+// Roblox only ever sees the nonce (as `state`) and the S256 challenge.
+
+function getRobloxConfig(req) {
+    const clientId = process.env.ROBLOX_CLIENT_ID;
+    const clientSecret = process.env.ROBLOX_CLIENT_SECRET;
+    const redirectUri = process.env.ROBLOX_REDIRECT_URI || `${getBaseUrl(req)}/api/auth?action=roblox-callback`;
+
+    if (!clientId || !clientSecret) {
+        return null;
+    }
+
+    return { clientId, clientSecret, redirectUri };
+}
+
+function setRobloxStateCookie(res, value) {
+    const secure = process.env.NODE_ENV === 'production' ? '; Secure' : '';
+    appendSetCookie(res, `${ROBLOX_STATE_COOKIE}=${encodeURIComponent(value)}; Max-Age=${ROBLOX_STATE_MAX_AGE_SECONDS}; Path=/api/auth; HttpOnly; SameSite=Lax${secure}`);
+}
+
+function clearRobloxStateCookie(res) {
+    const secure = process.env.NODE_ENV === 'production' ? '; Secure' : '';
+    appendSetCookie(res, `${ROBLOX_STATE_COOKIE}=; Max-Age=0; Path=/api/auth; HttpOnly; SameSite=Lax${secure}`);
+}
+
+function sameSecret(a, b) {
+    const left = Buffer.from(String(a || ''));
+    const right = Buffer.from(String(b || ''));
+    return left.length > 0 && left.length === right.length && crypto.timingSafeEqual(left, right);
+}
+
+function robloxRedirect(req, res, mode, path, params) {
+    return redirectTo(res, buildRedirectUrl(req, path || (mode === 'link' ? '/profile' : '/login'), params));
+}
+
+function robloxErrorRedirect(req, res, state, code, message) {
+    const link = state?.mode === 'link';
+    return robloxRedirect(req, res, state?.mode, link ? '/profile' : '/login', {
+        roblox_error: code,
+        message,
+        tab: link ? 'roblox' : undefined
+    });
+}
+
+function handleRobloxStart(req, res, mode = 'login') {
+    const robloxConfig = getRobloxConfig(req);
+    const returnTo = getSafeReturnPath(req.query.returnTo);
+
+    if (!robloxConfig) {
+        return robloxRedirect(req, res, mode, null, {
+            roblox_error: 'not_configured',
+            message: 'Roblox sign-in is not switched on yet.',
+            tab: mode === 'link' ? 'roblox' : undefined
+        });
+    }
+
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (mode === 'link' && !authUser) {
+        return redirectTo(res, buildRedirectUrl(req, '/login', {
+            roblox_error: 'login_required',
+            message: 'Log in before connecting a Roblox account.',
+            returnTo: returnTo === '/' ? '/profile?tab=roblox' : returnTo
+        }));
+    }
+
+    const nonce = crypto.randomBytes(24).toString('hex');
+    const verifier = crypto.randomBytes(32).toString('base64url');
+    const challenge = crypto.createHash('sha256').update(verifier).digest('base64url');
+    setRobloxStateCookie(res, signToken({
+        purpose: 'roblox-oauth',
+        nonce,
+        verifier,
+        mode,
+        returnTo: mode === 'link' && returnTo === '/' ? '/profile?tab=roblox' : returnTo,
+        linkUserId: mode === 'link' ? String(authUser.id) : null
+    }, { expiresIn: ROBLOX_STATE_MAX_AGE_SECONDS }));
+
+    const authUrl = new URL(`${ROBLOX_OAUTH_BASE}/authorize`);
+    authUrl.searchParams.set('client_id', robloxConfig.clientId);
+    authUrl.searchParams.set('redirect_uri', robloxConfig.redirectUri);
+    authUrl.searchParams.set('scope', ROBLOX_OAUTH_SCOPES.join(' '));
+    authUrl.searchParams.set('response_type', 'code');
+    authUrl.searchParams.set('state', nonce);
+    authUrl.searchParams.set('code_challenge', challenge);
+    authUrl.searchParams.set('code_challenge_method', 'S256');
+
+    return redirectTo(res, authUrl.toString());
+}
+
+async function fetchRobloxProfile(req, code, verifier) {
+    const robloxConfig = getRobloxConfig(req);
+    if (!robloxConfig) {
+        throw new Error('Roblox OAuth is not configured.');
+    }
+
+    const tokenResponse = await fetch(`${ROBLOX_OAUTH_BASE}/token`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' },
+        body: new URLSearchParams({
+            grant_type: 'authorization_code',
+            code,
+            code_verifier: verifier,
+            client_id: robloxConfig.clientId,
+            client_secret: robloxConfig.clientSecret,
+            redirect_uri: robloxConfig.redirectUri
+        }),
+        signal: AbortSignal.timeout(8000)
+    });
+
+    if (!tokenResponse.ok) {
+        throw new Error(`Roblox token exchange failed (${tokenResponse.status}).`);
+    }
+
+    const tokenPayload = await tokenResponse.json();
+    if (!tokenPayload?.access_token) {
+        throw new Error('Roblox did not return an access token.');
+    }
+
+    const profileResponse = await fetch(`${ROBLOX_OAUTH_BASE}/userinfo`, {
+        headers: { Authorization: `Bearer ${tokenPayload.access_token}`, Accept: 'application/json' },
+        signal: AbortSignal.timeout(8000)
+    });
+
+    if (!profileResponse.ok) {
+        throw new Error(`Roblox profile fetch failed (${profileResponse.status}).`);
+    }
+
+    // sub is the Roblox user id; usernames and display names can change.
+    const profile = await profileResponse.json();
+    const sub = String(profile?.sub || '');
+    if (!/^\d{1,20}$/.test(sub)) {
+        throw new Error('Roblox did not return a user id.');
+    }
+
+    const username = String(profile.preferred_username || profile.name || '').slice(0, 40);
+    return {
+        sub,
+        username,
+        displayName: String(profile.nickname || username).slice(0, 40)
+    };
+}
+
+function applyRobloxLink(user, robloxProfile) {
+    if (!user.authProviders) user.authProviders = [];
+    const linkedAt = user.roblox?.userId === robloxProfile.sub ? user.roblox.linkedAt : new Date();
+
+    const linkedProvider = findLinkedProvider(user, ROBLOX_PROVIDER);
+    if (linkedProvider) {
+        linkedProvider.providerUserId = robloxProfile.sub;
+        linkedProvider.linkedAt = linkedAt;
+    } else {
+        user.authProviders.push({ provider: ROBLOX_PROVIDER, providerUserId: robloxProfile.sub, linkedAt });
+    }
+
+    user.roblox = {
+        userId: robloxProfile.sub,
+        username: robloxProfile.username,
+        displayName: robloxProfile.displayName,
+        linkedAt
+    };
+}
+
+async function handleRobloxCallback(req, res) {
+    const state = verifyPurposeToken(parseCookies(req)[ROBLOX_STATE_COOKIE], 'roblox-oauth');
+    clearRobloxStateCookie(res);
+
+    if (req.query.error) {
+        return robloxErrorRedirect(req, res, state, 'cancelled', 'Roblox sign-in was cancelled.');
+    }
+
+    if (!state || !sameSecret(req.query.state, state.nonce) || !req.query.code) {
+        return robloxErrorRedirect(req, res, state, 'invalid_state', 'Roblox sign-in expired. Please try again.');
+    }
+
+    try {
+        const robloxProfile = await fetchRobloxProfile(req, String(req.query.code), state.verifier);
+        const alreadyLinkedUser = await User.findOne({
+            authProviders: {
+                $elemMatch: {
+                    provider: ROBLOX_PROVIDER,
+                    providerUserId: robloxProfile.sub
+                }
+            }
+        });
+
+        if (state.mode === 'link') {
+            const authUser = getAuthenticatedUserFromRequest(req);
+            if (!authUser || String(authUser.id) !== String(state.linkUserId)) {
+                return robloxErrorRedirect(req, res, state, 'login_required', 'Log in before connecting a Roblox account.');
+            }
+
+            const currentUser = await User.findById(state.linkUserId);
+            if (!currentUser) {
+                return robloxErrorRedirect(req, res, state, 'login_required', 'Log in before connecting a Roblox account.');
+            }
+
+            if (alreadyLinkedUser && String(alreadyLinkedUser._id) !== String(currentUser._id)) {
+                return robloxErrorRedirect(req, res, state, 'already_linked', 'That Roblox account is already connected to another Animal Battle Stats account.');
+            }
+
+            applyRobloxLink(currentUser, robloxProfile);
+            await currentUser.save();
+            return redirectTo(res, buildRedirectUrl(req, getSafeReturnPath(state.returnTo), { roblox_linked: '1' }));
+        }
+
+        if (alreadyLinkedUser) {
+            applyRobloxLink(alreadyLinkedUser, robloxProfile);
+            alreadyLinkedUser.lastLogin = new Date();
+            await alreadyLinkedUser.save();
+            setAuthCookie(res, signSessionToken(alreadyLinkedUser));
+            await notifyDiscord('login', { username: alreadyLinkedUser.username }, req);
+            return redirectTo(res, buildRedirectUrl(req, getSafeReturnPath(state.returnTo)));
+        }
+
+        // First Roblox sign-in: a new account named after the Roblox player.
+        const preferred = validatePublicName(robloxProfile.username).valid ? robloxProfile.username : '';
+        const username = await buildUniqueUsername(preferred, 'roblox');
+        const displayName = validatePublicName(robloxProfile.displayName).valid ? robloxProfile.displayName : username;
+        const user = new User({
+            username,
+            email: `roblox-${robloxProfile.sub}@${NO_EMAIL_DOMAIN}`,
+            displayName: displayName.slice(0, 30),
+            emailVerified: false
+        });
+        applyRobloxLink(user, robloxProfile);
+
+        await user.save();
+        setAuthCookie(res, signSessionToken(user));
+        await notifyDiscord('signup', { username: user.username }, req);
+        return redirectTo(res, buildRedirectUrl(req, '/profile', { roblox_welcome: '1' }));
+    } catch (error) {
+        console.error('Roblox OAuth callback error:', error);
+        return robloxErrorRedirect(req, res, state, 'oauth_failed', 'Roblox sign-in failed. Please try again.');
+    }
+}
+
+async function handleUnlinkRoblox(req, res) {
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) {
+        return res.status(401).json({ success: false, error: 'Authentication required' });
+    }
+
+    const user = await User.findById(authUser.id).select('+password');
+    if (!user) {
+        return res.status(404).json({ success: false, error: 'User not found' });
+    }
+
+    if (!user.roblox?.userId && !findLinkedProvider(user, ROBLOX_PROVIDER)) {
+        return res.status(400).json({ success: false, error: 'No Roblox account is connected.' });
+    }
+
+    const otherSignIn = Boolean(user.password) || (user.authProviders || []).some((provider) => provider.provider !== ROBLOX_PROVIDER);
+    if (!otherSignIn) {
+        return res.status(400).json({
+            success: false,
+            error: 'Roblox is the only way to sign in to this account, so it cannot be disconnected.'
+        });
+    }
+
+    user.authProviders = (user.authProviders || []).filter((provider) => provider.provider !== ROBLOX_PROVIDER);
+    user.roblox = null;
+    await user.save();
+    return res.status(200).json({
+        success: true,
+        message: 'Roblox account disconnected.',
+        data: { user: buildUserPayload(user) }
+    });
+}
+
+async function handleRobloxPlayer(req, res) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) {
+        return res.status(401).json({ success: false, error: 'Authentication required' });
+    }
+
+    const user = await User.findById(authUser.id);
+    if (!user) {
+        return res.status(404).json({ success: false, error: 'User not found' });
+    }
+
+    const account = robloxAccountPayload(user);
+    if (!account) {
+        return res.status(200).json({ success: true, data: { linked: false } });
+    }
+
+    const card = await robloxPlayerCard(account.userId).catch(() => null);
+    return res.status(200).json({
+        success: true,
+        data: {
+            linked: true,
+            account,
+            headshot: card?.headshot || null,
+            stats: card?.stats || null,
+            live: Boolean(card?.live)
+        }
     });
 }
 
@@ -901,7 +1277,7 @@ async function handleForgotPassword(req, res) {
     }
 
     const user = await User.findOne({ email });
-    if (user) {
+    if (user && hasRealEmail(user)) {
         const { token, tokenHash } = createOneTimeToken();
         user.passwordResetTokenHash = tokenHash;
         user.passwordResetExpiresAt = new Date(Date.now() + RESET_TOKEN_MINUTES * 60 * 1000);
@@ -1106,30 +1482,11 @@ async function handleGetProfile(req, res) {
         success: true,
         data: {
             user: {
-                id: user._id,
-                username: user.username,
-                email: user.email,
-                emailVerified: Boolean(user.emailVerified),
-                emailNotifications: normalizeNotificationPreferences(user.emailNotifications || {}),
-                authProviders: buildUserPayload(user).authProviders,
-                googleLinked: buildUserPayload(user).googleLinked,
-                displayName: user.displayName,
-                avatar: user.avatar,
-                role: user.role,
-                requiresUsernameChange: Boolean(user.requiresUsernameChange),
-                xp: user.xp || 0,
-                level: user.level || 1,
-                battlePoints: user.battlePoints || 0,
-                profileAnimal: user.profileAnimal || null,
-                prestige: user.prestige || 0,
-                lifetimeXp: user.lifetimeXp || 0,
+                ...buildUserPayload(user),
                 xpToNext: xpNeeded,
                 xpProgress,
                 xpNeeded,
-                xpPercentage: Math.min(100, Math.round((xpProgress / xpNeeded) * 100)),
-                isPrestigeReady: (user.level || 1) >= 100,
-                createdAt: user.createdAt,
-                lastLogin: user.lastLogin
+                xpPercentage: Math.min(100, Math.round((xpProgress / xpNeeded) * 100))
             }
         }
     });
@@ -1303,31 +1660,13 @@ async function handleUpdateProfile(req, res) {
         message: 'Profile updated successfully',
         data: {
             user: {
-                id: user._id,
-                username: user.username,
-                email: user.email,
-                emailVerified: Boolean(user.emailVerified),
-                emailNotifications: normalizeNotificationPreferences(user.emailNotifications || {}),
-                authProviders: buildUserPayload(user).authProviders,
-                googleLinked: buildUserPayload(user).googleLinked,
+                ...buildUserPayload(user),
                 displayName: user.displayName || user.username,
-                avatar: user.avatar,
-                role: user.role,
-                requiresUsernameChange: Boolean(user.requiresUsernameChange),
-                xp: user.xp || 0,
-                level: user.level || 1,
-                battlePoints: user.battlePoints || 0,
-                profileAnimal: user.profileAnimal || null,
-                prestige: user.prestige || 0,
-                lifetimeXp: user.lifetimeXp || 0,
                 xpToNext: xpNeeded,
                 usernameChangesRemaining,
                 xpProgress,
                 xpNeeded,
-                xpPercentage: Math.min(100, Math.round((xpProgress / xpNeeded) * 100)),
-                isPrestigeReady: (user.level || 1) >= 100,
-                createdAt: user.createdAt,
-                lastLogin: user.lastLogin
+                xpPercentage: Math.min(100, Math.round((xpProgress / xpNeeded) * 100))
             }
         }
     });
@@ -1540,6 +1879,8 @@ async function handleGetPublicProfile(req, res) {
                 xpNeeded,
                 xpPercentage: Math.min(100, Math.round((xpProgress / xpNeeded) * 100)),
                 role: user.role,
+                // Only whether a Roblox account is connected: never its name, avatar or id.
+                robloxLinked: Boolean(user.roblox?.userId),
                 createdAt: user.createdAt
             }
         }

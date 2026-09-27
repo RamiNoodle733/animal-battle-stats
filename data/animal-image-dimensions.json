@@ -1784,15 +1784,15 @@
       "sha256": "b877133360eac16928e3a55a716cf69c4a40625babb1b4f477265ca1daf4908b"
     },
     "/images/animals/proboscis-monkey.png": {
-      "width": 915,
-      "height": 1024,
+      "width": 1024,
+      "height": 989,
       "subject": {
-        "left": 22,
+        "left": 21,
         "top": 21,
-        "width": 871,
-        "height": 981
+        "width": 998,
+        "height": 963
       },
-      "sha256": "d0ce2bc3f078b101f9f1a60b114ad66bd52ade8b7e6caae7e6270ef218b21dc7"
+      "sha256": "c4487410052e04138df197dffdf4815c330919c8f17f6b42db9df95be279ee3f"
     },
     "/images/animals/pronghorn.png": {
       "width": 924,

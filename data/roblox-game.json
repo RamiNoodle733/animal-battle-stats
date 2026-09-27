@@ -54,6 +54,29 @@
       "animal": "polar-bear"
     }
   ],
+  "codes": [
+    {
+      "code": "WELCOME",
+      "reward": "Coins to start you off"
+    },
+    {
+      "code": "WILDSTART",
+      "reward": "Coins and 5 Wild Tracks"
+    },
+    {
+      "code": "ROAR",
+      "reward": "Coins and 3 Wild Tracks"
+    },
+    {
+      "code": "FIELDGUIDE",
+      "reward": "Coins and the Field Guide card frame"
+    },
+    {
+      "code": "SEASONONE",
+      "reward": "Coins and 3 Wild Tracks",
+      "ends": "2026-12-01"
+    }
+  ],
   "features": [
     {
       "title": "Collect 225 real animals",

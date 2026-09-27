@@ -130,6 +130,9 @@ const year = new Date().getFullYear();
                 {ROBLOX.live
                     ? <a class="btn btn-play btn-sm play-btn" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={20} /><span>Play<span class="long"> on Roblox</span></span></a>
                     : <a class="btn btn-white btn-sm play-btn" href="/roblox" aria-current={active === 'roblox' ? 'page' : undefined}><RobloxMark size={20} /><span>Roblox<span class="long"> game</span></span></a>}
+                <a class="hud-btn rewards-btn" href="/rewards" data-rewards-btn aria-label="Rewards" title="Rewards: daily reward, quests, Season Pass and shop" aria-current={active === 'rewards' ? 'page' : undefined}>
+                    <Icon name="gift" size={26} /><span class="rw-badge" data-rewards-badge hidden>0</span>
+                </a>
                 <a class="player-chip" href="/login" data-player-chip><span class="lvl">?</span><span class="who">Log in</span></a>
                 <button class="hud-btn" type="button" data-sheet-toggle aria-expanded="false" aria-controls="more-sheet" aria-label="Menu">
                     <Icon name="gear" size={26} />
@@ -154,6 +157,7 @@ const year = new Date().getFullYear();
             <h2 class="screen-title" style="font-size:1.6rem">Menu</h2>
             <nav aria-label="All pages">
                 <a href="/"><Icon name="home" size={26} />Home</a>
+                <a href="/rewards"><Icon name="gift" size={26} />Rewards &amp; shop</a>
                 {MENU.map((item) => <a href={item.href}><Icon name={item.icon} size={26} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label === 'Tourney' ? 'Tournament' : item.label}</a>)}
                 <a href="/roblox"><span class="sheet-mark"><RobloxMark size={18} /></span>{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
                 <a href="/about"><Icon name="book" size={26} />About &amp; how ratings work</a>

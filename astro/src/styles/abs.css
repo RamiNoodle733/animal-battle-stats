@@ -482,6 +482,7 @@ body.game {
 .btn .rbx-mark { flex: none; width: 20px; height: 20px; }
 .btn-lg .rbx-mark { width: 24px; height: 24px; }
 .btn[aria-disabled="true"] { opacity: 0.55; filter: none; transform: none; cursor: default; pointer-events: none; }
+.btn:disabled { filter: grayscale(0.6) brightness(0.72); transform: none; cursor: default; pointer-events: none; }
 
 .chip {
     display: inline-flex; align-items: center; gap: 5px;
@@ -908,4 +909,114 @@ body.game {
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
     .arena::before { animation: none; }
+}
+
+/* ---------------------------------------------------------------- rewards (scripts/site.js showReward)
+   Coins fly into the HUD counter like the game's RewardFly; the Rewards button
+   carries a badge for anything ready to claim. */
+
+.rewards-btn { color: inherit; }
+.rewards-btn[aria-current="page"] { border-color: var(--gold); }
+.rw-badge {
+    position: absolute; top: -6px; right: -6px;
+    display: grid; place-items: center;
+    min-width: 20px; height: 20px; padding: 0 5px;
+    font-size: 0.7rem; font-weight: 900; line-height: 1;
+    color: #fff; background: var(--red);
+    border: 2px solid #0a1024; border-radius: 999px;
+    animation: rw-pop 1.6s var(--spring) infinite;
+}
+@keyframes rw-pop { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.22); } }
+.player-chip .bp, .rewards-btn { transition: transform 0.2s var(--spring); }
+.bump { animation: bump 0.35s var(--spring); }
+@keyframes bump { 50% { transform: scale(1.25); } }
+
+.fly-coin {
+    position: fixed; z-index: 200; width: 28px; height: 28px;
+    pointer-events: none; filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+}
+.reward-pill {
+    position: fixed; z-index: 190; transform: translate(-50%, -100%);
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 14px;
+    font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; letter-spacing: 0.03em;
+    background: linear-gradient(180deg, rgba(20, 30, 66, 0.96), rgba(8, 12, 30, 0.96));
+    border: 1px solid rgba(255, 215, 0, 0.55); border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.25);
+    pointer-events: none;
+    animation: pill-rise 1.9s var(--ease) forwards;
+}
+.reward-pill b { display: inline-flex; align-items: center; gap: 4px; }
+.reward-pill .c { color: var(--gold-2); }
+.reward-pill .x { color: var(--cyan-2); }
+.reward-pill .p { color: #b9f5d4; }
+@keyframes pill-rise {
+    0% { opacity: 0; transform: translate(-50%, -60%) scale(0.8); }
+    15% { opacity: 1; transform: translate(-50%, -110%) scale(1.05); }
+    75% { opacity: 1; transform: translate(-50%, -150%); }
+    100% { opacity: 0; transform: translate(-50%, -180%); }
+}
+
+.daily-dialog {
+    width: min(560px, calc(100vw - 24px));
+    padding: 20px;
+    color: var(--text);
+    background: linear-gradient(180deg, #16224a, #080d20);
+    border: 1px solid rgba(255, 215, 0, 0.45);
+    border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65), 0 0 40px rgba(255, 215, 0, 0.15);
+}
+.daily-dialog::backdrop { background: rgba(2, 4, 10, 0.75); backdrop-filter: blur(3px); }
+.daily-dialog[open] { animation: dd-in 0.35s var(--spring); }
+@keyframes dd-in { from { opacity: 0; transform: scale(0.9) translateY(10px); } }
+.dd-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.dd-head img { flex: none; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5)); animation: float 3s ease-in-out infinite; }
+.dd-head .screen-title { font-size: 2.4rem; }
+.dd-sub { margin: 4px 0 0; font-size: 0.86rem; color: var(--text-2); }
+.dd-ladder { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin: 0 0 16px; padding: 0; list-style: none; }
+.dd-ladder li {
+    position: relative; display: grid; justify-items: center; gap: 3px;
+    padding: 8px 2px; border-radius: 10px;
+    background: rgba(3, 6, 16, 0.55); border: 1px solid var(--line);
+}
+.dd-ladder small { font-size: 0.56rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.dd-ladder b { font-family: var(--font-display); font-size: 1rem; font-weight: 900; color: var(--gold-2); }
+.dd-ladder img { width: 30px; height: 30px; }
+.dd-ladder .now { border-color: var(--gold); background: rgba(255, 215, 0, 0.1); box-shadow: 0 0 16px rgba(255, 215, 0, 0.3); }
+.dd-ladder .done { opacity: 0.45; }
+.dd-ladder .done::after { content: "✓"; position: absolute; top: 4px; right: 6px; font-weight: 900; color: var(--green); }
+.dd-ladder .big img { width: 36px; height: 36px; }
+.dd-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; }
+@keyframes float { 50% { transform: translateY(-6px); } }
+@media (max-width: 480px) {
+    .dd-ladder { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .dd-head .screen-title { font-size: 1.9rem; }
+}
+
+/* Profile card frames (bought or earned looks; lib/economy.js ITEMS). A frame
+   wraps a holo card: .look-frame.frame_<name>. */
+.look-frame {
+    --lf: linear-gradient(160deg, #1a2750, #0b1229);
+    --lf-glow: transparent;
+    position: relative;
+    padding: 6px;
+    border-radius: 20px;
+    background: var(--lf);
+    box-shadow: 0 0 22px var(--lf-glow), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.look-frame.frame_statcard { --lf: linear-gradient(135deg, #0a1432 0%, #00d4ff 30%, #0a1432 50%, #ff8c28 72%, #0a1432 100%); --lf-glow: rgba(0, 212, 255, 0.35); }
+.look-frame.frame_gold { --lf: linear-gradient(135deg, #7a5a00, #ffe98a 25%, #c79a00 50%, #fff3b0 72%, #8a6400); --lf-glow: rgba(255, 215, 0, 0.45); }
+.look-frame.frame_frost { --lf: linear-gradient(135deg, #e8f7ff, #7cc8ff 35%, #ffffff 55%, #9ad8ff 80%, #dff3ff); --lf-glow: rgba(160, 220, 255, 0.5); }
+.look-frame.frame_lava { --lf: linear-gradient(135deg, #3c0600, #ff6b00 30%, #ffc23a 50%, #ff3d00 72%, #3c0600); --lf-glow: rgba(255, 90, 20, 0.55); }
+.look-frame.frame_aurora { --lf: linear-gradient(120deg, #3ce6c8, #9664ff, #5aff96, #3ce6c8); --lf-glow: rgba(60, 230, 200, 0.45); background-size: 300% 300%; animation: lf-shift 6s linear infinite; }
+.look-frame.frame_prism { --lf: linear-gradient(120deg, #ff4f9a, #ffb13a, #fff25a, #4dff9a, #3ad0ff, #9a6bff, #ff4f9a); --lf-glow: rgba(255, 255, 255, 0.35); background-size: 300% 300%; animation: lf-shift 4s linear infinite; }
+.look-frame.frame_oracle { --lf: linear-gradient(135deg, #1b0b3a, #b08cff 35%, #ffffff 50%, #b08cff 65%, #1b0b3a); --lf-glow: rgba(176, 140, 255, 0.5); }
+.look-frame.frame_streak { --lf: repeating-linear-gradient(120deg, #ff9628 0 10px, #ffe678 10px 20px); --lf-glow: rgba(255, 150, 40, 0.45); }
+.look-frame.frame_loyal { --lf: linear-gradient(135deg, #005a78, #00d4ff 35%, #3cdc8c 60%, #ffffff 80%, #005a78); --lf-glow: rgba(60, 220, 140, 0.45); }
+.look-frame.frame_sunrise { --lf: linear-gradient(160deg, #ff6b6b, #ffb13a 45%, #ffe98a 70%, #ff8a5a); --lf-glow: rgba(255, 170, 60, 0.45); }
+.look-frame.frame_season1 { --lf: linear-gradient(135deg, #062a1a, #3cdc8c 30%, #ffd700 50%, #3cdc8c 70%, #062a1a); --lf-glow: rgba(60, 220, 140, 0.45); }
+@keyframes lf-shift { to { background-position: 300% 0; } }
+@media (prefers-reduced-motion: reduce) {
+    .look-frame { animation: none !important; }
+    .rw-badge { animation: none; }
 }

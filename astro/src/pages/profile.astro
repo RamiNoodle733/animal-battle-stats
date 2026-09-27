@@ -4,21 +4,25 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
+import economy from '../../../lib/economy.js';
 import { SITE, ROBLOX } from '../lib/site.js';
 
 // Same boards as lib/roblox-game.js; /api/auth?action=roblox-player fills them.
 const RB_STATS = [['POWER', 'Team power'], ['COLLECTION', 'Animals collected'], ['WINS', 'Battles won'], ['SHOW', 'Best show streak']];
 
+const { ACTIONS } = economy;
+const pay = (def) => `+${def.coins} Coins · +${def.xp} XP`;
 const EARN = [
-    ['medal', 'Vote on an animal', '+5 XP', 'Each animal, once a day'],
-    ['vs', 'Daily matchup vote', '+10 XP · +2 BP', 'Once a day on any Versus fight'],
-    ['book', 'Comment on an animal', '+10 XP', 'Replies earn +5 XP'],
-    ['trophy', 'Finish a ranked tournament', '+25 XP · +5 BP', 'Once a day'],
-    ['crown', 'Level up', 'BattlePoints', 'Bigger payouts at milestone levels']
+    ['target', 'Call a fight', pay(ACTIONS.matchup_call), 'Bonus Coins when you call it right'],
+    ['medal', 'Vote on an animal', pay(ACTIONS.vote), 'Each animal, once a day'],
+    ['book', 'Comment on an animal', pay(ACTIONS.comment), `Replies earn ${pay(ACTIONS.reply)}`],
+    ['trophy', 'Finish a ranked tournament', pay(ACTIONS.tournament_participate), 'Once a day'],
+    ['gift', 'Daily reward and quests', 'Up to 250 Coins', 'Claim them on the Rewards page'],
+    ['crown', 'Level up', 'Coins', 'Bigger payouts at milestone levels']
 ];
 ---
 
-<Base title={`Player profile | ${SITE.name}`} description="Your Animal Battle Stats player profile: level, XP, BattlePoints and profile animal." path="/profile" noindex active="" biome="mountains" seed={9}>
+<Base title={`Player profile | ${SITE.name}`} description="Your Animal Battle Stats player profile: level, XP, Coins and profile animal." path="/profile" noindex active="" biome="mountains" seed={9}>
     <div class="prof" data-profile data-state="loading">
         <section class="panel gold p-card enter" aria-live="polite">
             <div class="p-art" data-p-art><div class="p-pick-hint" data-p-hint hidden><Icon name="paw" size={40} /><span>Pick a profile animal</span></div></div>
@@ -26,12 +30,13 @@ const EARN = [
                 <span class="p-lvl" data-p-level title="Level">1</span>
                 <div class="p-names">
                     <h1 class="p-name" data-p-name>Player</h1>
+                    <span class="p-title" data-p-title hidden></span>
                     <span class="p-handle"><span data-p-handle></span><span class="p-rbx" data-p-rbx hidden title="Roblox account connected"><RobloxMark size={11} />Roblox</span></span>
                 </div>
             </div>
             <div class="p-xp"><div class="p-xpbar"><i data-p-xpbar></i></div><span data-p-xptext>0 / 0 XP</span></div>
             <div class="p-nums">
-                <div><b data-p-bp>0</b><span>BattlePoints</span></div>
+                <div><b data-p-bp>0</b><span>Coins</span></div>
                 <div><b data-p-life>0</b><span>Lifetime XP</span></div>
                 <div><b data-p-prestige>0</b><span>Prestige</span></div>
             </div>
@@ -102,17 +107,18 @@ const EARN = [
                     <h3 class="sub-h">Sign-in</h3>
                     <div class="p-row"><span><b>Google</b><span data-p-google>Not linked</span></span><button class="btn btn-sm" type="button" data-p-google-btn>Link</button></div>
                 </div>
-                <div class="p-row p-prestige" data-p-prestige-row hidden><span><b>Prestige ready</b><span>Reset to level 1 for a prestige star and bonus BattlePoints.</span></span><button class="btn btn-gold btn-sm" type="button" data-p-prestige-btn>Prestige</button></div>
+                <div class="p-row p-prestige" data-p-prestige-row hidden><span><b>Prestige ready</b><span>Reset to level 1 for a prestige star and bonus Coins.</span></span><button class="btn btn-gold btn-sm" type="button" data-p-prestige-btn>Prestige</button></div>
                 <button class="btn btn-sm p-logout" type="button" data-p-logout><Icon name="close" size={20} />Log out</button>
             </div>
         </section>
 
         <aside class="panel hot p-earn enter-3" aria-labelledby="earn-title">
-            <div class="panel-head"><Icon name="xp" size={28} /><h2 id="earn-title" class="panel-title">Earn XP</h2></div>
+            <div class="panel-head"><Icon name="xp" size={28} /><h2 id="earn-title" class="panel-title">Earn Coins &amp; XP</h2></div>
             <ul class="p-earn-list panel-body">
                 {EARN.map(([icon, title, value, note]) => <li><Icon name={icon} size={30} lazy /><span><b>{title}</b><small>{note}</small></span><em>{value}</em></li>)}
             </ul>
             <div class="p-links">
+                <a class="btn btn-sm btn-gold" href="/rewards"><Icon name="gift" size={20} />Rewards</a>
                 <a class="btn btn-sm" href="/rankings"><Icon name="medal" size={20} />Vote</a>
                 <a class="btn btn-sm" href="/tournament"><Icon name="trophy" size={20} />Tourney</a>
                 <a class="btn btn-sm" href="/community"><Icon name="friends" size={20} />Community</a>
@@ -151,6 +157,10 @@ const EARN = [
     .p-names { min-width: 0; display: flex; flex-direction: column; }
     .p-name { margin: 0; font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; transform: skewX(-6deg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .p-handle { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 0.82rem; color: var(--muted); }
+    .p-title { align-self: flex-start; margin-top: 3px; padding: 1px 9px; font-family: var(--font-display); font-size: 0.82rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold-2); background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.4); border-radius: 999px; }
+    .p-title[hidden] { display: none; }
+    .p-art :global(.look-frame) { display: flex; height: 100%; max-height: 432px; aspect-ratio: 3 / 4; }
+    .p-art :global(.look-frame .card) { height: 100%; max-height: none; width: 100%; }
     .p-rbx { display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; font-size: 0.64rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: #1c1d20; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 999px; }
     .tabs :global(.rbx-mark) { width: 16px; height: 16px; }
 

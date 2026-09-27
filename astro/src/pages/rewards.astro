@@ -1,0 +1,313 @@
+---
+// Rewards: the player's Coins, daily login streak, today's quests and chest, the
+// Season Pass and the looks shop, like the game's Rewards, Quests, Trainer Pass
+// and Shop screens. Built from lib/economy.js; scripts/rewards.js fills in the
+// player's progress from /api/auth?action=hub.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import economy from '../../../lib/economy.js';
+import { SITE } from '../lib/site.js';
+
+const { ACTIONS, ITEMS, LOGIN, PASS, CALL_BONUS, QUEST_CHEST, passReward } = economy;
+const itemName = new Map(ITEMS.map((item) => [item.id, item.name]));
+const itemKind = new Map(ITEMS.map((item) => [item.id, item.kind]));
+const tiers = Array.from({ length: PASS.tiers }, (_, index) => passReward(index + 1));
+const frames = ITEMS.filter((item) => item.kind === 'frame');
+const titles = ITEMS.filter((item) => item.kind === 'title');
+const EARN = [
+    ['target', 'Call a fight in Who Would Win?', ACTIONS.matchup_call, `+${CALL_BONUS.coins} or more for a right call, growing with your streak`, '/compare'],
+    ['medal', 'Vote on an animal in the rankings', ACTIONS.vote, 'Each animal once a day', '/rankings'],
+    ['book', 'Comment on an animal or matchup', ACTIONS.comment, 'Replies pay too', '/community'],
+    ['trophy', 'Finish a ranked tournament', ACTIONS.tournament_participate, 'Once a day', '/tournament']
+];
+const endDate = new Date(PASS.endsAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' });
+const earnText = (item) => ({ callStreak: `Call ${item.earn.value} fights right in a row`, calls: `Call ${item.earn.value} fights`, votes: `Vote on ${item.earn.value} animals`, loginRun: `Log in ${item.earn.value} days in a row`, pass: `Season Pass tier ${item.earn.value}` }[item.earn.what]);
+---
+
+<Base title={`Rewards: Coins, Daily Streak, Quests & Season Pass | ${SITE.name}`} description="Earn Coins and XP for calling fights, voting and playing: a daily login streak, daily quests, the Season 1 Pass and a shop of profile frames and titles." path="/rewards" noindex active="rewards" biome="savanna" seed={17}>
+    <div class="rw" data-rw data-state="loading">
+        <section class="rw-top">
+            <div class="panel gold wallet enter">
+                <div class="w-coins">
+                    <img src="/images/icons/abs/coin.webp" alt="" width="64" height="64" />
+                    <div><span class="eyebrow">Your Coins</span><b data-w-coins>–</b></div>
+                </div>
+                <dl class="w-stats">
+                    <div><dt>Level</dt><dd data-w-level>–</dd></div>
+                    <div><dt>Call streak</dt><dd data-w-call>–</dd></div>
+                    <div><dt>Best streak</dt><dd data-w-best>–</dd></div>
+                    <div><dt>Login run</dt><dd data-w-run>–</dd></div>
+                </dl>
+                <div class="w-xp"><div class="w-xpbar"><i data-w-xpbar></i></div><span data-w-xptext>Level progress</span></div>
+            </div>
+
+            <div class="panel daily enter-2" aria-labelledby="daily-h">
+                <div class="panel-head"><Icon name="gift" size={28} /><h2 id="daily-h" class="panel-title">Daily reward</h2><span class="aside" data-d-aside>Day 7 pays the most</span></div>
+                <ol class="d-ladder">
+                    {LOGIN.map((reward, index) => (
+                        <li data-day={index + 1} class={index === 6 ? 'big' : ''}>
+                            <small>Day {index + 1}</small>
+                            <img src={index === 6 ? '/images/icons/abs/chest.webp' : '/images/icons/abs/coin.webp'} alt="" width="34" height="34" />
+                            <b>{reward.coins}</b>
+                        </li>
+                    ))}
+                </ol>
+                <div class="d-foot">
+                    <button class="btn btn-gold" type="button" data-claim="daily" disabled><Icon name="gift" size={24} /><span data-d-label>Claim</span></button>
+                    <p class="small muted" data-d-note>Log in every day. Miss one day and your weekly streak shield saves it.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="rw-mid">
+            <div class="panel quests enter-2" aria-labelledby="quests-h">
+                <div class="panel-head"><Icon name="scroll" size={28} /><h2 id="quests-h" class="panel-title">Today's quests</h2><span class="aside" data-q-reset>New quests every day</span></div>
+                <div class="q-list" data-q-list>
+                    {[0, 1, 2].map(() => <div class="quest skeleton"><span></span><i></i></div>)}
+                </div>
+                <div class="chest" data-chest>
+                    <img src="/images/icons/abs/chest.webp" alt="" width="54" height="54" />
+                    <div><b>Quest chest</b><span>Claim all three quests: +{QUEST_CHEST.coins} Coins, +{QUEST_CHEST.xp} XP</span></div>
+                    <button class="btn btn-sm btn-gold" type="button" data-claim="chest" disabled>Open</button>
+                </div>
+            </div>
+
+            <div class="panel hot pass enter-3" aria-labelledby="pass-h">
+                <div class="panel-head"><Icon name="crown" size={28} /><h2 id="pass-h" class="panel-title">{PASS.name}</h2><span class="aside">Ends {endDate}</span></div>
+                <div class="p-top">
+                    <div class="p-tier"><small>Tier</small><b data-p-tier>0</b><small>of {PASS.tiers}</small></div>
+                    <div class="p-bar-wrap">
+                        <div class="p-bar"><i data-p-bar></i></div>
+                        <span class="small muted" data-p-text>Play to earn pass XP: calls, votes, quests, the daily reward.</span>
+                    </div>
+                    <button class="btn btn-sm btn-gold" type="button" data-claim="pass" disabled><span data-p-claim>Claim</span></button>
+                </div>
+                <ol class="p-track scroll" data-p-track>
+                    {tiers.map((tier) => (
+                        <li data-tier={tier.tier} class={tier.item ? 'look' : ''}>
+                            <span class="t-n">{tier.tier}</span>
+                            <span class="t-r">
+                                <span><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />{tier.coins}</span>
+                                {tier.item && <em>{itemName.get(tier.item)}</em>}
+                            </span>
+                        </li>
+                    ))}
+                </ol>
+                <div class="p-looks">
+                    <h3 class="p-sub">Season looks</h3>
+                    <div class="pl-row">
+                        {tiers.filter((tier) => tier.item).map((tier) => (
+                            <div class="pl" data-look-tier={tier.tier}>
+                                {itemKind.get(tier.item) === 'frame'
+                                    ? <><div class={`look-frame ${tier.item}`}><div class="lf-card"><Icon name="paw" size={28} lazy /></div></div><b>{itemName.get(tier.item)}</b></>
+                                    : <span class="title-chip small-chip">{itemName.get(tier.item)}</span>}
+                                <small>Tier {tier.tier}</small>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel shop enter-3" aria-labelledby="shop-h">
+            <div class="panel-head">
+                <Icon name="cards" size={28} /><h2 id="shop-h" class="panel-title">Looks</h2>
+                <div class="seg shop-seg" role="tablist">
+                    <button type="button" aria-pressed="true" data-shop-tab="frame">Card frames</button>
+                    <button type="button" aria-pressed="false" data-shop-tab="title">Titles</button>
+                </div>
+                <span class="aside">Looks only. Nothing random, nothing for real money.</span>
+            </div>
+            <div class="shop-grid" data-shop="frame">
+                <article class="item" data-item="none" data-kind="frame">
+                    <div class="look-frame"><div class="lf-card"><Icon name="paw" size={40} lazy /></div></div>
+                    <b>No frame</b><small>The plain card</small>
+                    <button class="btn btn-sm" type="button" data-equip="frame" data-id="">Wear</button>
+                </article>
+                {frames.map((item) => (
+                    <article class="item" data-item={item.id} data-kind="frame">
+                        <div class={`look-frame ${item.id}`}><div class="lf-card"><Icon name="paw" size={40} lazy /></div></div>
+                        <b>{item.name}</b>
+                        <small>{item.price ? `${item.price.toLocaleString('en-US')} Coins` : earnText(item)}</small>
+                        {item.price
+                            ? <button class="btn btn-sm btn-gold" type="button" data-buy={item.id}><img src="/images/icons/abs/coin.webp" alt="" width="18" height="18" />{item.price.toLocaleString('en-US')}</button>
+                            : <span class="chip lock" data-lock>Earn it</span>}
+                        <button class="btn btn-sm" type="button" data-equip="frame" data-id={item.id} hidden>Wear</button>
+                    </article>
+                ))}
+            </div>
+            <div class="shop-grid titles" data-shop="title" hidden>
+                {titles.map((item) => (
+                    <article class="item" data-item={item.id} data-kind="title">
+                        <span class="title-chip">{item.name}</span>
+                        <small>{item.free ? 'Everyone starts with it' : item.price ? `${item.price.toLocaleString('en-US')} Coins` : earnText(item)}</small>
+                        {item.price
+                            ? <button class="btn btn-sm btn-gold" type="button" data-buy={item.id}><img src="/images/icons/abs/coin.webp" alt="" width="18" height="18" />{item.price.toLocaleString('en-US')}</button>
+                            : !item.free && <span class="chip lock" data-lock>Earn it</span>}
+                        <button class="btn btn-sm" type="button" data-equip="title" data-id={item.id} hidden={!item.free}>Wear</button>
+                    </article>
+                ))}
+            </div>
+        </section>
+
+        <section class="panel earn" aria-labelledby="earn-h">
+            <div class="panel-head"><Icon name="coin" size={28} /><h2 id="earn-h" class="panel-title">How to earn</h2><span class="aside">Coins and XP each time, up to a daily limit</span></div>
+            <ul class="earn-list">
+                {EARN.map(([icon, what, def, note, href]) => (
+                    <li>
+                        <Icon name={icon} size={32} lazy />
+                        <span><a href={href}><b>{what}</b></a><small>{note} · first {def.cap} a day</small></span>
+                        <em><img src="/images/icons/abs/coin.webp" alt="" width="18" height="18" />+{def.coins}</em>
+                        <em class="xp">+{def.xp} XP</em>
+                        <span class="cap" data-cap={Object.keys(ACTIONS).find((key) => ACTIONS[key] === def)}></span>
+                    </li>
+                ))}
+            </ul>
+        </section>
+
+        <div class="panel guest-gate" data-guest hidden>
+            <Icon name="lock" size={48} />
+            <h2 class="panel-title">Log in to start earning</h2>
+            <p>Every fight call, vote and comment pays Coins and XP. Claim a daily reward, finish quests and climb the Season Pass.</p>
+            <div class="btn-row"><a class="btn btn-gold" href="/signup?returnTo=%2Frewards">Create account</a><a class="btn" href="/login?returnTo=%2Frewards">Log in</a></div>
+        </div>
+    </div>
+</Base>
+
+<script>
+    import '../scripts/rewards.js';
+</script>
+
+<style>
+    .rw { max-width: 1400px; margin: 0 auto; display: grid; gap: 14px; padding-bottom: 12px; }
+    .small { font-size: 0.8rem; }
+    .muted { color: var(--muted); }
+    .rw[data-state="loading"] .panel:not(.guest-gate) { opacity: 0.6; }
+    .rw[data-state="guest"] .rw-top, .rw[data-state="guest"] .rw-mid { filter: saturate(0.6); opacity: 0.75; pointer-events: none; }
+    .rw-top { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.4fr); gap: 14px; }
+    .rw-mid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 14px; }
+
+    /* wallet */
+    .wallet { padding: 16px; gap: 12px; }
+    .w-coins { display: flex; align-items: center; gap: 12px; }
+    .w-coins img { filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5)); }
+    .w-coins b { display: block; font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 900; line-height: 0.9; color: var(--gold-2); text-shadow: 0 3px 0 rgba(0, 0, 0, 0.5); }
+    .w-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0; }
+    .w-stats div { padding: 7px 8px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .w-stats dt { font-size: 0.56rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .w-stats dd { margin: 0; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; }
+    .w-xp { display: grid; gap: 4px; }
+    .w-xpbar, .p-bar { height: 12px; background: rgba(255, 255, 255, 0.1); clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); overflow: hidden; }
+    .w-xpbar i, .p-bar i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--cyan-2)); transition: width 0.8s var(--ease); }
+    .p-bar i { background: linear-gradient(90deg, var(--orange), var(--gold)); }
+    .w-xp span { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+    /* daily */
+    .d-ladder { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 14px 16px 6px; list-style: none; }
+    .d-ladder li { position: relative; display: grid; justify-items: center; gap: 4px; padding: 10px 4px; background: rgba(3, 6, 16, 0.55); border: 1px solid var(--line); border-radius: 12px; }
+    .d-ladder small { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .d-ladder b { font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; color: var(--gold-2); }
+    .d-ladder .big { background: linear-gradient(180deg, rgba(255, 215, 0, 0.12), rgba(3, 6, 16, 0.55)); }
+    .d-ladder .now { border-color: var(--gold); box-shadow: 0 0 18px rgba(255, 215, 0, 0.35); transform: translateY(-3px); }
+    .d-ladder .done { opacity: 0.45; }
+    .d-ladder .done::after { content: "✓"; position: absolute; top: 5px; right: 7px; font-weight: 900; color: var(--green); }
+    .d-foot { display: flex; align-items: center; gap: 12px; padding: 8px 16px 14px; }
+    .d-foot p { margin: 0; }
+
+    /* quests */
+    .q-list { display: grid; gap: 8px; padding: 12px 14px; }
+    .rw :global(.quest) { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px 12px; padding: 10px 12px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .rw :global(.quest.done) { border-color: rgba(53, 220, 143, 0.5); }
+    .rw :global(.quest.claimed) { opacity: 0.55; }
+    .rw :global(.quest b) { font-size: 0.95rem; }
+    .rw :global(.quest .q-pay) { grid-column: 1; display: flex; gap: 10px; font-size: 0.74rem; font-weight: 800; color: var(--muted); }
+    .rw :global(.quest .q-pay span) { display: inline-flex; align-items: center; gap: 3px; }
+    .rw :global(.quest .q-pay img) { width: 14px; height: 14px; }
+    .rw :global(.quest .q-bar) { grid-column: 1; height: 8px; background: rgba(255, 255, 255, 0.08); border-radius: 4px; overflow: hidden; }
+    .rw :global(.quest .q-bar i) { display: block; height: 100%; background: linear-gradient(90deg, var(--green), #9bf0c6); border-radius: 4px; transition: width 0.6s var(--ease); }
+    .rw :global(.quest .btn), .rw :global(.quest .q-state) { grid-column: 2; grid-row: 1 / 4; }
+    .rw :global(.quest .q-state) { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--muted); }
+    .quest.skeleton { min-height: 70px; }
+    .chest { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; margin: 0 14px 14px; padding: 10px 12px; background: linear-gradient(180deg, rgba(255, 215, 0, 0.1), rgba(3, 6, 16, 0.4)); border: 1px dashed rgba(255, 215, 0, 0.45); border-radius: 12px; }
+    .chest b { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-transform: uppercase; }
+    .chest span { font-size: 0.78rem; color: var(--text-2); }
+    .chest.ready { border-style: solid; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+    .chest.ready img { animation: float 1.6s ease-in-out infinite; }
+    .chest.opened { opacity: 0.5; }
+
+    /* pass */
+    .pass { min-height: 0; }
+    .p-top { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 12px 16px; }
+    .p-tier { display: grid; justify-items: center; line-height: 1; }
+    .p-tier b { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: var(--orange-2); }
+    .p-tier small { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .p-bar-wrap { display: grid; gap: 5px; }
+    .p-track { display: flex; gap: 8px; margin: 0; padding: 4px 16px 16px; list-style: none; overflow-x: auto; }
+    .p-track li { flex: 0 0 86px; display: grid; gap: 4px; padding: 8px; text-align: center; background: rgba(3, 6, 16, 0.55); border: 1px solid var(--line); border-radius: 10px; }
+    .p-track li.look { background: linear-gradient(180deg, rgba(255, 107, 0, 0.14), rgba(3, 6, 16, 0.55)); }
+    .t-n { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; line-height: 1; color: var(--muted); }
+    .t-r { display: grid; gap: 3px; font-size: 0.74rem; font-weight: 800; }
+    .t-r span { display: inline-flex; align-items: center; justify-content: center; gap: 3px; color: var(--gold-2); }
+    .t-r em { font-style: normal; font-size: 0.64rem; line-height: 1.15; color: var(--orange-2); }
+    .p-track li.reached .t-n { color: #fff; }
+    .p-track li.reached:not(.claimed) { border-color: var(--gold); box-shadow: 0 0 12px rgba(255, 215, 0, 0.3); }
+    .p-track li.claimed { opacity: 0.5; }
+    .p-track li.next { border-color: var(--orange); }
+    .p-looks { margin-top: auto; padding: 0 16px 16px; }
+    .p-sub { margin: 0 0 8px; font-family: var(--font-display); font-size: 1rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-2); }
+    .pl-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+    .pl { display: grid; justify-items: center; align-content: start; gap: 4px; padding: 10px 6px; text-align: center; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .pl .look-frame { width: 58px; padding: 4px; border-radius: 14px; }
+    .pl .lf-card { border-radius: 10px; }
+    .pl b { font-family: var(--font-display); font-size: 0.86rem; font-weight: 900; line-height: 1.05; text-transform: uppercase; }
+    .pl small { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .pl.got { border-color: rgba(53, 220, 143, 0.5); }
+    .pl.got small { color: var(--green); }
+    .small-chip { margin: 18px 0 14px; font-size: 0.7rem; padding: 3px 8px; }
+
+    /* shop */
+    .shop-seg { margin-left: 8px; }
+    .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; padding: 14px 16px 16px; }
+    .shop-grid[hidden] { display: none; }
+    .item { display: grid; justify-items: center; gap: 6px; padding: 12px 10px; text-align: center; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .item b { font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; text-transform: uppercase; }
+    .item small { font-size: 0.7rem; color: var(--muted); min-height: 2.2em; }
+    .item.owned { border-color: rgba(53, 220, 143, 0.4); }
+    .item.worn { border-color: var(--gold); box-shadow: 0 0 16px rgba(255, 215, 0, 0.3); }
+    .item .look-frame { width: 92px; }
+    .lf-card { display: grid; place-items: center; aspect-ratio: 3 / 4; border-radius: 14px; background: radial-gradient(80% 60% at 50% 40%, rgba(0, 212, 255, 0.25), transparent 70%), linear-gradient(180deg, #16224a, #070b1a); }
+    .title-chip { display: inline-block; margin: 14px 0 6px; padding: 5px 12px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gold-2); background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.4); border-radius: 999px; }
+    .lock { color: var(--muted); }
+    .item :global(.btn.short) { opacity: 0.55; }
+
+    /* earn */
+    .earn-list { margin: 0; padding: 10px 16px 14px; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; }
+    .earn-list li { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto auto; align-items: center; gap: 10px; padding: 8px 10px; background: rgba(3, 6, 16, 0.4); border: 1px solid var(--line); border-radius: 10px; }
+    .earn-list b { display: block; font-size: 0.88rem; }
+    .earn-list a:hover b { color: var(--cyan-2); }
+    .earn-list small { font-size: 0.72rem; color: var(--muted); }
+    .earn-list em { display: inline-flex; align-items: center; gap: 3px; font-style: normal; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--gold-2); white-space: nowrap; }
+    .earn-list em.xp { color: var(--cyan-2); }
+    .earn-list .cap { grid-column: 2 / -1; font-size: 0.7rem; font-weight: 700; color: var(--dim); }
+    .earn-list .cap:empty { display: none; }
+
+    .guest-gate { position: fixed; left: 50%; top: 50%; z-index: 30; transform: translate(-50%, -50%); width: min(440px, calc(100vw - 32px)); padding: 26px; display: grid; justify-items: center; gap: 12px; text-align: center; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); }
+    .guest-gate[hidden] { display: none; }
+    .guest-gate p { margin: 0; color: var(--text-2); }
+
+    @media (max-width: 1100px) {
+        .rw-top, .rw-mid { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 700px) {
+        .d-ladder { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 12px; }
+        .d-foot { flex-direction: column; align-items: stretch; text-align: center; }
+        .w-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .p-top { grid-template-columns: auto minmax(0, 1fr); }
+        .p-top .btn { grid-column: 1 / -1; }
+        .pl-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .earn-list { grid-template-columns: minmax(0, 1fr); }
+        .shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .panel-head .aside { display: none; }
+        .shop .panel-head { flex-wrap: wrap; }
+    }
+</style>

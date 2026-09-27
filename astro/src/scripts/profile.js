@@ -37,9 +37,14 @@ function cardHtml(animal, big = false) {
 function paintCard(user, own) {
     const animal = user.profileAnimal ? byName.get(user.profileAnimal.toLowerCase()) : null;
     const art = $('[data-p-art]');
-    art.querySelectorAll('.card').forEach((node) => node.remove());
+    art.querySelectorAll('.card, .look-frame').forEach((node) => node.remove());
     $('[data-p-hint]').hidden = Boolean(animal) || !own;
-    if (animal) art.insertAdjacentHTML('beforeend', cardHtml(animal, true));
+    // A frame look (Rewards shop) wraps the card; own profiles read it from the economy summary.
+    const frame = own ? user.economy?.frame : user.frame;
+    const title = own ? user.economy?.title : user.title;
+    if (animal) art.insertAdjacentHTML('beforeend', /^frame_[a-z0-9]+$/.test(frame || '') ? `<div class="look-frame ${frame}">${cardHtml(animal, true)}</div>` : cardHtml(animal, true));
+    $('[data-p-title]').textContent = title || '';
+    $('[data-p-title]').hidden = !title;
     const name = user.displayName || user.username;
     $('[data-p-name]').textContent = name;
     $('[data-p-handle]').textContent = `@${user.username}${user.role === 'admin' ? ' · Admin' : ''}`;
@@ -49,9 +54,9 @@ function paintCard(user, own) {
     const have = Number(user.xpProgress ?? user.xp) || 0;
     $('[data-p-xpbar]').style.width = `${need ? Math.min(100, Math.round((have / need) * 100)) : 100}%`;
     $('[data-p-xptext]').textContent = need ? `${fmt(have)} / ${fmt(need)} XP to level ${(user.level || 1) + 1}` : 'Max level';
-    // Public profiles have no BattlePoints or lifetime XP; show level instead.
+    // Public profiles have no Coins or lifetime XP; show level instead.
     const nums = own
-        ? [[fmt(user.battlePoints), 'BattlePoints'], [fmt(user.lifetimeXp), 'Lifetime XP'], [fmt(user.prestige), 'Prestige']]
+        ? [[fmt(user.battlePoints), 'Coins'], [fmt(user.lifetimeXp), 'Lifetime XP'], [fmt(user.prestige), 'Prestige']]
         : [[fmt(user.level || 1), 'Level'], [fmt(user.prestige), 'Prestige'], [user.createdAt ? new Date(user.createdAt).getFullYear() : '–', 'Joined']];
     $$('.p-nums > div').forEach((cell, index) => {
         cell.querySelector('b').textContent = nums[index][0];
@@ -250,7 +255,7 @@ $('[data-rb-unlink]').addEventListener('click', async () => {
     toast('Roblox account disconnected');
 });
 $('[data-p-prestige-btn]').addEventListener('click', async () => {
-    if (!confirm('Prestige resets you to level 1 and awards a prestige star plus BattlePoints. Continue?')) return;
+    if (!confirm('Prestige resets you to level 1 and awards a prestige star plus Coins. Continue?')) return;
     const result = await api('action=prestige', { method: 'POST', body: {} });
     if (!result.ok) { sfx.error(); toast(result.body.error || 'Prestige failed.'); return; }
     sfx.win();

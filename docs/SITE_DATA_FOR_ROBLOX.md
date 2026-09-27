@@ -60,6 +60,13 @@ user ids or avatars. The game writes these stores in that format (LeaderboardSer
 one is set its slot says "Video pending" (details in DEPLOYMENT.md). With no
 screenshots set, the page uses the game's own screenshots from its Roblox page.
 
+## The website's PLAY button
+
+It links to `https://www.roblox.com/games/start?placeId=118592355937726&launchData=site`, so
+`PlayerService` sees `LaunchData = "site"` and gives a first-time player the Stat Scholar
+title and Stat Card frame. The `/roblox` page also lists the codes from `Config/Codes.luau`
+(copied into `data/roblox-game.json` `codes`; keep them in step when codes change).
+
 ## Roblox accounts on the site
 
 Players can connect their Roblox account (Roblox OAuth, see DEPLOYMENT.md). A

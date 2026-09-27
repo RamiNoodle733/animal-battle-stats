@@ -112,7 +112,7 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
 {!category && (
     <script>
         import { castVote, loadVotes } from '../scripts/votes.js';
-        import { toast } from '../scripts/site.js';
+        import { toast, showReward } from '../scripts/site.js';
         import { sfx } from '../scripts/sfx.js';
 
         const list = document.querySelector('[data-rows]');
@@ -134,11 +134,11 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
             if (!button) return;
             const row = button.closest('li');
             const result = await castVote(row.dataset.id, row.dataset.name, button.dataset.vote, votes.get(row.dataset.name));
-            if (result.needsLogin) { toast('Log in to vote (and earn XP)'); setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent(location.pathname)}`; }, 900); return; }
+            if (result.needsLogin) { toast('Log in to vote and earn Coins'); setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent(location.pathname)}`; }, 900); return; }
             if (result.error) { sfx.error(); toast(result.error); return; }
             votes.set(row.dataset.name, result.entry);
             paint();
-            if (result.xp) { sfx.coin(); toast(`+${result.xp} XP for voting`); }
+            if (result.reward?.awarded) showReward(result.reward, button);
         });
 
         document.querySelectorAll('[data-sort]').forEach((button) => button.addEventListener('click', () => {

@@ -260,6 +260,7 @@ Defines:
 | `ROBLOX_REDIRECT_URI` | No | Overrides the Roblox redirect URL (default `<site>/api/auth?action=roblox-callback`) |
 | `ROBLOX_OPEN_CLOUD_KEY` | No | Open Cloud API key with ordered DataStore read access: game leaderboards and each linked player's in-game stats |
 | `ROBLOX_UNIVERSE_ID` / `ROBLOX_PLACE_ID` | No | Override the ids in `data/roblox-game.json` |
+| `CALL_SECRET` | No | Seeds the fights players call on Versus (falls back to `JWT_SECRET`). Changing it redraws today's calls |
 
 ### Roblox sign-in (Continue with Roblox / Connect Roblox)
 
@@ -283,6 +284,26 @@ no email, so these accounts have none (no email sign-in, reset or notifications)
 Google is linked. Linking stores the Roblox user id as a sign-in provider, so one
 Roblox account can belong to only one site account.
 
+### Coins, quests and the Season Pass (the site economy)
+
+The site pays **Coins** (stored as `battlePoints`), XP and Season Pass XP the way the Roblox
+game does. Every number is in `lib/economy.js`; every payout goes through `lib/rewards.js` in a
+MongoDB transaction with a unique `RewardClaim`, so nothing can be paid twice.
+
+- **Paid actions**, each up to a daily cap (then they still count for quests): calling a fight
+  on Versus (+10, plus a bonus for a right call that grows with the streak), voting on an animal,
+  commenting or replying, and a ranked tournament.
+- **Fight calls**: the player picks a winner, then the server draws the fight with the model's
+  odds from a secret seed (`CALL_SECRET`), fixed per player, matchup and UTC day.
+- **Daily reward**: a 7-day ladder on the UTC day with a weekly streak shield.
+- **Daily quests**: three a day, the same for everyone, and a chest for finishing all three.
+- **Season 1 Pass**: 30 free tiers (the game's season and end date, 2026-12-01).
+- **Looks**: profile card frames and titles, bought with Coins or earned. Looks only.
+
+The site and the game keep separate wallets: Roblox does not allow in-game rewards for things
+done off the platform, so site Coins never pay out in the game. Game codes on `/roblox` are
+public, as Roblox requires.
+
 ### The Roblox game page (`/roblox`)
 
 Everything is in `data/roblox-game.json`:
@@ -300,6 +321,10 @@ Everything is in `data/roblox-game.json`:
   Use YouTube for anything long.
 - `screenshots`: `[{ "src": "/images/roblox/<file>.webp", "alt": "..." }]`, 16:9, in
   `images/roblox/`. Without any, the page uses the game's screenshots from Roblox.
+- `codes`: the game's redeem codes (copy them from the game's `Config/Codes.luau`), shown with a
+  copy button; `ends` (YYYY-MM-DD) hides one when it expires.
+- The PLAY buttons link to `roblox.com/games/start?placeId=...&launchData=site`, so the game
+  can give a first-time player from the website its join gift.
 
 ### Battle Points Shop (Coming Soon)
 

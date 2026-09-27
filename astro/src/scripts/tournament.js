@@ -2,7 +2,7 @@
 // Signed-in players play ranked: the server draws the roster and records each
 // pick (battle ratings, daily reward). Everyone else plays a local bracket.
 import engine from '../../../js/battle-engine.js';
-import { loadAnimalIndex, escapeHtml, toast, artVars } from './site.js';
+import { loadAnimalIndex, escapeHtml, toast, artVars, showReward } from './site.js';
 import { sfx, shake } from './sfx.js';
 import { loadVotes, castVote } from './votes.js';
 
@@ -132,8 +132,8 @@ function paintMode() {
     mode.classList.toggle('ranked', Boolean(user));
     mode.querySelector('img').src = `/images/icons/abs/${user ? 'medal' : 'lock'}.webp`;
     $('[data-mode-text]').innerHTML = user
-        ? `<b>Ranked</b> Playing as ${escapeHtml(user.displayName || user.username)}. The server draws your bracket, every pick moves the battle ratings and your first finished bracket each day earns XP and BattlePoints.`
-        : '<b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and BattlePoints once a day.';
+        ? `<b>Ranked</b> Playing as ${escapeHtml(user.displayName || user.username)}. The server draws your bracket, every pick moves the battle ratings and your first finished bracket each day earns XP and Coins.`
+        : '<b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and Coins once a day.';
 }
 
 async function paintRecent() {
@@ -217,8 +217,8 @@ async function voteAnimal(button) {
     if (result.needsLogin) { toast('Log in to vote on animals'); return; }
     if (result.error) { sfx.error(); toast(result.error); return; }
     state.voteMap.set(name, result.entry);
-    sfx.coin();
-    if (result.xp) toast(`+${result.xp} XP`);
+    if (result.reward?.awarded) showReward(result.reward, button);
+    else sfx.tick();
     const tags = button.parentElement;
     const animal = state.byName.get(name);
     if (animal && tags) {
@@ -595,9 +595,9 @@ function paintReward(result) {
     }
     const reward = result.body.reward;
     if (result.body.duplicate) box.textContent = result.body.message || 'This ranked bracket was already recorded.';
-    else if (reward?.awarded) box.innerHTML = `Ranked result recorded. <b>+${reward.xpAdded} XP</b> · <b>+${reward.bpAdded} BP</b>${reward.leveledUp ? ' · <b>Level up!</b>' : ''}`;
+    else if (reward?.awarded) box.innerHTML = `Ranked result recorded. <b>+${reward.coins} Coins</b> · <b>+${reward.xp} XP</b>${reward.leveledUp ? ' · <b>Level up!</b>' : ''}`;
     else box.textContent = 'Ranked result recorded. Today’s tournament reward was already claimed.';
-    if (reward?.awarded) sfx.coin();
+    if (reward?.awarded) showReward(reward, box);
 }
 
 async function finish() {

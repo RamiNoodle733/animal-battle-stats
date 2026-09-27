@@ -38,10 +38,18 @@ function video(entry) {
     return { title: String(entry?.title || ''), youtubeId, src, poster, animal: entry?.animal || null, ready: Boolean(youtubeId || src) };
 }
 const trailer = video({ title: 'Official trailer', ...robloxGame.trailer });
+// Codes: the game's redeem codes (animal-battle-stats-roblox Config/Codes.luau), posted
+// publicly as Roblox requires; `ends` (YYYY-MM-DD, UTC) hides one when it stops working.
+const codes = (robloxGame.codes || []).filter((entry) => /^[A-Z0-9]{2,30}$/.test(entry?.code || '') && (!entry.ends || Date.parse(`${entry.ends}T00:00:00Z`) > Date.now()));
 export const ROBLOX = Object.freeze({
     ...robloxGame,
     live: robloxLive,
-    playUrl: robloxLive ? `https://www.roblox.com/games/${robloxGame.placeId}` : null,
+    // PLAY buttons: a deep link whose launchData "site" tells the game the player came
+    // from the website, so a first-time player gets the game's join gift (PlayerService).
+    playUrl: robloxLive ? `https://www.roblox.com/games/start?placeId=${robloxGame.placeId}&launchData=site` : null,
+    // The game's page on Roblox, for structured data and plain links.
+    gameUrl: robloxLive ? `https://www.roblox.com/games/${robloxGame.placeId}` : null,
+    codes,
     trailer: trailer.ready ? trailer : null,
     videos: (robloxGame.videos || []).map(video).filter((entry) => entry.title),
     screenshots: (robloxGame.screenshots || [])

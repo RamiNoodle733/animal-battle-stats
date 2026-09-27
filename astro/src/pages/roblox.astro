@@ -21,7 +21,7 @@ const thumbCount = screenshots.length + (trailer ? 1 : 0);
 const BOARDS = [['POWER', 'Team power', 'bolt'], ['COLLECTION', 'Animals collected', 'cards'], ['WINS', 'Battles won', 'swords'], ['SHOW', 'Best show streak', 'tv']];
 const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>';
 const faq = [
-    { q: 'Is Animal Battle Stats on Roblox?', a: ROBLOX.live ? `Yes. Animal Battle Stats is live on Roblox and free to play: ${ROBLOX.playUrl}` : 'The Animal Battle Stats game is in development for Roblox. Join the Discord or check this page for the launch.' },
+    { q: 'Is Animal Battle Stats on Roblox?', a: ROBLOX.live ? `Yes. Animal Battle Stats is live on Roblox and free to play: ${ROBLOX.gameUrl}` : 'The Animal Battle Stats game is in development for Roblox. Join the Discord or check this page for the launch.' },
     { q: 'Is it free?', a: 'Yes, it is free to play. There are no loot boxes or paid packs, and nothing you can buy makes an animal stronger.' },
     { q: 'Are the animals the same as on the website?', a: `Yes. All ${animals.length} animals, their stats and their home biomes come straight from this site, so new research here changes the game too.` },
     { q: 'What do you do in the game?', a: 'Fly your champion card across floating biome islands, fight and recruit wild animals, level them up, beat island bosses (the Ocean boss is the Megalodon), and join server-wide shows, tournaments and raids.' },
@@ -32,7 +32,7 @@ const jsonLd = [
         '@type': 'VideoGame',
         name: 'Animal Battle Stats',
         description,
-        url: ROBLOX.playUrl || absoluteUrl('/roblox'),
+        url: ROBLOX.gameUrl || absoluteUrl('/roblox'),
         image: absoluteUrl('/images/og/roblox.jpg'),
         genre: ['Collectible card game', 'Fighting', 'Adventure'],
         gamePlatform: ['Roblox', 'PC', 'Mac', 'iOS', 'Android', 'Xbox'],
@@ -140,6 +140,20 @@ const jsonLd = [
                         </figure>
                     ))}
                 </div>
+            </section>
+        )}
+
+        {ROBLOX.codes.length > 0 && (
+            <section class="rbx-section" aria-labelledby="codes-title">
+                <div class="rbx-head"><h2 id="codes-title" class="rbx-h2">Codes</h2><span class="small muted">Redeem in the game: Settings, then Codes</span></div>
+                <ul class="codes">
+                    {ROBLOX.codes.map((entry) => (
+                        <li>
+                            <button class="code" type="button" data-copy={entry.code} aria-label={`Copy code ${entry.code}`}><b>{entry.code}</b><Icon name="check" size={18} lazy /></button>
+                            <span>{entry.reward}{entry.ends && <small> · until {new Date(`${entry.ends}T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })}</small>}</span>
+                        </li>
+                    ))}
+                </ul>
             </section>
         )}
 
@@ -272,6 +286,17 @@ const jsonLd = [
     .clip.is-big figcaption { padding: 40px 20px 18px; }
     .clip.is-big figcaption b { font-size: clamp(1.4rem, 2.4vw, 2rem); }
     .pending-chip { flex: none; padding: 3px 9px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; color: var(--gold-2); background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 215, 0, 0.45); border-radius: 999px; }
+
+    /* ---- codes */
+    .codes { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .codes li { display: grid; gap: 6px; padding: 12px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .codes li > span { font-size: 0.82rem; color: var(--text-2); }
+    .codes small { color: var(--muted); }
+    .code { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 12px; color: var(--gold-2); background: rgba(255, 215, 0, 0.07); border: 1px dashed rgba(255, 215, 0, 0.5); border-radius: 10px; cursor: pointer; }
+    .code b { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; letter-spacing: 0.1em; }
+    .code :global(img) { opacity: 0; transition: opacity 0.2s; }
+    .code.copied { border-style: solid; border-color: var(--green); }
+    .code.copied :global(img) { opacity: 1; }
 
     /* ---- connect */
     .rbx-connect { --trim: #fff; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(16px, 3vw, 36px); padding: clamp(18px, 2.4vw, 28px); }

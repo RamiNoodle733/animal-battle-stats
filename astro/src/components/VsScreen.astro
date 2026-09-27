@@ -113,12 +113,20 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
         <div class="c-pane scroll" data-cpane="talk" hidden></div>
 
         <div class="c-actions">
-            <button class="btn btn-hot btn-lg fight-btn" type="button" data-fight><Icon name="swords" size={28} />Fight!</button>
-            <div class="fan" data-fan>
-                <span>Fans pick:</span>
-                <button type="button" class="chip" data-vote-side="a"><span data-fan-a>{a.name}</span> <b data-fan-pa></b></button>
-                <button type="button" class="chip" data-vote-side="b"><span data-fan-b>{b.name}</span> <b data-fan-pb></b></button>
+            <div class="call" data-call data-state="open">
+                <div class="call-head">
+                    <Icon name="target" size={22} /><b>Call it</b>
+                    <span class="call-pay"><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />+10 a call · bonus if you're right</span>
+                    <span class="call-streak" data-call-streak hidden></span>
+                </div>
+                <div class="call-picks">
+                    <button type="button" class="call-pick" data-vote-side="a"><span class="cp-name" data-fan-a>{a.name}</span><small class="cp-crowd" data-fan-pa></small></button>
+                    <span class="call-or">or</span>
+                    <button type="button" class="call-pick" data-vote-side="b"><span class="cp-name" data-fan-b>{b.name}</span><small class="cp-crowd" data-fan-pb></small></button>
+                </div>
+                <p class="call-note" data-call-note>Pick who wins, then watch the fight. Right calls build a streak.</p>
             </div>
+            <button class="btn btn-sm fight-btn" type="button" data-fight><Icon name="swords" size={22} /><span>Just watch</span></button>
         </div>
         <div class="announcer" data-announcer aria-live="assertive"></div>
     </section>
@@ -265,9 +273,32 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 18);
     .c-actions { display: grid; gap: 8px; padding: 10px 14px 14px; border-top: 1px solid var(--line); }
     .fight-btn { width: 100%; }
     .fight-btn[disabled] { filter: grayscale(0.6) brightness(0.8); pointer-events: none; }
-    .fan { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; font-size: 0.76rem; color: var(--muted); }
-    .fan .chip { cursor: pointer; }
-    .fan .chip.voted { border-color: var(--gold); color: var(--gold-2); }
+    /* Call it: pick the winner, then the called fight plays (scripts/versus.js). */
+    .call { display: grid; gap: 8px; padding: 10px 12px; background: linear-gradient(180deg, rgba(255, 215, 0, 0.09), rgba(255, 107, 0, 0.05)); border: 1px solid rgba(255, 215, 0, 0.35); border-radius: 12px; }
+    .call-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .call-head b { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold-2); transform: skewX(-6deg); }
+    .call-pay { display: inline-flex; align-items: center; gap: 4px; font-size: 0.72rem; font-weight: 800; color: var(--text-2); }
+    .call-streak { margin-left: auto; padding: 2px 9px; font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.04em; color: #1f1400; background: linear-gradient(180deg, var(--gold-2), var(--gold)); border-radius: 999px; }
+    .call-picks { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
+    .call-or { font-family: var(--font-display); font-weight: 900; color: var(--muted); text-transform: uppercase; }
+    .call-pick {
+        display: grid; justify-items: center; gap: 1px; min-height: 52px; padding: 6px 10px;
+        font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; color: #fff;
+        background: linear-gradient(180deg, #2a3b73, #16224a); border: 1px solid var(--line-2); border-radius: 10px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -3px 0 #0a1027; cursor: pointer;
+        transition: transform 0.12s var(--ease), border-color 0.15s, filter 0.15s;
+    }
+    .call-pick:hover { transform: translateY(-1px); border-color: var(--gold); filter: brightness(1.12); }
+    .cp-name { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cp-crowd { font-family: var(--font-body); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em; text-transform: none; color: var(--muted); }
+    .call[data-state="called"] .call-pick, .call[data-state="busy"] .call-pick { pointer-events: none; }
+    .call[data-state="called"] .call-pick:not(.picked) { opacity: 0.5; }
+    .call-pick.picked { border-color: var(--gold); background: linear-gradient(180deg, #5a4a10, #2a2206); box-shadow: 0 0 16px rgba(255, 215, 0, 0.35); }
+    .call-pick.right { border-color: var(--green); background: linear-gradient(180deg, #1b6b45, #0c3322); box-shadow: 0 0 18px rgba(53, 220, 143, 0.45); }
+    .call-pick.wrong { border-color: var(--red); background: linear-gradient(180deg, #6b1b28, #330c13); }
+    .call-note { margin: 0; font-size: 0.76rem; text-align: center; color: var(--text-2); }
+    .call-note :global(a) { color: var(--cyan-2); text-decoration: underline; }
+    .call-note :global(b) { color: var(--gold-2); }
     .announcer {
         position: absolute; inset: 0; z-index: 20;
         display: grid; place-items: center;

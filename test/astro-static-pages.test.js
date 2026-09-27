@@ -44,7 +44,7 @@ test('about page explains ratings, matchups and sources with an FAQ', { skip: !b
 
 test('every public route and page rewrite is a built page', { skip: !built && 'dist/ not built' }, () => {
     const vercel = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
-    const routes = ['/', '/stats', '/compare', '/tier-list', '/rankings', '/tournament', '/community', '/login', '/signup', '/forgot-password', '/reset-password', '/profile'];
+    const routes = ['/', '/stats', '/compare', '/tier-list', '/rankings', '/tournament', '/community', '/login', '/signup', '/forgot-password', '/reset-password', '/profile', '/rewards'];
     const rewrites = vercel.rewrites.map((rule) => rule.destination).filter((destination) => !destination.startsWith('/api/'));
     for (const route of [...routes, ...rewrites]) {
         const file = route === '/' ? 'index.html' : `${route.slice(1)}.html`;

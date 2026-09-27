@@ -19,6 +19,8 @@ const TournamentSubmission = require('../lib/models/TournamentSubmission');
 const SiteStats = require('../lib/models/SiteStats');
 const { getAuthUser } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
+const battleEngine = require('../js/battle-engine');
+const { drawFight } = require('../lib/economy');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
@@ -39,6 +41,43 @@ const K_FACTOR = 20;
 function generateMatchupKey(animal1, animal2) {
     const sorted = [animal1, animal2].sort();
     return `${sorted[0]}::${sorted[1]}`;
+}
+
+function modelStats(animal) {
+    return {
+        attack: animal.attack,
+        defense: animal.defense,
+        agility: animal.agility,
+        stamina: animal.stamina,
+        intelligence: animal.intelligence,
+        special: animal.special ?? animal.special_attack
+    };
+}
+
+// The fight a player calls: drawn with the model's odds from a secret seed, so the
+// same player, matchup and day always get the same fight (see lib/economy.js).
+function drawCalledFight(sorted, matchupKey, dayKey, userId) {
+    const first = findAnimal(sorted[0]);
+    const second = findAnimal(sorted[1]);
+    const probability = battleEngine.compare(modelStats(first), modelStats(second)).probability ?? 0.5;
+    const { firstWins } = drawFight({
+        secret: process.env.CALL_SECRET || process.env.JWT_SECRET,
+        matchupKey,
+        dayKey,
+        userId: String(userId),
+        firstWinsProbability: probability
+    });
+    return { winner: firstWins ? sorted[0] : sorted[1], odds: { [sorted[0]]: probability, [sorted[1]]: 1 - probability } };
+}
+
+function callView(ballot, odds = null) {
+    if (!ballot?.winner) return null;
+    return {
+        votedFor: ballot.votedFor,
+        winner: ballot.winner,
+        correct: ballot.correct === true,
+        odds: odds ? odds[ballot.votedFor] : null
+    };
 }
 
 module.exports = async function handler(req, res) {
@@ -140,11 +179,19 @@ async function getMatchupVotes(req, res) {
     }
     try {
         const matchupKey = generateMatchupKey(animal1, animal2);
-        const matchup = await MatchupVote.findOne({ matchupKey });
+        const viewer = getAuthUser(req);
+        const [matchup, ballot] = await Promise.all([
+            MatchupVote.findOne({ matchupKey }),
+            viewer ? MatchupVoteBallot.findOne({ matchupKey, userId: viewer.id, dayKey: new Date().toISOString().split('T')[0] }) : null
+        ]);
+        // The player's own call for today is private to them.
+        const myCall = viewer ? callView(ballot) : null;
+        if (viewer) res.setHeader('Cache-Control', 'private, no-store');
         if (!matchup) {
             return res.status(200).json({
                 success: true,
-                data: { animal1Name: animal1, animal2Name: animal2, animal1Votes: 0, animal2Votes: 0, totalVotes: 0, animal1Percentage: 50, animal2Percentage: 50, hasVotes: false }
+                data: { animal1Name: animal1, animal2Name: animal2, animal1Votes: 0, animal2Votes: 0, totalVotes: 0, animal1Percentage: 50, animal2Percentage: 50, hasVotes: false },
+                myCall
             });
         }
         const sorted = [animal1, animal2].sort();
@@ -155,7 +202,8 @@ async function getMatchupVotes(req, res) {
         const leftPct = total > 0 ? Math.round((leftVotes / total) * 100) : 50;
         return res.status(200).json({
             success: true,
-            data: { animal1Name: animal1, animal2Name: animal2, animal1Votes: leftVotes, animal2Votes: rightVotes, totalVotes: total, animal1Percentage: leftPct, animal2Percentage: 100 - leftPct, hasVotes: total > 0 }
+            data: { animal1Name: animal1, animal2Name: animal2, animal1Votes: leftVotes, animal2Votes: rightVotes, totalVotes: total, animal1Percentage: leftPct, animal2Percentage: 100 - leftPct, hasVotes: total > 0 },
+            myCall
         });
     } catch (error) {
         console.error('Error getting matchup votes:', error);
@@ -198,23 +246,31 @@ async function recordMatchupVote(req, res) {
         }
 
         const dayKey = new Date().toISOString().split('T')[0];
+        const fight = drawCalledFight(sorted, matchupKey, dayKey, user.id);
+        const correct = fight.winner === votedFor;
         try {
             await MatchupVoteBallot.create({
                 matchupKey,
                 userId: user.id,
                 dayKey,
                 votedFor,
+                winner: fight.winner,
+                correct,
                 votedAt: new Date()
             });
         } catch (error) {
             if (error?.code !== 11000) throw error;
-            const existing = await MatchupVote.findOne({ matchupKey });
+            const [existing, ballot] = await Promise.all([
+                MatchupVote.findOne({ matchupKey }),
+                MatchupVoteBallot.findOne({ matchupKey, userId: user.id, dayKey })
+            ]);
             return res.status(200).json({
                 success: true,
                 duplicate: true,
-                data: formatMatchupVote(existing, animal1, animal2, votedFor),
+                data: formatMatchupVote(existing, animal1, animal2, ballot?.votedFor || votedFor),
+                call: callView(ballot, fight.odds),
                 reward: null,
-                message: 'You already voted on this matchup today.'
+                message: 'You already called this fight today.'
             });
         }
 
@@ -235,8 +291,9 @@ async function recordMatchupVote(req, res) {
         try {
             reward = await awardUserReward({
                 userId: user.id,
-                action: 'daily_matchup_vote',
-                sourceId: dayKey
+                action: 'matchup_call',
+                sourceId: `${matchupKey}:${dayKey}`,
+                call: { correct }
             });
         } catch (rewardError) {
             console.error('Matchup reward failed:', rewardError.message);
@@ -252,6 +309,7 @@ async function recordMatchupVote(req, res) {
             success: true,
             duplicate: false,
             data: formatMatchupVote(matchup, animal1, animal2, votedFor),
+            call: { votedFor, winner: fight.winner, correct, odds: fight.odds[votedFor] },
             reward
         });
     } catch (error) {

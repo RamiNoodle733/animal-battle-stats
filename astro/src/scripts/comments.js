@@ -1,7 +1,7 @@
 // Comment thread for an animal (or a matchup), mounted into any container:
 //   mountComments(element, { animalName }) or mountComments(element, { comparisonKey })
 // Loads on first call, posts with the session cookie, replies one level deep.
-import { escapeHtml, toast, loadAnimalIndex } from './site.js';
+import { escapeHtml, toast, loadAnimalIndex, showReward } from './site.js';
 import { sfx } from './sfx.js';
 
 function ago(value) {
@@ -76,8 +76,9 @@ export function mountComments(root, target) {
         const result = await response?.json().catch(() => ({}));
         if (!response?.ok || !result?.success) { sfx.error(); toast(result?.error || 'Could not post. Try again.'); return; }
         const reward = result.reward;
-        sfx.coin();
-        toast(reward?.awarded ? `Posted · +${reward.xpAdded} XP` : 'Posted');
+        toast('Posted');
+        if (reward?.awarded) showReward(reward, form);
+        else sfx.coin();
         text.value = '';
         replyTo = null;
         text.placeholder = `What do you think about ${label}?`;

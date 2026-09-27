@@ -1,8 +1,11 @@
 // Versus screen: pick two animals, see the model's odds and stat duel, then
 // watch an animated fight. The fight's winner is drawn with the model's
 // probability, so an underdog can still pull off the upset now and then.
+// CALL IT (signed in): pick the winner first. The server draws the fight you
+// called (once per matchup a day), pays Coins and XP, and a right call builds a
+// streak with a bonus, like the game's Who Would Win? show.
 import engine from '../../../js/battle-engine.js';
-import { loadAnimalIndex, escapeHtml, toast, artVars } from './site.js';
+import { loadAnimalIndex, escapeHtml, toast, artVars, showReward } from './site.js';
 import { sfx, shake } from './sfx.js';
 import { mountComments } from './comments.js';
 import { trackFight } from './track.js';
@@ -25,6 +28,10 @@ const roster = root.querySelector('[data-roster]');
 const strip = root.querySelector('[data-r-strip]');
 const announcer = root.querySelector('[data-announcer]');
 const fightButton = root.querySelector('[data-fight]');
+const callBox = root.querySelector('[data-call]');
+const callNote = root.querySelector('[data-call-note]');
+const callStreak = root.querySelector('[data-call-streak]');
+const CALL_NOTE = 'Pick who wins, then watch the fight. Right calls build a streak.';
 
 function toModel(animal) {
     return { attack: animal.atk, defense: animal.def, agility: animal.agi, stamina: animal.sta, intelligence: animal.int, special: animal.spl };
@@ -159,44 +166,106 @@ function choose(slug) {
     roster.classList.remove('open');
 }
 
-// ---------------------------------------------------------------- fan votes
+// ---------------------------------------------------------------- call it
+
+function paintStreak(streak) {
+    callStreak.hidden = !(streak > 0);
+    callStreak.textContent = `Streak ${streak}`;
+}
+
+function resetCall() {
+    callBox.dataset.state = 'open';
+    callBox.querySelectorAll('[data-vote-side]').forEach((button) => button.classList.remove('picked', 'right', 'wrong'));
+    callNote.textContent = CALL_NOTE;
+    paintStreak(window.ABS_USER?.economy?.callStreak || 0);
+}
+
+// Shows a finished call: which pick won, the payout and the streak.
+function paintCall(call, a, reward = null, earlier = false) {
+    callBox.dataset.state = 'called';
+    const pickedSide = call.votedFor === a.n ? 'a' : 'b';
+    callBox.querySelectorAll('[data-vote-side]').forEach((button) => {
+        const mine = button.dataset.voteSide === pickedSide;
+        button.classList.toggle('picked', mine);
+        button.classList.toggle('right', mine && call.correct);
+        button.classList.toggle('wrong', mine && !call.correct);
+    });
+    const winner = escapeHtml(call.winner);
+    if (earlier) {
+        callNote.innerHTML = `You called <b>${escapeHtml(call.votedFor)}</b> today and <b>${winner}</b> won. Call another matchup, or this one again tomorrow.`;
+    } else if (call.correct) {
+        const streak = reward?.call?.streak || 0;
+        callNote.innerHTML = `<b>You called it!</b> ${winner} won${streak > 1 ? `: ${streak} right in a row` : ''}.`;
+    } else {
+        callNote.innerHTML = `<b>${winner}</b> won this one. Your streak starts again on the next call.`;
+    }
+    if (reward?.call) paintStreak(reward.call.streak);
+}
 
 async function loadFanVotes(a, b) {
     const paBox = root.querySelector('[data-fan-pa]');
     const pbBox = root.querySelector('[data-fan-pb]');
     paBox.textContent = '';
     pbBox.textContent = '';
-    root.querySelectorAll('[data-vote-side]').forEach((button) => button.classList.remove('voted'));
+    resetCall();
     try {
-        const response = await fetch(`/api/battles?action=matchup_votes&animal1=${encodeURIComponent(a.n)}&animal2=${encodeURIComponent(b.n)}`, { headers: { Accept: 'application/json' } });
+        const response = await fetch(`/api/battles?action=matchup_votes&animal1=${encodeURIComponent(a.n)}&animal2=${encodeURIComponent(b.n)}`, {
+            credentials: 'same-origin',
+            headers: { Accept: 'application/json', ...(window.ABS_TOKEN ? { Authorization: `Bearer ${window.ABS_TOKEN}` } : {}) }
+        });
         const body = await response.json();
-        if (!body.success) return;
+        if (!body.success || state.a !== a.s || state.b !== b.s) return;
         state.fan = body.data;
         if (body.data.totalVotes > 0) {
-            paBox.textContent = `${body.data.animal1Percentage}%`;
-            pbBox.textContent = `${body.data.animal2Percentage}%`;
+            paBox.textContent = `${body.data.animal1Percentage}% of fans`;
+            pbBox.textContent = `${body.data.animal2Percentage}% of fans`;
         }
+        if (body.myCall) paintCall(body.myCall, a, null, true);
     } catch { /* fan votes are optional */ }
 }
 
-root.querySelectorAll('[data-vote-side]').forEach((button) => button.addEventListener('click', async () => {
+async function callFight(button) {
     const a = state.index.get(state.a);
     const b = state.index.get(state.b);
-    if (!a || !b) return;
-    if (!window.ABS_USER) { toast('Log in to cast your fan vote'); return; }
+    if (!a || !b || state.fighting || callBox.dataset.state !== 'open') return;
+    if (!window.ABS_USER) {
+        sfx.error();
+        callNote.innerHTML = `<a href="/login?returnTo=${encodeURIComponent(location.pathname)}">Log in</a> to call fights: every call pays Coins and XP.`;
+        return;
+    }
     const votedFor = button.dataset.voteSide === 'a' ? a.n : b.n;
+    callBox.dataset.state = 'busy';
+    button.classList.add('picked');
+    sfx.select();
     const response = await fetch('/api/battles?action=matchup_votes', {
         method: 'POST',
         credentials: 'same-origin',
-        headers: { 'Content-Type': 'application/json', ...(window.ABS_TOKEN ? { Authorization: `Bearer ${window.ABS_TOKEN}` } : {}) },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json', ...(window.ABS_TOKEN ? { Authorization: `Bearer ${window.ABS_TOKEN}` } : {}) },
         body: JSON.stringify({ animal1: a.n, animal2: b.n, votedFor })
     }).catch(() => null);
-    if (!response?.ok) { sfx.error(); toast('Vote failed. Try again soon.'); return; }
-    sfx.coin();
-    button.classList.add('voted');
-    toast(`You picked ${votedFor}`);
-    loadFanVotes(a, b);
-}));
+    const body = await response?.json().catch(() => null);
+    if (!response?.ok || !body?.success) {
+        sfx.error();
+        toast(response?.status === 429 ? 'Slow down a little, then call again.' : 'That call did not go through. Try again soon.');
+        resetCall();
+        return;
+    }
+    if (!body.call) { resetCall(); loadFanVotes(a, b); return; }
+    if (body.duplicate) { paintCall(body.call, a, null, true); return; }
+    callNote.innerHTML = `You picked <b>${escapeHtml(votedFor)}</b>. Here it comes…`;
+    await fight(body.call.winner === a.n ? 'a' : 'b');
+    paintCall(body.call, a, body.reward);
+    if (body.reward) showReward(body.reward, button);
+    if (window.ABS_USER && body.reward?.call) window.ABS_USER.economy = { ...window.ABS_USER.economy, callStreak: body.reward.call.streak };
+}
+
+root.querySelectorAll('[data-vote-side]').forEach((button) => button.addEventListener('click', () => callFight(button)));
+document.addEventListener('abs:user', () => {
+    paintStreak(window.ABS_USER?.economy?.callStreak || 0);
+    const a = state.index.get(state.a);
+    const b = state.index.get(state.b);
+    if (a && b) loadFanVotes(a, b);
+});
 
 // ---------------------------------------------------------------- the fight
 
@@ -224,8 +293,8 @@ function setHp(side, value) {
 // Plans a fight whose winner was drawn with the model probability: both sides
 // trade blows, bigger stat gaps mean a more lopsided fight, and the winner
 // lands the final hit.
-function planFight(a, b, probability) {
-    const winner = Math.random() < probability ? 'a' : 'b';
+function planFight(a, b, probability, forced = null) {
+    const winner = forced || (Math.random() < probability ? 'a' : 'b');
     const loser = winner === 'a' ? 'b' : 'a';
     const edge = Math.abs(probability - 0.5) * 2;
     const winnerLeft = Math.round(15 + edge * 55 + Math.random() * 12);
@@ -265,7 +334,8 @@ function planFight(a, b, probability) {
     };
 }
 
-async function fight() {
+// `forced` = the side that wins a called fight ('a' or 'b'); otherwise drawn here.
+async function fight(forced = null) {
     if (state.fighting) return;
     const a = state.index.get(state.a);
     const b = state.index.get(state.b);
@@ -278,7 +348,7 @@ async function fight() {
     const hp = { a: 100, b: 100 };
     for (const side of ['a', 'b']) { setHp(side, 100); sides[side].classList.remove('ko', 'winner'); }
     const probability = model.compare(toModel(a), toModel(b)).probability;
-    const plan = planFight(a, b, probability);
+    const plan = planFight(a, b, probability, forced);
 
     for (const count of ['3', '2', '1']) { sfx.countdown(); await say(`<span class="big">${count}</span>`, reduced ? 200 : 420); }
     sfx.go();
@@ -318,12 +388,12 @@ async function fight() {
     announcer.innerHTML = '';
     state.fighting = false;
     fightButton.disabled = false;
-    fightButton.lastChild.textContent = 'Rematch';
+    fightButton.querySelector('span').textContent = 'Watch another';
 }
 
 // ---------------------------------------------------------------- wiring
 
-fightButton.addEventListener('click', fight);
+fightButton.addEventListener('click', () => fight());
 root.querySelectorAll('[data-pick]').forEach((button) => button.addEventListener('click', () => {
     setPicking(button.dataset.pick);
     sfx.whoosh();

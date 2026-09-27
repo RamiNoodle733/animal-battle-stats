@@ -94,7 +94,8 @@ const canHover = matchMedia('(hover: hover) and (pointer: fine)').matches && !ma
 if (canHover) {
     let active = null;
     document.addEventListener('pointermove', (event) => {
-        const card = event.target.closest('.card');
+        // Cards on the home ring turn with the ring, not with the pointer.
+        const card = event.target.closest('.card:not([data-ring] .card)');
         if (active && active !== card) {
             active.style.removeProperty('--rx');
             active.style.removeProperty('--ry');
@@ -187,9 +188,179 @@ if (dialog) {
     });
 }
 
-// ---------------------------------------------------------------- player chip
+// ---------------------------------------------------------------- player chip + rewards
 
+const COIN = '/images/icons/abs/coin.webp';
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const chip = document.querySelector('[data-player-chip]');
+const badge = document.querySelector('[data-rewards-badge]');
+
+// Calls /api/auth?action=... as the signed-in player. Resolves { ok, status, body }.
+export function authApi(action, { method = 'GET', body } = {}) {
+    const headers = { Accept: 'application/json' };
+    if (body) headers['Content-Type'] = 'application/json';
+    if (window.ABS_TOKEN) headers.Authorization = `Bearer ${window.ABS_TOKEN}`;
+    return fetch(`/api/auth?action=${action}`, { method, credentials: 'same-origin', headers, body: body ? JSON.stringify(body) : undefined })
+        .then(async (response) => ({ ok: response.ok, status: response.status, body: await response.json().catch(() => ({})) }))
+        .catch(() => ({ ok: false, status: 0, body: {} }));
+}
+
+function paintBadge(ready) {
+    if (!badge) return;
+    badge.textContent = ready > 9 ? '9+' : String(ready || 0);
+    badge.hidden = !ready;
+}
+
+function paintChip(user) {
+    if (!chip) return;
+    const level = Number(user.level) || 1;
+    const progress = user.xpToNext ? Math.min(100, Math.round(((Number(user.xp) || 0) / user.xpToNext) * 100)) : 0;
+    chip.href = '/profile';
+    chip.classList.add('signed-in');
+    chip.innerHTML = `<span class="lvl" title="Level ${level}">${level}</span>
+        <span class="who"><span>${escapeHtml(user.displayName || user.username)}</span><span class="xpbar"><i style="width:${progress}%"></i></span></span>
+        <span class="bp" title="Coins" data-wallet><img src="${COIN}" alt="" width="20" height="20"><span data-wallet-n>${Number(user.battlePoints || 0).toLocaleString('en-US')}</span></span>`;
+    paintBadge(user.economy?.ready);
+}
+
+// Where flying coins land: the Coins counter, or the Rewards button on narrow screens.
+function walletTarget() {
+    const wallet = document.querySelector('[data-wallet]');
+    const box = wallet?.getBoundingClientRect();
+    if (box && box.width > 0) return wallet;
+    return document.querySelector('[data-rewards-btn]') || chip;
+}
+
+// `from` is an element or a rectangle (a spot on screen that may be gone by now).
+function rectOf(from) {
+    if (from && typeof from.getBoundingClientRect === 'function') return from.getBoundingClientRect();
+    if (from && typeof from.left === 'number') return from;
+    return document.querySelector('.screen').getBoundingClientRect();
+}
+
+function flyCoins(from, count) {
+    const target = walletTarget();
+    if (!target || reduceMotion) return Promise.resolve();
+    const start = rectOf(from);
+    const end = target.getBoundingClientRect();
+    const sx = start.left + start.width / 2;
+    const sy = start.top + start.height / 2;
+    const ex = end.left + end.width / 2;
+    const ey = end.top + end.height / 2;
+    const flights = Array.from({ length: count }, (_, index) => new Promise((resolve) => {
+        const coin = document.createElement('img');
+        coin.src = COIN;
+        coin.alt = '';
+        coin.className = 'fly-coin';
+        coin.style.left = `${sx - 14}px`;
+        coin.style.top = `${sy - 14}px`;
+        document.body.appendChild(coin);
+        const spreadX = (Math.random() - 0.5) * 90;
+        const spreadY = -30 - Math.random() * 50;
+        const flight = coin.animate([
+            { transform: 'translate(0, 0) scale(0.6)', opacity: 0 },
+            { transform: `translate(${spreadX}px, ${spreadY}px) scale(1.15)`, opacity: 1, offset: 0.3 },
+            { transform: `translate(${ex - sx}px, ${ey - sy}px) scale(0.55)`, opacity: 0.9 }
+        ], { duration: 820 + index * 45, delay: index * 55, easing: 'cubic-bezier(0.5, 0, 0.3, 1)', fill: 'forwards' });
+        flight.onfinish = () => { coin.remove(); resolve(); };
+    }));
+    return flights[0].then(() => {
+        sfx.coin();
+        target.classList.remove('bump');
+        void target.offsetWidth;
+        target.classList.add('bump');
+    });
+}
+
+function rewardPill(from, text) {
+    const pill = document.createElement('div');
+    pill.className = 'reward-pill';
+    pill.innerHTML = text;
+    const box = rectOf(from);
+    pill.style.left = `${Math.min(window.innerWidth - 120, Math.max(120, box.left + box.width / 2))}px`;
+    pill.style.top = `${Math.max(70, box.top)}px`;
+    document.body.appendChild(pill);
+    setTimeout(() => pill.remove(), 1900);
+}
+
+// Shows a reward from the API (lib/rewards.js payload): the gain above `from`,
+// Coins flying into the counter, level-ups and new looks, and refreshes the HUD.
+export function showReward(reward, from = null) {
+    if (!reward) return;
+    const user = window.ABS_USER;
+    if (user) {
+        if (typeof reward.wallet === 'number') user.battlePoints = reward.wallet;
+        if (reward.progression) Object.assign(user, { level: reward.progression.level, xp: reward.progression.xp, xpToNext: reward.progression.xpToNext });
+        if (reward.economy) user.economy = reward.economy;
+        paintChip(user);
+    }
+    const parts = [];
+    if (reward.coins) parts.push(`<b class="c"><img src="${COIN}" alt="" width="18" height="18">+${reward.coins}</b>`);
+    if (reward.xp) parts.push(`<b class="x">+${reward.xp} XP</b>`);
+    if (reward.pass) parts.push(`<b class="p">+${reward.pass} Pass</b>`);
+    if (parts.length) {
+        rewardPill(from, parts.join(''));
+        flyCoins(from, Math.min(8, Math.max(2, Math.ceil((reward.coins || 0) / 12))));
+    } else if (reward.capped) {
+        toast('Daily Coins limit reached for that. It still counts for quests.');
+    }
+    if (reward.leveledUp && reward.newLevel) {
+        setTimeout(() => { sfx.win(); toast(`Level ${reward.newLevel}! Level-up Coins added.`); }, 900);
+    }
+    for (const [index, item] of (reward.unlocked || []).entries()) {
+        setTimeout(() => { sfx.win(); toast(`New ${item.kind}: ${item.name}! Wear it from Rewards.`); }, 1600 + index * 2200);
+    }
+    document.dispatchEvent(new CustomEvent('abs:reward', { detail: reward }));
+}
+
+// ---------------------------------------------------------------- daily reward
+
+function dailyDismissKey(day) { return `abs-daily-later-${day}`; }
+
+async function openDaily() {
+    const hub = await authApi('hub');
+    if (!hub.ok || !hub.body.data?.login?.claimable) return;
+    const data = hub.body.data;
+    try { if (sessionStorage.getItem(dailyDismissKey(data.day))) return; } catch { /* private mode */ }
+    const login = data.login;
+    const dialog = document.createElement('dialog');
+    dialog.className = 'daily-dialog';
+    dialog.setAttribute('aria-labelledby', 'daily-title');
+    dialog.innerHTML = `
+        <div class="dd-head">
+            <img src="/images/icons/abs/gift.webp" alt="" width="64" height="64">
+            <div><p class="eyebrow">Daily reward</p><h2 id="daily-title" class="screen-title">Day ${login.step}</h2>
+            <p class="dd-sub">${login.run > 1 ? `${login.run} days in a row` : 'Come back every day: day 7 pays the most.'}${login.shielded ? ' · Your streak shield saved a missed day.' : ''}</p></div>
+        </div>
+        <ol class="dd-ladder">${login.rewards.map((reward) => `
+            <li class="${reward.day < login.step ? 'done' : reward.day === login.step ? 'now' : ''}${reward.day === 7 ? ' big' : ''}">
+                <small>Day ${reward.day}</small><img src="${reward.day === 7 ? '/images/icons/abs/chest.webp' : COIN}" alt="" width="34" height="34"><b>${reward.coins}</b>
+            </li>`).join('')}</ol>
+        <div class="dd-actions">
+            <button class="btn btn-gold btn-lg" type="button" data-dd-claim><img src="${COIN}" alt="" width="26" height="26">Claim ${login.reward.coins} Coins</button>
+            <button class="btn btn-sm" type="button" data-dd-later>Later</button>
+        </div>`;
+    document.body.appendChild(dialog);
+    dialog.showModal();
+    sfx.whoosh();
+    const close = () => { dialog.close(); setTimeout(() => dialog.remove(), 200); };
+    dialog.querySelector('[data-dd-later]').addEventListener('click', () => {
+        try { sessionStorage.setItem(dailyDismissKey(data.day), '1'); } catch { /* private mode */ }
+        close();
+    });
+    dialog.addEventListener('cancel', () => { try { sessionStorage.setItem(dailyDismissKey(data.day), '1'); } catch { /* private mode */ } });
+    const claim = dialog.querySelector('[data-dd-claim]');
+    claim.addEventListener('click', async () => {
+        claim.disabled = true;
+        const result = await authApi('claim', { method: 'POST', body: { what: 'daily' } });
+        if (!result.ok) { sfx.error(); toast(result.body.error || 'Could not claim. Try again.'); claim.disabled = false; return; }
+        dialog.querySelector('.dd-ladder .now')?.classList.add('done');
+        // The dialog sits above everything, so the Coins fly once it has closed.
+        const spot = claim.getBoundingClientRect();
+        setTimeout(() => { close(); showReward(result.body.data, spot); }, 450);
+    });
+}
+
 if (chip) {
     chip.href = `/login?returnTo=${encodeURIComponent(location.pathname + location.search)}`;
     // Pages that need to know either way read window.ABS_AUTH ('user' | 'guest')
@@ -207,13 +378,9 @@ if (chip) {
             window.ABS_TOKEN = body.data.token || null;
             window.ABS_AUTH = 'user';
             document.dispatchEvent(new CustomEvent('abs:user', { detail: user }));
-            const level = Number(user.level) || 1;
-            const progress = user.xpToNext ? Math.min(100, Math.round(((Number(user.xp) || 0) / user.xpToNext) * 100)) : 0;
-            chip.href = '/profile';
-            chip.classList.add('signed-in');
-            chip.innerHTML = `<span class="lvl" title="Level ${level}">${level}</span>
-                <span class="who"><span>${escapeHtml(user.displayName || user.username)}</span><span class="xpbar"><i style="width:${progress}%"></i></span></span>
-                <span class="bp" title="BattlePoints"><img src="/images/icons/abs/coin.webp" alt="" width="20" height="20">${Number(user.battlePoints || 0).toLocaleString('en-US')}</span>`;
+            paintChip(user);
+            // The daily reward greets a returning player once a day (not on Rewards, which shows it).
+            if (user.economy?.dailyReady && location.pathname !== '/rewards') setTimeout(openDaily, 900);
         })
         .catch(guest);
 }

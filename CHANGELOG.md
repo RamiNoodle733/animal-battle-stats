@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.3.0 — 2026-09-27
+
+- Coins, like the Roblox game: BattlePoints are now Coins, and every fight call, animal vote, comment and ranked tournament pays Coins, XP and Season Pass XP (up to a daily limit each), with the Coins flying into the header.
+- Call it on every Who Would Win? matchup: pick the winner, then watch the fight the server drew for you. Right calls build a streak that pays a growing bonus and earns titles.
+- New Rewards page: a 7-day daily reward with a weekly streak shield (it also greets you once a day), three daily quests and a chest, the free Season 1 Pass (30 tiers, ends December 1 like the game's), and a shop of profile card frames and titles. Looks only; nothing random or sold for money.
+- Profiles and the player leaderboard show the frame and title a player wears.
+- The home page's spinning cards turn smoothly at the same speed on every screen and pause when off screen.
+- The PLAY buttons now carry the game's website join gift, and the Roblox page lists the game's codes.
+
 ## 3.2.0 — 2026-09-27
 
 - The Animal Battle Stats Roblox game is live: Play on Roblox buttons across the site open the game, and the site shows its live player numbers and leaderboards.

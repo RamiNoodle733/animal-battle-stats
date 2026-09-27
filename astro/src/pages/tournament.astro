@@ -24,7 +24,7 @@ const description = `Run an 8 to 64 animal tournament bracket from ${animals.len
 const faq = [
     { q: 'How does the animal tournament work?', a: 'Choose a bracket size (8, 16, 32 or 64 animals) and a division. Animals are drawn at random and paired up, and you pick the winner of every fight until one champion is left. Stats odds are shown as a hint, and the fan vote is revealed after each pick. Turn on Guess the crowd to score a streak for matching the fan majority.' },
     { q: 'What is a battle rating?', a: 'Every ranked tournament updates an Elo-style battle rating for each animal that fought, starting at 1000. Beating a higher-rated animal moves the rating more than beating a lower-rated one, so the ratings show which animals players keep picking to win.' },
-    { q: 'What is the difference between ranked and casual?', a: 'Signed-in players play ranked: the server draws the bracket, records every pick and updates the battle ratings, and the first finished ranked bracket each day earns XP and BattlePoints. Casual brackets run in your browser and are not recorded.' },
+    { q: 'What is the difference between ranked and casual?', a: 'Signed-in players play ranked: the server draws the bracket, records every pick and updates the battle ratings, and the first finished ranked bracket each day earns XP and Coins. Casual brackets run in your browser and are not recorded.' },
     { q: 'Are the stats odds the real answer?', a: 'They come from the Animal Battle Stats model, which weighs attack, defense, agility, stamina, intelligence and special abilities. Real fights depend on size, setting and motivation, so upsets happen and you can always pick against the numbers.' }
 ];
 const jsonLd = [
@@ -57,7 +57,7 @@ const jsonLd = [
                     </button>
                     <div class="t-mode" data-mode>
                         <Icon name="lock" size={30} />
-                        <p data-mode-text><b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and BattlePoints once a day.</p>
+                        <p data-mode-text><b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and Coins once a day.</p>
                     </div>
                     <button class="btn btn-hot btn-lg t-start" type="button" data-start><Icon name="swords" size={30} />Start tournament</button>
                     <div class="t-recent" data-recent hidden>
@@ -83,7 +83,7 @@ const jsonLd = [
                     <ol class="t-steps">
                         <li><Icon name="cards" size={30} lazy /><span><b>Draw a bracket</b>8 to 64 random animals, from every class or a single division.</span></li>
                         <li><Icon name="vs" size={30} lazy /><span><b>Pick every winner</b>Tap the animal you think wins. Stats odds are your hint; the fan vote is revealed after you pick.</span></li>
-                        <li><Icon name="crown" size={30} lazy /><span><b>Crown a champion</b>Ranked brackets update the battle ratings and pay XP and BattlePoints once a day.</span></li>
+                        <li><Icon name="crown" size={30} lazy /><span><b>Crown a champion</b>Ranked brackets update the battle ratings and pay XP and Coins once a day.</span></li>
                     </ol>
                     <div class="faq">{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
                 </div>

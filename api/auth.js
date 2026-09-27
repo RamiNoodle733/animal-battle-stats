@@ -17,6 +17,10 @@
  * GET /api/auth?action=link-roblox - Begin linking Roblox to the current user
  * POST /api/auth?action=unlink-roblox - Unlink Roblox from the current user
  * GET /api/auth?action=roblox-player - The current user's linked Roblox account and in-game stats
+ * GET /api/auth?action=hub - Coins, daily streak, quests, Season Pass and looks (lib/economy.js)
+ * POST /api/auth?action=claim - Claim { what: daily | quest (slot) | chest | pass }
+ * POST /api/auth?action=buy - Buy a look with Coins { item }
+ * POST /api/auth?action=equip - Wear a frame or title { kind, item }
  * GET/PUT /api/auth?action=notification-preferences - Manage email notification settings
  * GET /api/auth?action=unsubscribe - Public signed-token email unsubscribe
  */
@@ -28,6 +32,8 @@ const crypto = require('crypto');
 const { notifyDiscord } = require('../lib/discord');
 const { verifyToken, signToken, verifyPurposeToken } = require('../lib/auth');
 const { robloxPlayerCard } = require('../lib/roblox-game');
+const { RewardError, buyItem, claimChest, claimDaily, claimPass, claimQuest, economyForUser, equipItem } = require('../lib/rewards');
+const { ITEM_BY_ID, economySummary, normalizeEconomy } = require('../lib/economy');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
 const { consumeRateLimit, clearRateLimit, clientAddress } = require('../lib/distributed-rate-limit');
@@ -260,6 +266,8 @@ function buildUserPayload(user) {
         googleLinked: authProviders.some((provider) => provider.provider === GOOGLE_PROVIDER),
         robloxLinked: Boolean(roblox),
         roblox,
+        coins: user.battlePoints || 0,
+        economy: economySummary(normalizeEconomy(user.economy)),
         displayName: user.displayName,
         avatar: user.avatar,
         role: user.role,
@@ -375,6 +383,20 @@ module.exports = async function handler(req, res) {
                     return res.status(405).json({ success: false, error: 'Method not allowed' });
                 }
                 return await handleRobloxPlayer(req, res);
+
+            case 'hub':
+                if (req.method !== 'GET') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleHub(req, res);
+
+            case 'claim':
+            case 'buy':
+            case 'equip':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleEconomyAction(req, res, action);
 
             case 'verify-email':
                 if (req.method !== 'GET' && req.method !== 'POST') {
@@ -1076,6 +1098,63 @@ async function handleRobloxPlayer(req, res) {
             live: Boolean(card?.live)
         }
     });
+}
+
+// ==================== ECONOMY ====================
+// The Rewards screen: Coins, daily streak, quests, Season Pass and looks.
+
+function publicLooks(user) {
+    const eco = normalizeEconomy(user.economy);
+    return { title: eco.title ? ITEM_BY_ID.get(eco.title)?.name || null : null, frame: eco.frame || null };
+}
+
+async function handleHub(req, res) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) {
+        return res.status(401).json({ success: false, error: 'Authentication required' });
+    }
+    const user = await User.findById(authUser.id);
+    if (!user) {
+        return res.status(404).json({ success: false, error: 'User not found' });
+    }
+    return res.status(200).json({ success: true, data: economyForUser(user) });
+}
+
+async function handleEconomyAction(req, res, action) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) {
+        return res.status(401).json({ success: false, error: 'Authentication required' });
+    }
+    const body = req.body || {};
+    try {
+        let result;
+        if (action === 'buy') {
+            result = await buyItem(authUser.id, body.item);
+        } else if (action === 'equip') {
+            result = await equipItem(authUser.id, body.kind, body.item || null);
+        } else if (body.what === 'daily') {
+            result = await claimDaily(authUser.id);
+        } else if (body.what === 'quest' && Number.isInteger(body.slot)) {
+            result = await claimQuest(authUser.id, body.slot);
+        } else if (body.what === 'chest') {
+            result = await claimChest(authUser.id);
+        } else if (body.what === 'pass') {
+            result = await claimPass(authUser.id);
+        } else {
+            return res.status(400).json({ success: false, error: 'Unknown claim' });
+        }
+        return res.status(200).json({ success: true, data: result });
+    } catch (error) {
+        if (error instanceof RewardError) {
+            return res.status(error.status).json({ success: false, error: error.message });
+        }
+        if (error?.code === 11000) {
+            return res.status(409).json({ success: false, error: 'Already claimed.' });
+        }
+        throw error;
+    }
 }
 
 // ==================== LOGIN ====================
@@ -1881,6 +1960,8 @@ async function handleGetPublicProfile(req, res) {
                 role: user.role,
                 // Only whether a Roblox account is connected: never its name, avatar or id.
                 robloxLinked: Boolean(user.roblox?.userId),
+                title: publicLooks(user).title,
+                frame: publicLooks(user).frame,
                 createdAt: user.createdAt
             }
         }

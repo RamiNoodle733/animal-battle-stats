@@ -10,7 +10,7 @@ import { SITE } from '../lib/site.js';
 const { mode } = Astro.props;
 const COPY = {
     login: { title: 'Log in', path: '/login', heading: 'Welcome back', sub: 'Log in to vote, post, play ranked tournaments and level up.' },
-    signup: { title: 'Create account', path: '/signup', heading: 'Join the arena', sub: 'Free forever. Vote on animals, climb the leaderboard and earn BattlePoints.' },
+    signup: { title: 'Create account', path: '/signup', heading: 'Join the arena', sub: 'Free forever. Vote on animals, climb the leaderboard and earn Coins.' },
     forgot: { title: 'Reset password', path: '/forgot-password', heading: 'Forgot your password?', sub: 'Enter your email and we will send you a reset link.' },
     reset: { title: 'Choose a new password', path: '/reset-password', heading: 'New password', sub: 'Pick a new password for your account.' }
 };
@@ -18,7 +18,7 @@ const copy = COPY[mode];
 const lineup = ['african-lion', 'honey-badger', 'orca'].map(getAnimal).filter(Boolean);
 const PERKS = [
     ['medal', 'Level up', 'Earn XP for votes, posts and tournaments.'],
-    ['coin', 'BattlePoints', 'Collect BP and climb the player leaderboard.'],
+    ['coin', 'Coins', 'Earn Coins for every vote and fight call, then spend them on looks.'],
     ['trophy', 'Ranked tournaments', 'Your picks move the battle ratings.'],
     ['friends', 'Community', 'Debate matchups and comment on animals.']
 ];

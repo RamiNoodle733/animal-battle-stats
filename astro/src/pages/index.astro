@@ -87,7 +87,7 @@ const jsonLd = [
 
             <div class="tiles enter-3">
                 <a class="tile panel daily" href={`/compare/${firstPair.slug}`} data-daily>
-                    <span class="tile-k"><Icon name="swords" size={22} />Daily matchup</span>
+                    <span class="tile-k"><Icon name="swords" size={22} />Daily matchup<span class="tile-pay"><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />Call it +10</span></span>
                     <span class="daily-row">
                         <span class="dart"><AnimalImage animal={firstPair.a} sizes="110px" alt="" class="d-a animal-art" /></span>
                         <em>VS</em>
@@ -134,40 +134,79 @@ const jsonLd = [
         img.src = animal.m;
     }
 
-    // ---- 3D ring: auto spin, drag to rotate, pause on hover
+    // ---- 3D ring: auto spin, drag to rotate, slow on hover. Time-based, so it
+    // turns at the same speed on 60 and 120 Hz screens, and every change of speed
+    // eases instead of snapping. Pauses while off screen or in a hidden tab.
     const carousel = document.querySelector('[data-carousel]');
     const ring = document.querySelector('[data-ring]');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const CRUISE = reduced ? 0 : 5; // degrees a second
+    const DRAG = 0.25; // degrees per pixel dragged
     let angle = 0;
-    let velocity = reduced ? 0 : -0.06;
+    let direction = -1;
+    let speed = -CRUISE;
+    let fling = 0;
     let dragging = false;
-    let lastX = 0;
     let hovering = false;
-    function frame() {
-        if (!dragging) {
-            angle += hovering ? velocity * 0.15 : velocity;
-            if (Math.abs(velocity) > 0.06) velocity *= 0.95;
-            else if (!reduced) velocity = velocity < 0 ? -0.06 : 0.06;
-        }
-        ring.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(-6deg) rotateY(${angle}deg)`;
-        requestAnimationFrame(frame);
+    let lastX = 0;
+    let lastMove = 0;
+    let last = 0;
+    let raf = 0;
+    let visible = true;
+    function paint() {
+        ring.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(-6deg) rotateY(${angle.toFixed(3)}deg)`;
     }
-    requestAnimationFrame(frame);
-    carousel.addEventListener('pointerenter', () => { hovering = true; });
+    function frame(now) {
+        const dt = last ? Math.min(0.12, (now - last) / 1000) : 0;
+        last = now;
+        if (!dragging) {
+            const goal = direction * CRUISE * (hovering ? 0.15 : 1);
+            speed += (goal - speed) * (1 - Math.exp(-dt * 2.2));
+            angle += speed * dt;
+        }
+        paint();
+        raf = requestAnimationFrame(frame);
+    }
+    function run() {
+        if (raf || !visible || document.hidden) return;
+        last = 0;
+        raf = requestAnimationFrame(frame);
+    }
+    function stop() {
+        cancelAnimationFrame(raf);
+        raf = 0;
+    }
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) run(); else stop(); }).observe(carousel);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else run(); });
+    run();
+    carousel.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') hovering = true; });
     carousel.addEventListener('pointerleave', () => { hovering = false; });
     carousel.addEventListener('pointerdown', (event) => {
         dragging = true;
+        fling = 0;
         lastX = event.clientX;
+        lastMove = performance.now();
         carousel.setPointerCapture(event.pointerId);
     });
     carousel.addEventListener('pointermove', (event) => {
         if (!dragging) return;
-        const delta = event.clientX - lastX;
+        const now = performance.now();
+        const turn = (event.clientX - lastX) * DRAG;
+        const velocity = turn / Math.max(8, now - lastMove) * 1000;
+        fling = fling * 0.5 + velocity * 0.5;
+        angle += turn;
         lastX = event.clientX;
-        angle += delta * 0.25;
-        velocity = delta * 0.25;
+        lastMove = now;
+        if (!raf) paint();
     });
-    const release = () => { dragging = false; };
+    const release = () => {
+        if (!dragging) return;
+        dragging = false;
+        // A drag that stopped before letting go doesn't fling.
+        const flung = performance.now() - lastMove < 90 ? fling : 0;
+        speed = Math.max(-360, Math.min(360, flung));
+        if (Math.abs(flung) > CRUISE) direction = Math.sign(flung);
+    };
     carousel.addEventListener('pointerup', release);
     carousel.addEventListener('pointercancel', release);
     // Only follow a card link when the pointer did not drag.
@@ -237,9 +276,13 @@ const jsonLd = [
     .carousel::before { content: ""; position: absolute; left: 12%; right: 12%; bottom: 6%; height: 22%; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 190, 90, 0.35), rgba(0, 212, 255, 0.12) 55%, transparent 75%); transform: perspective(500px) rotateX(66deg); }
     .carousel::after { content: ""; position: absolute; left: 50%; top: -10%; width: 60%; height: 90%; transform: translateX(-50%); background: conic-gradient(from 180deg at 50% 0%, transparent 42%, rgba(255, 220, 150, 0.10) 47%, rgba(255, 220, 150, 0.18) 50%, rgba(255, 220, 150, 0.10) 53%, transparent 58%); pointer-events: none; }
     .carousel:active { cursor: grabbing; }
-    .ring { position: relative; z-index: 1; width: 196px; height: 261px; transform-style: preserve-3d; }
+    .ring { position: relative; z-index: 1; width: 196px; height: 261px; transform-style: preserve-3d; will-change: transform; }
     .slot { position: absolute; inset: 0; transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--radius)); backface-visibility: hidden; }
-    .slot :global(.card) { width: 100%; height: 100%; }
+    /* Twelve cards turning in 3D: no pointer tilt, pulse or moving foil on them
+       (repainting those every frame is what made the ring stutter). */
+    .slot :global(.card) { width: 100%; height: 100%; animation: none; transform: none; transition: none; }
+    .slot :global(.card-inner::after) { animation: none; }
+    .slot :global(.card-glare) { display: none; }
     .ring-hint { position: absolute; bottom: 4px; margin: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
 
     .tiles { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 12px; }
@@ -258,6 +301,7 @@ const jsonLd = [
     .aotd-row :global(img) { --fit: 0.9; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); }
     .aotd-row strong { display: block; }
     .roblox .tile-k { color: var(--orange-2); }
+    .tile-pay { display: inline-flex; align-items: center; gap: 3px; margin-left: auto; padding: 1px 8px; font-size: 0.62rem; letter-spacing: 0.06em; color: var(--gold-2); background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.4); border-radius: 999px; }
     .roblox .btn { margin-top: auto; align-self: flex-start; }
 
     .ticker { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 6px 10px; background: rgba(4, 7, 18, 0.65); border: 1px solid var(--line); border-radius: 10px; }

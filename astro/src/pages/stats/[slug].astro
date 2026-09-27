@@ -302,7 +302,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 
 <script>
     import { sfx } from '../../scripts/sfx.js';
-    import { toast } from '../../scripts/site.js';
+    import { toast, showReward } from '../../scripts/site.js';
     import { mountComments } from '../../scripts/comments.js';
     import { loadVotes, castVote } from '../../scripts/votes.js';
 
@@ -326,8 +326,8 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         if (result.error) { sfx.error(); toast(result.error); return; }
         voteEntry = result.entry;
         paintVotes();
-        sfx.coin();
-        if (result.xp) toast(`+${result.xp} XP`);
+        if (result.reward?.awarded) showReward(result.reward, button);
+        else sfx.tick();
     });
 
     const tabs = [...document.querySelectorAll('[data-tab]')];

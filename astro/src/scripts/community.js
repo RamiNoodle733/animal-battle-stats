@@ -176,7 +176,7 @@ async function loadPlayers() {
         const body = await getJson('/api/community?action=leaderboard&limit=20');
         const rows = await Promise.all((body.data || []).map(async (player) => `<li class="player">
             <b class="pos">${player.rank}</b>${await avatar(player.profileAnimal)}
-            <span class="pname"><strong>${escapeHtml(player.username)}</strong><span class="xpbar"><i style="width:${Math.min(100, Number(player.xpProgress) || 0)}%"></i></span></span>
+            <span class="pname"><strong>${escapeHtml(player.username)}</strong>${player.title ? `<small class="ptitle">${escapeHtml(player.title)}</small>` : ''}<span class="xpbar"><i style="width:${Math.min(100, Number(player.xpProgress) || 0)}%"></i></span></span>
             <span class="lvl" title="Level">${Number(player.level) || 1}</span>
             <span class="bp"><img src="/images/icons/abs/coin.webp" alt="" width="18" height="18">${compact(player.battlePoints)}</span>
         </li>`));

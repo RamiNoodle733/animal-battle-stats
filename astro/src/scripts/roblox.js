@@ -171,6 +171,17 @@ Promise.all([providers, who]).then(([enabled, user]) => {
     else if (enabled) paintConnect(user ? 'user' : 'guest', user);
 });
 
+// Codes: tap to copy.
+root.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-copy]');
+    if (!button) return;
+    navigator.clipboard?.writeText(button.dataset.copy).then(() => {
+        button.classList.add('copied');
+        toast(`Copied ${button.dataset.copy}. Redeem it in the game under Settings, then Codes.`);
+        setTimeout(() => button.classList.remove('copied'), 2500);
+    }).catch(() => toast(button.dataset.copy));
+});
+
 // Back from Roblox: say how it went, then tidy the address bar.
 const params = new URLSearchParams(location.search);
 if (params.get('roblox_linked') === '1') toast('Roblox account connected');

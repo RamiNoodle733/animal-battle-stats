@@ -20,6 +20,7 @@ const { enforceRequestSecurity } = require('../lib/request-security');
 const { xpToNext } = require('../lib/xpSystem');
 const { waitUntil } = require('@vercel/functions');
 const { robloxSnapshot } = require('../lib/roblox-game');
+const { ITEM_BY_ID } = require('../lib/economy');
 
 // In-memory presence store with TTL (would use Redis in production)
 // Structure: { userId: { username, displayName, profileAnimal, lastSeen, page } }
@@ -548,7 +549,7 @@ async function handleLeaderboard(req, res) {
     const maxLimit = full === 'true' ? 100 : Math.min(parseInt(limit), 50);
 
     const users = await User.find({})
-        .select('username displayName profileAnimal level xp battlePoints lifetimeXp createdAt')
+        .select('username displayName profileAnimal level xp battlePoints lifetimeXp createdAt economy.title')
         .sort({ level: -1, xp: -1, lifetimeXp: -1 })
         .limit(maxLimit)
         .lean();
@@ -571,6 +572,8 @@ async function handleLeaderboard(req, res) {
                 : 100,
             battlePoints: user.battlePoints || 0,
             lifetimeXp: user.lifetimeXp || 0,
+            // The title the player wears (a look from the Rewards shop), by name.
+            title: ITEM_BY_ID.get(user.economy?.title)?.name || null,
             joinedAt: user.createdAt
         };
     });

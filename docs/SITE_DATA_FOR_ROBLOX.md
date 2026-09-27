@@ -34,8 +34,10 @@ and the hooks the site already reads.
 The site's Roblox panel (Community page, /roblox) shows players online,
 visits, favorites and votes as soon as the game has a public place:
 
-- set `placeId` (or `universeId`) in `data/roblox-game.json`, or the
-  `ROBLOX_PLACE_ID` / `ROBLOX_UNIVERSE_ID` environment variables on Vercel.
+- `data/roblox-game.json` holds the ids (placeId 118592355937726, universeId 10767969314, filled in
+  2026-09-27 while the place is still private). The panel says Coming soon until `status` is set
+  to `"live"` there; do that when the place goes public (the env vars `ROBLOX_PLACE_ID` /
+  `ROBLOX_UNIVERSE_ID` on Vercel still override the ids).
 
 Global leaderboards are read through Roblox Open Cloud when
 `ROBLOX_OPEN_CLOUD_KEY` (DataStore read access, set in Vercel) is present.
@@ -50,4 +52,4 @@ The site reads these OrderedDataStores, scope `global`, top 10 by value:
 
 Each entry's key must be the player's numeric `UserId` (as a string) and
 its value a whole number. The site shows only Roblox display names, never
-user ids or avatars. The game does not write these stores yet.
+user ids or avatars. The game writes these stores in that format (LeaderboardService).

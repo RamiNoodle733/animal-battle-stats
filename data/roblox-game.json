@@ -1,7 +1,7 @@
 {
   "name": "Animal Battle Stats",
-  "placeId": null,
-  "universeId": null,
+  "placeId": 118592355937726,
+  "universeId": 10767969314,
   "status": "in-development",
   "pitch": "Collect all 225 real animals as holo-cards, power them up, and settle who would win in flashy 3D battles on floating islands.",
   "features": [
@@ -30,5 +30,5 @@
       "text": "No packs, no paid odds and nothing you can buy that makes an animal stronger. Rewards come from playing."
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-27"
 }

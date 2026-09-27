@@ -22,11 +22,14 @@ export const SOCIAL = Object.freeze([
 ]);
 
 // Roblox game settings live in data/roblox-game.json so the owner can fill in
-// the place/universe id after publishing without touching page code.
+// the place/universe id after publishing without touching page code. The page
+// shows the game as live (a Play button) only once `status` is "live": the ids
+// can be filled in while the place is still private.
+const robloxLive = Boolean(robloxGame.placeId) && robloxGame.status === 'live';
 export const ROBLOX = Object.freeze({
     ...robloxGame,
-    live: Boolean(robloxGame.placeId),
-    playUrl: robloxGame.placeId ? `https://www.roblox.com/games/${robloxGame.placeId}` : null
+    live: robloxLive,
+    playUrl: robloxLive ? `https://www.roblox.com/games/${robloxGame.placeId}` : null
 });
 
 export const NAV = Object.freeze([

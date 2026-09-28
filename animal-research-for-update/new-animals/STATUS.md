@@ -11,29 +11,24 @@ checks this and lists the rest as pending):
 Research instructions for agents: `BRIEF.md` (one agent per 5-6 animals; each
 animal needs about 12 web searches).
 
-## Researched, waiting for photos (48)
+## Live since 3.4.0 (48)
 
-All new animals are researched and pass the checker:
+All 48 new animals are researched, have credited cutout photos and are in
+the catalogue (release 3.4.0, 2026-09-28). To add more, follow the steps
+below for each new slug.
 
-aardvark, africanized-honey-bee, alligator-snapping-turtle, arapaima,
-asian-elephant, bearded-vulture, bengal-tiger, black-caiman,
-blue-ringed-octopus, bombardier-beetle, bonobo, brazilian-wandering-spider,
-crowned-eagle, eastern-brown-snake, elephant-seal, eurasian-eagle-owl,
-fighting-bull, flying-fox, fossa, gaur, gharial, giant-panda,
-goliath-tigerfish, greenland-shark, gyrfalcon, house-cat, humpback-whale,
-indian-cobra, inland-taipan, kangal, kodiak-bear, leopard-seal, mako-shark,
-markhor, mosquito, nile-crocodile, philippine-eagle, portuguese-man-o-war,
-sperm-whale, steller-s-sea-eagle, stonefish, sydney-funnel-web-spider,
-tibetan-mastiff, titan-beetle, vampire-bat, water-buffalo, wels-catfish,
-whale-shark
-
-## Photos (needs commons.wikimedia.org and upload.wikimedia.org allowed)
+## Photos (needs commons.wikimedia.org, upload.wikimedia.org, en.wikipedia.org and www.wikidata.org allowed)
 
 1. `pip install "rembg[cpu]" scipy` (models download from GitHub on first use)
 2. `NODE_USE_ENV_PROXY=1 node scripts/images/find-candidates.js --animal "Bengal Tiger" ...`
    (includes pending new animals; in cloud sessions Node's fetch only uses the
-   network proxy with `NODE_USE_ENV_PROXY=1`, and Commons may answer 429 for a
-   while when the shared network is busy)
+   network proxy with `NODE_USE_ENV_PROXY=1`). When the Commons API answers
+   429 on shared cloud addresses, use `python scripts/images/find-candidates-html.py <slug> ...`,
+   which reads Commons web pages instead. For domestic breeds and hard cases,
+   add the right Commons category to its `EXTRA` table (e.g. "Kangal Çoban
+   Köpeği", "Toro de lidia"), or the species category's generic photos crowd
+   out the breed. Run one finder at a time; parallel runs trip Wikimedia's
+   robot-policy limit.
 3. `python scripts/images/screen_candidates.py <slug> ...`, then review the
    candidates and record picks in `.cache/image-pipeline/choices.json`
    (`{"<slug>": {"key": "03"}}`)

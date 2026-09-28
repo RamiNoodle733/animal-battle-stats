@@ -1,5 +1,5 @@
 {
-  "researched": 199,
+  "researched": 247,
   "legacy": 26,
   "rejected": 0,
   "animals": {
@@ -677,6 +677,198 @@
     },
     "zebra": {
       "status": "legacy"
+    },
+    "aardvark": {
+      "status": "researched",
+      "added": true
+    },
+    "africanized-honey-bee": {
+      "status": "researched",
+      "added": true
+    },
+    "alligator-snapping-turtle": {
+      "status": "researched",
+      "added": true
+    },
+    "arapaima": {
+      "status": "researched",
+      "added": true
+    },
+    "asian-elephant": {
+      "status": "researched",
+      "added": true
+    },
+    "bearded-vulture": {
+      "status": "researched",
+      "added": true
+    },
+    "bengal-tiger": {
+      "status": "researched",
+      "added": true
+    },
+    "black-caiman": {
+      "status": "researched",
+      "added": true
+    },
+    "blue-ringed-octopus": {
+      "status": "researched",
+      "added": true
+    },
+    "bombardier-beetle": {
+      "status": "researched",
+      "added": true
+    },
+    "bonobo": {
+      "status": "researched",
+      "added": true
+    },
+    "brazilian-wandering-spider": {
+      "status": "researched",
+      "added": true
+    },
+    "crowned-eagle": {
+      "status": "researched",
+      "added": true
+    },
+    "eastern-brown-snake": {
+      "status": "researched",
+      "added": true
+    },
+    "elephant-seal": {
+      "status": "researched",
+      "added": true
+    },
+    "eurasian-eagle-owl": {
+      "status": "researched",
+      "added": true
+    },
+    "fighting-bull": {
+      "status": "researched",
+      "added": true
+    },
+    "flying-fox": {
+      "status": "researched",
+      "added": true
+    },
+    "fossa": {
+      "status": "researched",
+      "added": true
+    },
+    "gaur": {
+      "status": "researched",
+      "added": true
+    },
+    "gharial": {
+      "status": "researched",
+      "added": true
+    },
+    "giant-panda": {
+      "status": "researched",
+      "added": true
+    },
+    "goliath-tigerfish": {
+      "status": "researched",
+      "added": true
+    },
+    "greenland-shark": {
+      "status": "researched",
+      "added": true
+    },
+    "gyrfalcon": {
+      "status": "researched",
+      "added": true
+    },
+    "house-cat": {
+      "status": "researched",
+      "added": true
+    },
+    "humpback-whale": {
+      "status": "researched",
+      "added": true
+    },
+    "indian-cobra": {
+      "status": "researched",
+      "added": true
+    },
+    "inland-taipan": {
+      "status": "researched",
+      "added": true
+    },
+    "kangal": {
+      "status": "researched",
+      "added": true
+    },
+    "kodiak-bear": {
+      "status": "researched",
+      "added": true
+    },
+    "leopard-seal": {
+      "status": "researched",
+      "added": true
+    },
+    "mako-shark": {
+      "status": "researched",
+      "added": true
+    },
+    "markhor": {
+      "status": "researched",
+      "added": true
+    },
+    "mosquito": {
+      "status": "researched",
+      "added": true
+    },
+    "nile-crocodile": {
+      "status": "researched",
+      "added": true
+    },
+    "philippine-eagle": {
+      "status": "researched",
+      "added": true
+    },
+    "portuguese-man-o-war": {
+      "status": "researched",
+      "added": true
+    },
+    "sperm-whale": {
+      "status": "researched",
+      "added": true
+    },
+    "steller-s-sea-eagle": {
+      "status": "researched",
+      "added": true
+    },
+    "stonefish": {
+      "status": "researched",
+      "added": true
+    },
+    "sydney-funnel-web-spider": {
+      "status": "researched",
+      "added": true
+    },
+    "tibetan-mastiff": {
+      "status": "researched",
+      "added": true
+    },
+    "titan-beetle": {
+      "status": "researched",
+      "added": true
+    },
+    "vampire-bat": {
+      "status": "researched",
+      "added": true
+    },
+    "water-buffalo": {
+      "status": "researched",
+      "added": true
+    },
+    "wels-catfish": {
+      "status": "researched",
+      "added": true
+    },
+    "whale-shark": {
+      "status": "researched",
+      "added": true
     }
   },
   "pending": 0

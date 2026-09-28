@@ -32,12 +32,21 @@ USER_AGENT = "AnimalBattleStatsImagePipeline/2.0 (https://animalbattlestats.com;
 PAUSE = 0.7
 
 # Extra categories and search words where the scientific name is not enough.
+# "only": skip the species category and name search, whose generic photos
+# (every dog for Canis familiaris) otherwise fill the file limit before the
+# breed's own category is reached. "prefer": titles or categories matching
+# this pattern rank higher (underwater whales over backs at the surface).
+# "files": how many file pages to read (default 40).
 EXTRA = {
-    "kangal": {"categories": ["Kangal Shepherd Dog", "Kangal dogs"], "search": ["Kangal dog"]},
-    "tibetan-mastiff": {"categories": ["Tibetan Mastiff"], "search": ["Tibetan Mastiff dog"]},
+    "kangal": {"only": True, "categories": ["Kangal Çoban Köpeği"], "search": ["Kangal Çoban Köpeği", "Kangal shepherd dog"]},
+    "tibetan-mastiff": {"only": True, "categories": ["Tibetan Mastiff"], "search": ["Tibetan Mastiff dog"]},
     "house-cat": {"categories": ["Felis catus"], "search": ["domestic cat full body"]},
-    "fighting-bull": {"categories": ["Toro de lidia", "Spanish fighting bulls"], "search": ["toro de lidia"]},
+    "fighting-bull": {"only": True, "categories": ["Toro de lidia", "Toros bravos"], "search": ["toro de lidia", "toro bravo dehesa"]},
     "water-buffalo": {"categories": ["Bubalus arnee", "Bubalus bubalis"], "search": ["wild water buffalo"]},
+    "elephant-seal": {"search": ["southern elephant seal bull", "Mirounga leonina male"], "files": 90},
+    "philippine-eagle": {"search": ["Philippine eagle perched", "Pithecophaga jefferyi Davao"], "files": 90},
+    "humpback-whale": {"only": True, "search": ["humpback whale underwater", "Megaptera novaeangliae underwater", "humpback whale breach"], "prefer": "underwater|breach", "files": 70},
+    "sperm-whale": {"only": True, "search": ["sperm whale underwater", "Physeter macrocephalus underwater", "sperm whale Mauritius"], "prefer": "underwater|mauritius|dominica", "files": 70},
 }
 SKIP_TITLE = re.compile(
     r"\b(skull|skulls|skeleton|bones?|jaw|teeth|tooth|head|heads|portrait|face|eye|eyes|close-?up|closeup|detail|"
@@ -73,7 +82,8 @@ def page(path_or_url):
 def file_titles(entry, slug):
     """File titles from the species category and a Commons file search."""
     extra = EXTRA.get(slug, {})
-    categories = [entry["scientific_name"].split(" (")[0]] + extra.get("categories", [])
+    species = [] if extra.get("only") else [entry["scientific_name"].split(" (")[0]]
+    categories = species + extra.get("categories", [])
     titles = []
     for category in categories:
         try:
@@ -81,7 +91,7 @@ def file_titles(entry, slug):
         except Exception:
             continue
         titles += [html.unescape(urllib.parse.unquote(m)).replace("_", " ") for m in re.findall(r'href="/wiki/(File:[^"#?]+)"', text)]
-    queries = [entry["scientific_name"].split(" (")[0], entry["name"]] + extra.get("search", [])
+    queries = species + [entry["name"]] + extra.get("search", [])
     for query in queries:
         url = "/w/index.php?" + urllib.parse.urlencode({"search": query, "title": "Special:Search", "profile": "advanced", "fulltext": "1", "ns6": "1", "limit": "60"})
         try:
@@ -160,7 +170,8 @@ def main():
         entry = json.loads(path.read_text(encoding="utf-8"))
         titles = [t for t in file_titles(entry, slug) if re.search(r"\.(jpe?g|png)$", t, re.I) and not SKIP_TITLE.search(t)]
         infos = []
-        for title in titles[:40]:
+        extra = EXTRA.get(slug, {})
+        for title in titles[:extra.get("files", 40)]:
             try:
                 info = file_info(title)
             except Exception as error:
@@ -171,6 +182,8 @@ def main():
             if SKIP_TITLE.search(info["categories"]) and not re.search(entry["scientific_name"].split(" ")[0], info["categories"], re.I):
                 continue
             info["score"] = score(info)
+            if extra.get("prefer") and re.search(extra["prefer"], info["name"] + " " + info["categories"], re.I):
+                info["score"] += 4
             infos.append(info)
         infos.sort(key=lambda item: -item["score"])
         # At most three photos per photographer, so one series does not fill the review.

@@ -6,9 +6,13 @@ and the hooks the site already reads.
 
 ## Animal data (`animal_stats.json`)
 
-- Schema is unchanged. 199 of 225 animals now carry researched stats
+- Schema is unchanged. 247 of 273 animals now carry researched stats
   (`research_status: "researched"`, `research_updated` date); the rest keep
   their original values (`"legacy"`).
+- Version 3.4.0 added 48 new animals (all living species or domestic breeds),
+  from Aardvark to Whale Shark. Their slugs are the file names in
+  `animal-research-for-update/new-animals/`. The game keeps its own roster,
+  so these only appear in the game if it adds them.
 - `speed_mps` and `bite_force_psi` of `0` mean "no reliable measurement",
   not zero. Treat 0 as unknown.
 - `special_abilities` and `unique_traits` changed for researched animals.
@@ -27,6 +31,8 @@ and the hooks the site already reads.
   CC BY-SA, CC0 or public domain. If the game shows these photos, it needs a
   credits screen listing the photographer and license (and CC BY-SA cutouts
   stay under CC BY-SA). The site's version is https://animalbattlestats.com/credits.
+- The 48 animals added in 3.4.0 have cutouts from the same pipeline, with
+  credits in the same file.
 - `data/animal-image-dimensions.json` was regenerated for the new files.
 
 ## Live game numbers on the site

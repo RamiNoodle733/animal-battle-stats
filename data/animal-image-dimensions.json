@@ -2475,6 +2475,534 @@
         "height": 911
       },
       "sha256": "c79725aae199343ad9cb49c8c8dbdf898c5762b1bbf13c428d3a16094856975d"
+    },
+    "/images/animals/aardvark.png": {
+      "width": 1024,
+      "height": 647,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 989,
+        "height": 605
+      },
+      "sha256": "781705c876047c0123564120e938841db72f6dbbfbed3e63d331b2aba3d6672f"
+    },
+    "/images/animals/africanized-honey-bee.png": {
+      "width": 746,
+      "height": 618,
+      "subject": {
+        "left": 16,
+        "top": 16,
+        "width": 714,
+        "height": 586
+      },
+      "sha256": "819b779df1df7bef8c6f6bab03d3d6cc4858d4b0a66afd5d36b96662e0914d1e"
+    },
+    "/images/animals/alligator-snapping-turtle.png": {
+      "width": 1024,
+      "height": 537,
+      "subject": {
+        "left": 20,
+        "top": 21,
+        "width": 983,
+        "height": 495
+      },
+      "sha256": "f8708b3b8ae5bfa5c0d00fcd05546ea51240b45f5543ec26bc3caa12f753682c"
+    },
+    "/images/animals/arapaima.png": {
+      "width": 1024,
+      "height": 254,
+      "subject": {
+        "left": 20,
+        "top": 20,
+        "width": 984,
+        "height": 214
+      },
+      "sha256": "180c6c81a260b1951df9fbeb6bb7c84e411fbc9031bd5e3953cc27bd8fb27f58"
+    },
+    "/images/animals/asian-elephant.png": {
+      "width": 1024,
+      "height": 715,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 673
+      },
+      "sha256": "0d2fa282686b7f0c94e54e620246c8e29aef37178dd95d2b581b5f14b918e6dd"
+    },
+    "/images/animals/bearded-vulture.png": {
+      "width": 1024,
+      "height": 953,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 911
+      },
+      "sha256": "95726cd5875ce1caf9f37aae42051e7365b194da43b90c0367ba1486d9aa13d2"
+    },
+    "/images/animals/bengal-tiger.png": {
+      "width": 1024,
+      "height": 626,
+      "subject": {
+        "left": 22,
+        "top": 21,
+        "width": 1002,
+        "height": 584
+      },
+      "sha256": "9330a9049fe6a17e1a0fd87382e88e2e2d9fd7f48bdbb36de44a1de1e966b55f"
+    },
+    "/images/animals/black-caiman.png": {
+      "width": 1024,
+      "height": 183,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 141
+      },
+      "sha256": "800c850a7e5f0648fa5a37baa38bcbad7cc4915958c8b434ab6bbad6cd9eba27"
+    },
+    "/images/animals/blue-ringed-octopus.png": {
+      "width": 1024,
+      "height": 840,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 798
+      },
+      "sha256": "834e19218dc24af59a26a3c15082034a4a97f43e858939d094a43534c50828cb"
+    },
+    "/images/animals/bombardier-beetle.png": {
+      "width": 1024,
+      "height": 557,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 515
+      },
+      "sha256": "2b544665f946f0fa189e5704cc4020192898d2fd172f44112cf11d2d39ff4e88"
+    },
+    "/images/animals/bonobo.png": {
+      "width": 1024,
+      "height": 1021,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 983,
+        "height": 979
+      },
+      "sha256": "b23ad8cdd002c7132608b295031a63fc246830bda875f86fdb42c83eeb05ea61"
+    },
+    "/images/animals/brazilian-wandering-spider.png": {
+      "width": 1024,
+      "height": 725,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 1003,
+        "height": 704
+      },
+      "sha256": "9416ecee0d9c638380efa628ad79fda4a68a0dab37cba4aa8d2f3dd152f86330"
+    },
+    "/images/animals/crowned-eagle.png": {
+      "width": 1024,
+      "height": 859,
+      "subject": {
+        "left": 12,
+        "top": 21,
+        "width": 991,
+        "height": 838
+      },
+      "sha256": "976de926174b54715dda550bc2440bdb2a17837dc2be7f1446fa2eff3d95f069"
+    },
+    "/images/animals/eastern-brown-snake.png": {
+      "width": 1024,
+      "height": 766,
+      "subject": {
+        "left": 20,
+        "top": 21,
+        "width": 983,
+        "height": 724
+      },
+      "sha256": "b6e51267cb0aae56d58efb4c150af673c0c7e54228f23c546732dd39fe457ace"
+    },
+    "/images/animals/elephant-seal.png": {
+      "width": 1024,
+      "height": 632,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 590
+      },
+      "sha256": "41232db8feac396b40e6ee00178119eab9a3d9795701c3ca6a8423916261e0b0"
+    },
+    "/images/animals/eurasian-eagle-owl.png": {
+      "width": 1024,
+      "height": 988,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 1003,
+        "height": 967
+      },
+      "sha256": "7ebdc7967db6f20993a513b025fb88bcb8c89c6477b90116a66a5bd090c660ff"
+    },
+    "/images/animals/fighting-bull.png": {
+      "width": 901,
+      "height": 1024,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 859,
+        "height": 986
+      },
+      "sha256": "150d1e05b110881a1585294b38460e17d6bfb3c13532351f81e80a83c3ee03e7"
+    },
+    "/images/animals/flying-fox.png": {
+      "width": 692,
+      "height": 1024,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 651,
+        "height": 982
+      },
+      "sha256": "40f3459e8dfa74da7a62337ab4a60b4fc82be33f2590a909b95be9ac5d64263b"
+    },
+    "/images/animals/fossa.png": {
+      "width": 1024,
+      "height": 526,
+      "subject": {
+        "left": 20,
+        "top": 21,
+        "width": 983,
+        "height": 484
+      },
+      "sha256": "f1b850e5d905c69310dcf8aee028763257fbec8c280cc79694455ec4402c7cf1"
+    },
+    "/images/animals/gaur.png": {
+      "width": 1024,
+      "height": 859,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 817
+      },
+      "sha256": "6c5cf341f72cd9a99cc093b6bbbd7959efc1fa3fe90033cf011d583e4b5bd585"
+    },
+    "/images/animals/gharial.png": {
+      "width": 1024,
+      "height": 209,
+      "subject": {
+        "left": 4,
+        "top": 21,
+        "width": 999,
+        "height": 167
+      },
+      "sha256": "36ba879568f5834c3fb1973d719ac849f87b1d105e190e10af6dcd3d470cafb3"
+    },
+    "/images/animals/giant-panda.png": {
+      "width": 675,
+      "height": 765,
+      "subject": {
+        "left": 16,
+        "top": 16,
+        "width": 643,
+        "height": 734
+      },
+      "sha256": "751c8b92b7e9d0447e07dbb77042aa59bf0de251a85e457df1269384e3788cb4"
+    },
+    "/images/animals/goliath-tigerfish.png": {
+      "width": 1024,
+      "height": 401,
+      "subject": {
+        "left": 21,
+        "top": 20,
+        "width": 982,
+        "height": 361
+      },
+      "sha256": "38cefe3820bfc75c67efb3c184b8508e2e39354dc402e9eba621363cc64e274c"
+    },
+    "/images/animals/greenland-shark.png": {
+      "width": 1024,
+      "height": 291,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 249
+      },
+      "sha256": "2f46e42fae8ce050d6295a9a470678e47ebba2b220b99622945d6307a8e641fa"
+    },
+    "/images/animals/gyrfalcon.png": {
+      "width": 816,
+      "height": 1024,
+      "subject": {
+        "left": 22,
+        "top": 21,
+        "width": 773,
+        "height": 982
+      },
+      "sha256": "b7e36aac9ef181dba0a1bc249cc7c5e7eb8d3da20c18db2bb0770646d0da6034"
+    },
+    "/images/animals/house-cat.png": {
+      "width": 1024,
+      "height": 870,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 828
+      },
+      "sha256": "4c34d5e126b37483e45fd397e3a2c677cc9968939d909424e822e5eb71577a18"
+    },
+    "/images/animals/humpback-whale.png": {
+      "width": 1024,
+      "height": 299,
+      "subject": {
+        "left": 0,
+        "top": 21,
+        "width": 1003,
+        "height": 257
+      },
+      "sha256": "0955814a74ae8f4067e19be531be5a43495b91d8cb89b2518c41679e9b81538c"
+    },
+    "/images/animals/indian-cobra.png": {
+      "width": 291,
+      "height": 1024,
+      "subject": {
+        "left": 20,
+        "top": 20,
+        "width": 251,
+        "height": 984
+      },
+      "sha256": "fab054834f43bd35f16a2f9ed6c82bcc54cd8da98a60a1e724a985451957547b"
+    },
+    "/images/animals/inland-taipan.png": {
+      "width": 1024,
+      "height": 175,
+      "subject": {
+        "left": 5,
+        "top": 21,
+        "width": 999,
+        "height": 133
+      },
+      "sha256": "4dc804ed7c3bc4474c5ae44d59f8b606caf4f16c7492af8bc290ed2fe540dddc"
+    },
+    "/images/animals/kangal.png": {
+      "width": 1024,
+      "height": 624,
+      "subject": {
+        "left": 21,
+        "top": 20,
+        "width": 983,
+        "height": 584
+      },
+      "sha256": "7e0c03efd1b75bb84293d93c750900783bc0fc24b26cc68e4b5938d69eb98e7f"
+    },
+    "/images/animals/kodiak-bear.png": {
+      "width": 1024,
+      "height": 509,
+      "subject": {
+        "left": 20,
+        "top": 21,
+        "width": 983,
+        "height": 467
+      },
+      "sha256": "742af72626e67610c4683a2d3593b7d10416ce4993652be7f9e48fa1ec073d66"
+    },
+    "/images/animals/leopard-seal.png": {
+      "width": 1024,
+      "height": 340,
+      "subject": {
+        "left": 21,
+        "top": 20,
+        "width": 983,
+        "height": 299
+      },
+      "sha256": "eb2f967697ed580036e55bcabe933a8f4f62295d3e22da8cc3b378dbe51a64d9"
+    },
+    "/images/animals/mako-shark.png": {
+      "width": 1024,
+      "height": 472,
+      "subject": {
+        "left": 20,
+        "top": 20,
+        "width": 983,
+        "height": 432
+      },
+      "sha256": "3e7a56b2e13dbce705f0adb17415e1684a2fe2f429a2eb3b088d241385754115"
+    },
+    "/images/animals/markhor.png": {
+      "width": 631,
+      "height": 1024,
+      "subject": {
+        "left": 20,
+        "top": 21,
+        "width": 591,
+        "height": 982
+      },
+      "sha256": "0f9ddeb36b673f618a16d736f4b59c31dbd241da86202a3517e65bce8bbeb497"
+    },
+    "/images/animals/mosquito.png": {
+      "width": 1024,
+      "height": 646,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 605
+      },
+      "sha256": "0a45c5808c2d098e2f2d502e04506b11009d8cb05c5a04eb7d5bf541b60b9bcf"
+    },
+    "/images/animals/nile-crocodile.png": {
+      "width": 1024,
+      "height": 238,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 196
+      },
+      "sha256": "bc36dcb4f3fedeac1663a79ad32d7b784aeb7fe8ffa9346ba3cc8029fe548196"
+    },
+    "/images/animals/philippine-eagle.png": {
+      "width": 1024,
+      "height": 973,
+      "subject": {
+        "left": 20,
+        "top": 21,
+        "width": 984,
+        "height": 952
+      },
+      "sha256": "6b706754c43fbf094508b0c8b406d44058f121f9ea30bc6b849411818bae1e63"
+    },
+    "/images/animals/portuguese-man-o-war.png": {
+      "width": 1024,
+      "height": 730,
+      "subject": {
+        "left": 20,
+        "top": 20,
+        "width": 983,
+        "height": 689
+      },
+      "sha256": "207d6995fcd4ed1d7be2bad6c8a076daf08d2f72315126a18667a0e3fefeab4b"
+    },
+    "/images/animals/sperm-whale.png": {
+      "width": 1024,
+      "height": 355,
+      "subject": {
+        "left": 20,
+        "top": 20,
+        "width": 983,
+        "height": 315
+      },
+      "sha256": "e8fef006a58e703e68d3678b0b6643b8cc4e8398167bd018a14fec55b4bc913c"
+    },
+    "/images/animals/steller-s-sea-eagle.png": {
+      "width": 543,
+      "height": 1024,
+      "subject": {
+        "left": 20,
+        "top": 20,
+        "width": 503,
+        "height": 983
+      },
+      "sha256": "be15931f743711acea4a3630580d78132d8ad3fd37c0aacd48a7f42056ca2928"
+    },
+    "/images/animals/stonefish.png": {
+      "width": 1024,
+      "height": 578,
+      "subject": {
+        "left": 0,
+        "top": 21,
+        "width": 1003,
+        "height": 535
+      },
+      "sha256": "3bce95ad283cc98eacf98dbe4fb317fb889703e10a10d36365eb32377a7fa514"
+    },
+    "/images/animals/sydney-funnel-web-spider.png": {
+      "width": 1024,
+      "height": 860,
+      "subject": {
+        "left": 20,
+        "top": 4,
+        "width": 984,
+        "height": 852
+      },
+      "sha256": "4a6880ad5217aa4ed6ee275f146be2013a4e0aca00a5a9eead6c6f43e3c7a5d3"
+    },
+    "/images/animals/tibetan-mastiff.png": {
+      "width": 1024,
+      "height": 922,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 901
+      },
+      "sha256": "25183f5f8aa06f89c5648d13b8d97014a79dbaea602a428fa438a174b4a38b11"
+    },
+    "/images/animals/titan-beetle.png": {
+      "width": 1024,
+      "height": 922,
+      "subject": {
+        "left": 20,
+        "top": 21,
+        "width": 983,
+        "height": 901
+      },
+      "sha256": "8e1931a659ab08f5fc44f38a2cb53ebc3950f440861387d632e07ccd31acce1e"
+    },
+    "/images/animals/vampire-bat.png": {
+      "width": 1024,
+      "height": 634,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 592
+      },
+      "sha256": "31d21340ef8cf8a4a4248c60427e64d44db01d11adf96161c816d421d0d3a08a"
+    },
+    "/images/animals/water-buffalo.png": {
+      "width": 1024,
+      "height": 962,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 920
+      },
+      "sha256": "ac3ab1bc0b4c23eceb717e2ad3c50168981b73360b66b664d9ca506fddfaedc0"
+    },
+    "/images/animals/wels-catfish.png": {
+      "width": 1024,
+      "height": 818,
+      "subject": {
+        "left": 21,
+        "top": 1,
+        "width": 983,
+        "height": 803
+      },
+      "sha256": "02fae7060537f7f9eef00ac865714c1d7036c8c4d355deac857798ad7b1c894c"
+    },
+    "/images/animals/whale-shark.png": {
+      "width": 1024,
+      "height": 328,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 286
+      },
+      "sha256": "04121f7971aff3fcb8de4b2be16c2a07c976fa9b5f2c91a572a1e8f099e959a1"
     }
   }
 }

@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.4.0 — 2026-09-28
+
+- 48 new animals join the roster, which grows from 225 to 273: Aardvark, Africanized Honey Bee, Alligator Snapping Turtle, Arapaima, Asian Elephant, Bearded Vulture, Bengal Tiger, Black Caiman, Blue-Ringed Octopus, Bombardier Beetle, Bonobo, Brazilian Wandering Spider, Crowned Eagle, Eastern Brown Snake, Elephant Seal, Eurasian Eagle-Owl, Fighting Bull, Flying Fox, Fossa, Gaur, Gharial, Giant Panda, Goliath Tigerfish, Greenland Shark, Gyrfalcon, House Cat, Humpback Whale, Indian Cobra, Inland Taipan, Kangal, Kodiak Bear, Leopard Seal, Mako Shark, Markhor, Mosquito, Nile Crocodile, Philippine Eagle, Portuguese Man o' War, Sperm Whale, Steller's Sea Eagle, Stonefish, Sydney Funnel-web Spider, Tibetan Mastiff, Titan Beetle, Vampire Bat, Water Buffalo, Wels Catfish and Whale Shark.
+- Every new animal comes with a full research profile like the rest of the roster: measurements, six battle ratings and twelve detailed ratings set against the most similar animals already on the site, special abilities, fun facts, a written profile and a list of sources.
+- Every new animal has a real photograph of an adult animal from Wikimedia Commons, cut out and credited (photographer and license on `/credits` and each animal's Sources tab). Each also gets its own profile, matchup and tier pages and a share card.
+- Only animals people have seen alive join the roster: living species and domestic breeds, never animals known only from fossils.
+
 ## 3.3.0 — 2026-09-27
 
 - BattlePoints, like the Roblox game's coins: every fight call, animal vote, comment and ranked tournament pays BattlePoints, XP and Season Pass XP (up to a daily limit each), and they fly into the header.

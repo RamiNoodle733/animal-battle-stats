@@ -1,0 +1,20 @@
+{
+  "name": "Maine Coon",
+  "scientific_name": "Felis catus",
+  "type": "Mammal",
+  "class": "Hunter",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Homes worldwide; bred from farm cats of the snowy forests of Maine",
+  "diet": ["rodents", "small birds", "prepared cat food"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "The largest non-hybrid domestic cat breed, a shaggy gentle giant with snowshoe paws and a weatherproof coat. Stronger than an ordinary cat but far below wild cats.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Snowy Farmland and Woodland Edge",
+    "combat_style": "Hunter",
+    "strengths": ["Largest domestic cat frame", "Snowshoe paws and weatherproof coat", "Ultrasonic hearing"],
+    "weaknesses": ["Small on the absolute scale", "Gentle temperament", "Prone to heart and hip problems"]
+  }
+}

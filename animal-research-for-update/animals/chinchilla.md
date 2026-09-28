@@ -182,7 +182,7 @@ The chinchilla is built for escape on broken rock. Long hind legs launch it acro
 
 What it lacks is any real weapon. Its incisor bite, measured at about 23.5 N, is weak even compared with other South American rodents, and its jaw is poorly built for hard biting. In ABS terms that means very low Attack and Defense, high Agility, and a Special score lifted by the unusual fur-slip escape rather than by any capacity to hurt an opponent.
 
-That same fur nearly wiped the species out. Hunted for centuries for pelts, the long-tailed chinchilla now survives in the wild only in a few colonies in northern Chile and is listed as Endangered, even as its domestic descendants-by-breeding live in homes and farms around the world.
+That same fur nearly wiped the species out. Hunted for centuries for pelts, the long-tailed chinchilla now survives in the wild only in a few colonies in northern Chile and is listed as Endangered, even as domestic chinchillas bred from it live in homes and on farms around the world.
 
 ### Future structured-field proposals
 - `bite_force_newtons`: 23.5 (in vivo).

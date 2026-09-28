@@ -237,6 +237,8 @@ def main():
                     local.write_bytes(get(thumb(info["url"], 960)))
                 except Exception as error:
                     info["downloadError"] = str(error)
+        # Re-read before saving so a run started in the meantime keeps its entries.
+        results = json.loads(RESULT.read_text(encoding="utf-8")) if RESULT.exists() else {}
         results[slug] = {"name": entry["name"], "scientificName": entry["scientific_name"], "preferredSex": "any", "candidates": top}
         RESULT.write_text(json.dumps(results, indent=1, ensure_ascii=False), encoding="utf-8")
         print(f"{slug}: {len(titles)} titles, {len(infos)} usable, {len(top)} downloaded", flush=True)

@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.0 — 2026-09-28
+
+- 22 new animals join the roster, which grows from 273 to 295: Aardwolf, American Pit Bull Terrier, Basking Shark, Belgian Malinois, Binturong, Black-footed Cat, Black-necked Spitting Cobra, Boomslang, Brown Hyena, Caucasian Shepherd Dog, German Shepherd, Giant Otter, Greyhound, Jaguarundi, Kea, Martial Eagle, Northern Goshawk, Pallas's Cat, Rottweiler, Sand Cat, Southern Ground Hornbill and Wedge-tailed Eagle. Each has a full research profile and a credited photo of an adult animal from Wikimedia Commons.
+- Every animal on the site is now researched. The last 26 (Spider Monkey to Zebra) still showed placeholder ratings, some of them absurd (a zebra with Attack 1.4, a walrus with 1.7); they now have researched measurements, ratings, abilities, fun facts and sources like the rest. Each profile describes the species in its photo: griffon vulture, swamp wallaby, lowland tapir, toco toucan, Pacific bluefin tuna, Przewalski's horse and plains zebra.
+- Stingray has a new photo of a southern stingray, the species its profile describes (the old one showed an eagle ray).
+
 ## 3.4.1 — 2026-09-28
 
 - Discord gets a message for every site visit again, with the visitor's page, place, device and where they came from, and the Community page's World stats (visits, page views, the globe, activity by day, top pages and places, the live event stream) count new visits again. Since the September 24 rebuild, every page view was dropped before it was saved.

@@ -1,0 +1,20 @@
+{
+  "name": "Cockatiel",
+  "scientific_name": "Nymphicus hollandicus",
+  "type": "Bird",
+  "class": "Speedster",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Arid and semi-arid open woodland, scrub and grassland near water",
+  "diet": ["acacia seeds", "grass seeds", "grain crops"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The smallest cockatoo, a crested grey nomad of inland Australia and a hugely popular pet. It meets every threat with fast flight rather than a fight.",
+  "battle_profile": {
+    "preferred_range": "Long range",
+    "primary_environment": "Arid Australian Scrub",
+    "combat_style": "Speedster",
+    "strengths": ["Fast, direct flight", "Tight flock formations", "Tolerates heat and cold"],
+    "weaknesses": ["Tiny body mass", "Weak bill", "Timid temperament"]
+  }
+}

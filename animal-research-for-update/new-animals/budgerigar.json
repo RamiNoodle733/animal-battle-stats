@@ -1,0 +1,20 @@
+{
+  "name": "Budgerigar",
+  "scientific_name": "Melopsittacus undulatus",
+  "type": "Bird",
+  "class": "Scout",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Arid grassland, mulga scrub and open woodland near water",
+  "diet": ["grass seeds", "herb seeds", "grain"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A small nomadic parrot of inland Australia and the world's most popular pet bird. It survives on agile flock flight and vigilance, not on any weapon.",
+  "battle_profile": {
+    "preferred_range": "Long range",
+    "primary_environment": "Arid Outback Grassland",
+    "combat_style": "Scout",
+    "strengths": ["Precise gap-threading flight", "Flock vigilance and alarm calls", "Water-thrifty desert physiology"],
+    "weaknesses": ["Tiny body mass", "Harmless bill", "No protection"]
+  }
+}

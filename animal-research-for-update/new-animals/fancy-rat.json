@@ -1,0 +1,20 @@
+{
+  "name": "Fancy Rat",
+  "scientific_name": "Rattus norvegicus domestica",
+  "type": "Mammal",
+  "class": "Survivor",
+  "size": "Tiny",
+  "biome": "FOREST",
+  "habitat": "Homes; wild stock in cities, farms and riverbanks",
+  "diet": ["grain and seeds", "fruit and vegetables", "insects and eggs"],
+  "isNocturnal": true,
+  "isSocial": true,
+  "description": "The tame, domestic form of the brown rat: a clever climber and swimmer with sharp incisors and ultrasonic hearing. Dangerous to mice and small birds, but a lightweight on the absolute scale.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Urban Tunnels and Homes",
+    "combat_style": "Survivor",
+    "strengths": ["Strong bite for its size", "Climbs, swims and squeezes through tunnels", "Quick learner"],
+    "weaknesses": ["Tiny body mass", "No armor", "Poor eyesight"]
+  }
+}

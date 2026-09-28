@@ -41,6 +41,11 @@
   ],
   "redirects": [
     {
+      "source": "/rankings/strongest-bite",
+      "destination": "/rankings/strongest",
+      "permanent": false
+    },
+    {
       "source": "/battle",
       "destination": "/compare",
       "permanent": true

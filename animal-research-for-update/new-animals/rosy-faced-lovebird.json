@@ -1,0 +1,20 @@
+{
+  "name": "Rosy-faced Lovebird",
+  "scientific_name": "Agapornis roseicollis",
+  "type": "Bird",
+  "class": "Fighter",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Dry woodland, semi-desert and rocky country near water",
+  "diet": ["grass seeds", "acacia seeds", "buds and flowers"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A small pink-faced parrot from the dry south-west of Africa, and one of the most popular pet birds. It bites hard for its size and flocks mob predators.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Dry woodland near water",
+    "combat_style": "Fighter",
+    "strengths": ["Fast, acrobatic flier", "Hard bite for its size", "Flocks mob predators"],
+    "weaknesses": ["About 55 g", "Must drink several times a day", "No armor"]
+  }
+}

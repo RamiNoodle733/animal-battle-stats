@@ -1,0 +1,20 @@
+{
+  "name": "Yellow-naped Amazon",
+  "scientific_name": "Amazona auropalliata",
+  "type": "Bird",
+  "class": "Territorial",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Dry forest, savanna woodland and mangroves of Central America's Pacific slope",
+  "diet": ["seeds", "figs and fruit", "nuts"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A green Central American parrot with a yellow nape, famous as a talker and for its wild vocal dialects. It is Critically Endangered because of poaching.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Dry tropical forest",
+    "combat_style": "Territorial",
+    "strengths": ["Strong bite for its size", "Coordinated pair duets", "Vocal learning and mimicry"],
+    "weaknesses": ["About 0.5 kg", "No armor", "Less acrobatic than long-tailed parrots"]
+  }
+}

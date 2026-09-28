@@ -1,0 +1,20 @@
+{
+  "name": "Ball Python",
+  "scientific_name": "Python regius",
+  "type": "Reptile",
+  "class": "Constrictor",
+  "size": "Small",
+  "biome": "SAVANNA",
+  "habitat": "West and Central African savanna, grassland and open woodland",
+  "diet": ["rats and mice", "bats", "birds"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A small, stocky African python that finds prey with heat-sensing pits and kills by constriction. When threatened it rolls into a ball with its head hidden.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Savanna burrows",
+    "combat_style": "Constrictor",
+    "strengths": ["Heat-sensing pits", "Constricting coils", "Ball defense"],
+    "weaknesses": ["Small for a python", "Slow on the ground", "Rarely bites back"]
+  }
+}

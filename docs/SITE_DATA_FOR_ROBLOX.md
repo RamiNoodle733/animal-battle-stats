@@ -6,11 +6,12 @@ and the hooks the site already reads.
 
 ## Animal data (`animal_stats.json`)
 
-- Schema is unchanged. 247 of 273 animals now carry researched stats
-  (`research_status: "researched"`, `research_updated` date); the rest keep
-  their original values (`"legacy"`).
-- Version 3.4.0 added 48 new animals (all living species or domestic breeds),
-  from Aardvark to Whale Shark. Their slugs are the file names in
+- Schema is unchanged. All 295 animals now carry researched stats
+  (`research_status: "researched"`, `research_updated` date); none keeps the
+  original placeholder values any more. Version 3.5.0 replaced the last 26
+  (Spider Monkey to Zebra), whose old ratings were broken.
+- Versions 3.4.0 and 3.5.0 added 70 new animals (all living species or
+  domestic breeds). Their slugs are the file names in
   `animal-research-for-update/new-animals/`. The game keeps its own roster,
   so these only appear in the game if it adds them.
 - `speed_mps` and `bite_force_psi` of `0` mean "no reliable measurement",

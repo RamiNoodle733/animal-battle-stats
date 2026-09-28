@@ -1,0 +1,20 @@
+{
+  "name": "Hyacinth Macaw",
+  "scientific_name": "Anodorhynchus hyacinthinus",
+  "type": "Bird",
+  "class": "Bruiser",
+  "size": "Small",
+  "biome": "WETLANDS",
+  "habitat": "Pantanal wetlands, palm savanna, gallery forest",
+  "diet": ["palm nuts", "fruit", "apple snails"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The longest parrot in the world, a cobalt-blue macaw of the Pantanal. Its huge bill has the strongest measured bite of any bird.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Palm savanna and wetland edges",
+    "combat_style": "Bruiser",
+    "strengths": ["Strongest measured bird bite", "Strong flier and climber", "Uses tools on hard nuts"],
+    "weaknesses": ["About 1.3 kg", "No armor or talons", "Depends on a few palms and old nest trees"]
+  }
+}

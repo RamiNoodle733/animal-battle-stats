@@ -1,0 +1,20 @@
+{
+  "name": "Russian Tortoise",
+  "scientific_name": "Testudo horsfieldii",
+  "type": "Reptile",
+  "class": "Tank",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Central Asian steppe, semi-desert and foothills",
+  "diet": ["herbs", "succulent plants", "flowers", "fruit"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A small, flat-shelled tortoise from the dry steppes of Central Asia. It digs deep burrows and can stay dormant for up to nine months a year.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Steppe burrows",
+    "combat_style": "Tank",
+    "strengths": ["Closed shell armor", "Deep burrowing", "Survives long fasts"],
+    "weaknesses": ["No real weapons", "Very slow", "Tiny, crushable body"]
+  }
+}

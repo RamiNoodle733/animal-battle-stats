@@ -164,7 +164,7 @@ The wild species is **Endangered** on the IUCN Red List (2022 assessment), threa
 - Diurnal surface activity in the wild, nocturnal activity in captivity.
 
 ### Human interaction
-The Syrian hamster is the most common pet hamster in Britain and the United States and an important laboratory animal, used in research on circadian rhythms and on infections including SARS-CoV-2. Welfare research shows that hamsters given 40–80 cm of bedding dig burrows like wild ones and stop compulsive bar-gnawing.
+The Syrian hamster is the most common pet hamster in Britain and the United States and an important laboratory animal, used in research on circadian rhythms and on infections including SARS-CoV-2. Welfare research shows that hamsters given 40–80 cm of bedding dig burrows like wild ones and largely stop gnawing the cage bars.
 
 ### Genuine fun facts
 - Wild female hamsters in Turkey were almost entirely active by day, the opposite of laboratory hamsters, spending only about 87 minutes a day above ground.

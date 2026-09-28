@@ -2,7 +2,7 @@
 // ratings; measurement categories only include animals with a real value.
 import { animals, fmtWeight, fmtSpeed, fmtBite, fmtLength, fmtScore } from './catalog.js';
 
-export const CATEGORIES = Object.freeze([
+const ALL_CATEGORIES = [
     { slug: 'strongest', key: 'attack', label: 'Strongest animals', stat: 'Attack', cls: 'stat-atk',
       intro: 'Ranked by attack: raw damage from bites, claws, horns, tusks, venom, constriction and sheer mass.',
       value: (a) => a.attack, show: (a) => fmtScore(a.attack) },
@@ -33,7 +33,12 @@ export const CATEGORIES = Object.freeze([
     { slug: 'longest', key: 'length_cm', label: 'Longest animals', stat: 'Length', cls: 'stat-sta', measurement: true,
       intro: 'Ranked by total body length of the rated adult specimen.',
       value: (a) => Number(a.length_cm) || 0, show: (a) => fmtLength(a.length_cm)?.metric }
-]);
+];
+
+// A measurement board needs at least three measured animals to be worth a
+// page. Bite force is stored only as PSI, which no research report converts
+// from newtons, so that board stays hidden until PSI measurements exist.
+export const CATEGORIES = Object.freeze(ALL_CATEGORIES.filter((category) => leaderboard(category).length >= 3));
 
 export function leaderboard(category) {
     return animals

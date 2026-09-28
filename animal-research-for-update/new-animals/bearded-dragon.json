@@ -1,0 +1,20 @@
+{
+  "name": "Bearded Dragon",
+  "scientific_name": "Pogona vitticeps",
+  "type": "Reptile",
+  "class": "Defender",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Arid woodland, scrub and rocky desert of inland Australia",
+  "diet": ["termites", "beetles and grasshoppers", "flowers and leaves", "small lizards"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A sturdy, spiny lizard from inland Australia that inflates a dark beard to scare off threats. It was the first reptile shown to learn by imitation.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Sunny perches",
+    "combat_style": "Defender",
+    "strengths": ["Intimidating beard display", "Quick learner", "Good climber"],
+    "weaknesses": ["Weak bite", "Soft spines, no armor", "Slows down when cold"]
+  }
+}

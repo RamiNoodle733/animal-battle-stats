@@ -1,0 +1,20 @@
+{
+  "name": "Leopard Gecko",
+  "scientific_name": "Eublepharis macularius",
+  "type": "Reptile",
+  "class": "Stealth",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Rocky dry grassland and semi-desert of Afghanistan, Pakistan and northwest India",
+  "diet": ["insects", "other invertebrates", "small lizards"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A small, spotted ground gecko that hunts insects at night. It stores fat in its thick tail and can drop the tail as a wriggling decoy.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rocky crevices",
+    "combat_style": "Stealth",
+    "strengths": ["Decoy tail drop", "Regrows lost tail", "Night hunter"],
+    "weaknesses": ["Tiny and fragile", "No sticky toe pads", "Weak bite"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "African Grey Parrot",
+  "scientific_name": "Psittacus erithacus",
+  "type": "Bird",
+  "class": "Mage",
+  "size": "Tiny",
+  "biome": "JUNGLE",
+  "habitat": "Lowland rainforest, forest edges, clearings and mangroves of central and West Africa",
+  "diet": ["oil-palm nuts", "fruit", "seeds", "leaves and bark"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A red-tailed rainforest parrot famous for using words for objects, colours and numbers. Brilliant and alert, but a small, unarmoured bird in a fight.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "African Rainforest Canopy",
+    "combat_style": "Mage",
+    "strengths": ["Exceptional memory and problem solving", "Nut-cracking bill", "Flock vigilance and fast flight"],
+    "weaknesses": ["Small body mass", "No protection", "Exposed when feeding on the ground"]
+  }
+}

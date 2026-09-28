@@ -14068,8 +14068,8 @@
     "_id": "692f75f3274f411ced1e133b",
     "name": "Spider Monkey",
     "__v": 0,
-    "agility": 66.9,
-    "attack": 33.2,
+    "agility": 91,
+    "attack": 26,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -14083,62 +14083,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Scout",
     "createdAt": "2025-12-02T23:27:49.062Z",
-    "defense": 43.6,
-    "description": "A Medium creature found in Varied.",
+    "defense": 19,
+    "description": "A long-limbed, thumbless acrobat of Central American rainforests, Geoffroy's spider monkey swings beneath branches and hangs by a tail that works like a fifth hand.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 0,
     "image": "/images/animals/spider-monkey.png?v=636101c1ec03",
-    "intelligence": 87,
+    "intelligence": 82,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
-    "scientific_name": "Ateles",
+    "length_cm": 50,
+    "lifespan_years": 27,
+    "scientific_name": "Ateles geoffroyi",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Fifth-Hand Tail",
+      "Canopy Bombardment"
     ],
-    "speed_mps": 10,
-    "stamina": 65.3,
+    "speed_mps": 0,
+    "stamina": 58,
     "substats": {
-      "raw_power": 24.1,
-      "maneuverability": 97.5,
-      "endurance": 38.2,
-      "recovery": 89.5,
-      "tactics": 90.5,
-      "senses": 35.2,
-      "ferocity": 18.1,
-      "weaponry": 79.7,
-      "protection": 28.2,
-      "toughness": 28.1,
-      "speed": 28.2,
-      "abilities": 79.7
+      "raw_power": 19,
+      "maneuverability": 91,
+      "endurance": 58,
+      "recovery": 46,
+      "tactics": 80,
+      "senses": 70,
+      "ferocity": 44,
+      "weaponry": 22,
+      "protection": 8,
+      "toughness": 23,
+      "speed": 45,
+      "abilities": 74
     },
     "type": "Mammal",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Thumbless Hook Hands",
+      "Silent Raiding Parties"
     ],
-    "updatedAt": "2025-12-02T23:28:23.496Z",
-    "weight_kg": 9,
-    "special": 68.8,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 7.5,
+    "special": 75,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f3274f411ced1e133c",
     "name": "Stag Beetle",
     "__v": 0,
-    "agility": 5.5,
-    "attack": 11.2,
+    "agility": 40,
+    "attack": 6,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -14152,62 +14152,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Fighter",
     "createdAt": "2025-12-02T23:27:49.102Z",
-    "defense": 1.8,
-    "description": "A Medium creature found in Varied.",
+    "defense": 11,
+    "description": "Europe's largest beetle, the stag beetle is famous for the male's antler-like mandibles, used to lift rivals and throw them off branches.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 0,
     "image": "/images/animals/stag-beetle.png?v=164b35bf21d8",
-    "intelligence": 8.7,
+    "intelligence": 18,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
-    "scientific_name": "Lucanidae",
+    "length_cm": 6,
+    "lifespan_years": 4,
+    "scientific_name": "Lucanus cervus",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Antler Throw",
+      "Snap-Through Armor"
     ],
-    "speed_mps": 10,
-    "stamina": 14.7,
+    "speed_mps": 0,
+    "stamina": 26,
     "substats": {
-      "raw_power": 18,
-      "maneuverability": 45.9,
-      "endurance": 35.9,
-      "recovery": 50,
-      "tactics": 46.7,
-      "senses": 46.7,
-      "ferocity": 8,
-      "weaponry": 24.4,
-      "protection": 40,
-      "toughness": 21.2,
-      "speed": 55.9,
-      "abilities": 43.4
+      "raw_power": 2,
+      "maneuverability": 40,
+      "endurance": 25,
+      "recovery": 12,
+      "tactics": 22,
+      "senses": 27,
+      "ferocity": 20,
+      "weaponry": 6,
+      "protection": 12,
+      "toughness": 6,
+      "speed": 20,
+      "abilities": 48
     },
     "type": "Insect",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Years Underground",
+      "Two Kinds of Male"
     ],
-    "updatedAt": "2025-12-02T23:28:23.539Z",
-    "weight_kg": 0.004,
-    "special": 58.2,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.0025,
+    "special": 50,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f3274f411ced1e133d",
     "name": "Stingray",
     "__v": 0,
-    "agility": 34.8,
-    "attack": 22.4,
+    "agility": 60,
+    "attack": 35,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -14221,62 +14221,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Stealth",
     "createdAt": "2025-12-02T23:27:49.144Z",
-    "defense": 24.5,
-    "description": "A Medium creature found in Varied.",
+    "defense": 40,
+    "description": "A broad, diamond-shaped western Atlantic ray, the southern stingray hunts buried prey with an electrical sense and protects itself with a serrated, venom-coated tail spine.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
-    "image": "/images/animals/stingray.png?v=9d13427d1790",
-    "intelligence": 22.3,
+    "height_cm": 0,
+    "image": "/images/animals/stingray.png?v=fba8c3eeac1c",
+    "intelligence": 46,
     "isNocturnal": false,
     "isSocial": true,
     "length_cm": 100,
-    "lifespan_years": 15,
-    "scientific_name": "Myliobatoidei",
+    "lifespan_years": 28,
+    "scientific_name": "Hypanus americanus",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Serrated Venom Spine",
+      "Buried-Prey Detector"
     ],
-    "speed_mps": 10,
-    "stamina": 47.3,
+    "speed_mps": 0,
+    "stamina": 56,
     "substats": {
-      "raw_power": 58.5,
-      "maneuverability": 65.4,
-      "endurance": 52.9,
-      "recovery": 52.9,
-      "tactics": 50.5,
-      "senses": 50.5,
-      "ferocity": 50.5,
-      "weaponry": 88,
-      "protection": 57.2,
-      "toughness": 46.7,
-      "speed": 42.9,
-      "abilities": 86
+      "raw_power": 30,
+      "maneuverability": 62,
+      "endurance": 56,
+      "recovery": 45,
+      "tactics": 44,
+      "senses": 84,
+      "ferocity": 28,
+      "weaponry": 55,
+      "protection": 30,
+      "toughness": 38,
+      "speed": 35,
+      "abilities": 85
     },
     "type": "Fish",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Sand Blanket",
+      "Stingray City Regular"
     ],
-    "updatedAt": "2025-12-02T23:28:23.580Z",
-    "weight_kg": 90,
-    "special": 72.5,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 35,
+    "special": 86,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f3274f411ced1e133e",
     "name": "Stoat",
     "__v": 0,
-    "agility": 29.7,
-    "attack": 2.7,
+    "agility": 90,
+    "attack": 14,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -14290,62 +14290,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Assassin",
     "createdAt": "2025-12-02T23:27:49.188Z",
-    "defense": 36.8,
-    "description": "A Medium creature found in Varied.",
+    "defense": 7,
+    "description": "A slender, fearless mustelid of the northern world, the stoat kills rabbits and birds many times its size with a bite to the back of the neck, and swims, climbs and squeezes through burrows with ease.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 0,
     "image": "/images/animals/stoat.png?v=9c529c7ee768",
-    "intelligence": 72.6,
+    "intelligence": 62,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
+    "length_cm": 27,
+    "lifespan_years": 1.5,
     "scientific_name": "Mustela erminea",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Nape-Lock Kill",
+      "Ermine Coat"
     ],
-    "speed_mps": 10,
-    "stamina": 62.6,
+    "speed_mps": 0,
+    "stamina": 66,
     "substats": {
-      "raw_power": 35.2,
-      "maneuverability": 88,
-      "endurance": 45.2,
-      "recovery": 84,
-      "tactics": 40.3,
-      "senses": 40.3,
-      "ferocity": 40.3,
-      "weaponry": 35.2,
-      "protection": 35.2,
-      "toughness": 37.7,
-      "speed": 35.2,
-      "abilities": 35.4
+      "raw_power": 5,
+      "maneuverability": 90,
+      "endurance": 66,
+      "recovery": 50,
+      "tactics": 60,
+      "senses": 72,
+      "ferocity": 70,
+      "weaponry": 18,
+      "protection": 5,
+      "toughness": 10,
+      "speed": 40,
+      "abilities": 60
     },
     "type": "Mammal",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Island Swimmer",
+      "Shrinking Skull"
     ],
-    "updatedAt": "2025-12-02T23:28:23.629Z",
-    "weight_kg": 0.25,
-    "special": 78.4,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.26,
+    "special": 62,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e133f",
     "name": "Stork",
     "__v": 0,
-    "agility": 17.6,
-    "attack": 2.6,
+    "agility": 68,
+    "attack": 24,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Wetlands",
@@ -14363,8 +14363,8 @@
     "bite_force_psi": 0,
     "class": "Wader",
     "createdAt": "2025-12-02T23:27:49.242Z",
-    "defense": 9.1,
-    "description": "A Medium creature found in Wetlands, grasslands.",
+    "defense": 15,
+    "description": "A tall black-and-white wader with long red legs and a dagger-like red bill, the white stork stalks meadows for frogs, rodents and insects and soars thousands of kilometres between Europe and Africa…",
     "diet": [
       "fish",
       "frogs",
@@ -14373,52 +14373,51 @@
     "habitat": "Wetlands, grasslands",
     "height_cm": 115,
     "image": "/images/animals/stork.png?v=6166056d85c5",
-    "intelligence": 43.8,
+    "intelligence": 60,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 115,
-    "lifespan_years": 35,
+    "length_cm": 110,
+    "lifespan_years": 20,
     "scientific_name": "Ciconia ciconia",
     "size": "Medium",
     "size_score": 28.2,
     "special_abilities": [
-      "Bill Strike",
-      "Migration Stamina"
+      "Thermal Rider",
+      "Dagger Bill"
     ],
-    "speed_mps": 16.67,
-    "stamina": 81.5,
+    "speed_mps": 15,
+    "stamina": 80,
     "substats": {
-      "raw_power": 36.1,
-      "maneuverability": 41.4,
-      "endurance": 46.1,
-      "recovery": 46.1,
-      "tactics": 41.4,
-      "senses": 41.4,
-      "ferocity": 41.4,
-      "weaponry": 36.1,
-      "protection": 36.1,
-      "toughness": 38.8,
-      "speed": 36.1,
-      "abilities": 36.8
+      "raw_power": 14,
+      "maneuverability": 66,
+      "endurance": 82,
+      "recovery": 50,
+      "tactics": 60,
+      "senses": 66,
+      "ferocity": 40,
+      "weaponry": 30,
+      "protection": 9,
+      "toughness": 18,
+      "speed": 60,
+      "abilities": 62
     },
     "type": "Bird",
     "unique_traits": [
-      "long migrations",
-      "bill clattering",
-      "opportunistic feeder"
+      "Machine-Gun Clatter",
+      "Rooftop Giant Nest"
     ],
-    "updatedAt": "2025-12-02T23:28:23.669Z",
-    "weight_kg": 4,
-    "special": 23.8,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 3.5,
+    "special": 64,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1340",
     "name": "Sugar Glider",
     "__v": 0,
-    "agility": 52.5,
-    "attack": 2.5,
+    "agility": 93,
+    "attack": 10,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -14432,62 +14431,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Glider",
     "createdAt": "2025-12-02T23:27:49.290Z",
-    "defense": 12.6,
-    "description": "A Medium creature found in Varied.",
+    "defense": 7,
+    "description": "A 140-gram gliding possum that wins by leaving: the sugar glider can steer a 50-metre glide between trees, sees ultraviolet light at night and can drop into torpor to wait out storms.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 0,
     "image": "/images/animals/sugar-glider.png?v=09fd97f1e06b",
-    "intelligence": 61.1,
+    "intelligence": 64,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
+    "length_cm": 17,
+    "lifespan_years": 9,
     "scientific_name": "Petaurus breviceps",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Canopy Glide Escape",
+      "Storm Torpor"
     ],
-    "speed_mps": 10,
-    "stamina": 46.5,
+    "speed_mps": 0,
+    "stamina": 57,
     "substats": {
-      "raw_power": 29.5,
-      "maneuverability": 32.7,
-      "endurance": 39.5,
-      "recovery": 39.5,
-      "tactics": 32.7,
-      "senses": 32.7,
-      "ferocity": 32.7,
-      "weaponry": 29.5,
-      "protection": 29.5,
-      "toughness": 31.1,
-      "speed": 29.5,
-      "abilities": 25.9
+      "raw_power": 5,
+      "maneuverability": 93,
+      "endurance": 55,
+      "recovery": 58,
+      "tactics": 64,
+      "senses": 72,
+      "ferocity": 34,
+      "weaponry": 11,
+      "protection": 5,
+      "toughness": 8,
+      "speed": 45,
+      "abilities": 84
     },
     "type": "Mammal",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Clan Scent Marker",
+      "Ultraviolet Night Vision"
     ],
-    "updatedAt": "2025-12-02T23:28:23.713Z",
-    "weight_kg": 0.13,
-    "special": 12.3,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.14,
+    "special": 84,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1341",
     "name": "Sun Bear",
     "__v": 0,
-    "agility": 51.1,
-    "attack": 76.3,
+    "agility": 60,
+    "attack": 50,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -14501,62 +14500,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Fighter",
     "createdAt": "2025-12-02T23:27:49.339Z",
-    "defense": 12.4,
-    "description": "A Medium creature found in Varied.",
+    "defense": 46,
+    "description": "The smallest bear, but one of the fiercest for its size: the sun bear carries 10 cm sickle claws, a bite of about 2,000 N at the molars and loose skin that lets it twist round and bite anything that…",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 70,
     "image": "/images/animals/sun-bear.png?v=f1f1a4b856bf",
-    "intelligence": 39.4,
+    "intelligence": 63,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
+    "length_cm": 130,
+    "lifespan_years": 20,
     "scientific_name": "Helarctos malayanus",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Loose-Skin Counterbite",
+      "Hardwood Ripper"
     ],
-    "speed_mps": 10,
-    "stamina": 68.1,
+    "speed_mps": 0,
+    "stamina": 57,
     "substats": {
-      "raw_power": 82,
-      "maneuverability": 14.8,
-      "endurance": 68,
-      "recovery": 38,
-      "tactics": 69,
-      "senses": 46.6,
-      "ferocity": 84.5,
-      "weaponry": 73.5,
-      "protection": 62.7,
-      "toughness": 80.8,
-      "speed": 14.1,
-      "abilities": 51
+      "raw_power": 48,
+      "maneuverability": 66,
+      "endurance": 56,
+      "recovery": 55,
+      "tactics": 62,
+      "senses": 62,
+      "ferocity": 68,
+      "weaponry": 58,
+      "protection": 42,
+      "toughness": 50,
+      "speed": 42,
+      "abilities": 62
     },
     "type": "Mammal",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Smallest Bear",
+      "Longest Bear Tongue"
     ],
-    "updatedAt": "2025-12-02T23:28:23.754Z",
+    "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 50,
-    "special": 76.5,
-    "research_status": "legacy",
-    "research_updated": null
+    "special": 62,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1342",
     "name": "Swan",
     "__v": 0,
-    "agility": 19.9,
-    "attack": 11.1,
+    "agility": 62,
+    "attack": 30,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Lakes",
@@ -14574,61 +14573,60 @@
     "bite_force_psi": 0,
     "class": "Territorial",
     "createdAt": "2025-12-02T23:27:49.384Z",
-    "defense": 8.8,
-    "description": "A Medium creature found in Lakes, rivers, wetlands.",
+    "defense": 24,
+    "description": "The mute swan is an 11-kilogram waterbird with a big temper. It defends its nest by hissing, raising its wings, then charging with wing blows and bites, and it can drown intruding birds and even…",
     "diet": [
       "aquatic plants",
       "insects"
     ],
     "habitat": "Lakes, rivers, wetlands",
-    "height_cm": 150,
+    "height_cm": 0,
     "image": "/images/animals/swan.png?v=8eb5fd3d8ab7",
-    "intelligence": 56.6,
+    "intelligence": 59,
     "isNocturnal": false,
     "isSocial": true,
     "length_cm": 150,
-    "lifespan_years": 20,
+    "lifespan_years": 10,
     "scientific_name": "Cygnus olor",
     "size": "Medium",
     "size_score": 33.5,
     "special_abilities": [
-      "Wing Attack",
-      "Territory Guard"
+      "Drowning Hold",
+      "Wing Bludgeon"
     ],
-    "speed_mps": 13.89,
-    "stamina": 86.7,
+    "speed_mps": 24.6,
+    "stamina": 68,
     "substats": {
-      "raw_power": 30.2,
-      "maneuverability": 33.6,
-      "endurance": 40.2,
-      "recovery": 40.2,
-      "tactics": 33.6,
-      "senses": 70.2,
-      "ferocity": 47.4,
-      "weaponry": 36.2,
-      "protection": 25.1,
-      "toughness": 31.9,
-      "speed": 54.5,
-      "abilities": 27.1
+      "raw_power": 24,
+      "maneuverability": 58,
+      "endurance": 68,
+      "recovery": 58,
+      "tactics": 60,
+      "senses": 60,
+      "ferocity": 78,
+      "weaponry": 26,
+      "protection": 16,
+      "toughness": 30,
+      "speed": 72,
+      "abilities": 55
     },
     "type": "Bird",
     "unique_traits": [
-      "aggressive defense",
-      "powerful wings",
-      "graceful swimmer"
+      "Heavyweight Flyer",
+      "Singing Wings"
     ],
-    "updatedAt": "2025-12-02T23:28:23.795Z",
-    "weight_kg": 12,
-    "special": 36.6,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 11,
+    "special": 56,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1343",
     "name": "Swordfish",
     "__v": 0,
-    "agility": 92,
-    "attack": 21.8,
+    "agility": 74,
+    "attack": 61,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Tropical and temperate oceans",
@@ -14646,61 +14644,60 @@
     "bite_force_psi": 0,
     "class": "Assassin",
     "createdAt": "2025-12-02T23:27:49.428Z",
-    "defense": 24.2,
-    "description": "A Large creature found in Tropical and temperate oceans.",
+    "defense": 39,
+    "description": "The swordfish is a 200-kilogram ocean hunter armed with a long, flat sword that has killed blue sharks and makos.",
     "diet": [
       "fish",
       "squid"
     ],
     "habitat": "Tropical and temperate oceans",
-    "height_cm": 80,
+    "height_cm": 0,
     "image": "/images/animals/swordfish.png?v=ec3572c4911d",
-    "intelligence": 35.5,
+    "intelligence": 56,
     "isNocturnal": false,
     "isSocial": false,
-    "length_cm": 450,
+    "length_cm": 300,
     "lifespan_years": 9,
     "scientific_name": "Xiphias gladius",
     "size": "Large",
     "size_score": 46.9,
     "special_abilities": [
-      "Bill Slash",
-      "Speed Burst"
+      "Broadsword Slash",
+      "Heated Deep Vision"
     ],
-    "speed_mps": 27,
-    "stamina": 89.1,
+    "speed_mps": 0,
+    "stamina": 85,
     "substats": {
-      "raw_power": 60.6,
-      "maneuverability": 49.2,
-      "endurance": 51.9,
-      "recovery": 51.9,
-      "tactics": 49.2,
-      "senses": 49.2,
-      "ferocity": 49.2,
-      "weaponry": 25.7,
-      "protection": 52.1,
-      "toughness": 45.5,
-      "speed": 98.5,
-      "abilities": 46.4
+      "raw_power": 52,
+      "maneuverability": 72,
+      "endurance": 86,
+      "recovery": 48,
+      "tactics": 55,
+      "senses": 80,
+      "ferocity": 62,
+      "weaponry": 66,
+      "protection": 26,
+      "toughness": 48,
+      "speed": 64,
+      "abilities": 78
     },
     "type": "Fish",
     "unique_traits": [
-      "long bill",
-      "fastest fish contender",
-      "heat exchange system"
+      "Oil-Slick Head",
+      "Sole Broadbill"
     ],
-    "updatedAt": "2025-12-02T23:28:23.842Z",
-    "weight_kg": 650,
-    "special": 59.4,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 200,
+    "special": 79,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1344",
     "name": "Tapir",
     "__v": 0,
-    "agility": 17.4,
-    "attack": 2.3,
+    "agility": 52,
+    "attack": 45,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Jungles of South America and Asia",
@@ -14715,64 +14712,63 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 300,
+    "bite_force_psi": 0,
     "class": "Tank",
     "createdAt": "2025-12-02T23:27:49.471Z",
-    "defense": 72.4,
-    "description": "A Large creature found in Jungles of South America and Asia.",
+    "defense": 48,
+    "description": "The lowland tapir is a 230-kilogram forest browser that prefers running to fighting. It crashes through undergrowth, swims and dives well and can breathe through its trunk while hiding underwater.",
     "diet": [
       "leaves",
       "fruit"
     ],
     "habitat": "Jungles of South America and Asia",
-    "height_cm": 100,
+    "height_cm": 95,
     "image": "/images/animals/tapir.png?v=ad3cb3589510",
-    "intelligence": 48.6,
+    "intelligence": 48,
     "isNocturnal": true,
     "isSocial": false,
     "length_cm": 200,
-    "lifespan_years": 30,
-    "scientific_name": "Tapirus",
+    "lifespan_years": 20,
+    "scientific_name": "Tapirus terrestris",
     "size": "Large",
     "size_score": 42.6,
     "special_abilities": [
-      "Trample",
-      "Water Dive"
+      "Snorkel Escape",
+      "Cornered Bite"
     ],
-    "speed_mps": 8,
-    "stamina": 74.3,
+    "speed_mps": 0,
+    "stamina": 60,
     "substats": {
-      "raw_power": 22.7,
-      "maneuverability": 23.6,
-      "endurance": 32.7,
-      "recovery": 32.7,
-      "tactics": 23.6,
-      "senses": 23.6,
-      "ferocity": 23.6,
-      "weaponry": 22.7,
-      "protection": 22.7,
-      "toughness": 23.2,
-      "speed": 22.7,
-      "abilities": 14.6
+      "raw_power": 50,
+      "maneuverability": 52,
+      "endurance": 60,
+      "recovery": 50,
+      "tactics": 45,
+      "senses": 60,
+      "ferocity": 40,
+      "weaponry": 42,
+      "protection": 44,
+      "toughness": 50,
+      "speed": 45,
+      "abilities": 56
     },
     "type": "Mammal",
     "unique_traits": [
-      "prehensile nose",
-      "thick skin",
-      "good swimmer"
+      "Prehensile Proboscis",
+      "Amazon Heavyweight"
     ],
-    "updatedAt": "2025-12-02T23:28:23.888Z",
-    "weight_kg": 250,
-    "special": 22.9,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 230,
+    "special": 56,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1345",
     "name": "Tarantula Hawk",
     "__v": 0,
-    "agility": 37.5,
-    "attack": 32.6,
+    "agility": 73,
+    "attack": 14,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -14786,62 +14782,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Slayer",
     "createdAt": "2025-12-02T23:27:49.514Z",
-    "defense": 12.1,
-    "description": "A Medium creature found in Varied.",
+    "defense": 6,
+    "description": "The tarantula hawk is a 1 g spider wasp whose female hunts tarantulas many times her size, paralyzing them with a precise sting to feed her larva.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 0,
     "image": "/images/animals/tarantula-hawk.png?v=3f79fc65ab87",
-    "intelligence": 15.7,
+    "intelligence": 38,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
-    "scientific_name": "Pepsis",
+    "length_cm": 4.5,
+    "lifespan_years": 0,
+    "scientific_name": "Pepsis grossa",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Nerve-Center Sting",
+      "Blinding Pain Venom"
     ],
-    "speed_mps": 10,
-    "stamina": 23.3,
+    "speed_mps": 0,
+    "stamina": 41,
     "substats": {
-      "raw_power": 21.3,
-      "maneuverability": 82.5,
-      "endurance": 72,
-      "recovery": 71.4,
-      "tactics": 47.4,
-      "senses": 90.3,
-      "ferocity": 27.7,
-      "weaponry": 88,
-      "protection": 36.7,
-      "toughness": 17.5,
-      "speed": 74.4,
-      "abilities": 90
+      "raw_power": 2,
+      "maneuverability": 72,
+      "endurance": 42,
+      "recovery": 12,
+      "tactics": 42,
+      "senses": 55,
+      "ferocity": 45,
+      "weaponry": 34,
+      "protection": 5,
+      "toughness": 6,
+      "speed": 40,
+      "abilities": 88
     },
     "type": "Insect",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Tarantula Specialist Parasitoid",
+      "Warning-Color Immunity"
     ],
-    "updatedAt": "2025-12-02T23:28:23.928Z",
-    "weight_kg": 0.015,
-    "special": 89.5,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.001,
+    "special": 88,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f7616274f411ced1e1365",
     "name": "Tasmanian Devil",
     "__v": 0,
-    "agility": 26.5,
-    "attack": 2.2,
+    "agility": 48,
+    "attack": 40,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Forests",
@@ -14856,11 +14852,11 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 418,
+    "bite_force_psi": 0,
     "class": "Scavenger",
     "createdAt": "2025-12-02T23:28:23.969Z",
-    "defense": 11.8,
-    "description": "A Small creature found in Forests, scrublands.",
+    "defense": 31,
+    "description": "The Tasmanian devil is a stocky 6–12 kg marsupial scavenger with the strongest bite for its size of any living mammalian carnivore.",
     "diet": [
       "carrion",
       "small mammals"
@@ -14868,7 +14864,7 @@
     "habitat": "Forests, scrublands",
     "height_cm": 30,
     "image": "/images/animals/tasmanian-devil.png?v=83ed660d25a2",
-    "intelligence": 37.9,
+    "intelligence": 48,
     "isNocturnal": true,
     "isSocial": false,
     "length_cm": 65,
@@ -14877,43 +14873,42 @@
     "size": "Small",
     "size_score": 27.5,
     "special_abilities": [
-      "Bone Bite",
-      "Ferocious Fury"
+      "Bone-Crusher Bite",
+      "Screech-and-Gape Standoff"
     ],
-    "speed_mps": 7.22,
-    "stamina": 50.3,
+    "speed_mps": 6.9,
+    "stamina": 68,
     "substats": {
-      "raw_power": 44,
-      "maneuverability": 52,
-      "endurance": 54,
-      "recovery": 54,
-      "tactics": 52,
-      "senses": 52,
-      "ferocity": 96.5,
-      "weaponry": 44,
-      "protection": 44,
-      "toughness": 96.5,
-      "speed": 44,
-      "abilities": 50
+      "raw_power": 30,
+      "maneuverability": 46,
+      "endurance": 72,
+      "recovery": 50,
+      "tactics": 48,
+      "senses": 70,
+      "ferocity": 72,
+      "weaponry": 48,
+      "protection": 22,
+      "toughness": 44,
+      "speed": 38,
+      "abilities": 68
     },
     "type": "Marsupial",
     "unique_traits": [
-      "strongest bite relative to size",
-      "aggressive feeder",
-      "bone-crushing jaws"
+      "Largest Carnivorous Marsupial",
+      "Whole-Carcass Scavenger"
     ],
-    "updatedAt": "2025-12-02T23:28:23.969Z",
+    "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 9,
-    "special": 86.5,
-    "research_status": "legacy",
-    "research_updated": null
+    "special": 68,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1346",
     "name": "Tiger Shark",
     "__v": 0,
-    "agility": 85.1,
-    "attack": 87.9,
+    "agility": 62,
+    "attack": 83,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Tropical and temperate waters",
@@ -14928,65 +14923,64 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 1250,
+    "bite_force_psi": 0,
     "class": "Tank",
     "createdAt": "2025-12-02T23:27:49.567Z",
-    "defense": 63.6,
-    "description": "A Large creature found in Tropical and temperate waters.",
+    "defense": 60,
+    "description": "The tiger shark is a 4 m, 500 kg generalist predator with serrated, sideways-hooked teeth that saw through sea-turtle shells.",
     "diet": [
       "anything",
       "turtles",
       "fish"
     ],
     "habitat": "Tropical and temperate waters",
-    "height_cm": 120,
+    "height_cm": 0,
     "image": "/images/animals/tiger-shark.png?v=3bccc306d4e5",
-    "intelligence": 37.8,
+    "intelligence": 61,
     "isNocturnal": true,
     "isSocial": false,
-    "length_cm": 500,
-    "lifespan_years": 50,
+    "length_cm": 400,
+    "lifespan_years": 0,
     "scientific_name": "Galeocerdo cuvier",
     "size": "Large",
     "size_score": 48.4,
     "special_abilities": [
-      "Crushing Bite",
-      "Indiscriminate Eat"
+      "Shell-Saw Bite",
+      "Stripe-Shadow Ambush"
     ],
-    "speed_mps": 9,
-    "stamina": 89.5,
+    "speed_mps": 0,
+    "stamina": 84,
     "substats": {
-      "raw_power": 93.5,
-      "maneuverability": 87.2,
-      "endurance": 53,
-      "recovery": 48.8,
-      "tactics": 76.4,
-      "senses": 92,
-      "ferocity": 93.5,
-      "weaponry": 92,
-      "protection": 32.2,
-      "toughness": 80.6,
-      "speed": 38.8,
-      "abilities": 41.3
+      "raw_power": 76,
+      "maneuverability": 60,
+      "endurance": 84,
+      "recovery": 50,
+      "tactics": 60,
+      "senses": 86,
+      "ferocity": 80,
+      "weaponry": 86,
+      "protection": 42,
+      "toughness": 68,
+      "speed": 56,
+      "abilities": 83
     },
     "type": "Fish",
     "unique_traits": [
-      "garbage eater",
-      "serrated teeth",
-      "striped pattern"
+      "Ocean's Widest Menu",
+      "Tiger-Striped Giant"
     ],
-    "updatedAt": "2025-12-02T23:28:24.013Z",
-    "weight_kg": 600,
-    "special": 83.5,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 500,
+    "special": 83,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1347",
     "name": "Toucan",
     "__v": 0,
-    "agility": 29.5,
-    "attack": 2,
+    "agility": 71,
+    "attack": 15,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Tropical forests",
@@ -15001,65 +14995,64 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 50,
+    "bite_force_psi": 0,
     "class": "Scout",
     "createdAt": "2025-12-02T23:27:49.616Z",
-    "defense": 6.1,
-    "description": "A Small creature found in Tropical forests.",
+    "defense": 10,
+    "description": "The toco toucan is a 0.6 kg South American fruit-eater with the largest bill for its body of any bird.",
     "diet": [
       "fruit",
       "insects",
       "eggs"
     ],
     "habitat": "Tropical forests",
-    "height_cm": 60,
+    "height_cm": 0,
     "image": "/images/animals/toucan.png?v=433282c87ae3",
-    "intelligence": 54.6,
+    "intelligence": 55,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 60,
-    "lifespan_years": 20,
-    "scientific_name": "Ramphastidae",
+    "length_cm": 58,
+    "lifespan_years": 18,
+    "scientific_name": "Ramphastos toco",
     "size": "Small",
     "size_score": 19.2,
     "special_abilities": [
-      "Bill Peck",
-      "Fruit Toss"
+      "Long-Reach Nest Raid",
+      "Radiator Bill"
     ],
-    "speed_mps": 10,
-    "stamina": 65.9,
+    "speed_mps": 0,
+    "stamina": 56,
     "substats": {
-      "raw_power": 35.9,
-      "maneuverability": 41.2,
-      "endurance": 45.9,
-      "recovery": 45.9,
-      "tactics": 41.2,
-      "senses": 48.6,
-      "ferocity": 41.2,
-      "weaponry": 36.6,
-      "protection": 35.9,
-      "toughness": 38.5,
-      "speed": 29.8,
-      "abilities": 36.5
+      "raw_power": 9,
+      "maneuverability": 70,
+      "endurance": 55,
+      "recovery": 42,
+      "tactics": 52,
+      "senses": 62,
+      "ferocity": 38,
+      "weaponry": 21,
+      "protection": 6,
+      "toughness": 12,
+      "speed": 45,
+      "abilities": 63
     },
     "type": "Bird",
     "unique_traits": [
-      "large colorful bill",
-      "heat regulation",
-      "noisy"
+      "Biggest Bill for Its Body",
+      "Foam-Core Beak"
     ],
-    "updatedAt": "2025-12-02T23:28:24.054Z",
+    "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 0.6,
-    "special": 31.8,
-    "research_status": "legacy",
-    "research_updated": null
+    "special": 62,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1348",
     "name": "Tuna",
     "__v": 0,
-    "agility": 81.9,
-    "attack": 21.2,
+    "agility": 79,
+    "attack": 32,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -15073,61 +15066,61 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Speedster",
     "createdAt": "2025-12-02T23:27:49.656Z",
-    "defense": 23.9,
-    "description": "A Medium creature found in Varied.",
+    "defense": 40,
+    "description": "The Pacific bluefin tuna is a 2 m, 150 kg warm-bodied fish built for speed and endurance, crossing the North Pacific and turning sharply despite its torpedo shape.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 0,
     "image": "/images/animals/tuna.png?v=e7660edc878a",
-    "intelligence": 21.7,
+    "intelligence": 46,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
+    "length_cm": 200,
     "lifespan_years": 15,
-    "scientific_name": "Thunnini",
+    "scientific_name": "Thunnus orientalis",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Warm-Blooded Engine",
+      "Ratchet Turn"
     ],
-    "speed_mps": 10,
-    "stamina": 86.3,
+    "speed_mps": 0,
+    "stamina": 92,
     "substats": {
-      "raw_power": 22.7,
-      "maneuverability": 23.6,
-      "endurance": 32.7,
-      "recovery": 32.7,
-      "tactics": 23.6,
-      "senses": 23.6,
-      "ferocity": 23.6,
-      "weaponry": 22.7,
-      "protection": 22.7,
-      "toughness": 23.1,
-      "speed": 93,
-      "abilities": 14.5
+      "raw_power": 56,
+      "maneuverability": 76,
+      "endurance": 94,
+      "recovery": 55,
+      "tactics": 42,
+      "senses": 62,
+      "ferocity": 40,
+      "weaponry": 18,
+      "protection": 30,
+      "toughness": 50,
+      "speed": 80,
+      "abilities": 78
     },
     "type": "Fish",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Ocean-Crossing Migrant",
+      "Living Torpedo"
     ],
-    "updatedAt": "2025-12-02T23:28:24.102Z",
-    "weight_kg": 200,
-    "special": 42.2,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 150,
+    "special": 78,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1349",
     "name": "Vulture",
     "__v": 0,
-    "agility": 36.8,
+    "agility": 66,
     "attack": 32,
     "battle_profile": {
       "preferred_range": "Close",
@@ -15146,60 +15139,59 @@
     "bite_force_psi": 0,
     "class": "Scavenger",
     "createdAt": "2025-12-02T23:27:49.697Z",
-    "defense": 11.6,
-    "description": "A Medium creature found in Savannas, mountains.",
+    "defense": 21,
+    "description": "The griffon vulture is a big 8 kg scavenger with a 2.6 m wingspan that soars for hours at almost no energy cost while scanning thousands of square kilometres for carcasses.",
     "diet": [
       "carrion"
     ],
     "habitat": "Savannas, mountains",
-    "height_cm": 100,
+    "height_cm": 0,
     "image": "/images/animals/vulture.png?v=3a89797951ea",
-    "intelligence": 62.4,
+    "intelligence": 65,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 30,
-    "scientific_name": "Gyps africanus",
+    "length_cm": 105,
+    "lifespan_years": 41.4,
+    "scientific_name": "Gyps fulvus",
     "size": "Medium",
     "size_score": 29.5,
     "special_abilities": [
-      "Carrion Sense",
-      "Thermal Soar"
+      "Thermal Marathon",
+      "Carcass Crew Descent"
     ],
-    "speed_mps": 20,
-    "stamina": 81.3,
+    "speed_mps": 18.8,
+    "stamina": 83,
     "substats": {
-      "raw_power": 66,
-      "maneuverability": 58.1,
-      "endurance": 40.3,
-      "recovery": 40.2,
-      "tactics": 66,
-      "senses": 58.1,
-      "ferocity": 58.1,
-      "weaponry": 76,
-      "protection": 48.6,
-      "toughness": 53.3,
-      "speed": 96.5,
-      "abilities": 57.6
+      "raw_power": 25,
+      "maneuverability": 64,
+      "endurance": 85,
+      "recovery": 56,
+      "tactics": 64,
+      "senses": 77,
+      "ferocity": 36,
+      "weaponry": 33,
+      "protection": 14,
+      "toughness": 28,
+      "speed": 64,
+      "abilities": 70
     },
     "type": "Bird",
     "unique_traits": [
-      "strong stomach acid",
-      "soaring flight",
-      "group feeding"
+      "Acid Gut Shield",
+      "Bare-Head Thermostat"
     ],
-    "updatedAt": "2025-12-02T23:28:24.146Z",
-    "weight_kg": 7,
-    "special": 62.4,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 8,
+    "special": 71,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e134a",
     "name": "Wallaby",
     "__v": 0,
-    "agility": 64.1,
-    "attack": 1.9,
+    "agility": 76,
+    "attack": 24,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -15213,62 +15205,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Jumper",
     "createdAt": "2025-12-02T23:27:49.739Z",
-    "defense": 11.3,
-    "description": "A Medium creature found in Varied.",
+    "defense": 21,
+    "description": "The swamp wallaby is a 17 kg, dark-furred browser of eastern Australian undergrowth that hops with its head low and its tail straight out.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 0,
     "image": "/images/animals/wallaby.png?v=fc73555aeef0",
-    "intelligence": 50.1,
+    "intelligence": 50,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
-    "scientific_name": "Macropodidae",
+    "length_cm": 152,
+    "lifespan_years": 12,
+    "scientific_name": "Wallabia bicolor",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Undergrowth Bolt",
+      "Scent-Tracking Browser"
     ],
-    "speed_mps": 10,
-    "stamina": 75,
+    "speed_mps": 0,
+    "stamina": 62,
     "substats": {
-      "raw_power": 41,
-      "maneuverability": 89,
-      "endurance": 51,
-      "recovery": 51,
+      "raw_power": 25,
+      "maneuverability": 76,
+      "endurance": 62,
+      "recovery": 50,
       "tactics": 48,
-      "senses": 48,
-      "ferocity": 48,
-      "weaponry": 41,
-      "protection": 41,
-      "toughness": 44.5,
-      "speed": 41,
-      "abilities": 45
+      "senses": 66,
+      "ferocity": 28,
+      "weaponry": 21,
+      "protection": 15,
+      "toughness": 30,
+      "speed": 58,
+      "abilities": 52
     },
     "type": "Mammal",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Always Pregnant",
+      "Toxic-Plant Diet"
     ],
-    "updatedAt": "2025-12-02T23:28:24.198Z",
-    "weight_kg": 18,
-    "special": 25.1,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 17,
+    "special": 52,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f7617274f411ced1e1366",
     "name": "Walrus",
     "__v": 0,
-    "agility": 8.3,
-    "attack": 1.7,
+    "agility": 43,
+    "attack": 67,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Ice Floe",
@@ -15287,62 +15279,61 @@
     "bite_force_psi": 0,
     "class": "Tank",
     "createdAt": "2025-12-02T23:28:24.242Z",
-    "defense": 85.3,
-    "description": "A massive marine mammal with long tusks used for hauling out onto ice and fighting. Their thick skin is nearly impervious to cold and claws.",
+    "defense": 74,
+    "description": "The walrus is a 1.2-tonne Arctic giant armed with ivory tusks up to a metre long, protected by skin up to 10 cm thick and blubber, and equipped with a carpet of super-sensitive whiskers.",
     "diet": [
       "clams",
       "mussels",
       "fish"
     ],
     "habitat": "Arctic seas",
-    "height_cm": 150,
+    "height_cm": 0,
     "image": "/images/animals/walrus.png?v=30239453a9b2",
-    "intelligence": 80.3,
+    "intelligence": 62,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 350,
-    "lifespan_years": 40,
+    "length_cm": 300,
+    "lifespan_years": 30,
     "scientific_name": "Odobenus rosmarus",
     "size": "Extra Large",
     "size_score": 50.9,
     "special_abilities": [
-      "Tusk Gore",
-      "Blubber Shield"
+      "Ivory Tusk Stab",
+      "Vacuum Suction Feeding"
     ],
-    "speed_mps": 9,
-    "stamina": 85.5,
+    "speed_mps": 9.7,
+    "stamina": 80,
     "substats": {
-      "raw_power": 90,
-      "maneuverability": 56.5,
-      "endurance": 57.4,
-      "recovery": 39.2,
-      "tactics": 56.5,
-      "senses": 56.5,
-      "ferocity": 84,
-      "weaponry": 66.2,
-      "protection": 94,
-      "toughness": 87.5,
-      "speed": 35.7,
-      "abilities": 55.6
+      "raw_power": 78,
+      "maneuverability": 42,
+      "endurance": 80,
+      "recovery": 60,
+      "tactics": 58,
+      "senses": 74,
+      "ferocity": 66,
+      "weaponry": 70,
+      "protection": 70,
+      "toughness": 76,
+      "speed": 34,
+      "abilities": 80
     },
     "type": "Mammal",
     "unique_traits": [
-      "massive tusks",
-      "thick blubber",
-      "social hauling"
+      "Whisker Carpet",
+      "Tusk-Walker Hide"
     ],
-    "updatedAt": "2025-12-02T23:28:24.242Z",
+    "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 1200,
-    "special": 75,
-    "research_status": "legacy",
-    "research_updated": null
+    "special": 79,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e134b",
     "name": "Warthog",
     "__v": 0,
-    "agility": 22.7,
-    "attack": 31.5,
+    "agility": 60,
+    "attack": 47,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Savannas",
@@ -15360,8 +15351,8 @@
     "bite_force_psi": 0,
     "class": "Charger",
     "createdAt": "2025-12-02T23:27:49.791Z",
-    "defense": 71.9,
-    "description": "A Small creature found in Savannas, grasslands.",
+    "defense": 44,
+    "description": "The common warthog is an 85 kg African pig with long curved tusks, razor-edged lower tusks and padded facial warts.",
     "diet": [
       "grass",
       "roots",
@@ -15370,52 +15361,51 @@
     "habitat": "Savannas, grasslands",
     "height_cm": 75,
     "image": "/images/animals/warthog.png?v=293dbd951df3",
-    "intelligence": 51,
+    "intelligence": 49,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 150,
-    "lifespan_years": 15,
+    "length_cm": 130,
+    "lifespan_years": 9,
     "scientific_name": "Phacochoerus africanus",
     "size": "Small",
     "size_score": 37.4,
     "special_abilities": [
-      "Tusk Charge",
-      "Burrow Retreat"
+      "Burrow Ambush Exit",
+      "Lower-Tusk Slash"
     ],
-    "speed_mps": 13.89,
-    "stamina": 75.5,
+    "speed_mps": 13.3,
+    "stamina": 52,
     "substats": {
-      "raw_power": 35.5,
-      "maneuverability": 40.6,
-      "endurance": 45.5,
-      "recovery": 45.5,
-      "tactics": 40.6,
-      "senses": 40.6,
-      "ferocity": 86,
-      "weaponry": 35.5,
-      "protection": 35.5,
-      "toughness": 93.5,
-      "speed": 35.5,
-      "abilities": 35.8
+      "raw_power": 42,
+      "maneuverability": 60,
+      "endurance": 52,
+      "recovery": 50,
+      "tactics": 50,
+      "senses": 58,
+      "ferocity": 62,
+      "weaponry": 50,
+      "protection": 34,
+      "toughness": 50,
+      "speed": 62,
+      "abilities": 56
     },
     "type": "Mammal",
     "unique_traits": [
-      "runs backwards into burrow",
-      "sharp tusks",
-      "fearless fighter"
+      "Cushion Warts",
+      "Kneeling Grazer"
     ],
-    "updatedAt": "2025-12-02T23:28:24.296Z",
-    "weight_kg": 80,
-    "special": 70,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 85,
+    "special": 57,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e134c",
     "name": "Wild Boar",
     "__v": 0,
-    "agility": 16.6,
-    "attack": 75.4,
+    "agility": 58,
+    "attack": 54,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Forests",
@@ -15430,65 +15420,64 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 230,
+    "bite_force_psi": 0,
     "class": "Bruiser",
     "createdAt": "2025-12-02T23:27:49.837Z",
-    "defense": 71.4,
-    "description": "A Small creature found in Forests, grasslands.",
+    "defense": 51,
+    "description": "The wild boar is a 100 kg Eurasian pig with sharp, ever-growing tusks, a rut shield of tough tissue over its shoulders and an excellent nose.",
     "diet": [
       "roots",
       "insects",
       "small animals"
     ],
     "habitat": "Forests, grasslands",
-    "height_cm": 90,
+    "height_cm": 80,
     "image": "/images/animals/wild-boar.png?v=f5050d7c7cff",
-    "intelligence": 42.5,
+    "intelligence": 63,
     "isNocturnal": false,
     "isSocial": true,
     "length_cm": 150,
-    "lifespan_years": 15,
+    "lifespan_years": 5,
     "scientific_name": "Sus scrofa",
     "size": "Small",
     "size_score": 38.7,
     "special_abilities": [
-      "Tusk Slash",
-      "Charge"
+      "Tusk-Point Charge",
+      "Rut Shield"
     ],
-    "speed_mps": 13.89,
-    "stamina": 71.2,
+    "speed_mps": 11.1,
+    "stamina": 63,
     "substats": {
-      "raw_power": 41.1,
-      "maneuverability": 48.2,
-      "endurance": 51.1,
-      "recovery": 51.1,
-      "tactics": 48.2,
-      "senses": 80,
-      "ferocity": 87,
-      "weaponry": 41.1,
-      "protection": 41.1,
-      "toughness": 94,
-      "speed": 41.1,
-      "abilities": 45.2
+      "raw_power": 50,
+      "maneuverability": 57,
+      "endurance": 63,
+      "recovery": 55,
+      "tactics": 60,
+      "senses": 72,
+      "ferocity": 72,
+      "weaponry": 55,
+      "protection": 42,
+      "toughness": 58,
+      "speed": 58,
+      "abilities": 60
     },
     "type": "Mammal",
     "unique_traits": [
-      "aggressive when cornered",
-      "sharp tusks",
-      "thick hide"
+      "Detection-Dog Nose",
+      "Venom-Blocking Receptor"
     ],
-    "updatedAt": "2025-12-02T23:28:24.343Z",
+    "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 100,
-    "special": 70.5,
-    "research_status": "legacy",
-    "research_updated": null
+    "special": 60,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e134d",
     "name": "Wild Horse",
     "__v": 0,
-    "agility": 74.5,
-    "attack": 11,
+    "agility": 64,
+    "attack": 54,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -15502,62 +15491,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Runner",
     "createdAt": "2025-12-02T23:27:49.889Z",
-    "defense": 70.9,
-    "description": "A Medium creature found in Varied.",
+    "defense": 44,
+    "description": "Przewalski's horse is a stocky, dun steppe horse and the last truly wild horse.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 135,
     "image": "/images/animals/wild-horse.png?v=0c82ea0215ed",
-    "intelligence": 58.1,
+    "intelligence": 58,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 100,
-    "lifespan_years": 15,
-    "scientific_name": "Equus ferus",
+    "length_cm": 210,
+    "lifespan_years": 20,
+    "scientific_name": "Equus ferus przewalskii",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Harem Stallion Onslaught",
+      "Winter Metabolic Throttle"
     ],
-    "speed_mps": 10,
-    "stamina": 97.8,
+    "speed_mps": 0,
+    "stamina": 78,
     "substats": {
-      "raw_power": 20.5,
-      "maneuverability": 51.9,
-      "endurance": 92.5,
-      "recovery": 50.7,
-      "tactics": 20.7,
-      "senses": 20.7,
-      "ferocity": 52.7,
-      "weaponry": 30.9,
-      "protection": 20.5,
-      "toughness": 20.6,
-      "speed": 92.5,
-      "abilities": 10.9
+      "raw_power": 57,
+      "maneuverability": 62,
+      "endurance": 78,
+      "recovery": 58,
+      "tactics": 57,
+      "senses": 62,
+      "ferocity": 62,
+      "weaponry": 46,
+      "protection": 33,
+      "toughness": 53,
+      "speed": 64,
+      "abilities": 55
     },
     "type": "Mammal",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Last Truly Wild Horse",
+      "Steppe Dun Build"
     ],
-    "updatedAt": "2025-12-02T23:28:24.395Z",
-    "weight_kg": 500,
-    "special": 74.1,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 320,
+    "special": 55,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e134e",
     "name": "Wildebeest",
     "__v": 0,
-    "agility": 40.2,
-    "attack": 60,
+    "agility": 68,
+    "attack": 55,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Savannas",
@@ -15575,60 +15564,59 @@
     "bite_force_psi": 0,
     "class": "Migrator",
     "createdAt": "2025-12-02T23:27:49.933Z",
-    "defense": 1.5,
-    "description": "A Medium creature found in Savannas, grasslands.",
+    "defense": 42,
+    "description": "The blue wildebeest is a 250 kg horned antelope built for distance. Bulls clash on their knees with hooked horns and herds mob lone predators, but its real edge is endurance: highly efficient muscle…",
     "diet": [
       "grass"
     ],
     "habitat": "Savannas, grasslands",
     "height_cm": 140,
     "image": "/images/animals/wildebeest.png?v=c44727c08e95",
-    "intelligence": 55.3,
+    "intelligence": 52,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 240,
-    "lifespan_years": 20,
+    "length_cm": 220,
+    "lifespan_years": 15,
     "scientific_name": "Connochaetes taurinus",
     "size": "Medium",
     "size_score": 44.3,
     "special_abilities": [
-      "Stampede",
-      "Head Butt"
+      "Kneeling Horn Clash",
+      "Efficient-Muscle March"
     ],
-    "speed_mps": 22.22,
-    "stamina": 93.8,
+    "speed_mps": 0,
+    "stamina": 87,
     "substats": {
-      "raw_power": 73.4,
-      "maneuverability": 68.3,
-      "endurance": 93,
-      "recovery": 65.9,
-      "tactics": 23.4,
-      "senses": 23.4,
-      "ferocity": 23.4,
-      "weaponry": 73.4,
-      "protection": 22.6,
-      "toughness": 78.7,
-      "speed": 88.5,
-      "abilities": 14.3
+      "raw_power": 55,
+      "maneuverability": 68,
+      "endurance": 88,
+      "recovery": 60,
+      "tactics": 52,
+      "senses": 62,
+      "ferocity": 55,
+      "weaponry": 56,
+      "protection": 32,
+      "toughness": 52,
+      "speed": 70,
+      "abilities": 66
     },
     "type": "Mammal",
     "unique_traits": [
-      "mass migration",
-      "curved horns",
-      "endurance runner"
+      "Great Migration Grazer",
+      "Synchronized Calving"
     ],
-    "updatedAt": "2025-12-02T23:28:24.440Z",
+    "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 250,
-    "special": 33,
-    "research_status": "legacy",
-    "research_updated": null
+    "special": 66,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e134f",
     "name": "Wolverine",
     "__v": 0,
-    "agility": 29.2,
-    "attack": 1.6,
+    "agility": 60,
+    "attack": 46,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Snow Forest",
@@ -15644,65 +15632,64 @@
         "Ground-bound"
       ]
     },
-    "bite_force_psi": 300,
+    "bite_force_psi": 0,
     "class": "Berserker",
     "createdAt": "2025-12-02T23:27:49.986Z",
-    "defense": 70.3,
-    "description": "A stocky and muscular carnivore, known for its ferocity and strength out of proportion to its size. It can crush frozen bones.",
+    "defense": 40,
+    "description": "The wolverine is a 16 kg snow-country powerhouse with bone-crushing jaws, crampon claws and snowshoe paws.",
     "diet": [
       "caribou",
       "rodents",
       "carrion"
     ],
     "habitat": "Boreal forests, tundra",
-    "height_cm": 40,
+    "height_cm": 42,
     "image": "/images/animals/wolverine.png?v=e06ff9925cd9",
-    "intelligence": 73.6,
+    "intelligence": 66,
     "isNocturnal": false,
     "isSocial": false,
-    "length_cm": 80,
-    "lifespan_years": 10,
+    "length_cm": 90,
+    "lifespan_years": 8,
     "scientific_name": "Gulo gulo",
     "size": "Small",
     "size_score": 30.4,
     "special_abilities": [
-      "Berserker Bite",
-      "Tenacity"
+      "Frozen-Carcass Crusher",
+      "Deep-Snow Hunter"
     ],
-    "speed_mps": 13,
-    "stamina": 63.6,
+    "speed_mps": 0,
+    "stamina": 83,
     "substats": {
-      "raw_power": 32.5,
-      "maneuverability": 36.7,
-      "endurance": 42.5,
-      "recovery": 42.5,
-      "tactics": 84,
-      "senses": 36.7,
-      "ferocity": 98,
-      "weaponry": 87,
-      "protection": 32.5,
-      "toughness": 98,
-      "speed": 32.5,
-      "abilities": 30.8
+      "raw_power": 34,
+      "maneuverability": 62,
+      "endurance": 85,
+      "recovery": 55,
+      "tactics": 68,
+      "senses": 68,
+      "ferocity": 80,
+      "weaponry": 47,
+      "protection": 31,
+      "toughness": 49,
+      "speed": 32,
+      "abilities": 74
     },
     "type": "Mammal",
     "unique_traits": [
-      "fights above weight class",
-      "powerful jaws",
-      "stocky build"
+      "Mountain Route Planner",
+      "Largest Land Weasel"
     ],
-    "updatedAt": "2025-12-02T23:28:24.482Z",
-    "weight_kg": 18,
-    "special": 86,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 16,
+    "special": 74,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1350",
     "name": "Wombat",
     "__v": 0,
-    "agility": 21.7,
-    "attack": 14.7,
+    "agility": 44,
+    "attack": 33,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
@@ -15716,62 +15703,62 @@
         "General vulnerability"
       ]
     },
-    "bite_force_psi": 100,
+    "bite_force_psi": 0,
     "class": "Tank",
     "createdAt": "2025-12-02T23:27:50.030Z",
-    "defense": 11.1,
-    "description": "A Medium creature found in Varied.",
+    "defense": 48,
+    "description": "The common wombat is a 28 kg burrowing marsupial with ever-growing teeth, powerful digging claws and a cartilage-backed rump it uses to plug its tunnel against predators.",
     "diet": [
       "Varied"
     ],
     "habitat": "Varied",
-    "height_cm": 50,
+    "height_cm": 0,
     "image": "/images/animals/wombat.png?v=b0bae28ae5fb",
-    "intelligence": 43.2,
+    "intelligence": 45,
     "isNocturnal": false,
     "isSocial": true,
     "length_cm": 100,
-    "lifespan_years": 15,
-    "scientific_name": "Vombatidae",
+    "lifespan_years": 12,
+    "scientific_name": "Vombatus ursinus",
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Survival Instinct",
-      "Quick Reflexes"
+      "Rump Shield Plug",
+      "Bulldozer Burrower"
     ],
-    "speed_mps": 10,
-    "stamina": 21.6,
+    "speed_mps": 11.1,
+    "stamina": 48,
     "substats": {
-      "raw_power": 41.6,
-      "maneuverability": 48.8,
-      "endurance": 51.6,
-      "recovery": 51.6,
-      "tactics": 48.8,
-      "senses": 48.8,
-      "ferocity": 48.8,
-      "weaponry": 41.6,
-      "protection": 41.6,
-      "toughness": 45.2,
-      "speed": 41.6,
-      "abilities": 46
+      "raw_power": 36,
+      "maneuverability": 44,
+      "endurance": 50,
+      "recovery": 45,
+      "tactics": 44,
+      "senses": 55,
+      "ferocity": 42,
+      "weaponry": 30,
+      "protection": 50,
+      "toughness": 46,
+      "speed": 40,
+      "abilities": 63
     },
     "type": "Mammal",
     "unique_traits": [
-      "Distinctive appearance",
-      "Suited to its habitat"
+      "Cube-Shaped Scat",
+      "Ever-Growing Teeth"
     ],
-    "updatedAt": "2025-12-02T23:28:24.531Z",
-    "weight_kg": 30,
-    "special": 23.2,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 28,
+    "special": 63,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1351",
     "name": "Yak",
     "__v": 0,
-    "agility": 16.4,
-    "attack": 59.2,
+    "agility": 55,
+    "attack": 62,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Himalayan mountains",
@@ -15789,61 +15776,60 @@
     "bite_force_psi": 0,
     "class": "Mountain Tank",
     "createdAt": "2025-12-02T23:27:50.073Z",
-    "defense": 69.8,
-    "description": "A Large creature found in Himalayan mountains.",
+    "defense": 58,
+    "description": "The domestic yak is a 450 kg high-altitude ox with sweeping horns, a ground-length coat and a heart and lungs built for thin air.",
     "diet": [
       "grass",
       "herbs"
     ],
     "habitat": "Himalayan mountains",
-    "height_cm": 180,
+    "height_cm": 130,
     "image": "/images/animals/yak.png?v=bdcc998cd5a2",
-    "intelligence": 57.5,
+    "intelligence": 50,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 325,
-    "lifespan_years": 25,
+    "length_cm": 160,
+    "lifespan_years": 20,
     "scientific_name": "Bos grunniens",
     "size": "Large",
     "size_score": 49.4,
     "special_abilities": [
-      "Altitude Master",
-      "Horn Charge"
+      "Thin-Air Engine",
+      "Lowered-Horn Charge"
     ],
-    "speed_mps": 11.11,
-    "stamina": 92,
+    "speed_mps": 0,
+    "stamina": 80,
     "substats": {
-      "raw_power": 88.5,
-      "maneuverability": 37.5,
-      "endurance": 92,
-      "recovery": 73.3,
-      "tactics": 46.6,
-      "senses": 49.7,
-      "ferocity": 32.1,
-      "weaponry": 42.3,
-      "protection": 86.7,
-      "toughness": 88.5,
-      "speed": 33.5,
-      "abilities": 4.6
+      "raw_power": 66,
+      "maneuverability": 55,
+      "endurance": 82,
+      "recovery": 55,
+      "tactics": 48,
+      "senses": 60,
+      "ferocity": 50,
+      "weaponry": 58,
+      "protection": 56,
+      "toughness": 64,
+      "speed": 45,
+      "abilities": 72
     },
     "type": "Mammal",
     "unique_traits": [
-      "high-altitude endurance",
-      "thick fur",
-      "strong horns"
+      "Ground-Sweeping Skirt",
+      "Grunting Ox"
     ],
-    "updatedAt": "2025-12-02T23:28:24.574Z",
-    "weight_kg": 600,
-    "special": 73.1,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 450,
+    "special": 72,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "_id": "692f75f4274f411ced1e1352",
     "name": "Zebra",
     "__v": 0,
-    "agility": 17.1,
-    "attack": 1.4,
+    "agility": 66,
+    "attack": 56,
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Savannas",
@@ -15861,54 +15847,53 @@
     "bite_force_psi": 0,
     "class": "Runner",
     "createdAt": "2025-12-02T23:27:50.118Z",
-    "defense": 69.3,
-    "description": "A Medium creature found in Savannas, grasslands.",
+    "defense": 43,
+    "description": "The plains zebra is a 300 kg striped equid and one of the most combative prey animals on the savanna. Stallions fight with bites, wrestling and kicks, attack hyenas and wild dogs, and families mob…",
     "diet": [
       "grass",
       "shrubs"
     ],
     "habitat": "Savannas, grasslands",
-    "height_cm": 140,
+    "height_cm": 135,
     "image": "/images/animals/zebra.png?v=c79725aae199",
-    "intelligence": 45.4,
+    "intelligence": 60,
     "isNocturnal": false,
     "isSocial": true,
-    "length_cm": 250,
-    "lifespan_years": 25,
+    "length_cm": 230,
+    "lifespan_years": 20,
     "scientific_name": "Equus quagga",
     "size": "Medium",
     "size_score": 45.6,
     "special_abilities": [
-      "Back Kick",
-      "Herd Confusion"
+      "Harem Mob Defense",
+      "Playing-Dead Counterstrike"
     ],
-    "speed_mps": 17.78,
-    "stamina": 72.7,
+    "speed_mps": 0,
+    "stamina": 79,
     "substats": {
-      "raw_power": 45.3,
-      "maneuverability": 53.8,
-      "endurance": 55.3,
-      "recovery": 55.3,
-      "tactics": 30.3,
-      "senses": 33.6,
-      "ferocity": 58.6,
-      "weaponry": 18.8,
-      "protection": 45.3,
-      "toughness": 49.6,
-      "speed": 45.3,
-      "abilities": 9.4
+      "raw_power": 56,
+      "maneuverability": 66,
+      "endurance": 79,
+      "recovery": 58,
+      "tactics": 62,
+      "senses": 66,
+      "ferocity": 68,
+      "weaponry": 48,
+      "protection": 32,
+      "toughness": 54,
+      "speed": 68,
+      "abilities": 56
     },
     "type": "Mammal",
     "unique_traits": [
-      "powerful kick",
-      "striped camouflage",
-      "herd defense"
+      "Fly-Proof Stripes",
+      "Longest African Migrant"
     ],
-    "updatedAt": "2025-12-02T23:28:24.616Z",
-    "weight_kg": 350,
-    "special": 18.2,
-    "research_status": "legacy",
-    "research_updated": null
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 300,
+    "special": 56,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
   },
   {
     "name": "Aardvark",
@@ -15977,6 +15962,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 65,
     "special": 58,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Aardwolf",
+    "scientific_name": "Proteles cristatus",
+    "type": "Mammal",
+    "class": "Scout",
+    "size": "Small",
+    "biome": "SAVANNA",
+    "habitat": "Open grassland, savanna and dry scrub of eastern and southern Africa",
+    "diet": [
+      "harvester termites",
+      "other termites",
+      "insects"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "The aardwolf is a slender, 10 kg member of the hyena family that eats termites instead of meat, licking up hundreds of thousands in a night.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Grassland",
+      "combat_style": "Scout",
+      "strengths": [
+        "Intimidating mane display",
+        "Foul anal-gland scent",
+        "Keen night hearing"
+      ],
+      "weaknesses": [
+        "Weak jaw and peg teeth",
+        "Slow runner",
+        "Low body mass"
+      ]
+    },
+    "image": "/images/animals/aardwolf.png?v=d3bc69cd65f7",
+    "agility": 56,
+    "attack": 22,
+    "bite_force_psi": 0,
+    "defense": 23,
+    "height_cm": 47.5,
+    "intelligence": 50,
+    "length_cm": 70,
+    "lifespan_years": 0,
+    "special_abilities": [
+      "Termite Vacuum Tongue",
+      "Mane Bluff"
+    ],
+    "speed_mps": 0,
+    "stamina": 55,
+    "substats": {
+      "raw_power": 18,
+      "maneuverability": 55,
+      "endurance": 55,
+      "recovery": 42,
+      "tactics": 45,
+      "senses": 72,
+      "ferocity": 40,
+      "weaponry": 20,
+      "protection": 16,
+      "toughness": 26,
+      "speed": 40,
+      "abilities": 60
+    },
+    "unique_traits": [
+      "Peg-Toothed Hyena",
+      "Den-Guarding Father"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 10,
+    "special": 60,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -16122,6 +16177,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "American Pit Bull Terrier",
+    "scientific_name": "Canis familiaris",
+    "type": "Mammal",
+    "class": "Grappler",
+    "size": "Medium",
+    "biome": "FOREST",
+    "habitat": "Homes, farms",
+    "diet": [
+      "meat",
+      "dog food",
+      "household scraps"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The American Pit Bull Terrier is a muscular 23 kg bulldog-terrier breed made to grip and hold.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Farmland",
+      "combat_style": "Grappler",
+      "strengths": [
+        "Tenacious catch-and-hold grip",
+        "Dense, muscular build",
+        "High persistence under pain"
+      ],
+      "weaknesses": [
+        "Small absolute size",
+        "Thin single coat",
+        "Committed to close contact"
+      ]
+    },
+    "image": "/images/animals/american-pit-bull-terrier.png?v=f9f92d7c17c0",
+    "agility": 66,
+    "attack": 47,
+    "bite_force_psi": 0,
+    "defense": 34,
+    "height_cm": 50,
+    "intelligence": 58,
+    "length_cm": 53,
+    "lifespan_years": 12,
+    "special_abilities": [
+      "Catch-Dog Grip",
+      "Game Persistence"
+    ],
+    "speed_mps": 0,
+    "stamina": 63,
+    "substats": {
+      "raw_power": 38,
+      "maneuverability": 66,
+      "endurance": 64,
+      "recovery": 56,
+      "tactics": 56,
+      "senses": 72,
+      "ferocity": 80,
+      "weaponry": 44,
+      "protection": 16,
+      "toughness": 50,
+      "speed": 54,
+      "abilities": 50
+    },
+    "unique_traits": [
+      "Bulldog-Terrier Build",
+      "Most-Regulated Breed Type"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 23,
+    "special": 50,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Arapaima",
     "scientific_name": "Arapaima gigas",
     "type": "Fish",
@@ -16263,6 +16388,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Basking Shark",
+    "scientific_name": "Cetorhinus maximus",
+    "type": "Fish",
+    "class": "Titan",
+    "size": "Colossal",
+    "biome": "OCEAN",
+    "habitat": "Cool temperate coastal and open seas worldwide",
+    "diet": [
+      "copepods and other zooplankton",
+      "fish eggs and larvae",
+      "small invertebrates"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The basking shark is the second-largest fish alive, a 7.9-metre, 4-tonne filter feeder that cruises open-mouthed through plankton.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Open Ocean",
+      "combat_style": "Titan",
+      "strengths": [
+        "Huge four-tonne body",
+        "Thick, abrasive skin",
+        "Ocean-crossing endurance"
+      ],
+      "weaknesses": [
+        "No weapons",
+        "Slow, wide-turning swimmer",
+        "Docile, never fights back"
+      ]
+    },
+    "image": "/images/animals/basking-shark.png?v=cef5ee785eb3",
+    "agility": 40,
+    "attack": 44,
+    "bite_force_psi": 0,
+    "defense": 70,
+    "height_cm": 0,
+    "intelligence": 37,
+    "length_cm": 790,
+    "lifespan_years": 50,
+    "special_abilities": [
+      "Latent Breach Power",
+      "Transequatorial Deep Run"
+    ],
+    "speed_mps": 5,
+    "stamina": 86,
+    "substats": {
+      "raw_power": 78,
+      "maneuverability": 36,
+      "endurance": 87,
+      "recovery": 55,
+      "tactics": 34,
+      "senses": 68,
+      "ferocity": 6,
+      "weaponry": 18,
+      "protection": 62,
+      "toughness": 78,
+      "speed": 55,
+      "abilities": 66
+    },
+    "unique_traits": [
+      "Cavernous Filter Mouth",
+      "Abrasive Giant"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 4000,
+    "special": 66,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Bearded Vulture",
     "scientific_name": "Gypaetus barbatus",
     "type": "Bird",
@@ -16329,6 +16524,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 6.2,
     "special": 76,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Belgian Malinois",
+    "scientific_name": "Canis familiaris",
+    "type": "Mammal",
+    "class": "Skirmisher",
+    "size": "Medium",
+    "biome": "FOREST",
+    "habitat": "Homes, police and military kennels",
+    "diet": [
+      "meat",
+      "dog food",
+      "household scraps"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Belgian Malinois is a lean, 30 kg Belgian working shepherd built for explosive speed, leaping and relentless drive.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Urban and mixed terrain",
+      "combat_style": "Skirmisher",
+      "strengths": [
+        "Explosive leaping attack",
+        "High agility and drive",
+        "Excellent detection nose"
+      ],
+      "weaknesses": [
+        "Light frame",
+        "Moderate measured bite",
+        "Short coat, no armor"
+      ]
+    },
+    "image": "/images/animals/belgian-malinois.png?v=0d2062f6f8a8",
+    "agility": 76,
+    "attack": 46,
+    "bite_force_psi": 0,
+    "defense": 32,
+    "height_cm": 62,
+    "intelligence": 70,
+    "length_cm": 62,
+    "lifespan_years": 12,
+    "special_abilities": [
+      "Spring-Loaded Launch",
+      "Relentless Work Drive"
+    ],
+    "speed_mps": 11.4,
+    "stamina": 75,
+    "substats": {
+      "raw_power": 38,
+      "maneuverability": 76,
+      "endurance": 76,
+      "recovery": 62,
+      "tactics": 68,
+      "senses": 80,
+      "ferocity": 70,
+      "weaponry": 45,
+      "protection": 17,
+      "toughness": 44,
+      "speed": 60,
+      "abilities": 54
+    },
+    "unique_traits": [
+      "Short-Coated Belgian Shepherd",
+      "Special Operations Dog"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 30,
+    "special": 54,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -16404,6 +16669,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Binturong",
+    "scientific_name": "Arctictis binturong",
+    "type": "Mammal",
+    "class": "Agile Climber",
+    "size": "Small",
+    "biome": "JUNGLE",
+    "habitat": "Tropical rainforest canopy of South and Southeast Asia",
+    "diet": [
+      "figs",
+      "other fruit",
+      "small animals"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "The binturong, or bearcat, is a shaggy 16 kg tree-dweller of Asian rainforests that smells like popcorn and climbs with a grasping tail.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Forest Canopy",
+      "combat_style": "Agile Climber",
+      "strengths": [
+        "Prehensile gripping tail",
+        "Head-first tree descent",
+        "Sharp canines and claws"
+      ],
+      "weaknesses": [
+        "Slow mover",
+        "Low stamina",
+        "Vulnerable on the ground"
+      ]
+    },
+    "image": "/images/animals/binturong.png?v=1f1fb6cf06a8",
+    "agility": 55,
+    "attack": 32,
+    "bite_force_psi": 0,
+    "defense": 30,
+    "height_cm": 0,
+    "intelligence": 52,
+    "length_cm": 80,
+    "lifespan_years": 16,
+    "special_abilities": [
+      "Fifth-Limb Tail",
+      "Reverse-Ankle Descent"
+    ],
+    "speed_mps": 0,
+    "stamina": 45,
+    "substats": {
+      "raw_power": 28,
+      "maneuverability": 55,
+      "endurance": 45,
+      "recovery": 45,
+      "tactics": 48,
+      "senses": 62,
+      "ferocity": 38,
+      "weaponry": 30,
+      "protection": 22,
+      "toughness": 34,
+      "speed": 20,
+      "abilities": 64
+    },
+    "unique_traits": [
+      "Popcorn Musk",
+      "Strangler Fig Gardener"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 16,
+    "special": 65,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Black Caiman",
     "scientific_name": "Melanosuchus niger",
     "type": "Reptile",
@@ -16471,6 +16806,148 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 300,
     "special": 73,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Black-footed Cat",
+    "scientific_name": "Felis nigripes",
+    "type": "Mammal",
+    "class": "Assassin",
+    "size": "Tiny",
+    "biome": "DESERT",
+    "habitat": "Arid grassland, Karoo scrub and dry savanna",
+    "diet": [
+      "rodents",
+      "small birds",
+      "shrews",
+      "insects"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "Africa's smallest wild cat, the black-footed cat weighs under 2 kg yet catches prey on roughly six of every ten attempts and hunts all night long.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Arid Grassland and Scrub",
+      "combat_style": "Assassin",
+      "strengths": [
+        "Very high hunting success",
+        "Night-long stamina",
+        "Burrow and termite-mound refuge"
+      ],
+      "weaknesses": [
+        "Tiny body mass",
+        "No armor",
+        "Not a climber"
+      ]
+    },
+    "image": "/images/animals/black-footed-cat.png?v=334fda87b07c",
+    "agility": 85,
+    "attack": 17,
+    "bite_force_psi": 0,
+    "defense": 9,
+    "height_cm": 23,
+    "intelligence": 60,
+    "length_cm": 45,
+    "lifespan_years": 12,
+    "special_abilities": [
+      "Sixty-Percent Strike",
+      "Termite-Mound Bolt"
+    ],
+    "speed_mps": 0,
+    "stamina": 64,
+    "substats": {
+      "raw_power": 8,
+      "maneuverability": 85,
+      "endurance": 64,
+      "recovery": 48,
+      "tactics": 62,
+      "senses": 81,
+      "ferocity": 68,
+      "weaponry": 21,
+      "protection": 6,
+      "toughness": 13,
+      "speed": 42,
+      "abilities": 64
+    },
+    "unique_traits": [
+      "Africa's Smallest Wild Cat",
+      "Night-Long Hunter"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1.9,
+    "special": 64,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Black-necked Spitting Cobra",
+    "scientific_name": "Naja nigricollis",
+    "type": "Reptile",
+    "class": "Venomous Hunter",
+    "size": "Small",
+    "biome": "SAVANNA",
+    "habitat": "Savanna, semi-desert and farmland",
+    "diet": [
+      "rodents",
+      "birds",
+      "lizards",
+      "eggs"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The black-necked spitting cobra is an African cobra that defends itself by spraying venom at an attacker's eyes, tracking its target and aiming at the face. Its bite delivers a large dose of…",
+    "battle_profile": {
+      "preferred_range": "Mid range",
+      "primary_environment": "Savanna",
+      "combat_style": "Venomous Hunter",
+      "strengths": [
+        "Blinding venom spray",
+        "Target-tracking aim",
+        "Tissue-destroying bite"
+      ],
+      "weaknesses": [
+        "No armor",
+        "Low-lethality bite",
+        "Light body"
+      ]
+    },
+    "image": "/images/animals/black-necked-spitting-cobra.png?v=4c97c204ad8d",
+    "agility": 72,
+    "attack": 56,
+    "bite_force_psi": 0,
+    "defense": 26,
+    "height_cm": 0,
+    "intelligence": 47,
+    "length_cm": 150,
+    "lifespan_years": 23.2,
+    "special_abilities": [
+      "Aimed Venom Spray",
+      "Flesh-Melting Bite"
+    ],
+    "speed_mps": 0,
+    "stamina": 48,
+    "substats": {
+      "raw_power": 10,
+      "maneuverability": 72,
+      "endurance": 48,
+      "recovery": 40,
+      "tactics": 56,
+      "senses": 64,
+      "ferocity": 62,
+      "weaponry": 76,
+      "protection": 11,
+      "toughness": 22,
+      "speed": 38,
+      "abilities": 95
+    },
+    "unique_traits": [
+      "Face-Finding Aim",
+      "Day-or-Night Cobra"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1.5,
+    "special": 95,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -16685,6 +17162,77 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Boomslang",
+    "scientific_name": "Dispholidus typus",
+    "type": "Reptile",
+    "class": "Venomous Hunter",
+    "size": "Small",
+    "biome": "SAVANNA",
+    "habitat": "Savanna woodland, karoo scrub and lowland forest",
+    "diet": [
+      "chameleons",
+      "tree lizards",
+      "nestling birds and eggs",
+      "frogs"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The boomslang is a slender, sharp-eyed African tree snake whose small doses of rear-fang venom cause deadly bleeding hours after a bite.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Tree canopy",
+      "combat_style": "Venomous Hunter",
+      "strengths": [
+        "Potent clotting venom",
+        "Keen eyesight",
+        "Agile climber"
+      ],
+      "weaknesses": [
+        "Rear fangs need a held bite",
+        "Slow-acting venom",
+        "Light, fragile body"
+      ]
+    },
+    "image": "/images/animals/boomslang.png?v=27e9fb8842e1",
+    "agility": 80,
+    "attack": 40,
+    "bite_force_psi": 0,
+    "defense": 12,
+    "height_cm": 0,
+    "intelligence": 44,
+    "length_cm": 140,
+    "lifespan_years": 8,
+    "special_abilities": [
+      "Silent Clot Venom",
+      "170-Degree Rear-Fang Bite"
+    ],
+    "speed_mps": 0,
+    "stamina": 48,
+    "substats": {
+      "raw_power": 3.5,
+      "maneuverability": 84,
+      "endurance": 48,
+      "recovery": 38,
+      "tactics": 46,
+      "senses": 74,
+      "ferocity": 26,
+      "weaponry": 55,
+      "protection": 7,
+      "toughness": 10,
+      "speed": 42,
+      "abilities": 86
+    },
+    "unique_traits": [
+      "Emerald-Eyed Sharpshooter",
+      "Two-Tone Tree Snake"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.3,
+    "special": 88,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Brazilian Wandering Spider",
     "scientific_name": "Phoneutria nigriventer",
     "type": "Arachnid",
@@ -16751,6 +17299,147 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 0.004,
     "special": 93,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Brown Hyena",
+    "scientific_name": "Parahyaena brunnea",
+    "type": "Mammal",
+    "class": "Bruiser",
+    "size": "Medium",
+    "biome": "DESERT",
+    "habitat": "Deserts, semi-desert scrub and dry savanna of southern Africa",
+    "diet": [
+      "carrion",
+      "seal pups",
+      "wild fruit",
+      "small animals"
+    ],
+    "isNocturnal": true,
+    "isSocial": true,
+    "description": "The brown hyena is a shaggy 43 kg desert scavenger of southern Africa that can smell carrion from 2 km away and walk more than 50 km in a night.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Desert",
+      "combat_style": "Bruiser",
+      "strengths": [
+        "Bone-cracking bite",
+        "Huge nightly endurance",
+        "Keen sense of smell"
+      ],
+      "weaknesses": [
+        "Poor hunter",
+        "Slow and front-heavy",
+        "Outmatched by lions"
+      ]
+    },
+    "image": "/images/animals/brown-hyena.png?v=ffc93c33153d",
+    "agility": 51,
+    "attack": 53,
+    "bite_force_psi": 0,
+    "defense": 45,
+    "height_cm": 79,
+    "intelligence": 66,
+    "length_cm": 115,
+    "lifespan_years": 10,
+    "special_abilities": [
+      "Carcass Radar",
+      "Leopard Charge"
+    ],
+    "speed_mps": 11.1,
+    "stamina": 80,
+    "substats": {
+      "raw_power": 45,
+      "maneuverability": 50,
+      "endurance": 80,
+      "recovery": 52,
+      "tactics": 64,
+      "senses": 78,
+      "ferocity": 62,
+      "weaponry": 62,
+      "protection": 32,
+      "toughness": 60,
+      "speed": 55,
+      "abilities": 64
+    },
+    "unique_traits": [
+      "Strandwolf of the Namib",
+      "Two-Tone Scent Paste"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 43,
+    "special": 65,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Caucasian Shepherd Dog",
+    "scientific_name": "Canis familiaris",
+    "type": "Mammal",
+    "class": "Defender",
+    "size": "Medium",
+    "biome": "MOUNTAINS",
+    "habitat": "Caucasus mountains, steppe pastures",
+    "diet": [
+      "meat",
+      "dog food",
+      "household scraps"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Caucasian Shepherd Dog is a massive 60 kg mountain guardian from the Caucasus, with a long maned coat and thick skin.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Mountain pasture",
+      "combat_style": "Defender",
+      "strengths": [
+        "Heaviest frame of the guardian dogs",
+        "Maned coat and thick skin over the neck",
+        "Fearless head-on charge"
+      ],
+      "weaknesses": [
+        "Slow to turn",
+        "No armor",
+        "Struggles in heat"
+      ]
+    },
+    "image": "/images/animals/caucasian-shepherd-dog.png?v=1f703b2267b3",
+    "agility": 49,
+    "attack": 54,
+    "bite_force_psi": 0,
+    "defense": 50,
+    "height_cm": 72,
+    "intelligence": 61,
+    "length_cm": 76,
+    "lifespan_years": 10,
+    "special_abilities": [
+      "Maned Neck Guard",
+      "Frontline Charge"
+    ],
+    "speed_mps": 0,
+    "stamina": 67,
+    "substats": {
+      "raw_power": 54,
+      "maneuverability": 48,
+      "endurance": 68,
+      "recovery": 55,
+      "tactics": 60,
+      "senses": 74,
+      "ferocity": 68,
+      "weaponry": 52,
+      "protection": 34,
+      "toughness": 58,
+      "speed": 45,
+      "abilities": 50
+    },
+    "unique_traits": [
+      "Bear-Like Mountain Guardian",
+      "Soviet-Standardized Caucasus Dog"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 60,
+    "special": 49,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -17319,6 +18008,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "German Shepherd",
+    "scientific_name": "Canis familiaris",
+    "type": "Mammal",
+    "class": "Fighter",
+    "size": "Medium",
+    "biome": "FOREST",
+    "habitat": "Homes, farms, police kennels",
+    "diet": [
+      "meat",
+      "dog food",
+      "household scraps"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The German Shepherd is a 35 kg German herding and police dog built to trot all day and to finish a sprint with a hard grip.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Farmland",
+      "combat_style": "Fighter",
+      "strengths": [
+        "Fast run-in and full grip",
+        "All-day trotting stamina",
+        "Excellent scent tracking"
+      ],
+      "weaknesses": [
+        "No armor",
+        "Moderate measured bite",
+        "Prone to hip and spine problems"
+      ]
+    },
+    "image": "/images/animals/german-shepherd.png?v=1287961b8f92",
+    "agility": 66,
+    "attack": 48,
+    "bite_force_psi": 0,
+    "defense": 36,
+    "height_cm": 63,
+    "intelligence": 68,
+    "length_cm": 71,
+    "lifespan_years": 10.3,
+    "special_abilities": [
+      "Long Attack Strike",
+      "Scent Tracker"
+    ],
+    "speed_mps": 11.7,
+    "stamina": 72,
+    "substats": {
+      "raw_power": 42,
+      "maneuverability": 66,
+      "endurance": 72,
+      "recovery": 58,
+      "tactics": 66,
+      "senses": 80,
+      "ferocity": 62,
+      "weaponry": 47,
+      "protection": 22,
+      "toughness": 46,
+      "speed": 58,
+      "abilities": 52
+    },
+    "unique_traits": [
+      "Tireless Trotter",
+      "Von Stephanitz Working Dog"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 35,
+    "special": 52,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Gharial",
     "scientific_name": "Gavialis gangeticus",
     "type": "Reptile",
@@ -17384,6 +18143,77 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 180,
     "special": 63,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Giant Otter",
+    "scientific_name": "Pteronura brasiliensis",
+    "type": "Mammal",
+    "class": "Pack Hunter",
+    "size": "Medium",
+    "biome": "JUNGLE",
+    "habitat": "Slow rivers, oxbow lakes and swamps of South America",
+    "diet": [
+      "fish",
+      "crabs",
+      "snakes",
+      "small caimans"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The longest member of the weasel family, the giant otter is a 30 kg river predator that lives in loud, cooperative family groups and hunts fish, snakes and even small caimans.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Rainforest Rivers",
+      "combat_style": "Pack Hunter",
+      "strengths": [
+        "Fast, twisting swimmer",
+        "Powerful bite",
+        "Cooperative family defense"
+      ],
+      "weaknesses": [
+        "Bite is its only weapon",
+        "No armor",
+        "Slower on dry land"
+      ]
+    },
+    "image": "/images/animals/giant-otter.png?v=f1e6a5d51ce7",
+    "agility": 84,
+    "attack": 46,
+    "bite_force_psi": 0,
+    "defense": 34,
+    "height_cm": 0,
+    "intelligence": 80,
+    "length_cm": 160,
+    "lifespan_years": 8,
+    "special_abilities": [
+      "River Wolf Pack",
+      "Whisker Pressure Sense"
+    ],
+    "speed_mps": 0,
+    "stamina": 76,
+    "substats": {
+      "raw_power": 38,
+      "maneuverability": 85,
+      "endurance": 76,
+      "recovery": 54,
+      "tactics": 82,
+      "senses": 80,
+      "ferocity": 72,
+      "weaponry": 44,
+      "protection": 22,
+      "toughness": 44,
+      "speed": 50,
+      "abilities": 75
+    },
+    "unique_traits": [
+      "Longest Mustelid",
+      "Loudest Otter"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 30,
+    "special": 75,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -17594,6 +18424,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 400,
     "special": 66,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Greyhound",
+    "scientific_name": "Canis familiaris",
+    "type": "Mammal",
+    "class": "Speedster",
+    "size": "Medium",
+    "biome": "SAVANNA",
+    "habitat": "Homes, open grassland, race tracks",
+    "diet": [
+      "meat",
+      "dog food",
+      "household scraps"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Greyhound is a 32 kg sprint sighthound that reaches about 19.5 m/s within 150 m and holds its speed through tight bends.",
+    "battle_profile": {
+      "preferred_range": "Mid range",
+      "primary_environment": "Open grassland",
+      "combat_style": "Speedster",
+      "strengths": [
+        "Measured sprint near 19.5 m/s",
+        "Holds speed through tight bends",
+        "Rapid acceleration"
+      ],
+      "weaknesses": [
+        "Lean, easily wounded body",
+        "Speed fades over distance",
+        "Weak in close combat"
+      ]
+    },
+    "image": "/images/animals/greyhound.png?v=df5bab6a1393",
+    "agility": 80,
+    "attack": 39,
+    "bite_force_psi": 0,
+    "defense": 22,
+    "height_cm": 74,
+    "intelligence": 55,
+    "length_cm": 76,
+    "lifespan_years": 11.5,
+    "special_abilities": [
+      "Double-Suspension Sprint",
+      "Bend Runner"
+    ],
+    "speed_mps": 19,
+    "stamina": 52,
+    "substats": {
+      "raw_power": 36,
+      "maneuverability": 78,
+      "endurance": 52,
+      "recovery": 48,
+      "tactics": 52,
+      "senses": 74,
+      "ferocity": 45,
+      "weaponry": 40,
+      "protection": 10,
+      "toughness": 32,
+      "speed": 86,
+      "abilities": 68
+    },
+    "unique_traits": [
+      "Red-Cell Rich Athlete",
+      "Hip-Driven Sprinter Build"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 32,
+    "special": 68,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -17950,6 +18850,77 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Jaguarundi",
+    "scientific_name": "Herpailurus yagouaroundi",
+    "type": "Mammal",
+    "class": "Hunter",
+    "size": "Small",
+    "biome": "JUNGLE",
+    "habitat": "Forest edges, dense scrub and farm-forest mosaics near water",
+    "diet": [
+      "rodents",
+      "ground birds",
+      "reptiles",
+      "fish"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "A long, low, otter-shaped wild cat of the Americas, the jaguarundi hunts birds and rodents by day, climbs, swims and leaps 2 m into the air.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Tropical Forest Edge",
+      "combat_style": "Hunter",
+      "strengths": [
+        "Climbs, swims and leaps",
+        "Daytime hunting niche",
+        "Wary and hard to corner"
+      ],
+      "weaknesses": [
+        "Low body mass",
+        "No armor",
+        "Outclassed by larger cats"
+      ]
+    },
+    "image": "/images/animals/jaguarundi.png?v=1df9014d8ad6",
+    "agility": 85,
+    "attack": 30,
+    "bite_force_psi": 0,
+    "defense": 21,
+    "height_cm": 35,
+    "intelligence": 62,
+    "length_cm": 70,
+    "lifespan_years": 15,
+    "special_abilities": [
+      "Daylight Stalker",
+      "Bird-Snatch Leap"
+    ],
+    "speed_mps": 0,
+    "stamina": 62,
+    "substats": {
+      "raw_power": 20,
+      "maneuverability": 85,
+      "endurance": 62,
+      "recovery": 48,
+      "tactics": 62,
+      "senses": 76,
+      "ferocity": 48,
+      "weaponry": 32,
+      "protection": 12,
+      "toughness": 25,
+      "speed": 50,
+      "abilities": 55
+    },
+    "unique_traits": [
+      "Otter-Shaped Cat",
+      "Thirteen-Call Voice"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 7,
+    "special": 55,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Kangal",
     "scientific_name": "Canis familiaris",
     "type": "Mammal",
@@ -18016,6 +18987,77 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 50,
     "special": 47,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Kea",
+    "scientific_name": "Nestor notabilis",
+    "type": "Bird",
+    "class": "Thief",
+    "size": "Small",
+    "biome": "MOUNTAINS",
+    "habitat": "Alpine zones, subalpine scrub, mountain beech forest",
+    "diet": [
+      "plants and seeds",
+      "grubs",
+      "carrion",
+      "seabird chicks"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Kea is a large, clever mountain parrot from New Zealand's South Island. The canonical male weighs just under 1 kg.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Alpine ridges",
+      "combat_style": "Thief",
+      "strengths": [
+        "Elite problem solving",
+        "Tearing curved bill",
+        "Agile mountain flier"
+      ],
+      "weaknesses": [
+        "Under 1 kg",
+        "No armor",
+        "Curiosity leads it into danger"
+      ]
+    },
+    "image": "/images/animals/kea.png?v=338409c971d5",
+    "agility": 85,
+    "attack": 22,
+    "bite_force_psi": 0,
+    "defense": 14,
+    "height_cm": 0,
+    "intelligence": 92,
+    "length_cm": 48,
+    "lifespan_years": 5,
+    "special_abilities": [
+      "Wool-Ripping Beak",
+      "Mountain Puzzle Solver"
+    ],
+    "speed_mps": 0,
+    "stamina": 66,
+    "substats": {
+      "raw_power": 11,
+      "maneuverability": 85,
+      "endurance": 66,
+      "recovery": 50,
+      "tactics": 88,
+      "senses": 68,
+      "ferocity": 45,
+      "weaponry": 28,
+      "protection": 7,
+      "toughness": 17,
+      "speed": 62,
+      "abilities": 71
+    },
+    "unique_traits": [
+      "Alpine Parrot",
+      "Contagious Play Call"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.96,
+    "special": 72,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -18303,6 +19345,77 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Martial Eagle",
+    "scientific_name": "Polemaetus bellicosus",
+    "type": "Bird",
+    "class": "Sky Hunter",
+    "size": "Medium",
+    "biome": "SAVANNA",
+    "habitat": "African savanna, thornveld, wooded grassland",
+    "diet": [
+      "hares",
+      "hyraxes",
+      "game birds",
+      "monitor lizards"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The Martial Eagle is Africa's largest eagle by wingspan. The canonical female weighs about 4.8 kg and hunts from a high soar, dropping in a long stoop onto hares, monitor lizards, snakes, small…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Open savanna skies",
+      "combat_style": "Sky Hunter",
+      "strengths": [
+        "High-soar surprise stoop",
+        "Large talons and long legs",
+        "Long-range eyesight"
+      ],
+      "weaknesses": [
+        "Low body mass",
+        "No armor",
+        "Clumsy in dense cover"
+      ]
+    },
+    "image": "/images/animals/martial-eagle.png?v=5a61dc794f63",
+    "agility": 84,
+    "attack": 41.5,
+    "bite_force_psi": 0,
+    "defense": 21,
+    "height_cm": 0,
+    "intelligence": 65.5,
+    "length_cm": 88,
+    "lifespan_years": 14,
+    "special_abilities": [
+      "High-Soar Stoop",
+      "Snake-and-Carnivore Takedown"
+    ],
+    "speed_mps": 0,
+    "stamina": 80,
+    "substats": {
+      "raw_power": 19.5,
+      "maneuverability": 82,
+      "endurance": 80,
+      "recovery": 35,
+      "tactics": 68,
+      "senses": 90,
+      "ferocity": 68,
+      "weaponry": 57.5,
+      "protection": 10,
+      "toughness": 21,
+      "speed": 74,
+      "abilities": 72
+    },
+    "unique_traits": [
+      "Africa's Widest-Winged Eagle",
+      "The Vervet's Eagle Alarm"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 4.8,
+    "special": 73,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Mosquito",
     "scientific_name": "Anopheles gambiae",
     "type": "Insect",
@@ -18444,6 +19557,148 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Northern Goshawk",
+    "scientific_name": "Astur gentilis",
+    "type": "Bird",
+    "class": "Hunter",
+    "size": "Small",
+    "biome": "FOREST",
+    "habitat": "Mature forests, forest edges, wooded farmland",
+    "diet": [
+      "pigeons",
+      "grouse",
+      "squirrels",
+      "hares"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The Northern Goshawk is a powerful forest hawk. The canonical female weighs about 1.3 kg but kills hares and grouse up to twice her weight.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Dense forest",
+      "combat_style": "Hunter",
+      "strengths": [
+        "Elite forest agility",
+        "Crushing talon grip",
+        "Surprise attack flights"
+      ],
+      "weaknesses": [
+        "Very low body mass",
+        "No armor",
+        "Short-burst endurance"
+      ]
+    },
+    "image": "/images/animals/northern-goshawk.png?v=a2cc1002f1b9",
+    "agility": 93,
+    "attack": 36,
+    "bite_force_psi": 0,
+    "defense": 19,
+    "height_cm": 0,
+    "intelligence": 67,
+    "length_cm": 62,
+    "lifespan_years": 7,
+    "special_abilities": [
+      "Interception Pursuit",
+      "Crush-and-Knead Grip"
+    ],
+    "speed_mps": 0,
+    "stamina": 70,
+    "substats": {
+      "raw_power": 17,
+      "maneuverability": 94,
+      "endurance": 68,
+      "recovery": 42,
+      "tactics": 71,
+      "senses": 90,
+      "ferocity": 76,
+      "weaponry": 45,
+      "protection": 11,
+      "toughness": 21,
+      "speed": 76,
+      "abilities": 77
+    },
+    "unique_traits": [
+      "Ghost of the Forest",
+      "Extreme Size Gap Between Sexes"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1.3,
+    "special": 78,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Pallas's Cat",
+    "scientific_name": "Otocolobus manul",
+    "type": "Mammal",
+    "class": "Stealth",
+    "size": "Small",
+    "biome": "MOUNTAINS",
+    "habitat": "Cold rocky montane steppe and scree",
+    "diet": [
+      "pikas",
+      "voles",
+      "gerbils",
+      "small birds"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "A stocky, heavily furred wild cat of Central Asia's cold, rocky steppes, Pallas's cat ambushes pikas and voles from behind rocks and hides rather than runs.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Rocky Mountain Steppe",
+      "combat_style": "Stealth",
+      "strengths": [
+        "Extremely dense fur",
+        "Rock camouflage",
+        "Patient burrow ambush"
+      ],
+      "weaknesses": [
+        "Poor runner",
+        "Small body mass",
+        "Exposed in open ground"
+      ]
+    },
+    "image": "/images/animals/pallas-s-cat.png?v=90a0bb97dac9",
+    "agility": 60,
+    "attack": 21,
+    "bite_force_psi": 0,
+    "defense": 17,
+    "height_cm": 0,
+    "intelligence": 58,
+    "length_cm": 55,
+    "lifespan_years": 8.5,
+    "special_abilities": [
+      "Rock-Peer Ambush",
+      "Crevice Vanish"
+    ],
+    "speed_mps": 0,
+    "stamina": 56,
+    "substats": {
+      "raw_power": 12,
+      "maneuverability": 60,
+      "endurance": 56,
+      "recovery": 42,
+      "tactics": 60,
+      "senses": 72,
+      "ferocity": 52,
+      "weaponry": 25,
+      "protection": 16,
+      "toughness": 23,
+      "speed": 22,
+      "abilities": 64
+    },
+    "unique_traits": [
+      "Steppe Winter Coat",
+      "Round-Pupil Cat"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 4,
+    "special": 64,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Philippine Eagle",
     "scientific_name": "Pithecophaga jefferyi",
     "type": "Bird",
@@ -18581,6 +19836,218 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 0.2,
     "special": 90,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Rottweiler",
+    "scientific_name": "Canis familiaris",
+    "type": "Mammal",
+    "class": "Bruiser",
+    "size": "Medium",
+    "biome": "FOREST",
+    "habitat": "Homes, farms, police kennels",
+    "diet": [
+      "meat",
+      "dog food",
+      "household scraps"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Rottweiler is a compact, heavily muscled 50 kg German drover and guard dog.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Farmland",
+      "combat_style": "Bruiser",
+      "strengths": [
+        "Heavily muscled 50 kg frame",
+        "Strong grip on a broad head",
+        "Charges the dominant animal head-on"
+      ],
+      "weaknesses": [
+        "No armor",
+        "Less agile than working shepherds",
+        "Short life and joint problems"
+      ]
+    },
+    "image": "/images/animals/rottweiler.png?v=972d6c76b009",
+    "agility": 56,
+    "attack": 52,
+    "bite_force_psi": 0,
+    "defense": 43,
+    "height_cm": 65,
+    "intelligence": 62,
+    "length_cm": 72,
+    "lifespan_years": 9,
+    "special_abilities": [
+      "Dominant-Animal Challenge",
+      "Shoulder Drive"
+    ],
+    "speed_mps": 0,
+    "stamina": 62,
+    "substats": {
+      "raw_power": 50,
+      "maneuverability": 56,
+      "endurance": 62,
+      "recovery": 54,
+      "tactics": 62,
+      "senses": 72,
+      "ferocity": 62,
+      "weaponry": 50,
+      "protection": 22,
+      "toughness": 54,
+      "speed": 50,
+      "abilities": 46
+    },
+    "unique_traits": [
+      "Rottweil Butcher's Dog",
+      "Black-and-Tan Powerhouse"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 50,
+    "special": 45,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Sand Cat",
+    "scientific_name": "Felis margarita",
+    "type": "Mammal",
+    "class": "Hunter",
+    "size": "Tiny",
+    "biome": "DESERT",
+    "habitat": "Sandy and stony deserts",
+    "diet": [
+      "gerbils",
+      "jerboas",
+      "lizards",
+      "venomous snakes"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "A small, broad-headed desert cat with fur-soled feet and huge ear canals, the sand cat hears prey under the sand, kills venomous vipers and goes without drinking.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Sand and Gravel Desert",
+      "combat_style": "Hunter",
+      "strengths": [
+        "Acute hearing",
+        "Viper-killing technique",
+        "No need to drink"
+      ],
+      "weaknesses": [
+        "Tiny body mass",
+        "No armor",
+        "Weak climber and jumper"
+      ]
+    },
+    "image": "/images/animals/sand-cat.png?v=2d806fadefe1",
+    "agility": 76,
+    "attack": 18,
+    "bite_force_psi": 0,
+    "defense": 10,
+    "height_cm": 30,
+    "intelligence": 62,
+    "length_cm": 48,
+    "lifespan_years": 13,
+    "special_abilities": [
+      "Underground Ear",
+      "Viper Stun"
+    ],
+    "speed_mps": 9.7,
+    "stamina": 70,
+    "substats": {
+      "raw_power": 9,
+      "maneuverability": 74,
+      "endurance": 70,
+      "recovery": 48,
+      "tactics": 62,
+      "senses": 89,
+      "ferocity": 62,
+      "weaponry": 22,
+      "protection": 7,
+      "toughness": 14,
+      "speed": 54,
+      "abilities": 75
+    },
+    "unique_traits": [
+      "Fur-Soled Feet",
+      "Waterless Desert Cat"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 2.8,
+    "special": 75,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Southern Ground Hornbill",
+    "scientific_name": "Bucorvus leadbeateri",
+    "type": "Bird",
+    "class": "Striker",
+    "size": "Medium",
+    "biome": "SAVANNA",
+    "habitat": "African savanna, grassland, open woodland",
+    "diet": [
+      "insects",
+      "snakes",
+      "tortoises",
+      "small mammals"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Southern Ground Hornbill is the world's largest hornbill, a 4 kg ground-walking predator that hunts snakes, tortoises, small mammals and insects in family groups across African savanna.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Open savanna grassland",
+      "combat_style": "Striker",
+      "strengths": [
+        "Massive bill",
+        "Group foraging",
+        "Long daily walks"
+      ],
+      "weaknesses": [
+        "No talons or claws",
+        "Slow on the ground",
+        "Low body mass"
+      ]
+    },
+    "image": "/images/animals/southern-ground-hornbill.png?v=9e140073e9a5",
+    "agility": 62,
+    "attack": 31,
+    "bite_force_psi": 0,
+    "defense": 24,
+    "height_cm": 0,
+    "intelligence": 64,
+    "length_cm": 102,
+    "lifespan_years": 30,
+    "special_abilities": [
+      "Walking Hunt Party",
+      "Hammer-Bill Strike"
+    ],
+    "speed_mps": 0,
+    "stamina": 72,
+    "substats": {
+      "raw_power": 20,
+      "maneuverability": 60,
+      "endurance": 72,
+      "recovery": 50,
+      "tactics": 66,
+      "senses": 70,
+      "ferocity": 55,
+      "weaponry": 38,
+      "protection": 16,
+      "toughness": 26,
+      "speed": 45,
+      "abilities": 56
+    },
+    "unique_traits": [
+      "World's Largest Hornbill",
+      "Helper-Run Family"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 4.2,
+    "special": 58,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -19141,6 +20608,77 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 900,
     "special": 56,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Wedge-tailed Eagle",
+    "scientific_name": "Aquila audax",
+    "type": "Bird",
+    "class": "Sky Hunter",
+    "size": "Medium",
+    "biome": "DESERT",
+    "habitat": "Australian deserts, arid shrubland, open woodland",
+    "diet": [
+      "rabbits",
+      "wallabies",
+      "lizards",
+      "carrion"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The Wedge-tailed Eagle is Australia's largest bird of prey. The canonical female weighs about 4.2 kg and spans about 2.2 m.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Outback skies",
+      "combat_style": "Sky Hunter",
+      "strengths": [
+        "Extreme eyesight",
+        "Cooperative hunting",
+        "Tireless soaring"
+      ],
+      "weaknesses": [
+        "Low body mass",
+        "Smaller talons than golden eagle",
+        "No armor"
+      ]
+    },
+    "image": "/images/animals/wedge-tailed-eagle.png?v=c1616cb7294b",
+    "agility": 83,
+    "attack": 38,
+    "bite_force_psi": 0,
+    "defense": 20,
+    "height_cm": 0,
+    "intelligence": 68,
+    "length_cm": 100,
+    "lifespan_years": 5.9,
+    "special_abilities": [
+      "Tag-Team Kangaroo Hunt",
+      "Record-Resolution Vision"
+    ],
+    "speed_mps": 0,
+    "stamina": 80.5,
+    "substats": {
+      "raw_power": 18,
+      "maneuverability": 82,
+      "endurance": 81,
+      "recovery": 34,
+      "tactics": 72,
+      "senses": 93,
+      "ferocity": 60,
+      "weaponry": 50,
+      "protection": 9.5,
+      "toughness": 20,
+      "speed": 68,
+      "abilities": 74
+    },
+    "unique_traits": [
+      "Widest Verified Eagle Wingspan",
+      "Glider Challenger"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 4.2,
+    "special": 74,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },

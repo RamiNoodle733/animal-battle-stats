@@ -1,0 +1,20 @@
+{
+  "name": "Eclectus Parrot",
+  "scientific_name": "Eclectus roratus",
+  "type": "Bird",
+  "class": "Defender",
+  "size": "Small",
+  "biome": "JUNGLE",
+  "habitat": "Lowland rainforest canopy of New Guinea, nearby islands and Cape York",
+  "diet": ["fruit", "seeds and nuts", "nectar and blossoms"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A stocky rainforest parrot whose green males and red females look like different species. Females fight fiercely to hold rare nest hollows.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rainforest canopy",
+    "combat_style": "Defender",
+    "strengths": ["Females fight hard for nest hollows", "Male green camouflage", "Capable canopy flier"],
+    "weaknesses": ["About 0.45 kg", "No armor", "Depends on rare nest hollows"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Sun Conure",
+  "scientific_name": "Aratinga solstitialis",
+  "type": "Bird",
+  "class": "Scout",
+  "size": "Tiny",
+  "biome": "JUNGLE",
+  "habitat": "Forest edges, palm groves, savanna woodland of the Guiana Shield",
+  "diet": ["fruit", "flowers and seeds", "insects"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A loud, golden-yellow parakeet from northern Brazil and Guyana that lives in fast-flying flocks. It is a popular pet but Endangered in the wild.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Forest edge and palm groves",
+    "combat_style": "Scout",
+    "strengths": ["Fast, direct flier", "Sharp bite for its size", "Loud flock alarm calls"],
+    "weaknesses": ["About 120 g", "No armor", "Easy prey for raptors"]
+  }
+}

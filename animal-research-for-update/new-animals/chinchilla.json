@@ -1,0 +1,20 @@
+{
+  "name": "Chinchilla",
+  "scientific_name": "Chinchilla lanigera",
+  "type": "Mammal",
+  "class": "Jumper",
+  "size": "Tiny",
+  "biome": "MOUNTAINS",
+  "habitat": "Arid, rocky mountain slopes of northern Chile; homes worldwide as a pet",
+  "diet": ["grasses and herbs", "seeds", "lichens and mosses"],
+  "isNocturnal": true,
+  "isSocial": true,
+  "description": "A soft, big-eared Andean rodent with the densest fur of any land mammal. It escapes predators by leaping across rocks and shedding fur when bitten.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rocky Mountain Slopes",
+    "combat_style": "Jumper",
+    "strengths": ["Fur slip escape", "Long leaps between rocks", "Colony vigilance"],
+    "weaknesses": ["Very weak bite", "Overheats easily", "Tiny body mass"]
+  }
+}

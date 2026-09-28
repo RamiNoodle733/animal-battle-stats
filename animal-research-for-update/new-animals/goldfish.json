@@ -1,0 +1,20 @@
+{
+  "name": "Goldfish",
+  "scientific_name": "Carassius auratus",
+  "type": "Fish",
+  "class": "Survivor",
+  "size": "Tiny",
+  "biome": "WETLANDS",
+  "habitat": "Weedy ponds, ditches, lakes and slow rivers of East Asia; introduced worldwide",
+  "diet": ["insect larvae", "aquatic plants", "small crustaceans", "detritus"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A small East Asian carp bred for colour for over a thousand years. Harmless in a fight, but it can survive long spells without oxygen by making alcohol.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Still, Weedy Ponds",
+    "combat_style": "Survivor",
+    "strengths": ["Survives oxygen-free water", "Ultraviolet vision and keen hearing", "Lightning escape reflex"],
+    "weaknesses": ["No weapon", "Poor sustained swimmer", "Eaten by almost every predator"]
+  }
+}

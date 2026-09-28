@@ -1,0 +1,20 @@
+{
+  "name": "Flying Fox",
+  "scientific_name": "Pteropus vampyrus",
+  "type": "Mammal",
+  "class": "Scout",
+  "size": "Small",
+  "biome": "JUNGLE",
+  "habitat": "Lowland rainforest, coastal forest, mangroves, orchards",
+  "diet": ["fruit", "nectar", "pollen", "flowers"],
+  "isNocturnal": true,
+  "isSocial": true,
+  "description": "One of the world's largest bats, with a wingspan of about 1.5 m. It eats fruit and nectar and can fly more than 80 km in a night.",
+  "battle_profile": {
+    "preferred_range": "Long range",
+    "primary_environment": "Rainforest canopy",
+    "combat_style": "Scout",
+    "strengths": ["Long-range night flight", "Good night vision and smell", "Large colonies watch for danger"],
+    "weaknesses": ["No real weapons", "Fragile wing membranes", "Clumsy on the ground"]
+  }
+}

@@ -1,5 +1,8 @@
 # New roster animals: catalogue entries
 
+New animals must be ones people have seen alive: living species or domestic breeds,
+never animals known only from fossils.
+
 Each new animal has a research report in `../animals/<slug>.md` and a catalogue
 entry here, `<slug>.json`, with the base fields the report does not cover.
 `scripts/research/import-research.js` adds these to the catalogue and overlays

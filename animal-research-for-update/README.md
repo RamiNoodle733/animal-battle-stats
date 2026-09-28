@@ -146,6 +146,10 @@ Prefer peer-reviewed papers, government agencies, museums, universities, major z
 ### 10. Cross-animal calibration notes
 Compare the animal against relevant already-researched animals and dataset anchors. Explicitly flag any score that appears inconsistent with the broader roster.
 
+## Which animals can be added
+
+Only animals people have actually seen alive: living species (and domestic breeds). No dinosaurs or other animals known only from fossils. Megalodon, already on the roster, stays as it is.
+
 ## Wording rule
 
 Describe animals neutrally and factually. Do not use evolution language: no evolve/evolved/evolution, adapt/adapted/adaptation/adaptive/adaptable, ancestor/ancestry, lineage, descended from, natural or sexual selection, "closest relatives", phylogeny, vestigial, or deep-time dates ("millions of years"). Use "suited to", "built for", "feature", "specialization", "versatile" instead; domestic breeds were "bred from" wild stock. Citation titles and URLs stay as published.

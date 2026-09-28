@@ -1,0 +1,20 @@
+{
+  "name": "Indian Cobra",
+  "scientific_name": "Naja naja",
+  "type": "Reptile",
+  "class": "Venomous Hunter",
+  "size": "Small",
+  "biome": "JUNGLE",
+  "habitat": "Forests, farmland and village edges of South Asia",
+  "diet": ["rats", "frogs", "lizards", "birds"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The spectacled cobra of South Asia, famous for its hooded threat display. Its neurotoxic bite can paralyze animals far larger than itself.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Farmland and forest edges",
+    "combat_style": "Venomous Hunter",
+    "strengths": ["Paralyzing neurotoxic venom", "Intimidating hood display", "Strikes from a raised posture"],
+    "weaknesses": ["Small, unarmored body", "Short fangs", "Mongooses resist its venom"]
+  }
+}

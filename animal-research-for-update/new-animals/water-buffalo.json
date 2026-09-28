@@ -1,0 +1,20 @@
+{
+  "name": "Water Buffalo",
+  "scientific_name": "Bubalus arnee",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Large",
+  "biome": "WETLANDS",
+  "habitat": "Floodplain grasslands, marshes, swamps",
+  "diet": ["grasses", "reeds", "aquatic plants"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A heavy Asian wetland bovid with the widest horn spread of any living bovid. Wild bulls are aggressive and will face down tigers.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Floodplain Marsh",
+    "combat_style": "Tank",
+    "strengths": ["Huge crescent horns", "Heavy mass-backed charge", "At home in mud and water"],
+    "weaknesses": ["No armor on flanks", "Horns swept backward", "Heat and water dependent"]
+  }
+}

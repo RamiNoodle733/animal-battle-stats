@@ -1,0 +1,20 @@
+{
+  "name": "Giant Panda",
+  "scientific_name": "Ailuropoda melanoleuca",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Medium",
+  "biome": "FOREST",
+  "habitat": "Mountain bamboo forests",
+  "diet": ["bamboo", "bamboo shoots", "occasional small animals"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A bamboo-eating bear from the mountain forests of central China with a very strong bite but little energy to spare.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Bamboo Forest",
+    "combat_style": "Tank",
+    "strengths": ["Crushing bite", "Stocky frame", "Good climber"],
+    "weaknesses": ["Very low stamina", "Slow on the ground", "Avoids fights"]
+  }
+}

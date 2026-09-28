@@ -4,7 +4,7 @@
     "african-elephant": {
       "name": "African Elephant",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/african-elephant.md",
       "contentHash": "b9d20b122f567fec",
       "scientificName": "Loxodonta africana",
@@ -124,7 +124,7 @@
     "african-lion": {
       "name": "African Lion",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/african-lion.md",
       "contentHash": "418b52df587e010a",
       "scientificName": "Panthera leo",
@@ -285,7 +285,7 @@
     "african-wild-dog": {
       "name": "African Wild Dog",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/african-wild-dog.md",
       "contentHash": "006e4b5f2f3c5a00",
       "scientificName": "Lycaon pictus",
@@ -466,7 +466,7 @@
     "albatross": {
       "name": "Albatross",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/albatross.md",
       "contentHash": "f060e6013b10c411",
       "scientificName": "Diomedea exulans",
@@ -649,7 +649,7 @@
     "alligator": {
       "name": "Alligator",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/alligator.md",
       "contentHash": "5cbfe936b79f5339",
       "scientificName": "Alligator mississippiensis",
@@ -842,7 +842,7 @@
     "alpaca": {
       "name": "Alpaca",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/alpaca.md",
       "contentHash": "daf964026ae593de",
       "scientificName": "Vicugna pacos",
@@ -1020,7 +1020,7 @@
     "anaconda": {
       "name": "Anaconda",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/anaconda.md",
       "contentHash": "b1cd4560c7ed69b4",
       "scientificName": "Eunectes murinus",
@@ -1177,7 +1177,7 @@
     "anglerfish": {
       "name": "Anglerfish",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/anglerfish.md",
       "contentHash": "90d9f6189e3fcf7b",
       "scientificName": "Ceratias holboelli",
@@ -1338,7 +1338,7 @@
     "anteater": {
       "name": "Anteater",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/anteater.md",
       "contentHash": "3f9e0c22a3ff4bee",
       "scientificName": "Myrmecophaga tridactyla",
@@ -1520,7 +1520,7 @@
     "arctic-fox": {
       "name": "Arctic Fox",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/arctic-fox.md",
       "contentHash": "cacb5620c857262a",
       "scientificName": "Vulpes lagopus",
@@ -1693,7 +1693,7 @@
     "arctic-wolf": {
       "name": "Arctic Wolf",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/arctic-wolf.md",
       "contentHash": "cbfe97aea65f4e62",
       "scientificName": "Canis lupus arctos",
@@ -1862,7 +1862,7 @@
     "armadillo": {
       "name": "Armadillo",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/armadillo.md",
       "contentHash": "a468bcec6ed76f6b",
       "scientificName": "Dasypus mexicanus",
@@ -2065,7 +2065,7 @@
     "army-ant": {
       "name": "Army Ant",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/army-ant.md",
       "contentHash": "a27daad29ac073fe",
       "scientificName": "Eciton burchellii",
@@ -2224,7 +2224,7 @@
     "axolotl": {
       "name": "Axolotl",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/axolotl.md",
       "contentHash": "fca9cc2477e6a2a1",
       "scientificName": "Ambystoma mexicanum",
@@ -2397,7 +2397,7 @@
     "baboon": {
       "name": "Baboon",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/baboon.md",
       "contentHash": "9e91e8de0eeb070f",
       "scientificName": "Papio anubis",
@@ -2557,7 +2557,7 @@
     "bactrian-camel": {
       "name": "Bactrian Camel",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bactrian-camel.md",
       "contentHash": "343e723d201adda0",
       "scientificName": "Camelus bactrianus",
@@ -2716,7 +2716,7 @@
     "badger": {
       "name": "Badger",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/badger.md",
       "contentHash": "67960bb5636fc2b2",
       "scientificName": "Meles meles",
@@ -2880,7 +2880,7 @@
     "bald-eagle": {
       "name": "Bald Eagle",
       "status": "researched",
-      "researchedAt": "2026-09-16",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bald-eagle.md",
       "contentHash": "dd8eaaa7b9cce095",
       "scientificName": "Haliaeetus leucocephalus",
@@ -3036,7 +3036,7 @@
     "barn-owl": {
       "name": "Barn Owl",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/barn-owl.md",
       "contentHash": "f006de134dea52a2",
       "scientificName": "Tyto alba",
@@ -3199,7 +3199,7 @@
     "barracuda": {
       "name": "Barracuda",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/barracuda.md",
       "contentHash": "97382bc67248a64c",
       "scientificName": "Sphyraena barracuda",
@@ -3366,7 +3366,7 @@
     "beaver": {
       "name": "Beaver",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/beaver.md",
       "contentHash": "c1dac2f6864014df",
       "scientificName": "Castor canadensis",
@@ -3508,7 +3508,7 @@
     "beluga-whale": {
       "name": "Beluga Whale",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/beluga-whale.md",
       "contentHash": "2d08238912dadfae",
       "scientificName": "Delphinapterus leucas",
@@ -3670,7 +3670,7 @@
     "bighorn-sheep": {
       "name": "Bighorn Sheep",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bighorn-sheep.md",
       "contentHash": "158f0968c2594238",
       "scientificName": "Ovis canadensis",
@@ -3841,7 +3841,7 @@
     "bison": {
       "name": "Bison",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bison.md",
       "contentHash": "128288042203b34b",
       "scientificName": "Bison bison",
@@ -3995,7 +3995,7 @@
     "black-bear": {
       "name": "Black Bear",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/black-bear.md",
       "contentHash": "b41564ab5c8a099d",
       "scientificName": "Ursus americanus",
@@ -4139,7 +4139,7 @@
     "black-mamba": {
       "name": "Black Mamba",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/black-mamba.md",
       "contentHash": "10ad7ff63a93552a",
       "scientificName": "Dendroaspis polylepis",
@@ -4273,7 +4273,7 @@
     "black-panther": {
       "name": "Black Panther",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/black-panther.md",
       "contentHash": "71564766b61d933a",
       "scientificName": "Panthera pardus",
@@ -4435,7 +4435,7 @@
     "black-rhinoceros": {
       "name": "Black Rhinoceros",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/black-rhinoceros.md",
       "contentHash": "3217d3a0fbbf89e3",
       "scientificName": "Diceros bicornis",
@@ -4584,7 +4584,7 @@
     "black-widow": {
       "name": "Black Widow",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/black-widow.md",
       "contentHash": "48625bd8d9f42f70",
       "scientificName": "Latrodectus hesperus",
@@ -4749,7 +4749,7 @@
     "blue-whale": {
       "name": "Blue Whale",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/blue-whale.md",
       "contentHash": "4508af61f5cc49d8",
       "scientificName": "Balaenoptera musculus",
@@ -4917,7 +4917,7 @@
     "boa-constrictor": {
       "name": "Boa Constrictor",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/boa-constrictor.md",
       "contentHash": "3968ca9d2dc8a067",
       "scientificName": "Boa constrictor",
@@ -5073,7 +5073,7 @@
     "bobcat": {
       "name": "Bobcat",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bobcat.md",
       "contentHash": "63088dc18b0bc7aa",
       "scientificName": "Lynx rufus",
@@ -5228,7 +5228,7 @@
     "bongo": {
       "name": "Bongo",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bongo.md",
       "contentHash": "b08006af7b7ed5f6",
       "scientificName": "Tragelaphus eurycerus",
@@ -5366,7 +5366,7 @@
     "bottlenose-dolphin": {
       "name": "Bottlenose Dolphin",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bottlenose-dolphin.md",
       "contentHash": "d1fb808271045ac0",
       "scientificName": "Tursiops truncatus",
@@ -5527,7 +5527,7 @@
     "box-jellyfish": {
       "name": "Box Jellyfish",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/box-jellyfish.md",
       "contentHash": "42ce09150e4b5005",
       "scientificName": "Chironex fleckeri",
@@ -5682,7 +5682,7 @@
     "bull-shark": {
       "name": "Bull Shark",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bull-shark.md",
       "contentHash": "ed963b766db57bd2",
       "scientificName": "Carcharhinus leucas",
@@ -5837,7 +5837,7 @@
     "bullet-ant": {
       "name": "Bullet Ant",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bullet-ant.md",
       "contentHash": "64e5ddc0d01ca238",
       "scientificName": "Paraponera clavata",
@@ -6020,7 +6020,7 @@
     "bullfrog": {
       "name": "Bullfrog",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/bullfrog.md",
       "contentHash": "ee26a6e06c9340f7",
       "scientificName": "Lithobates catesbeianus",
@@ -6172,7 +6172,7 @@
     "camel": {
       "name": "Camel",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/camel.md",
       "contentHash": "effa234552c83c3e",
       "scientificName": "Camelus dromedarius",
@@ -6345,7 +6345,7 @@
     "camel-spider": {
       "name": "Camel Spider",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/camel-spider.md",
       "contentHash": "265a90363a956904",
       "scientificName": "Galeodes arabs",
@@ -6499,7 +6499,7 @@
     "cape-buffalo": {
       "name": "Cape Buffalo",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/cape-buffalo.md",
       "contentHash": "84ece806f551471d",
       "scientificName": "Syncerus caffer caffer",
@@ -6629,7 +6629,7 @@
     "capuchin-monkey": {
       "name": "Capuchin Monkey",
       "status": "researched",
-      "researchedAt": "2026-09-17",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/capuchin-monkey.md",
       "contentHash": "a930d536b003b360",
       "scientificName": "Sapajus apella",
@@ -6813,7 +6813,7 @@
     "capybara": {
       "name": "Capybara",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/capybara.md",
       "contentHash": "96b52f8f3f56c04d",
       "scientificName": "Hydrochoerus hydrochaeris",
@@ -6941,7 +6941,7 @@
     "caracal": {
       "name": "Caracal",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/caracal.md",
       "contentHash": "f3d6c8d40093cd2d",
       "scientificName": "Caracal caracal",
@@ -7081,7 +7081,7 @@
     "cassowary": {
       "name": "Cassowary",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/cassowary.md",
       "contentHash": "2d4e879af6db1224",
       "scientificName": "Casuarius casuarius",
@@ -7216,7 +7216,7 @@
     "chameleon": {
       "name": "Chameleon",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/chameleon.md",
       "contentHash": "964be34525994346",
       "scientificName": "Chamaeleo chamaeleon",
@@ -7354,7 +7354,7 @@
     "cheetah": {
       "name": "Cheetah",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/cheetah.md",
       "contentHash": "da47988dc340e3b7",
       "scientificName": "Acinonyx jubatus",
@@ -7509,7 +7509,7 @@
     "chimpanzee": {
       "name": "Chimpanzee",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/chimpanzee.md",
       "contentHash": "0e8238aed4f9c983",
       "scientificName": "Pan troglodytes",
@@ -7678,7 +7678,7 @@
     "clouded-leopard": {
       "name": "Clouded Leopard",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/clouded-leopard.md",
       "contentHash": "0aeedc14bfd062a2",
       "scientificName": "Neofelis nebulosa",
@@ -7835,7 +7835,7 @@
     "cockatoo": {
       "name": "Cockatoo",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/cockatoo.md",
       "contentHash": "9d4f5a207c535838",
       "scientificName": "Cacatua galerita",
@@ -7970,7 +7970,7 @@
     "coconut-crab": {
       "name": "Coconut Crab",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/coconut-crab.md",
       "contentHash": "6ed9bf9fb7401ea0",
       "scientificName": "Birgus latro",
@@ -8150,7 +8150,7 @@
     "colossal-squid": {
       "name": "Colossal Squid",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/colossal-squid.md",
       "contentHash": "567d4bf2c7a497fa",
       "scientificName": "Mesonychoteuthis hamiltoni",
@@ -8291,7 +8291,7 @@
     "condor": {
       "name": "Condor",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/condor.md",
       "contentHash": "dda9b02cc5afb8ae",
       "scientificName": "Gymnogyps californianus",
@@ -8438,7 +8438,7 @@
     "cougar": {
       "name": "Cougar",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/cougar.md",
       "contentHash": "95b2aacf95c4d82b",
       "scientificName": "Puma concolor",
@@ -8598,7 +8598,7 @@
     "coyote": {
       "name": "Coyote",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/coyote.md",
       "contentHash": "bbfd536b4e0353df",
       "scientificName": "Canis latrans",
@@ -8748,7 +8748,7 @@
     "crow": {
       "name": "Crow",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/crow.md",
       "contentHash": "e7f3031d581bf0a0",
       "scientificName": "Corvus brachyrhynchos",
@@ -8897,7 +8897,7 @@
     "cuttlefish": {
       "name": "Cuttlefish",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/cuttlefish.md",
       "contentHash": "518cafd4d101b593",
       "scientificName": "Sepia officinalis",
@@ -9053,7 +9053,7 @@
     "deathstalker-scorpion": {
       "name": "Deathstalker Scorpion",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/deathstalker-scorpion.md",
       "contentHash": "e60ce8c00ef4542d",
       "scientificName": "Leiurus quinquestriatus",
@@ -9225,7 +9225,7 @@
     "dhole": {
       "name": "Dhole",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/dhole.md",
       "contentHash": "4bfffda7426d4438",
       "scientificName": "Cuon alpinus",
@@ -9387,7 +9387,7 @@
     "dingo": {
       "name": "Dingo",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/dingo.md",
       "contentHash": "4f109affc2627b22",
       "scientificName": "Canis familiaris",
@@ -9532,7 +9532,7 @@
     "donkey": {
       "name": "Donkey",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/donkey.md",
       "contentHash": "a2dd91cfb95375ab",
       "scientificName": "Equus africanus asinus",
@@ -9669,7 +9669,7 @@
     "dragonfly": {
       "name": "Dragonfly",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/dragonfly.md",
       "contentHash": "3e9b1c46fd31cfc6",
       "scientificName": "Anax junius",
@@ -9821,7 +9821,7 @@
     "electric-eel": {
       "name": "Electric Eel",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/electric-eel.md",
       "contentHash": "90287dfe9a225299",
       "scientificName": "Electrophorus electricus",
@@ -10101,7 +10101,7 @@
     "emperor-penguin": {
       "name": "Emperor Penguin",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/emperor-penguin.md",
       "contentHash": "093b8bc8ae63d223",
       "scientificName": "Aptenodytes forsteri",
@@ -10258,7 +10258,7 @@
     "emperor-scorpion": {
       "name": "Emperor Scorpion",
       "status": "researched",
-      "researchedAt": "2026-09-18",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/emperor-scorpion.md",
       "contentHash": "bca94feecf4f6a70",
       "scientificName": "Pandinus imperator",
@@ -10391,7 +10391,7 @@
     "emu": {
       "name": "Emu",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/emu.md",
       "contentHash": "7775d87ed6e6d1c7",
       "scientificName": "Dromaius novaehollandiae",
@@ -10568,7 +10568,7 @@
     "fennec-fox": {
       "name": "Fennec Fox",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/fennec-fox.md",
       "contentHash": "a00a5fe0d56007c2",
       "scientificName": "Vulpes zerda",
@@ -10702,7 +10702,7 @@
     "ferret": {
       "name": "Ferret",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/ferret.md",
       "contentHash": "dc56e24a6afafb49",
       "scientificName": "Mustela furo",
@@ -10879,7 +10879,7 @@
     "flamingo": {
       "name": "Flamingo",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/flamingo.md",
       "contentHash": "f6c584ca22f86858",
       "scientificName": "Phoenicopterus roseus",
@@ -11008,7 +11008,7 @@
     "flying-squirrel": {
       "name": "Flying Squirrel",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/flying-squirrel.md",
       "contentHash": "facb9fd88fea3548",
       "scientificName": "Pteromys volans",
@@ -11172,7 +11172,7 @@
     "gaboon-viper": {
       "name": "Gaboon Viper",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/gaboon-viper.md",
       "contentHash": "15a73d91373286fe",
       "scientificName": "Bitis gabonica",
@@ -11298,7 +11298,7 @@
     "galapagos-tortoise": {
       "name": "Galapagos Tortoise",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/galapagos-tortoise.md",
       "contentHash": "000c06126daa9d26",
       "scientificName": "Chelonoidis niger",
@@ -11444,7 +11444,7 @@
     "gazelle": {
       "name": "Gazelle",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/gazelle.md",
       "contentHash": "7781847dd4c1ac08",
       "scientificName": "Gazella dorcas",
@@ -11590,7 +11590,7 @@
     "gecko": {
       "name": "Gecko",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/gecko.md",
       "contentHash": "0e4bfcffc81eed3b",
       "scientificName": "Gekko gecko",
@@ -11744,7 +11744,7 @@
     "giant-centipede": {
       "name": "Giant Centipede",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/giant-centipede.md",
       "contentHash": "2de58a9843ed8c00",
       "scientificName": "Scolopendra gigantea",
@@ -11892,7 +11892,7 @@
     "giant-squid": {
       "name": "Giant Squid",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/giant-squid.md",
       "contentHash": "f2a78722fa4d4bd9",
       "scientificName": "Architeuthis dux",
@@ -12050,7 +12050,7 @@
     "gibbon": {
       "name": "Gibbon",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/gibbon.md",
       "contentHash": "a7a9eff9b70b37c6",
       "scientificName": "Hylobates lar",
@@ -12191,7 +12191,7 @@
     "gila-monster": {
       "name": "Gila Monster",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/gila-monster.md",
       "contentHash": "bcc0b9ddc6311d90",
       "scientificName": "Heloderma suspectum",
@@ -12347,7 +12347,7 @@
     "giraffe": {
       "name": "Giraffe",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/giraffe.md",
       "contentHash": "222cead3725b8d75",
       "scientificName": "Giraffa camelopardalis",
@@ -12554,7 +12554,7 @@
     "golden-eagle": {
       "name": "Golden Eagle",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/golden-eagle.md",
       "contentHash": "e4d084b6e4e26ac9",
       "scientificName": "Aquila chrysaetos",
@@ -12705,7 +12705,7 @@
     "goliath-birdeater": {
       "name": "Goliath Birdeater",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/goliath-birdeater.md",
       "contentHash": "413ed2085f130f2d",
       "scientificName": "Theraphosa blondi",
@@ -12840,7 +12840,7 @@
     "goose": {
       "name": "Goose",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/goose.md",
       "contentHash": "8dbe2bc64892c21a",
       "scientificName": "Anser anser",
@@ -13182,7 +13182,7 @@
     "gray-wolf": {
       "name": "Gray Wolf",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/gray-wolf.md",
       "contentHash": "c4675cf533af2d93",
       "scientificName": "Canis lupus",
@@ -13345,7 +13345,7 @@
     "great-horned-owl": {
       "name": "Great Horned Owl",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/great-horned-owl.md",
       "contentHash": "e7a75e118ea74ad5",
       "scientificName": "Bubo virginianus",
@@ -13490,7 +13490,7 @@
     "great-white-shark": {
       "name": "Great White Shark",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/great-white-shark.md",
       "contentHash": "fc40a3a474bcd9f1",
       "scientificName": "Carcharodon carcharias",
@@ -13666,7 +13666,7 @@
     "green-anaconda": {
       "name": "Green Anaconda",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/green-anaconda.md",
       "contentHash": "af47d4efa254139c",
       "scientificName": "Eunectes murinus",
@@ -13815,7 +13815,7 @@
     "grizzly-bear": {
       "name": "Grizzly Bear",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/grizzly-bear.md",
       "contentHash": "ceea1896138deda2",
       "scientificName": "Ursus arctos horribilis",
@@ -13991,7 +13991,7 @@
     "guanaco": {
       "name": "Guanaco",
       "status": "researched",
-      "researchedAt": "2026-09-19",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/guanaco.md",
       "contentHash": "074a77ba06216097",
       "scientificName": "Lama guanicoe",
@@ -14155,7 +14155,7 @@
     "hammerhead-shark": {
       "name": "Hammerhead Shark",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/hammerhead-shark.md",
       "contentHash": "38dbfee29904e12b",
       "scientificName": "Sphyrna mokarran",
@@ -14320,7 +14320,7 @@
     "harpy-eagle": {
       "name": "Harpy Eagle",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/harpy-eagle.md",
       "contentHash": "11bf08c0ae2d6287",
       "scientificName": "Harpia harpyja",
@@ -14467,7 +14467,7 @@
     "hedgehog": {
       "name": "Hedgehog",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/hedgehog.md",
       "contentHash": "4aa4eec8e8d0e3a8",
       "scientificName": "Erinaceus europaeus",
@@ -14613,7 +14613,7 @@
     "hellbender": {
       "name": "Hellbender",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/hellbender.md",
       "contentHash": "8449a8d71a263ac5",
       "scientificName": "Cryptobranchus alleganiensis alleganiensis",
@@ -14754,7 +14754,7 @@
     "hercules-beetle": {
       "name": "Hercules Beetle",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/hercules-beetle.md",
       "contentHash": "dcbe2f846efc1ebe",
       "scientificName": "Dynastes hercules",
@@ -14894,7 +14894,7 @@
     "hippopotamus": {
       "name": "Hippopotamus",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/hippopotamus.md",
       "contentHash": "1347fb1680a31c30",
       "scientificName": "Hippopotamus amphibius",
@@ -15063,7 +15063,7 @@
     "honey-badger": {
       "name": "Honey Badger",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/honey-badger.md",
       "contentHash": "edb7cffa557a8f19",
       "scientificName": "Mellivora capensis",
@@ -15209,7 +15209,7 @@
     "hornet": {
       "name": "Hornet",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/hornet.md",
       "contentHash": "e67c80ff5fa91dd7",
       "scientificName": "Vespa crabro",
@@ -15367,7 +15367,7 @@
     "howler-monkey": {
       "name": "Howler Monkey",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/howler-monkey.md",
       "contentHash": "e9cc9a54b354da58",
       "scientificName": "Alouatta caraya",
@@ -15546,7 +15546,7 @@
     "hummingbird": {
       "name": "Hummingbird",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/hummingbird.md",
       "contentHash": "bce2729ae7ff1303",
       "scientificName": "Archilochus colubris",
@@ -15715,7 +15715,7 @@
     "huntsman-spider": {
       "name": "Huntsman Spider",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/huntsman-spider.md",
       "contentHash": "a1df2f0af840021e",
       "scientificName": "Heteropoda maxima",
@@ -15867,7 +15867,7 @@
     "hyena": {
       "name": "Hyena",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/hyena.md",
       "contentHash": "4e099e5806b3d649",
       "scientificName": "Crocuta crocuta",
@@ -16012,7 +16012,7 @@
     "ibex": {
       "name": "Ibex",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/ibex.md",
       "contentHash": "4e40549980758145",
       "scientificName": "Capra ibex",
@@ -16151,7 +16151,7 @@
     "iguana": {
       "name": "Iguana",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/iguana.md",
       "contentHash": "3d2c114ffbc0f1ad",
       "scientificName": "Iguana iguana",
@@ -16285,7 +16285,7 @@
     "impala": {
       "name": "Impala",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/impala.md",
       "contentHash": "d360c60bb84b2d39",
       "scientificName": "Aepyceros melampus",
@@ -16436,7 +16436,7 @@
     "jackal": {
       "name": "Jackal",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/jackal.md",
       "contentHash": "ae7402db96033c19",
       "scientificName": "Lupulella mesomelas",
@@ -16562,7 +16562,7 @@
     "jaguar": {
       "name": "Jaguar",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/jaguar.md",
       "contentHash": "4259fa3bebf4c7d0",
       "scientificName": "Panthera onca",
@@ -16727,7 +16727,7 @@
     "japanese-macaque": {
       "name": "Japanese Macaque",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/japanese-macaque.md",
       "contentHash": "d78c424de2ff6e51",
       "scientificName": "Macaca fuscata",
@@ -16924,7 +16924,7 @@
     "kangaroo": {
       "name": "Kangaroo",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/kangaroo.md",
       "contentHash": "d2075711f3167739",
       "scientificName": "Osphranter rufus",
@@ -17059,7 +17059,7 @@
     "king-cobra": {
       "name": "King Cobra",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/king-cobra.md",
       "contentHash": "b8ca3b824d14cb21",
       "scientificName": "Ophiophagus hannah",
@@ -17194,7 +17194,7 @@
     "king-crab": {
       "name": "King Crab",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/king-crab.md",
       "contentHash": "0dd237bf6399ee08",
       "scientificName": "Paralithodes camtschaticus",
@@ -17327,7 +17327,7 @@
     "kiwi": {
       "name": "Kiwi",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/kiwi.md",
       "contentHash": "bf40d9ada61479e8",
       "scientificName": "Apteryx australis",
@@ -17467,7 +17467,7 @@
     "koala": {
       "name": "Koala",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/koala.md",
       "contentHash": "b9a0ffc57c472a6d",
       "scientificName": "Phascolarctos cinereus",
@@ -17661,7 +17661,7 @@
     "komodo-dragon": {
       "name": "Komodo Dragon",
       "status": "researched",
-      "researchedAt": "2026-09-20",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/komodo-dragon.md",
       "contentHash": "065004d80d114c80",
       "scientificName": "Varanus komodoensis",
@@ -17816,7 +17816,7 @@
     "kookaburra": {
       "name": "Kookaburra",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/kookaburra.md",
       "contentHash": "0d19aa202f9612bb",
       "scientificName": "Dacelo novaeguineae",
@@ -17950,7 +17950,7 @@
     "kudu": {
       "name": "Kudu",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/kudu.md",
       "contentHash": "7e1a172a0643a54c",
       "scientificName": "Tragelaphus strepsiceros",
@@ -18109,7 +18109,7 @@
     "leatherback-sea-turtle": {
       "name": "Leatherback Sea Turtle",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/leatherback-sea-turtle.md",
       "contentHash": "8932b71364d11e8a",
       "scientificName": "Dermochelys coriacea",
@@ -18263,7 +18263,7 @@
     "leopard": {
       "name": "Leopard",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/leopard.md",
       "contentHash": "d4afdbc6059e1ba5",
       "scientificName": "Panthera pardus",
@@ -18395,7 +18395,7 @@
     "lionfish": {
       "name": "Lionfish",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/lionfish.md",
       "contentHash": "2854a158cbc2a7c7",
       "scientificName": "Pterois volitans",
@@ -18545,7 +18545,7 @@
     "llama": {
       "name": "Llama",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/llama.md",
       "contentHash": "1f024ef531c9de35",
       "scientificName": "Lama glama",
@@ -18692,7 +18692,7 @@
     "lobster": {
       "name": "Lobster",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/lobster.md",
       "contentHash": "d73fa9b1c0cca284",
       "scientificName": "Homarus americanus",
@@ -18866,7 +18866,7 @@
     "lynx": {
       "name": "Lynx",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/lynx.md",
       "contentHash": "ddc15edae9a87743",
       "scientificName": "Lynx lynx",
@@ -19019,7 +19019,7 @@
     "macaw": {
       "name": "Macaw",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/macaw.md",
       "contentHash": "9ea182af790f8d30",
       "scientificName": "Ara macao",
@@ -19162,7 +19162,7 @@
     "magpie": {
       "name": "Magpie",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/magpie.md",
       "contentHash": "b79bb61c0f8145bb",
       "scientificName": "Pica pica",
@@ -19321,7 +19321,7 @@
     "manatee": {
       "name": "Manatee",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/manatee.md",
       "contentHash": "37f02f017f5a11be",
       "scientificName": "Trichechus manatus",
@@ -19504,7 +19504,7 @@
     "mandrill": {
       "name": "Mandrill",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/mandrill.md",
       "contentHash": "18afa2912e9b4348",
       "scientificName": "Mandrillus sphinx",
@@ -19669,7 +19669,7 @@
     "maned-wolf": {
       "name": "Maned Wolf",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/maned-wolf.md",
       "contentHash": "d5f5a3c121bdf2cd",
       "scientificName": "Chrysocyon brachyurus",
@@ -19809,7 +19809,7 @@
     "manta-ray": {
       "name": "Manta Ray",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/manta-ray.md",
       "contentHash": "9653446308eac949",
       "scientificName": "Mobula birostris",
@@ -19975,7 +19975,7 @@
     "mantis-shrimp": {
       "name": "Mantis Shrimp",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/mantis-shrimp.md",
       "contentHash": "1351aa89c89772dc",
       "scientificName": "Odontodactylus scyllarus",
@@ -20138,7 +20138,7 @@
     "marlin": {
       "name": "Marlin",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/marlin.md",
       "contentHash": "b05aa5a5a2257d31",
       "scientificName": "Makaira nigricans",
@@ -20271,7 +20271,7 @@
     "meerkat": {
       "name": "Meerkat",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/meerkat.md",
       "contentHash": "5310ecff27daec53",
       "scientificName": "Suricata suricatta",
@@ -20424,7 +20424,7 @@
     "megalodon": {
       "name": "Megalodon",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/megalodon.md",
       "contentHash": "47261e8e60c50a78",
       "scientificName": "Otodus megalodon",
@@ -20561,7 +20561,7 @@
     "monarch-butterfly": {
       "name": "Monarch Butterfly",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/monarch-butterfly.md",
       "contentHash": "c9ea980dbf8741d7",
       "scientificName": "Danaus plexippus",
@@ -20710,7 +20710,7 @@
     "mongoose": {
       "name": "Mongoose",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/mongoose.md",
       "contentHash": "57327b03c67195fb",
       "scientificName": "Herpestes javanicus",
@@ -20869,7 +20869,7 @@
     "monitor-lizard": {
       "name": "Monitor Lizard",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/monitor-lizard.md",
       "contentHash": "2bca455df6cf20f1",
       "scientificName": "Varanus salvator",
@@ -21019,7 +21019,7 @@
     "moose": {
       "name": "Moose",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/moose.md",
       "contentHash": "2d7e19d2a315b2db",
       "scientificName": "Alces alces",
@@ -21163,7 +21163,7 @@
     "moray-eel": {
       "name": "Moray Eel",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/moray-eel.md",
       "contentHash": "de205cc8f8306b8b",
       "scientificName": "Gymnothorax javanicus",
@@ -21298,7 +21298,7 @@
     "mountain-goat": {
       "name": "Mountain Goat",
       "status": "researched",
-      "researchedAt": "2026-09-21",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/mountain-goat.md",
       "contentHash": "b061a4e332835741",
       "scientificName": "Oreamnos americanus",
@@ -21428,7 +21428,7 @@
     "musk-ox": {
       "name": "Musk Ox",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/musk-ox.md",
       "contentHash": "eb2c271229c1949e",
       "scientificName": "Ovibos moschatus",
@@ -21612,7 +21612,7 @@
     "naked-mole-rat": {
       "name": "Naked Mole Rat",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/naked-mole-rat.md",
       "contentHash": "080f7ce4fcd9b27b",
       "scientificName": "Heterocephalus glaber",
@@ -21783,7 +21783,7 @@
     "narwhal": {
       "name": "Narwhal",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/narwhal.md",
       "contentHash": "4c06645c256c5ea7",
       "scientificName": "Monodon monoceros",
@@ -21945,7 +21945,7 @@
     "nautilus": {
       "name": "Nautilus",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/nautilus.md",
       "contentHash": "b635b45f2f8c82cf",
       "scientificName": "Nautilus pompilius",
@@ -22101,7 +22101,7 @@
     "ocelot": {
       "name": "Ocelot",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/ocelot.md",
       "contentHash": "b17e0e7bbfb5409a",
       "scientificName": "Leopardus pardalis",
@@ -22269,7 +22269,7 @@
     "octopus": {
       "name": "Octopus",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/octopus.md",
       "contentHash": "74f37b44ab081a93",
       "scientificName": "Enteroctopus dofleini",
@@ -22410,7 +22410,7 @@
     "okapi": {
       "name": "Okapi",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/okapi.md",
       "contentHash": "27e2ac07cf5c78bb",
       "scientificName": "Okapia johnstoni",
@@ -22538,7 +22538,7 @@
     "opossum": {
       "name": "Opossum",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/opossum.md",
       "contentHash": "14fe27d7c1ffd7a0",
       "scientificName": "Didelphis virginiana",
@@ -22686,7 +22686,7 @@
     "orangutan": {
       "name": "Orangutan",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/orangutan.md",
       "contentHash": "d358998d8a627679",
       "scientificName": "Pongo pygmaeus",
@@ -22847,7 +22847,7 @@
     "orca": {
       "name": "Orca",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/orca.md",
       "contentHash": "44d6e8d89a3ce769",
       "scientificName": "Orcinus orca",
@@ -23021,7 +23021,7 @@
     "oryx": {
       "name": "Oryx",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/oryx.md",
       "contentHash": "5a6920783539bcde",
       "scientificName": "Oryx gazella",
@@ -23167,7 +23167,7 @@
     "osprey": {
       "name": "Osprey",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/osprey.md",
       "contentHash": "2a0a0780ff5ffe78",
       "scientificName": "Pandion haliaetus",
@@ -23339,7 +23339,7 @@
     "ostrich": {
       "name": "Ostrich",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/ostrich.md",
       "contentHash": "ef1c0a09a3c56cee",
       "scientificName": "Struthio camelus",
@@ -23515,7 +23515,7 @@
     "otter": {
       "name": "Otter",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/otter.md",
       "contentHash": "0fa3befa7b8bd4a6",
       "scientificName": "Lontra canadensis",
@@ -23684,7 +23684,7 @@
     "pangolin": {
       "name": "Pangolin",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/pangolin.md",
       "contentHash": "3fe74e585a621fdc",
       "scientificName": "Manis javanica",
@@ -23837,7 +23837,7 @@
     "peacock": {
       "name": "Peacock",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/peacock.md",
       "contentHash": "2218e8f916796c77",
       "scientificName": "Pavo cristatus",
@@ -24012,7 +24012,7 @@
     "pelican": {
       "name": "Pelican",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/pelican.md",
       "contentHash": "e986fe1de64fce69",
       "scientificName": "Pelecanus erythrorhynchos",
@@ -24174,7 +24174,7 @@
     "peregrine-falcon": {
       "name": "Peregrine Falcon",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/peregrine-falcon.md",
       "contentHash": "9733ebce6105a000",
       "scientificName": "Falco peregrinus",
@@ -24320,7 +24320,7 @@
     "piranha": {
       "name": "Piranha",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/piranha.md",
       "contentHash": "6fea8a34814426b7",
       "scientificName": "Pygocentrus nattereri",
@@ -24479,7 +24479,7 @@
     "platypus": {
       "name": "Platypus",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/platypus.md",
       "contentHash": "dc0f992d01daa2e0",
       "scientificName": "Ornithorhynchus anatinus",
@@ -24645,7 +24645,7 @@
     "poison-dart-frog": {
       "name": "Poison Dart Frog",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/poison-dart-frog.md",
       "contentHash": "97f87c2a327992d2",
       "scientificName": "Phyllobates terribilis",
@@ -24810,7 +24810,7 @@
     "polar-bear": {
       "name": "Polar Bear",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/polar-bear.md",
       "contentHash": "c5be7f361c338fcc",
       "scientificName": "Ursus maritimus",
@@ -25003,7 +25003,7 @@
     "porcupine": {
       "name": "Porcupine",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/porcupine.md",
       "contentHash": "0a35e3984e5e506c",
       "scientificName": "Erethizon dorsatum",
@@ -25187,7 +25187,7 @@
     "praying-mantis": {
       "name": "Praying Mantis",
       "status": "researched",
-      "researchedAt": "2026-09-22",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/praying-mantis.md",
       "contentHash": "ca8f127e18b3a199",
       "scientificName": "Tenodera sinensis",
@@ -25340,7 +25340,7 @@
     "proboscis-monkey": {
       "name": "Proboscis Monkey",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/proboscis-monkey.md",
       "contentHash": "4d5e5461ec2ed3e9",
       "scientificName": "Nasalis larvatus",
@@ -25466,7 +25466,7 @@
     "pronghorn": {
       "name": "Pronghorn",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/pronghorn.md",
       "contentHash": "0c60a064d9071fc7",
       "scientificName": "Antilocapra americana",
@@ -25607,7 +25607,7 @@
     "pufferfish": {
       "name": "Pufferfish",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/pufferfish.md",
       "contentHash": "fb0c6bb382b1f4ec",
       "scientificName": "Arothron hispidus",
@@ -25770,7 +25770,7 @@
     "puffin": {
       "name": "Puffin",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/puffin.md",
       "contentHash": "e835fe0b1118e5f3",
       "scientificName": "Fratercula arctica",
@@ -25935,7 +25935,7 @@
     "python": {
       "name": "Python",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/python.md",
       "contentHash": "47ab740087cc9c12",
       "scientificName": "Malayopython reticulatus",
@@ -26096,7 +26096,7 @@
     "quokka": {
       "name": "Quokka",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/quokka.md",
       "contentHash": "60a3045c50919d92",
       "scientificName": "Setonix brachyurus",
@@ -26230,7 +26230,7 @@
     "quoll": {
       "name": "Quoll",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/quoll.md",
       "contentHash": "edeb54e62ccd33c9",
       "scientificName": "Dasyurus maculatus",
@@ -26360,7 +26360,7 @@
     "raccoon": {
       "name": "Raccoon",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/raccoon.md",
       "contentHash": "29df74923381aa07",
       "scientificName": "Procyon lotor",
@@ -26534,7 +26534,7 @@
     "rattlesnake": {
       "name": "Rattlesnake",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/rattlesnake.md",
       "contentHash": "af24b54837d9b18b",
       "scientificName": "Crotalus atrox",
@@ -26678,7 +26678,7 @@
     "raven": {
       "name": "Raven",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/raven.md",
       "contentHash": "282c7b7839c4802a",
       "scientificName": "Corvus corax",
@@ -26831,7 +26831,7 @@
     "red-fox": {
       "name": "Red Fox",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/red-fox.md",
       "contentHash": "49f493d6ab81cb17",
       "scientificName": "Vulpes vulpes",
@@ -26984,7 +26984,7 @@
     "red-panda": {
       "name": "Red Panda",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/red-panda.md",
       "contentHash": "549209ab2d9fcb69",
       "scientificName": "Ailurus fulgens",
@@ -27124,7 +27124,7 @@
     "red-eyed-tree-frog": {
       "name": "Red-Eyed Tree Frog",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/red-eyed-tree-frog.md",
       "contentHash": "4fe103faca7f5670",
       "scientificName": "Agalychnis callidryas",
@@ -27295,7 +27295,7 @@
     "red-tailed-hawk": {
       "name": "Red-tailed Hawk",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/red-tailed-hawk.md",
       "contentHash": "255b3ebfd3ce52e2",
       "scientificName": "Buteo jamaicensis",
@@ -27434,7 +27434,7 @@
     "reindeer": {
       "name": "Reindeer",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/reindeer.md",
       "contentHash": "9197498651a820f9",
       "scientificName": "Rangifer tarandus",
@@ -27597,7 +27597,7 @@
     "reticulated-python": {
       "name": "Reticulated Python",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/reticulated-python.md",
       "contentHash": "3ad400d046295491",
       "scientificName": "Malayopython reticulatus",
@@ -27739,7 +27739,7 @@
     "rhinoceros": {
       "name": "Rhinoceros",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/rhinoceros.md",
       "contentHash": "7a20a423af10fb97",
       "scientificName": "Ceratotherium simum simum",
@@ -27899,7 +27899,7 @@
     "ring-tailed-lemur": {
       "name": "Ring-tailed Lemur",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/ring-tailed-lemur.md",
       "contentHash": "007765a449c56385",
       "scientificName": "Lemur catta",
@@ -28045,7 +28045,7 @@
     "sable-antelope": {
       "name": "Sable Antelope",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/sable-antelope.md",
       "contentHash": "d88099a81281d9dd",
       "scientificName": "Hippotragus niger",
@@ -28191,7 +28191,7 @@
     "sailfish": {
       "name": "Sailfish",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/sailfish.md",
       "contentHash": "6a1b4a6c70a0550e",
       "scientificName": "Istiophorus platypterus",
@@ -28327,7 +28327,7 @@
     "salamander": {
       "name": "Salamander",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/salamander.md",
       "contentHash": "e5be98ff9604278b",
       "scientificName": "Ambystoma tigrinum",
@@ -28493,7 +28493,7 @@
     "saltwater-crocodile": {
       "name": "Saltwater Crocodile",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/saltwater-crocodile.md",
       "contentHash": "16fadb7139a853fb",
       "scientificName": "Crocodylus porosus",
@@ -28644,7 +28644,7 @@
     "sawfish": {
       "name": "Sawfish",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/sawfish.md",
       "contentHash": "f45ae4e03dae52b0",
       "scientificName": "Pristis pristis",
@@ -28786,7 +28786,7 @@
     "sea-lion": {
       "name": "Sea Lion",
       "status": "researched",
-      "researchedAt": "2026-09-23",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/sea-lion.md",
       "contentHash": "10b8b639a5e8672b",
       "scientificName": "Zalophus californianus",
@@ -28938,7 +28938,7 @@
     "sea-otter": {
       "name": "Sea Otter",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/sea-otter.md",
       "contentHash": "6049ce650f335403",
       "scientificName": "Enhydra lutris",
@@ -29091,7 +29091,7 @@
     "seal": {
       "name": "Seal",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/seal.md",
       "contentHash": "41cf5d59d8768361",
       "scientificName": "Phoca vitulina",
@@ -29268,7 +29268,7 @@
     "secretary-bird": {
       "name": "Secretary Bird",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/secretary-bird.md",
       "contentHash": "7310249b08b01b5d",
       "scientificName": "Sagittarius serpentarius",
@@ -29404,7 +29404,7 @@
     "serval": {
       "name": "Serval",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/serval.md",
       "contentHash": "8157aa0332e40b2a",
       "scientificName": "Leptailurus serval",
@@ -29545,7 +29545,7 @@
     "shoebill": {
       "name": "Shoebill",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/shoebill.md",
       "contentHash": "1f7ff5014e732a24",
       "scientificName": "Balaeniceps rex",
@@ -29680,7 +29680,7 @@
     "siberian-tiger": {
       "name": "Siberian Tiger",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/siberian-tiger.md",
       "contentHash": "6c4935ad13c7ad21",
       "scientificName": "Panthera tigris altaica",
@@ -29853,7 +29853,7 @@
     "skunk": {
       "name": "Skunk",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/skunk.md",
       "contentHash": "dde96c7a84577758",
       "scientificName": "Mephitis mephitis",
@@ -29994,7 +29994,7 @@
     "sloth": {
       "name": "Sloth",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/sloth.md",
       "contentHash": "2bdc461bdc76ae89",
       "scientificName": "Bradypus tridactylus",
@@ -30117,7 +30117,7 @@
     "sloth-bear": {
       "name": "Sloth Bear",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/sloth-bear.md",
       "contentHash": "34237abda59406ca",
       "scientificName": "Melursus ursinus",
@@ -30294,7 +30294,7 @@
     "snapping-turtle": {
       "name": "Snapping Turtle",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/snapping-turtle.md",
       "contentHash": "55f3498ac35fd342",
       "scientificName": "Chelydra serpentina",
@@ -30450,7 +30450,7 @@
     "snow-leopard": {
       "name": "Snow Leopard",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/snow-leopard.md",
       "contentHash": "5dd7d684ddc33fae",
       "scientificName": "Panthera uncia",
@@ -30607,7 +30607,7 @@
     "snowy-owl": {
       "name": "Snowy Owl",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/snowy-owl.md",
       "contentHash": "046c9be76e557287",
       "scientificName": "Bubo scandiacus",
@@ -30760,7 +30760,7 @@
     "spectacled-bear": {
       "name": "Spectacled Bear",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-27",
       "sourceFile": "animal-research-for-update/animals/spectacled-bear.md",
       "contentHash": "18a8581e8d781162",
       "scientificName": "Tremarctos ornatus",

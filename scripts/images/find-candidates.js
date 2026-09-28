@@ -296,6 +296,15 @@ async function candidatesFor(animal, profile, qid) {
 async function main() {
     fs.mkdirSync(CANDIDATE_DIR, { recursive: true });
     const animals = JSON.parse(fs.readFileSync(path.join(ROOT, 'animal_stats.json'), 'utf8'));
+    // New animals wait for their photo outside the catalogue: search for them too.
+    const newDir = path.join(ROOT, 'animal-research-for-update', 'new-animals');
+    if (fs.existsSync(newDir)) {
+        const known = new Set(animals.map((animal) => slugify(animal.name)));
+        for (const file of fs.readdirSync(newDir).filter((name) => name.endsWith('.json') && !name.endsWith('.example.json'))) {
+            const entry = JSON.parse(fs.readFileSync(path.join(newDir, file), 'utf8'));
+            if (!known.has(slugify(entry.name))) animals.push(entry);
+        }
+    }
     const profiles = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'animal-profiles.json'), 'utf8')).animals;
     const results = fs.existsSync(RESULT_PATH) ? JSON.parse(fs.readFileSync(RESULT_PATH, 'utf8')) : {};
 

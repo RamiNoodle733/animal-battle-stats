@@ -100,7 +100,7 @@ Very high toward other animals and dogs when aroused, with a strong tendency to 
 - Small absolute mass; large carnivores and ungulates outweigh it many times over.
 - Short single coat with no protection over the neck and limbs.
 - Grip-and-hold style commits it to close contact and leaves little room to disengage.
-- Short coat and little body fat make it poorly suited to severe cold.
+- Its short single coat gives little insulation in severe cold.
 - No measured speed or bite data to support the viral claims made about it.
 
 ### Matchup archetypes

@@ -16,13 +16,14 @@ plus 12 substats, from one research report per animal. You are adding NEW animal
 ## For each animal in your batch
 1. Research it on the web. Cloud sessions cap WebSearch calls, so use the repo's tool, which
    goes through the network proxy instead:
-   `python3 scripts/research/web.py search "<query>"` (Bing results with real URLs) and
+   `python3 scripts/research/web.py papers "<query>"` (peer-reviewed papers from Europe PMC) and
    `python3 scripts/research/web.py read <url> --grep weight,length,bite` (the page as text,
    trimmed to the sentences that mention those words). Good pages to read directly:
    en.wikipedia.org/wiki/<Name> (follow its citations), animaldiversity.org/accounts/<Genus_species>/,
    fishbase.se, reptile-database.reptarium.cz, nationalzoo.si.edu, nationalgeographic.com,
    australian.museum, fws.gov, fisheries.noaa.gov, akc.org, PubMed. Some sites refuse (403:
-   IUCN, Britannica, ResearchGate); cite them only if you read them another way.
+   IUCN, Britannica, ResearchGate); cite them only if you read them another way. General web
+   search (`web.py search`, Bing) mostly matches only the first word from cloud addresses.
    Prefer IUCN, government agencies, museums, universities, peer-reviewed papers, Animal
    Diversity Web, major zoos. Record the real URLs you read in the source ledger. Never invent a
    URL, a measurement or a bite-force number; say "no reliable measurement" instead.

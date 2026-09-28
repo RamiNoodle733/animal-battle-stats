@@ -14,7 +14,7 @@
     "preferred_range": "Close",
     "primary_environment": "Rocky Mountain Steppe",
     "combat_style": "Stealth",
-    "strengths": ["Densest fur of any cat", "Rock camouflage", "Patient burrow ambush"],
+    "strengths": ["Extremely dense fur", "Rock camouflage", "Patient burrow ambush"],
     "weaknesses": ["Poor runner", "Small body mass", "Exposed in open ground"]
   }
 }

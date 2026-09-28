@@ -1,0 +1,20 @@
+{
+  "name": "Fin Whale",
+  "scientific_name": "Balaenoptera physalus",
+  "type": "Mammal",
+  "class": "Speedster",
+  "size": "Colossal",
+  "biome": "OCEAN",
+  "habitat": "Deep offshore waters of all oceans",
+  "diet": ["krill", "small schooling fish", "squid"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The second-largest animal on Earth, a sleek baleen whale nicknamed the greyhound of the sea for its speed.",
+  "battle_profile": {
+    "preferred_range": "Long range",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Speedster",
+    "strengths": ["Enormous mass", "Fastest great whale", "Sustained escape endurance"],
+    "weaknesses": ["No teeth or weapons", "Does not fight back when caught", "Vulnerable to coordinated orca packs"]
+  }
+}

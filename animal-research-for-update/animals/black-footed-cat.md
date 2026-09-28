@@ -4,7 +4,7 @@
 
 - **Common name:** Black-footed cat (also small-spotted cat)
 - **Scientific name:** *Felis nigripes* Burchell, 1824
-- **Exact animal represented:** the wild black-footed cat of the arid grasslands and Karoo scrub of South Africa, Namibia and Botswana, treated as one species with no recognized subspecies (the IUCN Cat Specialist Group considers it most probably monotypic).
+- **Exact animal represented:** the wild black-footed cat of the arid grasslands and Karoo scrub of southern Africa (mainly South Africa, with records in southern Botswana and a few in Namibia, southern Angola and southern Zimbabwe), treated as one species with no recognized subspecies (the IUCN Cat Specialist Group considers it most probably monotypic).
 - **Status:** Living.
 - **Canonical combat specimen:** healthy mature adult male, **1.9 kg**, matching the Animal Diversity Web male average of 1.93 kg and sitting inside Wikipedia's 1.6–2.45 kg male range.
 - **Sex choice:** males are clearly larger. Wikipedia gives males 1.6–2.45 kg and 42.5–50 cm head-body length against females at 1.1–1.65 kg and 33.7–36.8 cm. The Black-footed Cat Working Group's 2010 field report measured four collared females at 1.19–1.35 kg.
@@ -66,7 +66,7 @@
 The black-footed cat is a miniature but extremely efficient killer. It stalks, rushes and pins prey from behind with its forepaws and dewclaws, then kills with a bite to the neck or head. Its prey averages only about 24 g, but it also takes Cape hares heavier than itself and was once seen pouncing on a resting lamb before giving up when the lamb stood. The PNAS genome paper cites a hunting success of about **60%**, and a 622-hour field watch recorded a kill roughly every 50 minutes and up to 14 small animals in one night. All of this is lethal to mice, gerbils, shrews and larks; at 1.9 kg it is almost meaningless against a medium-sized opponent in absolute terms.
 
 ### Locomotion and maneuverability
-It moves in small circles and zigzags between bushes and termite mounds, uses a slow cautious stalk, a quick trotting search and motionless waiting at rodent burrows. Against birds it makes a quick chase and a leap of up to **1.4 m high and 2 m long**, catching some birds in the air. This is excellent small-cat reflex and jumping, but its stocky build and short legs are suited to ground hunting rather than climbing.
+It moves in small circles and zigzags between bushes and termite mounds, uses a slow cautious stalk, a quick trotting search and motionless waiting at rodent burrows. Against birds it makes a quick chase and a leap of up to **1.4 m high and 2 m long**, catching some birds in the air. This is excellent small-cat reflex and jumping, but unlike most cats it is a poor climber: its stocky body and short tail suit ground hunting rather than trees (Wikipedia).
 
 ### Endurance
 Adults move an average of **8.42 ± 2.09 km per night** in search of prey (Wikipedia, citing Sliwa's radio-tracking), hunting through the whole night at temperatures from −10 to 35 °C. Its energy demand is very high: about 250–300 g of prey per night, roughly a sixth of its body weight (the PNAS paper gives about 20%). This supports strong sustained foraging stamina for a small cat, not burst-only effort.
@@ -144,13 +144,13 @@ All are absolute roster-wide ratings, not pound-for-pound.
 ## 8. Expanded profile
 
 ### Habitat and range
-Endemic to southern Africa: arid and semi-arid short grassland, Karoo scrub and savanna with sparse bush cover in South Africa, Namibia and Botswana, marginally into neighbouring countries. It avoids dense woodland and very sandy dune desert. Daytime refuges are hollow termite mounds and old burrows of springhares, aardvarks and Cape porcupines, which it digs to enlarge.
+Endemic to southern Africa: arid and semi-arid short grassland, Karoo scrub and savanna with sparse bush cover, mainly in South Africa, with records in southern Botswana and only a few in Namibia, southern Angola and southern Zimbabwe. Daytime refuges are hollow termite mounds and old burrows of springhares, aardvarks and Cape porcupines, which it digs to enlarge.
 
 ### Diet and ecology
 A specialist hunter of small vertebrates. Wikipedia lists 54 prey species, with small rodents such as the gerbil mouse among the most important, followed by mammals over 100 g and small birds; insects such as harvester termites make up only about 2% of prey mass. Average prey weighs about 24 g. It scavenges occasionally. It can meet its daily water needs from prey but drinks when water is available.
 
 ### Social structure
-Solitary. Males range over larger areas that overlap several females. Scent marking by urine spraying is frequent. Communication includes loud calls for contact at a distance, quieter purrs and gurgles at close range, and hisses and growls when threatened.
+Solitary. Males range over larger areas that overlap several females. Scent marking is used throughout its range; receptive females were seen spraying urine up to 41 times along 685 m, and it also rubs objects, rakes with its claws and leaves faeces in visible places. Its calls are louder than those of other cats its size, presumably to carry over long distances, and it uses quieter purrs and gurgles at close range and hisses and growls when threatened.
 
 ### Reproduction and life history
 Kittens weigh 60–93 g at birth and are born blind in springhare burrows or hollow termite mounds. Captive males mature at about nine months and females at about seven months. Mothers bring back live prey for kittens to practice on from about three weeks of age (ADW).

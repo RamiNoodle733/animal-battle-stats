@@ -46,7 +46,7 @@
 - **Weapon dimensions:** male skull 87–95 mm long and 66–74 mm wide (Wikipedia). No canine-length measurement located.
 
 ### Defensive structure
-- No armor, but the densest fur recorded for a cat: up to **9,000 hairs per cm²**, underfur about 40 mm long and guard hairs up to 69 mm on the back (Wikipedia). The fur on the underparts is about twice as long as on the back (Frontiers in Genetics, 2024). This mainly protects against cold; it gives only slight padding against bites.
+- No armor, but extremely dense fur: up to **9,000 hairs per cm²**, underfur about 40 mm long and guard hairs up to 69 mm on the back (Wikipedia). The fur on the underparts is about twice as long as on the back (Frontiers in Genetics, 2024). This mainly protects against cold; it gives only slight padding against bites.
 
 ## 3. Proposed canonical factual fields
 
@@ -107,7 +107,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 | Size | **8.5** | a 4 kg cat is very small on the full roster |
 | Raw Power | **12.0** | stocky and strong for its size, but tiny in absolute force; just below the house cat |
 | Weaponry | **25.0** | sharp retractile claws and a felid killing bite; lethal only to small mammals |
-| Protection | **16.0** | the densest fur of any cat gives slight padding, but no armor |
+| Protection | **16.0** | extremely dense, long fur gives slight padding, but no armor |
 | Toughness | **23.0** | hardy in extreme cold and altitude, but a small body that larger predators kill |
 | Speed | **22.0** | repeatedly described as a slow, poor runner; no measurement |
 | Maneuverability | **60.0** | good pounce and rock-scrambling control, but short legs and a heavy build |
@@ -127,7 +127,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 | **Agility** | **60.0** | a slow, short-legged runner; far below the typical small cat's 85–92 |
 | **Stamina** | **56.0** | winter and altitude hardiness and large ranges, without pursuit endurance |
 | **Intelligence** | **58.0** | careful den and cover use and flexible hunting modes; no social tactics |
-| **Special** | **64.0** | the most cold-resistant coat of any cat plus camouflage and low peering posture |
+| **Special** | **64.0** | an extremely dense cold-weather coat plus camouflage and low peering posture |
 
 ## 7. Exactly two special abilities and two unique traits
 
@@ -136,7 +136,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 2. **Crevice Vanish** — when threatened it bolts into a rock crevice or den, or flattens and freezes beside rocks, relying on its grey coat for camouflage instead of speed. In rocky terrain this makes it hard to catch; in open ground it is exposed.
 
 ### Unique traits
-1. **Densest Cat Coat** — up to 9,000 hairs per cm², with underfur about 40 mm and guard hairs up to 69 mm long, the thickest fur recorded for any cat, suited to winters on the steppe and the Tibetan Plateau.
+1. **Steppe Winter Coat** — up to 9,000 hairs per cm², with underfur about 40 mm and guard hairs up to 69 mm long, and belly fur about twice as long as the fur on its back, suited to winters on the steppe and the Tibetan Plateau.
 2. **Round-Pupil Cat** — unlike most small cats with slit pupils, its pupils close to small round discs in bright light, a feature it shares with the cougar, jaguarundi and cheetah.
 
 ## 8. Expanded profile
@@ -167,7 +167,7 @@ Listed as **Least Concern** on the IUCN Red List since 2020, reflecting its wide
 Harmless to people. Threats come from poisoning of its prey, trapping, dogs and the fur and medicine trade. It is kept in about 60 zoos in coordinated breeding programmes, where kitten survival has been a long-standing problem.
 
 ### Genuine fun facts
-- Its fur can have up to 9,000 hairs per square centimetre, the densest of any cat.
+- Its fur can have up to 9,000 hairs per square centimetre.
 - When excited or scared it yelps like a small dog rather than meowing.
 - Its pupils shrink to round dots, not slits, in bright light.
 - It has been recorded at 5,073 m in the Himalaya and up to about 5,600 m on the Tibetan Plateau.

@@ -87,13 +87,13 @@ A sighthound: it hunts by sight in open country. Normal canid smell and hearing.
 Coursing requires tracking and cutting off evasive prey at speed. Beyond that, its fighting tactics are limited. Wikipedia notes a strong prey drive and often little recall.
 
 ### Intraspecific fighting
-Generally not dog-aggressive; racing greyhounds are commonly muzzled while racing. No quantitative data on fighting were located.
+No quantitative data on intraspecific fighting were located. The FCI standard describes the breed as "intelligent, gentle, affectionate and even tempered".
 
 ### Predator defense
 Relies on flight.
 
 ### Aggression and ferocity
-Usually gentle and placid with people, but with a strong chase-and-catch drive toward small running animals. It is not built or bred to press a fight against a dangerous opponent.
+Gentle and even-tempered according to the FCI standard, but with a strong chase-and-catch drive toward small running animals. It is not built or bred to press a fight against a dangerous opponent.
 
 ### Environmental strengths
 - Open grassland and flat ground where it can reach full speed.
@@ -229,7 +229,7 @@ In a fight that speed is the Greyhound's only real weapon. It can catch and kill
 | Williams et al. (2009), Journal of Experimental Biology, Pelvic limb function during accelerations in racing greyhounds | https://europepmc.org/article/MED/19181903 | acceleration mechanics | largest increases in joint work at the hip during acceleration | High |
 | O'Neill et al. (2019), Greyhounds under general veterinary care in the UK during 2016 | https://europepmc.org/article/MED/31179010 | body mass, disorders | 5,419 greyhounds; males 32.3 kg, females 27.2 kg; wounds 6.2%, claw injury 4.2% | High |
 | Zaldívar-López et al. (2011), Veterinary Clinical Pathology, Clinical pathology of Greyhounds and other sighthounds | https://europepmc.org/article/MED/22092909 | blood profile | higher red blood cell mass and other distinct values in retired racing greyhounds | High, review |
-| FCI Standard No. 158, Greyhound | https://www.fci.be/Nomenclature/Standards/158g10-en.pdf | height, build, temperament | males 71–76 cm; back rather long; "remarkable stamina and endurance"; "only the cheetah tops the Greyhound for speed" | High for description; speed claim is the standard's own |
+| FCI Standard No. 158, Greyhound | https://www.fci.be/Nomenclature/Standards/158g10-en.pdf | height, build, temperament | males 71–76 cm; back rather long; jaws powerful; "remarkable stamina and endurance"; intelligent, gentle, even tempered; "only the cheetah tops the Greyhound for speed" | High for description; speed claim is the standard's own |
 | Wikipedia, Greyhound | https://en.wikipedia.org/wiki/Greyhound | size, speed summary, physiology, lifespan, behavior | males 27–40 kg; at least 69 km/h; Type IIa fibres; double-suspension gallop; no undercoat, little fat; 11.5-year UK life expectancy; sleep with eyes open | Low-moderate, tertiary |
 | AKC, Greyhound | https://www.akc.org/dog-breeds/greyhound/ | size and lifespan summary | males 28–30 in, 65–70 lb; 10–13 years | Low-moderate, registry summary |
 | McMillan et al. (2024), Scientific Reports, Longevity of companion dog breeds | https://www.nature.com/articles/s41598-023-50458-w | lifespan | UK life expectancy 11.5 years (as cited by Wikipedia) | High source; breed value read via Wikipedia |

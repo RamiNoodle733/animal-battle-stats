@@ -1,0 +1,20 @@
+{
+  "name": "Fisher",
+  "scientific_name": "Pekania pennanti",
+  "type": "Mammal",
+  "class": "Hunter",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Mature boreal and mixed forests",
+  "diet": ["snowshoe hares", "porcupines", "small mammals", "berries"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A long, dark forest mustelid that is one of the few predators able to kill porcupines. Agile and bold for its size, but only about 5 kg.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Snowy Mixed Forest",
+    "combat_style": "Hunter",
+    "strengths": ["Porcupine-killing technique", "Head-first tree climbing", "Relentless persistence"],
+    "weaknesses": ["Small body mass", "No armor", "Avoids open ground"]
+  }
+}

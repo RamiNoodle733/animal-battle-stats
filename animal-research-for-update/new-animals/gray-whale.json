@@ -1,0 +1,20 @@
+{
+  "name": "Gray Whale",
+  "scientific_name": "Eschrichtius robustus",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Colossal",
+  "biome": "OCEAN",
+  "habitat": "Shallow coastal waters of the North Pacific",
+  "diet": ["amphipods", "ghost shrimp", "other seafloor invertebrates"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A barnacle-crusted coastal baleen whale that feeds on the seafloor and makes one of the longest migrations of any mammal.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Coastal Shallows",
+    "combat_style": "Tank",
+    "strengths": ["Fierce calf defense", "Record migratory endurance", "Barnacle-crusted hide"],
+    "weaknesses": ["No teeth or bite", "Slow swimmer", "Calves vulnerable to orca packs"]
+  }
+}

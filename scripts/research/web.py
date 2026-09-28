@@ -4,11 +4,15 @@
 Cloud sessions cap WebSearch calls; this reaches the web through the session's
 network proxy instead.
 
+  python3 scripts/research/web.py papers "Proteles cristatus body mass"
   python3 scripts/research/web.py search "aardwolf weight kg"
   python3 scripts/research/web.py read https://animaldiversity.org/accounts/Proteles_cristata/
   python3 scripts/research/web.py read <url> --grep weight,length,speed
 
-`search` prints title, real URL and snippet for each Bing result. `read` prints
+`papers` lists peer-reviewed papers from Europe PMC (title, journal, year,
+link). `search` prints Bing results, which often match only the first word of
+the query from cloud addresses; prefer `papers` and direct reads of known pages
+(Wikipedia and its citations, Animal Diversity Web, zoo and agency sites). `read` prints
 the page as plain text; `--grep` keeps only the sentences that mention one of
 the words, and `--max` caps the output (default 12000 characters). Some sites
 refuse automated requests (403); pick another source.
@@ -69,6 +73,23 @@ def search(query):
             print(f'   {strip_tags(snippet.group(1))}')
 
 
+def papers(query):
+    import json
+    # Every word must appear in the title or abstract; quoted phrases stay together.
+    terms = re.findall(r'"[^"]+"|\S+', query)
+    expression = ' AND '.join(f'(TITLE:{t} OR ABSTRACT:{t})' for t in terms)
+    url = ('https://www.ebi.ac.uk/europepmc/webservices/rest/search?format=json&pageSize=15&query='
+           + urllib.parse.quote(expression))
+    hits = json.loads(fetch(url)).get('resultList', {}).get('result', [])
+    if not hits:
+        print('No papers found.')
+    for number, hit in enumerate(hits, 1):
+        link = f"https://doi.org/{hit['doi']}" if hit.get('doi') else f"https://europepmc.org/article/{hit.get('source')}/{hit.get('id')}"
+        print(f"{number}. {hit.get('title', '').strip()}")
+        print(f"   {hit.get('authorString', '')[:80]} | {hit.get('journalTitle', '')} {hit.get('pubYear', '')}")
+        print(f"   {link}")
+
+
 def page_text(raw):
     raw = re.sub(r'(?is)<(script|style|noscript|svg|nav|footer|header|form)[^>]*>.*?</\1>', ' ', raw)
     raw = re.sub(r'(?i)<br\s*/?>|</(p|div|li|h[1-6]|tr|table|section|article)>', '\n', raw)
@@ -87,11 +108,11 @@ def read(url, words, limit):
 
 
 def main(argv):
-    if len(argv) < 2 or argv[0] not in ('search', 'read'):
+    if len(argv) < 2 or argv[0] not in ('search', 'papers', 'read'):
         print(__doc__)
         return 1
-    if argv[0] == 'search':
-        search(' '.join(argv[1:]))
+    if argv[0] in ('search', 'papers'):
+        (search if argv[0] == 'search' else papers)(' '.join(argv[1:]))
         return 0
     url, words, limit = argv[1], [], 12000
     rest = argv[2:]

@@ -8,7 +8,7 @@
 - **Status:** Living.
 - **Canonical combat specimen:** healthy mature adult male, **7.0 kg**, the top of the usual 3.5–7 kg range (Wikipedia) and the middle of ADW's 4.5–9.0 kg range. Individuals near 9 kg are reported but are not used as the baseline.
 - **Sex choice:** males are somewhat larger and use much larger home ranges (8.5–25.3 km² in Brazil and up to 88–100 km² in Belize, against 1.4–20 km² for females), so a male is used.
-- **Population notes:** coat colour ranges from dark grey-brown to reddish-tawny; both colour types can occur in one litter. Its body plan is unusual among cats: long, low and slender, with short legs, a small flattened head, small round ears and a long tail.
+- **Population notes:** two colour types occur, grey (blackish to brownish-grey) and red (foxy red to chestnut), with intermediates; both can be born in one litter, and the red type is seen more often in dry, open areas. Its body plan is unusual among cats: long, low and slender, with short legs, a small flattened head, small round ears and a long tail.
 
 ## 2. Physical measurements
 
@@ -140,7 +140,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 ## 8. Expanded profile
 
 ### Habitat and range
-From southern Texas (where it is now very rare or gone) and Mexico through Central America to northern Argentina and Uruguay, east of the Andes. It uses an unusually broad range of habitats for a small cat: tropical rainforest, deciduous forest, dry thorn scrub, savanna and semi-desert, usually near running water and dense cover, and it can live in reforested and farmed mosaics.
+From southern Texas (where it is now very rare or gone) and Mexico through Central America to northern Argentina and Uruguay. It uses an unusually broad range of habitats for a small cat: tropical rainforest, deciduous forest, dry thorn scrub, savanna and semi-desert, usually near running water and dense cover, and it can live in reforested and farmed mosaics.
 
 ### Diet and ecology
 Mostly small animals under 1 kg: rodents, ground-feeding birds, reptiles, frogs and arthropods, with occasional poultry, fish, rabbits, marmosets and opossums. It appears to take the most abundant and easily caught prey in each area.
@@ -149,7 +149,7 @@ Mostly small animals under 1 kg: rodents, ground-feeding birds, reptiles, frogs 
 Solitary or in pairs. Home ranges are large for its size: 1.4–18 km² for females and 8.5–25.3 km² for males in Brazil, and up to 88–100 km² for two males in Belize. It scent-marks by scraping, clawing logs, head rubbing and leaving feces uncovered.
 
 ### Reproduction and life history
-Sexual maturity at one to three years. It breeds year-round in some regions. Captive individuals have lived 15 years or more.
+Sexual maturity at one to three years. Mating occurs throughout the year, with peaks that vary across the range; after a 70–75 day gestation, one to four kittens are born in a den in a dense thicket or hollow tree. Captive individuals have lived 15 years or more.
 
 ### Conservation
 Listed as **Near Threatened** in the IUCN Red List's 2026 assessment as shown in Wikipedia's species box; the article text still describes its earlier Least Concern listing, noting that assessors already considered Near Threatened justified. A 2024 continental analysis found its area of occupancy has shrunk over the last two decades (Global Ecology and Conservation). It is listed as endangered in the United States and threatened in Mexico. Threats are habitat loss and fragmentation, and persecution for killing poultry.
@@ -174,7 +174,7 @@ Sometimes killed for raiding poultry. It tolerates light to moderate human distu
 - Grey and reddish kittens can be born in the same litter.
 
 ### Concise site-ready summary
-A long, low, otter-shaped wild cat of the Americas, the jaguarundi hunts birds and rodents by day, climbs, swims and leaps 2 m into the air. It is agile and adaptable in habitat use, but at about 7 kg it is a small predator with modest absolute power.
+A long, low, otter-shaped wild cat of the Americas, the jaguarundi hunts birds and rodents by day, climbs, swims and leaps 2 m into the air. It is agile and versatile in habitat use, but at about 7 kg it is a small predator with modest absolute power.
 
 ### Rich narrative profile
 The jaguarundi does not look like most cats. Its long, slender body, short legs, small flattened head and long tail give it the outline of a weasel or otter, and its coat is plain grey-brown or reddish with no spots. It is also unusual in its schedule: while ocelots and margays hunt at night, the jaguarundi is most active in daylight, peaking from late morning to noon.

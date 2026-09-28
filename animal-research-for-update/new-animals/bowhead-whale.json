@@ -1,0 +1,20 @@
+{
+  "name": "Bowhead Whale",
+  "scientific_name": "Balaena mysticetus",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Colossal",
+  "biome": "ARCTIC",
+  "habitat": "Arctic and subarctic seas with seasonal sea ice",
+  "diet": ["copepods", "krill", "small invertebrates"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "An Arctic baleen whale that breaks through sea ice with its huge skull, has the thickest blubber of any whale and can live over 200 years.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Pack Ice",
+    "combat_style": "Tank",
+    "strengths": ["Thickest blubber of any whale", "Ice-breaking skull", "Enormous mass"],
+    "weaknesses": ["Very slow swimmer", "No teeth or bite", "Exposed in ice-free water"]
+  }
+}

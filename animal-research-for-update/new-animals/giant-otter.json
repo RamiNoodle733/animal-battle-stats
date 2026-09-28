@@ -1,0 +1,20 @@
+{
+  "name": "Giant Otter",
+  "scientific_name": "Pteronura brasiliensis",
+  "type": "Mammal",
+  "class": "Pack Hunter",
+  "size": "Medium",
+  "biome": "JUNGLE",
+  "habitat": "Slow rivers, oxbow lakes and swamps of South America",
+  "diet": ["fish", "crabs", "snakes", "small caimans"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The longest member of the weasel family, a 30 kg river predator that lives in loud, cooperative family groups. Formidable in water, far less so alone on land.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rainforest Rivers",
+    "combat_style": "Pack Hunter",
+    "strengths": ["Fast, twisting swimmer", "Powerful bite", "Cooperative family defense"],
+    "weaknesses": ["Bite is its only weapon", "No armor", "Slower on dry land"]
+  }
+}

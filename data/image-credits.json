@@ -2144,6 +2144,22 @@
       "license": "Public domain",
       "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
       "modified": "Background removed and cropped"
+    },
+    "kea": {
+      "title": "Kea (Nestor notabilis) -on ground-8.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Kea_%28Nestor_notabilis%29_-on_ground-8.jpg",
+      "artist": "gambier20",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "martial-eagle": {
+      "title": "Martial Eagle (Polemaetus bellicosus) (51854471490).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Martial_Eagle_%28Polemaetus_bellicosus%29_%2851854471490%29.jpg",
+      "artist": "Bernard DUPONT from FRANCE",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
     }
   }
 }

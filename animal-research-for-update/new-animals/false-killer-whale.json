@@ -1,0 +1,20 @@
+{
+  "name": "False Killer Whale",
+  "scientific_name": "Pseudorca crassidens",
+  "type": "Mammal",
+  "class": "Pack Hunter",
+  "size": "Large",
+  "biome": "OCEAN",
+  "habitat": "Deep tropical and subtropical offshore waters",
+  "diet": ["tuna", "mahi-mahi", "squid", "other dolphins"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A large, thick-toothed oceanic dolphin that hunts big fish at speed, shares its prey and sometimes attacks whales in groups.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Pack Hunter",
+    "strengths": ["Thick tearing teeth", "Echolocation", "Fast deep-diving pursuit"],
+    "weaknesses": ["No armor", "Far smaller than an orca", "Relies on its group"]
+  }
+}

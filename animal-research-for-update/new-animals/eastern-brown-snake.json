@@ -1,0 +1,20 @@
+{
+  "name": "Eastern Brown Snake",
+  "scientific_name": "Pseudonaja textilis",
+  "type": "Reptile",
+  "class": "Assassin",
+  "size": "Small",
+  "biome": "SAVANNA",
+  "habitat": "Grassland, woodland and farmland of eastern Australia",
+  "diet": ["mice and rats", "frogs", "lizards", "birds"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A fast, slender Australian snake whose venom triggers runaway blood clotting. It causes more snakebite deaths in Australia than any other species.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Grassland and farmland",
+    "combat_style": "Assassin",
+    "strengths": ["Fast-acting clotting venom", "Quick in warm weather", "Accurate strike"],
+    "weaknesses": ["Very light, fragile body", "No armor", "Many strikes carry little venom"]
+  }
+}

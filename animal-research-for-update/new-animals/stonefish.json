@@ -1,0 +1,20 @@
+{
+  "name": "Stonefish",
+  "scientific_name": "Synanceia verrucosa",
+  "type": "Fish",
+  "class": "Ambush Predator",
+  "size": "Small",
+  "biome": "OCEAN",
+  "habitat": "Shallow Indo-Pacific reefs, rubble and sand",
+  "diet": ["small fish", "shrimp", "crustaceans"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A squat, rock-like reef fish that gulps passing prey in a split second. Its dorsal spines carry what is often called the most potent venom of any fish.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Reef floor",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Venom-loaded dorsal spines", "Rock-like disguise", "Split-second suction strike"],
+    "weaknesses": ["Very slow swimmer", "Venom only works when pressed", "Small body"]
+  }
+}

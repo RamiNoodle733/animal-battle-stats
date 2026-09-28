@@ -5,7 +5,7 @@ import { STATS, TIERS, POWER_WEIGHTS, researchedCount, sourceCount, lastResearch
 import { SITE, SOCIAL, absoluteUrl } from '../lib/site.js';
 
 const title = `About Animal Battle Stats: How the Ratings, Tiers and Matchups Work | ${SITE.name}`;
-const description = 'How Animal Battle Stats researches 225 animals, turns sources into six 0-100 battle ratings, builds the power index and tiers, and predicts who would win.';
+const description = 'How Animal Battle Stats researches ${animals.length} animals, turns sources into six 0-100 battle ratings, builds the power index and tiers, and predicts who would win.';
 const pct = (value) => `${Math.round(value * 100)}%`;
 const faq = [
     { q: 'What is Animal Battle Stats?', a: `Animal Battle Stats (animalbattlestats.com) is a free animal powerscaling site. It rates ${animals.length} real animals on six battle stats, ranks them into tiers, and predicts hypothetical matchups. ${researchedCount} animals have full research profiles with cited sources.` },

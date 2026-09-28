@@ -678,5 +678,6 @@
     "zebra": {
       "status": "legacy"
     }
-  }
+  },
+  "pending": 0
 }

@@ -22,7 +22,7 @@ const built = fs.existsSync(path.join(root, 'dist', 'stats', 'salamander.html'))
 
 test('every generated animal profile exposes the structured correction route', { skip: !built && 'dist/ not built' }, () => {
     const animals = JSON.parse(read('animal_stats.json'));
-    assert.equal(animals.length, 225);
+    assert.ok(animals.length >= 225, `${animals.length} animals`);
     for (const animal of animals) {
         const slug = animal.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         const html = read(`dist/stats/${slug}.html`);

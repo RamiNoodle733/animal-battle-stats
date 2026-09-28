@@ -4,7 +4,7 @@ import Icon from '../components/Icon.astro';
 import HoloCard from '../components/HoloCard.astro';
 import AnimalImage from '../components/AnimalImage.astro';
 import RobloxMark from '../components/RobloxMark.astro';
-import { animals, researchedCount, sourceCount, fmtScore } from '../lib/catalog.js';
+import { animals, gameAnimals, researchedCount, sourceCount, fmtScore } from '../lib/catalog.js';
 import { PAIRS } from '../lib/matchups.js';
 import { SITE, ROBLOX, absoluteUrl } from '../lib/site.js';
 
@@ -17,12 +17,12 @@ const fresh = animals
 const firstPair = PAIRS.find((pair) => pair.classic);
 const featured = animals[0];
 
-const title = `${SITE.name}: The Animal Powerscaling Database (225 Animals)`;
-const description = `Who would win? Research-backed battle stats, tier lists and power rankings for 225 real animals, with sources on every profile. Compare any matchup and watch the fight. ${ROBLOX.live ? 'Now on Roblox.' : 'Coming to Roblox.'}`;
+const title = `${SITE.name}: The Animal Powerscaling Database (${animals.length} Animals)`;
+const description = `Who would win? Research-backed battle stats, tier lists and power rankings for ${animals.length} real animals, with sources on every profile. Compare any matchup and watch the fight. ${ROBLOX.live ? 'Now on Roblox.' : 'Coming to Roblox.'}`;
 const MENU = [
     { href: '/compare', label: 'Who would win?', sub: 'Pick two animals and fight', icon: 'vs', cls: 'btn-hot primary' },
-    { href: '/stats', label: 'Animals', sub: '225 fighters, full stats', icon: 'paw' },
-    { href: '/tier-list', label: 'Tier list', sub: 'S to F, all 225', icon: 'crown' },
+    { href: '/stats', label: 'Animals', sub: `${animals.length} fighters, full stats`, icon: 'paw' },
+    { href: '/tier-list', label: 'Tier list', sub: `S to F, all ${animals.length}`, icon: 'crown' },
     { href: '/rankings', label: 'Rankings', sub: 'Strongest, fastest, biggest', icon: 'medal' },
     { href: '/tournament', label: 'Tournament', sub: 'Run a bracket', icon: 'trophy' },
     { href: '/community', label: 'Community', sub: 'Votes, talk, leaderboards', icon: 'friends' }
@@ -104,7 +104,7 @@ const jsonLd = [
                 </a>
                 <a class="tile panel hot roblox" href="/roblox">
                     <span class="tile-k"><RobloxMark size={16} />{ROBLOX.live ? 'Live on Roblox' : 'Coming to Roblox'}</span>
-                    <strong>Collect all 225 as holo-cards</strong>
+                    <strong>Collect all {gameAnimals.length} as holo-cards</strong>
                     <small>Battle them in a 3D world, run the goofy crowd fights and climb the leaderboards.</small>
                     <span class={`btn btn-sm ${ROBLOX.live ? 'btn-play' : 'btn-white'}`}><RobloxMark size={18} />{ROBLOX.live ? 'Play free' : 'See the game'}</span>
                 </a>

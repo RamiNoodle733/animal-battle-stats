@@ -2,11 +2,11 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import HoloCard from '../components/HoloCard.astro';
-import { getAnimal } from '../lib/catalog.js';
+import { getAnimal, rosterSize } from '../lib/catalog.js';
 
 const sloth = getAnimal('sloth') || getAnimal('snapping-turtle');
 ---
-<Base title="Page not found | Animal Battle Stats" description="This page does not exist. Search 225 animals or jump back into the arena." path="/404" noindex biome="jungle">
+<Base title="Page not found | Animal Battle Stats" description={`This page does not exist. Search ${rosterSize} animals or jump back into the arena.`} path="/404" noindex biome="jungle">
     <div class="nf">
         <div class="nf-card"><HoloCard animal={sloth} tag="span" sizes="220px" meta="Still looking…" /></div>
         <div class="nf-copy">

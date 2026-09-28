@@ -13,12 +13,12 @@ const year = new Date().getFullYear();
 const heading = group ? `${group.label} tier list` : 'Animal tier list';
 const title = group
     ? `${group.label} Tier List ${year}: Strongest ${group.label} Ranked S to F | ${SITE.name}`
-    : `Animal Tier List ${year}: 225 Animals Ranked S to F by Fighting Power | ${SITE.name}`;
+    : `Animal Tier List ${year}: ${animals.length} Animals Ranked S to F by Fighting Power | ${SITE.name}`;
 const top = list.slice(0, 5);
 const sTier = list.filter((animal) => animal.tier === 'S');
 const description = group
     ? `Every ${group.label.toLowerCase()} on Animal Battle Stats ranked from S tier to F tier by research-backed fighting power. Top ${group.label.toLowerCase()}: ${top.map((animal) => animal.name).join(', ')}.`
-    : `225 real animals ranked from S tier to F tier by research-backed fighting power. S tier: ${sTier.slice(0, 6).map((animal) => animal.name).join(', ')} and more.`;
+    : `${animals.length} real animals ranked from S tier to F tier by research-backed fighting power. S tier: ${sTier.slice(0, 6).map((animal) => animal.name).join(', ')} and more.`;
 const counts = Object.fromEntries(TIERS.map((tier) => [tier.id, list.filter((animal) => animal.tier === tier.id).length]));
 const pct = (value) => `${Math.round(value * 100)}%`;
 

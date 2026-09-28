@@ -1,6 +1,6 @@
 # ABS Research Calibration
 
-This document governs proposed research ratings for the 225-animal overhaul.
+This document governs proposed research ratings for the whole roster.
 
 ## Core rule: absolute roster scaling
 
@@ -53,7 +53,7 @@ Ability to sustain exertion, continue fighting or moving under fatigue, recover 
 Separate burst specialists from animals built for sustained exertion.
 
 ### Intelligence
-Problem solving, learning, tactical flexibility, perception, memory, communication, social coordination, and ability to adapt behavior usefully during a matchup.
+Problem solving, learning, tactical flexibility, perception, memory, communication, social coordination, and ability to adjust behavior usefully during a matchup.
 
 Do not inflate intelligence merely because an animal is social, nor reduce solitary species automatically.
 
@@ -99,14 +99,14 @@ Megalodon may serve as a 100.0 or near-100 anchor only in categories where the a
 - Do not make most large mammals 80+ by default.
 - Do not score proportional feats as though they were absolute feats.
 - Do not let top speed substitute for agility.
-- Do not count one adaptation three times without explaining the distinct effects.
+- Do not count one feature three times without explaining the distinct effects.
 - Do not use a record-breaking individual as the normal baseline.
 - Do not treat an unverified internet bite-force number as fact.
 - Do not make extinct-animal certainty look stronger than the underlying evidence.
 
 ## Final normalization audit
 
-After all 225 research files exist, perform a full-roster audit before production migration. The audit must look for:
+After every roster animal has a research file, perform a full-roster audit before production migration. The audit must look for:
 
 - inverted comparisons
 - suspicious ties
@@ -114,7 +114,7 @@ After all 225 research files exist, perform a full-roster audit before productio
 - score inflation
 - inconsistent decimal precision
 - duplicated ability concepts
-- double-counted adaptations
+- double-counted features
 - small-animal pound-for-pound inflation
 - size being mistaken for Attack or Defense
 - speed being mistaken for Agility

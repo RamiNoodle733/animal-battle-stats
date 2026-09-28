@@ -1,4 +1,5 @@
 ---
+import { rosterSize } from '../lib/catalog.js';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/big-shoulders-display';
 import '../styles/abs.css';
@@ -173,7 +174,7 @@ const year = new Date().getFullYear();
         <dialog class="search-dialog" id="search-dialog" aria-label="Search animals">
             <div class="search-field">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
-                <input type="search" placeholder="Search 225 animals…" aria-label="Search animals" autocomplete="off" spellcheck="false" data-search-input />
+                <input type="search" placeholder={`Search ${rosterSize} animals…`} aria-label="Search animals" autocomplete="off" spellcheck="false" data-search-input />
                 <kbd class="chip">Esc</kbd>
             </div>
             <ul class="search-results" role="listbox" data-search-results></ul>

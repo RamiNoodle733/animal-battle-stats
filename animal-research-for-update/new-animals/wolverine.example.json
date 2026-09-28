@@ -1,0 +1,20 @@
+{
+  "name": "Wolverine",
+  "scientific_name": "Gulo gulo",
+  "type": "Mammal",
+  "class": "Berserker",
+  "size": "Small",
+  "biome": "ARCTIC",
+  "habitat": "Boreal forests, tundra",
+  "diet": ["caribou", "rodents", "carrion"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A stocky, muscular carnivore known for strength out of proportion to its size. It can crush frozen bones.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Snow Forest",
+    "combat_style": "Berserker",
+    "strengths": ["Incredible stamina", "Bone-crushing bite", "Frost resistance"],
+    "weaknesses": ["Small stature", "Poor eyesight", "Ground-bound"]
+  }
+}

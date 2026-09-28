@@ -29,6 +29,8 @@ const CANONICAL_PATH = path.join(ROOT, 'animal_stats.json');
 const PROFILES_PATH = path.join(ROOT, 'data', 'animal-profiles.json');
 const REPORT_PATH = path.join(ROOT, 'data', 'research-import-report.json');
 const OVERRIDES_PATH = path.join(ROOT, 'data', 'research-overrides.json');
+const NEW_ANIMALS_DIR = path.join(ROOT, 'animal-research-for-update', 'new-animals');
+const IMAGE_DIR = path.join(ROOT, 'images', 'animals');
 
 const HEADLINE_KEYS = ['attack', 'defense', 'agility', 'stamina', 'intelligence', 'special'];
 const SUBSTAT_KEYS = [
@@ -208,6 +210,21 @@ function buildProfileEntry(legacy, profile, meta) {
     };
 }
 
+// Animals added after the frozen catalogue: a base entry in
+// animal-research-for-update/new-animals/<slug>.json (type, class, size, biome,
+// habitat, diet, battle profile) plus a research report. One joins the roster
+// only once its report is valid and its cutout photo is in images/animals/.
+function newAnimalEntries() {
+    if (!fs.existsSync(NEW_ANIMALS_DIR)) return [];
+    return fs.readdirSync(NEW_ANIMALS_DIR)
+        .filter((file) => file.endsWith('.json') && !file.endsWith('.example.json'))
+        .sort()
+        .map((file) => {
+            const entry = readJson(path.join(NEW_ANIMALS_DIR, file));
+            return { slug: path.basename(file, '.json'), base: { ...entry, image: `/images/animals/${path.basename(file, '.json')}.png` } };
+        });
+}
+
 function main() {
     const checkOnly = process.argv.includes('--check');
     const legacyAnimals = ensureLegacySnapshot();
@@ -259,7 +276,45 @@ function main() {
             : { status: 'researched' };
     }
 
-    const unknownFiles = [...researchFiles].filter((slug) => !legacyAnimals.some((animal) => slugify(animal.name) === slug));
+    const rosterSlugs = new Set(legacyAnimals.map((animal) => slugify(animal.name)));
+    report.pending = 0;
+    for (const { slug, base } of newAnimalEntries()) {
+        if (rosterSlugs.has(slug) || slugify(base.name) !== slug) {
+            report.animals[slug] = { status: 'pending', problems: [rosterSlugs.has(slug) ? 'already in the roster' : `name slugifies to ${slugify(base.name)}`] };
+            report.pending += 1;
+            continue;
+        }
+        rosterSlugs.add(slug);
+        const problems = [];
+        let profile = null;
+        let markdown = '';
+        if (!researchFiles.has(slug)) problems.push('no research report');
+        else {
+            markdown = fs.readFileSync(path.join(RESEARCH_DIR, `${slug}.md`), 'utf8').replace(/\r\n?/g, '\n');
+            profile = parseResearchProfile(markdown, { slug });
+            problems.push(...validateProfile(profile));
+            if (profile.abilities.length < 2 || profile.traits.length < 2) problems.push('needs two abilities and two traits');
+        }
+        if (!fs.existsSync(path.join(IMAGE_DIR, `${slug}.png`))) problems.push('no cutout photo yet');
+        if (problems.length) {
+            report.animals[slug] = { status: 'pending', problems };
+            report.pending += 1;
+            continue;
+        }
+        const contentHash = crypto.createHash('sha256').update(markdown).digest('hex').slice(0, 16);
+        const previous = previousProfiles[slug];
+        const researchedAt = commitDates.get(slug)
+            || (previous && previous.contentHash === contentHash && previous.researchedAt)
+            || today;
+        canonical.push(versionImage(buildCanonicalRecord(base, profile, researchedAt, overrides[base.name])));
+        profiles[slug] = buildProfileEntry(base, profile, { slug, contentHash, researchedAt });
+        report.researched += 1;
+        report.animals[slug] = profile.warnings.length
+            ? { status: 'researched', added: true, warnings: profile.warnings }
+            : { status: 'researched', added: true };
+    }
+
+    const unknownFiles = [...researchFiles].filter((slug) => !rosterSlugs.has(slug));
     if (unknownFiles.length) report.unknownResearchFiles = unknownFiles;
 
     const outputs = [
@@ -274,12 +329,14 @@ function main() {
             console.error(`Research data is out of date: ${stale.map(([filePath]) => path.relative(ROOT, filePath)).join(', ')}. Run npm run research:import.`);
             process.exit(1);
         }
-        console.log(`Research data is current (${report.researched} researched, ${report.legacy} legacy).`);
+        console.log(`Research data is current (${report.researched} researched, ${report.legacy} legacy, ${report.pending} new animals pending).`);
         return;
     }
 
     for (const [filePath, content] of outputs) fs.writeFileSync(filePath, content);
-    console.log(`Research import: ${report.researched} researched, ${report.legacy} awaiting research, ${report.rejected} rejected.`);
+    console.log(`Research import: ${report.researched} researched, ${report.legacy} awaiting research, ${report.rejected} rejected, ${report.pending} new animals pending.`);
+    const waiting = Object.entries(report.animals).filter(([, entry]) => entry.status === 'pending');
+    if (waiting.length) console.log(`Pending new animals: ${waiting.map(([slug, entry]) => `${slug} (${entry.problems.join(', ')})`).join('; ')}`);
     if (unknownFiles.length) console.warn(`Research files without a roster animal: ${unknownFiles.join(', ')}`);
 }
 

@@ -99,7 +99,8 @@ export const animals = metrics.rankAnimals(records).map((animal) => {
         special: animal.special ?? animal.special_attack,
         profile,
         researched: profile.status === 'researched',
-        biome: String(biomeFile.animals[animal.slug] || 'arena').toLowerCase(),
+        // Animals added after the game's roster carry their own biome.
+        biome: String(biomeFile.animals[animal.slug] || animal.biome || 'arena').toLowerCase(),
         img: imageFor(animal.slug, animal.image)
     };
 });
@@ -244,6 +245,9 @@ export function tierInfo(id) {
     return TIERS.find((tier) => tier.id === id) || TIERS[TIERS.length - 1];
 }
 
+// The site's full roster, and the animals the Roblox game has (its biome curation lists each one).
+export const rosterSize = animals.length;
+export const gameAnimals = animals.filter((animal) => Object.hasOwn(biomeFile.animals, animal.slug));
 export const researchedCount = animals.filter((animal) => animal.researched).length;
 export const sourceCount = animals.reduce((sum, animal) => sum + (animal.profile.sources?.length || 0), 0);
 export const lastResearchDate = animals.map((animal) => animal.profile.researchedAt).filter(Boolean).sort().at(-1) || null;

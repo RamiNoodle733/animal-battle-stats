@@ -1,6 +1,7 @@
 ---
 // Player profile: /profile (your own, editable) and /profile/<username>
 // (public, read-only; vercel.json rewrites it here and the script reads the path).
+import { rosterSize } from '../lib/catalog.js';
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
@@ -59,7 +60,7 @@ const EARN = [
             </form>
 
             <div class="p-pane p-animal" data-p-pane="animal" hidden>
-                <div class="field p-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg><input type="search" placeholder="Search 225 animals" aria-label="Search animals" data-p-q /></div>
+                <div class="field p-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg><input type="search" placeholder={`Search ${rosterSize} animals`} aria-label="Search animals" data-p-q /></div>
                 <div class="p-grid scroll" data-p-grid aria-busy="true"></div>
             </div>
 

@@ -15,11 +15,11 @@ const show = category ? category.show : (animal) => fmtScore(animal.powerIndex);
 const path = category ? `/rankings/${category.slug}` : '/rankings';
 const heading = category ? category.label : 'Strongest animals';
 const title = category
-    ? `${category.label} in the World (${year}): Top ${Math.min(list.length, 225)} Ranked | ${SITE.name}`
-    : `Strongest Animals in the World ${year}: Power Rankings of 225 Animals | ${SITE.name}`;
+    ? `${category.label} in the World (${year}): Top ${list.length} Ranked | ${SITE.name}`
+    : `Strongest Animals in the World ${year}: Power Rankings of ${animals.length} Animals | ${SITE.name}`;
 const description = category
     ? `${category.intro} #1: ${list[0].name} (${show(list[0])}), #2: ${list[1].name}, #3: ${list[2].name}. Research-backed rankings with sources.`
-    : `Who is the strongest animal? ${animals[0].name}, ${animals[1].name} and ${animals[2].name} top our research-backed power rankings of 225 real animals.`;
+    : `Who is the strongest animal? ${animals[0].name}, ${animals[1].name} and ${animals[2].name} top our research-backed power rankings of ${animals.length} real animals.`;
 const pct = (value) => `${Math.round(value * 100)}%`;
 const podium = list.slice(0, 3);
 const land = animals.filter((animal) => animal.group !== 'sea');
@@ -27,7 +27,7 @@ const land = animals.filter((animal) => animal.group !== 'sea');
 const faq = category
     ? [
         { q: `What is the #1 animal for ${category.stat.toLowerCase()}?`, a: `The ${list[0].name} leads with ${show(list[0])}, ahead of the ${list[1].name} (${show(list[1])}) and the ${list[2].name} (${show(list[2])}).` },
-        { q: 'How is this ranking made?', a: category.measurement ? `${category.intro} Values describe the healthy adult each profile is rated on, with sources on every profile.` : `${category.intro} The ${category.stat.toLowerCase()} rating is on one 0–100 scale for all 225 animals, set in each animal's research report.` }
+        { q: 'How is this ranking made?', a: category.measurement ? `${category.intro} Values describe the healthy adult each profile is rated on, with sources on every profile.` : `${category.intro} The ${category.stat.toLowerCase()} rating is on one 0–100 scale for all ${animals.length} animals, set in each animal's research report.` }
     ]
     : [
         { q: 'What is the strongest animal in the world?', a: `On our roster the ${animals[0].name} ranks #1 with a power index of ${fmtScore(animals[0].powerIndex)}, ahead of the ${animals[1].name} (${fmtScore(animals[1].powerIndex)}) and the ${animals[2].name} (${fmtScore(animals[2].powerIndex)}).` },

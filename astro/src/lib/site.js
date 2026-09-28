@@ -1,11 +1,12 @@
 import robloxGame from '../../../data/roblox-game.json';
+import roster from '../../../animal_stats.json';
 
 export const SITE = Object.freeze({
     name: 'Animal Battle Stats',
     shortName: 'ABS',
     url: 'https://animalbattlestats.com',
     tagline: 'The animal powerscaling database',
-    description: 'Research-backed battle stats, tier lists, rankings and "who would win" matchups for 225 real animals, plus the Animal Battle Stats game on Roblox.',
+    description: `Research-backed battle stats, tier lists, rankings and "who would win" matchups for ${roster.length} real animals, plus the Animal Battle Stats game on Roblox.`,
     email: 'animalbattlestats@gmail.com',
     logo: '/images/logo.png',
     founder: 'Rami Abdelrazzaq',

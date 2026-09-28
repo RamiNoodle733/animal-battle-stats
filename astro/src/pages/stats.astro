@@ -7,8 +7,8 @@ import AnimalImage from '../components/AnimalImage.astro';
 import { animals, GROUPS, TIERS, BIOMES, researchedCount, fmtScore, fmtWeight } from '../lib/catalog.js';
 import { SITE, absoluteUrl } from '../lib/site.js';
 
-const title = `Animal Stats Database: 225 Animals Ranked by Strength & Power | ${SITE.name}`;
-const description = 'Browse research-backed battle stats for 225 real animals. Filter by mammals, birds, reptiles, sea creatures and bugs, and sort by attack, defense, speed, weight or overall power.';
+const title = `Animal Stats Database: ${animals.length} Animals Ranked by Strength & Power | ${SITE.name}`;
+const description = `Browse research-backed battle stats for ${animals.length} real animals. Filter by mammals, birds, reptiles, sea creatures and bugs, and sort by attack, defense, speed, weight or overall power.`;
 const jsonLd = [
     {
         '@type': 'CollectionPage',
@@ -39,7 +39,7 @@ const firstWeight = fmtWeight(first.weight_kg);
             <div class="panel-head">
                 <Icon name="paw" size={30} />
                 <h1 id="roster-title" class="panel-title">Choose your animal</h1>
-                <span class="aside" data-count>225 animals · {researchedCount} researched</span>
+                <span class="aside" data-count>{animals.length} animals · {researchedCount} researched</span>
             </div>
             <div class="controls">
                 <label class="field grow">

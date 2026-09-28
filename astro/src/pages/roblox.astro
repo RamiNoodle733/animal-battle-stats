@@ -8,12 +8,12 @@ import Icon from '../components/Icon.astro';
 import HoloCard from '../components/HoloCard.astro';
 import AnimalImage from '../components/AnimalImage.astro';
 import RobloxMark from '../components/RobloxMark.astro';
-import { getAnimal, animals } from '../lib/catalog.js';
+import { getAnimal, animals, gameAnimals } from '../lib/catalog.js';
 import { SITE, ROBLOX, SOCIAL, absoluteUrl } from '../lib/site.js';
 
 const fan = ['honey-badger', 'megalodon', 'army-ant'].map(getAnimal).filter(Boolean);
-const title = `Animal Battle Stats on Roblox: Collect 225 Real Animals & Battle | ${SITE.name}`;
-const description = `The Animal Battle Stats Roblox game: collect all ${animals.length} real animals as holo-cards, power them up and battle across eight biome islands. Free to play, no loot boxes. ${ROBLOX.live ? 'Play now on Roblox.' : 'Coming soon to Roblox.'}`;
+const title = `Animal Battle Stats on Roblox: Collect ${gameAnimals.length} Real Animals & Battle | ${SITE.name}`;
+const description = `The Animal Battle Stats Roblox game: collect all ${gameAnimals.length} real animals as holo-cards, power them up and battle across eight biome islands. Free to play, no loot boxes. ${ROBLOX.live ? 'Play now on Roblox.' : 'Coming soon to Roblox.'}`;
 const discord = SOCIAL.find((item) => item.name === 'Discord');
 const { trailer, screenshots } = ROBLOX;
 const clips = ROBLOX.videos.map((clip) => ({ ...clip, art: clip.animal ? getAnimal(clip.animal) : null }));
@@ -26,7 +26,7 @@ const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13
 const faq = [
     { q: 'Is Animal Battle Stats on Roblox?', a: ROBLOX.live ? `Yes. Animal Battle Stats is live on Roblox and free to play: ${ROBLOX.gameUrl}` : 'The Animal Battle Stats game is in development for Roblox. Join the Discord or check this page for the launch.' },
     { q: 'Is it free?', a: 'Yes, it is free to play. There are no loot boxes or paid packs, and nothing you can buy makes an animal stronger.' },
-    { q: 'Are the animals the same as on the website?', a: `Yes. All ${animals.length} animals, their stats and their home biomes come straight from this site, so new research here changes the game too.` },
+    { q: 'Are the animals the same as on the website?', a: `Yes. All ${gameAnimals.length} animals in the game, with their stats and home biomes, come straight from this site, so new research here changes the game too.${animals.length > gameAnimals.length ? ` The site also covers ${animals.length - gameAnimals.length} animals that are not in the game yet.` : ''}` },
     { q: 'What do you do in the game?', a: 'Fly your champion card across floating biome islands, fight and recruit wild animals, level them up, beat island bosses (the Ocean boss is the Megalodon), and join server-wide shows, tournaments and raids.' },
     { q: 'How do I connect my Roblox account?', a: 'Press Continue with Roblox on this page or Connect Roblox on your profile. Roblox asks you to approve it, and your profile then shows your Roblox name and your in-game stats. Roblox handles the sign-in, so this site never sees your Roblox password, and you can disconnect at any time.' }
 ];
@@ -75,7 +75,7 @@ const jsonLd = [
             <ul class="rbx-tags" aria-label="At a glance">
                 <li><Icon name="check" size={20} />Free to play</li>
                 <li><Icon name="shield" size={20} />No loot boxes</li>
-                <li><Icon name="paw" size={20} />{animals.length} real animals</li>
+                <li><Icon name="paw" size={20} />{gameAnimals.length} real animals</li>
                 <li><Icon name="friends" size={20} />Multiplayer</li>
             </ul>
             <div class="rbx-connect" id="connect" data-connect data-state="loading" hidden>

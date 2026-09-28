@@ -1,6 +1,6 @@
 # Animal Research for Update
 
-This folder is a research staging area for a complete re-research and rebalance of all 225 Animal Battle Stats profiles. Files here do **not** modify the live site or production animal data.
+This folder is a research staging area for a complete re-research and rebalance of every Animal Battle Stats profile. Files here do **not** modify the live site or production animal data.
 
 ## Scope
 
@@ -16,11 +16,11 @@ Research every animal listed in the repository's `DATA_PROGRESS.md`, including a
 ## ABS scaling standard
 
 - Proposed research ratings use **0.1 to 100.0** with exactly one decimal place.
-- Scores are **absolute across the entire 225-animal roster**, not pound-for-pound and not relative only to similar species.
+- Scores are **absolute across the entire roster**, not pound-for-pound and not relative only to similar species.
 - Tiny animals do not receive inflated physical-combat scores because they are impressive for their size. For example, an ant may have extraordinary proportional strength yet remain vastly below a gorilla in absolute power.
 - A value near 100.0 is reserved for a true dataset-level ceiling in that category. Megalodon can serve as an extreme upper anchor for fields where its evidence supports that role, but it must not automatically receive 100.0 in unrelated categories.
 - Preserve large real-world gaps. Do not compress an ant, wolf, gorilla, elephant, and Megalodon into superficially close scores.
-- Avoid double-counting the same adaptation across multiple categories unless each score reflects a genuinely distinct combat advantage.
+- Avoid double-counting the same feature across multiple categories unless each score reflects a genuinely distinct combat advantage.
 - Follow `CALIBRATION.md` and the site's current methodology definitions.
 
 ## Exactly two abilities and two traits
@@ -30,7 +30,7 @@ Every researched animal must have exactly:
 - **2 proposed special abilities**
 - **2 proposed unique traits**
 
-Names should be distinctive and memorable but grounded in real biology. Do not invent magical or fictional powers. A named ability should correspond to a real weapon, behavior, sense, physiology, defense, locomotor adaptation, venom/electric system, camouflage mechanism, or other meaningful capability.
+Names should be distinctive and memorable but grounded in real biology. Do not invent magical or fictional powers. A named ability should correspond to a real weapon, behavior, sense, physiology, defense, locomotor feature, venom/electric system, camouflage mechanism, or other meaningful capability.
 
 ## Required research file
 
@@ -77,7 +77,7 @@ Explain why the chosen canonical value is appropriate when sources provide range
 Research and explain:
 - Primary and secondary weapons
 - Offensive mechanics
-- Defensive adaptations and durability
+- Defensive features and durability
 - Locomotion and maneuverability
 - Endurance/stamina
 - Senses
@@ -124,7 +124,7 @@ Include material suitable for future site expansion:
 - Social structure
 - Reproduction / life history where useful
 - Conservation status for living species when available
-- Major adaptations
+- Special features
 - Human interaction where relevant
 - At least several strong fun facts
 - A concise site-ready summary
@@ -146,6 +146,10 @@ Prefer peer-reviewed papers, government agencies, museums, universities, major z
 ### 10. Cross-animal calibration notes
 Compare the animal against relevant already-researched animals and dataset anchors. Explicitly flag any score that appears inconsistent with the broader roster.
 
+## Wording rule
+
+Describe animals neutrally and factually. Do not use evolution language: no evolve/evolved/evolution, adapt/adapted/adaptation/adaptive/adaptable, ancestor/ancestry, lineage, descended from, natural or sexual selection, "closest relatives", phylogeny, vestigial, or deep-time dates ("millions of years"). Use "suited to", "built for", "feature", "specialization", "versatile" instead; domestic breeds were "bred from" wild stock. Citation titles and URLs stay as published.
+
 ## Research quality rules
 
 1. Search broadly enough to resolve conflicting values rather than copying the first result.
@@ -159,4 +163,4 @@ Compare the animal against relevant already-researched animals and dataset ancho
 
 ## Completion rule
 
-The research pass is complete only when all 225 animals represented in `DATA_PROGRESS.md` have a corresponding completed file in `animal-research-for-update/animals/`. After that, perform a roster-wide normalization audit before any production-data migration.
+The research pass is complete only when every roster animal in `DATA_PROGRESS.md` has a corresponding completed file in `animal-research-for-update/animals/`. After that, perform a roster-wide normalization audit before any production-data migration.

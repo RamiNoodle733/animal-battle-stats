@@ -69,10 +69,10 @@ const w = fmtWeight(animal.weight_kg);
 const s = fmtSpeed(animal.speed_mps);
 const bite = fmtBite(animal.bite_force_psi);
 const title = `${animal.name} Stats: Strength, Speed, Size & Power Ranking | ${SITE.name}`;
-const description = `${animal.name} ranks #${animal.rank} of 225 (${animal.tier}-tier, power ${fmtScore(animal.powerIndex)}). Attack ${fmtScore(animal.attack)}, defense ${fmtScore(animal.defense)}, agility ${fmtScore(animal.agility)}${w ? `, weighs ${w.metric}` : ''}${s ? `, runs ${s.metric}` : ''}. Sources included.`;
+const description = `${animal.name} ranks #${animal.rank} of ${animals.length} (${animal.tier}-tier, power ${fmtScore(animal.powerIndex)}). Attack ${fmtScore(animal.attack)}, defense ${fmtScore(animal.defense)}, agility ${fmtScore(animal.agility)}${w ? `, weighs ${w.metric}` : ''}${s ? `, runs ${s.metric}` : ''}. Sources included.`;
 
 const faq = [];
-faq.push({ q: `How strong is ${article(animal.name)} ${animal.name}?`, a: `On the Animal Battle Stats scale, the ${animal.name} has an attack rating of ${fmtScore(animal.attack)} and a power index of ${fmtScore(animal.powerIndex)} out of 100, which ranks it #${animal.rank} of 225 animals and puts it in ${animal.tier} tier (${tier.name}). Its strongest stat is ${best.label.toLowerCase()} (${fmtScore(animal[best.key])}).` });
+faq.push({ q: `How strong is ${article(animal.name)} ${animal.name}?`, a: `On the Animal Battle Stats scale, the ${animal.name} has an attack rating of ${fmtScore(animal.attack)} and a power index of ${fmtScore(animal.powerIndex)} out of 100, which ranks it #${animal.rank} of ${animals.length} animals and puts it in ${animal.tier} tier (${tier.name}). Its strongest stat is ${best.label.toLowerCase()} (${fmtScore(animal[best.key])}).` });
 if (w) faq.push({ q: `How much does ${article(animal.name)} ${animal.name} weigh?`, a: `A typical adult ${animal.name} weighs about ${w.metric} (${w.imperial}).${specimen ? ` Rated specimen: ${specimenRaw}` : ''}` });
 faq.push({ q: `How fast is ${article(animal.name)} ${animal.name}?`, a: s ? `The ${animal.name}'s top speed is about ${s.metric} (${s.imperial}). Its agility rating is ${fmtScore(animal.agility)} out of 100.` : `There is no reliable measured top speed for the ${animal.name}, so we do not publish one. Its agility rating, which covers acceleration, reflexes and evasion, is ${fmtScore(animal.agility)} out of 100.` });
 if (bite) faq.push({ q: `What is the ${animal.name}'s bite force?`, a: `The ${animal.name}'s bite force is about ${bite.metric}.` });
@@ -148,7 +148,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                     </div>
                 </div>
                 <div class="chips">
-                    <span class="chip chip-gold"><Icon name="medal" size={16} />#{animal.rank} of 225</span>
+                    <span class="chip chip-gold"><Icon name="medal" size={16} />#{animal.rank} of {animals.length}</span>
                     <span class="chip chip-cyan"><Icon name="map" size={16} />{biome?.label || 'Arena'}</span>
                     <span class="chip">{animal.class}</span>
                     {profile.conservationStatus && <span class={`chip ${conservationClass}`}>{profile.conservationStatus}</span>}
@@ -199,7 +199,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                     <div class="radar-box"><Radar animal={animal} size={250} /></div>
                 </div>
                 <div class="callouts">
-                    <div class={best.cls}><span>Best stat</span><strong>{best.label}</strong><small>{ordinal(statRank(animal, best.key).rank)} of 225</small></div>
+                    <div class={best.cls}><span>Best stat</span><strong>{best.label}</strong><small>{ordinal(statRank(animal, best.key).rank)} of {animals.length}</small></div>
                     <div class={worst.cls}><span>Weak spot</span><strong>{worst.label}</strong><small>{fmtScore(animal[worst.key])} / 100</small></div>
                 </div>
                 <h2 class="pane-h">Detailed ratings</h2>
@@ -210,7 +210,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                         return <div class={`pip-row ${stat.cls}`}><span>{label}</span><span class="track"><i style={`--w:${Math.min(100, value)}%`}></i></span><b>{fmtScore(value)}</b></div>;
                     })}
                 </div>
-                <p class="note">{researched ? `Research-backed ratings on one 0–100 scale for all 225 animals (updated ${profile.researchedAt}).` : 'Research for this animal is in progress; these are earlier ratings.'} <a class="link" href="/about#ratings">How ratings work</a></p>
+                <p class="note">{researched ? `Research-backed ratings on one 0–100 scale for all ${animals.length} animals (updated ${profile.researchedAt}).` : 'Research for this animal is in progress; these are earlier ratings.'} <a class="link" href="/about#ratings">How ratings work</a></p>
             </div>
 
             <div class="pane scroll" id="pane-kit" role="tabpanel" aria-labelledby="tab-kit" hidden>

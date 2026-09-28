@@ -66,6 +66,8 @@ EXTRA = {
     "mexican-red-knee-tarantula": {"categories": ["Brachypelma smithi"], "search": ["Mexican redknee tarantula", "Brachypelma smithi"]},
     "betta-fish": {"search": ["Siamese fighting fish", "betta splendens male"], "prefer": "male"},
     "goldfish": {"search": ["goldfish aquarium"]},
+    "stingray": {"only": True, "species": "Hypanus americanus", "categories": ["Hypanus americanus"], "search": ["southern stingray", "Hypanus americanus", "Dasyatis americana"]},
+    "fisher": {"only": True, "categories": ["Pekania pennanti", "Martes pennanti"], "search": ["Pekania pennanti", "Martes pennanti", "fisher Pekania", "fisher cat animal"], "files": 70},
     "false-killer-whale": {"search": ["false killer whale underwater", "Pseudorca crassidens"], "prefer": "underwater", "files": 60},
 }
 SKIP_TITLE = re.compile(
@@ -183,11 +185,16 @@ def main():
     wanted = set(args)
     CANDIDATES.mkdir(parents=True, exist_ok=True)
     results = json.loads(RESULT.read_text(encoding="utf-8")) if RESULT.exists() else {}
-    for path in sorted(NEW.glob("*.json")):
-        slug = path.stem
+    # New animals come from their catalogue entries; an animal already on the
+    # site (a photo replacement) comes from the roster, with EXTRA naming the species.
+    entries = {path.stem: json.loads(path.read_text(encoding="utf-8")) for path in sorted(NEW.glob("*.json"))}
+    roster = {re.sub(r"[^a-z0-9]+", "-", a["name"].lower()).strip("-"): a for a in json.loads((ROOT / "animal_stats.json").read_text(encoding="utf-8"))}
+    for slug in sorted(wanted - set(entries)):
+        if slug in roster:
+            entries[slug] = {"name": roster[slug]["name"], "scientific_name": EXTRA.get(slug, {}).get("species", roster[slug]["scientific_name"])}
+    for slug, entry in entries.items():
         if slug.endswith(".example") or (wanted and slug not in wanted):
             continue
-        entry = json.loads(path.read_text(encoding="utf-8"))
         titles = [t for t in file_titles(entry, slug) if re.search(r"\.(jpe?g|png)$", t, re.I) and not SKIP_TITLE.search(t)]
         infos = []
         extra = EXTRA.get(slug, {})

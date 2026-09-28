@@ -64,7 +64,7 @@
 ## 4. Combat biology
 
 ### Weapons and offense
-The weapon is the tail spine, used in defense. When the ray is stepped on or grabbed, it whips its tail up and forward, driving the serrated, venom-coated spine into the attacker; the teeth along the spine tear the wound as it is pulled out. Wikipedia and FishBase describe the result as a painful laceration that is not usually fatal to people. The spine protects the ray mainly from above and behind, the direction from which a foot or a predator's mouth arrives. The mouth, underneath the head, crushes buried crabs, clams, worms and small fish but is not used as a weapon against large animals.
+The weapon is the tail spine, used in defense. When the ray is stepped on or grabbed, it uses its tail to drive the serrated, venom-coated spine into the attacker. FishBase describes the result as a painful laceration, and Wikipedia notes that stings are not fatal to people but are extremely painful. The spine protects the ray mainly from above and behind, the direction from which a foot or a predator's mouth arrives. The mouth, underneath the head, crushes buried crabs, clams, worms and small fish but is not used as a weapon against large animals.
 
 ### Locomotion and maneuverability
 The ray swims by sending waves along its broad pectoral fins, which gives fine control, quick turns and the ability to hover, settle and bury itself. It can also flap its fins hard to stir up sand. It is a bottom specialist rather than a fast open-water swimmer.
@@ -90,7 +90,7 @@ Docile towards divers and easily hand-fed. During mating a male bites and holds 
 - Night-time foraging, when its electrical sense matters most.
 
 ### Weaknesses
-- Large sharks, especially great hammerheads, attack stingrays and pin them to the bottom.
+- Large sharks are its main predators; great hammerheads are among the predators it uses its spine against.
 - The spine covers only part of the body; the flat disc edges are exposed.
 - No speed advantage in open water.
 - Relies on hiding rather than escape.
@@ -134,7 +134,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 ## 7. Exactly two special abilities and two unique traits
 
 ### Special abilities
-1. **Serrated Venom Spine** — a long tail spine with 52–80 teeth on each side and a venomous mucus coat, whipped into anything that steps on or grabs the ray; the teeth tear the wound as the spine pulls free.
+1. **Serrated Venom Spine** — a long tail spine with 52–80 teeth on each side and a venomous mucus coat, driven into anything that steps on or grabs the ray and leaving a painful, jagged laceration.
 2. **Buried-Prey Detector** — ampullae of Lorenzini around the head sense the electric fields of animals hidden in sand, and the ray blows water jets or flaps its fins to dig them out.
 
 ### Unique traits
@@ -166,7 +166,7 @@ Listed as **Near Threatened** by the IUCN (2020 assessment). FishBase rates its 
 - A row of short spines along the upper surface of the disc.
 
 ### Human interaction
-Most injuries happen when waders step on a buried ray, which strikes with its spine in self-defense. Southern stingrays are the stars of hand-feeding sites in the Cayman Islands, Antigua and the Turks and Caicos, and live in many public aquarium touch pools. Stingray spines have been used by people in several regions to make spear points and knives, and the venom is being studied for biomedical research.
+Injuries commonly happen when waders step on a buried ray, which strikes with its spine in self-defense. Southern stingrays are the stars of hand-feeding sites in the Cayman Islands, Antigua and the Turks and Caicos, and live in many public aquarium touch pools. Stingray spines have been used by people in several regions to make spear points and knives, and the venom is being studied for biomedical research.
 
 ### Genuine fun facts
 - Its tail spine carries 52–80 small teeth along each edge.
@@ -185,7 +185,7 @@ The southern stingray spends much of its life lying flat on the sea floor under 
 
 At night it goes hunting. Sensors around its head pick up the faint electric fields of crabs, clams and fish hidden in the sand, and the ray blows jets of water or flaps its fins to dig them out, then crushes them with flat tooth plates. It is also a quick learner: on Grand Cayman, more than 160 wild rays have learned that boats mean food and now swarm around snorkellers by day.
 
-In an Animal Battle Stats matchup, the stingray is a defender rather than an attacker. Anything that steps on it or seizes it from above risks a deep, venomous, tearing wound. But the spine covers only part of its body, it cannot outswim large predators, and great hammerhead sharks regularly pin stingrays to the bottom and eat them despite their stings.
+In an Animal Battle Stats matchup, the stingray is a defender rather than an attacker. Anything that steps on it or seizes it from above risks a deep, venomous, tearing wound. But the spine covers only part of its body, it cannot outswim large predators, and large sharks, its main predators, still catch and eat stingrays despite their stings.
 
 ### Future structured-field proposals
 - `disc_width_cm` as a dedicated field for rays, separate from total length including the tail.

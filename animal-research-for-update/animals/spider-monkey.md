@@ -173,7 +173,7 @@ Hunted for food and captured for the pet trade in parts of its range. Frida Kahl
 - Spider monkeys have dropped branches of up to 4 kg on people who followed them.
 - They sometimes rub a mix of saliva and crushed lime leaves into their fur, which is thought to repel insects.
 - Adults stretch across gaps in the canopy to form bridges for their young.
-- Female spider monkeys have an enlarged, dangling clitoris that often leads observers to mistake them for males.
+- Female spider monkeys have an enlarged, dangling clitoris that sometimes leads observers to mistake them for males.
 - In inhibitory-control tests, spider monkeys matched chimpanzees and outperformed gorillas.
 
 ### Concise site-ready summary

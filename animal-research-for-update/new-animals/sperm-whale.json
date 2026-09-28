@@ -1,0 +1,20 @@
+{
+  "name": "Sperm Whale",
+  "scientific_name": "Physeter macrocephalus",
+  "type": "Mammal",
+  "class": "Titan",
+  "size": "Colossal",
+  "biome": "OCEAN",
+  "habitat": "Deep open ocean, continental slopes and canyons",
+  "diet": ["deep-sea squid", "sharks and skates", "fish"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The largest toothed predator alive, a deep-diving whale with a huge ramming forehead and the loudest biosonar of any animal.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Deep Ocean",
+    "combat_style": "Titan",
+    "strengths": ["Loudest biosonar on Earth", "Battering-ram forehead", "Hour-long deep dives"],
+    "weaknesses": ["Slow routine swimming", "Must surface to breathe", "Narrow grasping jaw"]
+  }
+}

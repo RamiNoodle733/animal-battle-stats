@@ -1,0 +1,20 @@
+{
+  "name": "Humpback Whale",
+  "scientific_name": "Megaptera novaeangliae",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Colossal",
+  "biome": "OCEAN",
+  "habitat": "Open oceans and coastal waters worldwide",
+  "diet": ["krill", "small schooling fish"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A huge baleen whale with very long flippers, famous for bubble-net feeding, complex songs and charging into killer whale attacks.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Tank",
+    "strengths": ["Enormous mass", "Long flipper and fluke strikes", "Record migratory endurance"],
+    "weaknesses": ["No teeth or bite", "Must surface to breathe", "Vulnerable to coordinated orca packs"]
+  }
+}

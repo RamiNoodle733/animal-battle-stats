@@ -2392,6 +2392,62 @@
       "license": "Public domain",
       "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
       "modified": "Background removed and cropped"
+    },
+    "red-deer": {
+      "title": "Cervus elaphus Luc Viatour 5.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Cervus_elaphus_Luc_Viatour_5.jpg",
+      "artist": "Lviatour",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "russell-s-viper": {
+      "title": "Daboia russelii A Chawla01.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Daboia_russelii_A_Chawla01.jpg",
+      "artist": "AChawla",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "saw-scaled-viper": {
+      "title": "Echis carinatus Tigrovaya Balka (1).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Echis_carinatus_Tigrovaya_Balka_%281%29.jpg",
+      "artist": "Alexander A. Fomichev",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "south-american-coati": {
+      "title": "068 South American coati in Encontro das Águas State Park Photo by Giles Laurent.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:068_South_American_coati_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "striped-hyena": {
+      "title": "Hayena returning after quenching thirst.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Hayena_returning_after_quenching_thirst.jpg",
+      "artist": "Mashru ashok",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "takin": {
+      "title": "Budorcas taxicolor 2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Budorcas_taxicolor_2.jpg",
+      "artist": "Tiia Monto",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "fisher": {
+      "title": "Animal fisher adult JeffLewis (17276519056).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Animal_fisher_adult_JeffLewis_%2817276519056%29.jpg",
+      "artist": "Olympic National Park / Photograph: Jeff Lewis",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
     }
   }
 }

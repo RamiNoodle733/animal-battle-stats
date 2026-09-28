@@ -91,6 +91,13 @@ def download(slug, key, candidate):
             return target
         except Exception as error:  # try the next rendition
             last_error = error
+    # Last resort for a small original under rate limiting: the 960 px review
+    # thumbnail the finder already downloaded.
+    local = ROOT / candidate.get("local", "")
+    if candidate.get("local") and local.exists() and candidate.get("width", 0) <= 1280:
+        with Image.open(local) as image:
+            image.convert("RGB").save(target, quality=95)
+        return target
     raise RuntimeError(f"{slug}: {last_error}")
 
 

@@ -1,0 +1,20 @@
+{
+  "name": "Fossa",
+  "scientific_name": "Cryptoprocta ferox",
+  "type": "Mammal",
+  "class": "Assassin",
+  "size": "Small",
+  "biome": "JUNGLE",
+  "habitat": "Madagascar forests, from rainforest to dry forest",
+  "diet": ["lemurs", "tenrecs", "rodents", "reptiles"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "Madagascar's largest native carnivore, a sleek lemur hunter that can run down tree trunks head-first.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Forest Canopy",
+    "combat_style": "Assassin",
+    "strengths": ["Head-first tree descent", "Sharp grasping claws", "Canopy pursuit"],
+    "weaknesses": ["Low body mass", "No armor", "Weaker in open ground"]
+  }
+}

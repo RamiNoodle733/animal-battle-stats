@@ -1,0 +1,20 @@
+{
+  "name": "Bonobo",
+  "scientific_name": "Pan paniscus",
+  "type": "Mammal",
+  "class": "Skirmisher",
+  "size": "Medium",
+  "biome": "JUNGLE",
+  "habitat": "Congo Basin rainforest south of the Congo River",
+  "diet": ["fruit", "leaves", "invertebrates", "duikers"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A slim, long-legged great ape of the Congo rainforest, highly intelligent and known for female coalitions that keep males in check.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rainforest Canopy",
+    "combat_style": "Skirmisher",
+    "strengths": ["Elite intelligence", "Grasping climbing control", "Coalition support"],
+    "weaknesses": ["Light build", "Small canines", "Tends to de-escalate"]
+  }
+}

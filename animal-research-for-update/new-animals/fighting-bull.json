@@ -1,0 +1,20 @@
+{
+  "name": "Fighting Bull",
+  "scientific_name": "Bos taurus",
+  "type": "Mammal",
+  "class": "Charger",
+  "size": "Large",
+  "biome": "SAVANNA",
+  "habitat": "Free-range pasture estates in Iberia, France and Latin America",
+  "diet": ["grasses", "pasture herbs", "hay"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The Lidia breed of Iberian cattle, a half-tonne bull bred for aggression that charges repeatedly and gores with long horns.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open Pasture",
+    "combat_style": "Charger",
+    "strengths": ["Relentless bred aggression", "Hook-and-lift horn strike", "Explosive acceleration"],
+    "weaknesses": ["Tires quickly", "No armor on flanks", "Lighter than wild buffalo"]
+  }
+}

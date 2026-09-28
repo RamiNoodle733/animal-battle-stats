@@ -70,6 +70,8 @@ EXTRA = {
     "fisher": {"only": True, "categories": ["Pekania pennanti", "Martes pennanti"], "search": ["Pekania pennanti", "Martes pennanti", "fisher Pekania", "fisher cat animal"], "files": 70},
     "swordfish": {"search": ["swordfish swimming", "Xiphias gladius underwater", "swordfish jumping"], "prefer": "swim|underwater|jump|leap|free|live", "files": 60},
     "bushmaster": {"only": True, "categories": ["Lachesis muta", "Lachesis muta muta"], "search": ["Lachesis muta", "Lachesis muta snake"], "files": 60},
+    "goliath-grouper": {"only": True, "categories": ["Epinephelus itajara"], "search": ["Epinephelus itajara", "Atlantic goliath grouper", "goliath grouper Florida"], "prefer": "itajara|goliath", "files": 70},
+    "indian-rhinoceros": {"search": ["Rhinoceros unicornis zoo", "Indian rhinoceros standing", "greater one-horned rhinoceros Kaziranga"], "files": 90},
     "false-killer-whale": {"search": ["false killer whale underwater", "Pseudorca crassidens"], "prefer": "underwater", "files": 60},
 }
 SKIP_TITLE = re.compile(

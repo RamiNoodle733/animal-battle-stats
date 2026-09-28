@@ -2360,6 +2360,38 @@
       "license": "Public domain",
       "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
       "modified": "Background removed and cropped"
+    },
+    "indian-rhinoceros": {
+      "title": "Greater one-horned rhino.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Greater_one-horned_rhino.jpg",
+      "artist": "WOConservation",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "ocean-sunfish": {
+      "title": "Sunfish In Blue Water.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sunfish_In_Blue_Water.jpg",
+      "artist": "Photoabc",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "oceanic-whitetip-shark": {
+      "title": "Oceanic Whitetip Shark (Carcharhinus longimanus) at Elphinstone Reef, Egypt.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Oceanic_Whitetip_Shark_%28Carcharhinus_longimanus%29_at_Elphinstone_Reef%2C_Egypt.jpg",
+      "artist": "Polygonia c-album",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "pygmy-hippopotamus": {
+      "title": "Choeropsis liberiensis BZG.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Choeropsis_liberiensis_BZG.jpg",
+      "artist": "The original uploader was Rodw at English Wikipedia .",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
     }
   }
 }

@@ -163,7 +163,7 @@ The species is listed as **Vulnerable** on the IUCN Red List, based on a 1996 as
 - Horny beak with no teeth.
 
 ### Human interaction
-It is one of the most common pet tortoises in Europe and North America. A UK veterinary records study found Horsfield's tortoise made up 31.9% of pet tortoises whose species was recorded, second only to Hermann's tortoise. A German survey of more than 1,000 keepers found that a diet of mostly grasses and weeds and outdoor enclosures gave the best health outcomes for *Testudo* tortoises.
+It is one of the most common pet tortoises in Europe and North America. A UK veterinary records study found Horsfield's tortoise made up 31.9% of pet tortoises whose species was recorded, second only to Hermann's tortoise. A survey of 1,075 tortoise keepers found that a diet of mostly grasses and weeds and outdoor enclosures gave the best health outcomes for *Testudo* tortoises.
 
 ### Genuine fun facts
 - Two Russian tortoises were the first animals to fly around the Moon, on Zond 5 in 1968; each weighed only 0.34–0.4 kg before the flight.

@@ -147,7 +147,7 @@ It is an opportunistic predator of insects and other invertebrates, and takes sm
 Wild animals are described as living in loose colonies. Males are aggressive toward other males and court females, recognising sex by skin chemicals.
 
 ### Reproduction and life history
-Females lay clutches of almost always two eggs, several times a season, and can store sperm. Sex depends on incubation temperature: cool (about 26–29 °C) and very warm (34–35 °C) eggs give mostly females, while intermediate temperatures (about 31–33 °C) give males. Maturity is reached at around 18 months in captivity. Hatchlings are banded rather than spotted.
+Females lay clutches of almost always two eggs, several times a season, and can store sperm. Sex depends on incubation temperature: cool (about 26–29 °C) and very warm (34–35 °C) eggs give mostly females, while intermediate temperatures (about 31–33 °C) give males. Maturity is reached at around 18 months. Hatchlings are banded rather than spotted.
 
 ### Conservation
 The species is listed as **Least Concern** on the IUCN Red List. Most pet leopard geckos are captive-bred, so collection pressure on wild populations is lower than for many traded reptiles.

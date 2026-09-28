@@ -2320,6 +2320,46 @@
       "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
       "modified": "Background removed and cropped"
+    },
+    "common-death-adder": {
+      "title": "A female death adder in Smoky Bay, South Australia.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:A_female_death_adder_in_Smoky_Bay%2C_South_Australia.jpg",
+      "artist": "Luke Allen",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "common-eland": {
+      "title": "Pretoria-dieretuin, Taurotragus oryx oryx in wildkamp, a.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pretoria-dieretuin%2C_Taurotragus_oryx_oryx_in_wildkamp%2C_a.jpg",
+      "artist": "JMK",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "ethiopian-wolf": {
+      "title": "Ethiopian wolf side view.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ethiopian_wolf_side_view.jpg",
+      "artist": "Laika ac",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "giant-forest-hog": {
+      "title": "Hylochoerus meinertzhageni2.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Hylochoerus_meinertzhageni2.jpg",
+      "artist": "michell zappa from São Paulo, Brazil",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "goblin-shark": {
+      "title": "Goblin shark (Mitsukurina owstoni).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Goblin_shark_%28Mitsukurina_owstoni%29.jpg",
+      "artist": "Michigan State University/USFWS",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
     }
   }
 }

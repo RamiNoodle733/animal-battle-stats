@@ -1,0 +1,20 @@
+{
+  "name": "Canary",
+  "scientific_name": "Serinus canaria",
+  "type": "Bird",
+  "class": "Bard",
+  "size": "Tiny",
+  "biome": "FOREST",
+  "habitat": "Laurel and pine forest, orchards and gardens of the Canary Islands, Azores and Madeira",
+  "diet": ["weed and grass seeds", "figs", "small insects"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A small finch from the Atlantic islands, bred for centuries into the world's best-known songbird pet. Famous for its learned song and as the miners' gas alarm.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Island woodland and gardens",
+    "combat_style": "Bard",
+    "strengths": ["Agile in cover", "Complex learned song", "Alert flocking bird"],
+    "weaknesses": ["About 20 g", "No real weapon or armor", "Very sensitive to toxic gases"]
+  }
+}

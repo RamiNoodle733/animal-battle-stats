@@ -68,7 +68,7 @@ Stocky and short-tailed, it moves slowly on the ground and spends much of its ti
 Like other pythons it runs on low energy, aestivating in burrows during the dry season and going long periods between meals. High-output effort is brief.
 
 ### Senses
-Heat-sensing pits along the lips detect warm-bodied prey. Imaging of living ball python pit organs found them much more absorbent of infrared radiation than the surrounding skin. It also relies on tongue-flicking chemical senses and moderate vision.
+Heat-sensing pits along the lips detect warm-bodied prey. Infrared imaging of living ball python pit organs found them significantly more absorptive or emissive of infrared radiation than the surrounding skin. It also relies on tongue-flicking chemical senses and moderate vision.
 
 ### Intelligence and tactics
 Hunting is ambush from cover or burrows, targeted by heat and scent. Behavioural flexibility beyond that is limited.
@@ -148,7 +148,7 @@ It eats mainly small mammals, including Gambian pouched rats, soft-furred and st
 Solitary. It is nocturnal or crepuscular. Males are more often found climbing and females on the ground.
 
 ### Reproduction and life history
-Females lay 3–11 large, leathery eggs and coil around them; the eggs hatch after about 55–60 days, and the young fend for themselves. Males mature at 11–18 months and females at 20–36 months, with body weight as important as age. Parthenogenesis has been confirmed in a pet female.
+Females lay 3–11 large, leathery eggs and care for them until they hatch after about 55–60 days; the young then fend for themselves. Males mature at 11–18 months and females at 20–36 months, with body weight as important as age. Parthenogenesis has been confirmed in a pet female.
 
 ### Conservation
 The species is listed as **Near Threatened** on the IUCN Red List (2022) and is on CITES Appendix II. Wild populations are believed to be declining in most of West Africa, mainly because of collection for the international pet trade, along with hunting for skin, meat and traditional medicine and habitat loss. In southern Togo, 58 interviewed hunters collected 3,000 live ball pythons and 5,000 eggs in 2019 alone for sale to snake ranches.
@@ -214,13 +214,12 @@ In ABS terms the ball python is a small constrictor with modest Attack, low Defe
 | Grace et al., Biosensors and Bioelectronics (1999) | https://pubmed.ncbi.nlm.nih.gov/10028649/ | heat-sensing pits | imaging of living *P. regius* pit organs showed high infrared absorption/emission | High |
 | Di Ianni et al., Genes (2023) | https://doi.org/10.3390/genes14091744 | parthenogenesis | a 10-year-old wild-caught female with no male contact produced embryos of maternal origin only | High |
 | Valdez, Animals (2021) | https://pubmed.ncbi.nlm.nih.gov/33802560/ | pet popularity | ball pythons second only to bearded dragons in search interest; survey respondents often ranked them first | Moderate-high |
-| Luiselli and Angelici, Italian Journal of Zoology (1998), via Wikipedia | https://doi.org/10.1080/11250009809386744 | diet by size and sex | small snakes eat birds, large snakes mammals; males more birds | Moderate; cited, not read directly |
 
 ### Conflicts and uncertainty
 - **Mass:** field maxima near 1.6 kg versus AnAge's 8.9 kg "adult weight"; the AnAge figure is rejected.
 - **Lifespan:** only captive data exist; the canonical 20 years is captive-based.
 - **Speed:** no locomotion measurement.
-- **Diet study:** Luiselli and Angelici's findings are taken from Wikipedia's summary; the DOI was not opened in this run.
+- **Diet study:** the size- and sex-related diet findings (Luiselli and Angelici 1998, Nigeria) are taken from Wikipedia's summary; the paper was not opened in this run.
 
 ## 11. Cross-animal normalization notes
 

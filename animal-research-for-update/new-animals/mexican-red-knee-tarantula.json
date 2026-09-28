@@ -1,0 +1,20 @@
+{
+  "name": "Mexican Red-knee Tarantula",
+  "scientific_name": "Brachypelma hamorii",
+  "type": "Arachnid",
+  "class": "Ambush Predator",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Dry thorn and deciduous forest and scrub of western Mexico's Pacific slope",
+  "diet": ["insects", "other arthropods", "small frogs", "mice"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A calm, long-lived burrowing tarantula of western Mexico, famous as a pet for its orange-banded legs. It flicks barbed hairs at attackers rather than biting.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Dry Thorn Forest Burrows",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Barbed urticating hairs", "Burrow ambush with large fangs", "Regrows lost legs when moulting"],
+    "weaknesses": ["Tiny, fragile body", "Mild venom against vertebrates", "Slow with poor eyesight"]
+  }
+}

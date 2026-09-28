@@ -6,7 +6,7 @@
 - **Scientific name:** *Agapornis roseicollis* (Vieillot, 1818)
 - **Exact animal represented:** the living small African parrot *Agapornis roseicollis* of the dry south-west of Africa, in its wild green form. Pet lovebirds, including the many colour varieties, are the same species and are covered where relevant.
 - **Status:** Living; Least Concern (IUCN).
-- **Canonical combat specimen:** healthy mature adult female, **0.055 kg**, **15.0 cm** total length. Females are slightly heavier than males (ADW), and in courtship the male must wait for the female's approval and approach carefully if she is aggressive.
+- **Canonical combat specimen:** healthy mature adult female, **0.055 kg**, **15.0 cm** total length. Females are slightly heavier than males (ADW) and control courtship, which goes ahead only with their approval.
 - **Sexual dimorphism:** the sexes look almost identical; females are slightly heavier and a little duller in colour, with slightly longer wings (ADW average wingspan 102.6 mm in females versus 99.6 mm in males, as reported there).
 - **Population notes:** two subspecies: *A. r. roseicollis* in Namibia, north-western South Africa and south-western Botswana, and the brighter *A. r. catumbella* in south-western Angola. Feral populations live in and around Phoenix and Tucson, Arizona.
 

@@ -149,9 +149,19 @@ def cutout(photo, session, erase=(), neutral=False, fade=False):
     alpha = np.array(mask.convert("L"))
     # Reviewed picks can blank out boxes (fractions of the photo) that the
     # model keeps with the animal, such as a sign behind a mounted specimen.
+    # A box ending in "light" only blanks bright pixels (a white bird against
+    # a dark animal) so the animal's outline inside the box survives.
     height, width = alpha.shape
-    for x0, y0, x1, y1 in erase:
-        alpha[int(y0 * height):int(y1 * height), int(x0 * width):int(x1 * width)] = 0
+    luminance = None
+    for box in erase:
+        x0, y0, x1, y1 = box[:4]
+        region = (slice(int(y0 * height), int(y1 * height)), slice(int(x0 * width), int(x1 * width)))
+        if len(box) > 4 and box[4] == "light":
+            if luminance is None:
+                luminance = np.array(image.convert("L"))
+            alpha[region][luminance[region] > 140] = 0
+        else:
+            alpha[region] = 0
     alpha = clean_mask(alpha)
     if fade:
         alpha = fade_edges(alpha)

@@ -1,0 +1,20 @@
+{
+  "name": "Red-eared Slider",
+  "scientific_name": "Trachemys scripta elegans",
+  "type": "Reptile",
+  "class": "Tank",
+  "size": "Tiny",
+  "biome": "WETLANDS",
+  "habitat": "Warm ponds, lakes, swamps and slow rivers of the south-central US",
+  "diet": ["aquatic plants", "algae", "insects and crayfish", "small fish"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A small freshwater turtle with a red stripe behind each eye. It can survive weeks without oxygen and is now the world's most traded reptile.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Ponds and basking logs",
+    "combat_style": "Tank",
+    "strengths": ["Retreat shell", "Survives without oxygen", "Warning colours"],
+    "weaknesses": ["Tiny beak", "Slow on land", "Many predators"]
+  }
+}

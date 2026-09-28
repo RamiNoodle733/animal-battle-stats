@@ -1,0 +1,20 @@
+{
+  "name": "Betta Fish",
+  "scientific_name": "Betta splendens",
+  "type": "Fish",
+  "class": "Berserker",
+  "size": "Tiny",
+  "biome": "WETLANDS",
+  "habitat": "Shallow marshes, floodplains, canals and rice paddies of Thailand and mainland Southeast Asia",
+  "diet": ["mosquito larvae", "zooplankton", "small crustaceans", "fallen insects"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The Siamese fighting fish, a tiny air-breathing paddy fish bred for fighting for centuries. Fierce toward rivals, but only about 2 grams.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Shallow Rice Paddies",
+    "combat_style": "Berserker",
+    "strengths": ["Relentless territorial aggression", "Breathes air in oxygen-poor water", "Quick close-range strikes"],
+    "weaknesses": ["Tiny body mass", "Weak bite", "Long fins slow domestic forms"]
+  }
+}

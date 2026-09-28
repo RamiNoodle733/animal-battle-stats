@@ -136,7 +136,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 ## 8. Expanded profile
 
 ### Habitat and range
-The grey parrot lives in the forest belt of central and West Africa, from the eastern border of Côte d'Ivoire through Ghana, Nigeria, Cameroon and the Congo Basin to Kenya, plus the island of Príncipe (ADW; Wikipedia). It prefers moist lowland forest but also uses forest edges, clearings, gallery forest, mangroves, wooded savanna, farmland and gardens, up to 2,200 m (ADW; World Parrot Trust). Escaped or released birds have been seen in South Florida since at least 1984, without evidence of breeding (Wikipedia).
+The grey parrot lives in the forest belt of central and West Africa, from the eastern border of Côte d'Ivoire through Ghana, Cameroon, Gabon and the Congo Basin to Uganda and Kenya, plus the island of Príncipe (ADW; Wikipedia). It prefers moist lowland forest but also uses forest edges, clearings, gallery forest, mangroves, wooded savanna, farmland and gardens, up to 2,200 m (ADW; World Parrot Trust). Escaped or released birds have been seen in South Florida since at least 1984, without evidence of breeding (Wikipedia).
 
 ### Diet and ecology
 Mainly fruit and nuts, especially oil-palm, supplemented with seeds, leaves, bark, flowers and some insects (ADW). The grey parrot is partly a ground feeder and regularly visits natural forest clearings: at one Congolese clearing an average of 40 birds arrived each day, perched and called in the surrounding trees, then landed to feed, drink and interact, with arrival times shaped by weather and season (Fastré et al. 2024). Natural predators include palm-nut vultures and several raptors (Wikipedia).

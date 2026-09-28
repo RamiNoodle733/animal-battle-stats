@@ -1,0 +1,20 @@
+{
+  "name": "Corn Snake",
+  "scientific_name": "Pantherophis guttatus",
+  "type": "Reptile",
+  "class": "Constrictor",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Southeastern US pine flatwoods, forest openings and fields",
+  "diet": ["rodents", "birds and eggs", "lizards and frogs"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A slender, brightly patterned rat snake from the southeastern United States. It climbs trees, prowls rodent burrows at night and kills prey by constriction.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Forest edges and burrows",
+    "combat_style": "Constrictor",
+    "strengths": ["Skilled climber", "Constricting coils", "Quick learner"],
+    "weaknesses": ["Small, slender body", "No venom or armor", "Many predators"]
+  }
+}

@@ -41,7 +41,7 @@
 - **Canonical `bite_force_psi`: 0.0.**
 
 ### Defensive structure
-- No armor. Dense, hair-like body feathers. The male's green plumage hides him in the canopy; the female relies on her hollow.
+- No armor. The male's green plumage hides him in the canopy; the female relies on her hollow.
 
 ## 3. Proposed canonical factual fields
 
@@ -65,7 +65,7 @@ The bill is the only weapon. No force measurement exists, but eclectus parrots a
 Fights between females happen at nest hollows high in emergent rainforest trees. A female displays from the hollow entrance, showing her red underwings (ADW). Bites and grappling with the feet at the hollow are the likely means of combat; no detailed description of fighting technique was located.
 
 ### Locomotion and maneuverability
-A stocky, short-tailed canopy flier and climber. Males travel widely to find food; they have been observed foraging over a range of about 30 km² and flying up to 7.2 km to mate with females (Wikipedia, citing Heinsohn). Eclectus parrots rarely cross wide stretches of open sea. Agility is scored good but below longer-tailed, more acrobatic parrots.
+A stocky, short-tailed canopy flier and climber. Males travel widely to find food; they have been observed foraging over a range of about 30 km² and flying up to 7.2 km to mate with females (Wikipedia, citing Heinsohn). They are not known to cross the roughly 110 km (70 mile) sea gap between Cape York and New Guinea (Wikipedia). Agility is scored good but below longer-tailed, more acrobatic parrots.
 
 ### Endurance
 Males feed the female and chicks on a regular morning and afternoon schedule for months, which requires repeated foraging flights. No tracking of daily distance was located.

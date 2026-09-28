@@ -66,7 +66,7 @@ It is a sturdy, semi-arboreal lizard that runs on the ground and climbs onto bra
 Like other lizards it works in short bursts and spends long periods basking. Activity depends on body temperature.
 
 ### Senses
-Good colour vision with a high-acuity retina, and a parietal "third eye" on the top of the head that senses light; a 2020 study found light-dependent magnetic sensing via the parietal eye. Vision dominates prey detection.
+Good colour vision and a parietal "third eye" on the top of the head that senses light; a 2020 study found light-dependent magnetic sensing via the parietal eye. Vision dominates prey detection.
 
 ### Intelligence and tactics
 This is one of the best-studied lizards for cognition. Kis et al. (2015) showed that bearded dragons can learn to open a trap door by watching another dragon do it, the first evidence of imitation in a reptile. A 2025 study of inhibitory control found bearded dragons outperformed Hermann's tortoises, though both scored lower than most mammals and birds. Social signals include head bobbing, arm waving and beard displays.
@@ -109,7 +109,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 | Endurance | **40.0** | burst activity limited by body temperature |
 | Recovery | **38.0** | no tail regeneration or other special healing |
 | Tactics | **50.0** | dominance signalling, bluff displays and learning by watching others |
-| Senses | **62.0** | good colour vision, high-acuity retina and a light-sensing parietal eye |
+| Senses | **62.0** | good colour vision and a light-sensing parietal eye |
 | Ferocity | **40.0** | males fight rivals and it stands its ground with threat displays, but it avoids real fights with predators |
 | Abilities | **55.0** | beard threat display and rapid colour change for heat and signalling |
 
@@ -137,7 +137,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 ## 8. Expanded profile
 
 ### Habitat and range
-The central bearded dragon lives in semi-arid and arid woodland, scrub, grassland and rocky desert across inland eastern Australia, from eastern South Australia and the southeastern Northern Territory through inland Queensland, New South Wales and northwestern Victoria. It tolerates cleared farmland and perches on fence posts and even picnic tables. It retreats to shade or burrows in the hottest part of the day.
+The central bearded dragon lives in semi-arid and arid woodland, scrub, grassland and rocky desert across inland eastern Australia, from eastern South Australia and the southeastern Northern Territory through inland Queensland, New South Wales and Victoria. It tolerates cleared farmland and perches on fence posts and even picnic tables. It retreats to shade or burrows in the hottest part of the day.
 
 ### Diet and ecology
 It is an opportunistic omnivore. In a stomach-content study of 14 free-roaming adults, animal food made up 61% of dry matter, termite alates made up 95% of all prey items, and plants made up 16% of dry matter. Wikipedia's summary of the same work states plant matter was 54% of the diet by volume, so the plant share depends on how it is measured. Adults also eat beetles, grasshoppers, caterpillars, flowers and the occasional small lizard or rodent.

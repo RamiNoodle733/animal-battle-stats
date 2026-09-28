@@ -104,7 +104,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 | Substat | Score | Justification |
 |---|---:|---|
 | Size | **75.5** | 1.3 t and 5.5 m; similar to the narwhal (1.2 t, 75.0), far below the 5 t orca |
-| Raw Power | **70.0** | a fast, muscular 1.3 t predator; above the narwhal (67.0), below the leopard seal-to-orca jump |
+| Raw Power | **70.0** | a fast, muscular 1.3 t predator; above the narwhal (67.0), far below the 5 t orca (94.0) |
 | Weaponry | **72.0** | thick conical teeth used to tear large fish and attack whales; above the leopard seal (70.0), far below the orca (89.0) |
 | Protection | **46.0** | blubber and muscle, no armor |
 | Toughness | **62.0** | robust large dolphin; survives hard pursuit and deep dives |
@@ -123,7 +123,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 |---|---:|---|
 | **Attack** | **72.0** | a fast 1.3 t predator with thick teeth that hunts large fish and attacks whales; above the leopard seal (70.0), far below the orca (94.0) |
 | **Defense** | **57.0** | tonne-scale mass and blubber but no armor; near the narwhal (59.0) |
-| **Agility** | **83.0** | 8 m/s bursts, sharp turns and full breaches for a 5.5 m animal; between the orca (84.0) and the smaller bottlenose dolphin (88.0) in practice |
+| **Agility** | **83.0** | 8 m/s bursts, sharp turns and full breaches for a 5.5 m animal; just below the orca (84.0) and the smaller bottlenose dolphin (88.0) |
 | **Stamina** | **82.0** | very deep dives and wide-ranging travel; between the bottlenose dolphin (76.0) and orca (88.0) |
 | **Intelligence** | **88.0** | strong social bonds, prey sharing and coordinated hunts of larger animals |
 | **Special** | **87.0** | echolocation with active hearing control; below the bottlenose dolphin and orca |

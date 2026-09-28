@@ -1,0 +1,20 @@
+{
+  "name": "Humboldt Squid",
+  "scientific_name": "Dosidicus gigas",
+  "type": "Cephalopod",
+  "class": "Pack Hunter",
+  "size": "Medium",
+  "biome": "OCEAN",
+  "habitat": "Eastern Pacific open ocean, 200 to 700 m deep by day",
+  "diet": ["small fish", "crustaceans", "other squid"],
+  "isNocturnal": true,
+  "isSocial": true,
+  "description": "A large, fast squid of the eastern Pacific that hunts in shoals and flashes red and white, earning the name red devil.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Deep Ocean",
+    "combat_style": "Pack Hunter",
+    "strengths": ["Toothed tentacle strike", "Very hard beak", "Fast jet propulsion"],
+    "weaknesses": ["Soft unarmored body", "Small absolute size", "Short lifespan"]
+  }
+}

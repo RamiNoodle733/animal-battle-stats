@@ -1,0 +1,20 @@
+{
+  "name": "Japanese Spider Crab",
+  "scientific_name": "Macrocheira kaempferi",
+  "type": "Crustacean",
+  "class": "Tank",
+  "size": "Medium",
+  "biome": "OCEAN",
+  "habitat": "Deep seafloor off Japan, 50 to 600 m",
+  "diet": ["carrion", "small invertebrates", "algae"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The arthropod with the widest leg span on Earth, a slow, gentle scavenger of the deep seafloor off Japan.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Deep Seafloor",
+    "combat_style": "Tank",
+    "strengths": ["Record leg span and reach", "Spiny armored carapace", "Regrows lost legs"],
+    "weaknesses": ["Weak claws", "Very slow and cannot swim", "Fragile legs"]
+  }
+}

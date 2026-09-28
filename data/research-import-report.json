@@ -1,5 +1,5 @@
 {
-  "researched": 295,
+  "researched": 317,
   "legacy": 0,
   "rejected": 0,
   "animals": {
@@ -687,10 +687,8 @@
       "added": true
     },
     "african-grey-parrot": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "africanized-honey-bee": {
       "status": "researched",
@@ -737,6 +735,10 @@
       "added": true
     },
     "bengal-tiger": {
+      "status": "researched",
+      "added": true
+    },
+    "betta-fish": {
       "status": "researched",
       "added": true
     },
@@ -787,12 +789,16 @@
       "added": true
     },
     "budgerigar": {
+      "status": "researched",
+      "added": true
+    },
+    "bushmaster": {
       "status": "pending",
       "problems": [
         "no cutout photo yet"
       ]
     },
-    "bushmaster": {
+    "canary": {
       "status": "pending",
       "problems": [
         "no cutout photo yet"
@@ -809,18 +815,18 @@
       ]
     },
     "cockatiel": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "common-death-adder": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "common-eland": {
+      "status": "researched",
+      "added": true
+    },
+    "corn-snake": {
       "status": "pending",
       "problems": [
         "no cutout photo yet"
@@ -845,10 +851,8 @@
       "added": true
     },
     "ethiopian-wolf": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "eurasian-eagle-owl": {
       "status": "researched",
@@ -877,10 +881,8 @@
       ]
     },
     "fisher": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "flying-fox": {
       "status": "researched",
@@ -903,10 +905,8 @@
       "added": true
     },
     "giant-forest-hog": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "giant-otter": {
       "status": "researched",
@@ -917,16 +917,12 @@
       "added": true
     },
     "goblin-shark": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "goldfish": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "goliath-grouper": {
       "status": "pending",
@@ -987,10 +983,8 @@
       "added": true
     },
     "indian-rhinoceros": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "inland-taipan": {
       "status": "researched",
@@ -1046,6 +1040,10 @@
       "status": "researched",
       "added": true
     },
+    "mexican-red-knee-tarantula": {
+      "status": "researched",
+      "added": true
+    },
     "mosquito": {
       "status": "researched",
       "added": true
@@ -1059,16 +1057,12 @@
       "added": true
     },
     "ocean-sunfish": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "oceanic-whitetip-shark": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "pallas-s-cat": {
       "status": "researched",
@@ -1083,10 +1077,8 @@
       "added": true
     },
     "pygmy-hippopotamus": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "rabbit": {
       "status": "pending",
@@ -1095,6 +1087,10 @@
       ]
     },
     "red-deer": {
+      "status": "researched",
+      "added": true
+    },
+    "red-eared-slider": {
       "status": "pending",
       "problems": [
         "no cutout photo yet"
@@ -1111,10 +1107,8 @@
       "added": true
     },
     "russell-s-viper": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "russian-tortoise": {
       "status": "pending",
@@ -1127,16 +1121,12 @@
       "added": true
     },
     "saw-scaled-viper": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "south-american-coati": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "southern-ground-hornbill": {
       "status": "researched",
@@ -1155,10 +1145,8 @@
       "added": true
     },
     "striped-hyena": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "sun-conure": {
       "status": "pending",
@@ -1177,10 +1165,8 @@
       ]
     },
     "takin": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "thresher-shark": {
       "status": "pending",
@@ -1229,5 +1215,5 @@
       ]
     }
   },
-  "pending": 45
+  "pending": 28
 }

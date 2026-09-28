@@ -2472,6 +2472,30 @@
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
       "modified": "Background removed and cropped"
+    },
+    "cockatiel": {
+      "title": "Nymphicus hollandicus -zoo-8a.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nymphicus_hollandicus_-zoo-8a.jpg",
+      "artist": "Abhinaba Basu from Redmond, United States",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "goldfish": {
+      "title": "2018-05-13 Goldfish, Cromer, Norfolk (2).JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:2018-05-13_Goldfish%2C_Cromer%2C_Norfolk_%282%29.JPG",
+      "artist": "Kolforn ( Kolforn ) I'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope.",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "mexican-red-knee-tarantula": {
+      "title": "Brachypelma smithi 2009 G04.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Brachypelma_smithi_2009_G04.jpg",
+      "artist": "George Chernilevsky",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
     }
   }
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.6.0 — 2026-09-28
+
+- 22 new animals join the roster, which grows from 295 to 317: African Grey Parrot, Betta Fish, Budgerigar, Cockatiel, Common Death Adder, Common Eland, Ethiopian Wolf, Fisher, Giant Forest Hog, Goblin Shark, Goldfish, Indian Rhinoceros, Mexican Red-knee Tarantula, Ocean Sunfish, Oceanic Whitetip Shark, Pygmy Hippopotamus, Red Deer, Russell's Viper, Saw-scaled Viper, South American Coati, Striped Hyena and Takin.
+- The first pets arrive: parrots, a budgie and a cockatiel, a goldfish, a betta and a red-knee tarantula, each researched as an animal (wild range, measurements, measured bite force where one exists) like the rest of the roster. More pets are on the way.
+- Every new animal has a full research profile and a credited photo of an adult animal from Wikimedia Commons.
+
 ## 3.5.0 — 2026-09-28
 
 - 22 new animals join the roster, which grows from 273 to 295: Aardwolf, American Pit Bull Terrier, Basking Shark, Belgian Malinois, Binturong, Black-footed Cat, Black-necked Spitting Cobra, Boomslang, Brown Hyena, Caucasian Shepherd Dog, German Shepherd, Giant Otter, Greyhound, Jaguarundi, Kea, Martial Eagle, Northern Goshawk, Pallas's Cat, Rottweiler, Sand Cat, Southern Ground Hornbill and Wedge-tailed Eagle. Each has a full research profile and a credited photo of an adult animal from Wikimedia Commons.

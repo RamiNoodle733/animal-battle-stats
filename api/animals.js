@@ -147,6 +147,9 @@ async function handleNotification(req, res) {
                 ? 'site_leave'
                 : 'site_visit';
         const limit = NOTIFY_RATE_LIMITS[notificationType] || NOTIFY_RATE_LIMITS.lifecycle;
+        // The rate limit and the activity log are Mongo queries; without a
+        // connection they buffer until they time out and nothing is sent.
+        await connectToDatabase();
         if (!await enforceRateLimit(res, {
             ...limit,
             identity: requestIdentity(req, authenticatedUser?.id)

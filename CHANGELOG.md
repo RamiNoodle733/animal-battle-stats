@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.4.1 — 2026-09-28
+
+- Discord gets a message for every site visit again, with the visitor's page, place, device and where they came from, and the Community page's World stats (visits, page views, the globe, activity by day, top pages and places, the live event stream) count new visits again. Since the September 24 rebuild, every page view was dropped before it was saved.
+
 ## 3.4.0 — 2026-09-28
 
 - 48 new animals join the roster, which grows from 225 to 273: Aardvark, Africanized Honey Bee, Alligator Snapping Turtle, Arapaima, Asian Elephant, Bearded Vulture, Bengal Tiger, Black Caiman, Blue-Ringed Octopus, Bombardier Beetle, Bonobo, Brazilian Wandering Spider, Crowned Eagle, Eastern Brown Snake, Elephant Seal, Eurasian Eagle-Owl, Fighting Bull, Flying Fox, Fossa, Gaur, Gharial, Giant Panda, Goliath Tigerfish, Greenland Shark, Gyrfalcon, House Cat, Humpback Whale, Indian Cobra, Inland Taipan, Kangal, Kodiak Bear, Leopard Seal, Mako Shark, Markhor, Mosquito, Nile Crocodile, Philippine Eagle, Portuguese Man o' War, Sperm Whale, Steller's Sea Eagle, Stonefish, Sydney Funnel-web Spider, Tibetan Mastiff, Titan Beetle, Vampire Bat, Water Buffalo, Wels Catfish and Whale Shark.

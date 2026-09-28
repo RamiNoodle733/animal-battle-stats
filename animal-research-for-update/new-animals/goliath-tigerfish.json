@@ -1,0 +1,20 @@
+{
+  "name": "Goliath Tigerfish",
+  "scientific_name": "Hydrocynus goliath",
+  "type": "Fish",
+  "class": "Hunter",
+  "size": "Medium",
+  "biome": "WETLANDS",
+  "habitat": "Fast-flowing Congo River channels, Lake Tanganyika",
+  "diet": ["fish", "smaller tigerfish", "tilapia"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The largest African tigerfish, a Congo River predator armed with 32 large dagger-like teeth.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Fast River",
+    "combat_style": "Hunter",
+    "strengths": ["Dagger-like interlocking teeth", "Fast strikes in strong currents", "Rapid tooth replacement"],
+    "weaknesses": ["No armor", "Modest body mass", "Needs well-oxygenated water"]
+  }
+}

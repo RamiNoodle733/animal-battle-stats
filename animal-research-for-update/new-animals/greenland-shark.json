@@ -1,0 +1,20 @@
+{
+  "name": "Greenland Shark",
+  "scientific_name": "Somniosus microcephalus",
+  "type": "Fish",
+  "class": "Ambush Predator",
+  "size": "Large",
+  "biome": "ARCTIC",
+  "habitat": "Cold, deep North Atlantic and Arctic seas",
+  "diet": ["seals", "fish and squid", "carrion"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A huge, slow Arctic shark that can live for centuries and cuts round chunks from seals with a rolling bite.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Deep Arctic Sea",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Seal-cutting roll bite", "Cold and deep-water tolerance", "Stealthy slow approach"],
+    "weaknesses": ["Slowest fish measured", "Almost no acceleration", "No armor"]
+  }
+}

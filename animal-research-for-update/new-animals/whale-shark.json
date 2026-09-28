@@ -1,0 +1,20 @@
+{
+  "name": "Whale Shark",
+  "scientific_name": "Rhincodon typus",
+  "type": "Fish",
+  "class": "Titan",
+  "size": "Colossal",
+  "biome": "OCEAN",
+  "habitat": "Warm open ocean and coastal plankton hotspots",
+  "diet": ["plankton and krill", "fish eggs", "small schooling fish"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The largest fish alive, a slow, gentle filter feeder protected by extremely thick skin and even armored eyes.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Titan",
+    "strengths": ["Largest fish alive", "Very thick denticle-armored skin", "Deep-diving endurance"],
+    "weaknesses": ["No real weapons", "Very slow swimmer", "Docile, never fights back"]
+  }
+}

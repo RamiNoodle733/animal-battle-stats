@@ -79,6 +79,9 @@ def download(slug, key, candidate):
     if candidate.get("width", 0) > 1920 and "/960px-" in thumb:
         urls += [thumb.replace("/960px-", "/1920px-"), thumb.replace("/960px-", "/1280px-")]
     urls.append(candidate["url"])
+    # Originals are rate-limited harder than standard thumbnails.
+    if 1280 < candidate.get("width", 0) <= 1920 and "/960px-" in thumb:
+        urls.append(thumb.replace("/960px-", "/1280px-"))
     last_error = None
     for url in urls:
         try:

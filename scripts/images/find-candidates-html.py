@@ -59,6 +59,13 @@ EXTRA = {
     "bowhead-whale": {"search": ["bowhead whale underwater", "Balaena mysticetus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
     "northern-goshawk": {"categories": ["Accipiter gentilis"], "search": ["Northern goshawk adult"]},
     "wild-turkey": {"only": True, "categories": ["Meleagris gallopavo (male)", "Meleagris gallopavo silvestris"], "search": ["wild turkey tom", "wild turkey strutting", "Meleagris gallopavo male displaying", "gobbler turkey"], "prefer": "tom|male|strut|gobbler|display", "files": 70},
+    "russian-tortoise": {"categories": ["Agrionemys horsfieldii"], "search": ["Russian tortoise", "Agrionemys horsfieldii"]},
+    "rabbit": {"search": ["domestic rabbit", "European rabbit Oryctolagus cuniculus"]},
+    "fancy-rat": {"only": True, "categories": ["Pet rats"], "search": ["fancy rat", "pet rat"]},
+    "maine-coon": {"only": True, "categories": ["Maine Coon cats"], "search": ["Maine Coon cat"]},
+    "mexican-red-knee-tarantula": {"categories": ["Brachypelma smithi"], "search": ["Mexican redknee tarantula", "Brachypelma smithi"]},
+    "betta-fish": {"search": ["Siamese fighting fish", "betta splendens male"], "prefer": "male"},
+    "goldfish": {"search": ["goldfish aquarium"]},
     "false-killer-whale": {"search": ["false killer whale underwater", "Pseudorca crassidens"], "prefer": "underwater", "files": 60},
 }
 SKIP_TITLE = re.compile(

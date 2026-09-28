@@ -1,0 +1,20 @@
+{
+  "name": "Eurasian Eagle-Owl",
+  "scientific_name": "Bubo bubo",
+  "type": "Bird",
+  "class": "Stealth",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Woodland edges and open country across Europe and Asia",
+  "diet": ["rats and voles", "rabbits and hares", "hedgehogs", "other birds of prey"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "One of the largest owls in the world. It hunts at night from high perches and takes prey from rats to hares, hedgehogs and other birds of prey.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Night woodland edges",
+    "combat_style": "Stealth",
+    "strengths": ["Night ambush", "Kills other raptors", "Powerful talons"],
+    "weaknesses": ["Low body mass", "No armor", "Vulnerable while feeding on the ground"]
+  }
+}

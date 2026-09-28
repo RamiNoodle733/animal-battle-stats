@@ -1,0 +1,20 @@
+{
+  "name": "Vampire Bat",
+  "scientific_name": "Desmodus rotundus",
+  "type": "Mammal",
+  "class": "Stealth",
+  "size": "Tiny",
+  "biome": "JUNGLE",
+  "habitat": "Tropical forests, farmland, caves",
+  "diet": ["cattle blood", "mammal blood", "bird blood"],
+  "isNocturnal": true,
+  "isSocial": true,
+  "description": "A tiny blood-feeding bat of the American tropics. It finds warm skin with a heat-sensing nose and feeds quietly from sleeping animals.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Tropical night",
+    "combat_style": "Stealth",
+    "strengths": ["Infrared heat-sensing nose", "Anticoagulant saliva", "Runs and leaps into flight"],
+    "weaknesses": ["Tiny and fragile", "No damaging weapon", "Starves within days without blood"]
+  }
+}

@@ -2448,6 +2448,30 @@
       "license": "Public domain",
       "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
       "modified": "Background removed and cropped"
+    },
+    "african-grey-parrot": {
+      "title": "Psittacus erithacus qtl1.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Psittacus_erithacus_qtl1.jpg",
+      "artist": "Quartl",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "betta-fish": {
+      "title": "Bojownik syjamski.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bojownik_syjamski.jpg",
+      "artist": "Henryk Niestrój",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "budgerigar": {
+      "title": "Budgerigar. - Flickr - Laurie R B.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Budgerigar._-_Flickr_-_Laurie_R_B.jpg",
+      "artist": "Laurie Boyle from Perth Western Australia, Australia",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
     }
   }
 }

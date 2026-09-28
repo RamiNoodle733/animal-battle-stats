@@ -1,0 +1,20 @@
+{
+  "name": "Striped Hyena",
+  "scientific_name": "Hyaena hyaena",
+  "type": "Mammal",
+  "class": "Opportunist",
+  "size": "Medium",
+  "biome": "DESERT",
+  "habitat": "Arid scrub, semi-desert, rocky hills and ravines",
+  "diet": ["carrion", "bones", "small animals", "fruit"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A shaggy, night-roaming hyena of Africa and Asia that cracks bones left by other predators and raises a long mane to look bigger.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Arid Scrubland",
+    "combat_style": "Opportunist",
+    "strengths": ["Bone-cracking bite", "Tough, robust build", "Long nightly endurance"],
+    "weaknesses": ["Slow and unagile", "Outmatched by big cats", "Tends to feign death"]
+  }
+}

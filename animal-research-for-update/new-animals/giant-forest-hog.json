@@ -1,0 +1,20 @@
+{
+  "name": "Giant Forest Hog",
+  "scientific_name": "Hylochoerus meinertzhageni",
+  "type": "Mammal",
+  "class": "Charger",
+  "size": "Medium",
+  "biome": "JUNGLE",
+  "habitat": "African tropical and montane forests, forest edges",
+  "diet": ["grasses", "roots", "carrion"],
+  "isNocturnal": true,
+  "isSocial": true,
+  "description": "The world's largest wild pig, a shaggy black forest boar that rams heads hard enough to crack skulls. Boars may charge without warning.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Tropical Forest",
+    "combat_style": "Charger",
+    "strengths": ["Skull-ramming charge", "Flared tusks", "Fierce temper"],
+    "weaknesses": ["No armor", "Short-range attacker", "Stands at bay when cornered"]
+  }
+}

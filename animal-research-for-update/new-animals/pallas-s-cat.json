@@ -1,0 +1,20 @@
+{
+  "name": "Pallas's Cat",
+  "scientific_name": "Otocolobus manul",
+  "type": "Mammal",
+  "class": "Stealth",
+  "size": "Small",
+  "biome": "MOUNTAINS",
+  "habitat": "Cold rocky montane steppe and scree",
+  "diet": ["pikas", "voles", "gerbils", "small birds"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A stocky, thick-furred wild cat of Central Asia's cold mountains that ambushes pikas from behind rocks. It hides rather than runs and is weak in absolute combat terms.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rocky Mountain Steppe",
+    "combat_style": "Stealth",
+    "strengths": ["Densest fur of any cat", "Rock camouflage", "Patient burrow ambush"],
+    "weaknesses": ["Poor runner", "Small body mass", "Exposed in open ground"]
+  }
+}

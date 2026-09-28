@@ -1,0 +1,20 @@
+{
+  "name": "Oceanic Whitetip Shark",
+  "scientific_name": "Carcharhinus longimanus",
+  "type": "Fish",
+  "class": "Hunter",
+  "size": "Large",
+  "biome": "OCEAN",
+  "habitat": "Open tropical and warm-temperate oceans",
+  "diet": ["tunas and other ocean fish", "squid", "sea turtles and seabirds", "whale carrion"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A bold open-ocean shark with long, white-tipped paddle fins and serrated teeth that cruises slowly to save energy, then strikes in bursts.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Hunter",
+    "strengths": ["Serrated tearing bite", "Relentless persistence", "Energy-saving ocean endurance"],
+    "weaknesses": ["No armor", "Slow routine cruising", "Outsized by the biggest sharks"]
+  }
+}

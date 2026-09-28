@@ -1,0 +1,20 @@
+{
+  "name": "Goliath Grouper",
+  "scientific_name": "Epinephelus itajara",
+  "type": "Fish",
+  "class": "Ambush Predator",
+  "size": "Large",
+  "biome": "OCEAN",
+  "habitat": "Warm Atlantic reefs, wrecks and mangrove coasts",
+  "diet": ["spiny lobsters and crabs", "stingrays and reef fish", "octopus", "young sea turtles"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The Atlantic's largest grouper, a massive ambusher that guards wrecks with a booming call and swallows prey whole.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Reef and Wreck",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Huge engulfing gulp", "Massive, robust body", "Booming territorial warning"],
+    "weaknesses": ["Slow swimmer", "No cutting teeth", "Stays near home sites"]
+  }
+}

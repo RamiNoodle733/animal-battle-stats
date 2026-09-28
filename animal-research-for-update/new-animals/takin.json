@@ -1,0 +1,20 @@
+{
+  "name": "Takin",
+  "scientific_name": "Budorcas taxicolor",
+  "type": "Mammal",
+  "class": "Mountain Tank",
+  "size": "Large",
+  "biome": "MOUNTAINS",
+  "habitat": "Himalayan and Chinese mountain forests, alpine meadows",
+  "diet": ["leaves", "bamboo shoots", "grasses", "flowers"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A stocky mountain bovid of the Himalayas and western China with thick swept-back horns and an oily, weatherproof coat. Bhutan's national animal.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Mountain Forest",
+    "combat_style": "Mountain Tank",
+    "strengths": ["Stocky, heavy frame", "Sure-footed climber", "Weatherproof coat"],
+    "weaknesses": ["No armor", "Short horns for its size", "Prefers hiding to fighting"]
+  }
+}

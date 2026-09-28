@@ -1,0 +1,20 @@
+{
+  "name": "Boomslang",
+  "scientific_name": "Dispholidus typus",
+  "type": "Reptile",
+  "class": "Venomous Hunter",
+  "size": "Small",
+  "biome": "SAVANNA",
+  "habitat": "Savanna woodland, karoo scrub and lowland forest",
+  "diet": ["chameleons", "tree lizards", "nestling birds and eggs", "frogs"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A slender, sharp-eyed African tree snake with rear fangs. Its tiny doses of venom cause deadly bleeding hours after a bite.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Tree canopy",
+    "combat_style": "Venomous Hunter",
+    "strengths": ["Potent clotting venom", "Keen eyesight", "Agile climber"],
+    "weaknesses": ["Rear fangs need a held bite", "Slow-acting venom", "Light, fragile body"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Goblin Shark",
+  "scientific_name": "Mitsukurina owstoni",
+  "type": "Fish",
+  "class": "Ambush Predator",
+  "size": "Large",
+  "biome": "OCEAN",
+  "habitat": "Deep continental slopes, canyons and seamounts",
+  "diet": ["squid and octopus", "deep-water fish", "crabs and shrimps"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A pink, soft-bodied deep-sea shark whose jaws shoot forward faster and farther than any other shark's to snatch prey in the dark.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Deep Sea",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Slingshot projecting jaws", "Electroreceptive snout", "Deep-water darkness"],
+    "weaknesses": ["Soft, flabby body", "Weak bite leverage", "Slow swimmer"]
+  }
+}

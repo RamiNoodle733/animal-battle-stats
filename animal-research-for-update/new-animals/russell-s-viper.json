@@ -1,0 +1,20 @@
+{
+  "name": "Russell's Viper",
+  "scientific_name": "Daboia russelii",
+  "type": "Reptile",
+  "class": "Assassin",
+  "size": "Small",
+  "biome": "SAVANNA",
+  "habitat": "Open grassland, scrub and farmland",
+  "diet": ["rodents", "lizards", "land crabs", "scorpions"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A stout, chain-patterned South Asian viper with long fangs and a venom that sets off runaway blood clotting. It warns with a very loud hiss.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Grassland and farmland",
+    "combat_style": "Assassin",
+    "strengths": ["Clot-wrecking venom", "Long hinged fangs", "Forceful strike"],
+    "weaknesses": ["Slow-moving adults", "No armor", "Needs close contact"]
+  }
+}

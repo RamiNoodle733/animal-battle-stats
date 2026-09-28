@@ -1,0 +1,20 @@
+{
+  "name": "Bushmaster",
+  "scientific_name": "Lachesis muta",
+  "type": "Reptile",
+  "class": "Ambush Predator",
+  "size": "Medium",
+  "biome": "JUNGLE",
+  "habitat": "Lowland tropical rainforest",
+  "diet": ["rodents", "marsupials", "birds"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "The world's longest viper, a South American pit viper that waits beside rodent trails and aims with heat-sensing pits. It delivers very large doses of venom.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rainforest floor",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Heat-sensing pits", "Huge venom doses", "Long striking reach"],
+    "weaknesses": ["Slow-moving", "No armor", "Stress-sensitive"]
+  }
+}

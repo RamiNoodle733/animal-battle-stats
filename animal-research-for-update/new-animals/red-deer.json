@@ -1,0 +1,20 @@
+{
+  "name": "Red Deer",
+  "scientific_name": "Cervus elaphus",
+  "type": "Mammal",
+  "class": "Fighter",
+  "size": "Medium",
+  "biome": "FOREST",
+  "habitat": "European woodland, moorland, mountains",
+  "diet": ["grasses", "heather and dwarf shrubs", "tree shoots"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "Europe's classic antlered stag, a fast and agile forest deer. Stags roar to size up rivals before locking antlers in the autumn rut.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Temperate Forest",
+    "combat_style": "Fighter",
+    "strengths": ["Crowned antlers", "Agile and quick", "Keen vigilance"],
+    "weaknesses": ["No armor", "Antlers shed each spring", "Worn down by the rut"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "German Shepherd",
+  "scientific_name": "Canis familiaris",
+  "type": "Mammal",
+  "class": "Fighter",
+  "size": "Medium",
+  "biome": "FOREST",
+  "habitat": "Homes, farms, police kennels",
+  "diet": ["meat", "dog food", "household scraps"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A German herding and police dog built to trot all day and finish a sprint with a hard grip. It relies on training, stamina and scent work rather than size.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Farmland",
+    "combat_style": "Fighter",
+    "strengths": ["Fast run-in and full grip", "All-day trotting stamina", "Excellent scent tracking"],
+    "weaknesses": ["No armor", "Moderate measured bite", "Prone to hip and spine problems"]
+  }
+}

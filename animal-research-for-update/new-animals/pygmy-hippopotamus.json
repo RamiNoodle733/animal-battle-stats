@@ -1,0 +1,20 @@
+{
+  "name": "Pygmy Hippopotamus",
+  "scientific_name": "Choeropsis liberiensis",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Medium",
+  "biome": "JUNGLE",
+  "habitat": "West African swamp forests, forest streams",
+  "diet": ["ferns", "leaves and shoots", "fallen fruit"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A shy, nocturnal forest hippo from West Africa with thick skin and ever-growing tusks. It hides in streams by day and bites hard when cornered.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Swamp Forest",
+    "combat_style": "Tank",
+    "strengths": ["Thick skin", "Wide tusked gape", "Escapes into water"],
+    "weaknesses": ["Short legs and slow turns", "Skin dries out on land", "Prefers hiding to fighting"]
+  }
+}

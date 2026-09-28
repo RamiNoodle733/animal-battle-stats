@@ -1,0 +1,20 @@
+{
+  "name": "Southern Ground Hornbill",
+  "scientific_name": "Bucorvus leadbeateri",
+  "type": "Bird",
+  "class": "Striker",
+  "size": "Medium",
+  "biome": "SAVANNA",
+  "habitat": "African savanna, grassland, open woodland",
+  "diet": ["insects", "snakes", "tortoises", "small mammals"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The world's largest hornbill, a ground-walking predator that hunts in family groups. It uses a huge bill to catch snakes, tortoises and small mammals.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open savanna grassland",
+    "combat_style": "Striker",
+    "strengths": ["Massive bill", "Group foraging", "Long daily walks"],
+    "weaknesses": ["No talons or claws", "Slow on the ground", "Low body mass"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "South American Coati",
+  "scientific_name": "Nasua nasua",
+  "type": "Mammal",
+  "class": "Rogue",
+  "size": "Small",
+  "biome": "JUNGLE",
+  "habitat": "Tropical and subtropical forests of South America",
+  "diet": ["invertebrates", "fruit", "small vertebrates", "eggs"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A ring-tailed, long-snouted relative of the raccoon that forages in bands and climbs down trees head-first.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rainforest",
+    "combat_style": "Rogue",
+    "strengths": ["Head-first climbing", "Sharp canines and claws", "Band alarm system"],
+    "weaknesses": ["Low body mass", "No armor", "Prey for many predators"]
+  }
+}

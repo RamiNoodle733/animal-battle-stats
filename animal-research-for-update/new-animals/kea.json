@@ -1,0 +1,20 @@
+{
+  "name": "Kea",
+  "scientific_name": "Nestor notabilis",
+  "type": "Bird",
+  "class": "Thief",
+  "size": "Small",
+  "biome": "MOUNTAINS",
+  "habitat": "Alpine zones, subalpine scrub, mountain beech forest",
+  "diet": ["plants and seeds", "grubs", "carrion", "seabird chicks"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A large, curious mountain parrot from New Zealand's South Island. It is famous for solving puzzles and for tearing into sheep wool with its curved bill.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Alpine ridges",
+    "combat_style": "Thief",
+    "strengths": ["Elite problem solving", "Tearing curved bill", "Agile mountain flier"],
+    "weaknesses": ["Under 1 kg", "No armor", "Curiosity leads it into danger"]
+  }
+}

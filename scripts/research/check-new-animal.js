@@ -8,6 +8,9 @@ const EVO = /evolv|evolution|adapt|ancest|lineage|descended from|natural selecti
 const TYPES = ['Mammal', 'Bird', 'Reptile', 'Fish', 'Insect', 'Amphibian', 'Arachnid', 'Cnidarian', 'Invertebrate', 'Arthropod', 'Marsupial', 'Crustacean', 'Cephalopod'];
 const SIZES = ['Tiny', 'Small', 'Medium', 'Large', 'Extra Large', 'Colossal'];
 const BIOMES = ['SAVANNA', 'FOREST', 'JUNGLE', 'WETLANDS', 'DESERT', 'MOUNTAINS', 'ARCTIC', 'OCEAN'];
+const slugOf = (v) => String(v).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+// Animals already on the site (legacy ones getting their first report) need no sidecar.
+const legacySlugs = new Set(require(path.join(ROOT, 'data/legacy-animal-stats.json')).map((animal) => slugOf(animal.name)));
 let bad = 0;
 for (const slug of process.argv.slice(2)) {
     const problems = [];
@@ -31,7 +34,8 @@ for (const slug of process.argv.slice(2)) {
     if (p.warnings?.length) problems.push(`parser warnings: ${p.warnings.join('; ')}`);
     const lines = text.split('\n');
     lines.forEach((line, i) => { if (EVO.test(line) && !/https?:\/\//.test(line)) problems.push(`wording line ${i + 1}: ${line.trim().slice(0, 90)}`); });
-    if (!fs.existsSync(side)) problems.push('MISSING new-animals sidecar json');
+    if (legacySlugs.has(slug)) { /* existing animal: its catalogue entry is live already */ }
+    else if (!fs.existsSync(side)) problems.push('MISSING new-animals sidecar json');
     else {
         const j = JSON.parse(fs.readFileSync(side, 'utf8'));
         if (!TYPES.includes(j.type)) problems.push(`sidecar type "${j.type}" not in ${TYPES.join('/')}`);

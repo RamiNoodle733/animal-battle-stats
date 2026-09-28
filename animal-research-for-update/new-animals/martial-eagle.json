@@ -1,0 +1,20 @@
+{
+  "name": "Martial Eagle",
+  "scientific_name": "Polemaetus bellicosus",
+  "type": "Bird",
+  "class": "Sky Hunter",
+  "size": "Medium",
+  "biome": "SAVANNA",
+  "habitat": "African savanna, thornveld, wooded grassland",
+  "diet": ["hares", "hyraxes", "game birds", "monitor lizards"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "Africa's largest eagle by wingspan, hunting from a high soar with a long stoop. It takes hares, monitor lizards, snakes and even lion cubs.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open savanna skies",
+    "combat_style": "Sky Hunter",
+    "strengths": ["High-soar surprise stoop", "Large talons and long legs", "Long-range eyesight"],
+    "weaknesses": ["Low body mass", "No armor", "Clumsy in dense cover"]
+  }
+}

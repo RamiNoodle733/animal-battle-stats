@@ -1,0 +1,20 @@
+{
+  "name": "Common Eland",
+  "scientific_name": "Taurotragus oryx",
+  "type": "Mammal",
+  "class": "Bruiser",
+  "size": "Large",
+  "biome": "SAVANNA",
+  "habitat": "Savanna, woodland, montane grassland",
+  "diet": ["leaves and shoots", "grasses", "fruit"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "Africa's giant savanna antelope, with thick spiral horns and a heavy dewlap. Slow in a sprint but able to trot for hours and leap fences from a standstill.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open Savanna",
+    "combat_style": "Bruiser",
+    "strengths": ["Huge body mass", "Tireless trot", "Standing leap"],
+    "weaknesses": ["Slow sprinter", "Mild temperament", "No armor"]
+  }
+}

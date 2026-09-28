@@ -1,0 +1,20 @@
+{
+  "name": "Ocean Sunfish",
+  "scientific_name": "Mola mola",
+  "type": "Fish",
+  "class": "Survivor",
+  "size": "Large",
+  "biome": "OCEAN",
+  "habitat": "Temperate and tropical open oceans",
+  "diet": ["jellyfish and siphonophores", "small fish and larvae", "squid and crustaceans"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A giant, tail-less bony fish that flaps two tall fins like wings and relies on very thick skin rather than weapons.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Survivor",
+    "strengths": ["Very thick, collagen-rich skin", "Deep-diving endurance", "Large, buoyant body"],
+    "weaknesses": ["No weapons", "Slow, with no tail fin", "Docile, never fights back"]
+  }
+}

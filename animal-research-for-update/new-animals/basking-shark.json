@@ -1,0 +1,20 @@
+{
+  "name": "Basking Shark",
+  "scientific_name": "Cetorhinus maximus",
+  "type": "Fish",
+  "class": "Titan",
+  "size": "Colossal",
+  "biome": "OCEAN",
+  "habitat": "Cool temperate coastal and open seas worldwide",
+  "diet": ["copepods and other zooplankton", "fish eggs and larvae", "small invertebrates"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The second-largest fish alive, a gentle 4-tonne filter feeder with rough, thick skin that can still leap clear of the sea.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Titan",
+    "strengths": ["Huge four-tonne body", "Thick, abrasive skin", "Ocean-crossing endurance"],
+    "weaknesses": ["No weapons", "Slow, wide-turning swimmer", "Docile, never fights back"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Wedge-tailed Eagle",
+  "scientific_name": "Aquila audax",
+  "type": "Bird",
+  "class": "Sky Hunter",
+  "size": "Medium",
+  "biome": "DESERT",
+  "habitat": "Australian deserts, arid shrubland, open woodland",
+  "diet": ["rabbits", "wallabies", "lizards", "carrion"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "Australia's largest bird of prey, with a huge wingspan and a long wedge-shaped tail. Pairs and groups can hunt kangaroos together.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Outback skies",
+    "combat_style": "Sky Hunter",
+    "strengths": ["Extreme eyesight", "Cooperative hunting", "Tireless soaring"],
+    "weaknesses": ["Low body mass", "Smaller talons than golden eagle", "No armor"]
+  }
+}

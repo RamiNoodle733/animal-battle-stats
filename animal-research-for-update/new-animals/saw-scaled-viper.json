@@ -1,0 +1,20 @@
+{
+  "name": "Saw-scaled Viper",
+  "scientific_name": "Echis carinatus",
+  "type": "Reptile",
+  "class": "Assassin",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Sandy and rocky scrub, dry plains",
+  "diet": ["rodents", "lizards", "frogs", "scorpions and insects"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A small, irritable viper of South Asia and the Middle East that warns by rubbing its saw-edged scales together. Its venom stops blood from clotting.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Arid scrub",
+    "combat_style": "Assassin",
+    "strengths": ["Clot-destroying venom", "Sizzling scale warning", "Spring-loaded strike"],
+    "weaknesses": ["Tiny, fragile body", "Small venom doses", "Slow-acting venom"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Northern Goshawk",
+  "scientific_name": "Astur gentilis",
+  "type": "Bird",
+  "class": "Hunter",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Mature forests, forest edges, wooded farmland",
+  "diet": ["pigeons", "grouse", "squirrels", "hares"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A powerful forest hawk that chases birds and squirrels through dense trees. Females can kill hares heavier than themselves.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Dense forest",
+    "combat_style": "Hunter",
+    "strengths": ["Elite forest agility", "Crushing talon grip", "Surprise attack flights"],
+    "weaknesses": ["Very low body mass", "No armor", "Short-burst endurance"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Black-footed Cat",
+  "scientific_name": "Felis nigripes",
+  "type": "Mammal",
+  "class": "Assassin",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Arid grassland, Karoo scrub and dry savanna",
+  "diet": ["rodents", "small birds", "shrews", "insects"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "Africa's smallest wild cat, a night-long hunter that catches prey on about six of every ten attempts. Deadly to mice and small birds, but a featherweight on the absolute scale.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Arid Grassland and Scrub",
+    "combat_style": "Assassin",
+    "strengths": ["Very high hunting success", "Night-long stamina", "Burrow and termite-mound refuge"],
+    "weaknesses": ["Tiny body mass", "No armor", "Not a climber"]
+  }
+}

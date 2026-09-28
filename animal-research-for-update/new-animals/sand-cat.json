@@ -1,0 +1,20 @@
+{
+  "name": "Sand Cat",
+  "scientific_name": "Felis margarita",
+  "type": "Mammal",
+  "class": "Hunter",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Sandy and stony deserts",
+  "diet": ["gerbils", "jerboas", "lizards", "venomous snakes"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A small desert cat with fur-soled feet and huge ear canals that hears prey under the sand and kills vipers. Superbly specialized, but only about 3 kg.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Sand and Gravel Desert",
+    "combat_style": "Hunter",
+    "strengths": ["Acute hearing", "Viper-killing technique", "No need to drink"],
+    "weaknesses": ["Tiny body mass", "No armor", "Weak climber and jumper"]
+  }
+}

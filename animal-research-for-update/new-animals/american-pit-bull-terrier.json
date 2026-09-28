@@ -1,0 +1,20 @@
+{
+  "name": "American Pit Bull Terrier",
+  "scientific_name": "Canis familiaris",
+  "type": "Mammal",
+  "class": "Grappler",
+  "size": "Medium",
+  "biome": "FOREST",
+  "habitat": "Homes, farms",
+  "diet": ["meat", "dog food", "household scraps"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A muscular bulldog-terrier breed made to grip and hold. It relies on a committed catch-and-shake bite and persistence rather than size.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Farmland",
+    "combat_style": "Grappler",
+    "strengths": ["Tenacious catch-and-hold grip", "Dense, muscular build", "High persistence under pain"],
+    "weaknesses": ["Small absolute size", "Thin single coat", "Committed to close contact"]
+  }
+}

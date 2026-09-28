@@ -1,0 +1,20 @@
+{
+  "name": "Black-necked Spitting Cobra",
+  "scientific_name": "Naja nigricollis",
+  "type": "Reptile",
+  "class": "Venomous Hunter",
+  "size": "Small",
+  "biome": "SAVANNA",
+  "habitat": "Savanna, semi-desert and farmland",
+  "diet": ["rodents", "birds", "lizards", "eggs"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "An African cobra that defends itself by spraying venom at an attacker's eyes. Its bite destroys tissue.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Savanna",
+    "combat_style": "Venomous Hunter",
+    "strengths": ["Blinding venom spray", "Target-tracking aim", "Tissue-destroying bite"],
+    "weaknesses": ["No armor", "Low-lethality bite", "Light body"]
+  }
+}

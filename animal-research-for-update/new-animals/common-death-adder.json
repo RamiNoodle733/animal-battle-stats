@@ -1,0 +1,20 @@
+{
+  "name": "Common Death Adder",
+  "scientific_name": "Acanthophis antarcticus",
+  "type": "Reptile",
+  "class": "Ambush Predator",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Forest, woodland, heath and grassland leaf litter",
+  "diet": ["lizards", "frogs", "small mammals", "birds"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A short, thick Australian elapid that hides in leaf litter and wriggles a grub-like tail tip to lure prey. Its venom causes paralysis.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Leaf litter",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Grub-tail lure", "Paralysing neurotoxin", "Leaf-litter camouflage"],
+    "weaknesses": ["Very slow-moving", "Tiny, fragile body", "Venom acts over hours"]
+  }
+}

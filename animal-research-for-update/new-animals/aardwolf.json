@@ -1,0 +1,20 @@
+{
+  "name": "Aardwolf",
+  "scientific_name": "Proteles cristatus",
+  "type": "Mammal",
+  "class": "Scout",
+  "size": "Small",
+  "biome": "SAVANNA",
+  "habitat": "Open grassland, savanna and dry scrub of eastern and southern Africa",
+  "diet": ["harvester termites", "other termites", "insects"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A slender, termite-eating member of the hyena family that licks up hundreds of thousands of termites a night.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Grassland",
+    "combat_style": "Scout",
+    "strengths": ["Intimidating mane display", "Foul anal-gland scent", "Keen night hearing"],
+    "weaknesses": ["Weak jaw and peg teeth", "Slow runner", "Low body mass"]
+  }
+}

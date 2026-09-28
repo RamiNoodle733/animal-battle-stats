@@ -1,0 +1,20 @@
+{
+  "name": "Thresher Shark",
+  "scientific_name": "Alopias vulpinus",
+  "type": "Fish",
+  "class": "Striker",
+  "size": "Large",
+  "biome": "OCEAN",
+  "habitat": "Temperate and subtropical coastal and open seas",
+  "diet": ["schooling fish", "squid and octopus", "pelagic crustaceans"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A warm-muscled shark whose whip-like tail makes up half its length and is swung overhead to stun schools of fish.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Striker",
+    "strengths": ["Stunning tail-whip strike", "Warm-muscle speed and endurance", "Leaping agility"],
+    "weaknesses": ["Small mouth and teeth", "Slender, unarmored body", "Tail easily snagged or injured"]
+  }
+}

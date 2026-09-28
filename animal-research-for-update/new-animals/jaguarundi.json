@@ -1,0 +1,20 @@
+{
+  "name": "Jaguarundi",
+  "scientific_name": "Herpailurus yagouaroundi",
+  "type": "Mammal",
+  "class": "Hunter",
+  "size": "Small",
+  "biome": "JUNGLE",
+  "habitat": "Forest edges, dense scrub and farm-forest mosaics near water",
+  "diet": ["rodents", "ground birds", "reptiles", "fish"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A long, low, otter-shaped wild cat of the Americas that hunts mainly by day. It climbs, swims and leaps well, but at about 7 kg its absolute power is modest.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Tropical Forest Edge",
+    "combat_style": "Hunter",
+    "strengths": ["Climbs, swims and leaps", "Daytime hunting niche", "Wary and hard to corner"],
+    "weaknesses": ["Low body mass", "No armor", "Outclassed by larger cats"]
+  }
+}

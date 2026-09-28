@@ -1,0 +1,20 @@
+{
+  "name": "Indian Rhinoceros",
+  "scientific_name": "Rhinoceros unicornis",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Extra Large",
+  "biome": "WETLANDS",
+  "habitat": "Floodplain grasslands, swamps, riverine forest",
+  "diet": ["grasses", "leaves and twigs", "aquatic plants", "fruit"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A two-tonne one-horned rhino of the Indian and Nepali floodplains, wrapped in thick folded hide. Bulls fight mainly with sharp lower tusks.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Floodplain Grassland",
+    "combat_style": "Tank",
+    "strengths": ["Two-tonne mass", "Slashing lower tusks", "Thick folded hide"],
+    "weaknesses": ["Poor eyesight", "Heat limits exertion", "Heavy and slow to turn"]
+  }
+}

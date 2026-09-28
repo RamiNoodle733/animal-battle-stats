@@ -1,0 +1,20 @@
+{
+  "name": "Caucasian Shepherd Dog",
+  "scientific_name": "Canis familiaris",
+  "type": "Mammal",
+  "class": "Defender",
+  "size": "Medium",
+  "biome": "MOUNTAINS",
+  "habitat": "Caucasus mountains, steppe pastures",
+  "diet": ["meat", "dog food", "household scraps"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A massive mountain guardian dog from the Caucasus with a long maned coat. It relies on mass, thick skin and a head-on charge rather than speed.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Mountain pasture",
+    "combat_style": "Defender",
+    "strengths": ["Heaviest frame of the guardian dogs", "Maned coat and thick skin over the neck", "Fearless head-on charge"],
+    "weaknesses": ["Slow to turn", "No armor", "Struggles in heat"]
+  }
+}

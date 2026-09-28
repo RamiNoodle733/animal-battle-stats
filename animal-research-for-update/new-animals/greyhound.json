@@ -1,0 +1,20 @@
+{
+  "name": "Greyhound",
+  "scientific_name": "Canis familiaris",
+  "type": "Mammal",
+  "class": "Speedster",
+  "size": "Medium",
+  "biome": "SAVANNA",
+  "habitat": "Homes, open grassland, race tracks",
+  "diet": ["meat", "dog food", "household scraps"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A lean sprint sighthound bred to run down hares by sight. It relies on explosive speed rather than fighting power.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Open grassland",
+    "combat_style": "Speedster",
+    "strengths": ["Measured sprint near 19.5 m/s", "Holds speed through tight bends", "Rapid acceleration"],
+    "weaknesses": ["Lean, easily wounded body", "Speed fades over distance", "Weak in close combat"]
+  }
+}

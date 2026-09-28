@@ -1,0 +1,20 @@
+{
+  "name": "Brown Hyena",
+  "scientific_name": "Parahyaena brunnea",
+  "type": "Mammal",
+  "class": "Bruiser",
+  "size": "Medium",
+  "biome": "DESERT",
+  "habitat": "Deserts, semi-desert scrub and dry savanna of southern Africa",
+  "diet": ["carrion", "seal pups", "wild fruit", "small animals"],
+  "isNocturnal": true,
+  "isSocial": true,
+  "description": "A shaggy desert hyena of southern Africa that smells carrion from kilometres away and bullies leopards off their kills.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Desert",
+    "combat_style": "Bruiser",
+    "strengths": ["Bone-cracking bite", "Huge nightly endurance", "Keen sense of smell"],
+    "weaknesses": ["Poor hunter", "Slow and front-heavy", "Outmatched by lions"]
+  }
+}

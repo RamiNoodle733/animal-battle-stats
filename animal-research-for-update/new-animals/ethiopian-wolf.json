@@ -1,0 +1,20 @@
+{
+  "name": "Ethiopian Wolf",
+  "scientific_name": "Canis simensis",
+  "type": "Mammal",
+  "class": "Hunter",
+  "size": "Small",
+  "biome": "MOUNTAINS",
+  "habitat": "Afroalpine grassland and moorland above 3,000 m",
+  "diet": ["mole-rats", "grass rats", "hares"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A rare red wolf of the Ethiopian Highlands that lives in packs but hunts mole-rats alone on high mountain plateaus.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Mountain Grassland",
+    "combat_style": "Hunter",
+    "strengths": ["Lightning pounce", "Sharp senses", "Clever cover tactics"],
+    "weaknesses": ["Light, small teeth", "Low body mass", "No armor"]
+  }
+}

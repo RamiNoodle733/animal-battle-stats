@@ -57,6 +57,7 @@ EXTRA = {
     "fin-whale": {"search": ["fin whale underwater", "Balaenoptera physalus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
     "gray-whale": {"search": ["gray whale underwater", "Eschrichtius robustus breach"], "prefer": "underwater|breach", "files": 70},
     "bowhead-whale": {"search": ["bowhead whale underwater", "Balaena mysticetus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
+    "northern-goshawk": {"categories": ["Accipiter gentilis"], "search": ["Northern goshawk adult"]},
     "false-killer-whale": {"search": ["false killer whale underwater", "Pseudorca crassidens"], "prefer": "underwater", "files": 60},
 }
 SKIP_TITLE = re.compile(

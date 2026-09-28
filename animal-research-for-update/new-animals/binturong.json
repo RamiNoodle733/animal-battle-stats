@@ -1,0 +1,20 @@
+{
+  "name": "Binturong",
+  "scientific_name": "Arctictis binturong",
+  "type": "Mammal",
+  "class": "Agile Climber",
+  "size": "Small",
+  "biome": "JUNGLE",
+  "habitat": "Tropical rainforest canopy of South and Southeast Asia",
+  "diet": ["figs", "other fruit", "small animals"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A shaggy, popcorn-scented tree-dweller of Asian rainforests that grips branches with a prehensile tail and eats mostly figs.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Forest Canopy",
+    "combat_style": "Agile Climber",
+    "strengths": ["Prehensile gripping tail", "Head-first tree descent", "Sharp canines and claws"],
+    "weaknesses": ["Slow mover", "Low stamina", "Vulnerable on the ground"]
+  }
+}

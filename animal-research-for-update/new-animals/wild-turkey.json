@@ -1,0 +1,20 @@
+{
+  "name": "Wild Turkey",
+  "scientific_name": "Meleagris gallopavo",
+  "type": "Bird",
+  "class": "Fighter",
+  "size": "Medium",
+  "biome": "FOREST",
+  "habitat": "Hardwood forests, woodland clearings, fields",
+  "diet": ["acorns and nuts", "seeds and berries", "insects"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "North America's heavyweight flying gamebird. Toms fight with sharp leg spurs, and the birds can burst into fast flight despite their weight.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Oak forest clearings",
+    "combat_style": "Fighter",
+    "strengths": ["Sharp leg spurs", "Explosive take-off", "Keen daytime vision"],
+    "weaknesses": ["No real killing power", "Poor night vision", "Short flights only"]
+  }
+}

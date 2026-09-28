@@ -1,0 +1,20 @@
+{
+  "name": "Belgian Malinois",
+  "scientific_name": "Canis familiaris",
+  "type": "Mammal",
+  "class": "Skirmisher",
+  "size": "Medium",
+  "biome": "FOREST",
+  "habitat": "Homes, police and military kennels",
+  "diet": ["meat", "dog food", "household scraps"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A lean Belgian working shepherd built for explosive speed, leaping and relentless drive. It relies on a flying grip and agility rather than size.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Urban and mixed terrain",
+    "combat_style": "Skirmisher",
+    "strengths": ["Explosive leaping attack", "High agility and drive", "Excellent detection nose"],
+    "weaknesses": ["Light frame", "Moderate measured bite", "Short coat, no armor"]
+  }
+}

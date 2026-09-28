@@ -1,0 +1,20 @@
+{
+  "name": "Rottweiler",
+  "scientific_name": "Canis familiaris",
+  "type": "Mammal",
+  "class": "Bruiser",
+  "size": "Medium",
+  "biome": "FOREST",
+  "habitat": "Homes, farms, police kennels",
+  "diet": ["meat", "dog food", "household scraps"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A compact, heavily muscled German drover and guard dog. It relies on mass, a strong grip and a head-on charge rather than speed.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Farmland",
+    "combat_style": "Bruiser",
+    "strengths": ["Heavily muscled 50 kg frame", "Strong grip on a broad head", "Charges the dominant animal head-on"],
+    "weaknesses": ["No armor", "Less agile than working shepherds", "Short life and joint problems"]
+  }
+}

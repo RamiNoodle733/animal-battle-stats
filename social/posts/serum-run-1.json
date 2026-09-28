@@ -1,0 +1,64 @@
+{
+  "type": "story",
+  "series": "animal",
+  "title": "The Serum Run",
+  "part": 1,
+  "parts": 3,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "seppala-dogs",
+      "focus": "north",
+      "kicker": "TRUE STORY",
+      "title": "A TOWN WAS IN DANGER. ONLY DOGS COULD SAVE IT.",
+      "text": "Alaska, 1925."
+    },
+    {
+      "image": "serum-run-map",
+      "text": "January 1925. Nome, Alaska. A deadly disease called diphtheria starts spreading among the town's children.",
+      "fit": "contain"
+    },
+    {
+      "image": "serum-run-map",
+      "text": "The medicine that can stop it is about 1,085 km (674 miles) away, at the end of a railway line.",
+      "fit": "contain"
+    },
+    {
+      "image": "seppala-dogs",
+      "text": "Ships can't get through the sea ice. The few planes in Alaska are packed away for winter, and flying in that cold is judged too risky. So they choose dogs.",
+      "crop": [
+        0.0,
+        0.52,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "image": "seppala-dogs",
+      "focus": "north",
+      "text": "The plan: a relay. 20 mushers and about 150 sled dogs, passing a 9 kg (20 lb) package of medicine from team to team."
+    },
+    {
+      "image": "kaasen-balto",
+      "focus": "north",
+      "text": "Temperatures fell to around -46°C (-50°F). Winds could freeze skin in minutes. And every hour counted."
+    },
+    {
+      "kind": "end",
+      "image": "serum-run-map",
+      "text": "One team would take the most dangerous stretch of all: straight across a frozen sea that could crack beneath them. Their lead dog was 12 years old.\nPart 2: Togo.",
+      "fit": "contain"
+    }
+  ],
+  "caption": "1925: a deadly outbreak, a town cut off by ice, and a relay of sled dogs racing 1,085 km through -46°C to bring the medicine. Part 1 of 3.",
+  "hashtags": [
+    "truestory",
+    "dogs",
+    "sleddogs",
+    "history",
+    "alaska",
+    "togo",
+    "balto",
+    "animalstories"
+  ]
+}

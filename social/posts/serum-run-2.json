@@ -1,0 +1,65 @@
+{
+  "type": "story",
+  "series": "animal",
+  "title": "The Serum Run",
+  "part": 2,
+  "parts": 3,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "seppala-dogs",
+      "focus": "north",
+      "kicker": "TRUE STORY",
+      "title": "THE 12-YEAR-OLD DOG WHO RAN THE DEADLIEST LEG",
+      "text": "The Serum Run, part 2 of 3."
+    },
+    {
+      "image": "serum-run-map",
+      "kicker": "PREVIOUSLY",
+      "text": "A relay of sled dog teams was racing medicine across Alaska to save the children of Nome.",
+      "fit": "contain"
+    },
+    {
+      "image": "seppala-dogs",
+      "text": "Musher Leonhard Seppala and his lead dog Togo raced out from Nome to meet the medicine on the trail.",
+      "crop": [
+        0.0,
+        0.52,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "image": "serum-run-map",
+      "text": "To save a whole day, Togo led the team straight across Norton Sound: miles of frozen sea ice, in the dark, in a storm.",
+      "fit": "contain"
+    },
+    {
+      "image": "seppala-dogs",
+      "focus": "north",
+      "text": "Sea ice can break away and drift out to open water, taking a whole dog team with it."
+    },
+    {
+      "image": "serum-run-map",
+      "text": "Togo's team ran about 146 km (91 miles) of the relay, the longest leg, and around 420 km (260 miles) in all.",
+      "fit": "contain"
+    },
+    {
+      "kind": "end",
+      "image": "kaasen-balto",
+      "focus": "north",
+      "text": "Then they handed the medicine on. The dog who carried it into Nome would become the most famous dog in America. But was he the real hero?\nPart 3: Balto."
+    }
+  ],
+  "caption": "Togo was 12 years old when he led his team across miles of frozen sea in the dark to get the medicine to Nome. The Serum Run, part 2 of 3.",
+  "hashtags": [
+    "truestory",
+    "dogs",
+    "sleddogs",
+    "history",
+    "alaska",
+    "togo",
+    "siberianhusky",
+    "animalstories"
+  ]
+}

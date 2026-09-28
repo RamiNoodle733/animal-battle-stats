@@ -1,0 +1,81 @@
+{
+  "type": "story",
+  "series": "animal",
+  "title": "The Serum Run",
+  "part": 3,
+  "parts": 3,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "kaasen-balto",
+      "focus": "north",
+      "kicker": "TRUE STORY",
+      "title": "ONE DOG GOT A STATUE. THE OTHER GOT FORGOTTEN.",
+      "text": "The Serum Run, the finale."
+    },
+    {
+      "image": "seppala-dogs",
+      "focus": "north",
+      "kicker": "PREVIOUSLY",
+      "text": "Togo ran the longest, most dangerous leg of the relay across frozen sea ice, then passed the medicine on."
+    },
+    {
+      "image": "kaasen-balto",
+      "text": "Musher Gunnar Kaasen and his lead dog Balto took the final leg, through a blizzard so thick Kaasen couldn't see his own dogs.",
+      "crop": [
+        0.0,
+        0.35,
+        0.72,
+        1.0
+      ]
+    },
+    {
+      "image": "kaasen-balto",
+      "focus": "north",
+      "text": "Balto kept to the trail. At 5:30 a.m. on 2 February 1925, the team pulled into Nome."
+    },
+    {
+      "image": "serum-run-map",
+      "text": "About 1,085 km (674 miles) in five and a half days. The medicine arrived frozen, but it still worked. The outbreak was stopped.",
+      "fit": "contain"
+    },
+    {
+      "image": "kaasen-balto",
+      "text": "Balto became a celebrity. That same year, New York put a statue of him in Central Park. It is still there today.",
+      "crop": [
+        0.0,
+        0.35,
+        0.72,
+        1.0
+      ]
+    },
+    {
+      "image": "seppala-dogs",
+      "text": "Togo, who ran the longest leg, got little credit at the time. Seppala never stopped saying Togo was the real hero.",
+      "crop": [
+        0.0,
+        0.52,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "kind": "end",
+      "title": "TOGO OR BALTO?",
+      "image": "seppala-dogs",
+      "focus": "north",
+      "text": "Who deserves the credit? Comment your answer. Follow for more true animal stories."
+    }
+  ],
+  "caption": "Balto got the statue in Central Park. Togo ran the longest and most dangerous leg. Who was the real hero? The Serum Run, finale.",
+  "hashtags": [
+    "truestory",
+    "dogs",
+    "sleddogs",
+    "history",
+    "alaska",
+    "togo",
+    "balto",
+    "animalstories"
+  ]
+}

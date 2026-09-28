@@ -1,0 +1,65 @@
+{
+  "type": "story",
+  "series": "animal",
+  "title": "Wojtek the Soldier Bear",
+  "part": 3,
+  "parts": 3,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "wojtek-scotland",
+      "focus": "north",
+      "kicker": "TRUE STORY",
+      "title": "THE WAR ENDED. WOJTEK'S STORY DIDN'T.",
+      "text": "Wojtek, the finale."
+    },
+    {
+      "image": "wojtek-badge",
+      "kicker": "PREVIOUSLY",
+      "text": "Private Wojtek served with the Polish army through the Middle East and Italy, and became the company's badge.",
+      "fit": "contain"
+    },
+    {
+      "image": "wojtek-scotland",
+      "focus": "north",
+      "text": "1946. The company was sent to a camp in Scotland, and Wojtek came too. Local people came to see the famous soldier bear."
+    },
+    {
+      "image": "wojtek-scotland",
+      "focus": "north",
+      "text": "When the unit was disbanded in 1947, Wojtek went to live at Edinburgh Zoo."
+    },
+    {
+      "image": "wojtek-camp",
+      "text": "His old comrades came to visit. Some said he still perked up whenever he heard someone speaking Polish."
+    },
+    {
+      "image": "wojtek-soldier",
+      "focus": "north",
+      "text": "Wojtek died in 1963, at about 21 years old."
+    },
+    {
+      "image": "wojtek-iran",
+      "focus": "north",
+      "text": "Today there are statues of him in Edinburgh, Krakow and other towns. A bear who crossed three continents with an army."
+    },
+    {
+      "kind": "end",
+      "title": "THE END",
+      "image": "wojtek-badge",
+      "text": "Which true animal story should we tell next? Comment below and follow for more.",
+      "fit": "contain"
+    }
+  ],
+  "caption": "From a bear cub on a road in Iran to Edinburgh Zoo, with a war in between. The final chapter of Wojtek, the soldier bear.",
+  "hashtags": [
+    "truestory",
+    "bears",
+    "history",
+    "ww2",
+    "wojtek",
+    "animalstories",
+    "edinburgh",
+    "storytime"
+  ]
+}

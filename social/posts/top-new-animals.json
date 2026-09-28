@@ -1,0 +1,27 @@
+{
+  "type": "top",
+  "series": "top",
+  "title": "Most powerful new animals",
+  "stat": "power",
+  "pool": "new",
+  "hook": "WE JUST ADDED 48 ANIMALS. THESE ARE THE 5 STRONGEST.",
+  "subtitle": "Ranked by power index, which combines all six battle ratings.",
+  "outro": "WHICH ANIMAL SHOULD WE ADD NEXT?",
+  "caption": "48 new animals just joined Animal Battle Stats, from the Titan Beetle to the Sperm Whale. Here are the 5 most powerful. What should we add next?",
+  "hashtags": [
+    "animals",
+    "animalfacts",
+    "top5",
+    "wildlife",
+    "nature",
+    "whowouldwin",
+    "animalbattlestats"
+  ],
+  "facts": {
+    "sperm-whale": "A typical hunting dive lasts about 45 minutes, deep in the dark ocean.",
+    "asian-elephant": "One passed the mirror test at the Bronx Zoo: it recognised itself in a mirror.",
+    "humpback-whale": "Humpbacks often charge in to break up orca attacks, even to protect seals and other whales.",
+    "mako-shark": "The highest-leaping shark: a mako can jump about 6 m out of the water.",
+    "bengal-tiger": "A tiger can leap about 6 m in a single bound."
+  }
+}

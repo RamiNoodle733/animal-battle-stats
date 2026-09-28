@@ -1,0 +1,68 @@
+{
+  "type": "story",
+  "series": "animal",
+  "title": "Wojtek the Soldier Bear",
+  "part": 2,
+  "parts": 3,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "wojtek-badge",
+      "kicker": "TRUE STORY",
+      "title": "RANK: PRIVATE. SPECIES: BEAR.",
+      "text": "Wojtek, part 2 of 3.",
+      "fit": "contain"
+    },
+    {
+      "image": "wojtek-camp",
+      "kicker": "PREVIOUSLY",
+      "text": "Polish soldiers adopted a bear cub named Wojtek. Now the army had to sail to Italy, and animals were not allowed on board."
+    },
+    {
+      "image": "wojtek-soldier",
+      "focus": "north",
+      "text": "1944. The solution: make Wojtek a soldier. He was officially enlisted in the 22nd Artillery Supply Company."
+    },
+    {
+      "image": "wojtek-iran",
+      "focus": "north",
+      "text": "He had a name, a rank and a service number. He travelled with the men, rode in their trucks and wrestled with them for fun."
+    },
+    {
+      "image": "wojtek-camp",
+      "text": "May 1944: the Battle of Monte Cassino in Italy, one of the hardest battles of the war."
+    },
+    {
+      "image": "wojtek-soldier",
+      "text": "Soldiers who were there said Wojtek watched the men work, then began carrying heavy crates of artillery shells himself, and never dropped one.",
+      "crop": [
+        0.3,
+        0.3,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "image": "wojtek-badge",
+      "text": "After the battle, the company made a bear carrying an artillery shell its official badge.",
+      "fit": "contain"
+    },
+    {
+      "kind": "end",
+      "image": "wojtek-badge",
+      "text": "Then the war ended. But what happens to a soldier who is a bear?\nPart 3: the final chapter.",
+      "fit": "contain"
+    }
+  ],
+  "caption": "To get him onto a troop ship, the army enlisted him. A bear with a rank, a service number and, soldiers said, a job carrying shells at Monte Cassino. Wojtek, part 2 of 3.",
+  "hashtags": [
+    "truestory",
+    "bears",
+    "history",
+    "ww2",
+    "wojtek",
+    "animalstories",
+    "montecassino",
+    "storytime"
+  ]
+}

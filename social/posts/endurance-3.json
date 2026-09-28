@@ -1,0 +1,63 @@
+{
+  "type": "story",
+  "series": "survival",
+  "title": "Endurance",
+  "part": 3,
+  "parts": 4,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "james-caird-launch",
+      "kicker": "TRUE STORY",
+      "title": "6 MEN. A 7-METRE BOAT. THE WILDEST OCEAN ON EARTH.",
+      "text": "Endurance, part 3 of 4."
+    },
+    {
+      "image": "elephant-island-party",
+      "kicker": "PREVIOUSLY",
+      "text": "28 men escaped the ice and reached Elephant Island. But nobody would ever come looking for them there."
+    },
+    {
+      "image": "james-caird-launch",
+      "text": "Shackleton's plan: take 5 men in one lifeboat, the James Caird, and sail 1,300 km (800 miles) to South Georgia for help.",
+      "crop": [
+        0.15,
+        0.1,
+        0.85,
+        0.9
+      ]
+    },
+    {
+      "image": "endurance-night",
+      "text": "The Southern Ocean has some of the biggest waves on the planet. And they had to find one small island in the middle of it."
+    },
+    {
+      "image": "endurance-rigging",
+      "text": "Their navigator, Frank Worsley, could only see the sun a handful of times. One mistake and they would miss the island and be lost at sea."
+    },
+    {
+      "image": "boats-elephant-island",
+      "text": "Sea spray froze onto the boat until it was heavy enough to sink them. They crawled out and chipped the ice off by hand."
+    },
+    {
+      "image": "james-caird-launch",
+      "text": "After more than two weeks, they saw land. South Georgia."
+    },
+    {
+      "kind": "end",
+      "image": "endurance-pack-ice",
+      "text": "But storms forced them onto the wrong side of the island. The whaling station, and help, was on the other side, across mountains nobody had ever crossed.\nPart 4: the finale."
+    }
+  ],
+  "caption": "The most dangerous boat trip ever attempted: 1,300 km across the Southern Ocean in an open lifeboat, steering by the sun they could barely see. Endurance, part 3 of 4.",
+  "hashtags": [
+    "truestory",
+    "survival",
+    "history",
+    "shackleton",
+    "antarctica",
+    "endurance",
+    "sailing",
+    "storytime"
+  ]
+}

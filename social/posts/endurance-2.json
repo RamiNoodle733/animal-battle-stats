@@ -1,0 +1,58 @@
+{
+  "type": "story",
+  "series": "survival",
+  "title": "Endurance",
+  "part": 2,
+  "parts": 4,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "ocean-camp",
+      "kicker": "TRUE STORY",
+      "title": "THEY LIVED ON FLOATING ICE FOR 5 MONTHS",
+      "text": "Endurance, part 2 of 4."
+    },
+    {
+      "image": "endurance-sinking",
+      "focus": "north",
+      "kicker": "PREVIOUSLY",
+      "text": "The ice crushed their ship. 28 men were left camping on the frozen Weddell Sea, far from any help."
+    },
+    {
+      "image": "endurance-pack-ice",
+      "text": "The ice they slept on was drifting, and slowly breaking apart. Cracks could open anywhere, even under a tent."
+    },
+    {
+      "image": "endurance-bow",
+      "text": "Their food ran low. They hunted seals and penguins to stay alive."
+    },
+    {
+      "image": "endurance-rigging",
+      "text": "It was far below freezing. Their clothes were wool and fur. Nothing was waterproof."
+    },
+    {
+      "image": "boats-elephant-island",
+      "text": "April 1916. The ice finally breaks up. They push the 3 lifeboats into the freezing sea and row for a week."
+    },
+    {
+      "image": "elephant-island-party",
+      "text": "They reach Elephant Island. Solid ground for the first time in 497 days."
+    },
+    {
+      "kind": "end",
+      "image": "boats-elephant-island",
+      "text": "But no ships ever came to Elephant Island. Nobody knew they were alive.\nPart 3: the most dangerous boat trip ever attempted."
+    }
+  ],
+  "caption": "Five months living on drifting ice, then a week in open lifeboats. They finally touched land, and it was the loneliest island on Earth. Endurance, part 2 of 4.",
+  "hashtags": [
+    "truestory",
+    "survival",
+    "history",
+    "shackleton",
+    "antarctica",
+    "endurance",
+    "explorers",
+    "storytime"
+  ]
+}

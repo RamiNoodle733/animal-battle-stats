@@ -1,0 +1,67 @@
+{
+  "type": "story",
+  "series": "animal",
+  "title": "Wojtek the Soldier Bear",
+  "part": 1,
+  "parts": 3,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "wojtek-soldier",
+      "focus": "north",
+      "kicker": "TRUE STORY",
+      "title": "THE BEAR WHO JOINED AN ARMY",
+      "text": "This really happened."
+    },
+    {
+      "image": "wojtek-iran",
+      "focus": "north",
+      "text": "1942, Iran. Polish soldiers, just released from Soviet prison camps, are travelling across the country to rejoin the fight in World War II."
+    },
+    {
+      "image": "wojtek-iran",
+      "text": "On the road they meet a boy carrying a tiny brown bear cub. The soldiers trade him some food and a few coins for it.",
+      "crop": [
+        0.2,
+        0.35,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "image": "wojtek-soldier",
+      "text": "The cub is too young to eat. The soldiers feed him condensed milk from an old bottle.",
+      "crop": [
+        0.3,
+        0.3,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "image": "wojtek-camp",
+      "text": "They name him Wojtek (say VOY-tek), meaning 'happy warrior'. He sleeps in their tents and follows them everywhere."
+    },
+    {
+      "image": "wojtek-soldier",
+      "focus": "north",
+      "text": "He grows into a full-size brown bear, taller than the men when he stands up, who acts like one of the company."
+    },
+    {
+      "kind": "end",
+      "image": "wojtek-camp",
+      "text": "Then the army is ordered to sail to Italy. And animals are not allowed on the ships.\nPart 2: how a bear became a soldier."
+    }
+  ],
+  "caption": "In 1942, Polish soldiers in Iran adopted a tiny bear cub. He grew up in their tents, and he was about to go to war with them. Wojtek, part 1 of 3.",
+  "hashtags": [
+    "truestory",
+    "bears",
+    "history",
+    "ww2",
+    "wojtek",
+    "animalstories",
+    "brownbear",
+    "storytime"
+  ]
+}

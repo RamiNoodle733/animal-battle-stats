@@ -1,0 +1,54 @@
+{
+  "type": "story",
+  "series": "survival",
+  "title": "Endurance",
+  "part": 1,
+  "parts": 4,
+  "slides": [
+    {
+      "kind": "cover",
+      "image": "endurance-pack-ice",
+      "kicker": "TRUE STORY",
+      "title": "28 MEN TRAPPED AT THE BOTTOM OF THE WORLD",
+      "text": "No radio. No rescue coming. This really happened."
+    },
+    {
+      "image": "endurance-bow",
+      "text": "1914. Explorer Ernest Shackleton sets out to cross Antarctica on foot. His ship is called Endurance."
+    },
+    {
+      "image": "endurance-night",
+      "text": "January 1915. A day's sail from where they planned to land, the sea freezes solid around the ship. Endurance is stuck."
+    },
+    {
+      "image": "endurance-rigging",
+      "text": "For ten months the ice drifts, carrying the ship with it. Winter comes, and the sun disappears."
+    },
+    {
+      "image": "endurance-crushed",
+      "focus": "north",
+      "text": "October 1915. The ice starts to squeeze. Beams crack like gunshots. Water pours in."
+    },
+    {
+      "image": "endurance-sinking",
+      "focus": "north",
+      "text": "They abandon ship and camp on the frozen sea. A month later, Endurance sinks. Their way home is gone."
+    },
+    {
+      "kind": "end",
+      "image": "ocean-camp",
+      "text": "28 men. 3 small lifeboats. Hundreds of miles from anyone.\nPart 2 next. Follow so you don't miss it."
+    }
+  ],
+  "caption": "In 1915 the ice swallowed their ship. 28 men were left on the frozen sea with no radio and no rescue coming. Part 1 of 4 of one of the greatest survival stories ever. Part 2 next.",
+  "hashtags": [
+    "truestory",
+    "survival",
+    "history",
+    "shackleton",
+    "antarctica",
+    "endurance",
+    "explorers",
+    "storytime"
+  ]
+}

@@ -3,7 +3,7 @@
 ## 1. Identity and canonical specimen
 
 - **Common name:** Tuna, represented by the Pacific bluefin tuna
-- **Scientific name:** *Thunnus orientalis* (Temminck & Schlegel, 1844), family Scombridae
+- **Scientific name:** *Thunnus orientalis* (Temminck and Schlegel, 1844), family Scombridae
 - **Exact animal represented:** the Pacific bluefin tuna, the species shown in the live site photo (taken at the Kasai Rinkai Park aquarium, Tokyo). Other tunas such as yellowfin, albacore, skipjack and the Atlantic and southern bluefins are not averaged in.
 - **Status:** Living.
 - **Canonical combat specimen:** healthy large adult, **2.0 m fork length and about 150 kg**, sex unspecified because the sources used give no sex-specific size difference.
@@ -79,7 +79,7 @@ Tuna are visual predators with large eyes kept warm by heat exchangers, supporte
 Behavior centers on schooling, seasonal migration and flexible use of feeding grounds. Tuna track shifting prey and temperature, but no evidence of complex problem solving or coordinated hunting beyond schooling was located.
 
 ### Social behavior and fighting
-Pacific bluefin travel in schools, often grouped by size. There is no known ritualized fighting between individuals. Tuna are described as schooling alongside dolphins, possibly for protection from sharks.
+Pacific bluefin travel in schools. There is no known ritualized fighting between individuals. Tuna are described as schooling alongside dolphins, possibly for protection from sharks.
 
 ### Predators
 Sharks prey on tunas (Wikipedia, Tuna). Adults rely on size and speed to escape; juveniles are far more vulnerable.
@@ -144,7 +144,7 @@ All scores are absolute across the full roster.
 ## 8. Expanded profile
 
 ### Habitat and range
-The North Pacific, from the coasts of East Asia to western North America, with occasional records in the South Pacific and even rare records outside the Pacific. Usually in the upper 200 m of open water, down to 550 m.
+The North Pacific, from the coasts of East Asia to western North America, with occasional records in the South Pacific; a genetically confirmed Pacific bluefin has even been caught off Brazil. Usually in the upper 200 m of open water, down to 550 m.
 
 ### Diet and ecology
 An open-water predator of schooling squids and fishes (anchovies, sardines, saury, mackerels, hake, other tunas) that also takes pelagic red crabs and krill. Diet studies in the southern California Current show its feeding niche shifting with the abundance of prey such as northern anchovy.
@@ -153,7 +153,7 @@ An open-water predator of schooling squids and fishes (anchovies, sardines, saur
 Schooling fish that migrate in groups; no territorial or ritualized fighting behavior is known.
 
 ### Reproduction and life history
-Spawning takes place in the western Pacific, mainly the East China Sea and the Sea of Japan. Fish mature at about five years, around 1.5 m and 60 kg. The generation length is about 7–9 years. Many juveniles make a trans-Pacific crossing during their first years and spend time off California and Baja California before returning west.
+Spawning takes place in the western Pacific, mainly the East China Sea and the Sea of Japan. Fish mature at about five years, around 1.5 m and 60 kg. The generation length is about 7–9 years. Many juveniles make a trans-Pacific crossing during their first years and feed in the California Current before returning west.
 
 ### Conservation
 Near Threatened on the IUCN Red List. Wikipedia notes that this listing has not been updated since a 2024 stock assessment found the population had risen from about 2% of historic levels in 2010 to about 23% in 2020. NOAA Fisheries and several international commissions manage the fishery.
@@ -219,6 +219,7 @@ In a battle, though, the bluefin has little to hurt an opponent with. Its teeth 
 | Flexible use of a dynamic energy landscape (2021), Proceedings B | https://pmc.ncbi.nlm.nih.gov/articles/PMC8334847/ | endurance and migration flexibility | 242 juveniles tagged over 15 years; migration shifted about 900 km poleward in a heatwave | High |
 | Rapid endothermal development of juvenile Pacific bluefin tuna (2022), Frontiers in Physiology | https://pmc.ncbi.nlm.nih.gov/articles/PMC9437213/ | thermal physiology | body temperature held above ambient from about 40 cm FL; heat transfer drops sharply by 52 cm FL | High |
 | Resource partitioning among pelagic predators (2025), Journal of Animal Ecology | https://pmc.ncbi.nlm.nih.gov/articles/PMC12056350/ | diet flexibility | bluefin and swordfish niches converged after northern anchovy increased in 2015 | High |
+| Genetic evidence of southern and Pacific bluefin in Brazilian waters (2025), Biology | https://pmc.ncbi.nlm.nih.gov/articles/PMC12025163/ | range extremes | one genetically identified *T. orientalis* among 10 longline-caught tunas off southeast-south Brazil | Moderate; single specimen |
 | Wikimedia Commons file page | https://commons.wikimedia.org/wiki/File:Pacific_bluefin_tuna.jpg | live photo | Pacific bluefin at Kasai Rinkai Park, CC BY 2.1 JP | High for provenance |
 
 ### Conflicts and uncertainty
@@ -230,10 +231,10 @@ In a battle, though, the bluefin has little to hurt an opponent with. Its teeth 
 ## 11. Cross-animal normalization notes
 
 - **Versus Marlin (A58.0 D41.0 Ag78.0 St90.0 I62.0 Sp70.0):** the marlin is heavier (250 kg) and armed with a bill, so it keeps far higher Attack. Defense is close. The tuna's warm-muscle endurance and trans-Pacific migrations put its Stamina slightly higher, and regional endothermy gives it a higher Special.
-- **Versus Sailfish (A52.0 D38.0 Ag89.0 St79.0 I53.0 Sp82.0):** the sailfish is lighter but has a bill and elite maneuvering, so it stays above the tuna in Attack and Agility. The heavier tuna gets slightly higher Defense and much higher Stamina; the sailfish's color-flashing and bill-slashing specialization keeps its Special higher.
+- **Versus Sailfish (A52.0 D38.0 Ag89.0 St79.0 I53.0 Sp82.0):** the sailfish is lighter but has a bill and elite maneuvering, so it stays above the tuna in Attack and Agility. The heavier tuna gets slightly higher Defense and much higher Stamina; the sailfish's stealth bill slash and deployable sail keep its Special higher.
 - **Versus Mako Shark (A75.0 D53.0 Ag85.0 St88.0 I64.0 Sp86.0):** makos are warm-bodied too and are documented tuna predators. The mako's cutting teeth and larger size keep it far above the tuna in Attack and Defense; the tuna's Stamina edges above the mako's.
 - **Versus Oceanic Whitetip Shark (A71.0 D53.0 Ag70.0 St80.0 I60.0 Sp76.0):** similar mass, but the shark's serrated teeth more than double the tuna's Attack, while the tuna is more agile and has more stamina.
-- **Anti-inflation check:** the old live placeholder values (including an Attack of 2.0-level legacy numbers elsewhere in this batch) are not used. Speed and endurance are not converted into Attack; a fish with no weapon stays in the low Attack band even at 150 kg.
+- **Anti-inflation check:** the old live placeholder values (A21.2 D23.9 Ag81.9 St86.3 I21.7 Sp42.2) are not used as anchors. Speed and endurance are not converted into Attack; a fish with no weapon stays in the low Attack band even at 150 kg.
 
 ## Final verification
 

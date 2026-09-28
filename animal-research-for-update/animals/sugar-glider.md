@@ -81,7 +81,7 @@ Large eyes and swivelling ears suit nocturnal hunting. Behavioural tests, geneti
 Gliders live in clans of up to seven adults plus young that share a nest; dominant males mark clan members and the nest area with scent, and clans defend their territory "aggressively and noisily" against other gliders and animals (Australian Museum). They switch diets by season and choose glide routes through the canopy. This supports solid social and spatial intelligence for a very small mammal, not problem-solving at primate or corvid level.
 
 ### Fighting and aggression
-Territorial disputes involve chasing, vocal threats and biting. Captive gliders bite readily when handled roughly. The glider presses conflicts with rivals and with small prey but escapes, rather than fights, larger threats.
+Territorial disputes involve noisy chasing and biting. The glider presses conflicts with rivals and with small prey but escapes, rather than fights, larger threats.
 
 ### Predator defense
 Owls (*Ninox*) are the main natural predators; kookaburras, goannas, snakes, quolls and feral cats also take gliders (Wikipedia). Defense is almost entirely escape: gliding away, retreating into narrow hollows and sheltering in a group nest.
@@ -158,7 +158,7 @@ Groups of up to seven adults and their young share a nest as a clan. Within the 
 Females have a well-developed pouch and commonly raise twins, which stay in the pouch for just over two months and then begin foraging, usually with the mother (Australian Museum). Females mature late in their first year (Animal Diversity Web).
 
 ### Conservation
-The broad, pre-split species was assessed as Least Concern by the IUCN in 2016. The narrowly defined *P. breviceps* has a much smaller range, and Wikipedia notes it is sensitive to disasters such as the 2019–20 Australian bushfires; a formal reassessment of the split species is still needed. Road construction, drought and habitat clearing affect local populations.
+The broad, pre-split species was assessed as Least Concern by the IUCN in 2016. The narrowly defined *P. breviceps* has a much smaller range, and Wikipedia notes it is sensitive to disasters such as the 2019–20 Australian bushfires; a formal reassessment of the split species is still needed.
 
 ### Special features
 - Furred gliding membrane from the fifth finger to the ankle.
@@ -169,7 +169,7 @@ The broad, pre-split species was assessed as Least Concern by the IUCN in 2016. 
 - UV-sensitive trichromatic vision.
 
 ### Human interaction
-Sugar gliders are among the most widely kept exotic pets. Genetic work shows that European and US pet stock came from New Guinean gliders, not the eastern Australian animals that now carry the strict name. Introduced gliders in Tasmania are a serious predator of the critically endangered swift parrot, prompting nest-box and predator-control research.
+Sugar gliders are among the most widely kept exotic pets. Genetic work shows that European and US pet stock came from New Guinean gliders, not the eastern Australian animals that now carry the strict name. Introduced gliders in Tasmania are a serious predator of the critically endangered swift parrot.
 
 ### Genuine fun facts
 - The Latin name *Petaurus breviceps* translates roughly as "short-headed rope-dancer", a nod to its canopy acrobatics.

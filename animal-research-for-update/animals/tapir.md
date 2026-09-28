@@ -146,7 +146,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 ## 8. Expanded profile
 
 ### Habitat and range
-Tropical forests, swamps and river margins of South America east of the Andes, from Venezuela, Colombia and the Guianas south through Brazil to Paraguay, Bolivia and northern Argentina, and west to Peru and Ecuador. It prefers dense forest near water and avoids open pasture. ADW records the species from sea level to high elevations and describes it as an adept climber. In 2024 it was seen in Rio de Janeiro state for the first time since 1914.
+Tropical forests, swamps and river margins of South America east of the Andes, from Venezuela, Colombia and the Guianas south through Brazil to Paraguay, Bolivia and northern Argentina, and west to Peru and Ecuador. It is most common in dense forest near water and less common in open pasture. ADW records the species from sea level to high elevations and describes it as an adept climber. In 2024 it was seen in Rio de Janeiro state for the first time since 1914.
 
 ### Diet and ecology
 A generalist browser of leaves, buds, shoots, small branches, fruit, grasses and aquatic plants, using its trunk to pull food to its mouth. DNA metabarcoding of dung from 31 latrines in Brazil's Atlantic Forest found 61 plant species from 46 families, chosen across a wide home range rather than from the most common local plants (Lautenschlager et al. 2026). Tapirs swallow and spread large numbers of seeds, making them important seed dispersers.
@@ -158,23 +158,22 @@ Largely solitary and mainly nocturnal. Mothers and calves stay together, and pai
 Mating peaks in April to June. Gestation lasts about 13 months (390–395 days), and females usually have one calf every two years. Newborns weigh about 6.8 kg, carry white spots and stripes that fade after about seven months, and are weaned at around six months. Sexual maturity comes in the third year.
 
 ### Conservation
-Listed as Vulnerable on the IUCN Red List. Habitat loss and fragmentation, hunting, road deaths and fire are the main threats. Pantanal megafires in recent years affected large areas of habitat.
+Listed as Vulnerable on the IUCN Red List. Habitat loss and fragmentation are the main threats highlighted by recent field studies, which find tapirs depend on dense forest and water networks (Alviz et al. 2025). Lautenschlager et al. (2026) describe Atlantic Forest tapirs as threatened megafauna whose broad diet helps maintain forest plant diversity.
 
 ### Special features
 - Short, flexible, prehensile proboscis used as a snorkel.
 - Thick hide, especially on the back of the neck.
 - Low crest and short mane along the neck.
 - Teardrop-shaped body for pushing through dense undergrowth.
-- Four toes on the front feet and three on the hind feet.
 
 ### Human interaction
-Tapirs are hunted for meat across their range. Serious attacks on people are rare and follow cornering or injury, such as the fatal 2005 case in Brazil. They sometimes feed in smallholder crops; in Colombia, occupancy was positively linked to crop areas used for household food (Alviz et al. 2025).
+Serious attacks on people are rare and follow cornering or injury, such as the fatal 2005 case in Brazil. They sometimes feed in smallholder crops; in Colombia, occupancy was positively linked to crop areas used for household food (Alviz et al. 2025).
 
 ### Genuine fun facts
 - A tapir's trunk is made from its nose and upper lip and works as a snorkel.
 - It can explore a circle of ground about 30 cm across with its trunk without moving its head.
 - Tapir calves are born with white spots and stripes, like a watermelon.
-- Pregnancy lasts about 13 months, one of the longest among land mammals of its size.
+- Pregnancy lasts about 13 months (390–395 days), and a female usually raises one calf every two years.
 - Competing tapirs bite at each other's feet.
 - The name "tapir" comes from a Tupi word linked to "thick", after its tough hide.
 - In 2024 a lowland tapir was recorded in Rio de Janeiro state for the first time in 110 years.

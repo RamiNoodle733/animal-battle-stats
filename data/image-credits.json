@@ -2264,6 +2264,38 @@
       "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
       "modified": "Background removed and cropped"
+    },
+    "aardwolf": {
+      "title": "Aardwolf25.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Aardwolf25.JPG",
+      "artist": "Greg Hume",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
+    },
+    "basking-shark": {
+      "title": "Cetorhinus maximus atlantic.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Cetorhinus_maximus_atlantic.jpg",
+      "artist": "Green Fire Productions",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "binturong": {
+      "title": "Binturong 06.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Binturong_06.jpg",
+      "artist": "Autharite",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "sand-cat": {
+      "title": "Felis margarita 6.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Felis_margarita_6.jpg",
+      "artist": "TimVickers",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
     }
   }
 }

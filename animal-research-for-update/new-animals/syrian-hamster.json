@@ -1,0 +1,20 @@
+{
+  "name": "Syrian Hamster",
+  "scientific_name": "Mesocricetus auratus",
+  "type": "Mammal",
+  "class": "Territorial",
+  "size": "Tiny",
+  "biome": "DESERT",
+  "habitat": "Arid steppe and farmland of northern Syria and southern Turkey; homes worldwide as a pet",
+  "diet": ["seeds and grain", "green plants", "insects"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A solitary, pouch-cheeked burrowing rodent with a fierce temper toward its own kind. Endangered in the wild but one of the world's most common pets.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Steppe Burrows",
+    "combat_style": "Territorial",
+    "strengths": ["Aggressive, quickly primed biting", "Ever-growing incisors", "Burrow refuge"],
+    "weaknesses": ["Tiny body mass", "No armor", "Slow in the open"]
+  }
+}

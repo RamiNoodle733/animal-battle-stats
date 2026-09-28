@@ -68,6 +68,7 @@ EXTRA = {
     "goldfish": {"search": ["goldfish aquarium"]},
     "stingray": {"only": True, "species": "Hypanus americanus", "categories": ["Hypanus americanus"], "search": ["southern stingray", "Hypanus americanus", "Dasyatis americana"]},
     "fisher": {"only": True, "categories": ["Pekania pennanti", "Martes pennanti"], "search": ["Pekania pennanti", "Martes pennanti", "fisher Pekania", "fisher cat animal"], "files": 70},
+    "swordfish": {"search": ["swordfish swimming", "Xiphias gladius underwater", "swordfish jumping"], "prefer": "swim|underwater|jump|leap|free|live", "files": 60},
     "false-killer-whale": {"search": ["false killer whale underwater", "Pseudorca crassidens"], "prefer": "underwater", "files": 60},
 }
 SKIP_TITLE = re.compile(

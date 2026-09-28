@@ -170,7 +170,7 @@ Listed as Vulnerable on the IUCN Red List and on CITES Appendix I. IBA reports a
 - Loose skin that allows turning within a predator's grip.
 - Inward-turned front feet and hairless soles for climbing.
 - Exceptionally long tongue.
-- Pale chest patch whose shape differs between individuals.
+- Pale chest patch on a short black coat.
 
 ### Human interaction
 Crop damage rose after the 1997–98 El Niño drought and fires in Borneo reduced forest fruit; farmers were most hostile when bears killed old coconut trees by climbing and feeding in them, and metal sheeting on trunks deterred bears for at least a few years (Fredriksson 2005). Cubs were often taken as pets because of their timid nature, and bear parts are still found for sale in traditional medicine shops in Sabah and Sarawak.

@@ -76,7 +76,7 @@ Good vision for vigilance on open water; the throbbing wing noise in flight can 
 Mute swans hold territories, form long pair bonds and give their young more than four months of care from laying to fledging, one of the longest parental investments among birds (Włodarczyk & Minias 2016). Territory choice is not always sound: a 19-year Polish study found long-occupied territories did not give better breeding success. Aggression is graded from display to attack, and the drowning tactic shows targeted fighting behaviour.
 
 ### Fighting and aggression
-Among the most territorial waterbirds. Cobs drive off geese, ducks and other swans, attack canoes and small boats near their young and confront dogs and people approaching nests (Wikipedia; ADW). In central Poland, mute swans nesting near expanding whooper swans moved nests deeper into reeds and raised fewer young, a sign of direct confrontations with a larger relative (Szewczuk et al. 2026).
+Among the most territorial waterbirds. Cobs drive off geese, ducks and other swans, attack canoes and small boats near their young and confront dogs and people approaching nests (Wikipedia; ADW). In central Poland, mute swans nesting near expanding whooper swans moved nests deeper into reeds and raised fewer young, a sign of direct confrontations with a larger swan species (Szewczuk et al. 2026).
 
 ### Predator defense
 Adults have few natural enemies. Foxes, pike, mink and, in New York, snapping turtles take cygnets; adults defend them by displaying, charging and striking. Cygnets shelter under or ride on a parent's back.
@@ -141,7 +141,7 @@ All are absolute roster-wide ratings, not pound-for-pound.
 ## 8. Expanded profile
 
 ### Habitat and range
-Lakes, lagoons, slow rivers, canals, reservoirs and sheltered coasts, preferring medium to large water bodies. Native across much of Europe and temperate Asia; introduced populations are established in North America, where numbers in the lower Great Lakes grew at over 10% a year between 1971 and 2000, doubling every seven to eight years.
+Lakes, lagoons and slow-flowing rivers, preferring medium to large bodies of fresh water. Native across much of Europe and temperate Asia; introduced populations are established in North America, where numbers in the lower Great Lakes grew at over 10% a year between 1971 and 2000, doubling every seven to eight years.
 
 ### Diet and ecology
 Mainly aquatic plants, reached by plunging the head and neck underwater or up-ending, since mute swans do not dive; small invertebrates are taken too. Grazing can deplete river vegetation, and managers have modelled "sacrificial" feeding areas to protect valuable plant beds (Wood et al. 2014). Ducks and gulls often feed alongside swans on weed the swans bring to the surface.
@@ -153,7 +153,7 @@ Breeding pairs hold territories, often a single pair on a small lake, of about 4
 Breeding usually begins at about four years of age (BTO). The large reed nest holds eggs of about 294–396 g each, and cygnets hatch at 180–248 g. Care lasts more than four months from laying to fledging; cygnets keep grey plumage until at least their first year and are driven away before the next breeding season.
 
 ### Conservation
-Least Concern on the IUCN Red List. UK numbers fell from about 1960 to the early 1980s through lead poisoning from swallowed fishing weights and shot, then recovered quickly after lead was replaced. The UK wintering population is internationally important, and the species is on the UK amber list (BTO). Avian influenza causes periodic mass deaths, and whooper swans spreading into central Europe now compete with mute swans for nest sites.
+Least Concern on the IUCN Red List. UK numbers fell from about 1960 to the early 1980s through lead poisoning from swallowed fishing weights and shot, then recovered quickly after lead was replaced. The UK wintering population is internationally important, and the species is on the UK amber list (BTO). Whooper swans spreading into central Europe now compete with mute swans for nest sites.
 
 ### Special features
 - Orange bill with a black basal knob, larger in males.
@@ -163,7 +163,7 @@ Least Concern on the IUCN Red List. UK numbers fell from about 1960 to the early
 - Among the heaviest flying birds.
 
 ### Human interaction
-Mute swans are familiar park birds. A UK community-science study found that 22% of systematic observations recorded people feeding swans (Maréchal et al. 2025). Cobs can attack people, boats and dogs that come near nests. In North America they are managed as an invasive species because of their grazing and aggression toward native waterfowl.
+Mute swans are familiar park birds. A UK community-science study found that 22% of systematic observations recorded people feeding swans (Maréchal et al. 2025). Cobs can attack people, boats and dogs that come near nests. Introduced North American populations have grown rapidly, doubling every seven to eight years in the lower Great Lakes between 1971 and 2000.
 
 ### Genuine fun facts
 - One Polish cob weighed almost **23 kg**, the heaviest verified weight for a flying bird.

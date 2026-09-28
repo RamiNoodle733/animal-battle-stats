@@ -1,0 +1,20 @@
+{
+  "name": "Elephant Seal",
+  "scientific_name": "Mirounga leonina",
+  "type": "Mammal",
+  "class": "Titan",
+  "size": "Extra Large",
+  "biome": "OCEAN",
+  "habitat": "Southern Ocean, sub-Antarctic island beaches",
+  "diet": ["squid", "fish"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The largest seal on Earth. Three-tonne bulls rear up and slam into rivals on breeding beaches, and at sea it dives deeper and longer than almost any mammal.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Deep ocean and breeding beaches",
+    "combat_style": "Titan",
+    "strengths": ["Colossal body mass", "Extreme diving endurance", "Rear-and-slam bull fighting"],
+    "weaknesses": ["Very slow on land", "Few specialized weapons", "Vulnerable to killer whales"]
+  }
+}

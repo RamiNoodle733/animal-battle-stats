@@ -1,0 +1,20 @@
+{
+  "name": "Leopard Seal",
+  "scientific_name": "Hydrurga leptonyx",
+  "type": "Mammal",
+  "class": "Hunter",
+  "size": "Large",
+  "biome": "ARCTIC",
+  "habitat": "Antarctic pack ice, Southern Ocean",
+  "diet": ["krill", "penguins", "seals", "fur seal pups"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "Antarctica's top seal predator, a large, agile hunter that ambushes penguins at the ice edge and also sieves krill through its teeth.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Pack ice edge",
+    "combat_style": "Hunter",
+    "strengths": ["Long gripping teeth", "Agile underwater", "Ice-edge ambush"],
+    "weaknesses": ["Slow on land and ice", "No armor", "Outmatched by killer whales"]
+  }
+}

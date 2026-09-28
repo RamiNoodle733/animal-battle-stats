@@ -1,0 +1,20 @@
+{
+  "name": "Arapaima",
+  "scientific_name": "Arapaima gigas",
+  "type": "Fish",
+  "class": "Tank",
+  "size": "Large",
+  "biome": "JUNGLE",
+  "habitat": "Amazon floodplain lakes, flooded forest",
+  "diet": ["fish", "crustaceans", "small birds"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A giant air-breathing Amazon fish armored with scales that piranha teeth cannot pierce. It gulps prey whole with a sudden suction strike.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Floodplain lakes",
+    "combat_style": "Tank",
+    "strengths": ["Piranha-proof scale armor", "Survives in oxygen-poor water", "Explosive suction strike"],
+    "weaknesses": ["Must surface to breathe", "Weak weapons against big opponents", "Armor fails against crushing bites"]
+  }
+}

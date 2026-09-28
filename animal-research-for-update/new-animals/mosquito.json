@@ -1,0 +1,20 @@
+{
+  "name": "Mosquito",
+  "scientific_name": "Anopheles gambiae",
+  "type": "Insect",
+  "class": "Skirmisher",
+  "size": "Tiny",
+  "biome": "WETLANDS",
+  "habitat": "Sub-Saharan Africa near people, breeding in sunlit pools and puddles",
+  "diet": ["blood (females)", "plant sugars", "nectar"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "The African malaria mosquito weighs about 2 mg and finds people by their breath and body heat. It cannot hurt anything directly, but the malaria parasites it carries make it deadly to humans.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Wetland edges and houses",
+    "combat_style": "Skirmisher",
+    "strengths": ["Tracks hosts by breath, heat and sight", "Near-painless piercing mouthparts", "Tiny and hard to hit"],
+    "weaknesses": ["Weighs about 2 mg", "No way to injure large animals", "Dies from any direct hit"]
+  }
+}

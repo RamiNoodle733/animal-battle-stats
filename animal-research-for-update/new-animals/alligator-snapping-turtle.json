@@ -1,0 +1,20 @@
+{
+  "name": "Alligator Snapping Turtle",
+  "scientific_name": "Macrochelys temminckii",
+  "type": "Reptile",
+  "class": "Ambush Predator",
+  "size": "Medium",
+  "biome": "WETLANDS",
+  "habitat": "Southern US rivers, oxbows, swamps",
+  "diet": ["fish", "turtles", "molluscs", "acorns"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "North America's heaviest freshwater turtle, a ridged-shell ambush hunter that lures fish into its open jaws with a worm-like tongue.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "River bottoms",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Powerful hooked-beak bite", "Ridged armored shell", "Tongue lure ambush"],
+    "weaknesses": ["Very slow", "Short reach", "Exposed head and small plastron"]
+  }
+}

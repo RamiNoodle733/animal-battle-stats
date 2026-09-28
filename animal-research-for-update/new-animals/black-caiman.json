@@ -1,0 +1,20 @@
+{
+  "name": "Black Caiman",
+  "scientific_name": "Melanosuchus niger",
+  "type": "Reptile",
+  "class": "Ambush Predator",
+  "size": "Large",
+  "biome": "JUNGLE",
+  "habitat": "Amazon rivers, lakes, flooded forest",
+  "diet": ["fish", "water birds", "capybara", "carrion"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "The Amazon's largest predator and the biggest member of the alligator family, a dark, armored night hunter that drags prey into the water.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Amazon lakes and flooded forest",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Crushing crocodilian bite", "Dense bony armor", "Night ambush at the waterline"],
+    "weaknesses": ["Slow on open land", "Low stamina", "Soft underbelly"]
+  }
+}

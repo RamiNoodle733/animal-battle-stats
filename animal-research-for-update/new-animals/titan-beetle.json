@@ -1,0 +1,20 @@
+{
+  "name": "Titan Beetle",
+  "scientific_name": "Titanus giganteus",
+  "type": "Insect",
+  "class": "Fighter",
+  "size": "Tiny",
+  "biome": "JUNGLE",
+  "habitat": "Lowland Amazon and Guiana rainforest with old-growth trees",
+  "diet": ["nothing as an adult", "dead wood (larvae, presumed)"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "One of the largest beetles on Earth, reaching almost 17 cm. It hisses and bites with sharp mandibles, but adults cannot eat and live only a few weeks.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rainforest floor and tree trunks",
+    "combat_style": "Fighter",
+    "strengths": ["Sharp cutting mandibles", "Large armoured body", "Warning hiss"],
+    "weaknesses": ["Slow and clumsy", "Adults cannot eat", "Very short adult life"]
+  }
+}

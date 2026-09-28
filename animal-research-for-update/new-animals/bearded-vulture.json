@@ -1,0 +1,20 @@
+{
+  "name": "Bearded Vulture",
+  "scientific_name": "Gypaetus barbatus",
+  "type": "Bird",
+  "class": "Scavenger",
+  "size": "Medium",
+  "biome": "MOUNTAINS",
+  "habitat": "High mountains, cliffs, gorges",
+  "diet": ["bones", "carrion", "tortoises"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A large mountain vulture that lives mostly on bones. It drops bones onto rocks to smash them and digests the pieces in very strong stomach acid.",
+  "battle_profile": {
+    "preferred_range": "Long range",
+    "primary_environment": "Mountain cliffs",
+    "combat_style": "Scavenger",
+    "strengths": ["Drops prey and bones from height", "Agile long-range soaring", "Bone-dissolving stomach acid"],
+    "weaknesses": ["Weak, blunt talons", "Avoids fights", "Clumsy on the ground"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "House Cat",
+  "scientific_name": "Felis catus",
+  "type": "Mammal",
+  "class": "Hunter",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Worldwide with people; farms, towns, feral colonies",
+  "diet": ["rodents", "small birds", "lizards", "insects"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "The domestic cat, a small ambush hunter bred from Near Eastern wildcat stock. Deadly to mice and birds, but a lightweight on the absolute scale.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Farmland and Woodland Edge",
+    "combat_style": "Hunter",
+    "strengths": ["Superb balance and reflexes", "Retractable claws", "Ultrasonic hearing"],
+    "weaknesses": ["Tiny body mass", "Poor endurance", "No armor"]
+  }
+}

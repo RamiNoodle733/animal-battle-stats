@@ -1,0 +1,20 @@
+{
+  "name": "Gyrfalcon",
+  "scientific_name": "Falco rusticolus",
+  "type": "Bird",
+  "class": "Sky Hunter",
+  "size": "Small",
+  "biome": "ARCTIC",
+  "habitat": "Arctic tundra, coastal cliffs, sea ice",
+  "diet": ["ptarmigan", "waterfowl", "seabirds", "arctic hares"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The world's largest falcon, an Arctic hunter that chases ptarmigan low over the tundra. It stays in the far north through winter, sometimes living over sea ice.",
+  "battle_profile": {
+    "preferred_range": "Long range",
+    "primary_environment": "Arctic sky",
+    "combat_style": "Sky Hunter",
+    "strengths": ["Long low-level pursuits", "Sharp talons and killing bite", "Built for Arctic cold"],
+    "weaknesses": ["Light, unarmored body", "Fragile flight-critical wings", "Less nimble than smaller falcons"]
+  }
+}

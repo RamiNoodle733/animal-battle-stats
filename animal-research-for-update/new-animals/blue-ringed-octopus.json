@@ -1,0 +1,20 @@
+{
+  "name": "Blue-Ringed Octopus",
+  "scientific_name": "Hapalochlaena lunulata",
+  "type": "Cephalopod",
+  "class": "Assassin",
+  "size": "Tiny",
+  "biome": "OCEAN",
+  "habitat": "Shallow Indo-Pacific reefs, rubble, tide pools",
+  "diet": ["small crabs", "shrimp", "small fish"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A tiny reef octopus whose bite carries tetrodotoxin, a nerve toxin with no antidote. It flashes bright blue rings as a warning when disturbed.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Reef tide pools",
+    "combat_style": "Assassin",
+    "strengths": ["Tetrodotoxin bite", "Blue ring warning flash", "Toxic body tissues"],
+    "weaknesses": ["Tiny, soft body", "Must bite to use venom", "Low stamina"]
+  }
+}

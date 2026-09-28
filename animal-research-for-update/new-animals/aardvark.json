@@ -1,0 +1,20 @@
+{
+  "name": "Aardvark",
+  "scientific_name": "Orycteropus afer",
+  "type": "Mammal",
+  "class": "Digger",
+  "size": "Medium",
+  "biome": "SAVANNA",
+  "habitat": "Savanna, grassland, open woodland, semi-arid scrub",
+  "diet": ["termites", "ants", "insect larvae"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A heavy-bodied African digging specialist that tears open termite mounds with spade-like claws. It fights only when cornered and escapes by burrowing.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Savanna burrows",
+    "combat_style": "Digger",
+    "strengths": ["Spade-like digging claws", "Powerful hind-leg kicks", "Rapid emergency burrowing"],
+    "weaknesses": ["No bite weapon", "Poor eyesight", "Vulnerable to drought and starvation"]
+  }
+}

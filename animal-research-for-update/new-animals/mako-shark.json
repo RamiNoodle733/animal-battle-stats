@@ -1,0 +1,20 @@
+{
+  "name": "Mako Shark",
+  "scientific_name": "Isurus oxyrinchus",
+  "type": "Fish",
+  "class": "Speedster",
+  "size": "Large",
+  "biome": "OCEAN",
+  "habitat": "Open tropical and temperate oceans",
+  "diet": ["bluefish and tunas", "swordfish and other billfish", "squid"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The fastest shark measured, a warm-muscled open-ocean hunter that can leap about 6 metres out of the water.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Open Ocean",
+    "combat_style": "Speedster",
+    "strengths": ["Explosive burst speed", "Record leaping power", "Warm-muscle endurance"],
+    "weaknesses": ["No armor", "Grasping rather than cutting teeth", "Outsized by the biggest predators"]
+  }
+}

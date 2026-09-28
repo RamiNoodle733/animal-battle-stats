@@ -1,0 +1,20 @@
+{
+  "name": "Markhor",
+  "scientific_name": "Capra falconeri",
+  "type": "Mammal",
+  "class": "Climber",
+  "size": "Medium",
+  "biome": "MOUNTAINS",
+  "habitat": "Steep cliffs and mountain forest of Central and South Asia",
+  "diet": ["grasses", "herbs", "oak leaves", "shrubs"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A large wild mountain goat whose males carry corkscrew horns over 1.5 m long. It escapes predators by climbing where they cannot follow.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Mountain Cliffs",
+    "combat_style": "Climber",
+    "strengths": ["Giant corkscrew horns", "Cliff-climbing footing", "Sharp predator detection"],
+    "weaknesses": ["Horns suited to wrestling, not stabbing", "No armor", "Ordinary speed on flat ground"]
+  }
+}

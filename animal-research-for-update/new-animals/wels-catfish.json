@@ -1,0 +1,20 @@
+{
+  "name": "Wels Catfish",
+  "scientific_name": "Silurus glanis",
+  "type": "Fish",
+  "class": "Ambush Predator",
+  "size": "Medium",
+  "biome": "WETLANDS",
+  "habitat": "Large rivers, lakes and reservoirs of Europe and western Asia",
+  "diet": ["fish", "birds", "crayfish and amphibians"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "Europe's giant river catfish, a night-hunting ambusher that senses electric fields and even beaches itself to grab pigeons.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Murky River",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Electroreceptive barbel senses", "Huge suction gulp", "Strikes prey on the riverbank"],
+    "weaknesses": ["Scaleless, unarmored skin", "Gripping, not cutting, teeth", "Slow in open pursuit"]
+  }
+}

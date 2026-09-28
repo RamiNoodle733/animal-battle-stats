@@ -195,7 +195,7 @@ In an absolute matchup its limits are the limits of a 4 kg bird. It has no armor
 
 - `image_status`: **SOURCE FOUND - FULL-BODY NOT VERIFIED**
 - `png_repo_path`: `animal-research-for-update/images/crowned-eagle.png` (**not present; not complete**)
-- `source_page_url`: https://commons.wikimedia.org/wiki/File:Crowned_Eagle_(Stephanoaetus_coronatus),_at_Ndumo_Nature_Reserve,_KwaZulu-Natal,_South_Africa_(28947411865).jpg
+- `source_page_url`: https://commons.wikimedia.org/wiki/File:Crowned_Eagle_%28Stephanoaetus_coronatus%29,_at_Ndumo_Nature_Reserve,_KwaZulu-Natal,_South_Africa_%2828947411865%29.jpg
 - `original_photo_url`: not recorded (search results returned only the Commons file page)
 - `file_format_verified`: JPEG file page on Commons; final PNG not created
 - `alpha_verified`: **No**
@@ -221,7 +221,7 @@ In an absolute matchup its limits are the limits of a 4 kg bird. It has no armor
 | Crowned eagles in Ugandan rainforest, breeding and diet at a nest | https://www.researchgate.net/publication/229525599_Crowned_Eagles_Strephanoaetus_coronatus_in_rainforest_observations_on_breeding_chronology_and_diet_at_a_nest_in_Uganda | breeding and diet context | rainforest nest observations of breeding timing and diet | Moderate; used only for context |
 | Attacks by crowned hawk eagles on monkeys in Zaire | https://www.academia.edu/22137977/Attacks_by_Crowned_Hawk_Eagles_Stephanoaetus_coronatus_on_Monkeys_in_Zaire | attack behavior | field observations of attacks on monkeys | Moderate; used only for context |
 | Wikipedia, Crowned eagle | https://en.wikipedia.org/wiki/Crowned_eagle | sex-specific mass, hallux, tarsus, wing shape, diet range | females 3.2–4.7 kg; hallux 4.9–6.2 cm museum specimens; tarsus 8.5–10.3 cm; 25–90% monkeys in rainforest; bushbuck up to 30 kg exceptional | Tertiary; used for detail only |
-| Commons, crowned eagle at Ndumo | https://commons.wikimedia.org/wiki/File:Crowned_Eagle_(Stephanoaetus_coronatus),_at_Ndumo_Nature_Reserve,_KwaZulu-Natal,_South_Africa_(28947411865).jpg | image candidate | exact species, wild bird | Framing, adulthood and license not verified |
+| Commons, crowned eagle at Ndumo | https://commons.wikimedia.org/wiki/File:Crowned_Eagle_%28Stephanoaetus_coronatus%29,_at_Ndumo_Nature_Reserve,_KwaZulu-Natal,_South_Africa_%2828947411865%29.jpg | image candidate | exact species, wild bird | Framing, adulthood and license not verified |
 
 ### Conflicts and uncertainty
 - **Mass:** 2.5–4.7 kg overall; canonical 4.0 kg female is representative, not the maximum.

@@ -195,7 +195,7 @@ On the absolute roster it remains a bird. Its mass gives it an edge over other e
 
 - `image_status`: **SOURCE FOUND - FULL-BODY NOT VERIFIED**
 - `png_repo_path`: `animal-research-for-update/images/steller-s-sea-eagle.png` (**not present; not complete**)
-- `source_page_url`: https://commons.wikimedia.org/wiki/File:Steller's_Sea_Eagle_Haliaeetus_pelagicus_Right_1800px.jpg
+- `source_page_url`: https://commons.wikimedia.org/wiki/File:Steller%27s_Sea_Eagle_Haliaeetus_pelagicus_Right_1800px.jpg
 - `original_photo_url`: not recorded (search results returned only the Commons file page)
 - `file_format_verified`: JPEG file page on Commons; final PNG not created
 - `alpha_verified`: **No**
@@ -213,14 +213,14 @@ On the absolute roster it remains a bird. Its mass gives it an edge over other e
 | San Diego Zoo Wildlife Alliance, Steller's sea-eagle | https://animals.sandiegozoo.org/animals/stellers-sea-eagle | size ranking, bill, kleptoparasitism | largest sea-eagle and heaviest known eagle; enormous, strongly arched bill; steals food from other birds | High-moderate zoo institutional source |
 | BirdLife DataZone factsheet | https://datazone.birdlife.org/species/factsheet/stellers-sea-eagle-haliaeetus-pelagicus | status, population, threats | Vulnerable; decreasing; about 3,600–4,670 mature individuals; development, lead and persecution threats | High, IUCN Red List authority; numbers via search summary |
 | Wild Bird Society of Japan, diet of Steller's sea eagle in the northern Sea of Okhotsk | https://mobile.wbsj.org/nature/kisyou/eagle/pdf/diet.pdf | diet composition | birds 73% of diet of coastal pairs and 91% near seabird colonies | High-moderate field-study report; figures via search summary |
-| Steller's sea eagle monitoring, northern Sea of Okhotsk (Potapov, Utekhina et al.) | https://www.researchgate.net/publication/260596366_Steller's_Sea_Eagle_Monitoring_at_the_Northern_Part_of_the_Sea_of_Okhotsk_Birds_People_Technologies | nesting habitat, productivity | monitoring since 1992; 70% of nests on sea coasts; coastal pairs more successful | High-moderate long-term field program |
+| Steller's sea eagle monitoring, northern Sea of Okhotsk (Potapov, Utekhina et al.) | https://www.researchgate.net/publication/260596366_Steller%27s_Sea_Eagle_Monitoring_at_the_Northern_Part_of_the_Sea_of_Okhotsk_Birds_People_Technologies | nesting habitat, productivity | monitoring since 1992; 70% of nests on sea coasts; coastal pairs more successful | High-moderate long-term field program |
 | Utekhina 1994, *Journal of Raptor Research* abstract | https://zenodo.org/records/16141948 | productivity | nest productivity at Magadan State Nature Reserve | Moderate; abstract-level |
 | Saito, lead poisoning of Steller's sea-eagle (Peregrine Fund conference paper) | http://science.peregrinefund.org/legacy-sites/conference-lead/PDF/0304%20Saito.pdf | lead poisoning threat | eagles poisoned after scavenging lead-shot deer carcasses in Hokkaido | High, veterinary field report |
 | Foraging habitats of Steller's sea-eagles during winter, *Journal of Raptor Research* | https://digitalcommons.usf.edu/cgi/viewcontent.cgi?article=2478&context=jrr | wintering ecology | winter foraging habitat use | Moderate; used for wintering context only |
-| Wikipedia, Steller's sea eagle | https://en.wikipedia.org/wiki/Steller's_sea_eagle | sex-specific mass, wingspan, wintering counts, mammal prey, productivity decline | females 6.2–9.5 kg; wingspan 195–250 cm (287 cm record); about 3,500 on Kamchatka and 2,000 on Hokkaido; foxes, sable, mink as prey; fledging 1.0 falling to 0.55 | Tertiary; used for detail only |
+| Wikipedia, Steller's sea eagle | https://en.wikipedia.org/wiki/Steller%27s_sea_eagle | sex-specific mass, wingspan, wintering counts, mammal prey, productivity decline | females 6.2–9.5 kg; wingspan 195–250 cm (287 cm record); about 3,500 on Kamchatka and 2,000 on Hokkaido; foxes, sable, mink as prey; fledging 1.0 falling to 0.55 | Tertiary; used for detail only |
 | National Geographic, Steller's sea eagle | https://www.nationalgeographic.com/animals/birds/facts/stellers-eagle | general profile | popular institutional profile of size and range | Moderate, general |
 | National Wildlife Federation, The Secret Lives of Sea Eagles | https://www.nwf.org/Magazines/National-Wildlife/2009/Sea-Eagles | general ecology | sea eagle ecology feature including this species | Moderate, general |
-| Commons, Steller's sea eagle side view | https://commons.wikimedia.org/wiki/File:Steller's_Sea_Eagle_Haliaeetus_pelagicus_Right_1800px.jpg | image candidate | exact species, side view by Derek Ramsey | Framing, adulthood and license not verified |
+| Commons, Steller's sea eagle side view | https://commons.wikimedia.org/wiki/File:Steller%27s_Sea_Eagle_Haliaeetus_pelagicus_Right_1800px.jpg | image candidate | exact species, side view by Derek Ramsey | Framing, adulthood and license not verified |
 
 ### Conflicts and uncertainty
 - **Heaviest versus largest:** heaviest by mass, but not necessarily the longest or largest by wing surface; the Philippine and harpy eagles can exceed it on other measures.

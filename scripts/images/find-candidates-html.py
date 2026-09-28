@@ -98,7 +98,15 @@ def file_titles(entry, slug):
 
 
 def text_of(fragment):
+    fragment = re.sub(r"<style[^>]*>.*?</style>", " ", fragment, flags=re.S)
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
+
+
+def author_of(fragment):
+    """The photographer's name. Commons creator templates render a whole
+    table (alternative names, dates, links) after the name; keep the name."""
+    text = text_of(fragment)
+    return re.split(r"\s+(?:Alternative names|Description|Date of birth|Work location|Authority file|Link back)\b", text)[0]
 
 
 def file_info(title):
@@ -118,7 +126,7 @@ def file_info(title):
         "width": int(size.group(1).replace(",", "")) if size else 0,
         "height": int(size.group(2).replace(",", "")) if size else 0,
         "license": text_of(license_short.group(1)) if license_short else "",
-        "artist": text_of(author.group(1))[:200] if author else "",
+        "artist": author_of(author.group(1))[:200] if author else "",
         "categories": " | ".join(categories)[:1200],
     }
 

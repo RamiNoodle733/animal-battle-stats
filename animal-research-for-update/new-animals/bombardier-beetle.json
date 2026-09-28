@@ -1,0 +1,20 @@
+{
+  "name": "Bombardier Beetle",
+  "scientific_name": "Brachinus crepitans",
+  "type": "Insect",
+  "class": "Chemical Warfare",
+  "size": "Tiny",
+  "biome": "FOREST",
+  "habitat": "Dry chalk and limestone grassland, field margins, under stones",
+  "diet": ["ground beetle pupae (larvae)", "small invertebrates"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A small ground beetle that fires a boiling chemical spray from its abdomen. The spray comes out in hundreds of tiny explosions per second and can be aimed at an attacker.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Grassland under stones",
+    "combat_style": "Chemical Warfare",
+    "strengths": ["Boiling 100 °C chemical spray", "Aims its spray in many directions", "Can escape from a predator's stomach"],
+    "weaknesses": ["Tiny, easily crushed body", "Limited spray supply", "No real offensive weapon"]
+  }
+}

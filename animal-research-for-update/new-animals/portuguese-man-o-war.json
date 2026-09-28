@@ -1,0 +1,20 @@
+{
+  "name": "Portuguese Man o' War",
+  "scientific_name": "Physalia physalis",
+  "type": "Cnidarian",
+  "class": "Passive Killer",
+  "size": "Small",
+  "biome": "OCEAN",
+  "habitat": "Open-ocean surface of warm and temperate seas, often blown ashore",
+  "diet": ["small fish", "fish larvae", "small drifting animals"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A floating colony of specialised zooids that sails on the wind under a gas-filled float. Its stinging tentacles average about 10 m and can reach 30 m.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Ocean surface",
+    "combat_style": "Passive Killer",
+    "strengths": ["Stinging tentacles averaging 10 m", "Painful nematocyst venom", "Survives losing tentacles"],
+    "weaknesses": ["Cannot swim or chase", "Soft body with no armour", "No eyes or brain"]
+  }
+}

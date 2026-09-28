@@ -1,0 +1,20 @@
+{
+  "name": "Africanized Honey Bee",
+  "scientific_name": "Apis mellifera scutellata hybrid",
+  "type": "Insect",
+  "class": "Swarm",
+  "size": "Tiny",
+  "biome": "SAVANNA",
+  "habitat": "Warm open country, farmland and towns across the Americas; nests in cavities",
+  "diet": ["nectar", "pollen", "honey"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A hybrid of African and European honey bees that spread from Brazil across the Americas. One worker stings only once, but colonies attack in huge numbers and chase threats for hundreds of metres.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Nest cavities and open country",
+    "combat_style": "Swarm",
+    "strengths": ["Tear-away sting keeps pumping venom", "Alarm scent calls in nestmates", "Chases threats up to 400 m"],
+    "weaknesses": ["Each worker stings a mammal only once", "Tiny, fragile body", "Small venom dose per bee"]
+  }
+}

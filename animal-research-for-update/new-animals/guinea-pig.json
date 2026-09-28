@@ -1,0 +1,20 @@
+{
+  "name": "Guinea Pig",
+  "scientific_name": "Cavia porcellus",
+  "type": "Mammal",
+  "class": "Herd Animal",
+  "size": "Tiny",
+  "biome": "MOUNTAINS",
+  "habitat": "Homes and farms worldwide; wild stock in rocky, grassy Andean highlands",
+  "diet": ["grass and hay", "leafy vegetables", "fruit"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A stocky, tailless Andean rodent bred from wild cavies for food and now kept as a pet worldwide. It relies on vigilance, freezing and group scattering rather than fighting.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Andean Grassland",
+    "combat_style": "Herd Animal",
+    "strengths": ["Nearly all-round vision", "Group scatter escape", "Rich alarm calls"],
+    "weaknesses": ["Weak incisor bite", "Poor climber and jumper", "Needs dietary vitamin C"]
+  }
+}

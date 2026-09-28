@@ -1,0 +1,20 @@
+{
+  "name": "Rabbit",
+  "scientific_name": "Oryctolagus cuniculus",
+  "type": "Mammal",
+  "class": "Speedster",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "Grassland and woodland edges of Iberia; farmland, islands and homes worldwide",
+  "diet": ["grasses", "leaves and shoots", "crops and bark"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The European rabbit, wild or domestic: a burrowing grazer with nearly all-round vision and explosive hind legs. It survives by spotting danger early and sprinting to cover.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Grassland and Woodland Edge",
+    "combat_style": "Speedster",
+    "strengths": ["Explosive escape bursts", "Nearly 360-degree vision", "Hard hind-leg kicks"],
+    "weaknesses": ["Fragile skeleton", "Poor endurance away from cover", "Weapons useless against predators"]
+  }
+}

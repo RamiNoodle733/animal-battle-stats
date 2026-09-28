@@ -1,0 +1,20 @@
+{
+  "name": "Kodiak Bear",
+  "scientific_name": "Ursus arctos middendorffi",
+  "type": "Mammal",
+  "class": "Bruiser",
+  "size": "Large",
+  "biome": "FOREST",
+  "habitat": "Coastal forests, salmon streams, alpine meadows",
+  "diet": ["salmon", "sedges", "berries", "carrion"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A giant brown bear found only on Alaska's Kodiak Archipelago, where big males approach half a tonne on salmon and berries.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Coastal Forest",
+    "combat_style": "Bruiser",
+    "strengths": ["Enormous mass", "Hump-powered forelimb strikes", "Thick fat and fur"],
+    "weaknesses": ["Slow to turn", "No armor on face and neck", "Bursts are costly"]
+  }
+}

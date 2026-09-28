@@ -47,6 +47,17 @@ EXTRA = {
     "philippine-eagle": {"search": ["Philippine eagle perched", "Pithecophaga jefferyi Davao"], "files": 90},
     "humpback-whale": {"only": True, "search": ["humpback whale underwater", "Megaptera novaeangliae underwater", "humpback whale breach"], "prefer": "underwater|breach", "files": 70},
     "sperm-whale": {"only": True, "search": ["sperm whale underwater", "Physeter macrocephalus underwater", "sperm whale Mauritius"], "prefer": "underwater|mauritius|dominica", "files": 70},
+    "american-pit-bull-terrier": {"only": True, "categories": ["American Pit Bull Terrier"], "search": ["American Pit Bull Terrier"]},
+    "german-shepherd": {"only": True, "categories": ["German Shepherd Dog"], "search": ["German Shepherd dog standing"]},
+    "rottweiler": {"only": True, "categories": ["Rottweiler"], "search": ["Rottweiler standing"]},
+    "caucasian-shepherd-dog": {"only": True, "categories": ["Caucasian Shepherd"], "search": ["Caucasian Shepherd Dog", "Caucasian Ovcharka"]},
+    "belgian-malinois": {"only": True, "categories": ["Belgian Shepherd Malinois"], "search": ["Belgian Malinois"]},
+    "greyhound": {"only": True, "categories": ["Greyhound"], "search": ["Greyhound dog standing"]},
+    "red-deer": {"search": ["red deer stag", "Cervus elaphus stag"], "prefer": "stag|hirsch|male"},
+    "fin-whale": {"search": ["fin whale underwater", "Balaenoptera physalus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
+    "gray-whale": {"search": ["gray whale underwater", "Eschrichtius robustus breach"], "prefer": "underwater|breach", "files": 70},
+    "bowhead-whale": {"search": ["bowhead whale underwater", "Balaena mysticetus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
+    "false-killer-whale": {"search": ["false killer whale underwater", "Pseudorca crassidens"], "prefer": "underwater", "files": 60},
 }
 SKIP_TITLE = re.compile(
     r"\b(skull|skulls|skeleton|bones?|jaw|teeth|tooth|head|heads|portrait|face|eye|eyes|close-?up|closeup|detail|"

@@ -14,11 +14,18 @@ plus 12 substats, from one research report per animal. You are adding NEW animal
   on the absolute scale. Name those comparisons in section 10 of each report.
 
 ## For each animal in your batch
-1. Research it with the WebSearch tool (web fetches of individual sites are blocked here;
-   search results carry the URLs and facts). Prefer IUCN, government agencies, museums,
-   universities, peer-reviewed papers, Animal Diversity Web, major zoos. Record real URLs
-   from search results in the source ledger. Never invent a URL, a measurement or a
-   bite-force number; say "no reliable measurement" instead.
+1. Research it on the web. Cloud sessions cap WebSearch calls, so use the repo's tool, which
+   goes through the network proxy instead:
+   `python3 scripts/research/web.py search "<query>"` (Bing results with real URLs) and
+   `python3 scripts/research/web.py read <url> --grep weight,length,bite` (the page as text,
+   trimmed to the sentences that mention those words). Good pages to read directly:
+   en.wikipedia.org/wiki/<Name> (follow its citations), animaldiversity.org/accounts/<Genus_species>/,
+   fishbase.se, reptile-database.reptarium.cz, nationalzoo.si.edu, nationalgeographic.com,
+   australian.museum, fws.gov, fisheries.noaa.gov, akc.org, PubMed. Some sites refuse (403:
+   IUCN, Britannica, ResearchGate); cite them only if you read them another way.
+   Prefer IUCN, government agencies, museums, universities, peer-reviewed papers, Animal
+   Diversity Web, major zoos. Record the real URLs you read in the source ledger. Never invent a
+   URL, a measurement or a bite-force number; say "no reliable measurement" instead.
 2. Write animal-research-for-update/animals/<slug>.md following coyote.md's structure:
    identity, measurements, canonical facts, combat biology, 12 substats, 6 headline ratings,
    exactly 2 special abilities and 2 unique traits, expanded profile (with the

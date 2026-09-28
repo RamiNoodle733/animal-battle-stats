@@ -1,0 +1,20 @@
+{
+  "name": "Crowned Eagle",
+  "scientific_name": "Stephanoaetus coronatus",
+  "type": "Bird",
+  "class": "Ambush Predator",
+  "size": "Small",
+  "biome": "FOREST",
+  "habitat": "African forests, riverine woodland, wooded gorges",
+  "diet": ["monkeys", "small antelope", "hyraxes"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A heavy-footed African forest eagle that drops from hidden perches onto monkeys and small antelope. Its legs and talons are extremely powerful for its size.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Forest canopy",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Crushing talon grip", "Steep canopy strike", "Takes large prey"],
+    "weaknesses": ["Low body mass", "No armor", "Short-range flier"]
+  }
+}

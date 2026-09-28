@@ -1,0 +1,20 @@
+{
+  "name": "Nile Crocodile",
+  "scientific_name": "Crocodylus niloticus",
+  "type": "Reptile",
+  "class": "Ambush Predator",
+  "size": "Extra Large",
+  "biome": "WETLANDS",
+  "habitat": "African rivers, lakes, swamps",
+  "diet": ["fish", "large mammals", "birds", "carrion"],
+  "isNocturnal": true,
+  "isSocial": true,
+  "description": "Africa's largest reptile, an armored ambush predator that seizes animals at the water's edge and drags them under to drown.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rivers and lakes",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Crushing crocodilian bite", "Armored back", "Drag-and-drown ambush"],
+    "weaknesses": ["Slow on open land", "Low stamina", "Soft underbelly"]
+  }
+}

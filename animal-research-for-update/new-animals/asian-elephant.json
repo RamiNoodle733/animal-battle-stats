@@ -1,0 +1,20 @@
+{
+  "name": "Asian Elephant",
+  "scientific_name": "Elephas maximus",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Colossal",
+  "biome": "JUNGLE",
+  "habitat": "Tropical forests, grasslands",
+  "diet": ["grasses", "bark", "leaves", "fruit"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A multi-tonne forest giant of South and Southeast Asia. Bulls fight with tusks, trunk and crushing mass.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Tropical Forest",
+    "combat_style": "Tank",
+    "strengths": ["Crushing multi-tonne mass", "Tusks and grasping trunk", "Exceptional intelligence"],
+    "weaknesses": ["Slow turning", "Many bulls lack tusks", "Heat and water dependent"]
+  }
+}

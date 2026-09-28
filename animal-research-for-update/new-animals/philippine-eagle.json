@@ -1,0 +1,20 @@
+{
+  "name": "Philippine Eagle",
+  "scientific_name": "Pithecophaga jefferyi",
+  "type": "Bird",
+  "class": "Sky Hunter",
+  "size": "Medium",
+  "biome": "JUNGLE",
+  "habitat": "Primary dipterocarp rainforests of the Philippines",
+  "diet": ["flying lemurs", "palm civets", "monkeys", "snakes"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A critically endangered forest eagle of the Philippines with a massive arched bill and a two-metre wingspan. It hunts flying lemurs, civets and monkeys from canopy perches.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Canopy",
+    "combat_style": "Sky Hunter",
+    "strengths": ["Massive arched bill", "Powerful talons", "Canopy ambush"],
+    "weaknesses": ["Lightweight frame", "Forest dependent", "Vulnerable on the ground"]
+  }
+}

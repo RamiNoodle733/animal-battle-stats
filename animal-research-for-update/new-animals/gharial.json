@@ -1,0 +1,20 @@
+{
+  "name": "Gharial",
+  "scientific_name": "Gavialis gangeticus",
+  "type": "Reptile",
+  "class": "Hunter",
+  "size": "Large",
+  "biome": "WETLANDS",
+  "habitat": "Large rivers of India and Nepal",
+  "diet": ["fish", "small aquatic animals"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A long, slender river crocodilian with a needle-toothed snout built for snatching fish. Mature males grow a pot-shaped knob on the snout tip.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Deep rivers",
+    "combat_style": "Hunter",
+    "strengths": ["Fast sideways snout strike", "Interlocking needle teeth", "Armored skin"],
+    "weaknesses": ["Weakest crocodilian bite", "Fragile snout", "Awkward on land"]
+  }
+}

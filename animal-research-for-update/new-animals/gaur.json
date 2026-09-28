@@ -1,0 +1,20 @@
+{
+  "name": "Gaur",
+  "scientific_name": "Bos gaurus",
+  "type": "Mammal",
+  "class": "Tank",
+  "size": "Large",
+  "biome": "JUNGLE",
+  "habitat": "Tropical forests, hill grasslands",
+  "diet": ["grasses", "leaves", "bamboo", "fruit"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "The largest wild cattle species, a tonne-class forest bull with thick upcurved horns. Shy by habit but dangerous when surprised.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Forested Hills",
+    "combat_style": "Tank",
+    "strengths": ["Tonne-class mass", "Thick hooking horns", "Sure-footed on slopes"],
+    "weaknesses": ["No armor on flanks", "Heat limits exertion", "Tends to retreat first"]
+  }
+}

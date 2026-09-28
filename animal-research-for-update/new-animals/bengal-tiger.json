@@ -1,0 +1,20 @@
+{
+  "name": "Bengal Tiger",
+  "scientific_name": "Panthera tigris tigris",
+  "type": "Mammal",
+  "class": "Ambush Predator",
+  "size": "Large",
+  "biome": "JUNGLE",
+  "habitat": "Tropical forests, grasslands, mangroves",
+  "diet": ["sambar", "chital", "wild pig", "gaur"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A 200 kg ambush hunter of South Asia's forests and mangroves that kills deer, wild pig and even adult gaur alone.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Dense Forest",
+    "combat_style": "Ambush Predator",
+    "strengths": ["Explosive grapple and killing bite", "Long retractile claws", "Strong swimmer"],
+    "weaknesses": ["Tires quickly after a burst", "No armor", "Relies on the first strike"]
+  }
+}

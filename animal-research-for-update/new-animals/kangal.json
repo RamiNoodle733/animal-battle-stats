@@ -1,0 +1,20 @@
+{
+  "name": "Kangal",
+  "scientific_name": "Canis familiaris",
+  "type": "Mammal",
+  "class": "Defender",
+  "size": "Medium",
+  "biome": "MOUNTAINS",
+  "habitat": "Anatolian steppe, upland pastures",
+  "diet": ["meat", "household scraps", "dog food"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A heavy-boned Turkish livestock guardian dog bred to protect sheep from wolves. It relies on size, deterrence and a strong bite rather than speed.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Mountain steppe",
+    "combat_style": "Defender",
+    "strengths": ["Strong grip-and-shake bite", "Heavy-boned frame", "Fearless flock guarding"],
+    "weaknesses": ["No armor", "Less agile than wild canids", "Outmatched by bears and big cats"]
+  }
+}

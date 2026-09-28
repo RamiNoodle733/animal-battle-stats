@@ -1,0 +1,20 @@
+{
+  "name": "Tibetan Mastiff",
+  "scientific_name": "Canis familiaris",
+  "type": "Mammal",
+  "class": "Territorial",
+  "size": "Medium",
+  "biome": "MOUNTAINS",
+  "habitat": "Tibetan Plateau, high mountain pastures",
+  "diet": ["meat", "household scraps", "dog food"],
+  "isNocturnal": false,
+  "isSocial": true,
+  "description": "A massive, heavily maned guardian dog from the Tibetan Plateau. It guards herders' camps with a deep bark, heavy bite and strong tolerance of thin, cold mountain air.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "High mountain steppe",
+    "combat_style": "Territorial",
+    "strengths": ["High-altitude stamina", "Padded neck mane", "Heavy bite and bone"],
+    "weaknesses": ["Slow and heavy", "No armor", "Struggles in heat"]
+  }
+}

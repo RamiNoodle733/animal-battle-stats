@@ -1,0 +1,20 @@
+{
+  "name": "Sydney Funnel-web Spider",
+  "scientific_name": "Atrax robustus",
+  "type": "Arachnid",
+  "class": "Assassin",
+  "size": "Tiny",
+  "biome": "FOREST",
+  "habitat": "Moist forest, bushland and gardens around Sydney",
+  "diet": ["insects", "other arthropods", "small ground animals"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A burrowing Australian spider whose wandering males carry a venom that can kill humans. It rears up, shows its fangs and bites repeatedly.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Forest Floor Burrow",
+    "combat_style": "Assassin",
+    "strengths": ["Primate-lethal sodium-channel venom", "Large downward-striking fangs", "Grips and bites repeatedly"],
+    "weaknesses": ["Tiny absolute mass", "Poor eyesight", "Venom much weaker on many non-primates"]
+  }
+}

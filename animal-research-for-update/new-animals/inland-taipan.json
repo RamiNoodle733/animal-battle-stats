@@ -1,0 +1,20 @@
+{
+  "name": "Inland Taipan",
+  "scientific_name": "Oxyuranus microlepidotus",
+  "type": "Reptile",
+  "class": "Assassin",
+  "size": "Small",
+  "biome": "DESERT",
+  "habitat": "Semi-arid cracking-clay plains of inland Australia",
+  "diet": ["long-haired rats", "house mice", "small marsupials"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A slender, shy outback snake whose venom is the most toxic of any snake in lab tests. It corners rats in burrows and bites several times in quick succession.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Outback plains and burrows",
+    "combat_style": "Assassin",
+    "strengths": ["Most toxic snake venom in lab tests", "Rapid repeated bites", "Burrow and soil-crack refuges"],
+    "weaknesses": ["Tiny body mass", "No armor", "Shy and avoids fights"]
+  }
+}

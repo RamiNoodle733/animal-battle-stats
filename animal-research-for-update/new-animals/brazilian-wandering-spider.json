@@ -1,0 +1,20 @@
+{
+  "name": "Brazilian Wandering Spider",
+  "scientific_name": "Phoneutria nigriventer",
+  "type": "Arachnid",
+  "class": "Venomous Hunter",
+  "size": "Tiny",
+  "biome": "JUNGLE",
+  "habitat": "Atlantic Forest floor and understory, plantations, houses",
+  "diet": ["insects", "other spiders", "small frogs"],
+  "isNocturnal": true,
+  "isSocial": false,
+  "description": "A large, webless night-hunting spider from Brazil with a potent nerve-targeting venom. It rears up and raises its banded front legs as a warning before it bites.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Rainforest Floor",
+    "combat_style": "Venomous Hunter",
+    "strengths": ["Potent multi-toxin neurotoxic venom", "Fast, active ground hunter", "Intimidating rearing threat display"],
+    "weaknesses": ["Tiny absolute mass", "Thin exoskeleton, easily crushed", "Small venom dose per bite"]
+  }
+}

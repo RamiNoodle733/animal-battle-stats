@@ -33,7 +33,7 @@
 
 ### Lifespan
 - No wild-lifespan figure was captured from a source in this research pass.
-- **Canonical `lifespan_years`: 25.0 years**, a **provisional placeholder** in line with other large wild bovids on the roster. It must be replaced when a sourced value is attached.
+- **Canonical `lifespan_years`: 0.0** (no reliable measurement). The field stays unresolved until a sourced value is attached.
 - **Confidence:** Low.
 
 ### Bite and horns
@@ -51,7 +51,7 @@
 | `height_cm` | **170.0** | Moderate | Middle of 150–190 cm shoulder range |
 | `length_cm` | **270.0** | Moderate | Middle of 240–300 cm head-body range, tail separate |
 | `speed_mps` | **0.0** | High as an evidence decision | No reliable measurement |
-| `lifespan_years` | **25.0** | Low | Provisional placeholder; no sourced value captured |
+| `lifespan_years` | **0.0** | — | no sourced value captured; unresolved |
 | `bite_force_psi` | **0.0** | High as an evidence decision | Not a bite fighter; no measurement |
 
 ## 4. Combat biology
@@ -222,7 +222,7 @@ The wild buffalo is now Endangered, with only a few thousand left, most of them 
 ### Conflicts and uncertainty
 - **Wild vs domestic:** many measurements and behavior reports mix wild, feral and domestic buffalo. Values here aim at the wild form.
 - **Mass:** 600–1,200 kg covers both sexes; 900 kg is conservative for a bull.
-- **Lifespan:** no sourced value was captured; 25 years is a placeholder to be replaced.
+- **Lifespan:** no sourced value was captured, so it stays unresolved (0.0).
 - **Speed:** no measurement found.
 - **Tiger kill study:** the buffalo in the classic sequence data may have been domestic animals, so it shows how tigers kill buffalo-sized prey rather than wild-buffalo survival rates.
 
@@ -238,7 +238,7 @@ The wild buffalo is now Endangered, with only a few thousand left, most of them 
 
 - Representative healthy adult and male-biased specimen: **Yes**
 - Population/dimorphism uncertainty documented: **Yes** (sex-specific mass not sourced)
-- All canonical physical fields assessed: **Yes** (lifespan provisional)
+- All canonical physical fields assessed: **Yes** (lifespan unresolved)
 - Unsupported PSI and speed rejected: **Yes**
 - Current ABS substats independently assessed: **Yes**
 - Six headline ratings, one decimal each: **Yes**

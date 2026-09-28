@@ -31,7 +31,7 @@ No measured land or water speed for gharials was found. **Canonical `speed_mps`:
 
 ### Lifespan
 - No gharial-specific longevity figure was recovered in this run's search results. Males mature at about 15 years, so a representative adult life clearly extends well beyond that.
-- **Canonical `lifespan_years`: 40.0** as a provisional editorial value, set below the 50–70 year values used for other large crocodilians on the roster because no gharial data were found. It must be replaced when a sourced figure is available.
+- **Canonical `lifespan_years`: 0.0** (no reliable measurement). No gharial-specific longevity source was found, so the field stays unresolved rather than borrowing another crocodilian's value.
 - **Confidence:** Low.
 
 ### Bite and dentition
@@ -51,7 +51,7 @@ Like other crocodilians it has thick scaled skin reinforced on the back. The ver
 | `height_cm` | **0.0** | High as an evidence decision | no standard crocodilian height measurement |
 | `length_cm` | **450.0** | Moderate | mature males 4 m and up, range 3–6 m |
 | `speed_mps` | **0.0** | High as an evidence decision | no measured speed found |
-| `lifespan_years` | **40.0** | Low | provisional editorial value; no sourced gharial longevity found |
+| `lifespan_years` | **0.0** | — | no sourced gharial longevity found; unresolved |
 | `bite_force_psi` | **0.0** | High as an evidence decision | measured data are forces; no pressure value verified |
 
 ## 4. Combat biology
@@ -223,7 +223,7 @@ In ABS terms the gharial is a crocodilian with most of the body armor but little
 ### Conflicts and uncertainty
 - **Research limits:** the web search budget ran out and direct page fetches were blocked, so most figures come from search-result summaries rather than full pages. Scores should be rechecked when sources can be read directly.
 - **Mass:** the only mass figures are an average male near 160 kg and a species average of 159–250 kg. Canonical 180 kg is a reasoned choice within them.
-- **Lifespan:** 40.0 years is a provisional editorial placeholder with no gharial-specific source. Replace it when possible.
+- **Lifespan:** unresolved (0.0); add a sourced value when one is found.
 - **Bite:** the paper ranks the gharial lowest in force, but no verified number was recorded; the 340 lbf figure is from a weak website.
 - **Speed:** no measured value; field stays 0.0.
 
@@ -239,7 +239,7 @@ In ABS terms the gharial is a crocodilian with most of the body armor but little
 
 - Representative healthy adult male specimen: **Yes**
 - Dimorphism and population uncertainty documented: **Yes**
-- All canonical physical fields assessed: **Yes** (lifespan provisional)
+- All canonical physical fields assessed: **Yes** (lifespan unresolved)
 - Unsupported PSI rejected: **Yes**
 - Substats independently assessed: **Yes**
 - Six headline ratings, one decimal each: **Yes**

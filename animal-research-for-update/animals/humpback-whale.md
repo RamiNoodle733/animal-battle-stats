@@ -124,9 +124,9 @@ All are absolute roster-wide ratings, not pound-for-pound.
 | **Attack** | **72.0** | 30-tonne fluke and flipper strikes are dangerous and are actively used against orcas, but there is no bite or cutting weapon |
 | **Defense** | **85.0** | huge mass and blubber make a healthy adult very hard to disable, though packs can harass and wound it |
 | **Agility** | **56.0** | tight turns for its size thanks to wing-like flippers, but still a 14 m, 30 t whale |
-| **Stamina** | **91.0** | record-scale migrations and sustained open-ocean travel |
+| **Stamina** | **89.0** | record-scale migrations and sustained open-ocean travel, just above the blue whale |
 | **Intelligence** | **78.0** | cooperative feeding, learned song traditions and coordinated responses to predators |
-| **Special** | **82.0** | bubble nets, tubercle flippers and culturally spread song are rare features |
+| **Special** | **78.0** | bubble nets, tubercle flippers and culturally spread song are rare features, but none is a weapon on the scale of the blue whale's sheer mass |
 
 ## 7. Exactly two special abilities and two unique traits
 
@@ -230,7 +230,7 @@ Its endurance and behavioral range are exceptional. Humpbacks cross whole ocean 
 
 ## 11. Cross-animal normalization notes
 
-- **Versus Blue Whale (120 t; A78 D91 Ag44 St87 I69 Sp76):** the humpback is a quarter of the blue whale's mass, so its Attack of 72.0 and Defense of 85.0 sit below the blue whale's 78.0 and 91.0. It is more agile (56.0 vs 44.0) because of its flippers, and higher in Stamina, Intelligence and Special because of record migrations, cooperative feeding and learned song.
+- **Versus Blue Whale (120 t; A78 D91 Ag44 St87 I69 Sp76):** the humpback is a quarter of the blue whale's mass, so its Attack of 72.0 and Defense of 85.0 sit below the blue whale's 78.0 and 91.0. It is more agile (56.0 vs 44.0) because of its flippers, and higher in Stamina, Intelligence and Special because of record migrations, cooperative feeding and learned song. Overall it is kept just below the blue whale in power index: a quarter of the mass should not outrank the largest animal on the roster.
 - **Versus Sperm Whale (35 t; A90 D90):** similar mass, but the sperm whale adds teeth, a ramming head and biosonar, so it sits far higher in Attack and Special.
 - **Versus Orca (5 t; A94 D78 Ag84 I99):** the orca is a far better killer (Attack 94.0 vs 72.0), more agile and smarter. The humpback's 30 t mass gives it higher Defense (85.0 vs 78.0) and slightly higher Raw Power (94.5 vs 94.0). This matches the field record: humpbacks harass attacking orcas and healthy adults survive, but they do not kill orcas.
 - **Versus Manta Ray (1.4 t; A42 D57 Ag72):** a much larger filter feeder with active striking behavior, so higher Attack and Defense; the manta keeps higher Agility.

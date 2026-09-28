@@ -1,0 +1,197 @@
+"""Finds Commons photo candidates for new animals from Commons' web pages.
+
+The same job as find-candidates.js, for when the Wikimedia API refuses the
+machine (HTTP 429 from shared cloud addresses) but ordinary pages still load.
+For each new animal (animal-research-for-update/new-animals/<slug>.json) it
+reads the species category and a file search, keeps freely licensed bitmaps
+whose titles do not point at heads, skulls, drawings or young animals, reads
+each file page for license, author and size, and downloads review thumbnails.
+
+Output (merged into the regular pipeline files):
+  .cache/image-pipeline/candidates/<slug>/NN.jpg
+  .cache/image-pipeline/candidates.json
+
+Usage: python scripts/images/find-candidates-html.py [--limit 14] [slug ...]
+"""
+import html
+import json
+import re
+import sys
+import time
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+NEW = ROOT / "animal-research-for-update" / "new-animals"
+PIPE = ROOT / ".cache" / "image-pipeline"
+CANDIDATES = PIPE / "candidates"
+RESULT = PIPE / "candidates.json"
+COMMONS = "https://commons.wikimedia.org"
+USER_AGENT = "AnimalBattleStatsImagePipeline/2.0 (https://animalbattlestats.com; animalbattlestats@gmail.com)"
+PAUSE = 0.7
+
+# Extra categories and search words where the scientific name is not enough.
+EXTRA = {
+    "kangal": {"categories": ["Kangal Shepherd Dog", "Kangal dogs"], "search": ["Kangal dog"]},
+    "tibetan-mastiff": {"categories": ["Tibetan Mastiff"], "search": ["Tibetan Mastiff dog"]},
+    "house-cat": {"categories": ["Felis catus"], "search": ["domestic cat full body"]},
+    "fighting-bull": {"categories": ["Toro de lidia", "Spanish fighting bulls"], "search": ["toro de lidia"]},
+    "water-buffalo": {"categories": ["Bubalus arnee", "Bubalus bubalis"], "search": ["wild water buffalo"]},
+}
+SKIP_TITLE = re.compile(
+    r"\b(skull|skulls|skeleton|bones?|jaw|teeth|tooth|head|heads|portrait|face|eye|eyes|close-?up|closeup|detail|"
+    r"drawing|illustration|painting|engraving|lithograph|plate|stamp|map|range|distribution|diagram|chart|logo|"
+    r"taxidermy|stuffed|mounted|specimen|museum|fossil|egg|eggs|nest|juvenile|cub|cubs|calf|baby|young|pup|pups|"
+    r"hatchling|chick|chicks|larva|dead|carcass|killed|hunting trophy|statue|sculpture|toy|poster|coin|flag)\b",
+    re.I,
+)
+GOOD_TITLE = re.compile(r"\b(full[ -]?body|standing|walking|side|profile|adult|male|female|in flight|flying|swimming)\b", re.I)
+FREE = re.compile(r"^(CC0|CC BY(-SA)? [\d.]+|Public domain|PD.*)$", re.I)
+
+
+def get(url, attempts=3):
+    for attempt in range(attempts):
+        request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return response.read()
+        except urllib.error.HTTPError as error:
+            if error.code in (429, 503) and attempt + 1 < attempts:
+                time.sleep(5 * (attempt + 1))
+                continue
+            raise
+    raise RuntimeError(url)
+
+
+def page(path_or_url):
+    url = path_or_url if path_or_url.startswith("http") else COMMONS + path_or_url
+    time.sleep(PAUSE)
+    return get(url).decode("utf-8", "replace")
+
+
+def file_titles(entry, slug):
+    """File titles from the species category and a Commons file search."""
+    extra = EXTRA.get(slug, {})
+    categories = [entry["scientific_name"].split(" (")[0]] + extra.get("categories", [])
+    titles = []
+    for category in categories:
+        try:
+            text = page("/wiki/Category:" + urllib.parse.quote(category.replace(" ", "_")))
+        except Exception:
+            continue
+        titles += [html.unescape(urllib.parse.unquote(m)).replace("_", " ") for m in re.findall(r'href="/wiki/(File:[^"#?]+)"', text)]
+    queries = [entry["scientific_name"].split(" (")[0], entry["name"]] + extra.get("search", [])
+    for query in queries:
+        url = "/w/index.php?" + urllib.parse.urlencode({"search": query, "title": "Special:Search", "profile": "advanced", "fulltext": "1", "ns6": "1", "limit": "60"})
+        try:
+            text = page(url)
+        except Exception:
+            continue
+        titles += [html.unescape(m) for m in re.findall(r'title="(File:[^"]+)"', text) if "page does not exist" not in m]
+    seen, unique = set(), []
+    for title in titles:
+        if title not in seen:
+            seen.add(title)
+            unique.append(title)
+    return unique
+
+
+def text_of(fragment):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
+
+
+def file_info(title):
+    text = page("/wiki/" + urllib.parse.quote(title.replace(" ", "_")))
+    name = title.removeprefix("File:")
+    original = next((u for u in re.findall(r'https://upload\.wikimedia\.org/wikipedia/commons/[0-9a-f]/[0-9a-f]{2}/[^"\s<>?]+', text) if "/archive/" not in u), None)
+    size = re.search(r"\(([\d,]+)\s*×\s*([\d,]+) pixels", text)
+    # Commons writes the underscores in these class and id names as &#95;.
+    license_short = re.search(r'class="licensetpl(?:_|&#95;)short"[^>]*>([^<]+)<', text)
+    author = re.search(r'id="fileinfotpl(?:_|&#95;)aut"[^>]*>.*?</td>\s*<td[^>]*>(.*?)</td>', text, re.S)
+    categories = [text_of(c) for c in re.findall(r'<li><a href="/wiki/Category:[^"]+"[^>]*>(.*?)</a></li>', text)]
+    return {
+        "title": title,
+        "name": name,
+        "sourcePage": f"{COMMONS}/wiki/{urllib.parse.quote(title.replace(' ', '_'), safe=':/')}",
+        "url": original,
+        "width": int(size.group(1).replace(",", "")) if size else 0,
+        "height": int(size.group(2).replace(",", "")) if size else 0,
+        "license": text_of(license_short.group(1)) if license_short else "",
+        "artist": text_of(author.group(1))[:200] if author else "",
+        "categories": " | ".join(categories)[:1200],
+    }
+
+
+def thumb(url, width):
+    head, file = url.rsplit("/", 1)
+    return f"{head.replace('/wikipedia/commons/', '/wikipedia/commons/thumb/')}/{file}/{width}px-{file}"
+
+
+def score(info):
+    points = min(info["width"], info["height"]) / 400
+    points += 2 if GOOD_TITLE.search(info["name"]) else 0
+    points += 1 if re.search(r"quality images|featured pictures|valued images", info["categories"], re.I) else 0
+    points -= 3 if re.search(r"\b(head|portrait|juvenile|young|skull)\b", info["categories"], re.I) else 0
+    return round(points, 2)
+
+
+def main():
+    args = sys.argv[1:]
+    limit = 14
+    if "--limit" in args:
+        limit = int(args[args.index("--limit") + 1])
+        del args[args.index("--limit"):args.index("--limit") + 2]
+    wanted = set(args)
+    CANDIDATES.mkdir(parents=True, exist_ok=True)
+    results = json.loads(RESULT.read_text(encoding="utf-8")) if RESULT.exists() else {}
+    for path in sorted(NEW.glob("*.json")):
+        slug = path.stem
+        if slug.endswith(".example") or (wanted and slug not in wanted):
+            continue
+        entry = json.loads(path.read_text(encoding="utf-8"))
+        titles = [t for t in file_titles(entry, slug) if re.search(r"\.(jpe?g|png)$", t, re.I) and not SKIP_TITLE.search(t)]
+        infos = []
+        for title in titles[:40]:
+            try:
+                info = file_info(title)
+            except Exception as error:
+                print(f"  {title}: {error}", flush=True)
+                continue
+            if not info["url"] or not FREE.match(info["license"]) or min(info["width"], info["height"]) < 700:
+                continue
+            if SKIP_TITLE.search(info["categories"]) and not re.search(entry["scientific_name"].split(" ")[0], info["categories"], re.I):
+                continue
+            info["score"] = score(info)
+            infos.append(info)
+        infos.sort(key=lambda item: -item["score"])
+        # At most three photos per photographer, so one series does not fill the review.
+        per_artist, top = {}, []
+        for info in infos:
+            key = info["artist"].lower() or info["title"]
+            if per_artist.get(key, 0) >= 3:
+                continue
+            per_artist[key] = per_artist.get(key, 0) + 1
+            top.append(info)
+            if len(top) >= limit:
+                break
+        folder = CANDIDATES / slug
+        folder.mkdir(parents=True, exist_ok=True)
+        for position, info in enumerate(top, 1):
+            local = folder / f"{position:02d}.jpg"
+            info["thumbUrl"] = thumb(info["url"], 960)
+            info["local"] = str(local.relative_to(ROOT)).replace("\\", "/")
+            if not local.exists():
+                try:
+                    time.sleep(PAUSE)
+                    # Commons only serves standard thumbnail widths (https://w.wiki/GHai).
+                    local.write_bytes(get(thumb(info["url"], 960)))
+                except Exception as error:
+                    info["downloadError"] = str(error)
+        results[slug] = {"name": entry["name"], "scientificName": entry["scientific_name"], "preferredSex": "any", "candidates": top}
+        RESULT.write_text(json.dumps(results, indent=1, ensure_ascii=False), encoding="utf-8")
+        print(f"{slug}: {len(titles)} titles, {len(infos)} usable, {len(top)} downloaded", flush=True)
+
+
+if __name__ == "__main__":
+    main()

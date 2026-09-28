@@ -1,0 +1,20 @@
+{
+  "name": "Steller's Sea Eagle",
+  "scientific_name": "Haliaeetus pelagicus",
+  "type": "Bird",
+  "class": "Sky Hunter",
+  "size": "Medium",
+  "biome": "ARCTIC",
+  "habitat": "Cold coasts and river valleys of the Sea of Okhotsk",
+  "diet": ["salmon", "seabirds", "waterfowl", "carrion"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "The heaviest eagle in the world, with an enormous arched yellow bill. It hunts salmon, seabirds and foxes along the cold coasts of the Russian Far East and Japan.",
+  "battle_profile": {
+    "preferred_range": "Mid range",
+    "primary_environment": "Cold coasts",
+    "combat_style": "Sky Hunter",
+    "strengths": ["Massive bill", "Heaviest eagle", "Food piracy"],
+    "weaknesses": ["Heavy, less agile flight", "No armor", "Weak on the ground"]
+  }
+}

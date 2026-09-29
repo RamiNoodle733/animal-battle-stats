@@ -9981,7 +9981,7 @@
     "elk": {
       "name": "Elk",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-18",
       "sourceFile": "animal-research-for-update/animals/elk.md",
       "contentHash": "fe201ee89ff7d470",
       "scientificName": "Cervus canadensis",
@@ -13014,7 +13014,7 @@
     "gorilla": {
       "name": "Gorilla",
       "status": "researched",
-      "researchedAt": "2026-09-24",
+      "researchedAt": "2026-09-19",
       "sourceFile": "animal-research-for-update/animals/gorilla.md",
       "contentHash": "1ba711c8f87d0a48",
       "scientificName": "Gorilla beringei",

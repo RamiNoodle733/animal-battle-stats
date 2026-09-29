@@ -7,7 +7,7 @@ import Icon from '../components/Icon.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
 import FollowPanel from '../components/FollowPanel.astro';
 import '../styles/shows.css';
-import { BRAND, SHOWS, EPISODES, totalEpisodes, WATCH_REWARD, FOLLOW_REWARD, poster, posterSet, logo, minutes, clock, seriesLd, breadcrumbs, youtubePlaylist, PLATFORMS } from '../lib/shows.js';
+import { BRAND, SHOWS, EPISODES, totalEpisodes, WATCH_REWARD, FOLLOW_REWARD, poster, posterSet, logo, minutes, clock, seriesLd, breadcrumbs, PLATFORMS } from '../lib/shows.js';
 import { SITE, absoluteUrl } from '../lib/site.js';
 import { article } from '../lib/catalog.js';
 
@@ -43,88 +43,66 @@ const jsonLd = [
 ---
 
 <Base title={title} description={description} path="/shows" image="/images/og/shows/breakout-s1.jpg" imageAlt="ABS Originals: BREAKOUT, DEDUCTION and FASTEST" jsonLd={jsonLd} active="shows" biome="savanna" seed={21}>
-    <div class="sw" data-shows-page>
-        <section class="panel sw-hero enter" style="--show: var(--orange)">
-            <div class="sw-hero-copy">
-                <p class="eyebrow"><Icon name="tv" size={18} />{BRAND.name}</p>
-                <h1 class="screen-title">The shows</h1>
-                <p class="sw-lede">{BRAND.about}</p>
-                <div class="sw-meta">
-                    <span class="chip chip-cyan">{SHOWS.length} series</span>
-                    <span class="chip chip-cyan">{totalEpisodes} episodes</span>
-                    <span class="chip chip-cyan">~1 minute each</span>
-                    <span class="chip chip-gold"><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />+{WATCH_REWARD.coins} per episode</span>
-                </div>
-                <div class="sw-cta">
-                    <a class="btn btn-hot btn-lg" href={first.url} data-resume><Icon name="tv" size={26} /><span data-resume-label>Start watching</span></a>
-                    <a class="btn btn-sm" href="#earn">How rewards work</a>
-                </div>
+    <div class="sw-screen hub" data-shows-page>
+        <section class="panel hub-main enter" data-tabset>
+            <div class="hub-head">
+                <h1 class="hub-title"><Icon name="tv" size={28} />ABS Originals</h1>
+                <p class="hub-sub">{SHOWS.length} animated series · {totalEpisodes} one-minute episodes · free · <span class="reward-tag"><img src="/images/icons/abs/coin.webp" alt="" width="14" height="14" />+{WATCH_REWARD.coins} per episode</span></p>
             </div>
-            <div class="sw-logos" aria-hidden="true">
-                {SHOWS.map((show) => <a href={show.url} tabindex="-1"><img src={logo(show)} alt="" width="720" height="360" /></a>)}
+            <div class="tabs hub-tabs" role="tablist" aria-label="Shows">
+                {SHOWS.map((show, index) => (
+                    <button type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-controls={`pane-${show.slug}`} data-tab={show.slug} style={`--show:${show.accent}`}>
+                        <img src={logo(show)} alt={show.name} width="720" height="360" />
+                    </button>
+                ))}
+                <button type="button" role="tab" aria-selected="false" aria-controls="pane-earn" data-tab="earn"><Icon name="chest" size={22} />Rewards</button>
             </div>
-        </section>
 
-        <div class="show-cards">
             {SHOWS.map((show, index) => (
-                <article class={`panel show-card enter-${Math.min(3, index + 1)}`} style={`--show:${show.accent}`}>
-                    <a class="show-card-art" href={show.url} tabindex="-1" aria-hidden="true">
-                        <img src={poster(`${show.slug}-s1`)} srcset={posterSet(`${show.slug}-s1`)} sizes="(max-width: 980px) 100vw, 400px" alt="" width="1280" height="720" loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : undefined} />
-                    </a>
-                    <div class="show-card-body">
-                        <h3 class="show-card-title"><a href={show.url}>{show.name}</a><small>{show.tagline}</small></h3>
-                        <p>{show.logline}</p>
-                        <div class="sw-meta">
-                            {show.genre.map((genre) => <span class="chip chip-show">{genre}</span>)}
-                            <span class="chip">{show.episodes.length} episodes · {minutes(show.runtime)} min</span>
-                        </div>
-                        <div class="sw-progress" data-show-progress={show.slug} data-total={show.episodes.length}>
-                            <div class="sw-progress-row"><span>Season 1</span><span><b data-progress-count>0</b> / {show.episodes.length} watched</span></div>
-                            <div class="sw-bar"><i data-progress-bar></i></div>
-                        </div>
-                        <div class="sw-cta">
-                            <a class="btn btn-hot btn-sm" href={show.episodes[0].url} data-continue={show.slug}><Icon name="tv" size={22} /><span data-continue-label>Watch episode 1</span></a>
-                            <a class="btn btn-sm" href={show.url}>All episodes</a>
+                <div class="hub-pane" id={`pane-${show.slug}`} role="tabpanel" data-pane={show.slug} hidden={index !== 0} style={`--show:${show.accent}`}>
+                    <div class="hub-show">
+                        <a class="hub-art" href={show.url} tabindex="-1" aria-hidden="true">
+                            <img src={poster(`${show.slug}-s1`)} srcset={posterSet(`${show.slug}-s1`)} sizes="(max-width: 760px) 100vw, 640px" alt="" width="1280" height="720" loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : undefined} />
+                        </a>
+                        <div class="hub-copy">
+                            <h2 class="hub-name"><a href={show.url}>{show.name}</a></h2>
+                            <p class="sw-tagline">{show.tagline}</p>
+                            <p class="hub-logline">{show.logline}</p>
+                            <div class="sw-meta">
+                                {show.genre.map((genre) => <span class="chip chip-show">{genre}</span>)}
+                                <span class="chip">{show.episodes.length} episodes · {minutes(show.runtime)} min</span>
+                            </div>
+                            <div class="sw-progress" data-show-progress={show.slug} data-total={show.episodes.length}>
+                                <div class="sw-progress-row"><span>Season 1</span><span><b data-progress-count>0</b> / {show.episodes.length} watched</span></div>
+                                <div class="sw-bar"><i data-progress-bar></i></div>
+                            </div>
+                            <div class="sw-cta">
+                                <a class="btn btn-hot" href={show.episodes[0].url} data-continue={show.slug}><Icon name="tv" size={22} /><span data-continue-label>Watch episode 1</span></a>
+                                <a class="btn btn-sm" href={show.url}>All episodes</a>
+                            </div>
                         </div>
                     </div>
-                </article>
+                    <div class="ep-rail" aria-label={`${show.name} episodes`}>
+                        {show.episodes.map((episode) => <EpisodeCard episode={episode} />)}
+                    </div>
+                </div>
             ))}
-        </div>
 
-        {SHOWS.map((show) => (
-            <section class="panel sw-section" style={`--show:${show.accent}`} aria-label={`${show.name} episodes`}>
-                <div class="sw-head">
-                    <h2 class="sw-h2"><a href={show.url} style="color:inherit;text-decoration:none">{show.name}</a><span class="chip chip-show" style="transform:skewX(6deg)">Season 1</span></h2>
-                    <div class="btn-row">
-                        {show.season && <a class="btn btn-sm" href={`${show.url}#full-season`}>Full season · {minutes(show.season.seconds)} min</a>}
-                        <a class="btn btn-sm" href={youtubePlaylist(show.youtube.full)} target="_blank" rel="noopener" data-out="youtube-playlist">YouTube playlist</a>
-                    </div>
+            <div class="hub-pane scroll hub-earn" id="pane-earn" role="tabpanel" data-pane="earn" hidden style="--show: var(--gold)">
+                <h2 class="sw-h2"><img src="/images/icons/abs/chest.webp" alt="" width="30" height="30" loading="lazy" />Watch &amp; earn</h2>
+                <div class="earn">
+                    <div class="earn-item"><img src="/images/icons/abs/coin.webp" alt="" width="44" height="44" loading="lazy" /><span><b>+{WATCH_REWARD.coins} BattlePoints, +{WATCH_REWARD.xp} XP</b><small>for every episode you watch to the end here, once per episode.</small></span></div>
+                    <div class="earn-item"><img src="/images/icons/abs/crown.webp" alt="" width="44" height="44" loading="lazy" /><span><b>A title for each show</b><small>Escape Artist (BREAKOUT), Case Closed (DEDUCTION), Photo Finish (FASTEST).</small></span></div>
+                    <div class="earn-item"><img src="/images/icons/abs/star.webp" alt="" width="44" height="44" loading="lazy" /><span><b>ABS Originals frame</b><small>a gold-and-fire card frame for watching all {totalEpisodes} episodes.</small></span></div>
+                    <div class="earn-item"><img src="/images/icons/abs/friends.webp" alt="" width="44" height="44" loading="lazy" /><span><b>+{FOLLOW_REWARD.coins} per account you follow</b><small>and the ABS Insider title after 3.</small></span></div>
                 </div>
-                <div class="ep-rail">
-                    {show.episodes.map((episode) => <EpisodeCard episode={episode} />)}
-                </div>
-            </section>
-        ))}
-
-        <section class="panel gold sw-section" id="earn" aria-labelledby="earn-h" style="--show: var(--gold)">
-            <div class="sw-head">
-                <h2 class="sw-h2" id="earn-h"><img src="/images/icons/abs/chest.webp" alt="" width="30" height="30" loading="lazy" />Watch &amp; earn</h2>
-                <a class="btn btn-gold btn-sm" href="/rewards"><img src="/images/icons/abs/gift.webp" alt="" width="22" height="22" />Rewards</a>
+                <p class="guest-note" data-guest-only hidden><Icon name="gift" size={24} /><span>Watching is free for everyone. <b>Log in</b> to keep your progress and collect the rewards.</span><a class="btn btn-cyan btn-sm" href="/login?returnTo=%2Fshows">Log in</a><a class="btn btn-sm" href="/signup">Sign up</a></p>
+                <FollowPanel />
+                <h2 class="sw-h2"><img src="/images/icons/abs/book.webp" alt="" width="30" height="30" loading="lazy" />Questions</h2>
+                <div class="faq">{faq.map((item, index) => <details open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
             </div>
-            <div class="earn">
-                <div class="earn-item"><img src="/images/icons/abs/coin.webp" alt="" width="44" height="44" loading="lazy" /><span><b>+{WATCH_REWARD.coins} BattlePoints, +{WATCH_REWARD.xp} XP</b><small>for every episode you watch to the end here, once per episode.</small></span></div>
-                <div class="earn-item"><img src="/images/icons/abs/crown.webp" alt="" width="44" height="44" loading="lazy" /><span><b>A title for each show</b><small>Escape Artist (BREAKOUT), Case Closed (DEDUCTION), Photo Finish (FASTEST).</small></span></div>
-                <div class="earn-item"><img src="/images/icons/abs/star.webp" alt="" width="44" height="44" loading="lazy" /><span><b>ABS Originals frame</b><small>a gold-and-fire card frame for watching all {totalEpisodes} episodes.</small></span></div>
-                <div class="earn-item"><img src="/images/icons/abs/friends.webp" alt="" width="44" height="44" loading="lazy" /><span><b>+{FOLLOW_REWARD.coins} per account you follow</b><small>and the ABS Insider title after 3.</small></span></div>
-            </div>
-            <p class="guest-note" data-guest-only hidden><Icon name="gift" size={24} /><span>Watching is free for everyone. <b>Log in</b> to keep your progress and collect the rewards.</span><a class="btn btn-cyan btn-sm" href="/login?returnTo=%2Fshows">Log in</a><a class="btn btn-sm" href="/signup">Sign up</a></p>
-        </section>
 
-        <FollowPanel />
-
-        <section class="panel sw-faq" aria-labelledby="faq-h">
-            <h2 class="sw-h2" id="faq-h" style="margin:14px 0 6px"><img src="/images/icons/abs/book.webp" alt="" width="30" height="30" loading="lazy" />Questions</h2>
-            <div class="faq">{faq.map((item, index) => <details open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+            <FollowPanel compact heading="Follow for new episodes" />
         </section>
     </div>
 </Base>

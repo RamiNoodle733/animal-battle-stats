@@ -52,7 +52,37 @@
         };
     }
 
-    const api = Object.freeze({ VERSION, FACTORS, compare, measurement });
+    // Group fights ("500 gorillas vs 23 army ants"): numbers shift the 1v1 margin
+    // by 20 x ln(count), so twice as many
+    // equal fighters is worth about a 14-point stat lead. A much smaller animal
+    // gets less from its numbers (they cannot all reach, or hurt, something
+    // thousands of times heavier): its exponent shrinks with the weight gap.
+    // Weights are optional; without both, numbers count in full for both sides.
+    function compareGroups(left, right, leftCount = 1, rightCount = 1, leftWeight = null, rightWeight = null) {
+        const base = compare(left, right);
+        const na = Math.max(1, Math.floor(Number(leftCount) || 1));
+        const nb = Math.max(1, Math.floor(Number(rightCount) || 1));
+        if ((na === 1 && nb === 1) || base.probability === null) return { ...base, leftCount: na, rightCount: nb };
+        const wa = measurement(leftWeight);
+        const wb = measurement(rightWeight);
+        const ratio = wa && wb ? Math.max(wa, wb) / Math.min(wa, wb) : 1;
+        const damp = 1 / (1 + Math.log10(ratio));
+        const ga = wa && wb && wa < wb ? damp : 1;
+        const gb = wa && wb && wb < wa ? damp : 1;
+        const margin = base.margin + 20 * (ga * Math.log(na) - gb * Math.log(nb));
+        const probability = Math.max(0.01, Math.min(0.99, 1 / (1 + Math.exp(-margin / 15))));
+        return {
+            ...base,
+            probability,
+            winner: Math.abs(probability - 0.5) < 1e-12 ? null : probability > 0.5 ? 'left' : 'right',
+            margin,
+            leftCount: na,
+            rightCount: nb,
+            scenario: 'Group fight: the 1v1 rating margin shifted by the numbers on each side (smaller animals get less from numbers against much heavier ones).'
+        };
+    }
+
+    const api = Object.freeze({ VERSION, FACTORS, compare, compareGroups, measurement });
     if (typeof module !== 'undefined' && module.exports) module.exports = api;
     else root.ABSBattleEngine = api;
 })(globalThis);

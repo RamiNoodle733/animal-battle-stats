@@ -147,7 +147,7 @@ const year = new Date().getFullYear();
                 <button class="hud-btn" type="button" data-open-search aria-label="Search animals" title="Search (press /)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
                 </button>
-                <button class="hud-btn" type="button" data-sound-toggle aria-label="Sound effects" aria-pressed="true">
+                <button class="hud-btn hud-sound" type="button" data-sound-toggle aria-label="Sound effects" aria-pressed="true">
                     <Icon name="roar" size={26} />
                 </button>
                 {ROBLOX.live
@@ -186,6 +186,7 @@ const year = new Date().getFullYear();
                 <a href="/roblox"><span class="sheet-mark"><RobloxMark size={18} /></span>{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
                 <a href="/about"><Icon name="book" size={26} />About &amp; how ratings work</a>
                 <a href="/credits"><Icon name="scroll" size={26} />Sources &amp; photo credits</a>
+                <button class="sheet-sound" type="button" data-sound-toggle aria-pressed="true"><Icon name="roar" size={26} /><span data-sound-text>Sound effects: on</span></button>
                 <a href="/llms.txt"><Icon name="bolt" size={26} />Data for AI assistants</a>
             </nav>
             <div class="socials">
@@ -197,7 +198,7 @@ const year = new Date().getFullYear();
         <dialog class="search-dialog" id="search-dialog" aria-label="Search animals">
             <div class="search-field">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
-                <input type="search" placeholder={`Search ${rosterSize} animals…`} aria-label="Search animals" autocomplete="off" spellcheck="false" data-search-input />
+                <input type="search" placeholder={`Search ${rosterSize} animals, or "lion vs tiger"`} aria-label="Search animals" autocomplete="off" spellcheck="false" data-search-input />
                 <kbd class="chip">Esc</kbd>
             </div>
             <ul class="search-results" role="listbox" data-search-results></ul>

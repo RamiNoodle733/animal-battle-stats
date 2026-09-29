@@ -1,14 +1,18 @@
-// Versus screen: pick two animals, see the model's odds and stat duel, then
-// watch an animated fight. The fight's winner is drawn with the model's
-// probability, so an underdog can still pull off the upset now and then.
-// CALL IT (signed in): pick the winner first. The server draws the fight you
-// called (once per matchup a day), pays BattlePoints and XP, and a right call builds a
-// streak with a bonus, like the game's Who Would Win? show.
+// Versus screen: pick two fighters, compare the tale of the tape, then watch an
+// animated fight. The fight's winner is drawn with the model's probability, so
+// an underdog can still pull off the upset now and then.
+// The odds stay hidden until the fight (or "Show"), so a call is a real call.
+// Either side can be a crowd (the count box: "500 gorillas vs 23 army ants"),
+// scored by the engine's compareGroups, or the Human (scripts/human.js).
+// CALL IT (signed in, 1 vs 1 only): pick the winner first. The server draws the
+// fight you called (once per matchup a day), pays BattlePoints and XP, and a
+// right call builds a streak with a bonus, like the game's Who Would Win? show.
 import engine from '../../../js/battle-engine.js';
 import { loadAnimalIndex, escapeHtml, toast, artVars, showReward } from './site.js';
 import { sfx, shake } from './sfx.js';
 import { mountComments } from './comments.js';
 import { trackFight } from './track.js';
+import { HUMAN } from './human.js';
 
 // The engine is a UMD file shared with the server build: bundlers hand back
 // its CommonJS export, plain browsers get the global.
@@ -19,13 +23,17 @@ const STATS = [
     ['stamina', 'sta', 'Stamina'], ['intelligence', 'int', 'Intelligence'], ['special', 'spl', 'Special']
 ];
 const BIOME = { savanna: 'Savanna', forest: 'Forest', jungle: 'Jungle', wetlands: 'Wetlands', desert: 'Desert', mountains: 'Mountains', arctic: 'Arctic', ocean: 'Ocean' };
+const STEPS = [1, 2, 3, 5, 10, 20, 50, 100, 500, 1000, 5000, 10000, 100000, 1000000];
+const MAX_COUNT = 1000000;
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const fmt = (value) => (Number.isInteger(Number(value)) ? String(Number(value)) : Number(value).toFixed(1));
+const num = (value) => Number(value).toLocaleString('en-US');
 
-const state = { a: root.dataset.a, b: root.dataset.b, picking: 'b', fighting: false, index: new Map(), fan: null };
+const state = { a: root.dataset.a, b: root.dataset.b, na: 1, nb: 1, picking: 'b', fighting: false, index: new Map(), fan: null, sealedKey: null };
 const sides = { a: root.querySelector('[data-side="a"]'), b: root.querySelector('[data-side="b"]') };
-const roster = root.querySelector('[data-roster]');
-const strip = root.querySelector('[data-r-strip]');
+const picker = root.querySelector('[data-picker]');
+const grid = root.querySelector('[data-pk-grid]');
+const search = root.querySelector('[data-pk-q]');
 const announcer = root.querySelector('[data-announcer]');
 const fightButton = root.querySelector('[data-fight]');
 const callBox = root.querySelector('[data-call]');
@@ -37,31 +45,92 @@ function toModel(animal) {
     return { attack: animal.atk, defense: animal.def, agility: animal.agi, stamina: animal.sta, intelligence: animal.int, special: animal.spl };
 }
 
+// "Gorilla" -> "Gorillas", "Gray Wolf" -> "Gray Wolves"; the last word only.
+const SAME = new Set(['fish', 'sheep', 'deer', 'moose', 'bison', 'buffalo', 'squid', 'salmon', 'trout', 'shrimp', 'elk', 'swine', 'cattle', 'catfish', 'swordfish', 'tuna', 'pike', 'carp', 'grouper', 'sunfish', 'goldfish', 'piranha']);
+const IRREGULAR = { wolf: 'wolves', mouse: 'mice', goose: 'geese', ox: 'oxen', human: 'humans', louse: 'lice', calf: 'calves', octopus: 'octopuses' };
+function plural(name) {
+    const words = String(name).split(' ');
+    const last = words.pop();
+    const lower = last.toLowerCase();
+    let out;
+    if (SAME.has(lower)) out = last;
+    else if (IRREGULAR[lower]) out = last.charAt(0) + IRREGULAR[lower].slice(1);
+    else if (/(s|x|z|ch|sh)$/i.test(last)) out = `${last}es`;
+    else if (/[^aeiou]y$/i.test(last)) out = `${last.slice(0, -1)}ies`;
+    else out = `${last}s`;
+    return [...words, out].join(' ');
+}
+const label = (animal, count) => (count > 1 ? `${num(count)} ${plural(animal.n)}` : animal.n);
+
 function weightText(kg) {
     if (!(kg > 0)) return '—';
-    if (kg < 1) return `${Math.round(kg * 1000)} g`;
+    if (kg < 0.001) return `${fmt(Math.round(kg * 1e7) / 10)} mg`;
+    if (kg < 1) return `${kg < 0.01 ? fmt(Math.round(kg * 10000) / 10) : Math.round(kg * 1000)} g`;
     if (kg >= 1000) return `${(kg / 1000).toFixed(1)} t`;
     return `${kg < 100 ? fmt(Math.round(kg * 10) / 10) : Math.round(kg)} kg`;
 }
 function lengthText(cm) { return cm > 0 ? (cm >= 100 ? `${(cm / 100).toFixed(2)} m` : `${fmt(cm)} cm`) : '—'; }
 function speedText(mps) { return mps > 0 ? `${Math.round(mps * 3.6)} km/h` : '—'; }
+function biteText(psi) { return psi > 0 ? `${Math.round(psi).toLocaleString('en-US')} PSI` : '—'; }
+
+function probability(a, b) {
+    return model.compareGroups(toModel(a), toModel(b), state.na, state.nb, a.w, b.w).probability;
+}
+
+// ---------------------------------------------------------------- sealed odds
+
+const matchupKey = () => `${state.a}|${state.b}|${state.na}|${state.nb}`;
+function seal() {
+    state.sealedKey = matchupKey();
+    root.classList.add('is-sealed');
+}
+function reveal() {
+    root.classList.remove('is-sealed');
+}
+root.querySelector('[data-reveal-btn]').addEventListener('click', () => { sfx.flip(); reveal(); });
 
 // ---------------------------------------------------------------- render
 
+function paintCrowd(side, animal) {
+    const count = side === 'a' ? state.na : state.nb;
+    const node = sides[side];
+    const art = node.querySelector('[data-f-art]');
+    art.querySelectorAll('img.ghost').forEach((img) => img.remove());
+    const main = art.querySelector('img:not(.ghost)');
+    for (let index = Math.min(2, count - 1); index >= 1; index -= 1) {
+        const ghost = main.cloneNode();
+        ghost.classList.add('ghost', `g${index}`);
+        ghost.alt = '';
+        ghost.removeAttribute('fetchpriority');
+        art.insertBefore(ghost, main);
+    }
+    const badge = node.querySelector('[data-crowd]');
+    badge.hidden = count < 2;
+    badge.textContent = `×${num(count)}`;
+    node.querySelector('[data-f-count-label]').textContent = count > 1 ? `${num(count)}×` : '';
+    node.querySelector('[data-count-box]').classList.toggle('is-crowd', count > 1);
+    const input = node.querySelector('[data-count]');
+    if (Number(input.value) !== count) input.value = String(count);
+    input.setAttribute('aria-label', `How many ${animal ? plural(animal.n).toLowerCase() : 'fighters'}`);
+}
+
 function paintFighter(side, animal) {
     const node = sides[side];
-    node.className = node.className.replace(/tier-\w/, `tier-${animal.tier.toLowerCase()}`).replace(/bio-\w+/, `bio-${animal.b}`);
-    node.querySelectorAll('[data-f-name]').forEach((el) => { el.textContent = animal.n; });
+    const tierClass = animal.h ? 'h' : animal.tier.toLowerCase();
+    node.className = node.className.replace(/tier-\w/, `tier-${tierClass}`).replace(/bio-\w+/, `bio-${animal.b}`);
+    node.classList.toggle('is-human', Boolean(animal.h));
+    node.querySelector('[data-f-name]').textContent = animal.n;
     const tier = node.querySelector('[data-f-tier]');
-    tier.className = `tier-badge tier-${animal.tier.toLowerCase()}`;
-    tier.textContent = animal.tier;
-    node.querySelector('[data-f-power]').textContent = fmt(animal.p);
-    node.querySelector('[data-f-meta]').textContent = `${animal.cls} · ${BIOME[animal.b] || ''}`;
+    tier.className = `tier-badge tier-${tierClass}`;
+    tier.textContent = animal.h ? 'H' : animal.tier;
+    tier.title = animal.h ? 'Human: not ranked with animals' : `${animal.tier} tier`;
+    node.querySelector('[data-f-meta]').textContent = animal.h ? 'Human · not ranked with animals' : `${animal.cls} · ${BIOME[animal.b] || ''} · #${animal.r}`;
     const link = node.querySelector('[data-f-link]');
-    link.href = `/stats/${animal.s}`;
-    link.setAttribute('aria-label', `${animal.n} profile`);
-    const img = link.querySelector('img');
+    if (animal.h) link.removeAttribute('href');
+    else link.href = `/stats/${animal.s}`;
+    const img = node.querySelector('[data-f-art] img:not(.ghost)');
     img.removeAttribute('srcset');
+    img.removeAttribute('sizes');
     img.src = animal.m;
     img.alt = animal.n;
     img.style.setProperty('--ar', animal.ar || 1);
@@ -71,82 +140,134 @@ function paintFighter(side, animal) {
     node.querySelector('.hp').className = 'hp';
     node.querySelector('[data-hp]').style.width = '100%';
     node.classList.remove('ko', 'winner', 'lunge', 'hit');
+    paintCrowd(side, animal);
+}
+
+function paintRow(row, va, vb, ta, tb, pa = va, pb = vb) {
+    const left = row.querySelector('[data-va]');
+    const right = row.querySelector('[data-vb]');
+    left.textContent = ta;
+    right.textContent = tb;
+    left.className = va > vb ? 'lead' : '';
+    right.className = vb > va ? 'lead' : '';
+    row.querySelector('[data-ba]').style.setProperty('--v', String(pa));
+    row.querySelector('[data-bb]').style.setProperty('--v', String(pb));
 }
 
 function paintMatchup() {
     const a = state.index.get(state.a);
     const b = state.index.get(state.b);
     if (!a || !b) return;
-    const result = model.compare(toModel(a), toModel(b));
-    const oddsA = Math.round(result.probability * 100);
+    if (state.sealedKey !== matchupKey()) seal();
+    const odds = probability(a, b);
+    const oddsA = Math.round(odds * 100);
     const oddsB = 100 - oddsA;
-    const winner = oddsA >= 50 ? a : b;
+    const winnerSide = oddsA >= 50 ? 'a' : 'b';
+    const winner = winnerSide === 'a' ? a : b;
     const edge = Math.max(oddsA, oddsB);
     const strength = edge >= 85 ? 'decisive' : edge >= 70 ? 'clear edge' : edge >= 58 ? 'slight edge' : 'toss-up';
-    root.querySelector('[data-t-a]').textContent = a.n;
-    root.querySelector('[data-t-b]').textContent = b.n;
+    root.querySelector('[data-t-a]').textContent = label(a, state.na);
+    root.querySelector('[data-t-b]').textContent = label(b, state.nb);
     const oa = root.querySelector('[data-odds-a]');
     const ob = root.querySelector('[data-odds-b]');
     oa.style.setProperty('--p', `${Math.max(8, oddsA)}%`);
     ob.style.setProperty('--p', `${Math.max(8, oddsB)}%`);
     oa.textContent = `${oddsA}%`;
     ob.textContent = `${oddsB}%`;
-    root.querySelector('[data-winner]').textContent = winner.n;
+    root.querySelector('[data-winner]').textContent = label(winner, winnerSide === 'a' ? state.na : state.nb);
     root.querySelector('[data-strength]').textContent = strength;
+
     for (const [key, short] of STATS) {
-        const row = root.querySelector(`[data-stat="${key}"]`);
         const va = Number(a[short]) || 0;
         const vb = Number(b[short]) || 0;
-        row.querySelector('[data-ba]').style.setProperty('--v', String(va));
-        row.querySelector('[data-bb]').style.setProperty('--v', String(vb));
-        const lead = row.querySelector('[data-va]');
-        const trail = row.querySelector('[data-vb]');
-        lead.textContent = fmt(va);
-        trail.textContent = fmt(vb);
-        lead.className = va > vb ? 'lead' : '';
-        trail.className = vb > va ? 'lead' : '';
+        paintRow(root.querySelector(`[data-stat="${key}"]`), va, vb, fmt(va), fmt(vb));
     }
-    root.querySelector('[data-tape-a]').textContent = a.n;
-    root.querySelector('[data-tape-b]').textContent = b.n;
-    const tapeRows = [
-        ['Power index', fmt(a.p), fmt(b.p), a.p, b.p],
-        ['Tier', a.tier, b.tier, -a.r, -b.r],
-        ['Rank', `#${a.r}`, `#${b.r}`, -a.r, -b.r],
-        ['Weight', weightText(a.w), weightText(b.w), a.w || 0, b.w || 0],
-        ['Length', lengthText(a.len), lengthText(b.len), a.len || 0, b.len || 0],
-        ['Height', lengthText(a.ht), lengthText(b.ht), a.ht || 0, b.ht || 0],
-        ['Top speed', speedText(a.v), speedText(b.v), a.v || 0, b.v || 0],
-        ['Bite force', a.bf > 0 ? `${Math.round(a.bf)} PSI` : '—', b.bf > 0 ? `${Math.round(b.bf)} PSI` : '—', a.bf || 0, b.bf || 0],
-        ['Lifespan', a.ls > 0 ? `${fmt(a.ls)} yrs` : '—', b.ls > 0 ? `${fmt(b.ls)} yrs` : '—', 0, 0]
-    ];
-    root.querySelector('[data-tape]').innerHTML = tapeRows.map(([label, va, vb, na, nb]) => `<tr><td class="${na > nb ? 'lead' : ''}">${escapeHtml(va)}</td><th>${label}</th><td class="${nb > na ? 'lead' : ''}">${escapeHtml(vb)}</td></tr>`).join('');
+    const ratio = (x, y) => { const max = Math.max(x || 0, y || 0); return max > 0 ? [((x || 0) / max) * 100, ((y || 0) / max) * 100] : [0, 0]; };
+    const facts = {
+        weight: [a.w, b.w, weightText(a.w), weightText(b.w)],
+        speed: [a.v, b.v, speedText(a.v), speedText(b.v)],
+        bite: [a.bf, b.bf, biteText(a.bf), biteText(b.bf)],
+        size: [a.len || a.ht, b.len || b.ht, lengthText(a.len || a.ht), lengthText(b.len || b.ht)]
+    };
+    for (const [key, [va, vb, ta, tb]] of Object.entries(facts)) {
+        const row = root.querySelector(`[data-fact="${key}"]`);
+        if (!row) continue;
+        const [pa, pb] = ratio(va, vb);
+        paintRow(row, va || 0, vb || 0, ta, tb, pa, pb);
+    }
+
     const verdict = root.querySelector('[data-verdict-text]');
-    if (verdict && verdict.dataset.slugs !== `${a.s}|${b.s}` && (a.s !== root.dataset.a || b.s !== root.dataset.b)) {
-        verdict.dataset.slugs = `${a.s}|${b.s}`;
+    if (verdict && (a.s !== root.dataset.a || b.s !== root.dataset.b || state.na > 1 || state.nb > 1)) {
         const loser = winner === a ? b : a;
-        const leads = STATS.filter(([, short]) => (winner[short] || 0) > (loser[short] || 0)).map(([, , label]) => label.toLowerCase());
-        verdict.innerHTML = `<p>${escapeHtml(winner.n)} wins this matchup ${edge}% of the time in the Animal Battle Stats model (${strength}). It leads in ${leads.length} of 6 battle stats${leads.length ? ` (${leads.join(', ')})` : ''}, with a power index of ${fmt(winner.p)} against ${fmt(loser.p)}.</p>
-            <p>Open each animal's profile for sources, measurements and how it fights.</p>`;
+        const leads = STATS.filter(([, short]) => (winner[short] || 0) > (loser[short] || 0)).map(([, , name]) => name.toLowerCase());
+        const crowd = state.na > 1 || state.nb > 1;
+        verdict.innerHTML = `<p>${escapeHtml(label(winner, winnerSide === 'a' ? state.na : state.nb))} win${winnerSide === 'a' ? (state.na > 1 ? '' : 's') : (state.nb > 1 ? '' : 's')} this ${crowd ? 'group fight' : 'matchup'} ${edge}% of the time in the Animal Battle Stats model (${strength}).${crowd ? ' Numbers count for a lot, but much smaller animals get less from them against much heavier ones.' : ''} One on one, the ${escapeHtml(winner.n)} leads in ${leads.length} of 6 battle stats${leads.length ? ` (${leads.join(', ')})` : ''}, with a power index of ${fmt(winner.p)} against ${fmt(loser.p)}.</p>
+            <p>${a.h || b.h ? 'The Human is an average adult man, unarmed and untrained. ' : ''}Open each animal's profile for sources, measurements and how it fights.</p>`;
         root.querySelector('[data-faq]')?.setAttribute('hidden', '');
     }
-    root.querySelector('[data-fan-a]').textContent = a.n;
-    root.querySelector('[data-fan-b]').textContent = b.n;
-    strip.querySelectorAll('.r-card').forEach((card) => {
-        card.classList.toggle('selected-a', card.dataset.rSlug === a.s);
-        card.classList.toggle('selected-b', card.dataset.rSlug === b.s);
-    });
+
+    root.querySelector('[data-fan-a]').textContent = label(a, state.na);
+    root.querySelector('[data-fan-b]').textContent = label(b, state.nb);
+    grid.querySelectorAll('.pk-card').forEach((card) => card.classList.toggle('is-current', card.dataset.pkSlug === a.s || card.dataset.pkSlug === b.s));
     const params = new URLSearchParams({ a: a.s, b: b.s });
-    if (location.pathname === '/compare') history.replaceState(null, '', `/compare?${params}`);
-    document.title = `${a.n} vs ${b.n}: Who Would Win? | Animal Battle Stats`;
+    if (state.na > 1) params.set('na', String(state.na));
+    if (state.nb > 1) params.set('nb', String(state.nb));
+    if (location.pathname === '/compare' || state.na > 1 || state.nb > 1 || a.h || b.h) {
+        if (location.pathname !== '/compare' || location.search !== `?${params}`) history.replaceState(null, '', `/compare?${params}`);
+    }
+    document.title = `${label(a, state.na)} vs ${label(b, state.nb)}: Who Would Win? | Animal Battle Stats`;
     loadFanVotes(a, b);
     document.dispatchEvent(new CustomEvent('abs:matchup'));
 }
 
-function setPicking(side) {
+// ---------------------------------------------------------------- counts
+
+function setCount(side, value) {
+    const count = Math.max(1, Math.min(MAX_COUNT, Math.floor(Number(value) || 1)));
+    if (state[`n${side}`] === count) { paintCrowd(side, state.index.get(state[side])); return; }
+    state[`n${side}`] = count;
+    paintCrowd(side, state.index.get(state[side]));
+    paintMatchup();
+}
+
+for (const side of ['a', 'b']) {
+    const box = sides[side].querySelector('[data-count-box]');
+    const input = box.querySelector('[data-count]');
+    box.querySelectorAll('[data-count-step]').forEach((button) => button.addEventListener('click', () => {
+        if (state.fighting) return;
+        const current = state[`n${side}`];
+        const up = Number(button.dataset.countStep) > 0;
+        const next = up ? STEPS.find((step) => step > current) || MAX_COUNT : [...STEPS].reverse().find((step) => step < current) || 1;
+        sfx.select();
+        setCount(side, next);
+    }));
+    input.addEventListener('change', () => { if (!state.fighting) setCount(side, input.value); });
+    input.addEventListener('keydown', (event) => { if (event.key === 'Enter') input.blur(); });
+    input.addEventListener('focus', () => input.select());
+}
+
+// ---------------------------------------------------------------- picker
+
+function cardHtml(animal) {
+    const tier = animal.h ? 'h' : animal.tier.toLowerCase();
+    return `<button type="button" class="pk-card${animal.h ? ' is-human' : ''}" data-pk-slug="${animal.s}" data-pk-name="${escapeHtml(animal.n.toLowerCase())}">
+        <span class="tier-badge tier-${tier}">${animal.h ? 'H' : animal.tier}</span>
+        <span class="pk-art"><img src="${animal.i}" alt="" style="${artVars(animal)}" width="96" height="96" loading="lazy" decoding="async"></span>
+        <b>${escapeHtml(animal.n)}</b>${animal.h ? '<small>Not an animal</small>' : ''}
+    </button>`;
+}
+
+function openPicker(side) {
+    if (state.fighting) return;
     state.picking = side;
-    sides.a.classList.toggle('picking', side === 'a');
-    sides.b.classList.toggle('picking', side === 'b');
-    root.querySelector('[data-roster-title]').textContent = `Pick fighter ${side === 'a' ? '1' : '2'}`;
+    root.querySelector('[data-picker-title]').textContent = `Fighter ${side === 'a' ? '1' : '2'}`;
+    search.value = '';
+    grid.querySelectorAll('.pk-card').forEach((card) => { card.hidden = false; });
+    sfx.whoosh();
+    picker.showModal();
+    // Phones keep the keyboard closed until the search box is tapped.
+    if (matchMedia('(pointer: fine)').matches) search.focus({ preventScroll: true });
+    grid.scrollTop = 0;
 }
 
 function choose(slug) {
@@ -154,17 +275,32 @@ function choose(slug) {
     const animal = state.index.get(slug);
     if (!animal) return;
     const other = state.picking === 'a' ? state.b : state.a;
-    if (slug === other) { sfx.error(); toast('Pick a different animal'); return; }
+    if (slug === other) { sfx.error(); toast('Pick a different fighter'); return; }
     state[state.picking] = slug;
     paintFighter(state.picking, animal);
     sfx.flip();
+    picker.close();
     paintMatchup();
-    state.picking = state.picking === 'a' ? 'b' : 'a';
-    sides.a.classList.remove('picking');
-    sides.b.classList.remove('picking');
-    root.querySelector('[data-roster-title]').textContent = `Pick fighter ${state.picking === 'a' ? '1' : '2'}`;
-    roster.classList.remove('open');
 }
+
+root.querySelectorAll('[data-pick]').forEach((button) => button.addEventListener('click', () => openPicker(button.dataset.pick)));
+root.querySelectorAll('[data-f-art]').forEach((art) => art.addEventListener('click', () => openPicker(art.closest('[data-side]').dataset.side)));
+root.querySelector('[data-pk-close]').addEventListener('click', () => picker.close());
+picker.addEventListener('click', (event) => { if (event.target === picker) picker.close(); });
+grid.addEventListener('click', (event) => {
+    const card = event.target.closest('[data-pk-slug]');
+    if (card) choose(card.dataset.pkSlug);
+});
+search.addEventListener('input', () => {
+    const needle = search.value.trim().toLowerCase();
+    grid.querySelectorAll('.pk-card').forEach((card) => { card.hidden = Boolean(needle) && !card.dataset.pkName.includes(needle); });
+});
+search.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter') return;
+    event.preventDefault();
+    const first = grid.querySelector('.pk-card:not([hidden])');
+    if (first) choose(first.dataset.pkSlug);
+});
 
 // ---------------------------------------------------------------- call it
 
@@ -174,15 +310,17 @@ function paintStreak(streak) {
 }
 
 function resetCall() {
-    callBox.dataset.state = 'open';
+    const crowd = state.na > 1 || state.nb > 1 || state.index.get(state.a)?.h || state.index.get(state.b)?.h;
+    callBox.dataset.state = crowd ? 'off' : 'open';
     callBox.querySelectorAll('[data-vote-side]').forEach((button) => button.classList.remove('picked', 'right', 'wrong'));
-    callNote.textContent = CALL_NOTE;
+    callNote.textContent = crowd ? 'Calls are for one animal against one animal. Fight to see who wins.' : CALL_NOTE;
     paintStreak(window.ABS_USER?.economy?.callStreak || 0);
 }
 
 // Shows a finished call: which pick won, the payout and the streak.
 function paintCall(call, a, reward = null, earlier = false) {
     callBox.dataset.state = 'called';
+    reveal();
     const pickedSide = call.votedFor === a.n ? 'a' : 'b';
     callBox.querySelectorAll('[data-vote-side]').forEach((button) => {
         const mine = button.dataset.voteSide === pickedSide;
@@ -208,13 +346,14 @@ async function loadFanVotes(a, b) {
     paBox.textContent = '';
     pbBox.textContent = '';
     resetCall();
+    if (a.h || b.h || state.na > 1 || state.nb > 1) return;
     try {
         const response = await fetch(`/api/battles?action=matchup_votes&animal1=${encodeURIComponent(a.n)}&animal2=${encodeURIComponent(b.n)}`, {
             credentials: 'same-origin',
             headers: { Accept: 'application/json', ...(window.ABS_TOKEN ? { Authorization: `Bearer ${window.ABS_TOKEN}` } : {}) }
         });
         const body = await response.json();
-        if (!body.success || state.a !== a.s || state.b !== b.s) return;
+        if (!body.success || state.a !== a.s || state.b !== b.s || state.na > 1 || state.nb > 1) return;
         state.fan = body.data;
         if (body.data.totalVotes > 0) {
             paBox.textContent = `${body.data.animal1Percentage}% of fans`;
@@ -230,7 +369,8 @@ async function callFight(button) {
     if (!a || !b || state.fighting || callBox.dataset.state !== 'open') return;
     if (!window.ABS_USER) {
         sfx.error();
-        callNote.innerHTML = `<a href="/login?returnTo=${encodeURIComponent(location.pathname)}">Log in</a> to call fights: every call pays BattlePoints and XP.`;
+        callNote.innerHTML = `<a href="/login?returnTo=${encodeURIComponent(location.pathname + location.search)}">Log in</a> to call fights: every call pays BattlePoints and XP.`;
+        callNote.style.display = 'block';
         return;
     }
     const votedFor = button.dataset.voteSide === 'a' ? a.n : b.n;
@@ -293,10 +433,10 @@ function setHp(side, value) {
 // Plans a fight whose winner was drawn with the model probability: both sides
 // trade blows, bigger stat gaps mean a more lopsided fight, and the winner
 // lands the final hit.
-function planFight(a, b, probability, forced = null) {
-    const winner = forced || (Math.random() < probability ? 'a' : 'b');
+function planFight(a, b, odds, forced = null) {
+    const winner = forced || (Math.random() < odds ? 'a' : 'b');
     const loser = winner === 'a' ? 'b' : 'a';
-    const edge = Math.abs(probability - 0.5) * 2;
+    const edge = Math.abs(odds - 0.5) * 2;
     const winnerLeft = Math.round(15 + edge * 55 + Math.random() * 12);
     const exchanges = Math.max(5, Math.round(9 - edge * 4 + Math.random() * 2));
     const fighters = { a, b };
@@ -342,13 +482,13 @@ async function fight(forced = null) {
     if (!a || !b) return;
     state.fighting = true;
     fightButton.disabled = true;
-    trackFight(a.n, b.n);
+    trackFight(label(a, state.na), label(b, state.nb));
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const beat = reduced ? 250 : 520;
     const hp = { a: 100, b: 100 };
     for (const side of ['a', 'b']) { setHp(side, 100); sides[side].classList.remove('ko', 'winner'); }
-    const probability = model.compare(toModel(a), toModel(b)).probability;
-    const plan = planFight(a, b, probability, forced);
+    const odds = probability(a, b);
+    const plan = planFight(a, b, odds, forced);
 
     for (const count of ['3', '2', '1']) { sfx.countdown(); await say(`<span class="big">${count}</span>`, reduced ? 200 : 420); }
     sfx.go();
@@ -380,34 +520,22 @@ async function fight(forced = null) {
     shake(root, 1.6);
     await say('<span class="big">K.O.!</span>', reduced ? 300 : 900);
     sides[plan.winner].classList.add('winner');
-    const winner = plan.winner === 'a' ? a : b;
-    const upset = (plan.winner === 'a' ? probability : 1 - probability) < 0.5;
+    const winnerCount = plan.winner === 'a' ? state.na : state.nb;
+    const winnerName = label(plan.winner === 'a' ? a : b, winnerCount);
+    const upset = (plan.winner === 'a' ? odds : 1 - odds) < 0.5;
     sfx.win();
-    announcer.innerHTML = `<span class="big">${escapeHtml(winner.n)} wins${upset ? '<br><small style="font-size:.4em">Upset!</small>' : ''}</span>`;
+    reveal();
+    announcer.innerHTML = `<span class="big">${escapeHtml(winnerName)} win${winnerCount > 1 ? '' : 's'}${upset ? '<br><small style="font-size:.4em">Upset!</small>' : ''}</span>`;
     await wait(reduced ? 600 : 1800);
     announcer.innerHTML = '';
     state.fighting = false;
     fightButton.disabled = false;
-    fightButton.querySelector('span').textContent = 'Watch another';
+    fightButton.querySelector('span').textContent = 'Fight again';
 }
 
 // ---------------------------------------------------------------- wiring
 
 fightButton.addEventListener('click', () => fight());
-root.querySelectorAll('[data-pick]').forEach((button) => button.addEventListener('click', () => {
-    setPicking(button.dataset.pick);
-    sfx.whoosh();
-    roster.classList.add('open');
-    root.querySelector('[data-r-q]').focus({ preventScroll: true });
-}));
-strip.addEventListener('click', (event) => {
-    const card = event.target.closest('[data-r-slug]');
-    if (card) choose(card.dataset.rSlug);
-});
-root.querySelector('[data-r-q]').addEventListener('input', (event) => {
-    const needle = event.target.value.trim().toLowerCase();
-    strip.querySelectorAll('.r-card').forEach((card) => { card.hidden = Boolean(needle) && !card.dataset.rName.includes(needle); });
-});
 root.querySelectorAll('[data-ctab]').forEach((tab) => tab.addEventListener('click', () => {
     root.querySelectorAll('[data-ctab]').forEach((other) => other.setAttribute('aria-selected', String(other === tab)));
     root.querySelectorAll('[data-cpane]').forEach((pane) => { pane.hidden = pane.dataset.cpane !== tab.dataset.ctab; });
@@ -428,36 +556,25 @@ function mountTalk() {
 }
 document.addEventListener('abs:matchup', () => { if (talkPane && !talkPane.hidden) mountTalk(); });
 
-// Same markup as HoloCard.astro, built client-side so matchup pages stay small.
-function cardHtml(animal) {
-    const tier = animal.tier.toLowerCase();
-    return `<button type="button" class="r-card" data-r-slug="${animal.s}" data-r-name="${escapeHtml(animal.n.toLowerCase())}" title="${escapeHtml(animal.n)}">
-        <span class="card tier-${tier} bio-${animal.b}"><span class="card-inner">
-            <span class="card-power"><b>${fmt(animal.p)}</b><small>PWR</small></span>
-            <span class="tier-badge tier-${tier}">${animal.tier}</span>
-            <span class="card-art"><img src="${animal.i}" alt="" style="${artVars(animal)}" width="96" height="96" loading="lazy" decoding="async"></span>
-            <span class="card-plate"><span class="card-name">${escapeHtml(animal.n)}</span></span>
-        </span></span></button>`;
-}
-
 loadAnimalIndex().then((list) => {
-    state.index = new Map(list.map((animal) => [animal.s, animal]));
-    strip.innerHTML = list.map(cardHtml).join('');
-    strip.removeAttribute('aria-busy');
+    state.index = new Map([[HUMAN.s, HUMAN], ...list.map((animal) => [animal.s, animal])]);
+    grid.innerHTML = [HUMAN, ...list].map(cardHtml).join('');
+    grid.removeAttribute('aria-busy');
     const params = new URLSearchParams(location.search);
     const wantA = params.get('a') || params.get('animal');
     const wantB = params.get('b');
+    state.na = Math.max(1, Math.min(MAX_COUNT, Math.floor(Number(params.get('na')) || 1)));
+    state.nb = Math.max(1, Math.min(MAX_COUNT, Math.floor(Number(params.get('nb')) || 1)));
     if (location.pathname === '/compare' && wantA && state.index.has(wantA)) {
         state.a = wantA;
         if (!wantB || !state.index.has(wantB) || wantB === wantA) {
             // Default opponent: the closest animal by power.
             const me = state.index.get(wantA);
-            const rival = [...state.index.values()].filter((animal) => animal.s !== wantA).sort((x, y) => Math.abs(x.p - me.p) - Math.abs(y.p - me.p))[0];
+            const rival = list.filter((animal) => animal.s !== wantA).sort((x, y) => Math.abs(x.p - me.p) - Math.abs(y.p - me.p))[0];
             state.b = rival.s;
         } else state.b = wantB;
-        paintFighter('a', state.index.get(state.a));
-        paintFighter('b', state.index.get(state.b));
     }
+    paintFighter('a', state.index.get(state.a));
+    paintFighter('b', state.index.get(state.b));
     paintMatchup();
-    state.picking = 'b';
 });

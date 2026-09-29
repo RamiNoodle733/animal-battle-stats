@@ -195,13 +195,6 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
             </div>
 
             <div class="pane scroll" id="pane-stats" role="tabpanel" aria-labelledby="tab-stats">
-                <p class="summary">{summary}</p>
-                {roles.map(({ show, character }) => (
-                    <a class="stars-in" href={show.url} style={`--show:${show.accent}`}>
-                        <img src={showLogo(show)} alt={show.name} width="720" height="360" loading="lazy" />
-                        <span><small>Stars in ABS Originals</small><b>{character.name}, {character.role.toLowerCase()}</b><span>{show.tagline} Watch free →</span></span>
-                    </a>
-                ))}
                 <div class="stats-split">
                     <Meters animal={animal} />
                     <div class="radar-box"><Radar animal={animal} size={250} /></div>
@@ -210,6 +203,13 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                     <div class={best.cls}><span>Best stat</span><strong>{best.label}</strong><small>{ordinal(statRank(animal, best.key).rank)} of {animals.length}</small></div>
                     <div class={worst.cls}><span>Weak spot</span><strong>{worst.label}</strong><small>{fmtScore(animal[worst.key])} / 100</small></div>
                 </div>
+                {roles.map(({ show, character }) => (
+                    <a class="stars-in" href={show.url} style={`--show:${show.accent}`}>
+                        <img src={showLogo(show)} alt={show.name} width="720" height="360" loading="lazy" />
+                        <span><small>Stars in ABS Originals</small><b>{character.name}, {character.role.toLowerCase()}</b><span>{show.tagline} Watch free →</span></span>
+                    </a>
+                ))}
+                <p class="summary">{summary}</p>
                 <h2 class="pane-h">Detailed ratings</h2>
                 <div class="pips">
                     {SUBSTATS.map(([key, label, parent]) => {

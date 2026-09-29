@@ -34,132 +34,119 @@ const jsonLd = [
 ---
 
 <Base title={title} description={description} path={show.url} image={`/images/og/shows/${show.slug}-s1.jpg`} imageAlt={`${show.name} season 1 poster`} type="video.tv_show" jsonLd={jsonLd} active="shows" biome={show.slug === 'fastest' ? 'savanna' : show.slug === 'deduction' ? 'mountains' : 'desert'} seed={show.slug.length * 7}>
-    <div class="sw" style={`--show:${show.accent}`} data-shows-page data-show={show.slug}>
-        <nav class="sw-crumbs" aria-label="Breadcrumb"><a href="/shows">Shows</a><span aria-hidden="true">/</span><span>{show.name}</span></nav>
-
-        <section class="panel sw-hero enter">
-            <div class="sw-hero-copy">
-                <p class="eyebrow"><Icon name="tv" size={18} />ABS Originals · Season 1</p>
-                <h1 style="margin:0"><img class="sw-logo" src={logo(show)} alt={show.name} width="720" height="360" /></h1>
-                <p class="sw-tagline">{show.tagline}</p>
-                <p class="sw-lede">{show.logline}</p>
-                <div class="sw-meta">
-                    {show.genre.map((genre) => <span class="chip chip-show">{genre}</span>)}
-                    <span class="chip">{show.episodes.length} episodes</span>
-                    <span class="chip">{minutes(show.runtime)} min total</span>
-                    <span class="chip chip-gold"><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />+{WATCH_REWARD.coins} per episode</span>
-                </div>
-                <div class="sw-progress" data-show-progress={show.slug} data-total={show.episodes.length}>
-                    <div class="sw-progress-row"><span>Your progress{titleName ? ` · finish for the ${titleName} title` : ''}</span><span><b data-progress-count>0</b> / {show.episodes.length}</span></div>
-                    <div class="sw-bar"><i data-progress-bar></i></div>
-                </div>
-                <div class="sw-cta">
-                    <a class="btn btn-hot btn-lg" href={first.url} data-continue={show.slug}><Icon name="tv" size={26} /><span data-continue-label>Watch episode 1</span></a>
-                    {show.season && <a class="btn btn-sm" href="#full-season">Full season ({minutes(show.season.seconds)} min)</a>}
-                </div>
-            </div>
-            <a class="sw-art" href={first.url} aria-label={`Watch ${show.name} episode 1`}>
-                <img src={poster(`${show.slug}-s1`)} srcset={posterSet(`${show.slug}-s1`)} sizes="(max-width: 760px) 100vw, 600px" alt={`${show.name} season 1 poster`} width="1280" height="720" fetchpriority="high" />
+    <div class="sw-screen show-screen" style={`--show:${show.accent}`} data-shows-page data-show={show.slug}>
+        <section class="panel show-side enter">
+            <nav class="sw-crumbs" aria-label="Breadcrumb"><a href="/shows">Shows</a><span aria-hidden="true">/</span><span>{show.name}</span></nav>
+            <a class="sw-art" href={first.url} data-continue={show.slug} aria-label={`Watch ${show.name}`}>
+                <img src={poster(`${show.slug}-s1`)} srcset={posterSet(`${show.slug}-s1`)} sizes="(max-width: 760px) 100vw, 520px" alt={`${show.name} season 1 poster`} width="1280" height="720" fetchpriority="high" />
+                <span class="play-disc" set:html={PLAY_SVG} />
             </a>
+            <h1 class="show-logo"><img src={logo(show)} alt={show.name} width="720" height="360" /></h1>
+            <p class="sw-tagline">{show.tagline}</p>
+            <p class="show-logline">{show.logline}</p>
+            <div class="sw-meta">
+                {show.genre.map((genre) => <span class="chip chip-show">{genre}</span>)}
+                <span class="chip">{show.episodes.length} episodes · {minutes(show.runtime)} min</span>
+                <span class="chip chip-gold"><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />+{WATCH_REWARD.coins} each</span>
+            </div>
+            <div class="sw-progress" data-show-progress={show.slug} data-total={show.episodes.length}>
+                <div class="sw-progress-row"><span>Your progress{titleName && <span class="progress-note"> · {titleName} title at the end</span>}</span><span><b data-progress-count>0</b> / {show.episodes.length}</span></div>
+                <div class="sw-bar"><i data-progress-bar></i></div>
+            </div>
+            <a class="btn btn-hot show-play" href={first.url} data-continue={show.slug}><Icon name="tv" size={24} /><span data-continue-label>Watch episode 1</span></a>
         </section>
 
-        <section class="panel sw-section" aria-labelledby="episodes-h">
-            <div class="sw-head">
-                <h2 class="sw-h2" id="episodes-h"><img src="/images/icons/abs/tv.webp" alt="" width="30" height="30" />Episodes</h2>
-                <span class="chip chip-show">Watch in order: every cliffhanger is answered next episode</span>
+        <section class="panel show-main enter-2" data-tabset>
+            <div class="tabs" role="tablist" aria-label={show.name}>
+                <button type="button" role="tab" aria-selected="true" data-tab="episodes"><Icon name="tv" size={20} />Episodes</button>
+                <button type="button" role="tab" aria-selected="false" data-tab="cast"><Icon name="paw" size={20} />Cast</button>
+                {show.season && <button type="button" role="tab" aria-selected="false" data-tab="full-season"><Icon name="star" size={20} />Full season</button>}
+                <button type="button" role="tab" aria-selected="false" data-tab="watch"><Icon name="compass" size={20} />Watch on</button>
             </div>
-            <ol class="ep-list">
-                {show.episodes.map((episode, index) => (
-                    <li>
-                        <a class="ep-item" href={episode.url} data-ep-card={episode.id}>
-                            <span class="ep-thumb">
-                                <img src={poster(episode.id, true)} alt={`${show.name} episode ${episode.number}: ${episode.title}`} width="640" height="360" loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
-                                <span class="ep-no">EP {episode.number}</span>
-                                <span class="ep-len">{clock(episode.seconds)}</span>
-                                <span class="ep-seen"><img src="/images/icons/abs/check.webp" alt="" width="16" height="16" loading="lazy" />Watched</span>
-                            </span>
-                            <span class="ep-item-copy">
-                                <span class="k">Episode {episode.number}</span>
-                                <b>{episode.title}</b>
-                                <p>{episode.summary}</p>
+
+            <div class="show-pane scroll" data-pane="episodes">
+                <p class="pane-note">Watch in order: every cliffhanger is answered in the next episode.</p>
+                <ol class="ep-list">
+                    {show.episodes.map((episode, index) => (
+                        <li>
+                            <a class="ep-item" href={episode.url} data-ep-card={episode.id}>
+                                <span class="ep-thumb">
+                                    <img src={poster(episode.id, true)} alt={`${show.name} episode ${episode.number}: ${episode.title}`} width="640" height="360" loading={index < 4 ? 'eager' : 'lazy'} decoding="async" />
+                                    <span class="ep-no">EP {episode.number}</span>
+                                    <span class="ep-len">{clock(episode.seconds)}</span>
+                                    <span class="ep-seen"><img src="/images/icons/abs/check.webp" alt="" width="16" height="16" loading="lazy" />Watched</span>
+                                </span>
+                                <span class="ep-item-copy">
+                                    <span class="k">Episode {episode.number}</span>
+                                    <b>{episode.title}</b>
+                                    <p>{episode.summary}</p>
+                                </span>
+                            </a>
+                        </li>
+                    ))}
+                </ol>
+            </div>
+
+            <div class="show-pane scroll" data-pane="cast" hidden>
+                <p class="pane-note">Every character is a real animal. Tap one for its battle stats.</p>
+                <div class="cast">
+                    {show.characters.map((character) => (
+                        <a class="cast-card" href={character.art ? `/stats/${character.art.slug}` : '/stats'}>
+                            <span class="cast-art">{character.art && <AnimalImage animal={character.art} sizes="180px" alt={`${character.name} (${character.art.name})`} />}</span>
+                            <span class="cast-copy">
+                                <span class="k">{character.role}</span>
+                                <b>{character.name}</b>
+                                <p>{character.blurb}</p>
+                                {character.art && <small>{character.art.name} · #{character.art.rank} · {character.art.tier} tier →</small>}
                             </span>
                         </a>
-                    </li>
-                ))}
-            </ol>
-        </section>
+                    ))}
+                </div>
+                {faceOffs.length > 0 && (
+                    <div class="btn-row" style="margin-top:12px">
+                        {faceOffs.map((pair) => <a class="btn btn-sm" href={pair.href}><Icon name="vs" size={22} />{pair.a.name} or {pair.b.name}?</a>)}
+                    </div>
+                )}
+            </div>
 
-        <section class="panel sw-section" aria-labelledby="cast-h">
-            <div class="sw-head">
-                <h2 class="sw-h2" id="cast-h"><img src="/images/icons/abs/paw.webp" alt="" width="30" height="30" loading="lazy" />The cast</h2>
-                <span class="sw-lede" style="font-size:0.88rem">Every character is a real animal. Tap one for its battle stats.</span>
-            </div>
-            <div class="cast">
-                {show.characters.map((character) => (
-                    <a class="cast-card" href={character.art ? `/stats/${character.art.slug}` : '/stats'}>
-                        <span class="cast-art">{character.art && <AnimalImage animal={character.art} sizes="180px" alt={`${character.name} (${character.art.name})`} />}</span>
-                        <span class="cast-copy">
-                            <span class="k">{character.role}</span>
-                            <b>{character.name}</b>
-                            <p>{character.blurb}</p>
-                            {character.art && <small>{character.art.name} · #{character.art.rank} · {character.art.tier} tier →</small>}
-                        </span>
-                    </a>
-                ))}
-            </div>
-            {faceOffs.length > 0 && (
-                <div class="btn-row">
-                    {faceOffs.map((pair) => <a class="btn btn-sm" href={pair.href}><Icon name="vs" size={22} />Who would win: {pair.a.name} or {pair.b.name}?</a>)}
+            {show.season && (
+                <div class="show-pane scroll" data-pane="full-season" id="full-season" hidden>
+                    <div class="player season-player" data-player data-youtube={show.season.youtube} data-title={show.season.title}>
+                        <button class="player-facade" type="button" data-play aria-label={`Play ${show.season.title}`}>
+                            <img src={poster(show.season.id)} srcset={posterSet(show.season.id)} sizes="(max-width: 760px) 100vw, 720px" alt="" width="1280" height="720" loading="lazy" />
+                            <span class="play-disc" set:html={PLAY_SVG} />
+                            <span class="player-label"><span>{show.name} · Season 1 · all {show.episodes.length} episodes · {clock(show.season.seconds)}</span></span>
+                        </button>
+                    </div>
+                    <ol class="chapters">
+                        {show.season.chapters.map((chapter) => {
+                            const episode = show.episodes.find((entry) => entry.number === chapter.number);
+                            return <li><a href={episode ? episode.url : youtubeWatch(show.season.youtube, chapter.at)}><time>{clock(chapter.at)}</time><span>Episode {chapter.number}: {chapter.title}</span></a></li>;
+                        })}
+                    </ol>
+                    <p class="pane-note">Rewards count episodes watched on their own pages.</p>
                 </div>
             )}
-        </section>
 
-        {show.season && (
-            <section class="panel sw-section" id="full-season" aria-labelledby="season-h">
-                <div class="sw-head">
-                    <h2 class="sw-h2" id="season-h"><img src="/images/icons/abs/star.webp" alt="" width="30" height="30" loading="lazy" />Full season in one video</h2>
-                    <span class="chip">{clock(show.season.seconds)}</span>
+            <div class="show-pane scroll" data-pane="watch" hidden>
+                <div class="platforms">
+                    <a class="pf pf-youtube" href={youtubePlaylist(show.youtube.full)} target="_blank" rel="noopener" data-out="youtube-playlist"><PlatformIcon name="youtube" size={26} /><span class="pf-copy"><span>Full episodes</span><small>YouTube playlist</small></span></a>
+                    <a class="pf pf-youtube" href={youtubePlaylist(show.youtube.shorts)} target="_blank" rel="noopener" data-out="youtube-shorts"><PlatformIcon name="youtube" size={26} /><span class="pf-copy"><span>Shorts, in order</span><small>YouTube playlist</small></span></a>
+                    <a class="pf pf-tiktok" href={first.tiktok ? tiktokVideo(first.tiktok) : PLATFORMS.tiktok.url} target="_blank" rel="noopener" data-out="tiktok"><PlatformIcon name="tiktok" size={26} /><span class="pf-copy"><span>Start on TikTok</span><small>Episode 1</small></span></a>
+                    <a class="pf pf-x" href={show.xThread} target="_blank" rel="noopener" data-out="x-thread"><PlatformIcon name="x" size={26} /><span class="pf-copy"><span>The X thread</span><small>Every episode, in replies</small></span></a>
+                    <a class="pf pf-instagram" href={PLATFORMS.instagram.url} target="_blank" rel="noopener" data-out="instagram"><PlatformIcon name="instagram" size={26} /><span class="pf-copy"><span>Instagram reels</span><small>@animalbattlestats</small></span></a>
+                    <a class="pf pf-facebook" href={PLATFORMS.facebook.url} target="_blank" rel="noopener" data-out="facebook"><PlatformIcon name="facebook" size={26} /><span class="pf-copy"><span>Facebook reels</span><small>Animal Battle Stats</small></span></a>
                 </div>
-                <div class="player" data-player data-youtube={show.season.youtube} data-title={show.season.title}>
-                    <button class="player-facade" type="button" data-play aria-label={`Play ${show.season.title}`}>
-                        <img src={poster(show.season.id)} srcset={posterSet(show.season.id)} sizes="(max-width: 1240px) 100vw, 1200px" alt="" width="1280" height="720" loading="lazy" />
-                        <span class="play-disc" set:html={PLAY_SVG} />
-                        <span class="player-label"><span>{show.name} · Season 1 · all {show.episodes.length} episodes</span></span>
-                    </button>
+                <FollowPanel heading="Never miss an episode" />
+                <h2 class="sw-h2" style="margin-top:14px">More ABS Originals</h2>
+                <div class="more-shows">
+                    {others.map((other) => (
+                        <a class="more-show" href={other.url} style={`--show:${other.accent}`}>
+                            <img src={poster(`${other.slug}-s1`, true)} alt="" width="640" height="360" loading="lazy" />
+                            <span><b>{other.name}</b><small>{other.tagline}</small></span>
+                        </a>
+                    ))}
                 </div>
-                <ol class="chapters">
-                    {show.season.chapters.map((chapter) => {
-                        const episode = show.episodes.find((entry) => entry.number === chapter.number);
-                        return <li><a href={episode ? episode.url : youtubeWatch(show.season.youtube, chapter.at)}><time>{clock(chapter.at)}</time><span>Episode {chapter.number}: {chapter.title}</span></a></li>;
-                    })}
-                </ol>
-                <p class="sw-lede" style="font-size:0.85rem">Rewards count episodes watched on their own pages.</p>
-            </section>
-        )}
-
-        <section class="panel sw-section" aria-labelledby="where-h">
-            <h2 class="sw-h2" id="where-h"><img src="/images/icons/abs/compass.webp" alt="" width="30" height="30" loading="lazy" />Watch {show.name} everywhere</h2>
-            <div class="platforms">
-                <a class="pf pf-youtube" href={youtubePlaylist(show.youtube.full)} target="_blank" rel="noopener" data-out="youtube-playlist"><PlatformIcon name="youtube" size={26} /><span class="pf-copy"><span>Full episodes</span><small>YouTube playlist</small></span></a>
-                <a class="pf pf-youtube" href={youtubePlaylist(show.youtube.shorts)} target="_blank" rel="noopener" data-out="youtube-shorts"><PlatformIcon name="youtube" size={26} /><span class="pf-copy"><span>Shorts, in order</span><small>YouTube playlist</small></span></a>
-                <a class="pf pf-tiktok" href={first.tiktok ? tiktokVideo(first.tiktok) : PLATFORMS.tiktok.url} target="_blank" rel="noopener" data-out="tiktok"><PlatformIcon name="tiktok" size={26} /><span class="pf-copy"><span>Start on TikTok</span><small>Episode 1</small></span></a>
-                <a class="pf pf-x" href={show.xThread} target="_blank" rel="noopener" data-out="x-thread"><PlatformIcon name="x" size={26} /><span class="pf-copy"><span>The X thread</span><small>Every episode, in replies</small></span></a>
-                <a class="pf pf-instagram" href={PLATFORMS.instagram.url} target="_blank" rel="noopener" data-out="instagram"><PlatformIcon name="instagram" size={26} /><span class="pf-copy"><span>Instagram reels</span><small>@animalbattlestats</small></span></a>
-                <a class="pf pf-facebook" href={PLATFORMS.facebook.url} target="_blank" rel="noopener" data-out="facebook"><PlatformIcon name="facebook" size={26} /><span class="pf-copy"><span>Facebook reels</span><small>Animal Battle Stats</small></span></a>
-            </div>
-        </section>
-
-        <FollowPanel heading="Never miss an episode" />
-
-        <section class="panel sw-section" aria-labelledby="more-h">
-            <h2 class="sw-h2" id="more-h"><img src="/images/icons/abs/tv.webp" alt="" width="30" height="30" loading="lazy" />More ABS Originals</h2>
-            <div class="show-cards" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
-                {others.map((other) => (
-                    <a class="panel show-card" href={other.url} style={`--show:${other.accent};text-decoration:none;color:inherit`}>
-                        <span class="show-card-art"><img src={poster(`${other.slug}-s1`, true)} alt="" width="640" height="360" loading="lazy" /></span>
-                        <span class="show-card-body"><img src={logo(other)} alt={other.name} width="720" height="360" loading="lazy" style="width:min(70%,220px);height:auto" /><p><b>{other.tagline}</b> {other.episodes.length} episodes.</p></span>
-                    </a>
-                ))}
             </div>
         </section>
     </div>

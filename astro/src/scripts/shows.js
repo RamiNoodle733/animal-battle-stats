@@ -290,6 +290,37 @@ async function follow(button) {
     paint();
 }
 
+// ---------------------------------------------------------------- tabs
+
+// Tabs inside a panel ([data-tabset]): one pane at a time. A #hash that names a
+// tab opens it (/shows#fastest, /shows/breakout#full-season).
+function openTab(set, id, remember = false) {
+    let found = false;
+    for (const tab of set.querySelectorAll('[role="tab"][data-tab]')) {
+        const on = tab.dataset.tab === id;
+        tab.setAttribute('aria-selected', String(on));
+        if (on) {
+            found = true;
+            const accent = tab.style.getPropertyValue('--show');
+            if (accent) set.style.setProperty('--show', accent);
+        }
+    }
+    if (!found) return;
+    for (const pane of set.querySelectorAll('[data-pane]')) pane.hidden = pane.dataset.pane !== id;
+    if (remember) history.replaceState(null, '', `${location.pathname}${location.search}#${id}`);
+}
+const tabsets = [...document.querySelectorAll('[data-tabset]')];
+for (const set of tabsets) {
+    set.addEventListener('click', (event) => {
+        const tab = event.target.closest('[role="tab"][data-tab]');
+        if (tab && set.contains(tab)) openTab(set, tab.dataset.tab, !page?.dataset.episode);
+    });
+}
+const startTab = location.hash.slice(1);
+if (startTab && startTab !== 'play') {
+    for (const set of tabsets) if (set.querySelector(`[data-tab="${CSS.escape(startTab)}"]`)) openTab(set, startTab);
+}
+
 // ---------------------------------------------------------------- wiring
 
 document.addEventListener('click', (event) => {

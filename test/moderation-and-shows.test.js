@@ -70,3 +70,21 @@ test('every episode can pay a watch reward, and finishing a show earns its title
     assert.ok(ITEM_BY_ID.get('frame_originals'));
     assert.deepEqual(normalizeEconomy({ watched: ['not-an-episode'], follows: ['myspace'] }).watched, []);
 });
+
+test('group fights: numbers help, equal groups stay even, tiny animals get less from numbers', () => {
+    const engine = require('../js/battle-engine');
+    const find = (name) => roster.find((animal) => animal.name === name);
+    const gorilla = find('Gorilla');
+    const ant = find('Army Ant');
+    const lion = find('African Lion');
+    const tiger = find('Siberian Tiger');
+    const odds = (a, b, na, nb) => engine.compareGroups(a, b, na, nb, a.weight_kg, b.weight_kg).probability;
+    assert.equal(odds(lion, tiger, 1, 1), engine.compare(lion, tiger).probability);
+    assert.ok(Math.abs(odds(lion, lion, 3, 3) - 0.5) < 1e-9);
+    assert.ok(odds(lion, tiger, 2, 1) > odds(lion, tiger, 1, 1));
+    assert.ok(odds(gorilla, ant, 500, 23) > 0.98);
+    assert.ok(odds(gorilla, ant, 1, 1000) > 0.7, 'a thousand ants still lose to a gorilla');
+    assert.ok(odds(gorilla, ant, 1, 1000000) < odds(gorilla, ant, 1, 1000));
+    const p = odds(gorilla, ant, 1, 1000000);
+    assert.ok(p >= 0.01 && p <= 0.99);
+});

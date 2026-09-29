@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 480" width="200" height="480">
+  <!-- Human: an adult man as a plain silhouette (Versus screen). Not a photo, on purpose:
+       humans are on the site to fight animals, not listed as one. -->
+  <defs>
+    <linearGradient id="skin" gradientUnits="userSpaceOnUse" x1="0" y1="10" x2="0" y2="475">
+      <stop offset="0" stop-color="#aeb9dc"/>
+      <stop offset="0.5" stop-color="#7884b2"/>
+      <stop offset="1" stop-color="#46507a"/>
+    </linearGradient>
+    <g id="man" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="100" cy="40" rx="23" ry="29"/>
+      <rect x="89" y="60" width="22" height="30" rx="6"/>
+      <path d="M62 92c16-8 60-8 76 0 11 5 14 16 13 28l-9 122c-1 10-8 16-18 16H76c-10 0-17-6-18-16l-9-122c-1-12 2-23 13-28z"/>
+      <path d="M58 104l-9 96-7 88" fill="none" stroke-width="21"/>
+      <path d="M142 104l9 96 7 88" fill="none" stroke-width="21"/>
+      <circle cx="42" cy="294" r="11"/>
+      <circle cx="158" cy="294" r="11"/>
+      <path d="M84 250l-3 108-2 96" fill="none" stroke-width="31"/>
+      <path d="M116 250l3 108 2 96" fill="none" stroke-width="31"/>
+      <ellipse cx="74" cy="466" rx="19" ry="9"/>
+      <ellipse cx="126" cy="466" rx="19" ry="9"/>
+    </g>
+  </defs>
+  <use href="#man" fill="url(#skin)" stroke="url(#skin)"/>
+</svg>

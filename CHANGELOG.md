@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.10.0 — 2026-09-29
+
+- **Who would win, rebuilt.** All six battle stats and the key measurements (weight, top speed, bite force, size) sit side by side as one tale of the tape, readable at a glance on phones and desktops without scrolling. Each fighter has one colour (cyan on the left, orange on the right). "Change" opens a searchable picker, and the popular matchups sit at the top of it.
+- **No spoilers.** The win odds stay hidden until you fight or press Show, so calling the winner is a real call.
+- **Group fights.** Set how many of each side are fighting: 500 gorillas vs 23 army ants, 10 humans vs a gorilla, 2 lions vs a tiger. Numbers count for a lot, but much smaller animals get less from them against much heavier ones.
+- **Human.** An average adult man (unarmed, untrained) can step into the ring, shown as a silhouette. Humans are not ranked or listed with the animals.
+- **Search understands matchups.** Type "lion vs tiger" or "100 men vs gorilla" in search and go straight to the fight.
+- **Cleaner look.** One colour for every stat bar across the site, flat panels without the honeycomb texture, animal pages that show the stats first, and a phone top bar with only search, rewards, your profile and the menu (sound and the Roblox game are in the menu).
+- **Shows** fit the screen like the rest of the site: the hub has a tab per show and a Rewards tab; show and episode pages keep their lists and transcripts in tabs that scroll inside.
+
 ## 3.9.0 — 2026-09-29
 
 - **Shows.** The ABS Originals series have a home on the site: [/shows](https://animalbattlestats.com/shows) lists BREAKOUT, DEDUCTION and FASTEST, each show has its own page (season poster, every episode in order, the cast linked to their animal stat cards, the full season in one video, and links to every platform), and each of the 26 episodes has a page with the player, the transcript and "up next" when it ends. Shows is in the top menu, the phone dock and the home menu.

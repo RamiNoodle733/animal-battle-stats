@@ -64,14 +64,18 @@ export function toast(message) {
 
 // ---------------------------------------------------------------- sound toggle + ui sounds
 
-const soundButton = document.querySelector('[data-sound-toggle]');
+// The HUD button, and the one in the menu sheet (phones hide the HUD one).
+const soundButtons = [...document.querySelectorAll('[data-sound-toggle]')];
 function paintSound() {
-    if (!soundButton) return;
-    soundButton.classList.toggle('muted', !isSoundOn());
-    soundButton.setAttribute('aria-pressed', String(isSoundOn()));
-    soundButton.title = isSoundOn() ? 'Sound on (click to mute)' : 'Sound off (click to unmute)';
+    for (const button of soundButtons) {
+        button.classList.toggle('muted', !isSoundOn());
+        button.setAttribute('aria-pressed', String(isSoundOn()));
+        button.title = isSoundOn() ? 'Sound on (click to mute)' : 'Sound off (click to unmute)';
+        const text = button.querySelector('[data-sound-text]');
+        if (text) text.textContent = isSoundOn() ? 'Sound effects: on' : 'Sound effects: off';
+    }
 }
-soundButton?.addEventListener('click', () => { setSound(!isSoundOn()); paintSound(); });
+soundButtons.forEach((button) => button.addEventListener('click', () => { setSound(!isSoundOn()); paintSound(); }));
 paintSound();
 
 const HOVER_SOUND = '.btn, .card, .menu a, .dock a, .tabs button, .seg button, .seg a, [data-sfx]';
@@ -139,15 +143,48 @@ const resultList = dialog?.querySelector('[data-search-results]');
 let activeIndex = 0;
 let current = [];
 
-function renderResults(list) {
-    current = list;
+// "lion vs tiger", "100 men vs gorilla", "orca or great white": a matchup to jump to.
+const VS_PATTERN = /^(.+?)\s+(?:vs\.?|v\.?|versus|against|or)\s+(.+)$/i;
+const HUMAN_WORDS = /^(human|humans|man|men|person|people|guy|guys|homo sapiens)$/i;
+function fighterFrom(list, text) {
+    const match = String(text).trim().match(/^(\d[\d,]*)\s*[x×]?\s+(.+)$/i);
+    const count = match ? Math.min(1000000, Math.max(1, Number(match[1].replace(/,/g, '')) || 1)) : 1;
+    const name = (match ? match[2] : text).trim();
+    if (HUMAN_WORDS.test(name)) return { slug: 'human', name: count > 1 ? 'Humans' : 'Human', img: '/images/human/human.svg', count };
+    const words = name.split(/\s+/);
+    // "gorillas" finds "gorilla": try the name, then without a plural s.
+    const animal = searchAnimals(list, name, 1)[0] || searchAnimals(list, name.replace(/e?s$/i, ''), 1)[0] || (words.length > 1 ? searchAnimals(list, words.at(-1), 1)[0] : null);
+    return animal ? { slug: animal.s, name: animal.n, img: animal.i, count } : null;
+}
+function matchupFor(list, query) {
+    const parts = String(query || '').trim().match(VS_PATTERN);
+    if (!parts) return null;
+    const a = fighterFrom(list, parts[1]);
+    const b = fighterFrom(list, parts[2]);
+    if (!a || !b || a.slug === b.slug) return null;
+    const params = new URLSearchParams({ a: a.slug, b: b.slug });
+    if (a.count > 1) params.set('na', String(a.count));
+    if (b.count > 1) params.set('nb', String(b.count));
+    const label = (fighter) => `${fighter.count > 1 ? `${fighter.count.toLocaleString('en-US')} × ` : ''}${fighter.name}`;
+    return { href: `/compare?${params}`, a, b, title: `${label(a)} vs ${label(b)}` };
+}
+
+function renderResults(list, query = '', all = list) {
+    const matchup = matchupFor(all, query);
+    const animals = matchup ? [] : list;
+    current = [...(matchup ? [matchup] : []), ...animals];
     activeIndex = 0;
-    if (!list.length) {
-        resultList.innerHTML = '<li class="search-empty">No animal matches that search.</li>';
+    if (!current.length) {
+        resultList.innerHTML = '<li class="search-empty">No animal matches that search. Try "lion vs tiger".</li>';
         return;
     }
-    resultList.innerHTML = list.map((animal, index) => `
-        <li><a href="/stats/${animal.s}" role="option" aria-selected="${index === 0}">
+    const matchupRow = matchup ? `
+        <li><a class="sr-vs" href="${matchup.href}" role="option" aria-selected="true">
+            <span class="sr-pair"><img src="${matchup.a.img}" alt="" width="40" height="40"><em>VS</em><img src="${matchup.b.img}" alt="" width="40" height="40"></span>
+            <span><span class="sr-name">${escapeHtml(matchup.title)}</span><span class="sr-meta">Who would win? Open the fight</span></span>
+        </a></li>` : '';
+    resultList.innerHTML = matchupRow + animals.map((animal, index) => `
+        <li><a href="/stats/${animal.s}" role="option" aria-selected="${!matchup && index === 0}">
             <img src="${animal.i}" alt="" width="50" height="40" loading="lazy">
             <span><span class="sr-name">${escapeHtml(animal.n)}</span><span class="sr-meta">#${animal.r} · ${escapeHtml(animal.t)} · ${escapeHtml(animal.c)}</span></span>
             <span class="tier-badge tier-${animal.tier.toLowerCase()}">${animal.tier}</span>
@@ -175,11 +212,15 @@ async function openSearch() {
 
 if (dialog) {
     document.querySelectorAll('[data-open-search]').forEach((button) => button.addEventListener('click', openSearch));
-    input.addEventListener('input', async () => renderResults(searchAnimals(await loadAnimalIndex(), input.value)));
+    input.addEventListener('input', async () => {
+        const list = await loadAnimalIndex();
+        renderResults(searchAnimals(list, input.value), input.value, list);
+    });
     input.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowDown') { event.preventDefault(); moveSelection(1); }
         if (event.key === 'ArrowUp') { event.preventDefault(); moveSelection(-1); }
-        if (event.key === 'Enter' && current[activeIndex]) { event.preventDefault(); location.href = `/stats/${current[activeIndex].s}`; }
+        const link = resultList.querySelectorAll('a')[activeIndex];
+        if (event.key === 'Enter' && link) { event.preventDefault(); location.href = link.href; }
     });
     dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
     document.addEventListener('keydown', (event) => {

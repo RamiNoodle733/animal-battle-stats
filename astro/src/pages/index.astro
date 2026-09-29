@@ -72,7 +72,7 @@ const jsonLd = [
             </nav>
             <button class="home-search field" type="button" data-open-search>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
-                <span>Find an animal…</span><kbd class="chip">/</kbd>
+                <span>Find an animal, or "lion vs tiger"</span><kbd class="chip">/</kbd>
             </button>
         </section>
 
@@ -346,7 +346,8 @@ const jsonLd = [
         /* One screen on phones too: the ring takes whatever height is left. */
         .home { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
         .menu-col { gap: 8px; }
-        .intro, .home-search { display: none; }
+        .intro { display: none; }
+        .home-search { min-height: 44px; }
         .main-menu { grid-template-columns: 1fr 1fr; gap: 6px; }
         .mm { padding: 8px 12px; gap: 8px; }
         .mm.primary { grid-column: 1 / -1; }

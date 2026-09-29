@@ -2536,6 +2536,38 @@
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
       "modified": "Background removed and cropped"
+    },
+    "ball-python": {
+      "title": "Python Royal.JPG",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Python_Royal.JPG",
+      "artist": "Clément Bardot",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "bearded-dragon": {
+      "title": "Pogona vitticeps (32494027291).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Pogona_vitticeps_%2832494027291%29.jpg",
+      "artist": "Donald Hobern from Copenhagen, Denmark",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "corn-snake": {
+      "title": "Kornnatter (Pantherophis guttatus), Seitenansicht.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Kornnatter_%28Pantherophis_guttatus%29%2C_Seitenansicht.jpg",
+      "artist": "Peter Paplanus",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "leopard-gecko": {
+      "title": "Eublepharis macularius (3828139509).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Eublepharis_macularius_%283828139509%29.jpg",
+      "artist": "Matt Reinbold from USA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
     }
   }
 }

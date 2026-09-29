@@ -2688,6 +2688,14 @@
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
       "modified": "Background removed and cropped"
+    },
+    "bushmaster": {
+      "title": "Lachesis muta.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Lachesis_muta.jpg",
+      "artist": "Esquilo",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
     }
   }
 }

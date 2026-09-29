@@ -56,7 +56,7 @@ EXTRA = {
     "greyhound": {"only": True, "categories": ["Greyhound"], "search": ["Greyhound dog standing"]},
     "red-deer": {"search": ["red deer stag", "Cervus elaphus stag"], "prefer": "stag|hirsch|male"},
     "fin-whale": {"search": ["fin whale underwater", "Balaenoptera physalus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
-    "gray-whale": {"only": True, "categories": ["Eschrichtius robustus"], "search": ["gray whale underwater", "grey whale underwater", "gray whale breaching", "Eschrichtius robustus spyhopping", "gray whale San Ignacio lagoon"], "prefer": "underwater|breach|spyhop", "files": 120},
+    "gray-whale": {"only": True, "titles": ["File:Gray Whale, Aogashima, March 11, 2017 by Aurora Chihiro.jpg", "File:Graywhale MMC.jpg", "File:Eschrichtius robustus1.jpg", "File:Sakhalin-gray-whale-small.jpg", "File:Ballena gris adulta con su ballenato.jpg", "File:Eschrichtius robustus 01-cropped.jpg", "File:Anim1723 - Flickr - NOAA Photo Library.jpg"], "categories": ["Eschrichtius robustus"], "search": ["gray whale underwater", "grey whale underwater", "gray whale breaching", "Eschrichtius robustus spyhopping", "gray whale San Ignacio lagoon"], "prefer": "underwater|breach|spyhop", "files": 120},
     "bowhead-whale": {"search": ["bowhead whale underwater", "Balaena mysticetus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
     "northern-goshawk": {"categories": ["Accipiter gentilis"], "search": ["Northern goshawk adult"]},
     "wild-turkey": {"only": True, "categories": ["Meleagris gallopavo (male)", "Meleagris gallopavo silvestris"], "search": ["wild turkey tom", "wild turkey strutting", "Meleagris gallopavo male displaying", "gobbler turkey"], "prefer": "tom|male|strut|gobbler|display", "files": 70},

@@ -220,6 +220,8 @@ def main():
             info["score"] = score(info)
             if extra.get("prefer") and re.search(extra["prefer"], info["name"] + " " + info["categories"], re.I):
                 info["score"] += 4
+            if title in extra.get("titles", []):
+                info["score"] += 10  # named on purpose; rank ahead of big but unrelated files
             infos.append(info)
         infos.sort(key=lambda item: -item["score"])
         # At most three photos per photographer, so one series does not fill the review.

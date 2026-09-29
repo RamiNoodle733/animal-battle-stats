@@ -2496,6 +2496,46 @@
       "license": "Public domain",
       "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
       "modified": "Background removed and cropped"
+    },
+    "bowhead-whale": {
+      "title": "Bowhead Whale NOAA (cropped).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Bowhead_Whale_NOAA_%28cropped%29.jpg",
+      "artist": "Vicki Beaver, Alaska Fisheries Science Center, NOAA FIsheries, Marine Mammal Permit#14245",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
+    },
+    "false-killer-whale": {
+      "title": "Anim2620 (33910331754).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Anim2620_%2833910331754%29.jpg",
+      "artist": "NOAA Photo Library",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "fin-whale": {
+      "title": "Finhval (cropped).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Finhval_%28cropped%29.jpg",
+      "artist": "Aqqa Rosing-Asvid - Visit Greenland",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "wild-turkey": {
+      "title": "Meleagris gallopavo displaying at Deer Island Open Space Preserve.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Meleagris_gallopavo_displaying_at_Deer_Island_Open_Space_Preserve.jpg",
+      "artist": "Frank Schulenburg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "japanese-spider-crab": {
+      "title": "Oceanário de Lisboa 2018 (23).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ocean%C3%A1rio_de_Lisboa_2018_%2823%29.jpg",
+      "artist": "Joseolgon",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
     }
   }
 }

@@ -55,7 +55,7 @@ EXTRA = {
     "greyhound": {"only": True, "categories": ["Greyhound"], "search": ["Greyhound dog standing"]},
     "red-deer": {"search": ["red deer stag", "Cervus elaphus stag"], "prefer": "stag|hirsch|male"},
     "fin-whale": {"search": ["fin whale underwater", "Balaenoptera physalus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
-    "gray-whale": {"search": ["gray whale underwater", "Eschrichtius robustus breach"], "prefer": "underwater|breach", "files": 70},
+    "gray-whale": {"only": True, "categories": ["Eschrichtius robustus"], "search": ["gray whale underwater", "grey whale underwater", "gray whale breaching", "Eschrichtius robustus spyhopping", "gray whale San Ignacio lagoon"], "prefer": "underwater|breach|spyhop", "files": 120},
     "bowhead-whale": {"search": ["bowhead whale underwater", "Balaena mysticetus aerial"], "prefer": "underwater|aerial|drone", "files": 70},
     "northern-goshawk": {"categories": ["Accipiter gentilis"], "search": ["Northern goshawk adult"]},
     "wild-turkey": {"only": True, "categories": ["Meleagris gallopavo (male)", "Meleagris gallopavo silvestris"], "search": ["wild turkey tom", "wild turkey strutting", "Meleagris gallopavo male displaying", "gobbler turkey"], "prefer": "tom|male|strut|gobbler|display", "files": 70},
@@ -73,6 +73,7 @@ EXTRA = {
     "goliath-grouper": {"only": True, "categories": ["Epinephelus itajara"], "search": ["Epinephelus itajara", "Atlantic goliath grouper", "goliath grouper Florida"], "prefer": "itajara|goliath", "files": 70},
     "indian-rhinoceros": {"search": ["Rhinoceros unicornis zoo", "Indian rhinoceros standing", "greater one-horned rhinoceros Kaziranga"], "files": 90},
     "thresher-shark": {"only": True, "categories": ["Alopias vulpinus"], "search": ["Alopias vulpinus", "common thresher shark", "Alopias vulpinus underwater"], "prefer": "vulpinus|common thresher", "files": 70},
+    "humboldt-squid": {"only": True, "categories": ["Dosidicus gigas"], "search": ["Dosidicus gigas", "jumbo squid", "Humboldt squid underwater", "jumbo flying squid"], "prefer": "underwater|swim|live", "files": 60},
     "false-killer-whale": {"search": ["false killer whale underwater", "Pseudorca crassidens"], "prefer": "underwater", "files": 60},
 }
 SKIP_TITLE = re.compile(

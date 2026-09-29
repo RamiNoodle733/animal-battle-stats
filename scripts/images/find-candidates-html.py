@@ -36,7 +36,8 @@ PAUSE = 0.7
 # (every dog for Canis familiaris) otherwise fill the file limit before the
 # breed's own category is reached. "prefer": titles or categories matching
 # this pattern rank higher (underwater whales over backs at the surface).
-# "files": how many file pages to read (default 40).
+# "files": how many file pages to read (default 40). "titles": specific
+# File: pages to include first.
 EXTRA = {
     "kangal": {"only": True, "categories": ["Kangal Çoban Köpeği"], "search": ["Kangal Çoban Köpeği", "Kangal shepherd dog"]},
     "tibetan-mastiff": {"only": True, "categories": ["Tibetan Mastiff"], "search": ["Tibetan Mastiff dog"]},
@@ -70,7 +71,7 @@ EXTRA = {
     "fisher": {"only": True, "categories": ["Pekania pennanti", "Martes pennanti"], "search": ["Pekania pennanti", "Martes pennanti", "fisher Pekania", "fisher cat animal"], "files": 70},
     "swordfish": {"search": ["swordfish swimming", "Xiphias gladius underwater", "swordfish jumping"], "prefer": "swim|underwater|jump|leap|free|live", "files": 60},
     "bushmaster": {"only": True, "categories": ["Lachesis muta", "Lachesis muta muta"], "search": ["Lachesis muta", "Lachesis muta snake"], "files": 60},
-    "goliath-grouper": {"only": True, "categories": ["Epinephelus itajara"], "search": ["Epinephelus itajara", "Atlantic goliath grouper", "goliath grouper Florida"], "prefer": "itajara|goliath", "files": 70},
+    "goliath-grouper": {"only": True, "titles": ["File:AtlanticGoliathGrouper.jpg", "File:Epinephelus itajara 240094246.jpg", "File:Epinephelus itajara 279042770.jpg", "File:Goliathgrouper1.jpg"], "categories": ["Epinephelus itajara"], "search": ["Epinephelus itajara", "Atlantic goliath grouper", "goliath grouper Florida"], "prefer": "itajara|goliath", "files": 70},
     "indian-rhinoceros": {"search": ["Rhinoceros unicornis zoo", "Indian rhinoceros standing", "greater one-horned rhinoceros Kaziranga"], "files": 90},
     "thresher-shark": {"only": True, "categories": ["Alopias vulpinus"], "search": ["Alopias vulpinus", "common thresher shark", "Alopias vulpinus underwater"], "prefer": "vulpinus|common thresher", "files": 70},
     "humboldt-squid": {"only": True, "categories": ["Dosidicus gigas"], "search": ["Dosidicus gigas", "jumbo squid", "Humboldt squid underwater", "jumbo flying squid"], "prefer": "underwater|swim|live", "files": 60},
@@ -112,7 +113,9 @@ def file_titles(entry, slug):
     extra = EXTRA.get(slug, {})
     species = [] if extra.get("only") else [entry["scientific_name"].split(" (")[0]]
     categories = species + extra.get("categories", [])
-    titles = []
+    # "titles": files known to be good (e.g. found on the Wikipedia article)
+    # that the category page and search do not reach.
+    titles = list(extra.get("titles", []))
     for category in categories:
         try:
             text = page("/wiki/Category:" + urllib.parse.quote(category.replace(" ", "_")))

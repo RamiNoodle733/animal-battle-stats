@@ -39665,6 +39665,153 @@
         "notes": "Prefer a wild-type green bird perched in side view with feet and full tail visible; avoid colour-mutation pets and show birds."
       }
     },
+    "bushmaster": {
+      "name": "Bushmaster",
+      "status": "researched",
+      "researchedAt": "2026-09-28",
+      "sourceFile": "animal-research-for-update/animals/bushmaster.md",
+      "contentHash": "dd3bf1490fed7c70",
+      "scientificName": "Lachesis muta",
+      "specimen": "healthy adult, 4.5 kg and 225 cm total length, sex unspecified. No reliable size difference between the sexes was verified in this pass.",
+      "specimenSex": "unspecified",
+      "extinct": false,
+      "summary": "The bushmaster is the world's longest viper, a 2–2.5 m South American pit viper that waits beside rodent trails and aims with heat-sensing pits. Its huge venom doses cause bleeding, tissue death and a heart-slowing vagal reaction. It is shy, slow and rarely bites, and like all snakes on this scale it is light for its length.",
+      "narrative": [
+        "The bushmaster is the giant among vipers. Adults commonly stretch 2–2.5 m, and the longest reliably recorded reached about 3.65 m. It spends its days hidden in fallen trees or rodent burrows deep in lowland rainforest, and at night coils beside a trail used by spiny rats or agoutis, waiting. Heat-sensing pits between its eyes and nostrils let it aim at a warm body in total darkness.",
+        "When it strikes, it delivers one of the largest venom loads of any viper, commonly 200–400 mg. Per milligram the venom is weaker than that of many vipers, but the sheer dose causes bleeding, tissue death, kidney injury and a distinctive vagal syndrome in which the heart slows and blood pressure drops. Confirmed human bites are rare but frequently severe, and about one in eleven reported cases ended in death even with antivenom.",
+        "In battle terms the bushmaster's strengths are reach, venom volume and night senses. It is shy, rarely bites unless disturbed, and moves slowly, and its long body is still light by the standards of large animals, around 4.5 kg. A fast or heavy opponent that avoids the first strike has the advantage."
+      ],
+      "sections": {
+        "habitat": "The bushmaster lives in equatorial forests east of the Andes, in south-eastern Colombia, eastern Ecuador, Peru, northern Bolivia, eastern and southern Venezuela, Trinidad, Guyana, Suriname, French Guiana and much of northern Brazil, with a separate Atlantic Forest population in south-eastern Brazil. It occupies primary and secondary forest and nearby clearings, sheltering in fallen trees, burrows and rodent holes. It needs warm, wet conditions and is found only at low to moderate elevations.",
+        "range": "",
+        "diet": "Mostly small mammals, especially rodents and marsupials, with occasional birds, reptiles and frogs. It is a sit-and-wait predator that hides beside places where rodents travel. Adults have few predators other than humans.",
+        "ecology": "",
+        "social": "Solitary except during courtship and mating. Males follow females' scent trails; after mating, males may stay near females for some time.",
+        "reproduction": "Egg-laying, unlike all other pit vipers in the Americas. Clutches are about 5–20 eggs, incubated for about 60–79 days while the female guards them and leaves only to drink. Hatchlings are 30–50 cm long with bright orange or yellow tail tips that fade with age. Adult coloring comes at 1–2 years and sexual maturity at about 4 years.",
+        "conservation": "Listed as Least Concern on the IUCN Red List (2021 assessment, as reported by Wikipedia). Habitat destruction has reduced it in parts of its range, including Colombia and Brazil's Atlantic Forest.",
+        "features": "Heat-sensing facial pits.\nHinged fangs with venom yields up to about 411 mg.\nRough, tubercular keeled scales.\nTail vibration and a spiny tail tip that rustles loudly in leaf litter, though it has no rattle.\nEgg-laying with maternal nest guarding.",
+        "humanInteraction": "Bites are rare because bushmasters live in remote forest and avoid people, but they are severe. A 2026 review found only 44 confirmed Lachesis bites in the literature from 1950 to 2023, with a 9.1% death rate despite antivenom. In Brazil, bites are treated with a combined anti-bothropic-lachetic antivenom and are often mistaken at first for lancehead bites. The genus name Lachesis refers to the Greek Fate who measured out each person's life, and muta (\"mute\") refers to its rattle-less tail."
+      },
+      "conservationStatus": "Least Concern",
+      "funFacts": [
+        "It is the longest viper in the world, with a record of about 3.65 m.",
+        "Its Latin name muta means \"mute\": it shakes its tail like a rattlesnake but has no rattle.",
+        "It is the only pit viper in the Americas that lays eggs, and the mother guards them.",
+        "A single extraction can yield up to about 411 mg of venom.",
+        "Bites often cause a \"vagal syndrome\" that slows the heartbeat.",
+        "An eyelid-like skin fold protects its eyes when it grapples with prey.",
+        "In Colombia it is called \"verrugosa\" for its warty-looking scales."
+      ],
+      "abilities": [
+        {
+          "name": "Heat-Pit Night Strike",
+          "description": "paired facial pit organs sense the body heat of prey, letting the bushmaster aim a long-reach strike at rodents on dark forest trails."
+        },
+        {
+          "name": "Vagal Shock Venom",
+          "description": "besides bleeding and tissue destruction, its venom often causes a \"vagal syndrome\" of slow heart rate, low blood pressure, sweating, vomiting and diarrhea, seen in 75% of confirmed human bites, and the yield can reach 411 mg."
+        }
+      ],
+      "traits": [
+        {
+          "name": "Longest Viper on Earth",
+          "description": "adults average 2–2.5 m and the largest recorded reached about 3.65 m, making it the longest viper and the longest venomous snake in the Western Hemisphere."
+        },
+        {
+          "name": "Egg-Guarding Pit Viper",
+          "description": "it is the only egg-laying pit viper in the Americas; females lay up to about 20 eggs and coil around them until they hatch, eating nothing during incubation."
+        }
+      ],
+      "combat": {
+        "weapons": "The primary weapon is a long-reach strike through hinged fangs delivering one of the largest venom loads of any viper, 200–411 mg. The venom destroys tissue, stops blood clotting and triggers a vagal reaction that drops heart rate and blood pressure. The secondary tool is its pair of facial heat pits, which let it aim at warm-blooded prey in total darkness.",
+        "weaknesses": [
+          "Slow-moving, with limited escape or pursuit ability.",
+          "No armor; a long body offers many targets to a large attacker.",
+          "Venom acts over minutes to hours and is weaker per milligram than many vipers'.",
+          "Poor tolerance of stress and cool or dry conditions."
+        ],
+        "goodMatchups": [],
+        "badMatchups": []
+      },
+      "derivedSubstats": [],
+      "facts": {
+        "weight_kg": 4.5,
+        "height_cm": 0,
+        "length_cm": 225,
+        "speed_mps": 0,
+        "lifespan_years": 15,
+        "bite_force_psi": 0
+      },
+      "unverifiedFacts": [
+        "height_cm",
+        "speed_mps",
+        "bite_force_psi"
+      ],
+      "sources": [
+        {
+          "title": "Wikipedia, Lachesis muta",
+          "url": "https://en.wikipedia.org/wiki/Lachesis_muta",
+          "supports": "length, mass, scales, tail vibration, venom yield and LD50, symptoms, names, range, diet, IUCN status",
+          "confidence": "2–2.5 m average, 3.65 m record; 3–5 kg (citation needed); LD50 1.5 IV / 6.0 SC; Least Concern"
+        },
+        {
+          "title": "Animal Diversity Web, Lachesis muta",
+          "url": "https://animaldiversity.org/accounts/Lachesis_muta/",
+          "supports": "reproduction, lifespan, behavior, senses, diet",
+          "confidence": "5–19 eggs, 60–79 days, female guards nest; captive life 12–18 y; heat pits; tail rattling without rattle"
+        },
+        {
+          "title": "Reptile Database, Lachesis muta",
+          "url": "https://reptile-database.reptarium.cz/species?genus=Lachesis&species=muta",
+          "supports": "taxonomy, distribution, reproduction",
+          "confidence": "range across northern South America and Atlantic Forest; oviparous with parental care"
+        },
+        {
+          "title": "Diniz-Sousa et al. 2020, Toxicon X (PMC)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7408722/",
+          "supports": "natural history, venom yield and composition, behavior",
+          "confidence": "historic maxima 3.05–4.5 m; only oviparous New World vipers; up to 20 eggs; nocturnal, non-aggressive; yield 200–411 mg; vagal syndrome"
+        },
+        {
+          "title": "Pardal et al. 2026, Toxicon, review of bushmaster bites",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41713657/",
+          "supports": "clinical profile",
+          "confidence": "44 confirmed cases 1950–2023; vagal syndrome 75%; severe 47.7%; mortality 9.1%"
+        },
+        {
+          "title": "Cañas et al. 2023, Toxicon",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37178796/",
+          "supports": "venom effects, captivity, conservation",
+          "confidence": "necrotizing, hemorrhagic, myotoxic, cardiovascular-depressant venom; hard to keep captive; habitat loss in Colombia"
+        },
+        {
+          "title": "Garcês-Filho et al. 2024, Reports (PMC)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12225476/",
+          "supports": "case report, venom dose, antivenom",
+          "confidence": "severe bite with finger amputation; 200–400 mg injected; treated with anti-bothropic-lachetic serum"
+        },
+        {
+          "title": "Galizio et al. 2024, Toxicon",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38452976/",
+          "supports": "venom variation with age",
+          "confidence": "adult venom more proteolytic than juvenile venom in L. m. rhombeata"
+        },
+        {
+          "title": "AnAge, Lachesis muta",
+          "url": "https://genomics.senescence.info/species/entry.php?species=Lachesis_muta",
+          "supports": "mass, longevity",
+          "confidence": "adult weight 5,817 g; maximum longevity 31.6 years in captivity"
+        }
+      ],
+      "imageLead": {
+        "status": "SOURCE FOUND - FULL-BODY NOT VERIFIED",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Lachesis_muta_muta.jpg",
+        "originalUrl": "",
+        "license": "not checked",
+        "sex": "Unknown",
+        "notes": "Commons search returned 66 files for Lachesis muta; avoid Central American Lachesis species, which are now separate."
+      }
+    },
     "canary": {
       "name": "Canary",
       "status": "researched",
@@ -44166,6 +44313,171 @@
         "license": "not verified in this pass",
         "sex": "Unknown",
         "notes": "Prefer a side view of a common or comet goldfish (single, forked tail, streamlined body) with all fins visible; avoid fancy breeds."
+      }
+    },
+    "goliath-grouper": {
+      "name": "Goliath Grouper",
+      "status": "researched",
+      "researchedAt": "2026-09-28",
+      "sourceFile": "animal-research-for-update/animals/goliath-grouper.md",
+      "contentHash": "8db0c318c32c0c0b",
+      "scientificName": "Epinephelus itajara",
+      "specimen": "healthy mature adult, 200 cm total length and 150 kg, a large adult of the kind seen on spawning aggregation sites, rather than the 2.5 m, 363–455 kg maxima.",
+      "specimenSex": "unspecified",
+      "extinct": false,
+      "summary": "The goliath grouper is the Atlantic's largest grouper, a 2-metre, 150 kg ambusher that guards wrecks and caves with an open-mouth threat display and a booming call. It lunges from cover and swallows lobsters, rays and even young turtles whole, but it is slow and has no cutting teeth.",
+      "narrative": [
+        "The goliath grouper is a heavyweight that prefers to let food come to it. A large adult, about 2 metres long and around 150 kg, spends most of its time near a favourite cave, ledge or shipwreck, its mottled brown body blending into the shadows. When a lobster, stingray or parrotfish passes too close, the grouper rushes forward and snaps open its enormous mouth, drawing the prey in and swallowing it whole.",
+        "It defends its home with a clear warning system. An intruder first sees an open mouth and a quivering body, then hears a deep boom produced by muscles on the swim bladder, a sound that carries far through the water and also lets goliaths find each other at spawning time. The largest individuals have been seen stalking divers, although most goliaths are curious and tolerant of people.",
+        "In a battle, the goliath grouper is a close-range gulper with a lot of mass. Anything small enough to fit in its mouth is in serious danger, but it has no cutting teeth, no armor and no speed, so larger sharks and fast predators outclass it. Overfished almost to disappearance in the 20th century, it has become a symbol of recovery on Florida's reefs."
+      ],
+      "sections": {
+        "habitat": "Found in the tropical and subtropical Atlantic: from Florida and the Gulf of Mexico through the Caribbean to Brazil in the west, and along the coast of West Africa from Senegal to Cabinda in the east. Adults live on reefs, wrecks, ledges and rocky or muddy bottoms, usually shallower than 46 m; juveniles grow up in mangroves and estuaries.",
+        "range": "",
+        "diet": "Feeds largely on crustaceans, especially spiny lobsters, shrimps and crabs, plus fish such as stingrays and parrotfish, octopus and young sea turtles. It prefers slow-moving prey. Juveniles in mangroves eat mostly shrimp. Researchers have suggested that recovering goliaths could help control invasive lionfish.",
+        "ecology": "",
+        "social": "Solitary and territorial for most of the year, gathering in small spawning aggregations of fewer than 150 fish at traditional sites.",
+        "reproduction": "Males mature at about 110–115 cm and 4–6 years; females at about 120–135 cm and 6–7 years. Spawning happens in aggregations, and there is a short annual larval settlement period, which makes recruitment sensitive to weather. Growth is slow: about 10 cm a year until age six, 3 cm a year at 15 and under 1 cm a year after 25. The oldest verified age is 37 years.",
+        "conservation": "Listed as Vulnerable on the IUCN Red List after earlier assessment as Critically Endangered. U.S. harvest was banned in 1990, and Florida reopened a limited harvest in 2023 after a 32-year moratorium, issuing up to 200 permits a year by lottery. Threats include overfishing of spawning aggregations, red tides, cold snaps, loss of mangrove nurseries and high mercury levels in large fish.",
+        "features": "Very robust body, deeper than half its length.\nHuge mouth that engulfs prey whole.\nThree to five rows of teeth in the lower jaw.\nSwim-bladder muscles that produce a far-carrying booming call.\nMottled camouflage of brown, yellow, grey or green with small black spots.",
+        "humanInteraction": "Easy to approach, which made it vulnerable to spearfishing. Now a favourite of divers at Florida wrecks, where individuals can become familiar with people. Fishers sometimes blame goliaths for eating lobsters and catches, but an analysis of landing data found the recovering population is not the cause of declining fish and lobster stocks."
+      },
+      "conservationStatus": "Vulnerable",
+      "funFacts": [
+        "A goliath grouper can make a booming sound loud enough to travel great distances underwater.",
+        "It swallows most prey whole, including spiny lobsters and young sea turtles.",
+        "Juvenile goliaths spend their first 5–6 years hiding among mangrove roots.",
+        "The oldest verified goliath grouper was 37 years old, and they may live to about 50.",
+        "U.S. waters banned taking goliath groupers for 32 years, from 1990 until Florida reopened a small harvest in 2023.",
+        "A well-known goliath called \"Wilbur\" at Boynton Beach, Florida, lets divers approach it.",
+        "Very large goliaths have been seen stalking divers."
+      ],
+      "abilities": [
+        {
+          "name": "Gulp Ambush",
+          "description": "a sudden rush and snap from cover; the expanding mouth pulls prey in and rows of small teeth hold it while it is swallowed whole. Spiny lobsters, stingrays and young sea turtles all fit."
+        },
+        {
+          "name": "Swim-Bladder Boom",
+          "description": "muscles on the swim bladder produce a loud, low rumbling call that travels great distances underwater, used to warn intruders and to find other goliaths."
+        }
+      ],
+      "traits": [
+        {
+          "name": "Atlantic's Largest Grouper",
+          "description": "reaching about 2.5 m and 363 kg or more, it dwarfs every other Atlantic grouper."
+        },
+        {
+          "name": "Wreck Guardian",
+          "description": "it defends caves, ledges and shipwrecks with an open-mouth, body-quivering threat display."
+        }
+      ],
+      "combat": {
+        "weapons": "The goliath grouper kills by ambush and engulfment. It waits near a cave, ledge or wreck, then rushes and snaps open its huge mouth; the sudden expansion draws prey in, and rows of small teeth hold it while it is swallowed whole (Florida Museum). Its diet shows what that gulp can handle: spiny lobsters, crabs and shrimps, stingrays, parrotfish, catfish, toadfish, burrfish and cowfish, octopus and young sea turtles (Florida Museum, FishBase, Wikipedia). The Florida Museum records very large goliaths stalking divers and even making unsuccessful ambushes on them.\n\nIt has no cutting teeth, so it cannot take chunks out of large animals. Its offense depends on getting the whole target, or a limb of it, into the mouth.",
+        "weaknesses": [
+          "Slow, heavy swimmer with no pursuit speed.",
+          "No cutting teeth; must engulf prey.",
+          "No armor or venom.",
+          "Stays near home sites, making it easy to find and spear."
+        ],
+        "goodMatchups": [],
+        "badMatchups": []
+      },
+      "derivedSubstats": [],
+      "facts": {
+        "weight_kg": 150,
+        "height_cm": 0,
+        "length_cm": 200,
+        "speed_mps": 0,
+        "lifespan_years": 37,
+        "bite_force_psi": 0
+      },
+      "unverifiedFacts": [
+        "height_cm",
+        "speed_mps",
+        "bite_force_psi"
+      ],
+      "sources": [
+        {
+          "title": "NOAA Fisheries, Atlantic goliath grouper species page",
+          "url": "https://www.fisheries.noaa.gov/species/atlantic-goliath-grouper",
+          "supports": "size, lifespan, research",
+          "confidence": "up to 800 lb and 8 ft; more than 30 years; over 1,000 adults tagged at aggregations"
+        },
+        {
+          "title": "Florida Museum, Discover Fishes: Epinephelus itajara",
+          "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/epinephelus-itajara/",
+          "supports": "size, age, growth, maturity, diet, feeding, sound, territoriality, predators, diver ambushes",
+          "confidence": "2.5 m and 363 kg; Florida record 309 kg; oldest 37 years, maybe 50; ambush and whole-prey engulfment; swim-bladder boom; stalks divers"
+        },
+        {
+          "title": "FishBase, Epinephelus itajara summary",
+          "url": "https://www.fishbase.se/summary/Epinephelus-itajara.html",
+          "supports": "length, weight, age, diet, territorial display, IUCN, length-weight",
+          "confidence": "max 250 cm, common 150 cm; published weight 455 kg; age 37; feeds on lobsters, turtles and stingrays; open-mouth threat display; Vulnerable"
+        },
+        {
+          "title": "Wikipedia, Atlantic goliath grouper",
+          "url": "https://en.wikipedia.org/wiki/Atlantic_goliath_grouper",
+          "supports": "range, diet, mangrove nursery, aggregation size, IUCN history, harvest permits, Wilbur",
+          "confidence": "West Atlantic from Florida to Brazil and West Africa from Senegal to Cabinda; slow-moving prey; juveniles in mangroves 5–6 years; aggregations under 150; Critically Endangered in 2011, Vulnerable now;"
+        },
+        {
+          "title": "High mercury concentrations in Atlantic Goliath Grouper, Marine Pollution Bulletin 2019 (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31789170/",
+          "supports": "threats",
+          "confidence": "mercury in liver and muscle rises with size and age"
+        },
+        {
+          "title": "Estimates of goliath grouper bycatch mortality in U.S. commercial fisheries, 2002–2022 (Qeios preprint)",
+          "url": "https://doi.org/10.32388/rwef3z",
+          "supports": "threats",
+          "confidence": "decline linked to red tides, loss of juvenile habitat, severe cold events and bycatch"
+        },
+        {
+          "title": "Seasonal dynamics of goliath grouper sound production, Fishes 2023",
+          "url": "https://doi.org/10.3390/fishes8060293",
+          "supports": "acoustic behavior",
+          "confidence": "low-frequency calls during spawning aggregations and territorial behavior; recorded year-round at Florida wrecks"
+        },
+        {
+          "title": "Absolute abundance estimates on spawning aggregation sites, Fishes 2023",
+          "url": "https://doi.org/10.3390/fishes8080394",
+          "supports": "management history",
+          "confidence": "Florida reopened a limited harvest in 2023 after a 32-year moratorium begun in 1990"
+        },
+        {
+          "title": "Frias-Torres 2012, Oryx, Should the Critically Endangered Goliath grouper be culled in Florida?",
+          "url": "https://doi.org/10.1017/s0030605312000361",
+          "supports": "human conflict, ecology",
+          "confidence": "recovering goliaths not the cause of declining fish and lobster stocks; possible lionfish control"
+        },
+        {
+          "title": "Juvenile trophic ecology, Marine Environmental Research 2023 (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37473597/",
+          "supports": "juvenile diet, size",
+          "confidence": "species reaches over 2 m and 400 kg; juvenile diet dominated by shrimp, then fish and crabs"
+        },
+        {
+          "title": "Local ecological knowledge of fishers on E. itajara, Journal of Ethnobiology and Ethnomedicine 2014 (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24965849/",
+          "supports": "size",
+          "confidence": "can exceed 2 m and 400 kg"
+        },
+        {
+          "title": "Wikimedia Commons, Itajara.JPG",
+          "url": "https://commons.wikimedia.org/wiki/File:Itajara.JPG",
+          "supports": "image candidate",
+          "confidence": "Wikipedia lead image"
+        }
+      ],
+      "imageLead": {
+        "status": "SOURCE FOUND - FULL-BODY NOT VERIFIED",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Itajara.JPG",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Itajara.JPG",
+        "license": "to be confirmed on the Commons file page",
+        "sex": "Unknown",
+        "notes": "A side view of an adult with all fins visible is preferred; wreck backgrounds may complicate the cutout."
       }
     },
     "goliath-tigerfish": {
@@ -52745,6 +53057,165 @@
         "license": "not verified in this pass",
         "sex": "Unknown",
         "notes": "Wikipedia infobox image from the Thimphu takin reserve. Look for a single adult bull in side view showing horns and hooves."
+      }
+    },
+    "thresher-shark": {
+      "name": "Thresher Shark",
+      "status": "researched",
+      "researchedAt": "2026-09-28",
+      "sourceFile": "animal-research-for-update/animals/thresher-shark.md",
+      "contentHash": "61eb973440ec9db7",
+      "scientificName": "Alopias vulpinus",
+      "specimen": "healthy mature adult female, 450 cm total length (tail included) and 230 kg, matching FishBase's common length and the \"commonly 5 m and 230 kg\" size in secondary summaries, rather than the 5.7 m confirmed maximum or the 510 kg heaviest record.",
+      "specimenSex": "female",
+      "extinct": false,
+      "summary": "The thresher shark hunts with its tail. Half of its 4.5 m length is a whip-like upper tail lobe that it throws overhead fast enough to stun whole groups of fish. Warm muscles make it a strong, leaping swimmer, but its small mouth and slender unarmored body make it weak against large opponents.",
+      "narrative": [
+        "The common thresher looks like a normal shark that has been given someone else's tail. The upper lobe is as long as the rest of the body, so a 4.5 m, 230 kg female is really a 2.2 m shark trailing an equally long whip. That whip is its main weapon. Circling a school of fish, sometimes with a partner, the thresher splashes to herd the fish together, snaps its pectoral fins in to pitch forward, and throws the tail over its head or sweeps it sideways.",
+        "Studies of the related pelagic thresher show the tail tip moving at around 14 m/s and sometimes over 20 m/s, fast enough to produce bubbles, and a good strike leaves several stunned fish to be collected. In southern California, every recorded common thresher feeding event began with the tail. The shark's vertebrae are built to handle this extreme bending, and its warm red muscle keeps it strong and fast in cool water, even allowing it to leap clear of the sea.",
+        "The thresher's weakness is everything except the tail. Its mouth and teeth are small, its body is slender and unarmored, and its long tail is easily hooked or damaged. Against schooling fish it is one of the most specialised hunters in the ocean; against a large biting shark it would have to rely on speed to escape."
+      ],
+      "sections": {
+        "habitat": "The common thresher lives in temperate and subtropical seas worldwide, both near the coast and in the open ocean, mostly within about 30 km of land. It is usually near the surface but dives to at least 550 m. It migrates toward higher latitudes with warm water, while juveniles use warm nursery areas.",
+        "range": "",
+        "diet": "Feeds mainly on schooling fishes such as mackerels, bluefish, herrings and sardines, needlefish, lancetfish and lanternfish, plus squid, octopus and pelagic crustaceans, and rarely seabirds. It is less selective in warm El Niño years when preferred prey is scarce.",
+        "ecology": "",
+        "social": "Usually seen alone, but threshers sometimes hunt in pairs or small groups when herding schools of fish.",
+        "reproduction": "Ovoviviparous with oophagy: embryos feed on unfertilised eggs inside the mother. Pups are born at about 114–160 cm and 5–6 kg, and juveniles grow about 50 cm a year. Males mature at about 3.3 m and five years; females at about 2.6–4.5 m and seven years.",
+        "conservation": "Listed as Vulnerable on the IUCN Red List, having been moved from Data Deficient to Vulnerable in 2007 and reassessed in 2018. It is caught in drift gillnet, longline and recreational fisheries, and its slow reproduction makes populations slow to recover.",
+        "features": "Upper tail lobe about as long as the rest of the body.\nTail-whip strikes started by pectoral-fin adduction.\nVertebrae shaped and mineralised to support extreme up-and-down bending.\nRegionally endothermic red swimming muscle.\nSmall, smooth-edged teeth in a small mouth.",
+        "humanInteraction": "Harmless to swimmers in practice; the few recorded incidents involved hooked sharks. Threshers are a valued sport fish and are often hooked by the tail after striking at bait with it."
+      },
+      "conservationStatus": "Vulnerable",
+      "funFacts": [
+        "In a southern California study, every one of 34 recorded thresher feeding events began with a tail strike.",
+        "A thresher's tail tip can move fast enough to make bubbles form in the water.",
+        "One well-aimed tail-slap can stun several fish at once; pelagic threshers averaged 3.6 sardines per successful strike.",
+        "Threshers are often caught by the tail because they hit the bait with it.",
+        "An old sailors' tale claimed threshers teamed up with swordfish to attack whales; it was probably inspired by orcas.",
+        "Thresher pups can be up to 1.6 m long at birth.",
+        "The common thresher keeps its swimming muscles warmer than the sea around it."
+      ],
+      "abilities": [
+        {
+          "name": "Overhead Tail-Whip",
+          "description": "the shark snaps its pectoral fins in, pitches its body and throws the upper tail lobe overhead like a whip. In the pelagic thresher the tip moves at about 14 m/s on average and over 20 m/s in the fastest strikes, stunning or killing several fish at once."
+        },
+        {
+          "name": "Warm-Muscle Cruise",
+          "description": "deep, heat-retaining red swimming muscle keeps working in cool water, supporting long migrations and repeated dives below the thermocline."
+        }
+      ],
+      "traits": [
+        {
+          "name": "Half-Tail Body Plan",
+          "description": "the upper tail lobe is about as long as the rest of the shark, so a 4.5 m thresher carries a body only about half that length."
+        },
+        {
+          "name": "School Herder",
+          "description": "threshers circle and splash to pack schools of fish tightly, sometimes in pairs or small groups, before striking."
+        }
+      ],
+      "combat": {
+        "weapons": "The thresher's primary weapon is its tail. Underwater video from southern California recorded 34 common thresher feeding events between 2007 and 2009, and every one began with a strike from the upper lobe of the tail (Aalbers et al. 2010). Threshers circle schools of fish, often in pairs or small groups, splashing to pack them tight, then whip the tail overhead or sideways to stun or kill prey before turning back to collect it.\n\nKinematics come from the closely related pelagic thresher: tail-slaps are started by snapping the pectoral fins inward, which pitches the body and flings the rear end up and over; the tail tip averaged 14.0 m/s and reached a mean of 21.8 m/s in the fastest strike, fast enough to form bubbles in the water, and successful strikes yielded an average of 3.6 sardines (Oliver et al. 2013). A 2024 study found that the common thresher's vertebrae change in size and mineral content along the body in ways that support the extreme up-and-down bending needed for tail-whipping.\n\nThe secondary weapon is a small mouth with small, smooth teeth suited to swallowing fish and squid. Against a large opponent the tail can bruise and stun but cannot cut, and the bite is weak for a shark of this length.",
+        "weaknesses": [
+          "Small mouth and teeth; cannot cut a large opponent.",
+          "Tail strikes stun small prey but do little to armored or large animals.",
+          "No armor; slender body.",
+          "Tail is easily snagged or damaged."
+        ],
+        "goodMatchups": [],
+        "badMatchups": []
+      },
+      "derivedSubstats": [],
+      "facts": {
+        "weight_kg": 230,
+        "height_cm": 0,
+        "length_cm": 450,
+        "speed_mps": 0,
+        "lifespan_years": 25,
+        "bite_force_psi": 0
+      },
+      "unverifiedFacts": [
+        "height_cm",
+        "speed_mps",
+        "bite_force_psi"
+      ],
+      "sources": [
+        {
+          "title": "Wikipedia, Common thresher",
+          "url": "https://en.wikipedia.org/wiki/Common_thresher",
+          "supports": "size, weight, maturity, lifespan, herding, attack record, IUCN",
+          "confidence": "commonly 5 m and 230 kg; record 5.7 m; heaviest 510 kg; lifespan at least 15, estimated max 45–50; herding in pairs or groups; one provoked attack"
+        },
+        {
+          "title": "FishBase, Alopias vulpinus summary",
+          "url": "https://www.fishbase.se/summary/Alopias-vulpinus.html",
+          "supports": "length, weight, age, diet, depth, IUCN",
+          "confidence": "common 450 cm, max 573 cm; published weight 348 kg; reported age 25; diet of schooling fishes and squid; depth to 650 m; Vulnerable"
+        },
+        {
+          "title": "Florida Museum, Discover Fishes: Alopias vulpinus",
+          "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/alopias-vulpinus/",
+          "supports": "tail, teeth, maturity, danger",
+          "confidence": "tail lobe about half total length; small smooth teeth; males mature 330 cm, females 260–450 cm; fast swimmer that leaps; mostly harmless"
+        },
+        {
+          "title": "Aalbers et al. 2010, Journal of Fish Biology (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20557638/",
+          "supports": "tail as feeding weapon",
+          "confidence": "34 feeding events, all started with the upper caudal lobe"
+        },
+        {
+          "title": "Oliver et al. 2013, PLOS One, Thresher sharks use tail-slaps as a hunting strategy",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067380",
+          "supports": "tail-slap kinematics",
+          "confidence": "tail tip mean 14.03 m/s; fastest 21.82 m/s; bubbles formed; 3.6 sardines per success"
+        },
+        {
+          "title": "Cartamil et al. 2011, Marine Biology (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24391264/",
+          "supports": "depth and temperature use",
+          "confidence": "max dive 320 m; min temperature 9.1 °C; above thermocline at night"
+        },
+        {
+          "title": "Patterson et al. 2011, Journal of Morphology (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21688299/",
+          "supports": "regional endothermy",
+          "confidence": "common thresher has heat-exchanging blood vessels and elevated red-muscle temperature"
+        },
+        {
+          "title": "Temperature and haemoglobin-oxygen binding, Journal of Experimental Biology 2023 (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36576038/",
+          "supports": "endurance physiology",
+          "confidence": "blood-oxygen binding temperature independent in common thresher, as in mako"
+        },
+        {
+          "title": "Vertebral morphology in the tail-whipping common thresher, Royal Society Open Science 2024 (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38179080/",
+          "supports": "tail-whip mechanics",
+          "confidence": "tail-whipping uses extreme dorsoventral bending; vertebrae vary to support it"
+        },
+        {
+          "title": "Bernal et al. 2010, Comparative Biochemistry and Physiology A (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20074658/",
+          "supports": "swimming mechanics",
+          "confidence": "medial red muscle; instrumented 60–100 kg threshers swam at about 0.5 Hz tail-beat"
+        },
+        {
+          "title": "Wikimedia Commons, Alopias vulpinus noaa2",
+          "url": "https://commons.wikimedia.org/wiki/File:Alopias_vulpinus_noaa2.jpg",
+          "supports": "image candidate",
+          "confidence": "NOAA photo used as Wikipedia lead image"
+        }
+      ],
+      "imageLead": {
+        "status": "SOURCE FOUND - FULL-BODY NOT VERIFIED",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Alopias_vulpinus_noaa2.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Alopias_vulpinus_noaa2.jpg",
+        "license": "NOAA image, probably public domain; to be confirmed on the Commons file page",
+        "sex": "Unknown",
+        "notes": "Very small file; a larger underwater photo showing the whole tail would be better. The full tail must be in frame for this species."
       }
     },
     "tibetan-mastiff": {

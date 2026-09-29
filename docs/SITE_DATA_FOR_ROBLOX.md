@@ -6,11 +6,11 @@ and the hooks the site already reads.
 
 ## Animal data (`animal_stats.json`)
 
-- Schema is unchanged. All 341 animals now carry researched stats
+- Schema is unchanged. All 344 animals now carry researched stats
   (`research_status: "researched"`, `research_updated` date); none keeps the
   original placeholder values any more. Version 3.5.0 replaced the last 26
   (Spider Monkey to Zebra), whose old ratings were broken.
-- Versions 3.4.0 to 3.7.0 added 116 new animals (all living species or
+- Versions 3.4.0 to 3.8.0 added 119 new animals (all living species or
   domestic breeds). Their slugs are the file names in
   `animal-research-for-update/new-animals/`. The game keeps its own roster,
   so these only appear in the game if it adds them.

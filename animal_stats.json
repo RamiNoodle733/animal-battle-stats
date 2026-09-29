@@ -17797,6 +17797,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Bushmaster",
+    "scientific_name": "Lachesis muta",
+    "type": "Reptile",
+    "class": "Ambush Predator",
+    "size": "Medium",
+    "biome": "JUNGLE",
+    "habitat": "Lowland tropical rainforest",
+    "diet": [
+      "rodents",
+      "marsupials",
+      "birds"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "The bushmaster is the world's longest viper, a 2–2.5 m South American pit viper that waits beside rodent trails and aims with heat-sensing pits. Its huge venom doses cause bleeding, tissue death and…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Rainforest floor",
+      "combat_style": "Ambush Predator",
+      "strengths": [
+        "Heat-sensing pits",
+        "Huge venom doses",
+        "Long striking reach"
+      ],
+      "weaknesses": [
+        "Slow-moving",
+        "No armor",
+        "Stress-sensitive"
+      ]
+    },
+    "image": "/images/animals/bushmaster.png?v=9dd7a63e46f9",
+    "agility": 55,
+    "attack": 59,
+    "bite_force_psi": 0,
+    "defense": 28,
+    "height_cm": 0,
+    "intelligence": 37,
+    "length_cm": 225,
+    "lifespan_years": 15,
+    "special_abilities": [
+      "Heat-Pit Night Strike",
+      "Vagal Shock Venom"
+    ],
+    "speed_mps": 0,
+    "stamina": 36,
+    "substats": {
+      "raw_power": 19,
+      "maneuverability": 55,
+      "endurance": 36,
+      "recovery": 34,
+      "tactics": 44,
+      "senses": 80,
+      "ferocity": 34,
+      "weaponry": 78,
+      "protection": 18,
+      "toughness": 30,
+      "speed": 22,
+      "abilities": 90
+    },
+    "unique_traits": [
+      "Longest Viper on Earth",
+      "Egg-Guarding Pit Viper"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 4.5,
+    "special": 92,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Canary",
     "scientific_name": "Serinus canaria",
     "type": "Bird",
@@ -19761,6 +19831,77 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 0.1,
     "special": 58,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Goliath Grouper",
+    "scientific_name": "Epinephelus itajara",
+    "type": "Fish",
+    "class": "Ambush Predator",
+    "size": "Large",
+    "biome": "OCEAN",
+    "habitat": "Warm Atlantic reefs, wrecks and mangrove coasts",
+    "diet": [
+      "spiny lobsters and crabs",
+      "stingrays and reef fish",
+      "octopus",
+      "young sea turtles"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The goliath grouper is the Atlantic's largest grouper, a 2-metre, 150 kg ambusher that guards wrecks and caves with an open-mouth threat display and a booming call.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Reef and Wreck",
+      "combat_style": "Ambush Predator",
+      "strengths": [
+        "Huge engulfing gulp",
+        "Massive, robust body",
+        "Booming territorial warning"
+      ],
+      "weaknesses": [
+        "Slow swimmer",
+        "No cutting teeth",
+        "Stays near home sites"
+      ]
+    },
+    "image": "/images/animals/goliath-grouper.png?v=e117d691911f",
+    "agility": 42,
+    "attack": 50,
+    "bite_force_psi": 0,
+    "defense": 48,
+    "height_cm": 0,
+    "intelligence": 52,
+    "length_cm": 200,
+    "lifespan_years": 37,
+    "special_abilities": [
+      "Gulp Ambush",
+      "Swim-Bladder Boom"
+    ],
+    "speed_mps": 0,
+    "stamina": 45,
+    "substats": {
+      "raw_power": 52,
+      "maneuverability": 45,
+      "endurance": 44,
+      "recovery": 50,
+      "tactics": 52,
+      "senses": 70,
+      "ferocity": 50,
+      "weaponry": 45,
+      "protection": 40,
+      "toughness": 58,
+      "speed": 30,
+      "abilities": 64
+    },
+    "unique_traits": [
+      "Atlantic's Largest Grouper",
+      "Wreck Guardian"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 150,
+    "special": 64,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -23426,6 +23567,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 320,
     "special": 60,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Thresher Shark",
+    "scientific_name": "Alopias vulpinus",
+    "type": "Fish",
+    "class": "Striker",
+    "size": "Large",
+    "biome": "OCEAN",
+    "habitat": "Temperate and subtropical coastal and open seas",
+    "diet": [
+      "schooling fish",
+      "squid and octopus",
+      "pelagic crustaceans"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The thresher shark hunts with its tail. Half of its 4.5 m length is a whip-like upper tail lobe that it throws overhead fast enough to stun whole groups of fish.",
+    "battle_profile": {
+      "preferred_range": "Mid range",
+      "primary_environment": "Open Ocean",
+      "combat_style": "Striker",
+      "strengths": [
+        "Stunning tail-whip strike",
+        "Warm-muscle speed and endurance",
+        "Leaping agility"
+      ],
+      "weaknesses": [
+        "Small mouth and teeth",
+        "Slender, unarmored body",
+        "Tail easily snagged or injured"
+      ]
+    },
+    "image": "/images/animals/thresher-shark.png?v=8d8c36e496cd",
+    "agility": 80,
+    "attack": 56,
+    "bite_force_psi": 0,
+    "defense": 48,
+    "height_cm": 0,
+    "intelligence": 62,
+    "length_cm": 450,
+    "lifespan_years": 25,
+    "special_abilities": [
+      "Overhead Tail-Whip",
+      "Warm-Muscle Cruise"
+    ],
+    "speed_mps": 0,
+    "stamina": 84,
+    "substats": {
+      "raw_power": 62,
+      "maneuverability": 80,
+      "endurance": 85,
+      "recovery": 50,
+      "tactics": 66,
+      "senses": 80,
+      "ferocity": 30,
+      "weaponry": 60,
+      "protection": 34,
+      "toughness": 52,
+      "speed": 74,
+      "abilities": 84
+    },
+    "unique_traits": [
+      "Half-Tail Body Plan",
+      "School Herder"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 230,
+    "special": 84,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },

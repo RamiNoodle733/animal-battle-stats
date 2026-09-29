@@ -2773,6 +2773,17 @@
       },
       "sha256": "cabe45c039f072163c86bf70d7c9327bc723de31c15df5c4c7255b1d0557f844"
     },
+    "/images/animals/bushmaster.png": {
+      "width": 1024,
+      "height": 356,
+      "subject": {
+        "left": 21,
+        "top": 20,
+        "width": 982,
+        "height": 316
+      },
+      "sha256": "9dd7a63e46f9364f608b4656b0423938e1c4d512a228da2b14c31cb2f0b2b090"
+    },
     "/images/animals/canary.png": {
       "width": 1024,
       "height": 692,
@@ -3080,6 +3091,17 @@
         "height": 679
       },
       "sha256": "fc9d907a46695d8b4f1a6dbda0bc36c93cbc6fa355e30f5d52590f488b171fba"
+    },
+    "/images/animals/goliath-grouper.png": {
+      "width": 558,
+      "height": 222,
+      "subject": {
+        "left": 12,
+        "top": 12,
+        "width": 534,
+        "height": 198
+      },
+      "sha256": "e117d691911fb5e7b5127b6e1d5b657fa63badc1397c7a8aa47aa49631352ff9"
     },
     "/images/animals/goliath-tigerfish.png": {
       "width": 1024,
@@ -3652,6 +3674,17 @@
         "height": 663
       },
       "sha256": "12c7d53bfeeca86094e3610932b44b9a5bfa174f07d3e902e45ab5cc360dabb3"
+    },
+    "/images/animals/thresher-shark.png": {
+      "width": 1024,
+      "height": 460,
+      "subject": {
+        "left": 21,
+        "top": 21,
+        "width": 982,
+        "height": 418
+      },
+      "sha256": "8d8c36e496cd0bd79e041b1aa53b492e5f0bf48ba8d85038dbd839d869c31614"
     },
     "/images/animals/tibetan-mastiff.png": {
       "width": 1024,

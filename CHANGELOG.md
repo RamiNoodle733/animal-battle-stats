@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.8.0 — 2026-09-29
+
+- 3 new animals join the roster, which grows from 341 to 344: Bushmaster, Goliath Grouper and Thresher Shark. Each has a full research profile and a credited photo of an adult animal from Wikimedia Commons.
+
 ## 3.7.0 — 2026-09-29
 
 - 24 new animals join the roster, which grows from 317 to 341: Ball Python, Bearded Dragon, Bowhead Whale, Canary, Chinchilla, Corn Snake, Eclectus Parrot, False Killer Whale, Fancy Rat, Fin Whale, Guinea Pig, Humboldt Squid, Hyacinth Macaw, Japanese Spider Crab, Leopard Gecko, Maine Coon, Rabbit, Red-eared Slider, Rosy-faced Lovebird, Russian Tortoise, Sun Conure, Syrian Hamster, Wild Turkey and Yellow-naped Amazon.

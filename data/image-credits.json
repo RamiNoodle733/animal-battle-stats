@@ -2704,6 +2704,14 @@
       "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "modified": "Background removed and cropped"
+    },
+    "goliath-grouper": {
+      "title": "AtlanticGoliathGrouper.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:AtlanticGoliathGrouper.jpg",
+      "artist": "Brett Seymour",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "modified": "Background removed and cropped"
     }
   }
 }

@@ -16459,6 +16459,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Ball Python",
+    "scientific_name": "Python regius",
+    "type": "Reptile",
+    "class": "Constrictor",
+    "size": "Small",
+    "biome": "SAVANNA",
+    "habitat": "West and Central African savanna, grassland and open woodland",
+    "diet": [
+      "rats and mice",
+      "bats",
+      "birds"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "The ball python is a small, stocky constrictor from the savannas and farmland of West and Central Africa.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Savanna burrows",
+      "combat_style": "Constrictor",
+      "strengths": [
+        "Heat-sensing pits",
+        "Constricting coils",
+        "Ball defense"
+      ],
+      "weaknesses": [
+        "Small for a python",
+        "Slow on the ground",
+        "Rarely bites back"
+      ]
+    },
+    "image": "/images/animals/ball-python.png?v=03fe851a4931",
+    "agility": 42,
+    "attack": 25,
+    "bite_force_psi": 0,
+    "defense": 20,
+    "height_cm": 0,
+    "intelligence": 38,
+    "length_cm": 125,
+    "lifespan_years": 20,
+    "special_abilities": [
+      "Heat-Pit Strike",
+      "Ball Guard"
+    ],
+    "speed_mps": 0,
+    "stamina": 44,
+    "substats": {
+      "raw_power": 16,
+      "maneuverability": 46,
+      "endurance": 46,
+      "recovery": 38,
+      "tactics": 34,
+      "senses": 66,
+      "ferocity": 18,
+      "weaponry": 30,
+      "protection": 16,
+      "toughness": 26,
+      "speed": 18,
+      "abilities": 64
+    },
+    "unique_traits": [
+      "Burrow Lodger",
+      "Virgin Birth"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1.3,
+    "special": 64,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Basking Shark",
     "scientific_name": "Cetorhinus maximus",
     "type": "Fish",
@@ -16525,6 +16595,77 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 4000,
     "special": 66,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Bearded Dragon",
+    "scientific_name": "Pogona vitticeps",
+    "type": "Reptile",
+    "class": "Defender",
+    "size": "Tiny",
+    "biome": "DESERT",
+    "habitat": "Arid woodland, scrub and rocky desert of inland Australia",
+    "diet": [
+      "termites",
+      "beetles and grasshoppers",
+      "flowers and leaves",
+      "small lizards"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The bearded dragon is a sturdy, spiny lizard from the dry woodlands and deserts of inland Australia.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Sunny perches",
+      "combat_style": "Defender",
+      "strengths": [
+        "Intimidating beard display",
+        "Quick learner",
+        "Good climber"
+      ],
+      "weaknesses": [
+        "Weak bite",
+        "Soft spines, no armor",
+        "Slows down when cold"
+      ]
+    },
+    "image": "/images/animals/bearded-dragon.png?v=25e69b9c6a36",
+    "agility": 55,
+    "attack": 11,
+    "bite_force_psi": 0,
+    "defense": 12,
+    "height_cm": 0,
+    "intelligence": 54,
+    "length_cm": 50,
+    "lifespan_years": 10,
+    "special_abilities": [
+      "Beard Threat Display",
+      "Solar Colour Shift"
+    ],
+    "speed_mps": 0,
+    "stamina": 40,
+    "substats": {
+      "raw_power": 5,
+      "maneuverability": 56,
+      "endurance": 40,
+      "recovery": 38,
+      "tactics": 50,
+      "senses": 62,
+      "ferocity": 40,
+      "weaponry": 11,
+      "protection": 10,
+      "toughness": 16,
+      "speed": 38,
+      "abilities": 55
+    },
+    "unique_traits": [
+      "Copycat Lizard",
+      "Heat-Switched Sex"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.4,
+    "special": 55,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -17375,6 +17516,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Bowhead Whale",
+    "scientific_name": "Balaena mysticetus",
+    "type": "Mammal",
+    "class": "Tank",
+    "size": "Colossal",
+    "biome": "ARCTIC",
+    "habitat": "Arctic and subarctic seas with seasonal sea ice",
+    "diet": [
+      "copepods",
+      "krill",
+      "small invertebrates"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The bowhead whale is a 75-tonne Arctic giant that smashes through sea ice with its massive skull, wears the thickest blubber of any whale and can live over 200 years.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Pack Ice",
+      "combat_style": "Tank",
+      "strengths": [
+        "Thickest blubber of any whale",
+        "Ice-breaking skull",
+        "Enormous mass"
+      ],
+      "weaknesses": [
+        "Very slow swimmer",
+        "No teeth or bite",
+        "Exposed in ice-free water"
+      ]
+    },
+    "image": "/images/animals/bowhead-whale.png?v=37c36cb3a771",
+    "agility": 34,
+    "attack": 71,
+    "bite_force_psi": 0,
+    "defense": 90.5,
+    "height_cm": 0,
+    "intelligence": 72,
+    "length_cm": 1600,
+    "lifespan_years": 100,
+    "special_abilities": [
+      "Icebreaker Skull",
+      "Arctic Blubber Armor"
+    ],
+    "speed_mps": 2.8,
+    "stamina": 85,
+    "substats": {
+      "raw_power": 95.5,
+      "maneuverability": 36,
+      "endurance": 85,
+      "recovery": 66,
+      "tactics": 64,
+      "senses": 80,
+      "ferocity": 48,
+      "weaponry": 59,
+      "protection": 88,
+      "toughness": 94,
+      "speed": 24,
+      "abilities": 84
+    },
+    "unique_traits": [
+      "Two-Century Whale",
+      "Largest Mouth on Earth"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 75000,
+    "special": 82,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Brazilian Wandering Spider",
     "scientific_name": "Phoneutria nigriventer",
     "type": "Arachnid",
@@ -17586,6 +17797,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Canary",
+    "scientific_name": "Serinus canaria",
+    "type": "Bird",
+    "class": "Bard",
+    "size": "Tiny",
+    "biome": "FOREST",
+    "habitat": "Laurel and pine forest, orchards and gardens of the Canary Islands, Azores and Madeira",
+    "diet": [
+      "weed and grass seeds",
+      "figs",
+      "small insects"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Canary is a 20 g finch from the Canary Islands, Azores and Madeira, bred for centuries into the world's best-known songbird pet.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Island woodland and gardens",
+      "combat_style": "Bard",
+      "strengths": [
+        "Agile in cover",
+        "Complex learned song",
+        "Alert flocking bird"
+      ],
+      "weaknesses": [
+        "About 20 g",
+        "No real weapon or armor",
+        "Very sensitive to toxic gases"
+      ]
+    },
+    "image": "/images/animals/canary.png?v=dfed2af9beda",
+    "agility": 81,
+    "attack": 6,
+    "bite_force_psi": 0,
+    "defense": 7,
+    "height_cm": 0,
+    "intelligence": 55,
+    "length_cm": 13,
+    "lifespan_years": 10,
+    "special_abilities": [
+      "Two-Voice Song",
+      "Song Duel"
+    ],
+    "speed_mps": 0,
+    "stamina": 52,
+    "substats": {
+      "raw_power": 1.5,
+      "maneuverability": 81,
+      "endurance": 52,
+      "recovery": 50,
+      "tactics": 48,
+      "senses": 62,
+      "ferocity": 35,
+      "weaponry": 7,
+      "protection": 3,
+      "toughness": 6,
+      "speed": 60,
+      "abilities": 42
+    },
+    "unique_traits": [
+      "Canary in the Coal Mine",
+      "Brain That Adds Neurons"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.02,
+    "special": 42,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Caucasian Shepherd Dog",
     "scientific_name": "Canis familiaris",
     "type": "Mammal",
@@ -17652,6 +17933,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 60,
     "special": 49,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Chinchilla",
+    "scientific_name": "Chinchilla lanigera",
+    "type": "Mammal",
+    "class": "Jumper",
+    "size": "Tiny",
+    "biome": "MOUNTAINS",
+    "habitat": "Arid, rocky mountain slopes of northern Chile; homes worldwide as a pet",
+    "diet": [
+      "grasses and herbs",
+      "seeds",
+      "lichens and mosses"
+    ],
+    "isNocturnal": true,
+    "isSocial": true,
+    "description": "The chinchilla is a 0.6 kg Andean rock-hopper wrapped in the densest fur of any land mammal, which it can shed in clumps to escape a predator's bite.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Rocky Mountain Slopes",
+      "combat_style": "Jumper",
+      "strengths": [
+        "Fur slip escape",
+        "Long leaps between rocks",
+        "Colony vigilance"
+      ],
+      "weaknesses": [
+        "Very weak bite",
+        "Overheats easily",
+        "Tiny body mass"
+      ]
+    },
+    "image": "/images/animals/chinchilla.png?v=0ca272adf9c3",
+    "agility": 84,
+    "attack": 10,
+    "bite_force_psi": 0,
+    "defense": 10,
+    "height_cm": 0,
+    "intelligence": 50,
+    "length_cm": 28,
+    "lifespan_years": 10,
+    "special_abilities": [
+      "Fur Slip",
+      "Rock-Hopper Leap"
+    ],
+    "speed_mps": 0,
+    "stamina": 46,
+    "substats": {
+      "raw_power": 6,
+      "maneuverability": 85,
+      "endurance": 46,
+      "recovery": 45,
+      "tactics": 50,
+      "senses": 66,
+      "ferocity": 22,
+      "weaponry": 8,
+      "protection": 12,
+      "toughness": 10,
+      "speed": 45,
+      "abilities": 66
+    },
+    "unique_traits": [
+      "Densest Fur on Land",
+      "Hunted to the Brink"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.6,
+    "special": 64,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -17867,6 +18218,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Corn Snake",
+    "scientific_name": "Pantherophis guttatus",
+    "type": "Reptile",
+    "class": "Constrictor",
+    "size": "Small",
+    "biome": "FOREST",
+    "habitat": "Southeastern US pine flatwoods, forest openings and fields",
+    "diet": [
+      "rodents",
+      "birds and eggs",
+      "lizards and frogs"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "The corn snake is a slender, brightly patterned rat snake from the southeastern United States.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Forest edges and burrows",
+      "combat_style": "Constrictor",
+      "strengths": [
+        "Skilled climber",
+        "Constricting coils",
+        "Quick learner"
+      ],
+      "weaknesses": [
+        "Small, slender body",
+        "No venom or armor",
+        "Many predators"
+      ]
+    },
+    "image": "/images/animals/corn-snake.png?v=d25f88750fa1",
+    "agility": 58,
+    "attack": 18,
+    "bite_force_psi": 0,
+    "defense": 12,
+    "height_cm": 0,
+    "intelligence": 42,
+    "length_cm": 120,
+    "lifespan_years": 12,
+    "special_abilities": [
+      "Branch-Grip Climb",
+      "Musk and Rattle Bluff"
+    ],
+    "speed_mps": 0,
+    "stamina": 45,
+    "substats": {
+      "raw_power": 9,
+      "maneuverability": 62,
+      "endurance": 46,
+      "recovery": 40,
+      "tactics": 40,
+      "senses": 52,
+      "ferocity": 30,
+      "weaponry": 22,
+      "protection": 10,
+      "toughness": 18,
+      "speed": 32,
+      "abilities": 48
+    },
+    "unique_traits": [
+      "Maze-Learning Snake",
+      "Checkerboard Belly"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.5,
+    "special": 48,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Crowned Eagle",
     "scientific_name": "Stephanoaetus coronatus",
     "type": "Bird",
@@ -18004,6 +18425,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 1,
     "special": 93,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Eclectus Parrot",
+    "scientific_name": "Eclectus roratus",
+    "type": "Bird",
+    "class": "Defender",
+    "size": "Small",
+    "biome": "JUNGLE",
+    "habitat": "Lowland rainforest canopy of New Guinea, nearby islands and Cape York",
+    "diet": [
+      "fruit",
+      "seeds and nuts",
+      "nectar and blossoms"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Eclectus Parrot is a stocky rainforest parrot from New Guinea, nearby islands and Cape York, famous because green males and red females look like different species.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Rainforest canopy",
+      "combat_style": "Defender",
+      "strengths": [
+        "Females fight hard for nest hollows",
+        "Male green camouflage",
+        "Capable canopy flier"
+      ],
+      "weaknesses": [
+        "About 0.45 kg",
+        "No armor",
+        "Depends on rare nest hollows"
+      ]
+    },
+    "image": "/images/animals/eclectus-parrot.png?v=fbb92db55e66",
+    "agility": 80,
+    "attack": 16,
+    "bite_force_psi": 0,
+    "defense": 11,
+    "height_cm": 0,
+    "intelligence": 78,
+    "length_cm": 38,
+    "lifespan_years": 20,
+    "special_abilities": [
+      "Hollow Duelist",
+      "Canopy Cloak"
+    ],
+    "speed_mps": 0,
+    "stamina": 62,
+    "substats": {
+      "raw_power": 8,
+      "maneuverability": 80,
+      "endurance": 62,
+      "recovery": 48,
+      "tactics": 74,
+      "senses": 68,
+      "ferocity": 48,
+      "weaponry": 20,
+      "protection": 7,
+      "toughness": 14,
+      "speed": 64,
+      "abilities": 59
+    },
+    "unique_traits": [
+      "Reversed Colour Pair",
+      "Sex-Choosing Mothers"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.45,
+    "special": 59,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -18218,6 +18709,147 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "False Killer Whale",
+    "scientific_name": "Pseudorca crassidens",
+    "type": "Mammal",
+    "class": "Pack Hunter",
+    "size": "Large",
+    "biome": "OCEAN",
+    "habitat": "Deep tropical and subtropical offshore waters",
+    "diet": [
+      "tuna",
+      "mahi-mahi",
+      "squid",
+      "other dolphins"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The false killer whale is a 1.3-tonne, thick-toothed oceanic dolphin that hunts tuna and mahi-mahi at speed, shares its catch and has attacked sperm whales and humpbacks in groups.",
+    "battle_profile": {
+      "preferred_range": "Mid range",
+      "primary_environment": "Open Ocean",
+      "combat_style": "Pack Hunter",
+      "strengths": [
+        "Thick tearing teeth",
+        "Echolocation",
+        "Fast deep-diving pursuit"
+      ],
+      "weaknesses": [
+        "No armor",
+        "Far smaller than an orca",
+        "Relies on its group"
+      ]
+    },
+    "image": "/images/animals/false-killer-whale.png?v=7b9d034312f3",
+    "agility": 83,
+    "attack": 72,
+    "bite_force_psi": 0,
+    "defense": 57,
+    "height_cm": 0,
+    "intelligence": 88,
+    "length_cm": 550,
+    "lifespan_years": 58,
+    "special_abilities": [
+      "Gain-Control Sonar",
+      "Thick-Tooth Tear"
+    ],
+    "speed_mps": 8,
+    "stamina": 82,
+    "substats": {
+      "raw_power": 70,
+      "maneuverability": 80,
+      "endurance": 80,
+      "recovery": 55,
+      "tactics": 88,
+      "senses": 94,
+      "ferocity": 80,
+      "weaponry": 72,
+      "protection": 46,
+      "toughness": 62,
+      "speed": 62,
+      "abilities": 86
+    },
+    "unique_traits": [
+      "Prey-Sharing Clusters",
+      "Deep-Water Sprinter"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1300,
+    "special": 87,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Fancy Rat",
+    "scientific_name": "Rattus norvegicus domestica",
+    "type": "Mammal",
+    "class": "Survivor",
+    "size": "Tiny",
+    "biome": "FOREST",
+    "habitat": "Homes; wild stock in cities, farms and riverbanks",
+    "diet": [
+      "grain and seeds",
+      "fruit and vegetables",
+      "insects and eggs"
+    ],
+    "isNocturnal": true,
+    "isSocial": true,
+    "description": "The fancy rat is the tame, domestic form of the brown rat: a 0.5 kg climber, swimmer and problem-solver with sharp incisors, keen ears and a strong bite for its size.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Urban Tunnels and Homes",
+      "combat_style": "Survivor",
+      "strengths": [
+        "Strong bite for its size",
+        "Climbs, swims and squeezes through tunnels",
+        "Quick learner"
+      ],
+      "weaknesses": [
+        "Tiny body mass",
+        "No armor",
+        "Poor eyesight"
+      ]
+    },
+    "image": "/images/animals/fancy-rat.png?v=a9def9102c21",
+    "agility": 78,
+    "attack": 13,
+    "bite_force_psi": 0,
+    "defense": 8.5,
+    "height_cm": 0,
+    "intelligence": 72,
+    "length_cm": 25,
+    "lifespan_years": 2.5,
+    "special_abilities": [
+      "Urban Infiltrator",
+      "Ultrasonic Channel"
+    ],
+    "speed_mps": 0,
+    "stamina": 58,
+    "substats": {
+      "raw_power": 6,
+      "maneuverability": 78,
+      "endurance": 58,
+      "recovery": 55,
+      "tactics": 70,
+      "senses": 76,
+      "ferocity": 38,
+      "weaponry": 16,
+      "protection": 4,
+      "toughness": 16,
+      "speed": 35,
+      "abilities": 56
+    },
+    "unique_traits": [
+      "Tame Twin of the City Rat",
+      "Too Big for Most Cats"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.5,
+    "special": 56,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Fighting Bull",
     "scientific_name": "Bos taurus",
     "type": "Mammal",
@@ -18284,6 +18916,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 520,
     "special": 48,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Fin Whale",
+    "scientific_name": "Balaenoptera physalus",
+    "type": "Mammal",
+    "class": "Speedster",
+    "size": "Colossal",
+    "biome": "OCEAN",
+    "habitat": "Deep offshore waters of all oceans",
+    "diet": [
+      "krill",
+      "small schooling fish",
+      "squid"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The fin whale is a 45-tonne, 20 m rorqual built for speed: the \"greyhound of the sea\" can sprint to about 40 km/h and hold escape speeds that force killer whales into long chases.",
+    "battle_profile": {
+      "preferred_range": "Long range",
+      "primary_environment": "Open Ocean",
+      "combat_style": "Speedster",
+      "strengths": [
+        "Enormous mass",
+        "Fastest great whale",
+        "Sustained escape endurance"
+      ],
+      "weaknesses": [
+        "No teeth or weapons",
+        "Does not fight back when caught",
+        "Vulnerable to coordinated orca packs"
+      ]
+    },
+    "image": "/images/animals/fin-whale.png?v=43bbe72c7145",
+    "agility": 52,
+    "attack": 68,
+    "bite_force_psi": 0,
+    "defense": 83,
+    "height_cm": 0,
+    "intelligence": 67,
+    "length_cm": 2000,
+    "lifespan_years": 80,
+    "special_abilities": [
+      "Greyhound Escape Sprint",
+      "Engulfment Lunge"
+    ],
+    "speed_mps": 11.1,
+    "stamina": 90,
+    "substats": {
+      "raw_power": 95.3,
+      "maneuverability": 48,
+      "endurance": 90,
+      "recovery": 55,
+      "tactics": 60,
+      "senses": 82,
+      "ferocity": 22,
+      "weaponry": 50,
+      "protection": 74,
+      "toughness": 88,
+      "speed": 72,
+      "abilities": 74
+    },
+    "unique_traits": [
+      "Two-Tone Jaw",
+      "Infrasonic Suitor"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 45000,
+    "special": 75,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -19273,6 +19975,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Guinea Pig",
+    "scientific_name": "Cavia porcellus",
+    "type": "Mammal",
+    "class": "Herd Animal",
+    "size": "Tiny",
+    "biome": "MOUNTAINS",
+    "habitat": "Homes and farms worldwide; wild stock in rocky, grassy Andean highlands",
+    "diet": [
+      "grass and hay",
+      "leafy vegetables",
+      "fruit"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The guinea pig is a 1 kg Andean grazer bred from wild cavies, with nearly all-round vision, a busy social life and a freeze-or-scatter escape plan.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Andean Grassland",
+      "combat_style": "Herd Animal",
+      "strengths": [
+        "Nearly all-round vision",
+        "Group scatter escape",
+        "Rich alarm calls"
+      ],
+      "weaknesses": [
+        "Weak incisor bite",
+        "Poor climber and jumper",
+        "Needs dietary vitamin C"
+      ]
+    },
+    "image": "/images/animals/guinea-pig.png?v=41efcc3ef5fc",
+    "agility": 40,
+    "attack": 10.5,
+    "bite_force_psi": 0,
+    "defense": 10,
+    "height_cm": 0,
+    "intelligence": 48,
+    "length_cm": 25,
+    "lifespan_years": 6,
+    "special_abilities": [
+      "Scatter Stampede",
+      "Panoramic Watch"
+    ],
+    "speed_mps": 0,
+    "stamina": 45,
+    "substats": {
+      "raw_power": 7,
+      "maneuverability": 40,
+      "endurance": 45,
+      "recovery": 42,
+      "tactics": 46,
+      "senses": 60,
+      "ferocity": 20,
+      "weaponry": 9,
+      "protection": 6,
+      "toughness": 14,
+      "speed": 28,
+      "abilities": 36
+    },
+    "unique_traits": [
+      "Andean Livestock",
+      "Born Ready"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1,
+    "special": 36,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Gyrfalcon",
     "scientific_name": "Falco rusticolus",
     "type": "Bird",
@@ -19415,6 +20187,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Humboldt Squid",
+    "scientific_name": "Dosidicus gigas",
+    "type": "Cephalopod",
+    "class": "Pack Hunter",
+    "size": "Medium",
+    "biome": "OCEAN",
+    "habitat": "Eastern Pacific open ocean, 200 to 700 m deep by day",
+    "diet": [
+      "small fish",
+      "crustaceans",
+      "other squid"
+    ],
+    "isNocturnal": true,
+    "isSocial": true,
+    "description": "The Humboldt squid is a 25 kg \"red devil\" of the eastern Pacific that hunts in shoals of hundreds, striking with elastic tentacles covered in toothed suckers and tearing with one of the hardest…",
+    "battle_profile": {
+      "preferred_range": "Mid range",
+      "primary_environment": "Deep Ocean",
+      "combat_style": "Pack Hunter",
+      "strengths": [
+        "Toothed tentacle strike",
+        "Very hard beak",
+        "Fast jet propulsion"
+      ],
+      "weaknesses": [
+        "Soft unarmored body",
+        "Small absolute size",
+        "Short lifespan"
+      ]
+    },
+    "image": "/images/animals/humboldt-squid.png?v=da200b879ab4",
+    "agility": 74,
+    "attack": 46,
+    "bite_force_psi": 0,
+    "defense": 28,
+    "height_cm": 0,
+    "intelligence": 60,
+    "length_cm": 100,
+    "lifespan_years": 1,
+    "special_abilities": [
+      "Toothed Tentacle Strike",
+      "Glow-Lit Flash Signals"
+    ],
+    "speed_mps": 6.7,
+    "stamina": 60,
+    "substats": {
+      "raw_power": 36,
+      "maneuverability": 70,
+      "endurance": 60,
+      "recovery": 45,
+      "tactics": 64,
+      "senses": 84,
+      "ferocity": 80,
+      "weaponry": 56,
+      "protection": 14,
+      "toughness": 32,
+      "speed": 50,
+      "abilities": 82
+    },
+    "unique_traits": [
+      "Red Devil Shoals",
+      "Low-Oxygen Commuter"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 25,
+    "special": 82,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Humpback Whale",
     "scientific_name": "Megaptera novaeangliae",
     "type": "Mammal",
@@ -19480,6 +20322,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 30000,
     "special": 78,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Hyacinth Macaw",
+    "scientific_name": "Anodorhynchus hyacinthinus",
+    "type": "Bird",
+    "class": "Bruiser",
+    "size": "Small",
+    "biome": "WETLANDS",
+    "habitat": "Pantanal wetlands, palm savanna, gallery forest",
+    "diet": [
+      "palm nuts",
+      "fruit",
+      "apple snails"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Hyacinth Macaw is the longest parrot in the world, about 1 m long and 1.3 kg, and it has the strongest measured bite of any bird, about 539 N. That bill cracks palm nuts that are hard to open…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Palm savanna and wetland edges",
+      "combat_style": "Bruiser",
+      "strengths": [
+        "Strongest measured bird bite",
+        "Strong flier and climber",
+        "Uses tools on hard nuts"
+      ],
+      "weaknesses": [
+        "About 1.3 kg",
+        "No armor or talons",
+        "Depends on a few palms and old nest trees"
+      ]
+    },
+    "image": "/images/animals/hyacinth-macaw.png?v=d97718f1eac9",
+    "agility": 83,
+    "attack": 27,
+    "bite_force_psi": 0,
+    "defense": 18,
+    "height_cm": 0,
+    "intelligence": 87,
+    "length_cm": 100,
+    "lifespan_years": 30,
+    "special_abilities": [
+      "Record Crusher Bill",
+      "Wedge Tool Nutcracker"
+    ],
+    "speed_mps": 0,
+    "stamina": 64,
+    "substats": {
+      "raw_power": 15,
+      "maneuverability": 82,
+      "endurance": 64,
+      "recovery": 45,
+      "tactics": 82,
+      "senses": 66,
+      "ferocity": 32,
+      "weaponry": 34,
+      "protection": 10,
+      "toughness": 20,
+      "speed": 66,
+      "abilities": 68
+    },
+    "unique_traits": [
+      "Longest Parrot",
+      "Cattle-Dung Forager"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1.3,
+    "special": 68,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -19767,6 +20679,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Japanese Spider Crab",
+    "scientific_name": "Macrocheira kaempferi",
+    "type": "Crustacean",
+    "class": "Tank",
+    "size": "Medium",
+    "biome": "OCEAN",
+    "habitat": "Deep seafloor off Japan, 50 to 600 m",
+    "diet": [
+      "carrion",
+      "small invertebrates",
+      "algae"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The Japanese spider crab has the widest leg span of any arthropod, over 3 m in big males, but its long claws are weak and it is slow, gentle and unable to swim.",
+    "battle_profile": {
+      "preferred_range": "Mid range",
+      "primary_environment": "Deep Seafloor",
+      "combat_style": "Tank",
+      "strengths": [
+        "Record leg span and reach",
+        "Spiny armored carapace",
+        "Regrows lost legs"
+      ],
+      "weaknesses": [
+        "Weak claws",
+        "Very slow and cannot swim",
+        "Fragile legs"
+      ]
+    },
+    "image": "/images/animals/japanese-spider-crab.png?v=965b3a66b5ac",
+    "agility": 14,
+    "attack": 22,
+    "bite_force_psi": 0,
+    "defense": 40,
+    "height_cm": 0,
+    "intelligence": 22,
+    "length_cm": 30,
+    "lifespan_years": 0,
+    "special_abilities": [
+      "Record Reach",
+      "Living Disguise"
+    ],
+    "speed_mps": 0,
+    "stamina": 48,
+    "substats": {
+      "raw_power": 20,
+      "maneuverability": 18,
+      "endurance": 50,
+      "recovery": 50,
+      "tactics": 22,
+      "senses": 32,
+      "ferocity": 14,
+      "weaponry": 26,
+      "protection": 42,
+      "toughness": 36,
+      "speed": 6,
+      "abilities": 44
+    },
+    "unique_traits": [
+      "Legs That Keep Growing",
+      "Deep-Water Giant"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 12,
+    "special": 42,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Kangal",
     "scientific_name": "Canis familiaris",
     "type": "Mammal",
@@ -19979,6 +20961,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Leopard Gecko",
+    "scientific_name": "Eublepharis macularius",
+    "type": "Reptile",
+    "class": "Stealth",
+    "size": "Tiny",
+    "biome": "DESERT",
+    "habitat": "Rocky dry grassland and semi-desert of Afghanistan, Pakistan and northwest India",
+    "diet": [
+      "insects",
+      "other invertebrates",
+      "small lizards"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "The leopard gecko is a small, spotted ground gecko from the rocky dry grasslands of South and Central Asia. A 50 g adult male hunts insects at night and fights rival males with fast bites, but it is…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Rocky crevices",
+      "combat_style": "Stealth",
+      "strengths": [
+        "Decoy tail drop",
+        "Regrows lost tail",
+        "Night hunter"
+      ],
+      "weaknesses": [
+        "Tiny and fragile",
+        "No sticky toe pads",
+        "Weak bite"
+      ]
+    },
+    "image": "/images/animals/leopard-gecko.png?v=b807e8b010b9",
+    "agility": 52,
+    "attack": 7,
+    "bite_force_psi": 0,
+    "defense": 7,
+    "height_cm": 0,
+    "intelligence": 40,
+    "length_cm": 22,
+    "lifespan_years": 0,
+    "special_abilities": [
+      "Decoy Tail Drop",
+      "Twilight Ambush"
+    ],
+    "speed_mps": 0,
+    "stamina": 42,
+    "substats": {
+      "raw_power": 2,
+      "maneuverability": 55,
+      "endurance": 42,
+      "recovery": 70,
+      "tactics": 38,
+      "senses": 62,
+      "ferocity": 35,
+      "weaponry": 7,
+      "protection": 4,
+      "toughness": 8,
+      "speed": 30,
+      "abilities": 72
+    },
+    "unique_traits": [
+      "Fat-Storing Tail",
+      "Gecko With Eyelids"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.05,
+    "special": 72,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Leopard Seal",
     "scientific_name": "Hydrurga leptonyx",
     "type": "Mammal",
@@ -20046,6 +21098,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 420,
     "special": 74,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Maine Coon",
+    "scientific_name": "Felis catus",
+    "type": "Mammal",
+    "class": "Hunter",
+    "size": "Small",
+    "biome": "FOREST",
+    "habitat": "Homes worldwide; bred from farm cats of the snowy forests of Maine",
+    "diet": [
+      "rodents",
+      "small birds",
+      "prepared cat food"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "The Maine Coon is the largest non-hybrid domestic cat, a 7.5 kg shaggy \"gentle giant\" with snowshoe paws, a weatherproof coat and the full house-cat toolkit of claws, bite, reflexes and ultrasonic…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Snowy Farmland and Woodland Edge",
+      "combat_style": "Hunter",
+      "strengths": [
+        "Largest domestic cat frame",
+        "Snowshoe paws and weatherproof coat",
+        "Ultrasonic hearing"
+      ],
+      "weaknesses": [
+        "Small on the absolute scale",
+        "Gentle temperament",
+        "Prone to heart and hip problems"
+      ]
+    },
+    "image": "/images/animals/maine-coon.png?v=028cb6cf3c69",
+    "agility": 80,
+    "attack": 28,
+    "bite_force_psi": 0,
+    "defense": 20,
+    "height_cm": 30,
+    "intelligence": 63,
+    "length_cm": 90,
+    "lifespan_years": 11,
+    "special_abilities": [
+      "Snowshoe Paws",
+      "Heavyweight Bite-and-Grab"
+    ],
+    "speed_mps": 0,
+    "stamina": 46,
+    "substats": {
+      "raw_power": 17,
+      "maneuverability": 80,
+      "endurance": 46,
+      "recovery": 50,
+      "tactics": 60,
+      "senses": 84,
+      "ferocity": 45,
+      "weaponry": 31,
+      "protection": 13,
+      "toughness": 24,
+      "speed": 50,
+      "abilities": 60
+    },
+    "unique_traits": [
+      "Gentle Giant",
+      "All-Weather Coat"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 7.5,
+    "special": 61,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -20968,6 +22090,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Rabbit",
+    "scientific_name": "Oryctolagus cuniculus",
+    "type": "Mammal",
+    "class": "Speedster",
+    "size": "Small",
+    "biome": "FOREST",
+    "habitat": "Grassland and woodland edges of Iberia; farmland, islands and homes worldwide",
+    "diet": [
+      "grasses",
+      "leaves and shoots",
+      "crops and bark"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The rabbit is a 2 kg burrowing grazer built to spot danger early and sprint to cover, with nearly 360° vision, explosive hind legs and a social warren life.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Grassland and Woodland Edge",
+      "combat_style": "Speedster",
+      "strengths": [
+        "Explosive escape bursts",
+        "Nearly 360-degree vision",
+        "Hard hind-leg kicks"
+      ],
+      "weaknesses": [
+        "Fragile skeleton",
+        "Poor endurance away from cover",
+        "Weapons useless against predators"
+      ]
+    },
+    "image": "/images/animals/rabbit.png?v=97a5d8ac9c16",
+    "agility": 80,
+    "attack": 14,
+    "bite_force_psi": 0,
+    "defense": 9,
+    "height_cm": 0,
+    "intelligence": 50,
+    "length_cm": 40,
+    "lifespan_years": 8,
+    "special_abilities": [
+      "Burst-to-Burrow Escape",
+      "Hind-Leg Kick"
+    ],
+    "speed_mps": 0,
+    "stamina": 44,
+    "substats": {
+      "raw_power": 12,
+      "maneuverability": 82,
+      "endurance": 42,
+      "recovery": 45,
+      "tactics": 50,
+      "senses": 72,
+      "ferocity": 30,
+      "weaponry": 14,
+      "protection": 5,
+      "toughness": 12,
+      "speed": 55,
+      "abilities": 50
+    },
+    "unique_traits": [
+      "Warren Engineer",
+      "World Traveler"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 2,
+    "special": 50,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Red Deer",
     "scientific_name": "Cervus elaphus",
     "type": "Mammal",
@@ -21034,6 +22226,147 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 180,
     "special": 55,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Red-eared Slider",
+    "scientific_name": "Trachemys scripta elegans",
+    "type": "Reptile",
+    "class": "Tank",
+    "size": "Tiny",
+    "biome": "WETLANDS",
+    "habitat": "Warm ponds, lakes, swamps and slow rivers of the south-central US",
+    "diet": [
+      "aquatic plants",
+      "algae",
+      "insects and crayfish",
+      "small fish"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The red-eared slider is a small freshwater turtle from the south-central United States, now the world's most traded reptile and a worldwide invader.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Ponds and basking logs",
+      "combat_style": "Tank",
+      "strengths": [
+        "Retreat shell",
+        "Survives without oxygen",
+        "Warning colours"
+      ],
+      "weaknesses": [
+        "Tiny beak",
+        "Slow on land",
+        "Many predators"
+      ]
+    },
+    "image": "/images/animals/red-eared-slider.png?v=1c71942fbd56",
+    "agility": 38,
+    "attack": 7,
+    "bite_force_psi": 0,
+    "defense": 32,
+    "height_cm": 0,
+    "intelligence": 34,
+    "length_cm": 23,
+    "lifespan_years": 25,
+    "special_abilities": [
+      "Oxygen-Free Endurance",
+      "Warning-Stripe Shield"
+    ],
+    "speed_mps": 0,
+    "stamina": 55,
+    "substats": {
+      "raw_power": 8,
+      "maneuverability": 42,
+      "endurance": 56,
+      "recovery": 50,
+      "tactics": 30,
+      "senses": 45,
+      "ferocity": 20,
+      "weaponry": 6,
+      "protection": 48,
+      "toughness": 28,
+      "speed": 22,
+      "abilities": 52
+    },
+    "unique_traits": [
+      "Red Ear Stripe",
+      "Six-Continent Invader"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1.5,
+    "special": 52,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Rosy-faced Lovebird",
+    "scientific_name": "Agapornis roseicollis",
+    "type": "Bird",
+    "class": "Fighter",
+    "size": "Tiny",
+    "biome": "DESERT",
+    "habitat": "Dry woodland, semi-desert and rocky country near water",
+    "diet": [
+      "grass seeds",
+      "acacia seeds",
+      "buds and flowers"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Rosy-faced Lovebird is a 55 g parrot from the dry south-west of Africa, a fast, acrobatic flier that can even swing along branches using only its beak.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Dry woodland near water",
+      "combat_style": "Fighter",
+      "strengths": [
+        "Fast, acrobatic flier",
+        "Hard bite for its size",
+        "Flocks mob predators"
+      ],
+      "weaknesses": [
+        "About 55 g",
+        "Must drink several times a day",
+        "No armor"
+      ]
+    },
+    "image": "/images/animals/rosy-faced-lovebird.png?v=b718f49e9942",
+    "agility": 85,
+    "attack": 8,
+    "bite_force_psi": 0,
+    "defense": 8,
+    "height_cm": 0,
+    "intelligence": 74,
+    "length_cm": 15,
+    "lifespan_years": 15,
+    "special_abilities": [
+      "Mobbing Squadron",
+      "Beakiation"
+    ],
+    "speed_mps": 16.1,
+    "stamina": 56,
+    "substats": {
+      "raw_power": 2.5,
+      "maneuverability": 86,
+      "endurance": 56,
+      "recovery": 50,
+      "tactics": 72,
+      "senses": 64,
+      "ferocity": 50,
+      "weaponry": 12,
+      "protection": 4,
+      "toughness": 9,
+      "speed": 73,
+      "abilities": 57
+    },
+    "unique_traits": [
+      "Rump-Feather Nest Hauler",
+      "Water-Tied Desert Parrot"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.055,
+    "special": 57,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -21175,6 +22508,77 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 1.3,
     "special": 93,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Russian Tortoise",
+    "scientific_name": "Testudo horsfieldii",
+    "type": "Reptile",
+    "class": "Tank",
+    "size": "Tiny",
+    "biome": "DESERT",
+    "habitat": "Central Asian steppe, semi-desert and foothills",
+    "diet": [
+      "herbs",
+      "succulent plants",
+      "flowers",
+      "fruit"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The Russian tortoise is a small, flat-shelled digger from the dry steppes of Central Asia.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Steppe burrows",
+      "combat_style": "Tank",
+      "strengths": [
+        "Closed shell armor",
+        "Deep burrowing",
+        "Survives long fasts"
+      ],
+      "weaknesses": [
+        "No real weapons",
+        "Very slow",
+        "Tiny, crushable body"
+      ]
+    },
+    "image": "/images/animals/russian-tortoise.png?v=3530b3b8fab8",
+    "agility": 15,
+    "attack": 5,
+    "bite_force_psi": 0,
+    "defense": 35,
+    "height_cm": 0,
+    "intelligence": 35,
+    "length_cm": 20,
+    "lifespan_years": 0,
+    "special_abilities": [
+      "Sealed Steppe Shell",
+      "Deep Burrow Retreat"
+    ],
+    "speed_mps": 0,
+    "stamina": 55,
+    "substats": {
+      "raw_power": 8,
+      "maneuverability": 16,
+      "endurance": 60,
+      "recovery": 45,
+      "tactics": 26,
+      "senses": 40,
+      "ferocity": 15,
+      "weaponry": 4,
+      "protection": 52,
+      "toughness": 24,
+      "speed": 3,
+      "abilities": 55
+    },
+    "unique_traits": [
+      "Nine-Month Sleeper",
+      "First Animals Around the Moon"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 1,
+    "special": 55,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -21745,6 +23149,76 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Sun Conure",
+    "scientific_name": "Aratinga solstitialis",
+    "type": "Bird",
+    "class": "Scout",
+    "size": "Tiny",
+    "biome": "JUNGLE",
+    "habitat": "Forest edges, palm groves, savanna woodland of the Guiana Shield",
+    "diet": [
+      "fruit",
+      "flowers and seeds",
+      "insects"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Sun Conure is a 120 g golden parakeet from the edge of the Guiana Shield forests, loud, fast and highly social. Its hooked bill gives a sharp bite for its size and it flies and climbs nimbly,…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Forest edge and palm groves",
+      "combat_style": "Scout",
+      "strengths": [
+        "Fast, direct flier",
+        "Sharp bite for its size",
+        "Loud flock alarm calls"
+      ],
+      "weaknesses": [
+        "About 120 g",
+        "No armor",
+        "Easy prey for raptors"
+      ]
+    },
+    "image": "/images/animals/sun-conure.png?v=7bc274b2d20d",
+    "agility": 85,
+    "attack": 11,
+    "bite_force_psi": 0,
+    "defense": 9,
+    "height_cm": 0,
+    "intelligence": 78,
+    "length_cm": 30,
+    "lifespan_years": 25,
+    "special_abilities": [
+      "Hookbill Nip",
+      "Flock Siren"
+    ],
+    "speed_mps": 0,
+    "stamina": 62,
+    "substats": {
+      "raw_power": 5,
+      "maneuverability": 85,
+      "endurance": 62,
+      "recovery": 50,
+      "tactics": 74,
+      "senses": 64,
+      "ferocity": 40,
+      "weaponry": 16,
+      "protection": 5,
+      "toughness": 10,
+      "speed": 70,
+      "abilities": 53
+    },
+    "unique_traits": [
+      "Golden Plumage",
+      "Cooperative Nesters"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.12,
+    "special": 53,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
     "name": "Sydney Funnel-web Spider",
     "scientific_name": "Atrax robustus",
     "type": "Arachnid",
@@ -21811,6 +23285,76 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 0.002,
     "special": 95,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Syrian Hamster",
+    "scientific_name": "Mesocricetus auratus",
+    "type": "Mammal",
+    "class": "Territorial",
+    "size": "Tiny",
+    "biome": "DESERT",
+    "habitat": "Arid steppe and farmland of northern Syria and southern Turkey; homes worldwide as a pet",
+    "diet": [
+      "seeds and grain",
+      "green plants",
+      "insects"
+    ],
+    "isNocturnal": true,
+    "isSocial": false,
+    "description": "The Syrian hamster is a 140 g solitary burrower with enormous cheek pouches, ever-growing incisors that can bite through glass and a fierce temper toward its own kind.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Steppe Burrows",
+      "combat_style": "Territorial",
+      "strengths": [
+        "Aggressive, quickly primed biting",
+        "Ever-growing incisors",
+        "Burrow refuge"
+      ],
+      "weaknesses": [
+        "Tiny body mass",
+        "No armor",
+        "Slow in the open"
+      ]
+    },
+    "image": "/images/animals/syrian-hamster.png?v=12ff8035e091",
+    "agility": 52,
+    "attack": 9.5,
+    "bite_force_psi": 0,
+    "defense": 8,
+    "height_cm": 0,
+    "intelligence": 42,
+    "length_cm": 17,
+    "lifespan_years": 2.5,
+    "special_abilities": [
+      "Primed Aggression",
+      "Glass-Biting Incisors"
+    ],
+    "speed_mps": 0,
+    "stamina": 48,
+    "substats": {
+      "raw_power": 4.5,
+      "maneuverability": 52,
+      "endurance": 48,
+      "recovery": 45,
+      "tactics": 40,
+      "senses": 58,
+      "ferocity": 60,
+      "weaponry": 11,
+      "protection": 4,
+      "toughness": 9,
+      "speed": 20,
+      "abilities": 44
+    },
+    "unique_traits": [
+      "Mister Saddlebags",
+      "Endangered in the Wild, Everywhere as a Pet"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.14,
+    "special": 44,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   },
@@ -22372,6 +23916,146 @@
     "updatedAt": "2026-09-28T00:00:00.000Z",
     "weight_kg": 15000,
     "special": 72,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Wild Turkey",
+    "scientific_name": "Meleagris gallopavo",
+    "type": "Bird",
+    "class": "Fighter",
+    "size": "Medium",
+    "biome": "FOREST",
+    "habitat": "Hardwood forests, woodland clearings, fields",
+    "diet": [
+      "acorns and nuts",
+      "seeds and berries",
+      "insects"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Wild Turkey is North America's heavyweight flying gamebird. The canonical tom weighs about 7.6 kg and fights with sharp leg spurs, kicks and body slams. It can burst into flight at up to about…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Oak forest clearings",
+      "combat_style": "Fighter",
+      "strengths": [
+        "Sharp leg spurs",
+        "Explosive take-off",
+        "Keen daytime vision"
+      ],
+      "weaknesses": [
+        "No real killing power",
+        "Poor night vision",
+        "Short flights only"
+      ]
+    },
+    "image": "/images/animals/wild-turkey.png?v=b2120f551ec7",
+    "agility": 72,
+    "attack": 32,
+    "bite_force_psi": 0,
+    "defense": 26,
+    "height_cm": 0,
+    "intelligence": 60,
+    "length_cm": 110,
+    "lifespan_years": 3.5,
+    "special_abilities": [
+      "Spur Kick Brawl",
+      "Rocket Take-Off"
+    ],
+    "speed_mps": 24.6,
+    "stamina": 62,
+    "substats": {
+      "raw_power": 26,
+      "maneuverability": 70,
+      "endurance": 60,
+      "recovery": 55,
+      "tactics": 58,
+      "senses": 78,
+      "ferocity": 55,
+      "weaponry": 36,
+      "protection": 15,
+      "toughness": 30,
+      "speed": 70,
+      "abilities": 54
+    },
+    "unique_traits": [
+      "Heavyweight Flier",
+      "Brother Display Teams"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 7.6,
+    "special": 55,
+    "research_status": "researched",
+    "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Yellow-naped Amazon",
+    "scientific_name": "Amazona auropalliata",
+    "type": "Bird",
+    "class": "Territorial",
+    "size": "Small",
+    "biome": "FOREST",
+    "habitat": "Dry forest, savanna woodland and mangroves of Central America's Pacific slope",
+    "diet": [
+      "seeds",
+      "figs and fruit",
+      "nuts"
+    ],
+    "isNocturnal": false,
+    "isSocial": true,
+    "description": "The Yellow-naped Amazon is a 0.5 kg green parrot from the Pacific side of Central America, famous as a talker and for wild vocal dialects and pair duets. Its calculated 94 N bite is strong for its…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Dry tropical forest",
+      "combat_style": "Territorial",
+      "strengths": [
+        "Strong bite for its size",
+        "Coordinated pair duets",
+        "Vocal learning and mimicry"
+      ],
+      "weaknesses": [
+        "About 0.5 kg",
+        "No armor",
+        "Less acrobatic than long-tailed parrots"
+      ]
+    },
+    "image": "/images/animals/yellow-naped-amazon.png?v=fcaf242cfef8",
+    "agility": 79,
+    "attack": 18,
+    "bite_force_psi": 0,
+    "defense": 12,
+    "height_cm": 0,
+    "intelligence": 84,
+    "length_cm": 35,
+    "lifespan_years": 40,
+    "special_abilities": [
+      "Clamp-Jaw Bite",
+      "Duet Border Patrol"
+    ],
+    "speed_mps": 0,
+    "stamina": 64,
+    "substats": {
+      "raw_power": 9,
+      "maneuverability": 79,
+      "endurance": 64,
+      "recovery": 48,
+      "tactics": 82,
+      "senses": 66,
+      "ferocity": 45,
+      "weaponry": 22,
+      "protection": 7,
+      "toughness": 15,
+      "speed": 66,
+      "abilities": 56
+    },
+    "unique_traits": [
+      "Parrot Dialects",
+      "Master Mimic"
+    ],
+    "updatedAt": "2026-09-28T00:00:00.000Z",
+    "weight_kg": 0.5,
+    "special": 56,
     "research_status": "researched",
     "research_updated": "2026-09-28"
   }

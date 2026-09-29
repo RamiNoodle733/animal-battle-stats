@@ -1,5 +1,5 @@
 {
-  "researched": 317,
+  "researched": 341,
   "legacy": 0,
   "rejected": 0,
   "animals": {
@@ -711,20 +711,16 @@
       "added": true
     },
     "ball-python": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "basking-shark": {
       "status": "researched",
       "added": true
     },
     "bearded-dragon": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "bearded-vulture": {
       "status": "researched",
@@ -775,10 +771,8 @@
       "added": true
     },
     "bowhead-whale": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "brazilian-wandering-spider": {
       "status": "researched",
@@ -799,20 +793,16 @@
       ]
     },
     "canary": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "caucasian-shepherd-dog": {
       "status": "researched",
       "added": true
     },
     "chinchilla": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "cockatiel": {
       "status": "researched",
@@ -827,10 +817,8 @@
       "added": true
     },
     "corn-snake": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "crowned-eagle": {
       "status": "researched",
@@ -841,10 +829,8 @@
       "added": true
     },
     "eclectus-parrot": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "elephant-seal": {
       "status": "researched",
@@ -859,26 +845,20 @@
       "added": true
     },
     "false-killer-whale": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "fancy-rat": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "fighting-bull": {
       "status": "researched",
       "added": true
     },
     "fin-whale": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "fisher": {
       "status": "researched",
@@ -949,10 +929,8 @@
       "added": true
     },
     "guinea-pig": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "gyrfalcon": {
       "status": "researched",
@@ -963,20 +941,16 @@
       "added": true
     },
     "humboldt-squid": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "humpback-whale": {
       "status": "researched",
       "added": true
     },
     "hyacinth-macaw": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "indian-cobra": {
       "status": "researched",
@@ -995,10 +969,8 @@
       "added": true
     },
     "japanese-spider-crab": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "kangal": {
       "status": "researched",
@@ -1013,20 +985,16 @@
       "added": true
     },
     "leopard-gecko": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "leopard-seal": {
       "status": "researched",
       "added": true
     },
     "maine-coon": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "mako-shark": {
       "status": "researched",
@@ -1081,26 +1049,20 @@
       "added": true
     },
     "rabbit": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "red-deer": {
       "status": "researched",
       "added": true
     },
     "red-eared-slider": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "rosy-faced-lovebird": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "rottweiler": {
       "status": "researched",
@@ -1111,10 +1073,8 @@
       "added": true
     },
     "russian-tortoise": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "sand-cat": {
       "status": "researched",
@@ -1149,20 +1109,16 @@
       "added": true
     },
     "sun-conure": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "sydney-funnel-web-spider": {
       "status": "researched",
       "added": true
     },
     "syrian-hamster": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "takin": {
       "status": "researched",
@@ -1203,17 +1159,13 @@
       "added": true
     },
     "wild-turkey": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     },
     "yellow-naped-amazon": {
-      "status": "pending",
-      "problems": [
-        "no cutout photo yet"
-      ]
+      "status": "researched",
+      "added": true
     }
   },
-  "pending": 28
+  "pending": 4
 }

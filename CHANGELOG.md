@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.7.0 — 2026-09-29
+
+- 24 new animals join the roster, which grows from 317 to 341: Ball Python, Bearded Dragon, Bowhead Whale, Canary, Chinchilla, Corn Snake, Eclectus Parrot, False Killer Whale, Fancy Rat, Fin Whale, Guinea Pig, Humboldt Squid, Hyacinth Macaw, Japanese Spider Crab, Leopard Gecko, Maine Coon, Rabbit, Red-eared Slider, Rosy-faced Lovebird, Russian Tortoise, Sun Conure, Syrian Hamster, Wild Turkey and Yellow-naped Amazon.
+- The rest of the pets arrive: more parrots (hyacinth macaw, eclectus, sun conure, lovebird, yellow-naped amazon, canary), pet reptiles (Russian tortoise, bearded dragon, leopard gecko, ball python, corn snake, red-eared slider) and small pets (hamster, guinea pig, rabbit, chinchilla, fancy rat, Maine Coon). The hyacinth macaw has the strongest bite measured in any bird so far, about 540 newtons.
+- Every new animal has a full research profile and a credited photo of an adult animal from Wikimedia Commons.
+
 ## 3.6.0 — 2026-09-28
 
 - 22 new animals join the roster, which grows from 295 to 317: African Grey Parrot, Betta Fish, Budgerigar, Cockatiel, Common Death Adder, Common Eland, Ethiopian Wolf, Fisher, Giant Forest Hog, Goblin Shark, Goldfish, Indian Rhinoceros, Mexican Red-knee Tarantula, Ocean Sunfish, Oceanic Whitetip Shark, Pygmy Hippopotamus, Red Deer, Russell's Viper, Saw-scaled Viper, South American Coati, Striped Hyena and Takin.

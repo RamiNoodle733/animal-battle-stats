@@ -14,10 +14,13 @@ export const SITE = Object.freeze({
 });
 
 export const SOCIAL = Object.freeze([
-    { name: 'Discord', url: 'https://discord.gg/BAaJFCXNTN' },
     { name: 'YouTube', url: 'https://www.youtube.com/@AnimalBattleStats' },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@animalbattlestats_abs' },
     { name: 'Instagram', url: 'https://www.instagram.com/animalbattlestats' },
+    { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61594841433992' },
     { name: 'X', url: 'https://x.com/AnimalBattStats' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/company/109601979/' },
+    { name: 'Discord', url: 'https://discord.gg/BAaJFCXNTN' },
     { name: 'Reddit', url: 'https://www.reddit.com/r/AnimalBattleStats/' },
     { name: 'GitHub', url: 'https://github.com/RamiNoodle733/animal-battle-stats' }
 ]);
@@ -61,6 +64,7 @@ export const ROBLOX = Object.freeze({
 export const NAV = Object.freeze([
     { key: 'animals', href: '/stats', label: 'Animals' },
     { key: 'compare', href: '/compare', label: 'Who Would Win' },
+    { key: 'shows', href: '/shows', label: 'Shows' },
     { key: 'rankings', href: '/rankings', label: 'Rankings' },
     { key: 'tiers', href: '/tier-list', label: 'Tier List' },
     { key: 'tournament', href: '/tournament', label: 'Tournament' },

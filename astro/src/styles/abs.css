@@ -291,7 +291,7 @@ body.game {
 @media (max-width: 1100px) {
     .brand-word { display: none; }
 }
-@media (max-width: 1160px) {
+@media (max-width: 1260px) {
     .menu a span { display: none; }
     .menu a img { width: 28px; height: 28px; }
 }
@@ -832,6 +832,15 @@ body.game {
 .prose a, .link { color: var(--cyan-2); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(108, 231, 255, 0.35); }
 
 .faq details { border-bottom: 1px solid var(--line); }
+
+/* An animal's role in an ABS Originals show (animal pages). */
+.stars-in { --show: var(--orange); display: flex; align-items: center; gap: 12px; margin: 0 0 12px; padding: 8px 12px; border-radius: 12px; color: inherit; text-decoration: none; background: linear-gradient(90deg, color-mix(in srgb, var(--show) 18%, transparent), rgba(3, 6, 16, 0.4)); border: 1px solid color-mix(in srgb, var(--show) 55%, transparent); transition: filter 0.15s, transform 0.15s var(--ease); }
+.stars-in:hover { filter: brightness(1.15); transform: translateY(-1px); }
+.stars-in img { flex: none; width: 120px; height: auto; filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6)); }
+.stars-in > span { display: grid; gap: 1px; min-width: 0; }
+.stars-in small { font-size: 0.66rem; font-weight: 850; letter-spacing: 0.16em; text-transform: uppercase; color: color-mix(in srgb, var(--show) 70%, #fff); }
+.stars-in b { font-size: 0.98rem; }
+.stars-in span span { font-size: 0.8rem; color: var(--text-2); }
 .faq summary { display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; font-weight: 750; font-size: 0.92rem; cursor: pointer; list-style: none; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after { content: "+"; font-family: var(--font-display); font-size: 1.3rem; line-height: 1; color: var(--cyan); }
@@ -1028,6 +1037,7 @@ body.game {
 .look-frame.frame_loyal { --lf: linear-gradient(135deg, #005a78, #00d4ff 35%, #3cdc8c 60%, #ffffff 80%, #005a78); --lf-glow: rgba(60, 220, 140, 0.45); }
 .look-frame.frame_sunrise { --lf: linear-gradient(160deg, #ff6b6b, #ffb13a 45%, #ffe98a 70%, #ff8a5a); --lf-glow: rgba(255, 170, 60, 0.45); }
 .look-frame.frame_season1 { --lf: linear-gradient(135deg, #062a1a, #3cdc8c 30%, #ffd700 50%, #3cdc8c 70%, #062a1a); --lf-glow: rgba(60, 220, 140, 0.45); }
+.look-frame.frame_originals { --lf: linear-gradient(135deg, #1a0d00, #ff6b00 25%, #ffd700 50%, #f2c14e 62%, #ff6b00 80%, #1a0d00); --lf-glow: rgba(255, 150, 30, 0.5); }
 @keyframes lf-shift { to { background-position: 300% 0; } }
 @media (prefers-reduced-motion: reduce) {
     .look-frame { animation: none !important; }

@@ -1,6 +1,7 @@
 // /llms-full.txt: the whole roster as plain text for AI assistants.
 import { animals, STATS, BIOMES, fmtScore, fmtWeight, fmtLength, fmtSpeed, fmtBite, fmtYears } from '../lib/catalog.js';
 import { SITE } from '../lib/site.js';
+import { BRAND, SHOWS } from '../lib/shows.js';
 
 export function GET() {
     const out = [`# Animal Battle Stats: full dataset (${animals.length} animals)`, '', `Source: ${SITE.url}. Ratings are 0-100 on one absolute scale. Blank measurements mean no reliable measurement exists.`, ''];
@@ -25,6 +26,22 @@ export function GET() {
         const sources = (profile.sources || []).slice(0, 4).map((source) => `${source.title} <${source.url}>`);
         if (sources.length) out.push(`Key sources: ${sources.join('; ')}`);
         out.push('');
+    }
+    // ABS Originals: every episode with its summary and dialogue.
+    out.push('# ABS Originals: animated animal series', '', BRAND.about, '');
+    for (const show of SHOWS) {
+        out.push(`## ${show.name} (${show.genre.join(', ')})`);
+        out.push(`URL: ${SITE.url}${show.url}`);
+        out.push(`${show.tagline} ${show.logline}`);
+        out.push(`Cast: ${show.characters.map((character) => `${character.name}, ${character.role.toLowerCase()} (${character.art ? character.art.name : character.animal}): ${character.blurb}`).join(' | ')}`);
+        out.push('');
+        for (const episode of show.episodes) {
+            out.push(`### ${show.name} episode ${episode.number}: ${episode.title}`);
+            out.push(`URL: ${SITE.url}${episode.url} | YouTube: https://www.youtube.com/watch?v=${episode.youtube} | ${episode.seconds} seconds`);
+            out.push(`Summary: ${episode.summary}`);
+            if (episode.transcript.length) out.push(`Transcript: ${episode.transcript.map((line) => `${line.who}: ${line.text}`).join(' / ')}`);
+            out.push('');
+        }
     }
     return new Response(out.join('\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 }

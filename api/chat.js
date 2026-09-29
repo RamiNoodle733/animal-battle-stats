@@ -17,7 +17,8 @@ const Animal = require('../lib/models/Animal');
 const { getCanonicalAnimalImage } = require('../lib/animal-images');
 const { getAuthUser, authorizeRequest } = require('../lib/auth');
 const { notifyDiscord } = require('../lib/discord');
-const { maskBlockedTerms } = require('../lib/moderation');
+const { maskBlockedTerms, publicName } = require('../lib/moderation');
+const { isMuted } = require('../lib/admin');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 const mongoose = require('mongoose');
@@ -212,13 +213,13 @@ async function handleGetFeed(req, res) {
     const viewer = getAuthUser(req);
     if (viewer?.id) allAuthorIds.add(viewer.id);
     const users = await User.find({ _id: { $in: [...allAuthorIds] } })
-        .select('_id displayName username profileAnimal role')
+        .select('_id displayName username profileAnimal role requiresUsernameChange')
         .lean();
     
     const userMap = {};
     users.forEach(u => {
         userMap[u._id.toString()] = {
-            displayName: u.displayName || u.username,
+            displayName: publicName(u),
             username: u.username,
             profileAnimal: u.profileAnimal
         };
@@ -298,13 +299,13 @@ async function handleGet(req, res) {
     const authorIds = [...new Set(allMessages.map(m => m.authorId?.toString()).filter(Boolean))];
     if (viewer?.id && !authorIds.includes(viewer.id)) authorIds.push(viewer.id);
     const users = await User.find({ _id: { $in: authorIds } })
-        .select('_id displayName username profileAnimal role')
+        .select('_id displayName username profileAnimal role requiresUsernameChange')
         .lean();
     
     const userMap = {};
     users.forEach(u => {
         userMap[u._id.toString()] = {
-            displayName: u.displayName || u.username,
+            displayName: publicName(u),
             username: u.username,
             profileAnimal: u.profileAnimal
         };
@@ -354,7 +355,10 @@ async function handlePost(req, res) {
 
     // Get user's profile info for display
     const User = require('../lib/models/User');
-    const userDoc = await User.findById(user.id).select('displayName profileAnimal');
+    const userDoc = await User.findById(user.id).select('username displayName profileAnimal requiresUsernameChange mutedUntil');
+    if (isMuted(userDoc)) {
+        return res.status(403).json({ success: false, error: 'You can\'t post in chat right now.' });
+    }
 
     // If this is a reply, verify parent exists
     if (parentId) {
@@ -367,7 +371,7 @@ async function handlePost(req, res) {
     const message = await ChatMessage.create({
         content: publicContent,
         authorId: user.id,
-        authorUsername: userDoc?.displayName || user.username,
+        authorUsername: userDoc ? publicName(userDoc) : user.username,
         profileAnimal: userDoc?.profileAnimal || null,
         parentId: parentId || null,
         upvotes: [],

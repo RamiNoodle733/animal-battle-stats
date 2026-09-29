@@ -10,6 +10,12 @@ const SITE = 'https://animalbattlestats.com';
 const SKIP = new Set(['404.html']);
 
 const profiles = JSON.parse(fs.readFileSync(path.join(root, 'data', 'animal-profiles.json'), 'utf8')).animals;
+// ABS Originals episodes get video entries (Google video search).
+const showFile = path.join(root, 'data', 'show-episodes.json');
+const showEpisodes = fs.existsSync(showFile) ? JSON.parse(fs.readFileSync(showFile, 'utf8')).episodes : [];
+const showNames = Object.fromEntries(JSON.parse(fs.readFileSync(path.join(root, 'data', 'shows.json'), 'utf8')).shows.map((show) => [show.slug, show.name]));
+const episodeByPath = new Map(showEpisodes.map((episode) => [`/shows/${episode.show}/${episode.slug}`, episode]));
+const showDates = (slug) => showEpisodes.filter((episode) => !slug || episode.show === slug).map((episode) => String(episode.uploadDate || '').slice(0, 10)).filter(Boolean).sort();
 const today = new Date().toISOString().slice(0, 10);
 const researchDates = Object.values(profiles).map((profile) => profile.researchedAt).filter(Boolean).sort();
 const latestResearch = researchDates.at(-1) || today;
@@ -33,6 +39,10 @@ function htmlFiles(directory, prefix = '') {
 }
 
 function lastmodFor(pathname) {
+    const episode = episodeByPath.get(pathname);
+    if (episode?.uploadDate) return episode.uploadDate.slice(0, 10);
+    const show = pathname.match(/^\/shows(?:\/([a-z0-9-]+))?$/);
+    if (show) return showDates(show[1]).at(-1) || latestResearch;
     const animal = pathname.match(/^\/stats\/([a-z0-9-]+)$/);
     if (animal) return profiles[animal[1]]?.researchedAt || latestResearch;
     const pair = pathname.match(/^\/compare\/([a-z0-9-]+)-vs-([a-z0-9-]+)$/);
@@ -56,18 +66,37 @@ for (const file of htmlFiles(dist)) {
         }
         if (og) images.push({ loc: og, title: html.match(/<meta property="og:image:alt" content="([^"]+)"/i)?.[1] || '' });
     }
-    entries.push({ loc: canonical, lastmod: lastmodFor(pathname), images });
+    const episode = episodeByPath.get(pathname);
+    const video = episode ? {
+        thumbnail: `${SITE}/images/og/shows/${episode.id}.jpg`,
+        title: `${showNames[episode.show] || episode.show} Episode ${episode.number}: ${episode.title}`,
+        description: episode.summary || episode.hook,
+        player: `https://www.youtube.com/embed/${episode.youtube}`,
+        duration: Math.round(Number(episode.seconds) || 0),
+        published: episode.uploadDate
+    } : null;
+    if (episode) images.push({ loc: `${SITE}/images/shows/${episode.id}.webp` });
+    entries.push({ loc: canonical, lastmod: lastmodFor(pathname), images, video });
 }
 
 const unique = [...new Map(entries.map((entry) => [entry.loc, entry])).values()]
     .sort((a, b) => (a.loc === `${SITE}/` ? -1 : b.loc === `${SITE}/` ? 1 : a.loc.localeCompare(b.loc)));
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${unique.map((entry) => `  <url>
     <loc>${escapeXml(entry.loc)}</loc>
     <lastmod>${entry.lastmod}</lastmod>${entry.images.map((image) => `
-    <image:image><image:loc>${escapeXml(image.loc)}</image:loc></image:image>`).join('')}
+    <image:image><image:loc>${escapeXml(image.loc)}</image:loc></image:image>`).join('')}${entry.video ? `
+    <video:video>
+      <video:thumbnail_loc>${escapeXml(entry.video.thumbnail)}</video:thumbnail_loc>
+      <video:title>${escapeXml(entry.video.title)}</video:title>
+      <video:description>${escapeXml(entry.video.description)}</video:description>
+      <video:player_loc>${escapeXml(entry.video.player)}</video:player_loc>
+      <video:duration>${entry.video.duration}</video:duration>${entry.video.published ? `
+      <video:publication_date>${escapeXml(entry.video.published)}</video:publication_date>` : ''}
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>` : ''}
   </url>`).join('\n')}
 </urlset>
 `;

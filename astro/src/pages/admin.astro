@@ -1,0 +1,113 @@
+---
+// /admin: owner and moderator tools (never indexed). Everything here is loaded
+// from /api/auth?action=admin after the page checks the signed-in role, so the
+// static page holds no player data.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../lib/site.js';
+---
+
+<Base title={`Admin | ${SITE.name}`} description="Admin tools for Animal Battle Stats." path="/admin" noindex biome="mountains" seed={4}>
+    <div class="adm" data-admin>
+        <section class="panel adm-gate" data-admin-gate>
+            <div class="panel-body">
+                <h1 class="screen-title" style="font-size:2rem">Admin</h1>
+                <p data-gate-text>Checking your account…</p>
+                <a class="btn btn-cyan btn-sm" href="/login?returnTo=%2Fadmin" data-gate-login hidden>Log in</a>
+            </div>
+        </section>
+
+        <div class="adm-app" data-admin-app hidden>
+            <header class="adm-head">
+                <div>
+                    <p class="eyebrow"><Icon name="shield" size={18} />Animal Battle Stats</p>
+                    <h1 class="screen-title" style="font-size:clamp(1.8rem,3vw,2.6rem)">Admin</h1>
+                </div>
+                <p class="adm-you" data-you></p>
+            </header>
+
+            <div class="adm-stats" data-summary>
+                <div class="panel"><span>Players</span><b data-stat="players">–</b></div>
+                <div class="panel"><span>New this week</span><b data-stat="newThisWeek">–</b></div>
+                <div class="panel"><span>Names hidden</span><b data-stat="censored">–</b></div>
+                <div class="panel"><span>Muted</span><b data-stat="muted">–</b></div>
+                <div class="panel"><span>Staff</span><b data-stat="staff">–</b></div>
+            </div>
+
+            <section class="panel adm-list">
+                <div class="tabs" role="tablist" aria-label="Player lists">
+                    <button type="button" role="tab" aria-selected="true" data-filter="names"><Icon name="alert" size={22} />Names to check</button>
+                    <button type="button" role="tab" aria-selected="false" data-filter="all"><Icon name="friends" size={22} />All players</button>
+                    <button type="button" role="tab" aria-selected="false" data-filter="muted"><Icon name="lock" size={22} />Muted</button>
+                    <button type="button" role="tab" aria-selected="false" data-filter="staff"><Icon name="shield" size={22} />Staff</button>
+                </div>
+                <form class="adm-search" data-search>
+                    <input class="field" type="search" name="q" placeholder="Search usernames and display names" autocomplete="off" />
+                    <button class="btn btn-cyan btn-sm" type="submit">Search</button>
+                </form>
+                <p class="adm-note" data-list-note></p>
+                <div class="adm-rows" data-rows></div>
+                <div class="btn-row adm-pager"><button class="btn btn-sm" type="button" data-prev>Previous</button><span data-page></span><button class="btn btn-sm" type="button" data-next>Next</button></div>
+            </section>
+
+            <section class="panel adm-check">
+                <div class="panel-head"><Icon name="target" size={30} /><h2 class="panel-title">Try a name</h2></div>
+                <div class="panel-body">
+                    <form class="adm-search" data-check>
+                        <input class="field" type="text" name="name" maxlength="40" placeholder="Type a name to test the filter" autocomplete="off" />
+                        <button class="btn btn-sm" type="submit">Check</button>
+                    </form>
+                    <p class="adm-note" data-check-result></p>
+                    <p class="adm-note">New names are checked when someone signs up or renames: swear words, sexual words, LGBT words, shirk (other gods, idols, devil names), slurs, drugs, alcohol and gambling, plus names like "admin". Names that already break the rules are hidden from everyone as "Player 1a2b" and the player is asked to pick a new one. The word lists live in <code>config/moderation.json</code>.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <dialog class="adm-dialog" data-dialog>
+        <form method="dialog" data-dialog-form>
+            <h2 class="panel-title" data-dialog-title></h2>
+            <div data-dialog-body></div>
+            <div class="btn-row" style="justify-content:flex-end;margin-top:14px">
+                <button class="btn btn-sm" value="cancel" type="submit">Cancel</button>
+                <button class="btn btn-hot btn-sm" value="ok" type="submit" data-dialog-ok>Save</button>
+            </div>
+        </form>
+    </dialog>
+</Base>
+
+<script>
+    import '../scripts/admin.js';
+</script>
+
+<style>
+    .adm { max-width: 1200px; margin: 0 auto; display: grid; gap: 14px; }
+    .adm-gate .panel-body { display: grid; gap: 10px; justify-items: start; }
+    .adm-app { display: grid; gap: 14px; }
+    .adm-app[hidden] { display: none; }
+    .adm-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px; }
+    .adm-you { margin: 0; color: var(--text-2); font-weight: 700; }
+    .adm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .adm-stats .panel { padding: 12px 14px; }
+    .adm-stats span { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .adm-stats b { font-family: var(--font-display); font-size: 2rem; }
+    .adm-list { padding-bottom: 12px; }
+    .adm-search { display: flex; gap: 8px; padding: 12px 14px 0; }
+    .adm-search .field { flex: 1; min-width: 0; }
+    .adm-note { margin: 8px 14px; color: var(--text-2); font-size: 0.85rem; }
+    .adm-check .adm-search, .adm-check .adm-note { padding-left: 0; margin-left: 0; }
+    .adm-rows { display: grid; gap: 8px; padding: 4px 14px; }
+    :global(.adm-row) { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 10px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); }
+    :global(.adm-row.is-hidden) { border-color: rgba(255, 77, 94, 0.5); }
+    :global(.adm-row .who b) { display: block; font-size: 1rem; word-break: break-all; }
+    :global(.adm-row .who small), :global(.adm-row .state small) { display: block; color: var(--muted); font-size: 0.78rem; word-break: break-word; }
+    :global(.adm-row .state) { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+    :global(.adm-row .acts) { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+    :global(.adm-row .acts .btn) { min-height: 32px; padding: 0 10px; font-size: 0.82rem; }
+    .adm-pager { justify-content: center; align-items: center; padding: 8px 14px 0; color: var(--text-2); font-weight: 700; }
+    .adm-dialog { width: min(92vw, 460px); padding: 18px; color: var(--text); background: linear-gradient(180deg, #16224a, #0a1128); border: 1px solid var(--line-2); border-radius: 14px; }
+    .adm-dialog::backdrop { background: rgba(0, 0, 0, 0.6); }
+    :global(.adm-dialog label) { display: grid; gap: 4px; margin-top: 10px; font-size: 0.82rem; font-weight: 700; color: var(--text-2); }
+    :global(.adm-dialog .field) { width: 100%; }
+    @media (max-width: 760px) { :global(.adm-row) { grid-template-columns: 1fr; } :global(.adm-row .acts) { justify-content: flex-start; } }
+</style>

@@ -54,6 +54,7 @@ const EARN = [
 
             <form class="p-pane scroll" data-p-pane="edit" data-p-form>
                 <p class="p-flag" data-p-flag hidden>Your name needs a change before it can show on leaderboards. Pick a new one below.</p>
+                <a class="btn btn-gold btn-sm" href="/admin" data-p-admin hidden><img src="/images/icons/abs/shield.webp" alt="" width="22" height="22" />Admin tools</a>
                 <label class="fld"><span>Display name</span><input name="displayName" maxlength="30" autocomplete="nickname" /><small>Shown on leaderboards and posts. Change it any time.</small></label>
                 <label class="fld"><span>Username</span><input name="username" maxlength="20" pattern="[A-Za-z0-9_]+" autocomplete="username" /><small data-p-rename>Your login name. 3 changes per week.</small></label>
                 <button class="btn btn-cyan" type="submit" data-p-save><Icon name="check" size={22} />Save profile</button>

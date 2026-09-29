@@ -1,0 +1,134 @@
+---
+// /shows: the ABS Originals hub. Every show with its season poster and progress,
+// a rail of episodes per show, what watching and following pays, and the FAQ
+// search engines and AI assistants read.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import EpisodeCard from '../components/EpisodeCard.astro';
+import FollowPanel from '../components/FollowPanel.astro';
+import '../styles/shows.css';
+import { BRAND, SHOWS, EPISODES, totalEpisodes, WATCH_REWARD, FOLLOW_REWARD, poster, posterSet, logo, minutes, clock, seriesLd, breadcrumbs, youtubePlaylist, PLATFORMS } from '../lib/shows.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+import { article } from '../lib/catalog.js';
+
+const first = SHOWS[0].episodes[0];
+const totalMinutes = minutes(SHOWS.reduce((sum, show) => sum + show.runtime, 0));
+const title = `ABS Originals: Animated Animal Series (${SHOWS.map((show) => show.name).join(', ')}) | ${SITE.name}`;
+const description = `Watch ${SHOWS.length} animated animal series free: ${SHOWS.map((show) => `${show.name} (${show.tagline.replace(/\.$/, '').toLowerCase()})`).join(', ')}. ${totalEpisodes} one-minute episodes starring real animals, in order, with cliffhangers. Earn BattlePoints for every episode.`;
+const faq = [
+    { q: 'What are ABS Originals?', a: `${BRAND.about} There are ${SHOWS.length} series so far: ${SHOWS.map((show) => `${show.name}: ${show.logline}`).join(' ')}` },
+    { q: 'Where can I watch ABS Originals?', a: `Right here on animalbattlestats.com/shows, free and in order. Every episode is also on YouTube (full episodes and Shorts playlists), TikTok (${PLATFORMS.tiktok.url.replace('https://www.', '')}), Instagram, Facebook and X. Each show's full season 1 is also one video on YouTube.` },
+    { q: 'How long are the episodes?', a: `About a minute each (${clock(Math.min(...EPISODES.map((episode) => episode.seconds)))} to ${clock(Math.max(...EPISODES.map((episode) => episode.seconds)))}). All ${totalEpisodes} episodes of season 1 add up to about ${totalMinutes} minutes.` },
+    { q: 'Which order should I watch them in?', a: 'Each show is one story told in order, so start with episode 1. Every episode ends on a cliffhanger that the next episode answers. The three shows are separate stories, and you can start with any of them.' },
+    { q: 'Are the animals real?', a: `The characters are real species, and every one of them has a real stat card on this site with researched battle stats: ${SHOWS.flatMap((show) => show.characters.filter((character) => character.art).map((character) => `${character.name} is ${article(character.art.name)} ${character.art.name.toLowerCase()}`)).slice(0, 8).join(', ')}. The stories are fiction; talking animals do not exist.` },
+    { q: 'Are the shows kid-friendly?', a: 'Yes. They are made to be clean for all ages: no swearing, no gore and no romance, told like a family TV drama.' },
+    { q: 'Do I get anything for watching?', a: `Yes. Signed-in players earn ${WATCH_REWARD.coins} BattlePoints and ${WATCH_REWARD.xp} XP the first time they watch each episode on this site, a profile title for finishing each show, the ABS Originals card frame for watching all ${totalEpisodes}, and ${FOLLOW_REWARD.coins} BattlePoints for following Animal Battle Stats on each social account.` },
+    { q: 'Will there be a season 2?', a: 'Yes. Season 2 of every show is being made. Follow Animal Battle Stats on YouTube or TikTok to see new episodes first.' }
+];
+const jsonLd = [
+    {
+        '@type': 'CollectionPage',
+        '@id': `${absoluteUrl('/shows')}#page`,
+        url: absoluteUrl('/shows'),
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        about: { '@type': 'Thing', name: 'ABS Originals animated animal series' },
+        mainEntity: { '@type': 'ItemList', itemListElement: SHOWS.map((show, index) => ({ '@type': 'ListItem', position: index + 1, url: absoluteUrl(show.url), name: show.name })) }
+    },
+    ...SHOWS.map((show) => seriesLd(show, { withEpisodes: false })),
+    breadcrumbs([['Home', '/'], ['Shows', '/shows']]),
+    { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }
+];
+---
+
+<Base title={title} description={description} path="/shows" image="/images/og/shows/breakout-s1.jpg" imageAlt="ABS Originals: BREAKOUT, DEDUCTION and FASTEST" jsonLd={jsonLd} active="shows" biome="savanna" seed={21}>
+    <div class="sw" data-shows-page>
+        <section class="panel sw-hero enter" style="--show: var(--orange)">
+            <div class="sw-hero-copy">
+                <p class="eyebrow"><Icon name="tv" size={18} />{BRAND.name}</p>
+                <h1 class="screen-title">The shows</h1>
+                <p class="sw-lede">{BRAND.about}</p>
+                <div class="sw-meta">
+                    <span class="chip chip-cyan">{SHOWS.length} series</span>
+                    <span class="chip chip-cyan">{totalEpisodes} episodes</span>
+                    <span class="chip chip-cyan">~1 minute each</span>
+                    <span class="chip chip-gold"><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />+{WATCH_REWARD.coins} per episode</span>
+                </div>
+                <div class="sw-cta">
+                    <a class="btn btn-hot btn-lg" href={first.url} data-resume><Icon name="tv" size={26} /><span data-resume-label>Start watching</span></a>
+                    <a class="btn btn-sm" href="#earn">How rewards work</a>
+                </div>
+            </div>
+            <div class="sw-logos" aria-hidden="true">
+                {SHOWS.map((show) => <a href={show.url} tabindex="-1"><img src={logo(show)} alt="" width="720" height="360" /></a>)}
+            </div>
+        </section>
+
+        <div class="show-cards">
+            {SHOWS.map((show, index) => (
+                <article class={`panel show-card enter-${Math.min(3, index + 1)}`} style={`--show:${show.accent}`}>
+                    <a class="show-card-art" href={show.url} tabindex="-1" aria-hidden="true">
+                        <img src={poster(`${show.slug}-s1`)} srcset={posterSet(`${show.slug}-s1`)} sizes="(max-width: 980px) 100vw, 400px" alt="" width="1280" height="720" loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : undefined} />
+                    </a>
+                    <div class="show-card-body">
+                        <h3 class="show-card-title"><a href={show.url}>{show.name}</a><small>{show.tagline}</small></h3>
+                        <p>{show.logline}</p>
+                        <div class="sw-meta">
+                            {show.genre.map((genre) => <span class="chip chip-show">{genre}</span>)}
+                            <span class="chip">{show.episodes.length} episodes · {minutes(show.runtime)} min</span>
+                        </div>
+                        <div class="sw-progress" data-show-progress={show.slug} data-total={show.episodes.length}>
+                            <div class="sw-progress-row"><span>Season 1</span><span><b data-progress-count>0</b> / {show.episodes.length} watched</span></div>
+                            <div class="sw-bar"><i data-progress-bar></i></div>
+                        </div>
+                        <div class="sw-cta">
+                            <a class="btn btn-hot btn-sm" href={show.episodes[0].url} data-continue={show.slug}><Icon name="tv" size={22} /><span data-continue-label>Watch episode 1</span></a>
+                            <a class="btn btn-sm" href={show.url}>All episodes</a>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+
+        {SHOWS.map((show) => (
+            <section class="panel sw-section" style={`--show:${show.accent}`} aria-label={`${show.name} episodes`}>
+                <div class="sw-head">
+                    <h2 class="sw-h2"><a href={show.url} style="color:inherit;text-decoration:none">{show.name}</a><span class="chip chip-show" style="transform:skewX(6deg)">Season 1</span></h2>
+                    <div class="btn-row">
+                        {show.season && <a class="btn btn-sm" href={`${show.url}#full-season`}>Full season · {minutes(show.season.seconds)} min</a>}
+                        <a class="btn btn-sm" href={youtubePlaylist(show.youtube.full)} target="_blank" rel="noopener" data-out="youtube-playlist">YouTube playlist</a>
+                    </div>
+                </div>
+                <div class="ep-rail">
+                    {show.episodes.map((episode) => <EpisodeCard episode={episode} />)}
+                </div>
+            </section>
+        ))}
+
+        <section class="panel gold sw-section" id="earn" aria-labelledby="earn-h" style="--show: var(--gold)">
+            <div class="sw-head">
+                <h2 class="sw-h2" id="earn-h"><img src="/images/icons/abs/chest.webp" alt="" width="30" height="30" loading="lazy" />Watch &amp; earn</h2>
+                <a class="btn btn-gold btn-sm" href="/rewards"><img src="/images/icons/abs/gift.webp" alt="" width="22" height="22" />Rewards</a>
+            </div>
+            <div class="earn">
+                <div class="earn-item"><img src="/images/icons/abs/coin.webp" alt="" width="44" height="44" loading="lazy" /><span><b>+{WATCH_REWARD.coins} BattlePoints, +{WATCH_REWARD.xp} XP</b><small>for every episode you watch to the end here, once per episode.</small></span></div>
+                <div class="earn-item"><img src="/images/icons/abs/crown.webp" alt="" width="44" height="44" loading="lazy" /><span><b>A title for each show</b><small>Escape Artist (BREAKOUT), Case Closed (DEDUCTION), Photo Finish (FASTEST).</small></span></div>
+                <div class="earn-item"><img src="/images/icons/abs/star.webp" alt="" width="44" height="44" loading="lazy" /><span><b>ABS Originals frame</b><small>a gold-and-fire card frame for watching all {totalEpisodes} episodes.</small></span></div>
+                <div class="earn-item"><img src="/images/icons/abs/friends.webp" alt="" width="44" height="44" loading="lazy" /><span><b>+{FOLLOW_REWARD.coins} per account you follow</b><small>and the ABS Insider title after 3.</small></span></div>
+            </div>
+            <p class="guest-note" data-guest-only hidden><Icon name="gift" size={24} /><span>Watching is free for everyone. <b>Log in</b> to keep your progress and collect the rewards.</span><a class="btn btn-cyan btn-sm" href="/login?returnTo=%2Fshows">Log in</a><a class="btn btn-sm" href="/signup">Sign up</a></p>
+        </section>
+
+        <FollowPanel />
+
+        <section class="panel sw-faq" aria-labelledby="faq-h">
+            <h2 class="sw-h2" id="faq-h" style="margin:14px 0 6px"><img src="/images/icons/abs/book.webp" alt="" width="30" height="30" loading="lazy" />Questions</h2>
+            <div class="faq">{faq.map((item, index) => <details open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+        </section>
+    </div>
+</Base>
+
+<script>
+    import '../scripts/shows.js';
+</script>

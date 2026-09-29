@@ -1,0 +1,71 @@
+{
+  "_note": "ABS Originals: the animated animal series (hand-edited). Episodes come from data/show-episodes.json, written by scripts/shows/sync-shows.mjs from the Shorts workspace. Characters link to their animal pages by slug; keep blurbs spoiler-free.",
+  "brand": {
+    "name": "ABS Originals",
+    "tagline": "Animated series starring real animals",
+    "about": "ABS Originals are short animated drama series from Animal Battle Stats. Every character is a real animal with a real stat card on this site, and every episode is about a minute long, told like a TV show: a story in order, a cliffhanger at the end, and the answer in the next episode."
+  },
+  "platforms": {
+    "youtube": { "label": "YouTube", "url": "https://www.youtube.com/@AnimalBattleStats?sub_confirmation=1", "verb": "Subscribe" },
+    "tiktok": { "label": "TikTok", "url": "https://www.tiktok.com/@animalbattlestats_abs", "verb": "Follow" },
+    "instagram": { "label": "Instagram", "url": "https://www.instagram.com/animalbattlestats", "verb": "Follow" },
+    "facebook": { "label": "Facebook", "url": "https://www.facebook.com/profile.php?id=61594841433992", "verb": "Follow" },
+    "x": { "label": "X", "url": "https://x.com/AnimalBattStats", "verb": "Follow" },
+    "linkedin": { "label": "LinkedIn", "url": "https://www.linkedin.com/company/109601979/", "verb": "Follow" },
+    "discord": { "label": "Discord", "url": "https://discord.gg/BAaJFCXNTN", "verb": "Join" },
+    "reddit": { "label": "Reddit", "url": "https://www.reddit.com/r/AnimalBattleStats/", "verb": "Join" }
+  },
+  "shows": [
+    {
+      "slug": "breakout",
+      "name": "BREAKOUT",
+      "title": "Breakout",
+      "tagline": "Two brothers. One impossible escape.",
+      "genre": ["Drama", "Prison break"],
+      "accent": "#ff6b00",
+      "logline": "Ken, an orangutan who plans everything, gets himself locked up on purpose to break his big brother Bruno out before the transfer to Max, the prison nobody comes back from. Seven days, one warden with a secret, and a raccoon who knows more than he says.",
+      "keywords": ["prison break", "escape", "brothers", "orangutan", "gorilla", "raccoon"],
+      "youtube": { "full": "PLIpdw4dTpIBo", "shorts": "PLXwg4nEKBVGc" },
+      "characters": [
+        { "name": "Ken", "animal": "orangutan", "role": "The architect", "blurb": "Plans everything, trusts no one, and has seven days to get his brother out." },
+        { "name": "Bruno", "animal": "gorilla", "role": "The brother", "blurb": "Ken's big brother, days away from the transfer to Max." },
+        { "name": "The raccoon", "animal": "raccoon", "role": "The cellmate", "blurb": "Knows every lock in the building. Says as little as possible." },
+        { "name": "Marco", "animal": "capybara", "role": "The neighbour", "blurb": "Six years in the next cell over. Worries out loud, loyal to the end." },
+        { "name": "Warden Hollis", "animal": "saltwater-crocodile", "role": "The warden", "blurb": "Runs the prison, never raises his voice, and has never lost." }
+      ]
+    },
+    {
+      "slug": "deduction",
+      "name": "DEDUCTION",
+      "title": "Deduction",
+      "tagline": "No badge. One case at a time.",
+      "genre": ["Mystery", "Detective"],
+      "accent": "#f2c14e",
+      "logline": "Monty, a macaque with no badge who reads people, and Sergeant Rex, a police dog who just wants him not to do the thing, solve one impossible case at a time, until the cases start pointing back at Monty.",
+      "keywords": ["detective", "mystery", "heist", "macaque", "police dog", "german shepherd"],
+      "youtube": { "full": "PLBXaaXJs_tn4", "shorts": "PLd23LqwtW41k" },
+      "characters": [
+        { "name": "Monty", "animal": "japanese-macaque", "role": "The consultant", "blurb": "No badge, round glasses, and he reads people like a book." },
+        { "name": "Sgt. Rex", "animal": "german-shepherd", "role": "The sergeant", "blurb": "City police. Honest, tired, and always one step behind Monty." },
+        { "name": "Bernie", "animal": "hippopotamus", "role": "The night guard", "blurb": "Swears he never left his desk the night the diamond vanished." },
+        { "name": "Sterling", "animal": "great-horned-owl", "role": "The director", "blurb": "Runs the city museum. Precise, polite and a little too calm." }
+      ]
+    },
+    {
+      "slug": "fastest",
+      "name": "FASTEST",
+      "title": "Fastest",
+      "tagline": "The fastest giraffe alive.",
+      "genre": ["Action", "Sports"],
+      "accent": "#ffd23f",
+      "logline": "Gerald was just the tallest guy on the savanna until a lightning strike made him the fastest animal alive. Now the cheetah wants a race, his muscles have a limit, and a fire is coming across the plain.",
+      "keywords": ["fastest animal", "giraffe", "cheetah", "race", "savanna", "speed"],
+      "youtube": { "full": "PLBcUFuRl_WT4", "shorts": "PLFty-b5TwvSQ" },
+      "characters": [
+        { "name": "Gerald", "animal": "giraffe", "role": "The fastest giraffe alive", "blurb": "Tallest on the savanna, and since the lightning, the fastest too." },
+        { "name": "The cheetah", "animal": "cheetah", "role": "The champion", "blurb": "Nobody has ever beaten him. Nobody has ever even tried." },
+        { "name": "Doc", "animal": "galapagos-tortoise", "role": "The vet", "blurb": "The slowest animal on the show times the fastest one." }
+      ]
+    }
+  ]
+}

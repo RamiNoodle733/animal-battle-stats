@@ -9,7 +9,8 @@ const Animal = require('../lib/models/Animal');
 const { getAuthUser, authorizeRequest } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const { notifyDiscord } = require('../lib/discord');
-const { maskBlockedTerms } = require('../lib/moderation');
+const { maskBlockedTerms, publicName } = require('../lib/moderation');
+const { isMuted } = require('../lib/admin');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-limit');
 const mongoose = require('mongoose');
@@ -139,12 +140,12 @@ async function handleGet(req, res) {
             if (viewer?.id && !authorIds.includes(viewer.id)) authorIds.push(viewer.id);
             if (authorIds.length > 0) {
                 const users = await User.find({ _id: { $in: authorIds } })
-                    .select('_id displayName username profileAnimal role')
+                    .select('_id displayName username profileAnimal role requiresUsernameChange')
                     .lean();
                 
                 users.forEach(u => {
                     userMap[u._id.toString()] = {
-                        displayName: u.displayName || u.username,
+                        displayName: publicName(u),
                         username: u.username,
                         profileAnimal: u.profileAnimal
                     };
@@ -215,12 +216,15 @@ async function handlePost(req, res) {
 
     // Get user's profile info for display
     const User = require('../lib/models/User');
-    const userDoc = await User.findById(user.id).select('displayName profileAnimal');
+    const userDoc = await User.findById(user.id).select('username displayName profileAnimal requiresUsernameChange mutedUntil');
+    if (isMuted(userDoc)) {
+        return res.status(403).json({ success: false, error: 'You can\'t post comments right now.' });
+    }
 
     const commentData = {
         content: publicContent,
         authorId: user.id,
-        authorUsername: userDoc?.displayName || user.username,
+        authorUsername: userDoc ? publicName(userDoc) : user.username,
         profileAnimal: userDoc?.profileAnimal || null,
         isAnonymous: !!isAnonymous,
         upvotes: [],

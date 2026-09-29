@@ -30,12 +30,15 @@ const version = packageJson.version;
 const MENU = [
     { key: 'animals', href: '/stats', label: 'Animals', icon: 'paw' },
     { key: 'compare', href: '/compare', label: 'Versus', icon: 'vs' },
+    { key: 'shows', href: '/shows', label: 'Shows', icon: 'tv' },
     { key: 'tiers', href: '/tier-list', label: 'Tiers', icon: 'crown' },
     { key: 'rankings', href: '/rankings', label: 'Rankings', icon: 'medal' },
     { key: 'tournament', href: '/tournament', label: 'Tourney', icon: 'trophy' },
     { key: 'community', href: '/community', label: 'Community', icon: 'friends' }
 ];
-const DOCK = [MENU[0], MENU[1], MENU[2], MENU[5], { key: 'roblox', href: '/roblox', label: 'Roblox', roblox: true }];
+const DOCK = [MENU[0], MENU[1], MENU[2], MENU[6], { key: 'roblox', href: '/roblox', label: 'Roblox', roblox: true }];
+// Google Analytics 4 (property "Animal Battle Stats", web stream animalbattlestats.com).
+const GA_ID = 'G-NQ328W18LX';
 const graph = [
     {
         '@type': 'Organization',
@@ -103,6 +106,25 @@ const year = new Date().getFullYear();
         <meta name="twitter:image:alt" content={imageAlt} />
         <slot name="head" />
         <script type="application/ld+json" set:html={ldJson} />
+        {/* GA4: the queue is ready at once so pages can send events; gtag.js itself
+            loads after the page has finished loading, and only on the live site. */}
+        <script is:inline define:vars={{ GA_ID }}>
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function gtag() { window.dataLayer.push(arguments); };
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID);
+            (function () {
+                if (!/(^|\.)animalbattlestats\.com$/.test(location.hostname) || navigator.webdriver) return;
+                function load() {
+                    var script = document.createElement('script');
+                    script.async = true;
+                    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+                    document.head.appendChild(script);
+                }
+                function later() { (window.requestIdleCallback || setTimeout)(load, { timeout: 2500 }); }
+                if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true });
+            })();
+        </script>
     </head>
     <body class={`game bio-${biome} ${bodyClass}`.trim()}>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -159,7 +181,8 @@ const year = new Date().getFullYear();
             <nav aria-label="All pages">
                 <a href="/"><Icon name="home" size={26} />Home</a>
                 <a href="/rewards"><Icon name="gift" size={26} />Rewards &amp; shop</a>
-                {MENU.map((item) => <a href={item.href}><Icon name={item.icon} size={26} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label === 'Tourney' ? 'Tournament' : item.label}</a>)}
+                <a href="/shows"><Icon name="tv" size={26} />ABS Originals (shows)</a>
+                {MENU.filter((item) => item.key !== 'shows').map((item) => <a href={item.href}><Icon name={item.icon} size={26} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label === 'Tourney' ? 'Tournament' : item.label}</a>)}
                 <a href="/roblox"><span class="sheet-mark"><RobloxMark size={18} /></span>{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
                 <a href="/about"><Icon name="book" size={26} />About &amp; how ratings work</a>
                 <a href="/credits"><Icon name="scroll" size={26} />Sources &amp; photo credits</a>

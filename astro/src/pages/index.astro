@@ -21,6 +21,7 @@ const title = `${SITE.name}: The Animal Powerscaling Database (${animals.length}
 const description = `Who would win? Research-backed battle stats, tier lists and power rankings for ${animals.length} real animals, with sources on every profile. Compare any matchup and watch the fight. ${ROBLOX.live ? 'Now on Roblox.' : 'Coming to Roblox.'}`;
 const MENU = [
     { href: '/compare', label: 'Who would win?', sub: 'Pick two animals and fight', icon: 'vs', cls: 'btn-hot primary' },
+    { href: '/shows', label: 'Shows', sub: 'ABS Originals: watch & earn BattlePoints', icon: 'tv', badge: 'New' },
     { href: '/stats', label: 'Animals', sub: `${animals.length} fighters, full stats`, icon: 'paw' },
     { href: '/tier-list', label: 'Tier list', sub: `S to F, all ${animals.length}`, icon: 'crown' },
     { href: '/rankings', label: 'Rankings', sub: 'Strongest, fastest, biggest', icon: 'medal' },
@@ -65,7 +66,7 @@ const jsonLd = [
                 {MENU.map((item) => (
                     <a class={`mm ${item.cls || ''}`} href={item.href}>
                         <Icon name={item.icon} size={40} />
-                        <span><b>{item.label}</b><small>{item.sub}</small></span>
+                        <span><b>{item.label}{item.badge && <em class="mm-new">{item.badge}</em>}</b><small>{item.sub}</small></span>
                     </a>
                 ))}
             </nav>
@@ -179,9 +180,16 @@ const jsonLd = [
     new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) run(); else stop(); }).observe(carousel);
     document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else run(); });
     run();
+    // Dragging the ring must never pick up a card's picture or link (the browser's
+    // own drag and drop, which showed a ghost image and the page address).
+    carousel.querySelectorAll('a, img').forEach((node) => node.setAttribute('draggable', 'false'));
+    carousel.addEventListener('dragstart', (event) => event.preventDefault());
     carousel.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') hovering = true; });
     carousel.addEventListener('pointerleave', () => { hovering = false; });
     carousel.addEventListener('pointerdown', (event) => {
+        if (event.button !== 0) return;
+        // No text selection or native drag from a mouse press; taps still click.
+        if (event.pointerType === 'mouse') event.preventDefault();
         dragging = true;
         fling = 0;
         lastX = event.clientX;
@@ -267,6 +275,7 @@ const jsonLd = [
     .mm small { font-size: 0.74rem; color: var(--text-2); }
     .mm.primary { --c1: #ffa24d; --c2: #ff5f00; --edge: #a13a00; color: #1d0800; padding: 14px 18px; }
     .mm.primary small { color: #3b1500; }
+    .mm-new { display: inline-block; margin-left: 8px; padding: 1px 7px 2px; font-style: normal; font-family: var(--font-body); font-size: 0.62rem; font-weight: 900; letter-spacing: 0.08em; vertical-align: middle; color: #221600; background: linear-gradient(180deg, #fff08a, #ffbf00); border-radius: 999px; transform: skewX(6deg) translateY(-2px); }
     .mm.primary b { font-size: clamp(1.5rem, 2.2vw, 2rem); }
     .home-search { cursor: text; gap: 10px; color: var(--muted); text-align: left; }
     .home-search span { flex: 1; }
@@ -276,6 +285,7 @@ const jsonLd = [
     .carousel::before { content: ""; position: absolute; left: 12%; right: 12%; bottom: 6%; height: 22%; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 190, 90, 0.35), rgba(0, 212, 255, 0.12) 55%, transparent 75%); transform: perspective(500px) rotateX(66deg); }
     .carousel::after { content: ""; position: absolute; left: 50%; top: -10%; width: 60%; height: 90%; transform: translateX(-50%); background: conic-gradient(from 180deg at 50% 0%, transparent 42%, rgba(255, 220, 150, 0.10) 47%, rgba(255, 220, 150, 0.18) 50%, rgba(255, 220, 150, 0.10) 53%, transparent 58%); pointer-events: none; }
     .carousel:active { cursor: grabbing; }
+    .carousel :global(a), .carousel :global(img) { -webkit-user-drag: none; -webkit-touch-callout: none; user-select: none; }
     .ring { position: relative; z-index: 1; width: 196px; height: 261px; transform-style: preserve-3d; will-change: transform; }
     .slot { position: absolute; inset: 0; transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--radius)); backface-visibility: hidden; }
     /* Twelve cards turning in 3D: no pointer tilt, pulse or moving foil on them

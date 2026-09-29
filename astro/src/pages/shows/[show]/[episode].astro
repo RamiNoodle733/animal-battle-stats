@@ -1,0 +1,156 @@
+---
+// /shows/<show>/<episode>: one episode. The player (YouTube, loaded on tap)
+// pays the watch reward once the episode has played through, then offers the
+// next episode; the transcript, cast and links to the episode on every platform
+// sit around it.
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import AnimalImage from '../../../components/AnimalImage.astro';
+import PlatformIcon from '../../../components/PlatformIcon.astro';
+import FollowPanel from '../../../components/FollowPanel.astro';
+import '../../../styles/shows.css';
+import { SHOWS, WATCH_REWARD, poster, posterSet, logo, clock, neighbours, speakers, episodeLd, videoObject, seriesLd, breadcrumbs, youtubeWatch, youtubeShort, tiktokVideo, xPost, PLATFORMS, socialCard } from '../../../lib/shows.js';
+import { SITE } from '../../../lib/site.js';
+
+export function getStaticPaths() {
+    return SHOWS.flatMap((show) => show.episodes.map((episode) => ({ params: { show: show.slug, episode: episode.slug }, props: { show, episode } })));
+}
+
+const { show, episode } = Astro.props;
+const { previous, next } = neighbours(episode);
+const cast = speakers(episode);
+const castCards = cast.filter((entry) => entry.cast?.art);
+const guests = cast.filter((entry) => !entry.cast).map((entry) => entry.name);
+const title = `${show.name} Episode ${episode.number}: ${episode.title} | ABS Originals`;
+const description = `${episode.hook}. ${episode.summary}`.replace(/\.\./g, '.').slice(0, 300);
+const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>';
+const jsonLd = [
+    episodeLd(episode, show),
+    videoObject(episode, show),
+    seriesLd(show, { withEpisodes: false }),
+    breadcrumbs([['Home', '/'], ['Shows', '/shows'], [show.name, show.url], [`Episode ${episode.number}: ${episode.title}`, episode.url]])
+];
+---
+
+<Base title={title} description={description} path={episode.url} image={socialCard(episode.id)} imageAlt={`${show.name} episode ${episode.number}: ${episode.title}`} type="video.episode" jsonLd={jsonLd} active="shows" biome={show.slug === 'fastest' ? 'savanna' : show.slug === 'deduction' ? 'mountains' : 'desert'} seed={episode.number * 5}>
+    <Fragment slot="head">
+        <meta property="og:video" content={`https://www.youtube.com/embed/${episode.youtube}`} />
+        <meta property="video:series" content={show.name} />
+        <meta property="video:duration" content={String(episode.seconds)} />
+        <link rel="preconnect" href="https://i.ytimg.com" />
+    </Fragment>
+    <div class="sw" style={`--show:${show.accent}`} data-shows-page data-show={show.slug} data-episode={episode.id}>
+        <nav class="sw-crumbs" aria-label="Breadcrumb"><a href="/shows">Shows</a><span aria-hidden="true">/</span><a href={show.url}>{show.name}</a><span aria-hidden="true">/</span><span>Episode {episode.number}</span></nav>
+
+        <div class="ep-page">
+            <div class="ep-main">
+                <div class="player enter" data-player data-youtube={episode.youtube} data-episode={episode.id} data-seconds={episode.seconds} data-title={`${show.name} episode ${episode.number}: ${episode.title}`}>
+                    <button class="player-facade" type="button" data-play aria-label={`Play ${show.name} episode ${episode.number}: ${episode.title}`}>
+                        <img src={poster(episode.id)} srcset={posterSet(episode.id)} sizes="(max-width: 980px) 100vw, 760px" alt="" width="1280" height="720" fetchpriority="high" />
+                        <span class="play-disc" set:html={PLAY_SVG} />
+                        <span class="player-label"><span>Episode {episode.number} · {clock(episode.seconds)}</span><span class="reward-tag" data-reward-tag><img src="/images/icons/abs/coin.webp" alt="" width="14" height="14" />+{WATCH_REWARD.coins}</span></span>
+                    </button>
+                    {next && (
+                        <div class="up-next" data-up-next hidden>
+                            <div class="up-next-box">
+                                <span class="k">Up next</span>
+                                <img src={poster(next.id, true)} alt="" width="640" height="360" loading="lazy" />
+                                <b>Episode {next.number}: {next.title}</b>
+                                <p data-up-next-count>Starts in 8 seconds</p>
+                                <div class="btn-row" style="justify-content:center">
+                                    <a class="btn btn-hot" href={`${next.url}#play`} data-up-next-go><Icon name="tv" size={24} />Play now</a>
+                                    <button class="btn btn-sm" type="button" data-up-next-cancel>Stay here</button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    {!next && (
+                        <div class="up-next" data-up-next hidden>
+                            <div class="up-next-box">
+                                <span class="k">Season 1 finale</span>
+                                <img src={logo(show)} alt="" width="720" height="360" loading="lazy" style="box-shadow:none" />
+                                <b>You finished {show.name} season 1</b>
+                                <p>Season 2 is on the way. Follow ABS to see it first, or start another show.</p>
+                                <div class="btn-row" style="justify-content:center">
+                                    <a class="btn btn-hot" href="/shows"><Icon name="tv" size={24} />More shows</a>
+                                    <button class="btn btn-sm" type="button" data-up-next-cancel>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+                <section class="panel ep-info">
+                    <h1><small>{show.name} · Episode {episode.number}</small>{episode.title}</h1>
+                    <p class="ep-hook">{episode.hook}</p>
+                    <p class="sw-lede">{episode.summary}</p>
+                    <p class="ep-status" data-watch-status>
+                        <img src="/images/icons/abs/coin.webp" alt="" width="22" height="22" />
+                        <span data-watch-text>Watch to the end: +{WATCH_REWARD.coins} BattlePoints and +{WATCH_REWARD.xp} XP, once.</span>
+                    </p>
+                    <div class="ep-nav">
+                        {previous ? <a href={previous.url} rel="prev"><small>← Previous</small><b>Ep {previous.number}: {previous.title}</b></a> : <a href={show.url}><small>← Show</small><b>All {show.name} episodes</b></a>}
+                        {next ? <a href={next.url} rel="next"><small>Next →</small><b>Ep {next.number}: {next.title}</b></a> : <a href="/shows"><small>Next →</small><b>More ABS Originals</b></a>}
+                    </div>
+                    <div class="platforms" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr))">
+                        <a class="pf pf-youtube" href={youtubeWatch(episode.youtube)} target="_blank" rel="noopener" data-out="youtube"><PlatformIcon name="youtube" size={24} /><span class="pf-copy"><span>YouTube</span><small>Full episode</small></span></a>
+                        {episode.youtubeShort && <a class="pf pf-youtube" href={youtubeShort(episode.youtubeShort)} target="_blank" rel="noopener" data-out="youtube-short"><PlatformIcon name="youtube" size={24} /><span class="pf-copy"><span>Shorts</span><small>Vertical cut</small></span></a>}
+                        <a class="pf pf-tiktok" href={episode.tiktok ? tiktokVideo(episode.tiktok) : PLATFORMS.tiktok.url} target="_blank" rel="noopener" data-out="tiktok"><PlatformIcon name="tiktok" size={24} /><span class="pf-copy"><span>TikTok</span><small>{episode.tiktok ? 'This episode' : '@animalbattlestats_abs'}</small></span></a>
+                        {episode.x && <a class="pf pf-x" href={xPost(episode.x)} target="_blank" rel="noopener" data-out="x"><PlatformIcon name="x" size={24} /><span class="pf-copy"><span>X</span><small>Reply with your theory</small></span></a>}
+                    </div>
+                </section>
+
+                {episode.transcript.length > 0 && (
+                    <details class="panel sw-section transcript-box">
+                        <summary><h2 class="sw-h2"><img src="/images/icons/abs/scroll.webp" alt="" width="30" height="30" loading="lazy" />Transcript</h2></summary>
+                        <ol class="transcript">
+                            {episode.transcript.map((line) => <li><b>{line.who}</b><span>{line.text}</span></li>)}
+                        </ol>
+                    </details>
+                )}
+            </div>
+
+            <aside class="ep-side">
+                <section class="panel sw-section" aria-labelledby="in-ep-h">
+                    <h2 class="sw-h2" id="in-ep-h"><img src="/images/icons/abs/paw.webp" alt="" width="30" height="30" loading="lazy" />In this episode</h2>
+                    <div class="cast" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr))">
+                        {castCards.map(({ cast: character }) => (
+                            <a class="cast-card" href={`/stats/${character.art.slug}`} style="grid-template-rows:120px auto">
+                                <span class="cast-art"><AnimalImage animal={character.art} sizes="150px" alt={`${character.name} (${character.art.name})`} /></span>
+                                <span class="cast-copy"><b>{character.name}</b><small>{character.art.name} stats →</small></span>
+                            </a>
+                        ))}
+                    </div>
+                    {guests.length > 0 && <p class="sw-lede" style="font-size:0.85rem">Also: {guests.join(', ')}.</p>}
+                </section>
+
+                <section class="panel sw-section" aria-labelledby="eps-h">
+                    <div class="sw-head">
+                        <h2 class="sw-h2" id="eps-h"><img src={logo(show)} alt="" width="720" height="360" loading="lazy" style="width:auto;height:30px" />Season 1</h2>
+                        <span class="chip"><b data-count-for={show.slug}>0</b>&nbsp;/ {show.episodes.length} watched</span>
+                    </div>
+                    <ol class="ep-list compact">
+                        {show.episodes.map((entry) => (
+                            <li>
+                                <a class:list={['ep-item', { 'is-current': entry.id === episode.id }]} href={entry.url} data-ep-card={entry.id} aria-current={entry.id === episode.id ? 'page' : undefined}>
+                                    <span class="ep-thumb">
+                                        <img src={poster(entry.id, true)} alt="" width="640" height="360" loading="lazy" decoding="async" />
+                                        <span class="ep-no">EP {entry.number}</span>
+                                        <span class="ep-seen"><img src="/images/icons/abs/check.webp" alt="" width="16" height="16" loading="lazy" /></span>
+                                    </span>
+                                    <span class="ep-item-copy"><b>{entry.title}</b><p>{entry.hook}</p></span>
+                                </a>
+                            </li>
+                        ))}
+                    </ol>
+                </section>
+            </aside>
+        </div>
+
+        <FollowPanel heading="Follow ABS for the next episode" />
+    </div>
+</Base>
+
+<script>
+    import '../../../scripts/shows.js';
+</script>

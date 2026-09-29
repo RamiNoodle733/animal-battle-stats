@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.9.0 — 2026-09-29
+
+- **Shows.** The ABS Originals series have a home on the site: [/shows](https://animalbattlestats.com/shows) lists BREAKOUT, DEDUCTION and FASTEST, each show has its own page (season poster, every episode in order, the cast linked to their animal stat cards, the full season in one video, and links to every platform), and each of the 26 episodes has a page with the player, the transcript and "up next" when it ends. Shows is in the top menu, the phone dock and the home menu.
+- **Watch and earn.** Signed-in players earn 25 BattlePoints and 20 XP the first time they watch each episode to the end, a title for finishing each show (Escape Artist, Case Closed, Photo Finish), the ABS Originals card frame for all 26, and 30 BattlePoints for following Animal Battle Stats on each social account (the ABS Insider title after 3). Guests see their progress on their own device.
+- **Search and AI assistants.** Show and episode pages carry TV series, episode and video structured data with transcripts; the sitemap lists every episode as a video; llms.txt and llms-full.txt describe every show and episode. The site's links to its accounts now include TikTok, Facebook and LinkedIn. The About page description no longer shows a code placeholder.
+- **Google Analytics** is back (it stopped when the old app was removed): page views plus episode plays, completions, follow clicks and outbound show links. It loads after the page has finished loading.
+- **Names.** New usernames and display names are checked against the owner's rules (swearing, sexual words, LGBT words, other gods and idols, slurs, drugs, alcohol and gambling, and names like "admin"), with innocent words like Essex, Godzilla, raccoon and cockatoo allowed. Names that already break the rules are hidden from everyone as "Player 1a2b" until the player picks a new one. Chat and comments mask the same words.
+- **Admin.** The owner's account is an admin, and a new admin page lists players and the names to check, hides a name, restores it, renames a player, mutes or unmutes chat and comments, and gives moderators their role.
+- The home page card carousel no longer picks up card pictures and links when you drag it.
+
 ## 3.8.0 — 2026-09-29
 
 - 3 new animals join the roster, which grows from 341 to 344: Bushmaster, Goliath Grouper and Thresher Shark. Each has a full research profile and a credited photo of an adult animal from Wikimedia Commons.

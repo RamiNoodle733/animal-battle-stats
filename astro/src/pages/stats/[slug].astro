@@ -11,12 +11,14 @@ import {
 import { verdict, matchupHref } from '../../lib/matchups.js';
 import { creditFor } from '../../lib/credits.js';
 import { SITE, absoluteUrl } from '../../lib/site.js';
+import { rolesFor, logo as showLogo } from '../../lib/shows.js';
 
 export function getStaticPaths() {
     return animals.map((animal) => ({ params: { slug: animal.slug }, props: { animal } }));
 }
 
 const { animal } = Astro.props;
+const roles = rolesFor(animal.slug);
 const profile = animal.profile;
 const researched = animal.researched;
 const tier = tierInfo(animal.tier);
@@ -194,6 +196,12 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 
             <div class="pane scroll" id="pane-stats" role="tabpanel" aria-labelledby="tab-stats">
                 <p class="summary">{summary}</p>
+                {roles.map(({ show, character }) => (
+                    <a class="stars-in" href={show.url} style={`--show:${show.accent}`}>
+                        <img src={showLogo(show)} alt={show.name} width="720" height="360" loading="lazy" />
+                        <span><small>Stars in ABS Originals</small><b>{character.name}, {character.role.toLowerCase()}</b><span>{show.tagline} Watch free →</span></span>
+                    </a>
+                ))}
                 <div class="stats-split">
                     <Meters animal={animal} />
                     <div class="radar-box"><Radar animal={animal} size={250} /></div>

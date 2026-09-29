@@ -21,6 +21,7 @@ const { xpToNext } = require('../lib/xpSystem');
 const { waitUntil } = require('@vercel/functions');
 const { robloxSnapshot } = require('../lib/roblox-game');
 const { ITEM_BY_ID } = require('../lib/economy');
+const { publicName } = require('../lib/moderation');
 
 // Presence lives in Mongo (lib/models/Presence.js) so every serverless instance
 // sees the same visitors. Pages ping every ~45 seconds while visible, so a tab
@@ -558,7 +559,7 @@ async function handleLeaderboard(req, res) {
     const maxLimit = full === 'true' ? 100 : Math.min(parseInt(limit), 50);
 
     const users = await User.find({})
-        .select('username displayName profileAnimal level xp battlePoints lifetimeXp createdAt economy.title')
+        .select('username displayName profileAnimal level xp battlePoints lifetimeXp createdAt economy.title requiresUsernameChange')
         .sort({ level: -1, xp: -1, lifetimeXp: -1 })
         .limit(maxLimit)
         .lean();
@@ -571,7 +572,7 @@ async function handleLeaderboard(req, res) {
         
         return {
             rank: index + 1,
-            username: user.displayName || user.username,
+            username: publicName(user),
             profileAnimal: user.profileAnimal,
             level,
             xp: xpProgress,
@@ -616,7 +617,7 @@ async function handleGetPresence(req, res) {
 
     const users = members.length
         ? await User.find({ _id: { $in: members.map((row) => row.userId) } })
-            .select('username displayName profileAnimal')
+            .select('username displayName profileAnimal requiresUsernameChange')
             .lean()
         : [];
     const usersById = new Map(users.map((user) => [String(user._id), user]));
@@ -625,7 +626,7 @@ async function handleGetPresence(req, res) {
         const user = usersById.get(String(row.userId));
         if (!user) continue;
         onlineUsers.push({
-            username: user.displayName || user.username,
+            username: publicName(user),
             profileAnimal: user.profileAnimal || null,
             page: row.page || null
         });

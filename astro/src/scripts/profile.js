@@ -47,7 +47,7 @@ function paintCard(user, own) {
     $('[data-p-title]').hidden = !title;
     const name = user.displayName || user.username;
     $('[data-p-name]').textContent = name;
-    $('[data-p-handle]').textContent = `@${user.username}${user.role === 'admin' ? ' · Admin' : ''}`;
+    $('[data-p-handle]').textContent = `@${user.username}${user.role === 'admin' ? ' · Admin' : user.role === 'moderator' ? ' · Moderator' : ''}`;
     $('[data-p-rbx]').hidden = !user.robloxLinked;
     $('[data-p-level]').textContent = user.level || 1;
     const need = Number(user.xpToNext || user.xpNeeded) || 0;
@@ -70,7 +70,11 @@ function paintOwner(user) {
     const form = $('[data-p-form]');
     form.elements.displayName.value = user.displayName || user.username;
     form.elements.username.value = user.username;
-    $('[data-p-flag]').hidden = !user.requiresUsernameChange;
+    const flag = $('[data-p-flag]');
+    flag.hidden = !user.requiresUsernameChange;
+    if (user.requiresUsernameChange) flag.textContent = `${user.moderationReason || 'Your name needs a change before it can show to other players.'} Until then everyone else sees you as "Player ${String(user.id).slice(-4)}".`;
+    const adminLink = $('[data-p-admin]');
+    if (adminLink) adminLink.hidden = user.role !== 'admin' && user.role !== 'moderator';
     if (typeof user.usernameChangesRemaining === 'number') $('[data-p-rename]').textContent = `Your login name. ${user.usernameChangesRemaining} of 3 changes left this week.`;
     // Accounts made by Roblox sign-in have no email, so nothing to verify or notify.
     const hasEmail = user.hasEmail !== false;

@@ -1,0 +1,35 @@
+---
+// "Follow ABS" buttons for every social account, each paying BattlePoints once
+// (scripts/shows.js claims it when the button is used by a signed-in player).
+import PlatformIcon from './PlatformIcon.astro';
+import { PLATFORMS, FOLLOW_REWARD } from '../lib/shows.js';
+
+const { only = null, heading = 'Follow ABS for new episodes' } = Astro.props;
+const HANDLES = {
+    youtube: '@AnimalBattleStats',
+    tiktok: '@animalbattlestats_abs',
+    instagram: '@animalbattlestats',
+    facebook: 'Animal Battle Stats',
+    x: '@AnimalBattStats',
+    linkedin: 'Animal Battle Stats',
+    discord: 'Community server',
+    reddit: 'r/AnimalBattleStats'
+};
+const entries = Object.entries(PLATFORMS).filter(([key]) => !only || only.includes(key));
+---
+<section class="panel sw-section" aria-labelledby="follow-h">
+    <div class="sw-head">
+        <h2 class="sw-h2" id="follow-h"><img src="/images/icons/abs/friends.webp" alt="" width="30" height="30" loading="lazy" />{heading}</h2>
+        <span class="reward-tag"><img src="/images/icons/abs/coin.webp" alt="" width="14" height="14" loading="lazy" />+{FOLLOW_REWARD.coins} BattlePoints each</span>
+    </div>
+    <div class="platforms">
+        {entries.map(([key, platform]) => (
+            <a class={`pf pf-${key}`} href={platform.url} target="_blank" rel="noopener me" data-follow={key}>
+                <PlatformIcon name={key} size={26} />
+                <span class="pf-copy"><span>{platform.verb} on {platform.label}</span><small>{HANDLES[key]}</small></span>
+                <span class="reward-tag">+{FOLLOW_REWARD.coins}</span>
+                <span class="pf-done"><img src="/images/icons/abs/check.webp" alt="" width="18" height="18" loading="lazy" />Done</span>
+            </a>
+        ))}
+    </div>
+</section>

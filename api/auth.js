@@ -32,12 +32,14 @@ const crypto = require('crypto');
 const { notifyDiscord } = require('../lib/discord');
 const { verifyToken, signToken, verifyPurposeToken } = require('../lib/auth');
 const { robloxPlayerCard } = require('../lib/roblox-game');
-const { RewardError, buyItem, claimChest, claimDaily, claimPass, claimQuest, economyForUser, equipItem } = require('../lib/rewards');
+const { RewardError, awardUserReward, buyItem, claimChest, claimDaily, claimPass, claimQuest, economyForUser, equipItem, showsForUser } = require('../lib/rewards');
 const { ITEM_BY_ID, economySummary, normalizeEconomy } = require('../lib/economy');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
 const { consumeRateLimit, clearRateLimit, clientAddress } = require('../lib/distributed-rate-limit');
-const { validatePublicName } = require('../lib/moderation');
+const { hiddenName, isNameHidden, validatePublicName } = require('../lib/moderation');
+const { AdminError, ensureOwnerRole, flagBrokenName, isMuted, isOwnerAccount, listUsers, runAction, summary: adminSummary } = require('../lib/admin');
+const { EPISODE_BY_ID, FOLLOW_PLATFORMS, minWatchSeconds } = require('../lib/shows');
 const {
     normalizeNotificationPreferences,
     sendEmail,
@@ -272,6 +274,8 @@ function buildUserPayload(user) {
         avatar: user.avatar,
         role: user.role,
         requiresUsernameChange: Boolean(user.requiresUsernameChange),
+        moderationReason: user.requiresUsernameChange ? user.moderationReason || null : null,
+        mutedUntil: isMuted(user) ? user.mutedUntil : null,
         xp: user.xp || 0,
         level: user.level || 1,
         xpToNext: xpToNext(user.level || 1),
@@ -465,6 +469,26 @@ module.exports = async function handler(req, res) {
                     return res.status(405).json({ success: false, error: 'Method not allowed' });
                 }
                 return await handleFlagRename(req, res);
+
+            case 'admin':
+                if (req.method !== 'GET' && req.method !== 'POST') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleAdmin(req, res);
+
+            case 'shows':
+                if (req.method !== 'GET') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleShows(req, res);
+
+            case 'watch-start':
+            case 'watch':
+            case 'follow':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleShowReward(req, res, action);
             
             case 'user':
                 if (req.method !== 'GET') {
@@ -740,11 +764,13 @@ async function handleGoogleCallback(req, res) {
             );
         }
 
-        const username = await buildUniqueUsername(googleUsernameBase(googleProfile), 'google');
+        const googleBase = googleUsernameBase(googleProfile);
+        const username = await buildUniqueUsername(validatePublicName(googleBase, { newName: true }).valid ? googleBase : '', 'google');
+        const googleName = String(googleProfile.name || '').slice(0, 30);
         const user = new User({
             username,
             email: googleProfile.email,
-            displayName: String(googleProfile.name || username).slice(0, 30),
+            displayName: googleName && validatePublicName(googleName, { newName: true }).valid ? googleName : username,
             emailVerified: true,
             authProviders: [{
                 provider: GOOGLE_PROVIDER,
@@ -1016,9 +1042,9 @@ async function handleRobloxCallback(req, res) {
         }
 
         // First Roblox sign-in: a new account named after the Roblox player.
-        const preferred = validatePublicName(robloxProfile.username).valid ? robloxProfile.username : '';
+        const preferred = validatePublicName(robloxProfile.username, { newName: true }).valid ? robloxProfile.username : '';
         const username = await buildUniqueUsername(preferred, 'roblox');
-        const displayName = validatePublicName(robloxProfile.displayName).valid ? robloxProfile.displayName : username;
+        const displayName = validatePublicName(robloxProfile.displayName, { newName: true }).valid ? robloxProfile.displayName : username;
         const user = new User({
             username,
             email: `roblox-${robloxProfile.sub}@${NO_EMAIL_DOMAIN}`,
@@ -1242,7 +1268,7 @@ async function handleSignup(req, res) {
         return res.status(400).json({ success: false, error: 'Please provide a valid email address' });
     }
 
-    const usernameModeration = validatePublicName(username);
+    const usernameModeration = validatePublicName(username, { newName: true });
     if (!usernameModeration.valid) {
         return res.status(400).json({ success: false, error: usernameModeration.error });
     }
@@ -1525,6 +1551,15 @@ async function handleMe(req, res) {
         return res.status(404).json({ success: false, error: 'User not found' });
     }
 
+    // The owner's account becomes an admin; a name that breaks the name rules
+    // asks its player to rename. Neither may break the page load.
+    try {
+        await ensureOwnerRole(user);
+        await flagBrokenName(user);
+    } catch (error) {
+        console.warn('me: moderation update failed:', error.message);
+    }
+
     res.status(200).json({
         success: true,
         data: {
@@ -1615,7 +1650,7 @@ async function handleUpdateProfile(req, res) {
             return res.status(400).json({ success: false, error: 'Username can only contain letters, numbers, and underscores' });
         }
 
-        const usernameModeration = validatePublicName(newUsername);
+        const usernameModeration = validatePublicName(newUsername, { newName: !isOwnerAccount(user) });
         if (!usernameModeration.valid) {
             return res.status(400).json({ success: false, error: usernameModeration.error });
         }
@@ -1675,7 +1710,7 @@ async function handleUpdateProfile(req, res) {
             return res.status(400).json({ success: false, error: 'Display name cannot exceed 30 characters' });
         }
 
-        const displayNameModeration = validatePublicName(newDisplayName);
+        const displayNameModeration = validatePublicName(newDisplayName, { newName: !isOwnerAccount(user) });
         if (!displayNameModeration.valid) {
             return res.status(400).json({ success: false, error: displayNameModeration.error });
         }
@@ -1687,15 +1722,20 @@ async function handleUpdateProfile(req, res) {
     // Clear forced rename moderation once the user has successfully saved allowed
     // public names. This only updates moderation metadata and keeps account history,
     // XP, votes, comments, and other linked records intact.
+    // An admin's censor clears only once each censored name has actually changed.
     if (user.requiresUsernameChange && publicNameChanged) {
         const usernameModeration = validatePublicName(user.username);
         const displayNameModeration = validatePublicName(user.displayName || user.username);
+        const usernameChanged = !user.previousModeratedUsername || user.username !== user.previousModeratedUsername;
+        const displayNameChanged = !user.previousModeratedDisplayName || (user.displayName || user.username) !== user.previousModeratedDisplayName;
 
-        if (usernameModeration.valid && displayNameModeration.valid) {
+        if (usernameModeration.valid && displayNameModeration.valid && usernameChanged && displayNameChanged) {
             user.requiresUsernameChange = false;
             user.moderationReason = null;
             user.moderatedAt = null;
             user.moderatedBy = null;
+            user.previousModeratedUsername = null;
+            user.previousModeratedDisplayName = null;
         }
     }
 
@@ -1794,6 +1834,7 @@ async function handleFlagRename(req, res) {
     targetUser.moderatedAt = new Date();
     targetUser.moderatedBy = adminUser._id;
     targetUser.previousModeratedUsername = targetUser.username;
+    targetUser.previousModeratedDisplayName = targetUser.displayName || targetUser.username;
 
     await targetUser.save();
 
@@ -1941,14 +1982,17 @@ async function handleGetPublicProfile(req, res) {
     // XP calculations
     const xpProgress = user.xp || 0;
     const xpNeeded = xpToNext(user.level || 1);
+    // A censored name, or one that breaks the name rules, is never shown.
+    const hidden = isNameHidden(user);
 
     // Return public profile data (no sensitive info like email)
     res.status(200).json({
         success: true,
         data: {
             user: {
-                username: user.username,
-                displayName: user.displayName || user.username,
+                username: hidden ? hiddenName(user).replace(' ', '_').toLowerCase() : user.username,
+                displayName: hidden ? hiddenName(user) : user.displayName || user.username,
+                hidden,
                 profileAnimal: user.profileAnimal || null,
                 level: user.level || 1,
                 prestige: user.prestige || 0,
@@ -1966,4 +2010,119 @@ async function handleGetPublicProfile(req, res) {
             }
         }
     });
+}
+
+// ==================== ADMIN (/admin) ====================
+// GET  ?action=admin&op=summary|users&filter=&q=&page=  players and name checks
+// POST ?action=admin { op: censor|restore|mute|unmute|rename|role, userId, ... }
+// Admins and moderators only (lib/admin.js says who can do what).
+async function handleAdmin(req, res) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) {
+        return res.status(401).json({ success: false, error: 'Authentication required' });
+    }
+    const actor = await User.findById(authUser.id);
+    if (!actor) {
+        return res.status(401).json({ success: false, error: 'Authentication required' });
+    }
+    await ensureOwnerRole(actor);
+    if (actor.role !== 'admin' && actor.role !== 'moderator') {
+        return res.status(403).json({ success: false, error: 'Admins only' });
+    }
+
+    try {
+        if (req.method === 'GET') {
+            const op = String(req.query.op || 'users');
+            if (op === 'summary') {
+                return res.status(200).json({ success: true, data: { ...(await adminSummary()), you: { role: actor.role, owner: isOwnerAccount(actor) } } });
+            }
+            if (op === 'check') {
+                // Try a name against the name rules without saving anything.
+                const name = String(req.query.name || '').slice(0, 40);
+                const asNew = validatePublicName(name, { newName: true });
+                const asExisting = validatePublicName(name);
+                return res.status(200).json({ success: true, data: { name, allowed: asNew.valid, category: asNew.category || null, reservedOnly: !asNew.valid && asExisting.valid } });
+            }
+            const data = await listUsers({ q: req.query.q, filter: String(req.query.filter || 'all'), page: req.query.page });
+            return res.status(200).json({ success: true, data });
+        }
+
+        const budget = await consumeRateLimit({ scope: 'admin-action', identity: String(actor._id), max: 120, windowMs: 60 * 1000 });
+        if (!budget.allowed) {
+            return res.status(429).json({ success: false, error: 'Too many changes at once. Wait a minute.' });
+        }
+        const user = await runAction(actor, req.body || {});
+        console.log(`admin: ${actor.username} ${String(req.body?.op || '')} ${user.username}`);
+        return res.status(200).json({ success: true, data: { user } });
+    } catch (error) {
+        if (error instanceof AdminError) {
+            return res.status(error.status).json({ success: false, error: error.message });
+        }
+        throw error;
+    }
+}
+
+// ==================== ABS ORIGINALS (/shows) ====================
+// What the signed-in player has watched and followed.
+async function handleShows(req, res) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) {
+        return res.status(401).json({ success: false, error: 'Authentication required' });
+    }
+    const user = await User.findById(authUser.id).select('economy');
+    if (!user) {
+        return res.status(404).json({ success: false, error: 'User not found' });
+    }
+    return res.status(200).json({ success: true, data: showsForUser(user) });
+}
+
+const WATCH_PURPOSE = 'episode-watch';
+
+// watch-start { episode } -> a signed ticket; watch { ticket } pays once the
+// episode has had time to play (most of its length); follow { platform } pays
+// once per social account.
+async function handleShowReward(req, res, action) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) {
+        return res.status(401).json({ success: false, error: 'Log in to earn BattlePoints.' });
+    }
+    const body = req.body || {};
+
+    try {
+        if (action === 'watch-start') {
+            const episode = EPISODE_BY_ID.get(String(body.episode || ''));
+            if (!episode) return res.status(400).json({ success: false, error: 'Unknown episode' });
+            const ticket = signToken({ purpose: WATCH_PURPOSE, uid: String(authUser.id), ep: episode.id, at: Date.now() }, { expiresIn: '6h' });
+            return res.status(200).json({ success: true, data: { ticket, minSeconds: minWatchSeconds(episode) } });
+        }
+
+        if (action === 'watch') {
+            const ticket = verifyPurposeToken(body.ticket, WATCH_PURPOSE);
+            const episode = ticket ? EPISODE_BY_ID.get(ticket.ep) : null;
+            if (!ticket || !episode || ticket.uid !== String(authUser.id)) {
+                return res.status(400).json({ success: false, error: 'Play the episode to earn its reward.' });
+            }
+            const waited = (Date.now() - Number(ticket.at)) / 1000;
+            if (!(waited >= minWatchSeconds(episode))) {
+                return res.status(409).json({ success: false, error: 'Watch the episode to the end to earn its reward.' });
+            }
+            const result = await awardUserReward({ userId: authUser.id, action: 'episode_watch', sourceId: episode.id });
+            return res.status(200).json({ success: true, data: { ...result, episode: episode.id } });
+        }
+
+        const platform = String(body.platform || '');
+        if (!FOLLOW_PLATFORMS.includes(platform)) {
+            return res.status(400).json({ success: false, error: 'Unknown account' });
+        }
+        const result = await awardUserReward({ userId: authUser.id, action: 'social_follow', sourceId: platform });
+        return res.status(200).json({ success: true, data: { ...result, platform } });
+    } catch (error) {
+        if (error instanceof RewardError) {
+            return res.status(error.status).json({ success: false, error: error.message });
+        }
+        throw error;
+    }
 }

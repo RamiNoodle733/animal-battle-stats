@@ -2568,6 +2568,30 @@
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
       "modified": "Background removed and cropped"
+    },
+    "red-eared-slider": {
+      "title": "2018. Животные в Донецке 02.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:2018._%D0%96%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D0%B5_%D0%B2_%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D0%BA%D0%B5_02.jpg",
+      "artist": "Andrey Butko (1978–)",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "humboldt-squid": {
+      "title": "Sanc1686 - Flickr - NOAA Photo Library.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Sanc1686_-_Flickr_-_NOAA_Photo_Library.jpg",
+      "artist": "Rick Starr. Credit: NOAA/CBNMS.",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "russian-tortoise": {
+      "title": "Testudo horsfieldii; Baikonur 001.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Testudo_horsfieldii%3B_Baikonur_001.jpg",
+      "artist": "Yuriy75",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": "Background removed and cropped"
     }
   }
 }

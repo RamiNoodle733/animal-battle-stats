@@ -2616,6 +2616,22 @@
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
       "modified": "Background removed and cropped"
+    },
+    "fancy-rat": {
+      "title": "A curled up male Fancy Rat.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:A_curled_up_male_Fancy_Rat.jpg",
+      "artist": "Wikieditor019",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "modified": "Background removed and cropped"
+    },
+    "guinea-pig": {
+      "title": "Cochon d'Inde (Cavia porcellus) (1).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Cochon_d%27Inde_%28Cavia_porcellus%29_%281%29.jpg",
+      "artist": "Gzen92",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
     }
   }
 }

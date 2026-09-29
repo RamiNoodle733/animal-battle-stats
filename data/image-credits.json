@@ -2592,6 +2592,30 @@
       "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "modified": "Background removed and cropped"
+    },
+    "canary": {
+      "title": "Serinus canaria -Parque Rural del Nublo, Gran Canaria, Spain -male-8a.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Serinus_canaria_-Parque_Rural_del_Nublo%2C_Gran_Canaria%2C_Spain_-male-8a.jpg",
+      "artist": "Juan Emilio",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "modified": "Background removed and cropped"
+    },
+    "chinchilla": {
+      "title": "Langschwanz-Chinchilla (Zoo Hoyerswerda).jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Langschwanz-Chinchilla_%28Zoo_Hoyerswerda%29.jpg",
+      "artist": "Fiver, der Hellseher",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
+    },
+    "eclectus-parrot": {
+      "title": "Eclectus parrot (Eclectus roratus) female, Gembira Loka Zoo, Yogyakarta, 2015-03-15 02.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Eclectus_parrot_%28Eclectus_roratus%29_female%2C_Gembira_Loka_Zoo%2C_Yogyakarta%2C_2015-03-15_02.jpg",
+      "artist": "Crisco 1492",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": "Background removed and cropped"
     }
   }
 }

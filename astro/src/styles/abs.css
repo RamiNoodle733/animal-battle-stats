@@ -1126,6 +1126,7 @@ body.game {
 .look-frame.frame_lava { --lf: linear-gradient(135deg, #3c0600, #ff6b00 30%, #ffc23a 50%, #ff3d00 72%, #3c0600); --lf-glow: rgba(255, 90, 20, 0.55); }
 .look-frame.frame_aurora { --lf: linear-gradient(120deg, #3ce6c8, #9664ff, #5aff96, #3ce6c8); --lf-glow: rgba(60, 230, 200, 0.45); background-size: 300% 300%; animation: lf-shift 6s linear infinite; }
 .look-frame.frame_prism { --lf: linear-gradient(120deg, #ff4f9a, #ffb13a, #fff25a, #4dff9a, #3ad0ff, #9a6bff, #ff4f9a); --lf-glow: rgba(255, 255, 255, 0.35); background-size: 300% 300%; animation: lf-shift 4s linear infinite; }
+/* frame_oracle is shown as "Eagle Eye", frame_aurora as "Northern Lights" (ids kept for owned items). */
 .look-frame.frame_oracle { --lf: linear-gradient(135deg, #1b0b3a, #b08cff 35%, #ffffff 50%, #b08cff 65%, #1b0b3a); --lf-glow: rgba(176, 140, 255, 0.5); }
 .look-frame.frame_streak { --lf: repeating-linear-gradient(120deg, #ff9628 0 10px, #ffe678 10px 20px); --lf-glow: rgba(255, 150, 40, 0.45); }
 .look-frame.frame_loyal { --lf: linear-gradient(135deg, #005a78, #00d4ff 35%, #3cdc8c 60%, #ffffff 80%, #005a78); --lf-glow: rgba(60, 220, 140, 0.45); }

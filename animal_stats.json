@@ -1325,7 +1325,7 @@
     "size": "Medium",
     "size_score": 34.5,
     "special_abilities": [
-      "Ghostwing Approach",
+      "Silent-Wing Approach",
       "Sound-Sight Strike"
     ],
     "speed_mps": 0,
@@ -1679,7 +1679,7 @@
     "size": "Large",
     "size_score": 50.6,
     "special_abilities": [
-      "Prairie Juggernaut",
+      "Prairie Bulldozer",
       "Blizzard Breaker"
     ],
     "speed_mps": 15.3,
@@ -2065,7 +2065,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Deep Ocean",
-      "combat_style": "Titan",
+      "combat_style": "Heavyweight",
       "strengths": [
         "Unfathomable size",
         "Thick skin",
@@ -2078,7 +2078,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Titan",
+    "class": "Heavyweight",
     "createdAt": "2025-12-02T23:27:42.328Z",
     "defense": 91,
     "description": "The blue whale is the living size ceiling: a roughly 120-ton adult female built around immense body mass, powerful flukes and the most extreme lunge-feeding apparatus on Earth.",
@@ -2098,7 +2098,7 @@
     "size_score": 98.2,
     "special_abilities": [
       "Ocean-Scale Resonance",
-      "Titanic Lunge"
+      "Massive Lunge"
     ],
     "speed_mps": 7.5,
     "stamina": 87,
@@ -2119,7 +2119,7 @@
     "type": "Mammal",
     "unique_traits": [
       "Living Mass Ceiling",
-      "Rolling Colossus"
+      "Rolling Giant"
     ],
     "updatedAt": "2026-09-27T00:00:00.000Z",
     "weight_kg": 120000,
@@ -2768,7 +2768,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
-      "combat_style": "Berserker",
+      "combat_style": "Brawler",
       "strengths": [
         "Distinctive appearance",
         "Suited to its habitat"
@@ -2779,7 +2779,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Berserker",
+    "class": "Brawler",
     "createdAt": "2025-12-02T23:27:42.719Z",
     "defense": 3,
     "description": "The camel spider is a fast, venomless desert arachnid built around oversized paired jaws, adhesive prey-gripping pedipalps and unusual chemical-sensing organs.",
@@ -2992,7 +2992,7 @@
     "class": "Support",
     "createdAt": "2025-12-02T23:27:42.844Z",
     "defense": 29,
-    "description": "The capybara is the world's largest living rodent, a roughly 50-plus-kilogram South American grazer whose real combat edge is not brute-force mythology but a combination of large incisors, stable…",
+    "description": "The capybara is the world's largest living rodent, a roughly 50-plus-kilogram South American grazer whose real combat edge is not brute-force exaggeration but a combination of large incisors, stable…",
     "diet": [
       "grass",
       "aquatic plants"
@@ -3480,7 +3480,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
-      "combat_style": "Bard",
+      "combat_style": "Loudmouth",
       "strengths": [
         "Distinctive appearance",
         "Suited to its habitat"
@@ -3491,7 +3491,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Bard",
+    "class": "Loudmouth",
     "createdAt": "2025-12-02T23:27:43.158Z",
     "defense": 13,
     "description": "The sulphur-crested cockatoo is a large, highly intelligent Australian parrot built around flight, a powerful hooked bill, dexterous feet and extraordinary behavioral flexibility.",
@@ -3811,7 +3811,7 @@
     },
     "type": "Mammal",
     "unique_traits": [
-      "Ghost-Range Generalist",
+      "Wide-Range Generalist",
       "Cache-and-Return Hunter"
     ],
     "updatedAt": "2026-09-27T00:00:00.000Z",
@@ -3970,7 +3970,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
-      "combat_style": "Mage",
+      "combat_style": "Mastermind",
       "strengths": [
         "Distinctive appearance",
         "Suited to its habitat"
@@ -3981,7 +3981,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Mage",
+    "class": "Mastermind",
     "createdAt": "2025-12-02T23:28:17.218Z",
     "defense": 18,
     "description": "The common cuttlefish is a 2-3 kg cephalopod built around deception, precision and behavioral flexibility rather than brute force.",
@@ -5169,7 +5169,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Savannas",
-      "combat_style": "Speed Demon",
+      "combat_style": "Speedster",
       "strengths": [
         "incredible speed",
         "pronking behavior",
@@ -5181,7 +5181,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Speed Demon",
+    "class": "Speedster",
     "createdAt": "2025-12-02T23:27:44.088Z",
     "defense": 22,
     "description": "The Dorcas gazelle is a lightweight desert escape specialist. A representative mature male weighs about 16.5 kg and carries 25–28 cm curved horns, but its real battle advantage is evasive mobility…",
@@ -6795,7 +6795,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Scrubland",
-      "combat_style": "Berserker",
+      "combat_style": "Brawler",
       "strengths": [
         "Fearless aggression",
         "Loose tough skin",
@@ -6808,7 +6808,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Berserker",
+    "class": "Brawler",
     "createdAt": "2025-12-02T23:27:44.913Z",
     "defense": 45,
     "description": "The honey badger is a compact, wide-ranging mustelid built for excavation and stubborn close combat.",
@@ -6937,7 +6937,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
-      "combat_style": "Bard",
+      "combat_style": "Loudmouth",
       "strengths": [
         "Distinctive appearance",
         "Suited to its habitat"
@@ -6948,7 +6948,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Bard",
+    "class": "Loudmouth",
     "createdAt": "2025-12-02T23:27:45.012Z",
     "defense": 20,
     "description": "The black-and-gold howler monkey is a slow-moving South American canopy primate built around grip, balance and communication rather than brute-force combat.",
@@ -8065,7 +8065,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
-      "combat_style": "Bard",
+      "combat_style": "Loudmouth",
       "strengths": [
         "Distinctive appearance",
         "Suited to its habitat"
@@ -8076,7 +8076,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Bard",
+    "class": "Loudmouth",
     "createdAt": "2025-12-02T23:27:45.618Z",
     "defense": 13,
     "description": "The Laughing Kookaburra is a large Australian kingfisher built for terrestrial ambush hunting.",
@@ -8185,7 +8185,7 @@
     },
     "type": "Mammal",
     "unique_traits": [
-      "Grey-Ghost Freeze",
+      "Grey-Shadow Freeze",
       "Ears Before Eyes"
     ],
     "updatedAt": "2026-09-27T00:00:00.000Z",
@@ -8627,7 +8627,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
-      "combat_style": "Bard",
+      "combat_style": "Loudmouth",
       "strengths": [
         "Distinctive appearance",
         "Suited to its habitat"
@@ -8638,7 +8638,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Bard",
+    "class": "Loudmouth",
     "createdAt": "2025-12-02T23:27:45.920Z",
     "defense": 17,
     "description": "The Scarlet Macaw is a ~1.2 kg Neotropical parrot whose battle value comes from aerial maneuverability, a disproportionately powerful hooked bill and elite learning ability rather than size.",
@@ -9260,7 +9260,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Open Ocean",
-      "combat_style": "Titan",
+      "combat_style": "Heavyweight",
       "strengths": [
         "Largest shark ever",
         "Bone-crushing bite",
@@ -9272,7 +9272,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Titan",
+    "class": "Heavyweight",
     "createdAt": "2025-12-02T23:27:46.300Z",
     "defense": 96,
     "description": "Megalodon was a gigantic otodontid shark whose fossil teeth, vertebrae and geochemistry reveal a warm-bodied apex macropredator.",
@@ -10821,7 +10821,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
-      "combat_style": "Bard",
+      "combat_style": "Loudmouth",
       "strengths": [
         "Distinctive appearance",
         "Suited to its habitat"
@@ -10832,7 +10832,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Bard",
+    "class": "Loudmouth",
     "createdAt": "2025-12-02T23:27:47.107Z",
     "defense": 19,
     "description": "The Indian Peacock is a 5 kg territorial male galliform whose spectacular 2.2 m breeding silhouette hides a practical close-range toolkit: strong legs, roughly 2.5 cm spurs, sharp vigilance and…",
@@ -12091,7 +12091,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Varied",
-      "combat_style": "Mage",
+      "combat_style": "Mastermind",
       "strengths": [
         "Distinctive appearance",
         "Suited to its habitat"
@@ -12102,7 +12102,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Mage",
+    "class": "Mastermind",
     "createdAt": "2025-12-02T23:27:47.885Z",
     "defense": 18,
     "description": "The Common Raven is a roughly 1.3 kg aerial generalist whose physical weapons are modest but whose flight control, endurance and cognition are exceptional.",
@@ -15620,7 +15620,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Snow Forest",
-      "combat_style": "Berserker",
+      "combat_style": "Brawler",
       "strengths": [
         "Incredible stamina",
         "Bone-crushing bite",
@@ -15633,7 +15633,7 @@
       ]
     },
     "bite_force_psi": 0,
-    "class": "Berserker",
+    "class": "Brawler",
     "createdAt": "2025-12-02T23:27:49.986Z",
     "defense": 40,
     "description": "The wolverine is a 16 kg snow-country powerhouse with bone-crushing jaws, crampon claws and snowshoe paws.",
@@ -16039,7 +16039,7 @@
     "name": "African Grey Parrot",
     "scientific_name": "Psittacus erithacus",
     "type": "Bird",
-    "class": "Mage",
+    "class": "Mastermind",
     "size": "Tiny",
     "biome": "JUNGLE",
     "habitat": "Lowland rainforest, forest edges, clearings and mangroves of central and West Africa",
@@ -16055,7 +16055,7 @@
     "battle_profile": {
       "preferred_range": "Mid range",
       "primary_environment": "African Rainforest Canopy",
-      "combat_style": "Mage",
+      "combat_style": "Mastermind",
       "strengths": [
         "Exceptional memory and problem solving",
         "Nut-cracking bill",
@@ -16532,7 +16532,7 @@
     "name": "Basking Shark",
     "scientific_name": "Cetorhinus maximus",
     "type": "Fish",
-    "class": "Titan",
+    "class": "Heavyweight",
     "size": "Colossal",
     "biome": "OCEAN",
     "habitat": "Cool temperate coastal and open seas worldwide",
@@ -16547,7 +16547,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Open Ocean",
-      "combat_style": "Titan",
+      "combat_style": "Heavyweight",
       "strengths": [
         "Huge four-tonne body",
         "Thick, abrasive skin",
@@ -16884,7 +16884,7 @@
     "name": "Betta Fish",
     "scientific_name": "Betta splendens",
     "type": "Fish",
-    "class": "Berserker",
+    "class": "Brawler",
     "size": "Tiny",
     "biome": "WETLANDS",
     "habitat": "Shallow marshes, floodplains, canals and rice paddies of Thailand and mainland Southeast Asia",
@@ -16900,7 +16900,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Shallow Rice Paddies",
-      "combat_style": "Berserker",
+      "combat_style": "Brawler",
       "strengths": [
         "Relentless territorial aggression",
         "Breathes air in oxygen-poor water",
@@ -17870,7 +17870,7 @@
     "name": "Canary",
     "scientific_name": "Serinus canaria",
     "type": "Bird",
-    "class": "Bard",
+    "class": "Loudmouth",
     "size": "Tiny",
     "biome": "FOREST",
     "habitat": "Laurel and pine forest, orchards and gardens of the Canary Islands, Azores and Madeira",
@@ -17885,7 +17885,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Island woodland and gardens",
-      "combat_style": "Bard",
+      "combat_style": "Loudmouth",
       "strengths": [
         "Agile in cover",
         "Complex learned song",
@@ -18572,7 +18572,7 @@
     "name": "Elephant Seal",
     "scientific_name": "Mirounga leonina",
     "type": "Mammal",
-    "class": "Titan",
+    "class": "Heavyweight",
     "size": "Extra Large",
     "biome": "OCEAN",
     "habitat": "Southern Ocean, sub-Antarctic island beaches",
@@ -18586,7 +18586,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Deep ocean and breeding beaches",
-      "combat_style": "Titan",
+      "combat_style": "Heavyweight",
       "strengths": [
         "Colossal body mass",
         "Extreme diving endurance",
@@ -19754,7 +19754,7 @@
       "abilities": 80
     },
     "unique_traits": [
-      "Pink Ghost of the Slope",
+      "Pink Shadow of the Slope",
       "Neutral-Buoyancy Drifter"
     ],
     "updatedAt": "2026-09-28T00:00:00.000Z",
@@ -21092,7 +21092,7 @@
       "abilities": 60
     },
     "unique_traits": [
-      "Island Colossus",
+      "Island Giant",
       "Isolated Island Population"
     ],
     "updatedAt": "2026-09-28T00:00:00.000Z",
@@ -21798,7 +21798,7 @@
       "abilities": 77
     },
     "unique_traits": [
-      "Ghost of the Forest",
+      "Shadow of the Forest",
       "Extreme Size Gap Between Sexes"
     ],
     "updatedAt": "2026-09-28T00:00:00.000Z",
@@ -23011,7 +23011,7 @@
     "name": "Sperm Whale",
     "scientific_name": "Physeter macrocephalus",
     "type": "Mammal",
-    "class": "Titan",
+    "class": "Heavyweight",
     "size": "Colossal",
     "biome": "OCEAN",
     "habitat": "Deep open ocean, continental slopes and canyons",
@@ -23026,7 +23026,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Deep Ocean",
-      "combat_style": "Titan",
+      "combat_style": "Heavyweight",
       "strengths": [
         "Loudest biosonar on Earth",
         "Battering-ram forehead",
@@ -23331,7 +23331,7 @@
     "lifespan_years": 25,
     "special_abilities": [
       "Hookbill Nip",
-      "Flock Siren"
+      "Flock Alarm"
     ],
     "speed_mps": 0,
     "stamina": 62,
@@ -24064,7 +24064,7 @@
     "name": "Whale Shark",
     "scientific_name": "Rhincodon typus",
     "type": "Fish",
-    "class": "Titan",
+    "class": "Heavyweight",
     "size": "Colossal",
     "biome": "OCEAN",
     "habitat": "Warm open ocean and coastal plankton hotspots",
@@ -24079,7 +24079,7 @@
     "battle_profile": {
       "preferred_range": "Close",
       "primary_environment": "Open Ocean",
-      "combat_style": "Titan",
+      "combat_style": "Heavyweight",
       "strengths": [
         "Largest fish alive",
         "Very thick denticle-armored skin",

@@ -13,7 +13,7 @@
       "extinct": false,
       "summary": "The African savanna elephant is the living terrestrial heavyweight: a multi-tonne bull armed with tusks, crushing mass and exceptional sensory intelligence. It is difficult to disable and devastating at close range, but its immense size limits fine agility and it lacks exotic mechanisms such as venom or armor.",
       "narrative": [
-        "A prime African savanna elephant bull wins terrestrial matchups primarily through scale that remains biologically usable. The animal is not merely heavy. Its tusks project a penetrating weapon system in front of a massive head and shoulder complex, its feet support and can weaponize several tonnes of body mass, and its trunk adds tactile and olfactory precision. The same body that makes the elephant difficult to injure also limits tight evasive movement, so the profile should not inflate Agility merely because elephants can move quickly. Cognitively, elephants bring memory, assessment and sophisticated communication that distinguish them from similarly massive herbivores. Their battle profile is therefore an unusual combination of extreme terrestrial force and defense, high intelligence and senses, moderate agility, and no magical invulnerability."
+        "A prime African savanna elephant bull wins terrestrial matchups primarily through scale that remains biologically usable. The animal is not merely heavy. Its tusks project a penetrating weapon system in front of a massive head and shoulder complex, its feet support and can weaponize several tonnes of body mass, and its trunk adds tactile and olfactory precision. The same body that makes the elephant difficult to injure also limits tight evasive movement, so the profile should not inflate Agility merely because elephants can move quickly. Cognitively, elephants bring memory, assessment and sophisticated communication that distinguish them from similarly massive herbivores. Their battle profile is therefore an unusual combination of extreme terrestrial force and defense, high intelligence and senses, moderate agility, and no unrealistic invulnerability."
       ],
       "sections": {
         "habitat": "Savannas, grasslands, woodlands, scrub and semi-arid habitats across sub-Saharan Africa. The species remains broadly distributed but fragmented and pressured by habitat loss and poaching.",
@@ -1219,7 +1219,7 @@
         },
         {
           "name": "Blackwater Ambush",
-          "description": "Dark coloration, deep-water habitat, and an energy-conserving ambush strategy make the female difficult for suitable prey to detect before close-range attack. This is concealment and positioning, not magical invisibility."
+          "description": "Dark coloration, deep-water habitat, and an energy-conserving ambush strategy make the female difficult for suitable prey to detect before close-range attack. This is concealment and positioning, not true invisibility."
         }
       ],
       "traits": [
@@ -1746,7 +1746,7 @@
         }
       ],
       "combat": {
-        "weapons": "The jaws are the main weapon. A wolf closes distance, seizes with the teeth, tears tissue, and uses repeated bites plus body leverage. Against large prey, the crucial system is not one mythical bite-force number but repeated attack, mobility, selection of vulnerable regions, and, where multiple wolves participate, cooperative pressure.",
+        "weapons": "The jaws are the main weapon. A wolf closes distance, seizes with the teeth, tears tissue, and uses repeated bites plus body leverage. Against large prey, the crucial system is not one exaggerated bite-force number but repeated attack, mobility, selection of vulnerable regions, and, where multiple wolves participate, cooperative pressure.",
         "weaknesses": [
           "No passive armor or specialized trauma shield",
           "Close-range bite exposes the animal to counterattack",
@@ -2407,7 +2407,7 @@
       "summary": "The olive baboon is a 24 kg, highly social African primate whose mature males combine enlarged honed canines, grasping hands, strong terrain versatility and sophisticated opponent assessment. It lacks armor and cannot match large specialist predators in absolute power, but its agility, social intelligence and dangerous close-range bite make it a formidable mid-sized combatant.",
       "narrative": [
         "A mature male olive baboon is built around versatility rather than one overwhelming physical statistic. At roughly 24 kg, it is far smaller than a lion, alligator or large wolf and should never receive inflated strength merely because primates are impressive relative to body mass. What makes it dangerous is the interaction of several systems: a robust terrestrial frame, long male canines maintained by a honing premolar, grasping extremities, strong climbing competence, acute visual awareness and a brain continuously trained on social threats and opportunities.",
-        "In a fight, the baboon's best route is not trading raw force with a larger opponent. It benefits from mobility, intimidation, positional disruption and a rapid close-range canine attack. Grasping hands can help control position, but they should not be mythologized into human-style punching power or felid-like claw damage. Against a smaller or poorly armed opponent, the canine system is a major threat. Against a large carnivore or armored animal, the baboon's modest mass and lack of protection become decisive weaknesses.",
+        "In a fight, the baboon's best route is not trading raw force with a larger opponent. It benefits from mobility, intimidation, positional disruption and a rapid close-range canine attack. Grasping hands can help control position, but they should not be exaggerated into human-style punching power or felid-like claw damage. Against a smaller or poorly armed opponent, the canine system is a major threat. Against a large carnivore or armored animal, the baboon's modest mass and lack of protection become decisive weaknesses.",
         "Its intelligence deserves separation from troop power. Olive baboons track rank, relationships and social context, form coalitions and change aggressive behavior according to circumstances. Those facts support strong tactical cognition in a solo animal, but they do not justify adding the strength of 50 troopmates to its stats. Likewise, documented leopard mobbing demonstrates risk tolerance and coordinated defense rather than proving that one male routinely beats leopards.",
         "Ecologically, the species is unusually flexible. It can forage across savanna, steppe, woodland and forest margins, eat an exceptionally broad diet, walk kilometers per day and still climb effectively. That flexibility is why Agility, Stamina and Intelligence can all be strong even while Defense remains modest. In full-roster ABS scaling, the olive baboon should feel dangerous because of versatility and tactical close-range weapon use, not because its physical force has been exaggerated to great-ape or big-cat levels."
       ],
@@ -2726,7 +2726,7 @@
       "summary": "The European badger is a compact 13 kg digging specialist built for close-range resistance rather than speed. A mature male combines a heavy skull, strong jaws, prominent canines, powerful forequarters and long excavation claws with a low, difficult-to-topple body. It is an opportunistic omnivore rather than a dedicated big-prey hunter, so its combat strength should not be inflated by badger folklore. Its strongest advantages are toughness, ground-level stability, smell, persistent nightly movement and exceptional burrow engineering.",
       "narrative": [
         "The European badger is a useful example of why Animal Battle Stats must separate proportional impressiveness from absolute combat capability. For a 13 kg mammal it is exceptionally solid: short limbs brace a broad body, the neck is thick, the skull is heavy, the sagittal crest supports powerful jaw musculature, and the forelimbs are engineered to move earth. At grappling distance that package is dangerous. A comparable fragile animal cannot casually absorb a badger bite or control its low center of gravity.",
-        "But the badger is not a miniature wolverine with mythical durability. It lacks armor, has limited reach, is not a pursuit specialist and normally makes its living on earthworms, invertebrates, fruit and other opportunistic foods rather than killing large vertebrate prey. Wolves, lynxes and bears can prey on badgers where ranges overlap. That reality places its absolute Attack and Defense in the lower-middle of a roster containing large carnivores and megafauna.",
+        "But the badger is not a miniature wolverine with exaggerated durability. It lacks armor, has limited reach, is not a pursuit specialist and normally makes its living on earthworms, invertebrates, fruit and other opportunistic foods rather than killing large vertebrate prey. Wolves, lynxes and bears can prey on badgers where ranges overlap. That reality places its absolute Attack and Defense in the lower-middle of a roster containing large carnivores and megafauna.",
         "Its most distinctive biology lies in fossorial ecology. Badgers excavate elaborate setts, maintain familiar travel networks, use scent-marked territories and can cover several kilometers during nocturnal foraging. The result is an animal whose matchup improves in complex ground terrain where digging, stability and olfaction matter, while open high-speed pursuit and fights against much larger predators expose its limitations."
       ],
       "sections": {
@@ -3074,7 +3074,7 @@
       ],
       "abilities": [
         {
-          "name": "Ghostwing Approach",
+          "name": "Silent-Wing Approach",
           "description": "Specialized leading-edge, trailing-edge and velvet-like feather structures reduce flight noise, shrinking an opponent's acoustic warning window during a low-speed approach."
         },
         {
@@ -3564,7 +3564,7 @@
         }
       ],
       "combat": {
-        "weapons": "Primary weapon: a large, muscular cetacean body capable of forceful contact, shoving and ramming at close range. At 1.5 tonnes, body momentum matters more in absolute combat terms than the beluga's modest conical dentition.\n\nSecondary weapon: 32–40 conical teeth can grasp and wound at close range. They are not the specialized shearing teeth of an orca or shark and should not be assigned unsupported crushing-force mythology.",
+        "weapons": "Primary weapon: a large, muscular cetacean body capable of forceful contact, shoving and ramming at close range. At 1.5 tonnes, body momentum matters more in absolute combat terms than the beluga's modest conical dentition.\n\nSecondary weapon: 32–40 conical teeth can grasp and wound at close range. They are not the specialized shearing teeth of an orca or shark and should not be assigned unsupported crushing-force exaggeration.",
         "weaknesses": [
           "No rigid armor or specialized long weapon.",
           "Dentition is less destructive than that of large macropredatory marine opponents.",
@@ -3879,7 +3879,7 @@
       ],
       "abilities": [
         {
-          "name": "Prairie Juggernaut",
+          "name": "Prairie Bulldozer",
           "description": "A near-tonne bull can accelerate to surprisingly high speed and deliver a horned, head-first charge backed by immense forequarter mass. Matchup value is highest against opponents forced to contest frontal space."
         },
         {
@@ -4792,7 +4792,7 @@
           "description": "Blue whales produce powerful low-frequency calls suited to communication through the marine environment. This supports long-range awareness and coordination but is not treated as a damaging “sonic attack.”"
         },
         {
-          "name": "Titanic Lunge",
+          "name": "Massive Lunge",
           "description": "The expandable ventral-groove feeding apparatus allows an enormous mouthful of prey-laden water, with modeled engulfment exceeding 150,000 L in a 28 m animal. In ABS this represents exceptional whole-body acceleration, gape and hydrodynamic specialization, not a fabricated bite."
         }
       ],
@@ -4802,7 +4802,7 @@
           "description": "The blue whale is the largest living animal and therefore establishes the practical living-animal upper anchor for ABS body-size scaling."
         },
         {
-          "name": "Rolling Colossus",
+          "name": "Rolling Giant",
           "description": "Multi-sensor tags have recorded complete 360° rolling lunge maneuvers, demonstrating surprisingly sophisticated three-dimensional control for an animal roughly 25–30 m long."
         }
       ],
@@ -5408,7 +5408,7 @@
         },
         {
           "name": "Versatile Huntcraft",
-          "description": "Bottlenose dolphins learn and deploy locally specialized foraging techniques, including fishwhacking and, in Shark Bay populations, sponge-assisted foraging. The matchup value is behavioral flexibility rather than a magical damage bonus."
+          "description": "Bottlenose dolphins learn and deploy locally specialized foraging techniques, including fishwhacking and, in Shark Bay populations, sponge-assisted foraging. The matchup value is behavioral flexibility rather than an unrealistic damage bonus."
         }
       ],
       "traits": [
@@ -5531,7 +5531,7 @@
       "sourceFile": "animal-research-for-update/animals/box-jellyfish.md",
       "contentHash": "42ce09150e4b5005",
       "scientificName": "Chironex fleckeri",
-      "specimen": "healthy, sexually mature large medusa. Sex is not used as a combat-size selector because robust sex-specific adult size data are insufficient; adulthood and large mature medusa morphology matter more here.",
+      "specimen": "healthy, sexually mature large jellyfish. Sex is not used as a combat-size selector because robust sex-specific adult size data are insufficient; adulthood and large mature jellyfish morphology matter more here.",
       "specimenSex": "unspecified",
       "extinct": false,
       "summary": "The Australian box jellyfish is a physically fragile but biochemically extreme predator. A mature Chironex fleckeri uses dozens of nearly invisible tentacles packed with explosive nematocysts to inject fast-acting venom into fish, crustaceans and accidental human contacts. Its soft bell offers almost no armor, but active swimming, 24 eyes and a huge contact envelope make it far more capable than a passive drifting jelly.",
@@ -5541,14 +5541,14 @@
         "This produces deliberately polarized ratings. Raw Power, Protection and Toughness belong near the roster floor. Weaponry, Abilities and Special belong near the ceiling. Attack lands much lower than Special because ABS Attack asks about practical damage delivery across matchups, not the theoretical severity of one toxin system. Intelligence also stays low despite the fascinating 24-eye system because visual control is not equivalent to flexible cognition. This separation prevents one extraordinary feature from inflating every category."
       ],
       "sections": {
-        "habitat": "Australian Museum places the species in tropical Australian coastal waters from Western Australia through the Northern Territory to Queensland. Field/eDNA work demonstrates both coastal and estuarine use and distinct polyp versus medusa habitat patterns. The species should not be casually assigned a global tropical-ocean range simply because other box jellyfish occur elsewhere.",
+        "habitat": "Australian Museum places the species in tropical Australian coastal waters from Western Australia through the Northern Territory to Queensland. Field/eDNA work demonstrates both coastal and estuarine use and distinct polyp versus jellyfish habitat patterns. The species should not be casually assigned a global tropical-ocean range simply because other box jellyfish occur elsewhere.",
         "range": "",
-        "diet": "Carnivorous predator of small fish and crustaceans. Juveniles initially consume smaller planktonic prey, then shift toward larger crustaceans/fish as tentacle and nematocyst systems develop. Large medusae can move between coastal and estuarine habitats and are not merely current-driven plankton.",
+        "diet": "Carnivorous predator of small fish and crustaceans. Juveniles initially consume smaller planktonic prey, then shift toward larger crustaceans/fish as tentacle and nematocyst systems develop. Large jellyfish can move between coastal and estuarine habitats and are not merely current-driven plankton.",
         "ecology": "",
         "social": "No evidence supports stable social groups or cooperative hunting. Treat as solitary for ABS.",
-        "reproduction": "The life cycle alternates between sexual medusae and tiny benthic polyps. Planula larvae settle, polyps can reproduce asexually, and metamorphosis produces juvenile medusae. Recent eDNA work detected polyps in winter when medusae were absent and found polyp detections associated with rocky substrate/shallow carbonate reef habitat rather than mangroves in the studied system.",
+        "reproduction": "The life cycle alternates between sexual jellyfish and tiny benthic polyps. Planula larvae settle, polyps can reproduce asexually, and metamorphosis produces juvenile jellyfish. Recent eDNA work detected polyps in winter when jellyfish were absent and found polyp detections associated with rocky substrate/shallow carbonate reef habitat rather than mangroves in the studied system.",
         "conservation": "No global IUCN category is used here as a canonical status because a current species-level assessment was not established in this run. Local abundance is seasonal and difficult to measure. Do not equate public-health control with conservation status.",
-        "features": "Nematocyst venom injection\nLong extensible tentacle arrays\nTransparent bell\nMuscular velarium-assisted swimming\nTwenty-four-eye rhopalial sensory system\nRapid ontogenetic shift from polyp to active predatory medusa",
+        "features": "Nematocyst venom injection\nLong extensible tentacle arrays\nTransparent bell\nMuscular velarium-assisted swimming\nTwenty-four-eye rhopalial sensory system\nRapid ontogenetic shift from polyp to active predatory jellyfish",
         "humanInteraction": "This is a medically important Australian marine stinger. Severe stings can produce immediate pain, tissue injury and cardiovascular collapse. A prospective Northern Territory study of 225 confirmed stings found most were not fatal, emphasizing that contact area and venom dose matter. ABS should therefore describe the venom as extraordinarily dangerous without implying every touch kills a human."
       },
       "conservationStatus": "",
@@ -5557,9 +5557,9 @@
         "It has 24 eyes despite lacking a centralized brain.",
         "Acoustic telemetry demonstrates that adults can move independently of tidal currents.",
         "Venom proteomics has identified more than 250 proteins in venom preparations, including multiple pore-forming toxin-family members.",
-        "The polyp stage is tiny and benthic, while the adult medusa becomes one of the largest cubozoans.",
+        "The polyp stage is tiny and benthic, while the adult jellyfish becomes one of the largest cubozoans.",
         "Venom composition and potency can differ between Australian regions and seasons.",
-        "A 2024 eDNA study detected winter polyps even when medusae were absent, giving researchers a way to investigate an otherwise elusive life stage."
+        "A 2024 eDNA study detected winter polyps even when jellyfish were absent, giving researchers a way to investigate an otherwise elusive life stage."
       ],
       "abilities": [
         {
@@ -5660,14 +5660,14 @@
         {
           "title": "Morrissey, Jerry & Kingsford 2024, Marine Ecology Progress Series",
           "url": "https://doi.org/10.3354/meps14507",
-          "supports": "Polyp/medusa ecology",
-          "confidence": "eDNA detected winter polyps, estuarine medusae; polyp habitat associations"
+          "supports": "Polyp/jellyfish ecology",
+          "confidence": "eDNA detected winter polyps, estuarine jellyfish; polyp habitat associations"
         },
         {
           "title": "Gordon 2014 JCU thesis",
           "url": "https://researchonline.jcu.edu.au/45405/",
           "supports": "Life history/age and seasonality",
-          "confidence": "oldest collected medusa estimated 78 d in studied population; mature medusae in estuarine habitat"
+          "confidence": "oldest collected jellyfish estimated 78 d in studied population; mature jellyfish in estuarine habitat"
         }
       ],
       "imageLead": {
@@ -5676,7 +5676,7 @@
         "originalUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Avispa%20marina.jpg",
         "license": "CC BY-SA 2.0 on Wikimedia Commons",
         "sex": "unknown",
-        "notes": "Exact identification metadata is inconsistent: Commons structured data depicts Chironex fleckeri, but the description says Chironex sp. and calls the photographed animal tiny. At 900×1600 it also only barely meets the preferred longest-side threshold. It is therefore a discovery candidate, not an approved source. Commons' exact-*C. fleckeri* alternatives found in this run were only 260×260 or 159×248 and fail resolution requirements. Continue searching for a high-resolution exact-species mature medusa with the entire bell and every visible tentacle tip inside frame. Current GitHub writer is UT"
+        "notes": "Exact identification metadata is inconsistent: Commons structured data depicts Chironex fleckeri, but the description says Chironex sp. and calls the photographed animal tiny. At 900×1600 it also only barely meets the preferred longest-side threshold. It is therefore a discovery candidate, not an approved source. Commons' exact-*C. fleckeri* alternatives found in this run were only 260×260 or 159×248 and fail resolution requirements. Continue searching for a high-resolution exact-species mature jellyfish with the entire bell and every visible tentacle tip inside frame. Current GitHub writer is UT"
       }
     },
     "bull-shark": {
@@ -5693,7 +5693,7 @@
       "narrative": [
         "Bull Shark combines two capabilities that rarely occur together: the weapons of a large requiem shark and the physiology to follow prey far beyond normal marine salinity. The animal's blunt head is not just visual branding. A broad skull accommodates a powerful jaw-adductor system, and biomechanical work shows that bite performance rises strongly through growth. Large individuals can generate several kilonewtons of theoretical posterior bite force. The teeth complement that force by doing different jobs across the jaws, securing prey and cutting tissue rather than merely crushing it.",
         "That offense is formidable but must stay on an absolute scale. A representative female around 111 kg is dangerous to most similarly sized soft-bodied aquatic animals, yet she is still tiny beside a blue whale, giant crocodilian, or the largest shark anchors. The bull shark has no bony shell or thick megafaunal armor. Its survival package is mobility, bulk, sensory awareness and the threat of counterattack.",
-        "Its defining Special category comes from salinity tolerance. Most sharks cannot simply swim from the sea deep into a river and continue normal life. Bull sharks adjust salt secretion and conservation, renal ion transport and water handling as salinity changes. That allows juveniles and adults to exploit estuaries and freshwater corridors, sometimes far inland. For ABS this matters because it changes where the animal can fight, not because it magically boosts bite force.",
+        "Its defining Special category comes from salinity tolerance. Most sharks cannot simply swim from the sea deep into a river and continue normal life. Bull sharks adjust salt secretion and conservation, renal ion transport and water handling as salinity changes. That allows juveniles and adults to exploit estuaries and freshwater corridors, sometimes far inland. For ABS this matters because it changes where the animal can fight, not because it somehow boosts bite force.",
         "The result is a profile with strong Attack, Agility and Stamina, moderate Defense and Intelligence, and a distinctly high Special rating. It should sit above smaller fish predators in raw combat danger, below giant marine macropredators in absolute force and durability, and far below Bottlenose Dolphin in cognition while remaining unusually versatile as a predator."
       ],
       "sections": {
@@ -5867,7 +5867,7 @@
         "A photographed La Selva bullet ant was measured at 22 mm long.",
         "The classic purified poneratoxin peptide is only 25 amino acids long.",
         "Modern research found natural poneratoxin variants and effects on the mammalian sensory sodium channel NaV1.7.",
-        "Integrated venom analysis found a complex mixture including neurotoxins, phospholipases, proteases and hyaluronidase rather than one magical \"pain chemical.\"",
+        "Integrated venom analysis found a complex mixture including neurotoxins, phospholipases, proteases and hyaluronidase rather than one unrealistic \"pain chemical.\"",
         "Workers can learn when and where a food source appears and return at the expected time even when the reward is removed.",
         "Barro Colorado research found an average density of about 6.2 nests per hectare in a 50-hectare plot.",
         "Field work found workers more active at night at both Costa Rican and Panamanian study sites.",
@@ -6393,7 +6393,7 @@
         },
         {
           "name": "Venomless Pursuit Predator",
-          "description": "Unlike the mythology, the camel spider relies on speed, grip and mechanical jaw action rather than venom or silk."
+          "description": "Unlike the popular stories, the camel spider relies on speed, grip and mechanical jaw action rather than venom or silk."
         }
       ],
       "combat": {
@@ -6471,7 +6471,7 @@
         {
           "title": "National Geographic",
           "url": "https://www.nationalgeographic.com/animals/invertebrates/facts/camel-spider",
-          "supports": "Common-name species, lifespan, myths",
+          "supports": "Common-name species, lifespan, misconceptions",
           "confidence": "G. arabs, up to ~1 year; 10 mph explicitly an estimate"
         },
         {
@@ -6820,7 +6820,7 @@
       "specimen": "Healthy mature dominant adult male, reflecting the primary intraspecific fighting sex. Canonical mass 54.0 kg, head-body length 120.0 cm, shoulder height 55.0 cm.",
       "specimenSex": "male",
       "extinct": false,
-      "summary": "The capybara is the world's largest living rodent, a roughly 50-plus-kilogram South American grazer whose real combat edge is not brute-force mythology but a combination of large incisors, stable male dominance behavior and exceptional semi-aquatic escape ability. Near water it can dive, swim and monitor threats with high-set eyes, ears and nostrils; away from water it is a robust but lightly protected herbivore with limited killing reach.",
+      "summary": "The capybara is the world's largest living rodent, a roughly 50-plus-kilogram South American grazer whose real combat edge is not brute-force exaggeration but a combination of large incisors, stable male dominance behavior and exceptional semi-aquatic escape ability. Near water it can dive, swim and monitor threats with high-set eyes, ears and nostrils; away from water it is a robust but lightly protected herbivore with limited killing reach.",
       "narrative": [
         "A dominant male capybara is built to hold rank within a social wetland herd, not to hunt. Its compact mass and large incisors make close contact risky for small opponents, and field observations confirm that adult males resolve hierarchy through genuine aggression. Yet the animal's most important matchup tool is positional. At the waterline, its short strong limbs and partially webbed feet let it abandon a land contest, submerge and reposition while its high-set sensory openings retain awareness. This produces a sharp environmental split: a capable evasive specialist beside water, but a comparatively ordinary, unarmored herbivore when trapped on dry ground against a dedicated predator."
       ],
@@ -7519,9 +7519,9 @@
       "summary": "The common chimpanzee (Pan troglodytes) is a medium-sized great ape whose main battle advantages are explosive strength, grasping control, climbing and elite nonhuman tactical intelligence. A representative mature male is about 46 kg. Chimpanzees can bite, grapple and improvise tools, and wild males participate in coordinated territorial aggression, but they have no armor and are far less powerful in absolute terms than gorillas, bears or large cats.",
       "narrative": [
         "The chimpanzee's danger is best understood as integration rather than a single extreme weapon. At roughly 46 kg, a representative adult male is not especially large on the ABS roster. It lacks claws, horns, armor and the crushing jaws of heavyweight predators. What it does have is a rare combination of explosive muscle, grasping limbs, mobile shoulders, dangerous canines and a brain capable of adjusting behavior to circumstances.",
-        "Modern biomechanics corrects one of the species' most persistent myths. Chimpanzees are not several times stronger than humans in every sense. Direct muscle research instead indicates a meaningful but much more modest mass-specific advantage, driven in part by a high fast-twitch fiber fraction. That distinction matters for roster-wide scaling. A chimp can be extraordinarily powerful for a 46 kg primate while still remaining far below a gorilla or megafaunal mammal in absolute force.",
+        "Modern biomechanics corrects one of the species' most persistent misconceptions. Chimpanzees are not several times stronger than humans in every sense. Direct muscle research instead indicates a meaningful but much more modest mass-specific advantage, driven in part by a high fast-twitch fiber fraction. That distinction matters for roster-wide scaling. A chimp can be extraordinarily powerful for a 46 kg primate while still remaining far below a gorilla or megafaunal mammal in absolute force.",
         "Its greatest separation from similarly sized animals comes from cognition. Wild chimpanzees do not merely repeat one instinctive hunting sequence. They learn local traditions, manufacture tools, alter tactics according to context and navigate complex alliance networks. Fongoli tool-assisted hunting shows that object manipulation can cross into weapon-like use. Long-term aggression data show that chimpanzees also understand, or at minimum behaviorally exploit, numerical advantage in lethal territorial encounters.",
-        "Those strengths have clear limits. A standard one-on-one matchup cannot grant a chimp seven allies merely because coalitionary attacks occur in nature. Nor should a stick magically appear in an empty arena. Against a much larger predator, intelligence and grasping control may improve survival choices but do not erase the opponent's mass, claws or killing bite. Chimpanzee Defense is therefore deliberately low relative to its Intelligence.",
+        "Those strengths have clear limits. A standard one-on-one matchup cannot grant a chimp seven allies merely because coalitionary attacks occur in nature. Nor should a stick somehow appear in an empty arena. Against a much larger predator, intelligence and grasping control may improve survival choices but do not erase the opponent's mass, claws or killing bite. Chimpanzee Defense is therefore deliberately low relative to its Intelligence.",
         "The result is a distinctive ABS profile: elite cognition and high agility, moderate absolute offense, weak structural defense, and substantial environment dependence. In forest structure it can climb, reposition and exploit objects. On bare ground against a larger specialized killer, many of those advantages narrow quickly."
       ],
       "sections": {
@@ -7563,7 +7563,7 @@
         },
         {
           "name": "Fast-Twitch Power Bias",
-          "description": "Roughly 67% fast-twitch MHC II fibers and modeled ~1.35x human-sized muscle dynamic force/power give explosive performance without the fictional many-times-human strength myth."
+          "description": "Roughly 67% fast-twitch MHC II fibers and modeled ~1.35x human-sized muscle dynamic force/power give explosive performance without the fictional many-times-human strength misconception."
         }
       ],
       "combat": {
@@ -8484,7 +8484,7 @@
       ],
       "traits": [
         {
-          "name": "Ghost-Range Generalist",
+          "name": "Wide-Range Generalist",
           "description": "Puma concolor occupies an enormous geographic and habitat range, reflecting exceptional behavioral and ecological flexibility for a large solitary cat."
         },
         {
@@ -8758,7 +8758,7 @@
       "summary": "The American Crow is a half-kilogram generalist whose physical weapons are modest but whose cognition is elite. Its bill handles small prey, while flight, vigilance and mobbing keep it out of reach of larger enemies. Species-specific experiments show long-lasting recognition of dangerous humans, social transmission of threat information and flexible problem solving, making intelligence and tactics its defining battle advantages rather than raw force.",
       "narrative": [
         "The crow is an important ABS anti-inflation test because its strongest abilities are real but mostly informational. A 0.5 kg bird should never receive wolf-like Attack or mammal-like Defense simply because it is clever. Its bill can kill small prey and its feet help manipulate targets, yet Cornell's observation that the bill cannot even open intact gray-squirrel skin demonstrates the physical ceiling clearly.",
-        "Its defensive strategy is almost the opposite of armor. The crow survives by seeing danger early, leaving the attack line, gaining altitude and recruiting allies. That makes Agility strong while Defense stays very low. Mobbing is not magical damage: it is repeated, coordinated harassment that can make a predator abandon an area or expose itself to additional attackers.",
+        "Its defensive strategy is almost the opposite of armor. The crow survives by seeing danger early, leaving the attack line, gaining altitude and recruiting allies. That makes Agility strong while Defense stays very low. Mobbing is not extra damage: it is repeated, coordinated harassment that can make a predator abandon an area or expose itself to additional attackers.",
         "The cognitive case is much stronger than generic claims that corvids are smart. American Crow experiments directly show individual recognition of dangerous human faces, memory lasting years, sensitivity to human gaze, horizontal and vertical social learning, and flexible acquisition of a novel string-pulling solution. These justify an elite Intelligence rating and unusually high Tactics on the full roster.",
         "This produces a deliberately polarized profile: tiny absolute power and protection, excellent aerial maneuverability, solid general endurance, and near-top-tier behavioral intelligence. That separation preserves real biology instead of letting cognition leak into every score."
       ],
@@ -9234,7 +9234,7 @@
       "extinct": false,
       "summary": "The dhole is an Endangered Asian pack-hunting canid built around endurance, coordination and repeated tearing attacks rather than overwhelming individual force. A mature male weighs roughly 18 kg, yet packs can exploit much larger ungulate prey through pursuit, flanking and whistle-assisted cohesion. Individually it is lightly protected and vulnerable to larger predators, so its strongest ABS advantages are agility, stamina and tactics rather than raw power.",
       "narrative": [
-        "A dhole is dangerous for reasons that are easy to score incorrectly. It is not a miniature wolf with magically amplified strength, and a lone 18 kg animal cannot borrow the combined force of a pack. Its specialization is systemic: efficient cursorial movement keeps pressure on prey, contact calls help maintain social cohesion in forest, and multiple hunters can create openings that no one animal could force alone. This makes the species a useful ABS calibration test. Raw Power and Defense must remain modest on an absolute roster, while Endurance, Maneuverability and Tactics can legitimately be very high.",
+        "A dhole is dangerous for reasons that are easy to score incorrectly. It is not a miniature wolf with somehow amplified strength, and a lone 18 kg animal cannot borrow the combined force of a pack. Its specialization is systemic: efficient cursorial movement keeps pressure on prey, contact calls help maintain social cohesion in forest, and multiple hunters can create openings that no one animal could force alone. This makes the species a useful ABS calibration test. Raw Power and Defense must remain modest on an absolute roster, while Endurance, Maneuverability and Tactics can legitimately be very high.",
         "Its ecology also resists one-number simplification. Indian studies emphasize sambar and chital, whereas Southeast Asian work can find muntjac dominant. Pack sizes fluctuate, home ranges vary with sex and landscape, and current populations survive across fragmented ecological settings. The proposed profile therefore treats the canonical male as representative rather than exceptional and separates directly measured movement from weaker maximum-speed claims."
       ],
       "sections": {
@@ -9684,10 +9684,10 @@
       "sections": {
         "habitat": "Common green darners occur broadly across North America and south into Central America, breeding around ponds, marshes, and slow or still freshwater. Migrants can appear far from breeding water, including urban areas.",
         "range": "",
-        "diet": "Adults are generalist aerial predators of flying insects. Nymphs are aquatic predators and can consume aquatic insects, tadpoles, and small fish. This ontogenetic shift means the species occupies two very different predatory niches across its life cycle.",
+        "diet": "Adults are generalist aerial predators of flying insects. Larvae are aquatic predators and can consume aquatic insects, tadpoles, and small fish. This ontogenetic shift means the species occupies two very different predatory niches across its life cycle.",
         "ecology": "",
-        "social": "Adults are not cooperative pack hunters. They may occur in aggregations or migratory movements, and males patrol breeding habitat. Reproduction occurs around freshwater; females insert eggs into aquatic vegetation, sometimes while paired in tandem with a male. The aquatic nymph molts repeatedly before the winged adult emerges.",
-        "reproduction": "Adults are not cooperative pack hunters. They may occur in aggregations or migratory movements, and males patrol breeding habitat. Reproduction occurs around freshwater; females insert eggs into aquatic vegetation, sometimes while paired in tandem with a male. The aquatic nymph molts repeatedly before the winged adult emerges.",
+        "social": "Adults are not cooperative pack hunters. They may occur in aggregations or migratory movements, and males patrol breeding habitat. Reproduction occurs around freshwater; females insert eggs into aquatic vegetation, sometimes while paired in tandem with a male. The aquatic larva molts repeatedly before the winged adult emerges.",
+        "reproduction": "Adults are not cooperative pack hunters. They may occur in aggregations or migratory movements, and males patrol breeding habitat. Reproduction occurs around freshwater; females insert eggs into aquatic vegetation, sometimes while paired in tandem with a male. The aquatic larva molts repeatedly before the winged adult emerges.",
         "conservation": "The common green darner is widespread and is generally treated as Least Concern. Wetland quality remains ecologically important because reproduction depends on freshwater habitat.",
         "features": "independently controlled wings and powerful flight musculature\nlarge compound eyes with behaviorally specialized visual regions\ntarget-motion neural processing optimized for tiny moving prey\nthermoregulatory behavior supporting flight across variable conditions\nmigratory behavior responsive to weather and temperature cues",
         "humanInteraction": "Harmless to people and beneficial as a predator of many flying insects. It does not possess a medically significant sting or venom system."
@@ -9699,7 +9699,7 @@
         "Stable-isotope research reconstructed migration using chemistry preserved in dragonfly wings.",
         "The annual migratory cycle is multi-generational rather than one individual making the entire round trip.",
         "Adult dragonflies can hover and fly backward.",
-        "The adult aerial predator and aquatic nymph are both hunters but use radically different bodies and environments."
+        "The adult aerial predator and aquatic larva are both hunters but use radically different bodies and environments."
       ],
       "abilities": [
         {
@@ -9752,7 +9752,7 @@
           "title": "University of Minnesota Entomology",
           "url": "https://entomology.umn.edu/common-green-darner",
           "supports": "length, diet, ecology",
-          "confidence": "about 3 inches; aerial prey list; aquatic nymph ecology"
+          "confidence": "about 3 inches; aerial prey list; aquatic larva ecology"
         },
         {
           "title": "Animal Diversity Web, Anax junius",
@@ -10110,7 +10110,7 @@
       "extinct": false,
       "summary": "The Emperor Penguin is a 38 kg Antarctic endurance specialist whose modest bill and low land mobility conceal extraordinary underwater and cold-weather physiology. It can make hundreds of dives per day during foraging trips, reach more than 500 m depth, and breeding males endure a roughly four-month winter fast. Its battle profile is therefore low-to-moderate in direct damage, strong in aquatic control, and elite in Stamina and environmental Special.",
       "narrative": [
-        "An emperor penguin wins survival contests that would defeat far more heavily armed animals, but ABS must not confuse survival specialization with raw combat power. On ice it is a tall, slow, compact bird with a pointed bill and few dedicated weapons. In water the same body becomes a precise hydrodynamic diver. The transformation is ecological rather than magical: stiff flippers generate thrust, oxygen stores and cardiovascular control extend dive performance, and repeated bouts can continue with remarkably short surface intervals. During reproduction, males shift to another extreme, conserving enormous energy reserves through winter darkness while incubating a single egg. Huddling further reduces energetic cost. These traits justify extraordinary Stamina and high Special while Attack remains low on a roster containing large cats, bears, ungulates, sharks and megafauna."
+        "An emperor penguin wins survival contests that would defeat far more heavily armed animals, but ABS must not confuse survival specialization with raw combat power. On ice it is a tall, slow, compact bird with a pointed bill and few dedicated weapons. In water the same body becomes a precise hydrodynamic diver. The transformation is ecological rather than unrealistic: stiff flippers generate thrust, oxygen stores and cardiovascular control extend dive performance, and repeated bouts can continue with remarkably short surface intervals. During reproduction, males shift to another extreme, conserving enormous energy reserves through winter darkness while incubating a single egg. Huddling further reduces energetic cost. These traits justify extraordinary Stamina and high Special while Attack remains low on a roster containing large cats, bears, ungulates, sharks and megafauna."
       ],
       "sections": {
         "habitat": "Circumpolar Antarctic sea ice, pack-ice margins and surrounding Southern Ocean waters. Breeding colonies depend strongly on sea-ice conditions and access to marine foraging grounds.",
@@ -11455,7 +11455,7 @@
       "narrative": [
         "A Dorcas gazelle wins by refusing the kind of fight that favors heavier animals. Its body is built around low mass, long limbs, balance and rapid escape. The male's curved horns are legitimate weapons and matter greatly against another gazelle, yet the absolute-scale ABS system cannot treat a 16.5 kg horned antelope like a buffalo or elk. Once a much larger predator closes and secures contact, the gazelle's lack of armor becomes decisive.",
         "Its strongest defensive layer exists before impact. Open-country eyesight, alarm behavior and stotting help convert early detection into distance. Flexible activity schedules add another layer: in extreme heat or heavy human pressure, Dorcas gazelles can shift activity into cooler or darker periods. These behaviors belong in Agility, Senses, Tactics and Special rather than being mislabeled as physical Defense.",
-        "Desert physiology also needs careful calibration. Popular summaries sometimes say Dorcas gazelles never need to drink, but controlled work showed that animals maintained on dry food without water lost mass steadily and failed rapidly under extreme summer heat. The biologically grounded conclusion is stronger and more interesting: succulent browse can provide much of their water budget, and behavior minimizes water/heat stress, but they are not magically dehydration-proof."
+        "Desert physiology also needs careful calibration. Popular summaries sometimes say Dorcas gazelles never need to drink, but controlled work showed that animals maintained on dry food without water lost mass steadily and failed rapidly under extreme summer heat. The biologically grounded conclusion is stronger and more interesting: succulent browse can provide much of their water budget, and behavior minimizes water/heat stress, but they are not somehow dehydration-proof."
       ],
       "sections": {
         "habitat": "Dorcas gazelles occupy arid and semi-arid northern Africa and adjoining southwestern Palearctic areas. ADW records savannas, semi-deserts, dune fields, consolidated dunes and wadis. Modern zoo/conservation summaries emphasize the Saharan belt from Morocco eastward to Egypt and additional regional populations. Exact range boundaries and subspecies treatments vary among taxonomic sources.",
@@ -11901,7 +11901,7 @@
       "extinct": false,
       "summary": "The giant squid is a deep-ocean long-range grappler built around two extraordinary feeding tentacles, hundreds of toothed suckers and a cutting beak. A large female can weigh around 150 kg while extending far beyond its compact mantle with thin capture tentacles. Huge eyes, ink, jet propulsion and near-neutral buoyancy make it highly specialized for deep pelagic life, but its soft unarmored body keeps Defense well below its famous size and Special ratings.",
       "narrative": [
-        "Architeuthis dux is a perfect example of why Animal Battle Stats cannot score from reputation. Its popular image is a many-tonne kraken wrestling ships and sperm whales. The measured animal is stranger and more interesting. A robust female can be heavier than a person, but much of the spectacular headline length is concentrated in two narrow feeding tentacles. The core body is measured more honestly by mantle length and mass.",
+        "Architeuthis dux is a perfect example of why Animal Battle Stats cannot score from reputation. Its popular image is a many-tonne sea monster wrestling ships and sperm whales. The measured animal is stranger and more interesting. A robust female can be heavier than a person, but much of the spectacular headline length is concentrated in two narrow feeding tentacles. The core body is measured more honestly by mantle length and mass.",
         "That anatomy creates a distinctive combat geometry. The squid does not need to place its mantle beside prey to begin an attack. It can extend two tentacles, attach the clubs with arrays of toothed suckers, and pull prey into eight shorter arms. Only after restraint does the beak become the main cutting weapon. The result is excellent reach and control against fish and other cephalopods, but not the crushing bite of a crocodilian or the hook system of a colossal squid.",
         "Defense is the inverse problem. The giant squid has active escape tools but very little passive armor. Ink can disrupt vision. Jetting can rapidly change position. Giant eyes help detect events in dim water. Yet if a sperm whale or large shark makes damaging contact, the mantle and appendages are still soft tissue. Sperm-whale predation is therefore central to realistic calibration: scars and beaks document violent encounters, but they do not transform the squid into an equal-mass whale fighter.",
         "Its cognition also demands restraint. Coordinating ten appendages, visual input, prey capture and jet propulsion requires sophisticated nervous control, but direct adult behavioral experiments are nearly nonexistent. The report therefore credits functional tactics without borrowing the most impressive cognitive findings from octopuses or cuttlefish.",
@@ -11916,7 +11916,7 @@
         "reproduction": "Sexual dimorphism is pronounced, with females reaching much larger body size. Mature males produce numerous spermatophores; mating itself has not been directly characterized in detail. Spermatangia embedded in female tissues demonstrate sperm transfer. Growth is exceptionally rapid by vertebrate standards, but exact age at maturity and maximum lifespan remain unresolved.",
         "conservation": "Population size is difficult to estimate directly because the species occupies deep water and most records come from strandings, fisheries encounters, predator stomach contents and rare live observations. The 2013 mitochondrial study found extremely low global genetic diversity and no clear phylogeographic structure. That pattern may reflect population history or selective processes and should not be casually translated into either abundance or conservation security.",
         "features": "Two extremely long retractile feeding tentacles\nHundreds of toothed suckers\nEight additional prey-handling arms\nHard cutting beak and radula\nGiant low-light eyes\nJet propulsion through a muscular funnel\nPosterior fins for controlled swimming\nInk defense\nAmmonium-assisted neutral buoyancy\nRapid growth and strong sexual size dimorphism",
-        "humanInteraction": "Giant squid are not known to hunt humans. Human contact consists mostly of strandings, accidental fishery capture, museum specimens and scientific expeditions. Their rarity at the surface helped generate centuries of sea-monster mythology before photography and modern specimen work established their real anatomy."
+        "humanInteraction": "Giant squid are not known to hunt humans. Human contact consists mostly of strandings, accidental fishery capture, museum specimens and scientific expeditions. Their rarity at the surface helped generate centuries of sea-monster exaggeration before photography and modern specimen work established their real anatomy."
       },
       "conservationStatus": "",
       "funFacts": [
@@ -12894,7 +12894,7 @@
         }
       ],
       "combat": {
-        "weapons": "The principal close-range weapon is the bill, used to peck, nip, seize feathers/skin and threaten. Unlike an eagle, the goose lacks a hooked raptorial beak and large piercing talons. Its feet and wings can contribute to shoving, striking, balance and space control, but direct force data were not found and should not be mythologized into bone-breaking weapons.",
+        "weapons": "The principal close-range weapon is the bill, used to peck, nip, seize feathers/skin and threaten. Unlike an eagle, the goose lacks a hooked raptorial beak and large piercing talons. Its feet and wings can contribute to shoving, striking, balance and space control, but direct force data were not found and should not be exaggerated into bone-breaking weapons.",
         "weaknesses": [
           "Confined terrestrial space: flight advantage may disappear.",
           "Dense cover: reduces takeoff and long-neck visibility.",
@@ -13023,7 +13023,7 @@
       "extinct": false,
       "summary": "The mountain gorilla is the world's most massive living primate combatant: a roughly 195 kg mature silverback built for close-range grappling, biting and intimidation rather than pursuit. Its greatest advantages are upper-body power, robust mass and elite great-ape cognition. It lacks armor and specialized killing weapons, so its battle profile should remain far below megafauna in raw force and below similarly sized apex carnivores in dedicated weaponry.",
       "narrative": [
-        "A silverback's reputation often gets distorted by internet strength myths. The real animal is more interesting. Mountain gorillas combine very large primate body mass with long muscular forelimbs, grasping hands, a powerful jaw system and unusually sophisticated social judgment. They can fight lethally, and long-term field data confirm fatal adult-male contests, yet much of their competitive system is designed to avoid that cost. Posture, vocal behavior and chest beating advertise condition and body size before a contest becomes physical.",
+        "A silverback's reputation often gets distorted by internet strength misconceptions. The real animal is more interesting. Mountain gorillas combine very large primate body mass with long muscular forelimbs, grasping hands, a powerful jaw system and unusually sophisticated social judgment. They can fight lethally, and long-term field data confirm fatal adult-male contests, yet much of their competitive system is designed to avoid that cost. Posture, vocal behavior and chest beating advertise condition and body size before a contest becomes physical.",
         "In an ABS matchup, the gorilla is therefore a bruiser-controller rather than a fantasy puncher. It wants close range, where it can grab, destabilize, shove and bite. It is dangerous to smaller opponents that lack penetrating weapons, but a large horned ungulate, armored reptile or comparably massive carnivore presents a serious problem because the gorilla's own skin and soft tissue are not specialized armor. Its cognition improves assessment and tactical flexibility, but intelligence cannot erase unfavorable anatomy or mass ratios."
       ],
       "sections": {
@@ -13235,7 +13235,7 @@
         }
       ],
       "combat": {
-        "weapons": "The jaws are the decisive individual weapon. A wolf uses rapid approach, snapping bites, sustained grips and repeated re-engagement. Canines puncture and anchor; carnassials slice tissue. Neck and forequarter musculature let the wolf pull, wrench and maintain a grip. Against ungulates, wolves do not normally win by one mythical crushing bite. They create cumulative trauma while forcing prey to keep moving, exploit instability, and target vulnerable regions.",
+        "weapons": "The jaws are the decisive individual weapon. A wolf uses rapid approach, snapping bites, sustained grips and repeated re-engagement. Canines puncture and anchor; carnassials slice tissue. Neck and forequarter musculature let the wolf pull, wrench and maintain a grip. Against ungulates, wolves do not normally win by one exaggerated crushing bite. They create cumulative trauma while forcing prey to keep moving, exploit instability, and target vulnerable regions.",
         "weaknesses": [
           "No armor or specialized passive trauma shield.",
           "Primary weapon requires close head-first contact.",
@@ -13721,7 +13721,7 @@
         }
       ],
       "combat": {
-        "weapons": "The green anaconda is a nonvenomous ambush constrictor. Smithsonian describes the attack sequence as seizure with the jaws followed by wrapping the muscular body around prey. Constriction is best treated as a positional circulatory/compressive weapon rather than a mythical fixed PSI number. Once several coils are established around a vulnerable torso, a similarly sized opponent can lose effective movement quickly. Before that point, the snake must still land and maintain a close-range hold.",
+        "weapons": "The green anaconda is a nonvenomous ambush constrictor. Smithsonian describes the attack sequence as seizure with the jaws followed by wrapping the muscular body around prey. Constriction is best treated as a positional circulatory/compressive weapon rather than an exaggerated fixed PSI number. Once several coils are established around a vulnerable torso, a similarly sized opponent can lose effective movement quickly. Before that point, the snake must still land and maintain a close-range hold.",
         "weaknesses": [
           "No rigid armor.",
           "Critical dependence on securing first contact.",
@@ -13822,7 +13822,7 @@
       "specimen": "USFWS reports adult males in the contiguous United States averaging roughly 200–300 kg, while Yellowstone's long-term summary gives an adult-male mean of 187 kg and a known GYE maximum of 324 kg.",
       "specimenSex": "male",
       "extinct": false,
-      "summary": "The grizzly is a large interior brown bear built for close-range control: a prime male combines roughly 220 kg of mass with powerful jaws, long claws, massive forequarters, fast bursts, exceptional smell and flexible behavior. Its real strength is versatility rather than mythical one-swipe claims. It is far stronger than a black bear but remains well below near-tonne bovids and giant megafauna in absolute force.",
+      "summary": "The grizzly is a large interior brown bear built for close-range control: a prime male combines roughly 220 kg of mass with powerful jaws, long claws, massive forequarters, fast bursts, exceptional smell and flexible behavior. Its real strength is versatility rather than exaggerated one-swipe claims. It is far stronger than a black bear but remains well below near-tonne bovids and giant megafauna in absolute force.",
       "narrative": [
         "A grizzly wins space by making close contact expensive. Its forequarters are built to dig and move heavy substrate, and those same muscles support grappling, swatting and body control. Jaws and canines provide the primary damaging bite while claws add purchase and raking. At 220 kg, this is a serious predator-sized weapon system, but ABS should resist folklore: there is no scientific basis here for “one swipe kills a moose,” a universal 1,160 PSI bite, or coastal-bear mass silently assigned to an interior grizzly.",
         "The species is also more behaviorally flexible than its bruiser stereotype suggests. Yellowstone bears learn seasonal elk-calf hunting, individuals differ strongly in fishing competence and temperament, and brown bears have demonstrated tool use, puzzle solving and conditional discrimination. That raises Tactics and Intelligence, while exceptional smell raises Senses. Hibernation is biologically extreme but is kept mostly in Special and survival context rather than triple-counted as Defense, Stamina and Recovery."
@@ -14765,7 +14765,7 @@
       "narrative": [
         "The Hercules beetle is a useful test of whether ABS really follows an absolute scale. Its reputation for strength is deserved in a proportional sense: a major male is a compact mechanical wrestler whose six legs anchor to bark while an enormous horn pair closes around another beetle. The contest is about leverage. Once a rival is captured, the male lifts, rotates and ejects it from the resource or mating site. The system is so mechanically specialized that classic entomological work directly measured forces between the horns and examined the friction-enhancing structures that improve grip.",
         "Yet this is still an insect weighing only a few tens of grams. A fair roster model must preserve both truths simultaneously. Against another beetle, the horn vise can dominate positioning. Against a mammal, bird or large reptile, the same apparatus has negligible absolute reach and force. The exoskeleton similarly changes from impressive armor at insect scale to a thin biological shell under vertebrate-scale loads. This is why the proposed Raw Power and Attack ratings stay low even while Special remains comparatively high.",
-        "The species is also more than its weapon. Its adult phase is a short climax to a long life spent mostly as a giant wood-eating larva. Adults fly at night, locate mates chemically, feed on fruit and sap, and can produce a defensive stridulatory huff. Male elytra contain a microscopic porous layer whose optical behavior changes with moisture, turning the normally yellow/olive shell dark under humid conditions. That phenomenon is scientifically well documented, but it is not treated as magical camouflage or as a direct damage bonus."
+        "The species is also more than its weapon. Its adult phase is a short climax to a long life spent mostly as a giant wood-eating larva. Adults fly at night, locate mates chemically, feed on fruit and sap, and can produce a defensive stridulatory huff. Male elytra contain a microscopic porous layer whose optical behavior changes with moisture, turning the normally yellow/olive shell dark under humid conditions. That phenomenon is scientifically well documented, but it is not treated as unrealistic camouflage or as a direct damage bonus."
       ],
       "sections": {
         "habitat": "The species occupies tropical and montane rainforest from southern Mexico through Central America into northern/western South America as far as Bolivia, with populations in the Lesser Antilles. Adults are associated with moist forest floor/understory habitats; larvae require substantial decaying wood.",
@@ -14799,7 +14799,7 @@
       "traits": [
         {
           "name": "Humidity-Switch Elytra",
-          "description": "the male elytra reversibly shift from yellow/olive toward black as moisture changes the optical behavior of a porous cuticular layer. This is real structural/physiological coloration, not camouflage magic."
+          "description": "the male elytra reversibly shift from yellow/olive toward black as moisture changes the optical behavior of a porous cuticular layer. This is real structural/physiological coloration, not camouflage trick."
         },
         {
           "name": "Extreme Male Horn Dimorphism",
@@ -15072,7 +15072,7 @@
       "extinct": false,
       "summary": "The honey badger is a compact, wide-ranging mustelid built for excavation and stubborn close combat. A mature male is only about 14 kg, so its absolute power is limited, but strong jaws and claws, thick loose skin, high ranging endurance and molecular resistance to snake alpha-neurotoxins make it unusually difficult to handle for its size.",
       "narrative": [
-        "The honey badger's real biology is more interesting than its internet mythology. It is not an indestructible miniature tank. It is a small but exceptionally well-equipped generalist whose specializations solve specific ecological problems. Strong forequarters open burrows and nests, a robust bite handles diverse prey, and loose skin makes a superficial grab less decisive than it would be on many similarly sized mammals.",
+        "The honey badger's real biology is more interesting than its internet exaggeration. It is not an indestructible miniature tank. It is a small but exceptionally well-equipped generalist whose specializations solve specific ecological problems. Strong forequarters open burrows and nests, a robust bite handles diverse prey, and loose skin makes a superficial grab less decisive than it would be on many similarly sized mammals.",
         "Its strongest special claim also has unusually good mechanistic evidence. Honey badgers prey on venomous snakes, and molecular work shows changes in the muscular nicotinic acetylcholine receptor that impede binding by snake alpha-neurotoxins. That does not make the animal immune to all venom. In ABS terms, it is a matchup-specific resistance and belongs primarily in Special, not as a blanket increase to Defense.",
         "The Kalahari movement record also corrects another common distortion. Honey badgers are not merely explosive brawlers. Adult males range across hundreds of square kilometres and can cover substantial distances during an active period. Their Stamina can therefore be strong even while maximum sprint speed remains unresolved. The resulting profile stays disciplined on the absolute scale: impressive toughness and special biology, but Attack and Defense remain far below much larger predators and megafauna."
       ],
@@ -15378,7 +15378,7 @@
       "narrative": [
         "A howler monkey's intimidating reputation begins with sound, not speed. Mature males carry a greatly enlarged vocal apparatus that turns respiratory cycles into low, far-carrying roars. Field experiments show that these calls are not simply random noise: males respond differently when a stranger's roar appears to come from inside the group's space versus at a border. The roar can therefore prevent some fights by advertising occupancy and can focus attention when an intrusion appears real.",
         "Physically, A. caraya is a compact arboreal specialist. Its hands and feet grasp branches, while the long tail acts as another load-bearing contact. That architecture allows controlled movement in a three-dimensional canopy even though the species is not a high-speed primate. The tradeoff is energetic. Leaves dominate the diet in many populations, and field activity budgets show very high resting time. This is a monkey optimized to remain stable, digest difficult plant food and defend space economically, not to chase prey for kilometers.",
-        "In an ABS fight, environment matters enormously. Branches give the howler angles and escape paths unavailable to many ground animals. On flat open terrain, however, the same 7 kg male has little passive defense and only modest natural weapons. Its roar cannot injure an opponent, and its tail cannot magically constrict one. The profile therefore keeps physical scores low while rewarding the genuine biology: precise arboreal anchoring, social-acoustic assessment and a specialized resonating system unique among the roster's primates."
+        "In an ABS fight, environment matters enormously. Branches give the howler angles and escape paths unavailable to many ground animals. On flat open terrain, however, the same 7 kg male has little passive defense and only modest natural weapons. Its roar cannot injure an opponent, and its tail cannot somehow constrict one. The profile therefore keeps physical scores low while rewarding the genuine biology: precise arboreal anchoring, social-acoustic assessment and a specialized resonating system unique among the roster's primates."
       ],
       "sections": {
         "habitat": "A. caraya occurs in South America, including Argentina, Paraguay, eastern Bolivia and Brazil. It occupies tropical/subtropical forest, gallery/riparian forest, semideciduous forest and forest-savanna mosaics. Argentina's National Parks database records it across multiple protected areas and forest structural types.",
@@ -17722,7 +17722,7 @@
           "Cold conditions reduce reptilian performance.",
           "Long open pursuit removes the ambush advantage.",
           "Very large armored or thick-skinned opponents reduce immediate effectiveness of slicing wounds.",
-          "Venom is dangerous but not an instant magical knockout; it should not be double-counted as immediate raw force."
+          "Venom is dangerous but not an instant unrealistic knockout; it should not be double-counted as immediate raw force."
         ],
         "goodMatchups": [],
         "badMatchups": []
@@ -17995,7 +17995,7 @@
       ],
       "traits": [
         {
-          "name": "Grey-Ghost Freeze",
+          "name": "Grey-Shadow Freeze",
           "description": "vertical white stripes, woodland shade and a tendency to stand still when alarmed can break up the outline before the animal commits to flight."
         },
         {
@@ -19183,7 +19183,7 @@
         "reproduction": "Breeding pairs can defend territories throughout the year. Nonbreeders flock, and even territorial pairs may temporarily join winter feeding groups. Vines' 18-month field study found higher feeding rates in flocks than for birds alone or in pairs, while aggression increased when birds fed closer together and at richer patches. Nests are substantial domed stick structures. Sexes look similar, with males averaging somewhat larger.",
         "conservation": "The widespread Eurasian Magpie is generally treated as Least Concern. Local control occurs where it is regarded as an agricultural or nest-predation nuisance, but broad versatility in human-modified landscapes has helped it persist in many cities and farming regions.",
         "features": "Key features are behavioral rather than brute-force: flexible omnivory, food caching, strong spatial memory, sophisticated object representation, rapid learning, social/territorial signaling and maneuverable flight. These traits make the bird highly versatile without turning its small body into a powerful fighter.",
-        "humanInteraction": "Magpies are conspicuous urban/suburban corvids and are embedded in European and Asian folklore. Their reputation for indiscriminately stealing shiny objects should not be treated as established biological fact. They can exploit anthropogenic foods and nest in developed landscapes, bringing them into both conflict and familiarity with people."
+        "humanInteraction": "Magpies are conspicuous urban/suburban corvids and are well known across Europe and Asia. Their reputation for indiscriminately stealing shiny objects should not be treated as established biological fact. They can exploit anthropogenic foods and nest in developed landscapes, bringing them into both conflict and familiarity with people."
       },
       "conservationStatus": "Least Concern",
       "funFacts": [
@@ -19831,7 +19831,7 @@
         "reproduction": "Life history is exceptionally slow. NOAA reports usually one pup every two to three years, gestation around one year and longevity of at least 45 years. The 2024 NOAA recovery review characterizes the species as having an extremely conservative life history, with an estimated average female producing only about 4-7 pups over her lifespan. This makes adult mortality especially costly to populations.",
         "conservation": "The giant manta ray is Endangered on the IUCN Red List and listed as Threatened under the U.S. Endangered Species Act. Major threats include targeted harvest, bycatch, demand for gill plates, entanglement, vessel strikes and other anthropogenic impacts.",
         "features": "Huge oscillating pectoral fins for efficient pelagic lift and thrust.\nCephalic lobes plus specialized branchial filtration for plankton feeding.\nBroad depth tolerance, with a tagged Japanese animal reaching 1,082 m.\nLarge, metabolically expensive brain and specialized cranial physiology.\nIndividual ventral/dorsal markings useful for long-term photo-identification.",
-        "humanInteraction": "Despite old folklore portraying mantas as dangerous, modern biological reviews characterize them as harmless to humans. Ecotourism can make live mantas economically valuable, but vessel contact, entanglement, targeted fisheries and bycatch remain major threats. Their low reproductive output makes population recovery slow."
+        "humanInteraction": "Despite old stories portraying mantas as dangerous, modern biological reviews characterize them as harmless to humans. Ecotourism can make live mantas economically valuable, but vessel contact, entanglement, targeted fisheries and bycatch remain major threats. Their low reproductive output makes population recovery slow."
       },
       "conservationStatus": "Endangered",
       "funFacts": [
@@ -20148,7 +20148,7 @@
       "summary": "A mature female blue marlin is a 250 kg open-ocean predator built around a long bill, powerful swimming and extraordinary migratory stamina. Its frontal weapon and three-dimensional mobility make it dangerous in open water, while modest armor and a directional attack geometry keep Defense below heavily protected marine animals.",
       "narrative": [
         "The blue marlin is not simply a “fast fish.” Its battle-relevant design is an integrated pelagic system: a streamlined body supplies sustained propulsion, a long rostrum places a hard contact point well ahead of the head, and visual hunting behavior lets the animal exploit a huge three-dimensional arena. A large female can outweigh a large male several times over, so sex matters enormously when choosing a canonical combat specimen.",
-        "The strongest evidence for the marlin is endurance rather than internet speed records. Satellite tags show movements spanning thousands of kilometers, while modern biomechanics casts serious doubt on historic claims of 30-plus-meter-per-second billfish. ABS therefore gives the marlin elite Stamina and strong Agility without turning an unsupported speed myth into a factual field. Its weaknesses are equally clear: there is no heavy armor, its bill is most useful when the fish has space and alignment, and a close opponent that gets beside the rostrum removes much of that reach advantage."
+        "The strongest evidence for the marlin is endurance rather than internet speed records. Satellite tags show movements spanning thousands of kilometers, while modern biomechanics casts serious doubt on historic claims of 30-plus-meter-per-second billfish. ABS therefore gives the marlin elite Stamina and strong Agility without turning an unsupported speed misconception into a factual field. Its weaknesses are equally clear: there is no heavy armor, its bill is most useful when the fish has space and alignment, and a close opponent that gets beside the rostrum removes much of that reach advantage."
       ],
       "sections": {
         "habitat": "Blue marlin occur throughout tropical and subtropical Atlantic, Pacific and Indian Ocean waters. NOAA describes them as strongly pelagic, generally favoring warm, well-mixed surface water and spending much time in the upper water column. Tagging nevertheless shows substantial vertical and horizontal movement.",
@@ -20190,7 +20190,7 @@
         }
       ],
       "combat": {
-        "weapons": "The bill gives a blue marlin unusual frontal reach for a fish. In a hypothetical encounter the practical damage system is the rigid rostrum delivered by a large, fast, muscular body, backed by jaws once prey is close. The bill should not be modeled as a magical sword: effectiveness depends on angle, relative motion, target anatomy and room to accelerate.",
+        "weapons": "The bill gives a blue marlin unusual frontal reach for a fish. In a hypothetical encounter the practical damage system is the rigid rostrum delivered by a large, fast, muscular body, backed by jaws once prey is close. The bill should not be modeled as an unrealistic sword: effectiveness depends on angle, relative motion, target anatomy and room to accelerate.",
         "weaknesses": [],
         "goodMatchups": [],
         "badMatchups": []
@@ -20243,7 +20243,7 @@
         {
           "title": "Svendsen et al. 2016, Biology Open",
           "url": "https://journals.biologists.com/bio/article/5/10/1415/1485/Maximum-swimming-speeds-of-sailfish-and-three",
-          "supports": "speed myth calibration",
+          "supports": "speed misconception calibration",
           "confidence": "cites blue-marlin archival-tag speeds rarely >2 m/s, max 2.25 m/s; rejects extreme historical billfish speeds"
         },
         {
@@ -20480,7 +20480,7 @@
         }
       ],
       "combat": {
-        "weapons": "The primary weapon is an enormous jaw apparatus carrying multiple rows of very large serrated teeth. The weapon system combines huge absolute force, a broad bite, deep penetration and sawing edges. Secondary offense comes from 30 tonnes of body momentum and a powerful tail, but ramming is not independently demonstrated as a normal attack strategy and is not scored as a separate magical weapon.",
+        "weapons": "The primary weapon is an enormous jaw apparatus carrying multiple rows of very large serrated teeth. The weapon system combines huge absolute force, a broad bite, deep penetration and sawing edges. Secondary offense comes from 30 tonnes of body momentum and a powerful tail, but ramming is not independently demonstrated as a normal attack strategy and is not scored as a separate unrealistic weapon.",
         "weaknesses": [],
         "goodMatchups": [],
         "badMatchups": []
@@ -20879,7 +20879,7 @@
       "summary": "The Asian water monitor is a large semi-aquatic varanid armed with recurved teeth, curved claws and a muscular swimming tail. A mature male combines active pursuit, chemical tracking, climbing and strong aquatic mobility, but direct physiology shows that sustained high-speed terrestrial exercise quickly exhausts it. Its greatest battle advantage is versatility across land, water and trees rather than one overwhelming weapon.",
       "narrative": [
         "A water monitor fights like a mobile generalist. On land it advances on powerful limbs, sampling chemical cues with a forked tongue and using a long neck to place a gripping bite. At close range the claws add traction and raking potential, while the heavy tail is both counterbalance and defensive club. Near water, the matchup changes: the same tail becomes a propulsor and the animal gains a fast escape route that many terrestrial opponents cannot follow effectively. Trees provide a third option against some predators.",
-        "That versatility should not be confused with unlimited endurance. Experimental treadmill work shows a sharp distinction between sustainable movement and burst effort. Nor should its family reputation import Komodo-dragon weapon values. The water monitor is dangerous because a 20 kg adult male combines several credible weapons with terrain flexibility and opportunistic behavior, not because of an unsupported PSI number, mythical sprint speed or assumed venom lethality."
+        "That versatility should not be confused with unlimited endurance. Experimental treadmill work shows a sharp distinction between sustainable movement and burst effort. Nor should its family reputation import Komodo-dragon weapon values. The water monitor is dangerous because a 20 kg adult male combines several credible weapons with terrain flexibility and opportunistic behavior, not because of an unsupported PSI number, exaggerated sprint speed or assumed venom lethality."
       ],
       "sections": {
         "habitat": "Asian water monitors occur broadly through South and Southeast Asia and are strongly associated with water: rivers, streams, wetlands, swamps, mangroves, forest waterways and human-modified canals. They can persist in heavily altered landscapes when aquatic resources and surrounding cover remain.",
@@ -21308,7 +21308,7 @@
       "summary": "The Mountain Goat (Oreamnos americanus) is a powerful North American cliff specialist whose sharp permanent horns, 100-plus-kilogram male body, and extraordinary hoof traction make it dangerous on broken alpine terrain. It is not a speed specialist or heavily armored tank. Its defining advantage is positional: on cliffs and ledges, few terrestrial opponents can match its balance, grip, and escape-route control.",
       "narrative": [
         "A mature mountain-goat billy is built around one problem: staying functional where the ground itself is dangerous. Its compact body, strong limbs, permanent horns, and unusual hooves allow a roughly 110 kg animal to occupy ledges and steep rock that would destabilize many larger opponents. The hard edge of each hoof finds purchase while the pliable inner pad conforms to irregular rock. This is not merely athletic spectacle; field ecology shows that mountain goats deliberately keep escape terrain nearby and use it when large predators approach.",
-        "In direct combat, however, the species should not be mythologized. Its horns are sharp and serious, and adult males genuinely fight for dominance during the rut, but the horns are shorter than the huge sweeping weapons of an ibex and the goat lacks the mass of elk, moose, musk oxen, or cattle. Many aggressive interactions are resolved by displays rather than injury. On flat ground its most distinctive advantage is reduced, leaving a strong medium-large bovid with respectable but not elite absolute offense.",
+        "In direct combat, however, the species should not be exaggerated. Its horns are sharp and serious, and adult males genuinely fight for dominance during the rut, but the horns are shorter than the huge sweeping weapons of an ibex and the goat lacks the mass of elk, moose, musk oxen, or cattle. Many aggressive interactions are resolved by displays rather than injury. On flat ground its most distinctive advantage is reduced, leaving a strong medium-large bovid with respectable but not elite absolute offense.",
         "Its best battle profile is therefore a terrain controller rather than a bruiser. On steep broken rock it can disengage, gain elevation, force an opponent onto poor footing, and threaten with horns from a stable stance. Against a cougar, large bear, wolf group, or much heavier ungulate on open terrain, its defenses are far less absolute. The ABS ratings preserve that distinction: exceptional Agility and strong Special, but only moderate Attack and Defense at the full-roster scale."
       ],
       "sections": {
@@ -22697,7 +22697,7 @@
       "narrative": [
         "A mature flanged Bornean orangutan is built around reach and control rather than pursuit. Its long arms, grasping hands and feet and powerful climbing musculature let it spread its weight across branches that would be precarious for a similarly heavy terrestrial mammal. In a canopy this produces a three-dimensional positional game: the ape can hang below supports, bridge gaps, climb vertically and maintain several points of contact while deciding where its mass can safely go next.",
         "In direct conflict, however, the biology should not be exaggerated. The orangutan has large canines and serious grappling strength, but it is not a 90 kg big cat and it is not a scaled-up gibbon. There is no defensible basis here for viral claims that its strength is a fixed several-times-human multiplier, nor for a fabricated bite PSI. Its physical offense is therefore strong but not elite on a roster containing large bears, bovids, rhinos and megafauna.",
-        "Its most exceptional advantage is cognitive. Orangutans learn local foraging techniques, use tools, plan routes through mechanically complex canopy and construct sleeping nests from branches selected for different structural roles. Those abilities matter in a matchup because they support positioning, obstacle use and behavioral flexibility. They do not magically increase muscle force, so they are concentrated in Intelligence/Tactics rather than copied into Attack and Special.",
+        "Its most exceptional advantage is cognitive. Orangutans learn local foraging techniques, use tools, plan routes through mechanically complex canopy and construct sleeping nests from branches selected for different structural roles. Those abilities matter in a matchup because they support positioning, obstacle use and behavioral flexibility. They do not somehow increase muscle force, so they are concentrated in Intelligence/Tactics rather than copied into Attack and Special.",
         "The flanged male also embodies an unusual reproductive strategy. Orangutan males can be sexually mature before developing the massive cheek pads, throat sac and body size of a flanged adult. Once flanged, the male broadcasts long calls that communicate over forest distances and can advertise identity, context and travel direction. The result is a fighter whose most impressive toolkit combines a large great-ape body with spatial control, signaling and technical cognition rather than armor or specialized predatory anatomy."
       ],
       "sections": {
@@ -24228,7 +24228,7 @@
         }
       ],
       "combat": {
-        "weapons": "The peregrine is a small absolute-mass predator with an unusually effective delivery system. It attacks birds in flight from above, converting altitude into speed, then uses the feet/talons to strike, seize or destabilize prey. A hooked beak finishes or processes captured prey. The Forest Service review documents prey usually in the 50-500 g range, although larger birds can be attacked.\n\nThe stoop is not a magical kinetic projectile. The falcon must acquire altitude, align on a moving target, control closing speed and survive the maneuver itself. Its 1 kg mass places a firm ceiling on absolute damage against large mammals and megafauna even though its speed is exceptional.",
+        "weapons": "The peregrine is a small absolute-mass predator with an unusually effective delivery system. It attacks birds in flight from above, converting altitude into speed, then uses the feet/talons to strike, seize or destabilize prey. A hooked beak finishes or processes captured prey. The Forest Service review documents prey usually in the 50-500 g range, although larger birds can be attacked.\n\nThe stoop is not an unrealistic kinetic projectile. The falcon must acquire altitude, align on a moving target, control closing speed and survive the maneuver itself. Its 1 kg mass places a firm ceiling on absolute damage against large mammals and megafauna even though its speed is exceptional.",
         "weaknesses": [
           "Very low absolute mass and no armor.",
           "Talons and beak require close contact after the approach.",
@@ -24374,7 +24374,7 @@
         }
       ],
       "combat": {
-        "weapons": "The primary weapon is a short, deep jaw armed with a single row of interlocking triangular cutting teeth. Rather than needing to swallow prey whole, the fish can seize and remove tissue. Experimental predator-prey work shows red-bellied piranhas preferentially succeed when bites reach vulnerable unarmored regions such as the opercular opening and caudal peduncle. Armored cory catfish survived 37% of confirmed bites without damage, demonstrating that famous teeth are not armor-negating magic.\n\nA piranha's useful attack sequence is approach, rapid burst, targeted bite, withdrawal or repeated bites. The fish can exploit fins, tails, eyes and exposed tissue. Against a much larger opponent, however, one 1.2 kg individual cannot be scored as though an entire shoal is present.",
+        "weapons": "The primary weapon is a short, deep jaw armed with a single row of interlocking triangular cutting teeth. Rather than needing to swallow prey whole, the fish can seize and remove tissue. Experimental predator-prey work shows red-bellied piranhas preferentially succeed when bites reach vulnerable unarmored regions such as the opercular opening and caudal peduncle. Armored cory catfish survived 37% of confirmed bites without damage, demonstrating that famous teeth are not armor-piercing weapons.\n\nA piranha's useful attack sequence is approach, rapid burst, targeted bite, withdrawal or repeated bites. The fish can exploit fins, tails, eyes and exposed tissue. Against a much larger opponent, however, one 1.2 kg individual cannot be scored as though an entire shoal is present.",
         "weaknesses": [
           "Any terrestrial arena or removal from water.",
           "Armored, thick-shelled or strongly scuted opponents.",
@@ -25026,7 +25026,7 @@
         "reproduction": "Porcupines are primarily solitary. Breeding occurs in autumn/early winter and courtship is elaborate. Gestation is approximately seven months, exceptionally long for a rodent, and females normally produce a single precocial porcupette. ADW reports sexual maturity around 25 months in females and 29 months in males.",
         "conservation": "Smithsonian lists the species as Least Concern and not globally threatened, although local hunting/persecution and predator dynamics can alter populations.",
         "features": "Dense detachable quill field with microscopic backward-facing barbs.\nMuscular tail that assists both climbing and defensive quill delivery.\nStrong climbing feet and arboreal competence.\nPhysiological flexibility for severe winter cold and low-quality forage.\nStrong continuously growing incisors for woody plant material.",
-        "humanInteraction": "Porcupines can damage timber and chew human structures or tool handles, particularly when seeking salt. Dogs and other domestic animals can suffer severe quill injuries after close encounters. The species' famous ability to \"shoot\" quills is a myth: transfer requires contact or near-contact with detached quills."
+        "humanInteraction": "Porcupines can damage timber and chew human structures or tool handles, particularly when seeking salt. Dogs and other domestic animals can suffer severe quill injuries after close encounters. The species' famous ability to \"shoot\" quills is a misconception: transfer requires contact or near-contact with detached quills."
       },
       "conservationStatus": "Least Concern",
       "funFacts": [
@@ -25205,8 +25205,8 @@
         "range": "",
         "diet": "The Chinese mantis is a generalist predator. Field experiments show it can alter arthropod communities and even trigger trophic cascades by reducing herbivore abundance. Typical prey are insects and other arthropods; unusually large individuals can take small amphibians, reptiles and birds.",
         "ecology": "",
-        "social": "Adults are solitary predators rather than cooperative hunters. Eggs overwinter inside a protective ootheca and nymphs emerge in spring. NC State reports roughly 50-600 eggs per ootheca; nymphs molt six or seven times before adulthood. Cannibalism can occur among nymphs and adults. In temperate North America adults die with cold weather after reproducing.",
-        "reproduction": "Adults are solitary predators rather than cooperative hunters. Eggs overwinter inside a protective ootheca and nymphs emerge in spring. NC State reports roughly 50-600 eggs per ootheca; nymphs molt six or seven times before adulthood. Cannibalism can occur among nymphs and adults. In temperate North America adults die with cold weather after reproducing.",
+        "social": "Adults are solitary predators rather than cooperative hunters. Eggs overwinter inside a protective ootheca and young emerge in spring. NC State reports roughly 50-600 eggs per ootheca; young molt six or seven times before adulthood. Cannibalism can occur among young and adults. In temperate North America adults die with cold weather after reproducing.",
+        "reproduction": "Adults are solitary predators rather than cooperative hunters. Eggs overwinter inside a protective ootheca and young emerge in spring. NC State reports roughly 50-600 eggs per ootheca; young molt six or seven times before adulthood. Cannibalism can occur among young and adults. In temperate North America adults die with cold weather after reproducing.",
         "conservation": "The species is not a conservation-priority native animal in North America. It is introduced there and can consume native insects and hummingbirds, so describing it simply as a beneficial pest-control species is misleading. Humans also keep it in captivity and historically distributed mantis egg cases for garden biological control.",
         "features": "Long prothorax and mobile head expand the visual targeting envelope.\nForward-facing compound eyes support stereoscopic prey ranging.\nRaptorial forelegs combine reach, spines and rapid closure.\nGreen/brown polymorphism improves background matching.\nStill ambush posture reduces energetic cost and visual detection.",
         "humanInteraction": "The species is not a conservation-priority native animal in North America. It is introduced there and can consume native insects and hummingbirds, so describing it simply as a beneficial pest-control species is misleading. Humans also keep it in captivity and historically distributed mantis egg cases for garden biological control."
@@ -25946,7 +25946,7 @@
       "narrative": [
         "The Python roster entry resolves to the reticulated python, a species whose real combat biology is more interesting than the legacy 200-PSI placeholder suggests. Its jaws are not the main engine. They are the grappling hook. Once recurved teeth hold, the rest of the animal becomes the weapon. Direct experiments on reticulated pythons show that constriction pressure rises with body diameter, giving large females a mechanically credible path from contact to circulatory disruption.",
         "The second half of the system is target acquisition. Reticulated pythons do not merely possess vague \"heat vision.\" They carry arrays of facial pit organs whose sensory neurons and neural projections have been experimentally mapped. Those pits detect radiant warmth through specialized thermosensory machinery and complement chemical and mechanical cues. In darkness and dense cover, that package makes the snake much harder to evade at close range than vision alone would suggest.",
-        "ABS should still resist giant-snake mythology. A 50 kg female is formidable, but it is not armored, fast in open pursuit, or capable of controlling arbitrarily large opponents. Its best matchup is a target that enters striking range and lacks the tools to prevent a complete wrap. Its worst matchup is one that stays outside that range, crushes or tears the head, or is simply too massive for the coil system to dominate."
+        "ABS should still resist giant-snake exaggeration. A 50 kg female is formidable, but it is not armored, fast in open pursuit, or capable of controlling arbitrarily large opponents. Its best matchup is a target that enters striking range and lacks the tools to prevent a complete wrap. Its worst matchup is one that stays outside that range, crushes or tears the head, or is simply too massive for the coil system to dominate."
       ],
       "sections": {
         "habitat": "The species occupies South and Southeast Asian lowlands across continental and insular systems, including forests, river margins, wetlands, mangroves, agricultural mosaics and settlements. It tolerates substantial habitat modification and is strongly associated with water in many parts of its range. Its island distribution and population structure are complex, so one mainland/Sumatran body-size template should not be treated as universal.",
@@ -28198,7 +28198,7 @@
       "specimen": "healthy prime adult female, 70.0 kg, approximately 270.0 cm total length. Females attain the largest sizes and southeastern-Florida ageing work found females slightly larger and potentially longer-lived than males.",
       "specimenSex": "female",
       "extinct": false,
-      "summary": "A fast, highly maneuverable pelagic predator, the sailfish uses a long hydrodynamically stealthy bill to enter prey schools and deliver lightning lateral slashes. Its giant dorsal sail aids control and can fold away for streamlined swimming. Modern biomechanics put its plausible maximum speed far below the famous 110 km/h myth, but its acceleration, precision and specialized weapon still make it an elite aquatic skirmisher.",
+      "summary": "A fast, highly maneuverable pelagic predator, the sailfish uses a long hydrodynamically stealthy bill to enter prey schools and deliver lightning lateral slashes. Its giant dorsal sail aids control and can fold away for streamlined swimming. Modern biomechanics put its plausible maximum speed far below the famous 110 km/h misconception, but its acceleration, precision and specialized weapon still make it an elite aquatic skirmisher.",
       "narrative": [
         "The sailfish is less a straight-line speed caricature than a precision weapons platform. Its body is shaped for sustained pelagic movement, but the decisive feature sits ahead of the eyes: a long, slender rostrum that can be threaded into a dense school of fish without producing enough disturbance to trigger an immediate escape. Once positioned, the head whips laterally. High-speed field work showed that these slashes combine extraordinary angular motion with surprise, damaging or disorienting prey that can then be seized by the jaws.",
         "Its enormous dorsal fin is similarly functional rather than ornamental. The sail can be deployed when control and prey manipulation matter, then depressed when reducing drag matters. Together with a forked tail and paired fins, this gives the fish excellent three-dimensional control in open water. The result is high Agility and Special, but not exaggerated Attack or Defense: a sailfish is still a lightly protected ~70 kg fish whose weapon is used principally against much smaller prey.",
@@ -30348,7 +30348,7 @@
         }
       ],
       "combat": {
-        "weapons": "The snapper's practical weapon is not a mythical thousand-PSI crusher. It is a rapid, well-aimed beak strike from a long neck. The hooked cutting surfaces concentrate the measured force onto a small edge and can cause serious laceration. In feeding, the animal combines ambush, neck extension and jaw closure rather than chasing fast prey for long distances. USGS video at a fish-passage culvert documented snapping turtles attacking migratory river herring on 79% of approaches, with a 15% capture rate, showing opportunistic ambush behavior in a real ecological setting.",
+        "weapons": "The snapper's practical weapon is not an exaggerated thousand-PSI crusher. It is a rapid, well-aimed beak strike from a long neck. The hooked cutting surfaces concentrate the measured force onto a small edge and can cause serious laceration. In feeding, the animal combines ambush, neck extension and jaw closure rather than chasing fast prey for long distances. USGS video at a fish-passage culvert documented snapping turtles attacking migratory river herring on 79% of approaches, with a 15% capture rate, showing opportunistic ambush behavior in a real ecological setting.",
         "weaknesses": [
           "Reduced plastron and exposed limbs/neck/tail.",
           "Slow terrestrial repositioning despite fast local strike delivery.",
@@ -31405,7 +31405,7 @@
       },
       "conservationStatus": "Least Concern",
       "funFacts": [
-        "The mascots of the 2026 Milano Cortina Winter Olympics and Paralympics, Tina and Milo, are stoats.",
+        "The mascots of the 2026 Winter Games in Milan and Cortina, Tina and Milo, are stoats.",
         "A stoat eats about a quarter of its own body weight every day.",
         "Female stoats can be mated before they are weaned, while still blind and deaf.",
         "Stoats have swum 1.5 km across open water to reach islands.",
@@ -31463,7 +31463,7 @@
           "title": "Wikipedia, Stoat",
           "url": "https://en.wikipedia.org/wiki/Stoat",
           "supports": "taxonomy split, dimensions, dimorphism, musk glands, diet, killing method, reproduction, predators, culture",
-          "confidence": "males average 258 g, head-body 187–325 mm; 2021 split into three species; canines too short to reach a rabbit's spine; ~300-day gestation with delayed implantation; 2026 Olympic mascots"
+          "confidence": "males average 258 g, head-body 187–325 mm; 2021 split into three species; canines too short to reach a rabbit's spine; ~300-day gestation with delayed implantation; 2026 Winter Games mascots"
         },
         {
           "title": "Animal Diversity Web, Mustela erminea",
@@ -31548,7 +31548,7 @@
         "reproduction": "The male arrives first and claims a nest. The female usually lays four eggs (one to seven), incubated for 33–34 days; chicks reach about 3.4 kg within 45 days and fledge at 58–64 days. First breeding is usually at about four years.",
         "conservation": "Listed as Least Concern by the IUCN. It declined and disappeared from parts of western Europe in the 19th and 20th centuries because of wetland drainage and farming changes, then recovered through reintroduction and protection; a reintroduction project in Sussex, England, produced the first wild nests there in 2020, the first documented British breeding since 1416. Power-line collisions and changing migration habits linked to landfills are current concerns.",
         "features": "Long, straight, pointed red bill and long red legs.\nBroad wings suited to thermal soaring.\nBill-clattering communication with a resonating throat pouch.\nUrohidrosis: droppings on the legs cool the bird by evaporation.\nHuge, long-used stick nests.",
-        "humanInteraction": "Welcomed as a bird of good luck in much of Europe, where it nests on houses and churches. Folklore that storks deliver babies is widespread, especially in Slavic cultures. A stork found in Klütz, Germany, in 1822 with an ornate African arrow embedded in its body (the Rostocker Pfeilstorch, now a mounted specimen at the University of Rostock) was early proof of long-distance bird migration."
+        "humanInteraction": "Welcomed in much of Europe, where it nests on houses and rooftops. A stork found in Klütz, Germany, in 1822 with an ornate African arrow embedded in its body (the Rostocker Pfeilstorch, now a mounted specimen at the University of Rostock) was early proof of long-distance bird migration."
       },
       "conservationStatus": "Least Concern",
       "funFacts": [
@@ -31994,7 +31994,7 @@
         "Mute swans are not silent: their wingbeats throb loudly enough to be heard 1–2 km away.",
         "They run across the water at about 48 km/h to get airborne.",
         "Swans can kill intruding waterbirds by climbing on them and holding them underwater.",
-        "The story that a swan's wing can break a man's leg is a myth, although the blows are powerful.",
+        "The story that a swan's wing can break a man's leg is a misconception, although the blows are powerful.",
         "Cygnets often ride on a parent's back between its wings."
       ],
       "abilities": [
@@ -32046,7 +32046,7 @@
           "title": "Wikipedia, Mute swan",
           "url": "https://en.wikipedia.org/wiki/Mute_swan",
           "supports": "mass, length, wingspan, speed, aggression, predators, population history",
-          "confidence": "males 10.6–11.87 kg; 140–160 cm; wingspan 200–240 cm; flight to 88.5 km/h; drowning of intruding birds; wing strikes; leg-breaking claim a myth"
+          "confidence": "males 10.6–11.87 kg; 140–160 cm; wingspan 200–240 cm; flight to 88.5 km/h; drowning of intruding birds; wing strikes; leg-breaking claim a misconception"
         },
         {
           "title": "BTO BirdFacts, Mute Swan",
@@ -33884,7 +33884,7 @@
         "reproduction": "Sows usually first breed at about two years; males rarely take part in the rut before 4–5 years because older males keep them away. Piglets weigh about 0.6–1.0 kg at birth. Heavy juvenile mortality means the average boar lives only 1–2 years, and few pass 4–5 years in the wild.",
         "conservation": "Least Concern on the IUCN Red List. Numbers are growing in much of Europe, where driven hunts with dogs are used to manage them, bringing crop damage, urban conflict and concern over African swine fever. Outside its native range feral pigs are a damaging invasive animal.",
         "features": "Ever-growing tusks; lower tusks exposed 10–12 cm.\nSeasonal 2–3 cm shoulder-to-rump shield in rutting males.\nExcellent sense of smell, weak eyesight.\nCan jump 140–150 cm and swim more than 10 km.\nPig muscle receptors resist snake α-neurotoxins.",
-        "humanInteraction": "Boar have been hunted for thousands of years and appear in cave art and in the myths of many cultures. Today they are a major game animal, and driven hunts with dogs are common in Europe. Attacks on people are rare; in one urban case series most wounds were on the legs and only one of 34 patients had a complication."
+        "humanInteraction": "Boar have been hunted for thousands of years and appear in cave art and in the stories of many cultures. Today they are a major game animal, and driven hunts with dogs are common in Europe. Attacks on people are rare; in one urban case series most wounds were on the legs and only one of 34 patients had a complication."
       },
       "conservationStatus": "Least Concern",
       "funFacts": [
@@ -34058,7 +34058,7 @@
       },
       "conservationStatus": "Endangered",
       "funFacts": [
-        "\"Takhi,\" the Mongolian name, is usually translated as \"spirit.\"",
+        "\"Takhi\" is the Mongolian name for the wild horse.",
         "Every living Przewalski's horse traces to roughly 12–16 founder animals.",
         "The last confirmed wild individual before reintroduction was a single stallion seen in 1969.",
         "Free-roaming takhi drop their winter heart rate to about 44 beats per minute, half their spring rate.",
@@ -34122,7 +34122,7 @@
           "title": "Smithsonian's National Zoo, Przewalski's horse",
           "url": "https://nationalzoo.si.edu/animals/przewalskis-horse",
           "supports": "mass, height, length, lifespan, founders, status, name",
-          "confidence": "250–360 kg; 1.3–1.5 m; 2.2–2.6 m; up to 36 years; ~1,900 horses from 14 founders; \"takhi\" means spirit"
+          "confidence": "250–360 kg; 1.3–1.5 m; 2.2–2.6 m; up to 36 years; ~1,900 horses from 14 founders"
         },
         {
           "title": "Animal Diversity Web, Equus caballus",
@@ -34523,7 +34523,7 @@
       "summary": "The common wombat is a 28 kg burrowing marsupial with ever-growing teeth, powerful digging claws and a cartilage-backed rump it uses to plug its tunnel against predators. It can sprint over 40 km/h and bite hard, but away from its burrow it is a slow, unarmored herbivore.",
       "narrative": [
         "The common wombat is a low, barrel-shaped digger about a metre long and near 28 kg, built around its burrow. Short, heavy legs with long claws excavate tunnels up to 20 m long, and a single pair of chisel-like incisors backed by unusually large jaw muscles crops tough grasses. Every tooth keeps growing throughout life, a feature no other marsupial shares.",
-        "Its best-known defense faces backwards. Most of the wombat's rear is cartilage covered by toughened hide, and it has almost no tail, so when a dingo, fox or devil follows it underground the attacker meets a hard wall that is difficult to bite. Some sources describe wombats crushing an intruder's skull against the tunnel roof; others call that a legend, so it is not counted here. In the open the wombat can sprint over 40 km/h for a short distance and will bite, claw or charge when cornered.",
+        "Its best-known defense faces backwards. Most of the wombat's rear is cartilage covered by toughened hide, and it has almost no tail, so when a dingo, fox or devil follows it underground the attacker meets a hard wall that is difficult to bite. Some sources describe wombats crushing an intruder's skull against the tunnel roof; others call that a tall tale, so it is not counted here. In the open the wombat can sprint over 40 km/h for a short distance and will bite, claw or charge when cornered.",
         "On the absolute roster scale the wombat is a small defender rather than a fighter. Its Attack stays low because its weapons are defensive and it weighs under 30 kg, its Defense is boosted by the rump shield, and its Special score reflects how much the burrow-and-plug strategy changes fights against pursuing predators. Away from cover, against a large carnivore, it has few answers."
       ],
       "sections": {
@@ -34851,7 +34851,7 @@
         "reproduction": "Females reach puberty before three years, males after five or six. Foals weigh 30–35 kg at birth and stay with their mothers, learning to watch for predators and to follow migration routes. Stallions that take over a harem may kill foals that are not theirs.",
         "conservation": "Near Threatened on the IUCN Red List (2016). Threats include competition with livestock for food and fences that block migration routes. The quagga, a southern form, was lost to hunting in South Africa.",
         "features": "Black and white stripes that deter biting flies.\nViolent stallion fighting style of biting, wrestling and kicking.\nCooperative harem defense and graded predator responses.\nMemory-guided long-distance migration.\nSturdy equid frame with hard single hooves.",
-        "humanInteraction": "Zebras are major attractions in African parks. They compete with livestock for grazing, and fences interrupt migrations. The zebra is a totem animal for the Shona people of Zimbabwe, and zebras appear in southern African rock art."
+        "humanInteraction": "Zebras are major attractions in African parks. They compete with livestock for grazing, and fences interrupt migrations. Zebras appear in southern African rock art."
       },
       "conservationStatus": "Near Threatened",
       "funFacts": [
@@ -35942,7 +35942,7 @@
       "funFacts": [
         "The UKC registered the American Pit Bull Terrier in 1898, but the American Kennel Club has never recognized it.",
         "Its UKC standard says it is \"not the best choice for a guard dog\" because it is so friendly with strangers.",
-        "The \"locking jaw\" is a myth: holding on is behavior, not a special joint.",
+        "The \"locking jaw\" is a misconception: holding on is behavior, not a special joint.",
         "APBTs compete in weight pulling, dock jumping, lure coursing and French Ring sport.",
         "In 1996 the San Francisco SPCA tried to rename pit bull terriers \"St. Francis Terriers\" to counter their fighting reputation.",
         "In a study of 120 shelter dogs, staff labelled 52% \"pit bull-type\", but DNA tests confirmed only 21%."
@@ -36008,7 +36008,7 @@
         {
           "title": "Wikipedia, Pit bull",
           "url": "https://en.wikipedia.org/wiki/Pit_bull",
-          "supports": "locking-jaw myth, TV bite figure context",
+          "supports": "locking-jaw misconception, TV bite figure context",
           "confidence": "refusal to let go is behavioral; no locking mechanism"
         },
         {
@@ -36284,7 +36284,7 @@
         "reproduction": "Females give birth to a single calf after a long pregnancy of close to two years, and calves depend on their mothers and aunts for years. Males reach full body size and competitive status late, typically in their twenties or later, which is why prime bulls are the canonical specimen.",
         "conservation": "Endangered on the IUCN Red List, a status held since 1986, after declines of at least 50% over three generations. An IUCN-compiled 2018 set of national estimates totalled roughly 48,000–52,000 wild elephants, with wide uncertainty. Habitat loss and fragmentation, conflict with people, and poaching for ivory and other body parts are the main threats. Removing tuskers through poaching also skews sex ratios in some populations.",
         "features": "Only males carry tusks; many males are tuskless makhnas.\nHighly muscular, boneless trunk used for feeding, touch, smell, drinking and fighting.\nInstrumented running speed up to 6.8 m/s without a true aerial phase.\nLow-frequency rumbles, part of which travel through the ground.\nMusth in adult bulls.\nVery large brain and strong evidence for self-recognition and cooperation.",
-        "humanInteraction": "Asian elephants have been captured and trained for timber work, transport, ceremony and war for thousands of years, and many still live in captivity in Myanmar, Thailand and India. Human-elephant conflict kills about 500 people a year in India alone, and around 100 elephants die in retaliation each year. Mitigation focuses on corridors, early-warning systems, crop protection and barriers."
+        "humanInteraction": "Asian elephants have been captured and trained for timber work, transport and war for thousands of years, and many still live in captivity in Myanmar, Thailand and India. Human-elephant conflict kills about 500 people a year in India alone, and around 100 elephants die in retaliation each year. Mitigation focuses on corridors, early-warning systems, crop protection and barriers."
       },
       "conservationStatus": "Endangered",
       "funFacts": [
@@ -37976,7 +37976,7 @@
         "It can kill up to 14 small animals in one night.",
         "It eats roughly a sixth of its own body weight in prey every night.",
         "It can leap about 1.4 m straight up and snatch birds out of the air.",
-        "A San legend says it can kill a giraffe by biting its jugular; this is folklore, not fact.",
+        "An old story says it can kill a giraffe by biting its jugular; that is a tall tale, not fact.",
         "It spends the day inside hollow termite mounds or old springhare burrows, and captive mothers move their kittens to a new hiding place every six to ten days."
       ],
       "abilities": [
@@ -39690,7 +39690,7 @@
         "reproduction": "Egg-laying, unlike all other pit vipers in the Americas. Clutches are about 5–20 eggs, incubated for about 60–79 days while the female guards them and leaves only to drink. Hatchlings are 30–50 cm long with bright orange or yellow tail tips that fade with age. Adult coloring comes at 1–2 years and sexual maturity at about 4 years.",
         "conservation": "Listed as Least Concern on the IUCN Red List (2021 assessment, as reported by Wikipedia). Habitat destruction has reduced it in parts of its range, including Colombia and Brazil's Atlantic Forest.",
         "features": "Heat-sensing facial pits.\nHinged fangs with venom yields up to about 411 mg.\nRough, tubercular keeled scales.\nTail vibration and a spiny tail tip that rustles loudly in leaf litter, though it has no rattle.\nEgg-laying with maternal nest guarding.",
-        "humanInteraction": "Bites are rare because bushmasters live in remote forest and avoid people, but they are severe. A 2026 review found only 44 confirmed Lachesis bites in the literature from 1950 to 2023, with a 9.1% death rate despite antivenom. In Brazil, bites are treated with a combined anti-bothropic-lachetic antivenom and are often mistaken at first for lancehead bites. The genus name Lachesis refers to the Greek Fate who measured out each person's life, and muta (\"mute\") refers to its rattle-less tail."
+        "humanInteraction": "Bites are rare because bushmasters live in remote forest and avoid people, but they are severe. A 2026 review found only 44 confirmed Lachesis bites in the literature from 1950 to 2023, with a 9.1% death rate despite antivenom. In Brazil, bites are treated with a combined anti-bothropic-lachetic antivenom and are often mistaken at first for lancehead bites. The species name muta (\"mute\") refers to its rattle-less tail."
       },
       "conservationStatus": "Least Concern",
       "funFacts": [
@@ -41430,7 +41430,7 @@
       "narrative": [
         "On a sub-Antarctic beach in the breeding season, a harem bull is an intimidating sight. Three tonnes of blubber and muscle rears up on its fore-flippers, the swollen trunk-like nose roaring, the chest crashing down on the sand. When displays fail, rival bulls tower over each other and lunge, biting at the neck and leaning with all their weight until one gives way. Most contests are over in minutes, and older, larger bulls usually win access to the females.",
         "At sea the same animal becomes one of the most extreme divers on the planet. For months it barely stops diving, spending up to about 90% of its time underwater and surfacing for only a couple of minutes between dives that routinely reach hundreds of metres. It has been recorded at 2,388 m. Twice the blood volume of a land mammal, extra haemoglobin and oxygen-rich muscles make this possible. The ocean has few places an elephant seal cannot go, and few animals that can follow it there.",
-        "In ABS terms the elephant seal is a titan built for endurance rather than killing. Its Stamina and Special are near the top of the roster because of its diving physiology, and its Defense is high because of its sheer mass and blubber. Its Attack is moderate because its weapons are limited to canine bites and body slams, and its Agility is low. Killer whales can still take elephant seals, especially young ones, but a full-grown bull in deep water is one of the hardest animals in the ocean to catch or wear down."
+        "In ABS terms the elephant seal is a heavyweight built for endurance rather than killing. Its Stamina and Special are near the top of the roster because of its diving physiology, and its Defense is high because of its sheer mass and blubber. Its Attack is moderate because its weapons are limited to canine bites and body slams, and its Agility is low. Killer whales can still take elephant seals, especially young ones, but a full-grown bull in deep water is one of the hardest animals in the ocean to catch or wear down."
       ],
       "sections": {
         "habitat": "Southern elephant seals breed on sub-Antarctic islands such as South Georgia, Kerguelen and Marion, and on the Península Valdés coast of Argentina. At sea they range across the Southern Ocean to the Antarctic ice edge, foraging along boundaries between water masses.",
@@ -42600,7 +42600,7 @@
         "ecology": "",
         "social": "Solitary and territorial. It overlaps with martens without strong separation in space or time in a 2019 Michigan camera-trap study, but it also kills martens.",
         "reproduction": "Mating takes place from March to May. Implantation is delayed about ten months, active pregnancy begins around mid-February, and litters are born in spring in tree dens. Kits begin to climb at about eight weeks. Females need moderately large trees for dens.",
-        "conservation": "Listed as Least Concern on the IUCN Red List. It recovered across much of the east after overtrapping and deforestation, but some western populations remain endangered: Washington lists it as a state endangered species and reintroduced 90 fishers to Olympic National Park in 2008–2010; the southern Sierra Nevada population is listed as federally endangered.",
+        "conservation": "Listed as Least Concern on the IUCN Red List. It recovered across much of the east after overtrapping and deforestation, but some western populations remain endangered: Washington lists it as a state endangered species and reintroduced 90 fishers to a national park in Washington state in 2008–2010; the southern Sierra Nevada population is listed as federally endangered.",
         "features": "Reversible hind ankles and head-first tree descent.\nCoarse hairs between foot pads for grip on slippery surfaces.\nLong, flexible, muscular mustelid body.\nSpecialized porcupine-killing behavior.\nDelayed implantation of the embryo.",
         "humanInteraction": "Once heavily trapped for its fur. It sometimes raids chicken coops, and in suburban areas it has been reported killing cats and small dogs. It is useful to foresters because it controls porcupines. In California, a 2013 study examined how illegal marijuana grow sites inside fisher home ranges affect fisher survival (an average of 5.3 grow sites per home range)."
       },
@@ -42611,7 +42611,7 @@
         "It is one of the few animals that regularly kills porcupines.",
         "Fishers killed at least 14 Canada lynx in one Maine study area between 1999 and 2011.",
         "Its pregnancy lasts almost a full year because the embryo waits about ten months before implanting.",
-        "Ninety fishers from British Columbia were released in Olympic National Park between 2008 and 2010 to bring the species back."
+        "Ninety fishers from British Columbia were released in a Washington state national park between 2008 and 2010 to bring the species back."
       ],
       "abilities": [
         {
@@ -42918,7 +42918,7 @@
         "reproduction": "Breeding centres on traditional mating trees, where a female remains for an extended period and mates repeatedly with several males. Litters are small, and young stay with the mother for many months. Juvenile females temporarily show male-like external genitalia and coat secretions, which fade as they mature; this transient masculinization was first described in this species.",
         "conservation": "Vulnerable on the IUCN Red List, with a decreasing population trend. Total population estimates are uncertain and vary widely between studies; regional density estimates are low. Main threats are forest loss and fragmentation, hunting and persecution in retaliation for poultry losses, and disease risks from domestic carnivores.",
         "features": "Flexible, rotating ankles that allow head-first descent.\nSharp semi-retractile claws on all feet.\nLong tail used as a balance pole in trees.\nFlat-footed walking gait on the ground.\nTransient masculinization of juvenile females.",
-        "humanInteraction": "Fossa are feared and persecuted in parts of rural Madagascar because they take poultry and are the subject of local folklore. Because they are rarely seen in the wild, most people outside Madagascar know them from zoos, where they are kept in a small number of breeding programs."
+        "humanInteraction": "Fossa are feared and persecuted in parts of rural Madagascar because they take poultry. Because they are rarely seen in the wild, most people outside Madagascar know them from zoos, where they are kept in a small number of breeding programs."
       },
       "conservationStatus": "Vulnerable",
       "funFacts": [
@@ -44058,7 +44058,7 @@
       ],
       "traits": [
         {
-          "name": "Pink Ghost of the Slope",
+          "name": "Pink Shadow of the Slope",
           "description": "soft, semi-translucent skin lets blood vessels show through, giving adults their pink colour; young goblin sharks are almost white."
         },
         {
@@ -45009,7 +45009,7 @@
         "reproduction": "Gestation lasts about 59–72 days, and litters average about three precocial pups. Females can be fertile at about four weeks and can conceive again within hours of giving birth. Pets usually live five to eight years.",
         "conservation": "Domesticated; the domestic guinea pig has no wild population to assess. Its main wild source species, the montane guinea pig, is listed as Least Concern.",
         "features": "About 340° field of vision.\nContinuously growing incisors and cheek teeth.\nPrecocial young born furred and mobile.\nCannot synthesize vitamin C.\nLarge vocal repertoire, including whistles and alarm squeals.",
-        "humanInteraction": "Guinea pigs were domesticated for food in the Andes, where they also have roles in folk medicine and ceremonies. They became pets in Europe after the Spanish conquest, were central to early research on scurvy and infectious diseases, and gave English the phrase \"guinea pig\" for a test subject."
+        "humanInteraction": "Guinea pigs were domesticated for food in the Andes, where they are still raised for food today. They became pets in Europe after the Spanish conquest, were central to early research on scurvy and infectious diseases, and gave English the phrase \"guinea pig\" for a test subject."
       },
       "conservationStatus": "Domesticated",
       "funFacts": [
@@ -45990,7 +45990,7 @@
         "reproduction": "Oviparous. Females usually lay 12 to 20 eggs in a hollow tree or in the earth and guard them throughout incubation, leaving only to feed. Hatchlings emerge after about 50 days with functional venom.",
         "conservation": "Listed as Least Concern by the IUCN. It remains widespread, though it is killed in large numbers when found near homes and is still used by snake charmers in some areas.",
         "features": "Front fangs delivering a three-finger-toxin-dominated neurotoxic venom.\nExpandable hood with the spectacle-shaped mark on its back.\nA wide black band on the underside of the neck.\nAbility to rear and hold a large part of the body upright during threat displays.\nStrong regional variation in venom composition across India.",
-        "humanInteraction": "India loses tens of thousands of people to snakebite each year; a nationally representative study estimated about 1.2 million deaths between 2000 and 2019, around 58,000 a year. The Indian cobra and Russell's viper cause most envenomations because they are found almost throughout the country. The cobra is central to Indian culture and folklore and is closely associated with snake charmers. Research showing that venoms from different regions respond differently to the same antivenom has pushed for better, pan-India treatments."
+        "humanInteraction": "India loses tens of thousands of people to snakebite each year; a nationally representative study estimated about 1.2 million deaths between 2000 and 2019, around 58,000 a year. The Indian cobra and Russell's viper cause most envenomations because they are found almost throughout the country. The cobra is one of the best-known snakes in India. Research showing that venoms from different regions respond differently to the same antivenom has pushed for better, pan-India treatments."
       },
       "conservationStatus": "Least Concern",
       "funFacts": [
@@ -47230,7 +47230,7 @@
       ],
       "traits": [
         {
-          "name": "Island Colossus",
+          "name": "Island Giant",
           "description": "the Kodiak Archipelago's brown bears are among the largest bears in the world, with big males reaching about 680 kg before denning."
         },
         {
@@ -47719,7 +47719,7 @@
         "The breed can take up to three years to reach full size.",
         "Many Maine Coons have extra toes; in one study of 70 cats from polydactyl lines, 48 had them, with no apparent harm to welfare.",
         "The Maine Coon is the official state cat of Maine.",
-        "Despite the name, the breed has no raccoon in it; the raccoon story is a myth.",
+        "Despite the name, the breed has no raccoon in it; the raccoon story is a misconception.",
         "A female Maine Coon named Cosey was Best in Show at the first North American cat show, held at Madison Square Garden in 1895."
       ],
       "abilities": [
@@ -48965,7 +48965,7 @@
       ],
       "traits": [
         {
-          "name": "Ghost of the Forest",
+          "name": "Shadow of the Forest",
           "description": "short, hidden hunting flights averaging only 83–94 seconds, from perch to strike, make it one of the most feared woodland predators of birds."
         },
         {
@@ -50831,7 +50831,7 @@
       "summary": "Russell's viper is a stout, chain-patterned South Asian viper about 1.2 m long, with 16.5 mm fangs and a venom that sets off runaway clotting. It warns with a very loud hiss and strikes hard, and it is thought to cause most severe snakebites in India. Its body is still small and slow, so its danger lies almost entirely in the bite.",
       "narrative": [
         "Russell's viper is built around one devastating weapon. At about 1.2 m and 1.3 kg it is a mid-sized viper, slow when it moves and usually content to lie still in grass or farmland. But its hinged fangs are around 16.5 mm long, and a typical adult carries about 100 mg of venom that activates clotting factors X and V, draining the blood of its ability to clot and damaging kidneys and blood vessels.",
-        "When disturbed it does not simply flee. It pulls its body into S-loops, raises the front third of its body and produces a hiss often called the loudest of any snake. If the threat continues, it strikes with enough force that a large snake can lift off the ground, sometimes holding on for several seconds. This forceful strike is behind the myth that it chases people.",
+        "When disturbed it does not simply flee. It pulls its body into S-loops, raises the front third of its body and produces a hiss often called the loudest of any snake. If the threat continues, it strikes with enough force that a large snake can lift off the ground, sometimes holding on for several seconds. This forceful strike is behind the misconception that it chases people.",
         "In battle terms, Russell's viper has one of the strongest venom weapons among the roster's vipers, stronger in delivery than a rattlesnake of similar size. Everything else is modest: little strength, no armor, slow movement and an ectotherm's limited stamina. It wins fights that come to it, and loses fights where the opponent can stay out of reach or crush it first."
       ],
       "sections": {
@@ -52286,7 +52286,7 @@
         "reproduction": "Breeding is not seasonal. Litters are usually two to four cubs, born with eyes and ears closed and without the adult mane. Cubs stay with their mother until they forage with her at about 10–12 months, and older daughters may act as helpers. Sexual maturity comes at two to three years.",
         "conservation": "Near Threatened on the IUCN Red List. The global population is estimated at under 10,000 mature individuals. Threats include deliberate and incidental persecution (in Arabia and North Africa it is baited, tracked and trapped as a supposed grave robber), poisoning (it readily takes strychnine bait laid for wolves or jackals, and was wiped out along Israel's Mediterranean coast by a 1918–1948 rabies poisoning campaign), a shrinking prey base, and a falling supply of carcasses as the large carnivores it scavenges from decline. Camera-trap work in southern Tanzania found it at low density (about 1.4 per 100 km²).",
         "features": "Bone-cracking cheek teeth and a high sagittal crest.\nErectile dorsal mane and black mid-back patch.\nDeath-feigning when overpowered.\nEversible anal pouch with a pungent secretion.\nBlunt, non-retractable digging claws.",
-        "humanInteraction": "Usually timid around people. It has long been persecuted as a grave robber and livestock killer, and it carries a heavy load of folklore across its range. Rare attacks on people, mostly on sleeping children, have been reported historically in the Caucasus, Central Asia and India, and a 2024 case report described facial injuries from a striped hyena bite in northern India. Its actual share of livestock losses is small in most surveys."
+        "humanInteraction": "Usually timid around people. It has long been persecuted as a grave robber and livestock killer, and it has a bad reputation across its range. Rare attacks on people, mostly on sleeping children, have been reported historically in the Caucasus, Central Asia and India, and a 2024 case report described facial injuries from a striped hyena bite in northern India. Its actual share of livestock losses is small in most surveys."
       },
       "conservationStatus": "Near Threatened",
       "funFacts": [
@@ -52461,7 +52461,7 @@
           "description": "a short, deep hooked bill gives a sharp, painful bite far stronger than a songbird of the same size could manage, used to defend the nest and deter handlers."
         },
         {
-          "name": "Flock Siren",
+          "name": "Flock Alarm",
           "description": "flocks fly in with loud screeching calls, and a separated bird's high-pitched screams carry for hundreds of metres, keeping the flock together and warning of danger."
         }
       ],

@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.4.0 — 2026-09-30
+
+- **Halal wording across the site.** No Greek or Roman mythology, other religions' gods or figures, or superstition in anything the site says:
+  - Card archetypes: Titan is now **Heavyweight** (Blue Whale, Megalodon, Sperm Whale and others), Mage is **Mastermind**, Bard is **Loudmouth**, Speed Demon is **Speedster**, Berserker is **Brawler**.
+  - Ability and trait names: Titanic Lunge is **Massive Lunge**, Prairie Juggernaut **Prairie Bulldozer**, Rolling and Island Colossus **Rolling** and **Island Giant**, Flock Siren **Flock Alarm**, and the "Ghost" names are now "Shadow" or "Silent-Wing".
+  - Rewards: the Oracle title is **Sure Shot**, the Oracle Eye frame **Eagle Eye**, the Aurora frame **Northern Lights** (owned items carry over).
+  - Research text: "myth" and "magical" phrasing, a kraken, the Olympics, lucky storks, a totem, a Greek Fate, a "spirit" name and belief and ceremony lines are rewritten plainly; biology terms named after mythology read "jellyfish", "larvae" and "young".
+- `lib/wording.js` holds the rules. The research import applies them to everything it generates, so future research stays clean, and `test/wording.test.js` fails if any of that wording comes back.
+
 ## 4.3.0 — 2026-09-30
 
 Phones first: every page reachable, nothing cut off, tested in Safari (WebKit) at iPhone SE, iPhone 13 and Pro Max sizes.

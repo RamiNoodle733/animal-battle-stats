@@ -21,6 +21,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const { parseResearchProfile } = require('./parse-research-profile');
+const { cleanRecord, cleanProfile } = require('../../lib/wording');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const RESEARCH_DIR = path.join(ROOT, 'animal-research-for-update', 'animals');
@@ -244,7 +245,7 @@ function main() {
     for (const legacy of legacyAnimals) {
         const slug = slugify(legacy.name);
         if (!researchFiles.has(slug)) {
-            canonical.push(versionImage({ ...legacy, research_status: 'legacy', research_updated: null }));
+            canonical.push(versionImage(cleanRecord({ ...legacy, research_status: 'legacy', research_updated: null }, slug)));
             profiles[slug] = { name: legacy.name, status: 'legacy' };
             report.legacy += 1;
             report.animals[slug] = { status: 'legacy' };
@@ -257,7 +258,7 @@ function main() {
         const profile = parseResearchProfile(markdown, { slug });
         const problems = validateProfile(profile);
         if (problems.length) {
-            canonical.push(versionImage({ ...legacy, research_status: 'legacy', research_updated: null }));
+            canonical.push(versionImage(cleanRecord({ ...legacy, research_status: 'legacy', research_updated: null }, slug)));
             profiles[slug] = { name: legacy.name, status: 'legacy' };
             report.rejected += 1;
             report.animals[slug] = { status: 'rejected', problems, warnings: profile.warnings };
@@ -268,8 +269,9 @@ function main() {
         const researchedAt = commitDates.get(slug)
             || (previous && previous.contentHash === contentHash && previous.researchedAt)
             || today;
-        canonical.push(versionImage(buildCanonicalRecord(legacy, profile, researchedAt, overrides[legacy.name])));
-        profiles[slug] = buildProfileEntry(legacy, profile, { slug, contentHash, researchedAt });
+        // Owner wording rules (lib/wording.js) apply to everything generated.
+        canonical.push(versionImage(cleanRecord(buildCanonicalRecord(legacy, profile, researchedAt, overrides[legacy.name]), slug)));
+        profiles[slug] = cleanProfile(buildProfileEntry(legacy, profile, { slug, contentHash, researchedAt }), slug);
         report.researched += 1;
         report.animals[slug] = profile.warnings.length
             ? { status: 'researched', warnings: profile.warnings }
@@ -306,8 +308,8 @@ function main() {
         const researchedAt = commitDates.get(slug)
             || (previous && previous.contentHash === contentHash && previous.researchedAt)
             || today;
-        canonical.push(versionImage(buildCanonicalRecord(base, profile, researchedAt, overrides[base.name])));
-        profiles[slug] = buildProfileEntry(base, profile, { slug, contentHash, researchedAt });
+        canonical.push(versionImage(cleanRecord(buildCanonicalRecord(base, profile, researchedAt, overrides[base.name]), slug)));
+        profiles[slug] = cleanProfile(buildProfileEntry(base, profile, { slug, contentHash, researchedAt }), slug);
         report.researched += 1;
         report.animals[slug] = profile.warnings.length
             ? { status: 'researched', added: true, warnings: profile.warnings }

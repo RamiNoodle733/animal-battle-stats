@@ -1,9 +1,11 @@
 ---
-// Six stat bars, one per line: label, bar, number. One colour for every stat,
-// so the numbers carry the page (scripts update .m-bar --v and .m-val).
+// Six stat bars, one per line: label, the slanted segmented bar (ten segments,
+// the site's signature), number. One colour for every stat, so the numbers
+// carry the page (scripts update .m-bar --v and .m-val).
 import { STATS, fmtScore } from '../lib/catalog.js';
 
 const { animal, compact = false } = Astro.props;
+const SEGMENTS = Array.from({ length: 10 }, (_, index) => index);
 ---
 <div class={`meters${compact ? ' compact' : ''}`}>
     {STATS.map((stat) => {
@@ -11,7 +13,9 @@ const { animal, compact = false } = Astro.props;
         return (
             <div class="meter" data-meter={stat.key} title={`${stat.label}: ${stat.blurb}`}>
                 <span class="m-label">{stat.label}</span>
-                <span class="m-bar" style={`--v:${Math.min(100, value)}`} role="meter" aria-label={stat.label} aria-valuemin="0" aria-valuemax="100" aria-valuenow={value}><i></i></span>
+                <span class="m-bar sbar" style={`--v:${Math.min(100, value)}`} role="meter" aria-label={stat.label} aria-valuemin="0" aria-valuemax="100" aria-valuenow={value}>
+                    {SEGMENTS.map((index) => <i style={`--i:${index}`}></i>)}
+                </span>
                 <b class="m-val">{fmtScore(value)}</b>
             </div>
         );

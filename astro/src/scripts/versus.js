@@ -42,7 +42,7 @@ const callStreak = root.querySelector('[data-call-streak]');
 const CALL_NOTE = 'Pick who wins, then watch the fight. Right calls build a streak.';
 
 function toModel(animal) {
-    return { attack: animal.atk, defense: animal.def, agility: animal.agi, stamina: animal.sta, intelligence: animal.int, special: animal.spl };
+    return { attack: animal.atk, defense: animal.def, agility: animal.agi, stamina: animal.sta, intelligence: animal.int, special: animal.spl, weight_kg: animal.w };
 }
 
 // "Gorilla" -> "Gorillas", "Gray Wolf" -> "Gray Wolves"; the last word only.
@@ -88,6 +88,7 @@ function reveal() {
     root.classList.remove('is-sealed');
 }
 root.querySelector('[data-reveal-btn]').addEventListener('click', () => { sfx.flip(); reveal(); });
+root.querySelector('[data-hide-odds]').addEventListener('click', () => { sfx.flip(); root.classList.add('is-sealed'); });
 
 // ---------------------------------------------------------------- render
 
@@ -96,6 +97,7 @@ function paintCrowd(side, animal) {
     const node = sides[side];
     const art = node.querySelector('[data-f-art]');
     art.querySelectorAll('img.ghost').forEach((img) => img.remove());
+    art.classList.toggle('is-crowd', count > 1);
     const main = art.querySelector('img:not(.ghost)');
     for (let index = Math.min(2, count - 1); index >= 1; index -= 1) {
         const ghost = main.cloneNode();
@@ -212,9 +214,9 @@ function paintMatchup() {
     const params = new URLSearchParams({ a: a.s, b: b.s });
     if (state.na > 1) params.set('na', String(state.na));
     if (state.nb > 1) params.set('nb', String(state.nb));
-    if (location.pathname === '/compare' || state.na > 1 || state.nb > 1 || a.h || b.h) {
-        if (location.pathname !== '/compare' || location.search !== `?${params}`) history.replaceState(null, '', `/compare?${params}`);
-    }
+    // A matchup page keeps its own address until the matchup changes.
+    const ownPage = a.s === root.dataset.a && b.s === root.dataset.b && state.na === 1 && state.nb === 1;
+    if ((location.pathname === '/compare' || !ownPage) && location.search !== `?${params}`) history.replaceState(null, '', `/compare?${params}`);
     document.title = `${label(a, state.na)} vs ${label(b, state.nb)}: Who Would Win? | Animal Battle Stats`;
     loadFanVotes(a, b);
     document.dispatchEvent(new CustomEvent('abs:matchup'));
@@ -532,6 +534,26 @@ async function fight(forced = null) {
     fightButton.disabled = false;
     fightButton.querySelector('span').textContent = 'Fight again';
 }
+
+// ---------------------------------------------------------------- random matchup
+
+function randomMatchup() {
+    if (state.fighting) return;
+    const pool = [...state.index.values()].filter((animal) => !animal.h);
+    if (pool.length < 2) return;
+    const first = pool[Math.floor(Math.random() * pool.length)];
+    let second = first;
+    while (second.s === first.s) second = pool[Math.floor(Math.random() * pool.length)];
+    state.a = first.s;
+    state.b = second.s;
+    state.na = 1;
+    state.nb = 1;
+    paintFighter('a', first);
+    paintFighter('b', second);
+    sfx.whoosh();
+    paintMatchup();
+}
+root.querySelector('[data-random]')?.addEventListener('click', randomMatchup);
 
 // ---------------------------------------------------------------- wiring
 

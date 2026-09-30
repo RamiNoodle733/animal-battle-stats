@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.11.0 — 2026-09-29
+
+- **The slanted segmented stat bars are back**, in one colour, on animal pages, the animal list preview, the Versus tape (cyan left, orange right) and the tournament.
+- **Animal pages read like a database:** weight, length, top speed, bite force, lifespan and habitat sit under the photo; the name line carries the rank and tier; the chips are plain; no glowing, pulsing podium. Tabs are named Stats, Abilities, Facts, Matchups, Analysis, Sources and Talk.
+- **Body size counts in every fight:** an animal ten times heavier gains about 8 points. Close classics barely move (lion vs tiger is unchanged); big mismatches make sense now (a house cat no longer beats a German shepherd one time in three).
+- **Human vs animal pages** for 41 animals (/compare/human-vs-gorilla and more), answering "can a human beat a gorilla?" and "how many humans would it take?". The Human's ratings are more realistic (one unarmed man beats a gorilla about 1 time in 5; 4 men are favoured).
+- **Versus:** crowds stand as a tidy pack (the fighter in front, two more behind), the odds can be hidden again after Show, and a Random button deals a random matchup.
+- **Search and AI:** titles aimed at what people search (who would win, animal matchups, compare animals, animal rankings, powerscaling), a Gila Monster vs Salamander page that answers the Siberian salamander question, and llms.txt now lists every popular matchup with its winner and odds, plus how many men it takes against 41 animals.
+- **Cleaner everywhere:** every animal card has the same background (the tier frame is the only colour that means something), a quieter background, Tourney is now Tournament, the tablet Versus layout uses the whole screen, and the Community page no longer shows "[TITLE UNAVAILABLE]" for the Roblox game.
+
 ## 3.10.0 — 2026-09-29
 
 - **Who would win, rebuilt.** All six battle stats and the key measurements (weight, top speed, bite force, size) sit side by side as one tale of the tape, readable at a glance on phones and desktops without scrolling. Each fighter has one colour (cyan on the left, orange on the right). "Change" opens a searchable picker, and the popular matchups sit at the top of it.

@@ -131,9 +131,18 @@ const jsonLd = [
 ];
 
 const TABS = [
-    ['stats', 'Stats', 'claws'], ['kit', 'Kit', 'bolt'], ['facts', 'Facts', 'map'],
-    ['versus', 'Versus', 'vs'], ['lore', 'Lore', 'book'], ['sources', 'Sources', 'scroll'], ['talk', 'Talk', 'friends']
+    ['stats', 'Stats', 'claws'], ['kit', 'Abilities', 'bolt'], ['facts', 'Facts', 'map'],
+    ['versus', 'Matchups', 'vs'], ['lore', 'Analysis', 'book'], ['sources', 'Sources', 'scroll'], ['talk', 'Talk', 'friends']
 ];
+// The measurements under the photo: the database at a glance.
+const glance = [
+    ['Weight', fmtWeight(animal.weight_kg)],
+    [animal.length_cm ? 'Length' : 'Height', fmtLength(animal.length_cm || animal.height_cm)],
+    ['Top speed', fmtSpeed(animal.speed_mps)],
+    ['Bite force', fmtBite(animal.bite_force_psi)],
+    ['Lifespan', fmtYears(animal.lifespan_years)],
+    ['Habitat', biome ? { metric: biome.label } : null]
+].map(([label, value], index) => ({ label, value: value?.metric || null, main: index < 3 }));
 const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(profile.conservationStatus || '') ? 'chip-red' : profile.conservationStatus === 'Extinct' ? 'chip-orange' : 'chip-green';
 ---
 
@@ -146,14 +155,13 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                     <span class={`tier-badge lg tier-${animal.tier.toLowerCase()}`} title={`${animal.tier} tier: ${tier.name}`}>{animal.tier}</span>
                     <div>
                         <h1 id="animal-name" class="screen-title">{animal.name}</h1>
-                        <p class="sci"><em>{animal.scientific_name}</em></p>
+                        <p class="sci"><em>{animal.scientific_name}</em> · <b>#{animal.rank}</b> of {animals.length} · {tier.name}</p>
                     </div>
                 </div>
                 <div class="chips">
-                    <span class="chip chip-gold"><Icon name="medal" size={16} />#{animal.rank} of {animals.length}</span>
-                    <span class="chip chip-cyan"><Icon name="map" size={16} />{biome?.label || 'Arena'}</span>
+                    <span class="chip">{group?.label?.replace(/s$/, '') || animal.type}</span>
                     <span class="chip">{animal.class}</span>
-                    {profile.conservationStatus && <span class={`chip ${conservationClass}`}>{profile.conservationStatus}</span>}
+                    {profile.conservationStatus && <span class={`chip status ${conservationClass}`}><i></i>{profile.conservationStatus}</span>}
                     <span class="votes" data-votes={animal.name} role="group" aria-label={`Community vote on the ${animal.name}`}>
                         <button type="button" class="vbtn up" data-vote="up" title="Upvote: stronger than its rank"><span aria-hidden="true">▲</span><b data-count="up">·</b></button>
                         <button type="button" class="vbtn down" data-vote="down" title="Downvote: weaker than its rank"><span aria-hidden="true">▼</span><b data-count="down">·</b></button>
@@ -166,19 +174,18 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                 <AnimalImage animal={animal} priority sizes="(max-width: 760px) 70vw, 520px" class="hero-art" />
             </div>
 
+            <dl class="glance enter-2">
+                {glance.map((fact) => <div class={fact.main ? 'main' : ''}><dt>{fact.label}</dt><dd>{fact.value || '—'}</dd></div>)}
+            </dl>
+
             <div class="stage-bottom enter-2">
                 <div class="power">
                     <span>Power</span>
                     <strong>{fmtScore(animal.powerIndex)}</strong>
                     <small>{ordinal(inGroup.rank)} of {inGroup.total} {group?.label.toLowerCase()}</small>
                 </div>
-                <div class="quick">
-                    {w && <span><b>{w.metric}</b><small>weight</small></span>}
-                    {s && <span><b>{s.metric}</b><small>top speed</small></span>}
-                    {bite && <span><b>{bite.metric}</b><small>bite</small></span>}
-                </div>
                 <div class="btn-row actions">
-                    <a class="btn btn-hot" href={`/compare?a=${animal.slug}`}><Icon name="swords" size={26} />Fight</a>
+                    <a class="btn btn-hot" href={`/compare?a=${animal.slug}`}><Icon name="swords" size={26} />Compare</a>
                     <button class="btn btn-sm" type="button" data-share><Icon name="flag" size={22} />Share</button>
                 </div>
             </div>
@@ -375,12 +382,22 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 
 <style>
     .profile { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); max-width: 1500px; margin: 0 auto; }
-    .stage { position: relative; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+    .stage { position: relative; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto; gap: 10px; }
     .crumbs { font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
     .crumbs a:hover { color: var(--text); }
     .badges { display: flex; align-items: center; gap: 14px; }
     .badges .screen-title { font-size: clamp(2.2rem, 4.6vw, 4.2rem); }
     .sci { margin: 6px 0 0; color: var(--muted); font-size: 0.9rem; }
+    .sci b { color: var(--text); }
+    .chip.status i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .chips .chip { color: var(--text-2); border-color: var(--line-2); background: rgba(255, 255, 255, 0.04); }
+    .chips .chip.status.chip-red { color: #ff9aa5; }
+    .chips .chip.status.chip-green { color: #86f2c2; }
+    .chips .chip.status.chip-orange { color: var(--orange-2); }
+    .glance { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; }
+    .glance div { padding: 7px 10px; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); min-width: 0; }
+    .glance dt { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .glance dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; line-height: 1.1; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 
     /* Explicit row + size container: the photo is sized to the stage, never the stage to the photo. */
@@ -390,21 +407,9 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         left: 12%; right: 12%; bottom: 3%;
         height: 16%;
         border-radius: 50%;
-        background:
-            radial-gradient(closest-side, color-mix(in srgb, var(--tier) 55%, transparent), transparent 70%),
-            radial-gradient(closest-side, color-mix(in srgb, var(--bio-accent) 45%, transparent), transparent 100%);
-        box-shadow: 0 0 60px color-mix(in srgb, var(--tier) 40%, transparent);
+        background: radial-gradient(closest-side, rgba(255, 255, 255, 0.13), transparent 72%);
         transform: perspective(400px) rotateX(62deg);
     }
-    .platform::after {
-        content: "";
-        position: absolute;
-        inset: 14% 10%;
-        border-radius: 50%;
-        border: 2px solid color-mix(in srgb, var(--tier) 70%, transparent);
-        animation: ring 3.6s ease-in-out infinite;
-    }
-    @keyframes ring { 50% { transform: scale(1.08); opacity: 0.45; } }
     .podium :global(.hero-art) {
         --fit: 1.05;
         position: relative;
@@ -413,10 +418,9 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         aspect-ratio: var(--ar, auto);
         object-fit: contain;
         filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.6));
-        animation: arrive 0.45s ease-out both, idle 6s 0.6s ease-in-out infinite;
+        animation: arrive 0.45s ease-out both;
     }
     @keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-    @keyframes idle { 50% { transform: translateY(-4px); } }
 
     .stage-bottom { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
     .power {
@@ -427,7 +431,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
     }
     .power span { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-    .power strong { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; line-height: 0.95; color: var(--tier); text-shadow: 0 0 20px color-mix(in srgb, var(--tier) 50%, transparent); }
+    .power strong { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; line-height: 0.95; color: #fff; }
     .power small { font-size: 0.7rem; color: var(--text-2); }
     .quick { display: flex; gap: 14px; }
     .votes { display: inline-flex; gap: 4px; }
@@ -494,7 +498,10 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         /* A character screen on phones: a compact portrait on top, the tabbed dossier
            filling the rest (its panes scroll inside). */
         .profile { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
-        .stage { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto clamp(90px, 18vh, 240px) auto; }
+        .stage { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto clamp(80px, 16vh, 220px) auto auto; gap: 6px; }
+        .glance div:not(.main) { display: none; }
+        .glance div { padding: 5px 8px; }
+        .glance dd { font-size: 1rem; }
         .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
         .chips::-webkit-scrollbar { display: none; }
         .chips > * { flex: none; }

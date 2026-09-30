@@ -316,7 +316,9 @@ const jsonLd = [
     .t-duel { display: grid; gap: 6px; }
     .duel-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) 46px minmax(0, 1fr) 34px; align-items: center; gap: 5px; }
     .duel-row b { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-align: center; color: var(--muted); }
-    .duel-row b.lead { color: var(--stat); text-shadow: 0 0 12px color-mix(in srgb, var(--stat) 60%, transparent); }
+    .duel-row b.lead { color: #fff; }
+    .duel-row b.lead:first-child { color: #3cc8ff; }
+    .duel-row b.lead:last-child { color: #ff8a3d; }
     .seg-bar { display: flex; gap: 2px; height: 13px; transition: --v 0.5s var(--ease); }
     .seg-bar.left { flex-direction: row-reverse; }
     .seg-bar i {
@@ -324,13 +326,13 @@ const jsonLd = [
         transform: skewX(-24deg);
         background:
             linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.3)),
-            linear-gradient(90deg, var(--stat) calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), #5b6176 0);
+            linear-gradient(90deg, #ff8a3d calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), rgba(255, 255, 255, 0.09) 0);
     }
     .seg-bar.left i {
         transform: skewX(24deg);
         background:
             linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.3)),
-            linear-gradient(270deg, var(--stat) calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), #5b6176 0);
+            linear-gradient(270deg, #3cc8ff calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), rgba(255, 255, 255, 0.09) 0);
     }
     .d-mid { display: flex; flex-direction: column; align-items: center; line-height: 1; }
     .d-mid small { font-family: var(--font-display); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.06em; color: var(--stat); }

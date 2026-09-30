@@ -2,7 +2,12 @@
 (function exposeBattleEngine(root) {
     'use strict';
 
-    const VERSION = '0.1.0-preview';
+    const VERSION = '0.2.0';
+    // Body size: 8 x log10 of the weight ratio is added to the stat margin, so an
+    // animal ten times heavier gets about an 8-point lead. The ratings are
+    // absolute already, so this only settles the big mismatches (a house cat
+    // against a German shepherd); close classics barely move.
+    const SIZE_WEIGHT = 8;
     const FACTORS = Object.freeze([
         Object.freeze({ key: 'attack', label: 'Attack', weight: 0.28 }),
         Object.freeze({ key: 'defense', label: 'Defense', weight: 0.25 }),
@@ -34,7 +39,10 @@
             ...factor,
             contribution: (factor.left - factor.right) * factor.weight / coverage
         }));
-        const margin = contributions.reduce((sum, factor) => sum + factor.contribution, 0);
+        const leftWeight = measurement(left.weight_kg);
+        const rightWeight = measurement(right.weight_kg);
+        const size = coverage > 0 && leftWeight && rightWeight ? SIZE_WEIGHT * Math.log10(leftWeight / rightWeight) : 0;
+        const margin = contributions.reduce((sum, factor) => sum + factor.contribution, 0) + size;
         // An explicit editorial probability mapping, NOT an empirically calibrated frequency.
         const probability = coverage > 0 ? Math.max(0.05, Math.min(0.95, 1 / (1 + Math.exp(-margin / 15)))) : null;
         return {
@@ -42,13 +50,14 @@
             probability,
             winner: probability === null || Math.abs(probability - 0.5) < 1e-12 ? null : probability > 0.5 ? 'left' : 'right',
             margin,
+            size,
             factors: contributions.sort((a, b) => Math.abs(b.contribution) - Math.abs(a.contribution)),
             missing: factors.filter((factor) => factor.left === null || factor.right === null).map((factor) => factor.label),
             coverage,
             confidence: 'Low',
             confidenceReason: 'Editorial input ratings and an uncalibrated formula; complete ratings do not establish scientific accuracy.',
             simulations: 0,
-            scenario: 'Abstract 1v1 rating comparison; terrain, body-size scaling, ambush, groups and behavior are not modeled.'
+            scenario: 'Abstract 1v1 comparison of ratings plus a body-size term; terrain, ambush and behavior are not modeled.'
         };
     }
 

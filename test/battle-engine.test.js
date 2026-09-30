@@ -40,7 +40,8 @@ test('all roster pairs produce finite bounded outputs and honest low confidence'
         const result = model.compare(left, right);
         assert.ok(result.probability >= 0.05 && result.probability <= 0.95, `${left.name} / ${right.name}`);
         assert.equal(result.confidence, 'Low');
-        assert.ok(Math.abs(result.margin - result.factors.reduce((sum, factor) => sum + factor.contribution, 0)) < 1e-9);
+        // The margin is the stat factors plus the body-size term.
+        assert.ok(Math.abs(result.margin - result.size - result.factors.reduce((sum, factor) => sum + factor.contribution, 0)) < 1e-9);
     }
 });
 
@@ -50,4 +51,14 @@ test('increasing a single modeled advantage never lowers its probability', () =>
         assert.ok(model.compare({ ...profile(50), [key]: 70 }, profile(50)).probability > baseline);
     }
     assert.throws(() => model.compare(null, {}), /profiles/);
+});
+
+test('body size settles big mismatches and stays symmetric', () => {
+    const find = (name) => roster.find((animal) => animal.name === name);
+    const cat = find('House Cat');
+    const dog = find('German Shepherd');
+    const statsOnly = (animal) => ({ ...animal, weight_kg: null });
+    assert.ok(model.compare(cat, dog).probability < model.compare(statsOnly(cat), statsOnly(dog)).probability);
+    assert.ok(Math.abs(model.compare(cat, dog).probability + model.compare(dog, cat).probability - 1) < 1e-12);
+    assert.equal(model.compare(statsOnly(cat), dog).size, 0);
 });

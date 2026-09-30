@@ -9,7 +9,7 @@ import AnimalImage from './AnimalImage.astro';
 import { STATS, BIOMES, fmtScore, fmtWeight, fmtLength, fmtSpeed, fmtBite } from '../lib/catalog.js';
 import { verdict, PAIRS } from '../lib/matchups.js';
 
-const { a, b, pageLevel = 'h1', analysis = true } = Astro.props;
+const { a, b, pageLevel = 'h1', analysis = true, extraFaq = [] } = Astro.props;
 const result = verdict(a, b);
 const oddsA = result.winner.slug === a.slug ? result.odds : 100 - result.odds;
 const oddsB = 100 - oddsA;
@@ -38,9 +38,12 @@ const faq = [
         if (sa && sb) { const fast = sa >= sb ? a : b; return `The ${fast.name} is faster, with a top speed of ${fmtSpeed(fast.speed_mps).metric}.`; }
         const agile = (a.agility || 0) >= (b.agility || 0) ? a : b;
         return `No reliable top speed exists for both, but the ${agile.name} is more agile (${fmtScore(agile.agility)} vs ${fmtScore((agile === a ? b : a).agility)}).`;
-    })() }
+    })() },
+    ...extraFaq
 ];
+const metaLine = (animal) => (animal.human ? 'Human · not ranked with animals' : `${animal.class} · ${BIOMES[animal.biome]?.label} · #${animal.rank}`);
 const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
+const SEG = Array.from({ length: 10 }, (_, index) => index);
 ---
 
 <div class="vs is-sealed" data-vs data-a={a.slug} data-b={b.slug}>
@@ -49,8 +52,8 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
             <header class="f-head">
                 <span class={`tier-badge tier-${animal.tier.toLowerCase()}`} data-f-tier>{animal.tier}</span>
                 <div class="f-title">
-                    <a class="f-name" href={`/stats/${animal.slug}`} data-f-link><span data-f-count-label></span><span data-f-name>{animal.name}</span></a>
-                    <small data-f-meta>{animal.class} · {BIOMES[animal.biome]?.label} · #{animal.rank}</small>
+                    <a class="f-name" href={animal.human ? undefined : `/stats/${animal.slug}`} data-f-link><span data-f-count-label></span><span data-f-name>{animal.name}</span></a>
+                    <small data-f-meta>{metaLine(animal)}</small>
                 </div>
             </header>
             <div class="hp"><i data-hp></i></div>
@@ -82,6 +85,7 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
             <button type="button" role="tab" aria-selected="true" data-ctab="tape"><Icon name="target" size={20} />Stats</button>
             {analysis && <button type="button" role="tab" aria-selected="false" data-ctab="verdict"><Icon name="book" size={20} />Verdict</button>}
             <button type="button" role="tab" aria-selected="false" data-ctab="talk"><Icon name="friends" size={20} />Talk</button>
+            <button type="button" class="c-random" data-random title="A random matchup"><Icon name="cards" size={20} />Random</button>
         </div>
 
         <div class="c-pane" data-cpane="tape">
@@ -91,9 +95,9 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
                     return (
                         <div class="t-row" data-stat={stat.key}>
                             <b class={va > vb ? 'lead' : ''} data-va>{fmtScore(va)}</b>
-                            <span class="t-bar ta"><i style={`--v:${va}`} data-ba></i></span>
+                            <span class="sbar rev ta" style={`--v:${va}`} data-ba>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
                             <span class="t-label"><span class="long">{stat.label}</span><span class="short">{SHORT[stat.key]}</span></span>
-                            <span class="t-bar tb"><i style={`--v:${vb}`} data-bb></i></span>
+                            <span class="sbar tb" style={`--v:${vb}`} data-bb>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
                             <b class={vb > va ? 'lead' : ''} data-vb>{fmtScore(vb)}</b>
                         </div>
                     );
@@ -104,9 +108,9 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
                     return (
                         <div class="t-row fact" data-fact={key}>
                             <b class={(Number(na) || 0) > (Number(nb) || 0) ? 'lead' : ''} data-va>{ta || '—'}</b>
-                            <span class="t-bar ta"><i style={`--v:${pa}`} data-ba></i></span>
+                            <span class="sbar rev ta" style={`--v:${pa}`} data-ba>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
                             <span class="t-label"><span class="long">{label}</span><span class="short">{short}</span></span>
-                            <span class="t-bar tb"><i style={`--v:${pb}`} data-bb></i></span>
+                            <span class="sbar tb" style={`--v:${pb}`} data-bb>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
                             <b class={(Number(nb) || 0) > (Number(na) || 0) ? 'lead' : ''} data-vb>{tb || '—'}</b>
                         </div>
                     );
@@ -119,7 +123,7 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
                 <div class="verdict-body" data-verdict-body>
                     <div data-verdict-text>{result.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
                     <div class="faq" data-faq>{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
-                    <p class="small muted">Odds come from the Animal Battle Stats model: six researched ratings, weighted, compared head to head. <a class="link" href="/about#model">How it works</a></p>
+                    <p class="small muted">Odds come from the Animal Battle Stats model: six researched ratings, weighted and compared head to head, plus body size. <a class="link" href="/about#model">How it works</a></p>
                 </div>
             </div>
         )}
@@ -132,6 +136,7 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
             </div>
             <p class="verdict-line"><Icon name="crown" size={20} /><strong data-winner>{result.winner.name}</strong> <span data-strength>{result.strength.toLowerCase()}</span></p>
             <button class="reveal-btn" type="button" data-reveal-btn><Icon name="lock" size={18} /><span>Odds hidden until the fight</span><b>Show</b></button>
+            <button class="rehide-btn" type="button" data-hide-odds>Hide</button>
         </div>
 
         <div class="c-actions">
@@ -226,12 +231,18 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
     .f-art.mirror :global(img) { transform: scaleX(-1); }
     /* The Human is a narrow silhouette: shown a little shorter than full height. */
     .fighter.is-human .f-art :global(img) { width: min(100cqw, calc(0.8 * 100cqh * var(--ar, 1))); }
-    /* A crowd: two dimmer copies stand behind the fighter. */
-    .f-art :global(img.ghost) { position: absolute; bottom: 0; left: 50%; opacity: 0.45; filter: brightness(0.55) drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5)); pointer-events: none; transform-origin: bottom center; }
-    .f-art :global(img.ghost.g1) { transform: translateX(-92%) scale(0.8); }
-    .f-art :global(img.ghost.g2) { transform: translateX(-8%) scale(0.72); }
-    .f-art.mirror :global(img.ghost.g1) { transform: translateX(-92%) scale(-0.8, 0.8); }
-    .f-art.mirror :global(img.ghost.g2) { transform: translateX(-8%) scale(-0.72, 0.72); }
+    /* A crowd: the fighter a little smaller in front, two more of it behind on
+       either side, all inside the stage. */
+    .f-art.is-crowd :global(img:not(.ghost)) { position: relative; z-index: 2; width: min(74cqw, calc(0.72 * var(--k, 1) * 100cqh), calc(0.8 * 100cqh * var(--ar, 1))); }
+    .f-art :global(img.ghost) {
+        position: absolute; bottom: 8%; z-index: 1;
+        width: min(52cqw, calc(0.5 * var(--k, 1) * 100cqh), calc(0.56 * 100cqh * var(--ar, 1)));
+        opacity: 0.55; filter: brightness(0.72) saturate(0.85) drop-shadow(0 8px 10px rgba(0, 0, 0, 0.5));
+        pointer-events: none;
+    }
+    .f-art :global(img.ghost.g1) { left: 0; }
+    .f-art :global(img.ghost.g2) { right: 0; }
+    .f-art.mirror :global(img.ghost) { transform: scaleX(-1); }
     .crowd-badge { position: absolute; top: 4px; z-index: 2; padding: 2px 10px; border-radius: 999px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: #1f1400; background: var(--gold); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
     .side-a .crowd-badge { left: 4px; }
     .side-b .crowd-badge { right: 4px; }
@@ -253,6 +264,8 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
     .vs-title { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05; }
     .vs-title em { font-style: normal; color: var(--muted); padding: 0 4px; font-size: 0.8em; }
     .c-tabs { justify-content: center; padding-top: 4px; }
+    .c-random { margin-left: auto; color: var(--muted); }
+    .c-random:hover { color: #fff; }
     .c-pane { flex: 1; min-height: 0; padding: 10px 14px 6px; overflow-y: auto; }
     .c-pane[data-cpane="tape"] { display: flex; flex-direction: column; justify-content: center; }
 
@@ -265,12 +278,11 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
     .t-row b.lead:last-child { color: var(--fb); }
     .t-label { text-align: center; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); white-space: nowrap; }
     .t-label .short { display: none; }
-    .t-bar { position: relative; height: 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
-    .t-bar i { position: absolute; top: 0; bottom: 0; width: calc(var(--v) * 1%); border-radius: inherit; transition: width 0.5s var(--ease); }
-    .ta i { right: 0; background: linear-gradient(270deg, var(--fa), color-mix(in srgb, var(--fa) 55%, transparent)); }
-    .tb i { left: 0; background: linear-gradient(90deg, var(--fb), color-mix(in srgb, var(--fb) 55%, transparent)); }
+    .t-row .sbar { height: 14px; transition: --v 0.5s var(--ease); }
+    .ta { --seg: var(--fa); }
+    .tb { --seg: var(--fb); }
     .t-row.fact b { font-family: var(--font-body); font-size: 0.86rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .t-row.fact .t-bar { height: 6px; opacity: 0.8; }
+    .t-row.fact .sbar { height: 8px; gap: 2px; opacity: 0.85; }
     .t-sep { height: 1px; margin: 4px 0; background: var(--line); }
 
     .verdict-pane .sealed-note { display: none; padding: 10px 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: var(--text-2); font-size: 0.86rem; }
@@ -285,6 +297,9 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
     .verdict-line { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 26px; margin: 4px 0 0; font-size: 0.86rem; color: var(--text-2); }
     .verdict-line strong { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-transform: uppercase; color: var(--gold-2); }
     .reveal-btn { display: none; }
+    .rehide-btn { position: absolute; right: 14px; bottom: 2px; height: 24px; padding: 0 9px; border: 1px solid var(--line-2); border-radius: 6px; background: transparent; color: var(--muted); font: inherit; font-size: 0.72rem; font-weight: 800; cursor: pointer; }
+    .rehide-btn:hover { color: #fff; border-color: var(--text-2); }
+    .vs.is-sealed .rehide-btn { display: none; }
     .vs.is-sealed .odds span { flex-basis: 50%; color: transparent; }
     .vs.is-sealed .o-a { background: color-mix(in srgb, var(--fa) 22%, #0b1229); }
     .vs.is-sealed .o-b { background: color-mix(in srgb, var(--fb) 22%, #0b1229); }
@@ -429,7 +444,8 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
         .t-label { font-size: 0.64rem; letter-spacing: 0.06em; }
         .t-label .long { display: none; }
         .t-label .short { display: inline; }
-        .t-bar { height: 8px; }
+        .t-row .sbar { height: 11px; gap: 2px; }
+        .t-row.fact .sbar { height: 6px; }
         .t-sep { margin: 2px 0; }
         .reveal { padding: 2px 10px 0; }
         .odds { height: 22px; }
@@ -437,6 +453,7 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
         .verdict-line { min-height: 22px; margin-top: 2px; font-size: 0.8rem; }
         .vs.is-sealed .reveal-btn { flex-direction: row; justify-content: center; align-items: center; inset: 2px 10px 0; height: 22px; }
         .vs.is-sealed .reveal-btn span { height: 22px; }
+        .rehide-btn { right: 10px; height: 22px; font-size: 0.68rem; }
         .c-actions { padding: 4px 10px 10px; gap: 6px; }
         .call-head, .call-note { display: none; }
         .call[data-state="off"] { display: none; }
@@ -445,6 +462,15 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
         .picker { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border-radius: 0; border: 0; }
         .pk-grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 6px; padding: 10px; }
         :global(.pk-card) { grid-template-rows: 64px auto; }
+    }
+    /* Tall tablets in portrait: bigger fighters, so the stage is not half empty. */
+    @media (max-width: 900px) and (min-height: 960px) {
+        .vs { grid-template-rows: clamp(250px, 34vh, 420px) minmax(0, 1fr); }
+        .f-name { font-size: 1.5rem; }
+        .t-row b { font-size: 1.3rem; }
+        .t-row .sbar { height: 14px; }
+        .c-pane[data-cpane="tape"] { justify-content: flex-start; padding-top: 18px; }
+        .tape { gap: 12px; }
     }
     @media (max-width: 900px) and (max-height: 700px) {
         .vs { grid-template-rows: clamp(120px, 22vh, 180px) minmax(0, 1fr); }

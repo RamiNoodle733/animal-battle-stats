@@ -1,0 +1,76 @@
+---
+// /compare/human-vs-<animal>: an average unarmed man against an animal, with
+// the questions people search ("can a human beat a gorilla?", "how many men
+// would it take?") answered from the same model as the Versus screen.
+import Base from '../../layouts/Base.astro';
+import VsScreen from '../../components/VsScreen.astro';
+import { verdict } from '../../lib/matchups.js';
+import { fmtWeight } from '../../lib/catalog.js';
+import { HUMAN_FIGHTER, HUMAN_OPPONENTS, humanPairSlug, humansNeeded, humansWin, animalsNeeded } from '../../lib/human.js';
+import { SITE, absoluteUrl } from '../../lib/site.js';
+
+export function getStaticPaths() {
+    return HUMAN_OPPONENTS.map((animal) => ({ params: { animal: animal.slug }, props: { animal } }));
+}
+
+const { animal } = Astro.props;
+const human = HUMAN_FIGHTER;
+const result = verdict(human, animal);
+const humanOdds = Math.round(humansWin(animal, 1) * 100);
+const humanWins = humanOdds >= 50;
+const favoured = humansNeeded(animal, 0.5);
+const sure = humansNeeded(animal, 0.9);
+const theirs = humanWins ? animalsNeeded(animal, 0.5) : null;
+const num = (value) => Number(value).toLocaleString('en-US');
+const aName = animal.name;
+const lower = aName.toLowerCase();
+const an = /^[aeiou]/i.test(aName) ? 'an' : 'a';
+const path = `/compare/${humanPairSlug(animal)}`;
+const weight = fmtWeight(animal.weight_kg);
+
+const canWin = humanWins
+    ? `Usually, yes. An average unarmed man beats ${an} ${lower} about ${humanOdds}% of the time in the Animal Battle Stats model: he is ${weight ? `far heavier (80 kg against ${weight.metric}) and ` : ''}smarter, and outlasts it.`
+    : `Rarely. An unarmed, untrained man beats ${an} ${lower} only about ${humanOdds}% of the time in the Animal Battle Stats model. The ${lower} wins on ${result.wins.map((stat) => stat.label.toLowerCase()).slice(0, 3).join(', ') || 'the numbers that matter'}${weight ? `, and weighs ${weight.metric} against a man's 80 kg` : ''}.`;
+const howMany = humanWins
+    ? `One is enough: a single average man is favoured against one ${lower}.${theirs ? ` It would take about ${num(theirs)} ${lower}${theirs > 1 ? (/(s|x|ch|sh)$/i.test(lower) ? 'es' : 's') : ''} to be favoured against one man.` : ''}`
+    : favoured
+        ? `About ${num(favoured)} average men would be favoured to beat one ${lower}, and about ${num(sure)} would win 9 times out of 10 (unarmed, fighting together).`
+        : `Even a million unarmed men would not be favoured in this model; the ${lower} lives where people cannot fight it.`;
+const extraFaq = [
+    { q: `Can a human beat ${an} ${lower}?`, a: canWin },
+    { q: `How many humans would it take to beat ${an} ${lower}?`, a: howMany },
+    { q: 'Who is the Human in these matchups?', a: `An average adult man, about 80 kg and 1.75 m, unarmed and untrained, rated on the same 0 to 100 scale as the animals: attack ${human.attack}, defense ${human.defense}, agility ${human.agility}, stamina ${human.stamina}, intelligence ${human.intelligence}, special ${human.special}. Humans are not ranked or listed with the animals.` }
+];
+const title = `Human vs ${aName}: Who Would Win? ${humanWins ? 'Can a Man Win?' : `How Many Humans to Beat ${an === 'an' ? 'an' : 'a'} ${aName}?`} | ${SITE.name}`;
+const description = humanWins
+    ? `Could an unarmed man beat ${an} ${lower}? Yes, about ${humanOdds}% of the time in our model. Stats, size, speed and an animated fight: human vs ${lower}.`
+    : `Could an unarmed man beat ${an} ${lower}? Only about ${humanOdds}% of the time.${favoured ? ` It takes about ${num(favoured)} men to be favoured and ${num(sure)} to be near certain.` : ''} Stats, size and an animated fight.`;
+const jsonLd = [
+    {
+        '@type': 'WebPage',
+        url: absoluteUrl(path),
+        name: `Human vs ${aName}: who would win?`,
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        about: [
+            { '@type': 'Taxon', name: 'Human', scientificName: 'Homo sapiens' },
+            { '@type': 'Taxon', name: aName, scientificName: animal.scientific_name, url: absoluteUrl(`/stats/${animal.slug}`) }
+        ]
+    },
+    { '@type': 'FAQPage', mainEntity: extraFaq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
+    {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+            { '@type': 'ListItem', position: 2, name: 'Who would win', item: absoluteUrl('/compare') },
+            { '@type': 'ListItem', position: 3, name: `Human vs ${aName}`, item: absoluteUrl(path) }
+        ]
+    }
+];
+---
+<Base title={title} description={description} path={path} image="/images/og/compare.jpg" imageAlt={`Human vs ${aName}`} jsonLd={jsonLd} active="compare" biome={animal.biome}>
+    <VsScreen a={human} b={animal} extraFaq={extraFaq} />
+</Base>
+<script>
+    import '../../scripts/versus.js';
+</script>

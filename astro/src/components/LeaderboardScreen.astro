@@ -16,7 +16,7 @@ const path = category ? `/rankings/${category.slug}` : '/rankings';
 const heading = category ? category.label : 'Strongest animals';
 const title = category
     ? `${category.label} in the World (${year}): Top ${list.length} Ranked | ${SITE.name}`
-    : `Strongest Animals in the World ${year}: Power Rankings of ${animals.length} Animals | ${SITE.name}`;
+    : `Strongest Animals in the World ${year}: Animal Rankings of ${animals.length} Animals | ${SITE.name}`;
 const description = category
     ? `${category.intro} #1: ${list[0].name} (${show(list[0])}), #2: ${list[1].name}, #3: ${list[2].name}. Research-backed rankings with sources.`
     : `Who is the strongest animal? ${animals[0].name}, ${animals[1].name} and ${animals[2].name} top our research-backed power rankings of ${animals.length} real animals.`;

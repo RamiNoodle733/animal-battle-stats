@@ -33,7 +33,7 @@ const MENU = [
     { key: 'shows', href: '/shows', label: 'Shows', icon: 'tv' },
     { key: 'tiers', href: '/tier-list', label: 'Tiers', icon: 'crown' },
     { key: 'rankings', href: '/rankings', label: 'Rankings', icon: 'medal' },
-    { key: 'tournament', href: '/tournament', label: 'Tourney', icon: 'trophy' },
+    { key: 'tournament', href: '/tournament', label: 'Tournament', icon: 'trophy' },
     { key: 'community', href: '/community', label: 'Community', icon: 'friends' }
 ];
 const DOCK = [MENU[0], MENU[1], MENU[2], MENU[6], { key: 'roblox', href: '/roblox', label: 'Roblox', roblox: true }];
@@ -182,7 +182,7 @@ const year = new Date().getFullYear();
                 <a href="/"><Icon name="home" size={26} />Home</a>
                 <a href="/rewards"><Icon name="gift" size={26} />Rewards &amp; shop</a>
                 <a href="/shows"><Icon name="tv" size={26} />ABS Originals (shows)</a>
-                {MENU.filter((item) => item.key !== 'shows').map((item) => <a href={item.href}><Icon name={item.icon} size={26} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label === 'Tourney' ? 'Tournament' : item.label}</a>)}
+                {MENU.filter((item) => item.key !== 'shows').map((item) => <a href={item.href}><Icon name={item.icon} size={26} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label}</a>)}
                 <a href="/roblox"><span class="sheet-mark"><RobloxMark size={18} /></span>{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
                 <a href="/about"><Icon name="book" size={26} />About &amp; how ratings work</a>
                 <a href="/credits"><Icon name="scroll" size={26} />Sources &amp; photo credits</a>

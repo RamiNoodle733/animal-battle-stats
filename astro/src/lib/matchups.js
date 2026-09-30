@@ -19,8 +19,31 @@ const CLASSICS = [
     ['komodo-dragon', 'saltwater-crocodile'], ['gray-wolf', 'hyena'], ['cougar', 'jaguar'], ['snow-leopard', 'cougar'],
     ['great-white-shark', 'hammerhead-shark'], ['bull-shark', 'tiger-shark'], ['rhinoceros', 'hippopotamus'],
     ['grizzly-bear', 'black-bear'], ['african-lion', 'jaguar'], ['honey-badger', 'wolverine'], ['cassowary', 'kangaroo'],
-    ['ostrich', 'cassowary'], ['octopus', 'mantis-shrimp'], ['piranha', 'electric-eel'], ['giant-squid', 'colossal-squid']
+    ['ostrich', 'cassowary'], ['octopus', 'mantis-shrimp'], ['piranha', 'electric-eel'], ['giant-squid', 'colossal-squid'],
+    ['gila-monster', 'salamander']
 ];
+
+// Extra questions for matchups people search in a particular way. Keyed by the
+// two slugs in alphabetical order; `title` replaces the page title's matchup part.
+const NOTES = {
+    'gila-monster|salamander': {
+        title: 'Gila Monster vs Salamander (and Siberian Salamander)',
+        faq: [
+            {
+                q: 'Who would win, a gila monster or a Siberian salamander?',
+                a: 'The gila monster, easily. The Siberian salamander (Salamandrella keyserlingii) is a small salamander of Siberia and northern Asia, about 10 to 13 cm long, famous for surviving being frozen in winter, not for fighting: it has no venom, claws or strong bite. A gila monster is about half a metre long, weighs over a kilogram and has a venomous bite it holds on with. The Salamander profile on this site is the larger tiger salamander, and the gila monster beats that too.'
+            },
+            {
+                q: 'Can a salamander hurt a gila monster?',
+                a: 'Hardly. Salamanders defend themselves with skin toxins and by running or hiding, while a gila monster has thick bead-like armoured skin (osteoderms) and a venomous bite. In a fight the gila monster wins almost every time.'
+            }
+        ]
+    }
+};
+
+export function notesFor(a, b) {
+    return NOTES[key(a.slug, b.slug)] || null;
+}
 
 function key(a, b) {
     return [a, b].sort().join('|');

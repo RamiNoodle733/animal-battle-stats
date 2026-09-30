@@ -50,7 +50,8 @@ function modelStats(animal) {
         agility: animal.agility,
         stamina: animal.stamina,
         intelligence: animal.intelligence,
-        special: animal.special ?? animal.special_attack
+        special: animal.special ?? animal.special_attack,
+        weight_kg: animal.weight_kg
     };
 }
 

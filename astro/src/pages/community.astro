@@ -438,6 +438,10 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .hub :global(.score) { min-width: 22px; text-align: center; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; }
     .hub :global(.link-btn) { margin-left: 6px; padding: 2px 4px; background: none; border: 0; color: var(--cyan-2); font: inherit; font-size: 0.78rem; font-weight: 800; cursor: pointer; }
     .hub :global(.link-btn:hover) { text-decoration: underline; }
+    @media (pointer: coarse) {
+        .hub :global(.vote) { width: 34px; height: 30px; }
+        .hub :global(.link-btn) { min-height: 30px; padding: 4px 8px; }
+    }
     .hub :global(.fav), .hub :global(.player) { display: grid; align-items: center; gap: 10px; padding: 6px 10px; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 8px; }
     .hub :global(.fav) { grid-template-columns: 26px 52px minmax(0, 1fr) auto; }
     .hub :global(.player) { grid-template-columns: 26px 36px minmax(0, 1fr) auto auto; }

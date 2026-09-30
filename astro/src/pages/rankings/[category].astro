@@ -1,11 +1,17 @@
 ---
-import LeaderboardScreen from '../../components/LeaderboardScreen.astro';
+// /rankings/<category>: the Animal Database opened on that ranking.
+import Base from '../../layouts/Base.astro';
+import AnimalDatabase from '../../components/AnimalDatabase.astro';
 import { CATEGORIES } from '../../lib/categories.js';
+import { rankingPage } from '../../lib/ranking-meta.js';
 
 export function getStaticPaths() {
     return CATEGORIES.map((category) => ({ params: { category: category.slug }, props: { category } }));
 }
 
 const { category } = Astro.props;
+const page = rankingPage(category);
 ---
-<LeaderboardScreen category={category} />
+<Base title={page.title} description={page.description} path={page.path} image="/images/og/rankings.jpg" imageAlt={page.heading} jsonLd={page.jsonLd} active="animals">
+    <AnimalDatabase sort={page.sort} heading={page.heading} list={page.list} about={page.about} />
+</Base>

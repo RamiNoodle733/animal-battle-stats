@@ -1,4 +1,11 @@
 ---
-import LeaderboardScreen from '../components/LeaderboardScreen.astro';
+// /rankings: the power ranking, which is the Animal Database opened on Power.
+import Base from '../layouts/Base.astro';
+import AnimalDatabase from '../components/AnimalDatabase.astro';
+import { rankingPage } from '../lib/ranking-meta.js';
+
+const page = rankingPage();
 ---
-<LeaderboardScreen />
+<Base title={page.title} description={page.description} path={page.path} image="/images/og/rankings.jpg" imageAlt={page.heading} jsonLd={page.jsonLd} active="animals">
+    <AnimalDatabase sort={page.sort} heading={page.heading} list={page.list} about={page.about} />
+</Base>

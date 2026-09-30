@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.3.0 — 2026-09-30
+
+Phones first: every page reachable, nothing cut off, tested in Safari (WebKit) at iPhone SE, iPhone 13 and Pro Max sizes.
+
+- **Phone navigation:** the bottom bar is Animals, Versus, Tournament, Shows and Menu. Menu opens every page as a big tile (Home, Animals & rankings, Who would win?, Tournament, Tier list, Shows, Community, Rewards, Roblox, How ratings work), above the bar, with room for the iPhone home indicator.
+- **Rankings are the Animals page.** /rankings and every /rankings/... page is the Animal Database opened on that ranking, with its own heading and FAQ. A Rank-by rail (Power, Strongest, Toughest, Most agile, Stamina, Smartest, Special, Heaviest, Fastest, Longest, Bite, Fan votes, A–Z) switches between them; # is the place in the current ranking, with medals for the top three.
+- **Shows on phones scroll as one page:** the full description, every episode, the cast and the platforms are reachable; the tabs stay pinned while you scroll. The show-logo tabs are back (a rule had hidden them).
+- **Safari fixes:** the display font is drawn at its real weight (Safari showed the variable font thin); the home card ring no longer shows mirrored cards; iPhones do not zoom into search fields; short screens (iPhone SE with toolbars) scroll without panning sideways; blur behind dialogs works.
+- **Bigger touch targets:** votes, comment votes, filters, the Show odds button and small links are at least about 32px on touch screens.
+- `scripts/verification/mobile-audit.mjs` checks pages in WebKit at iPhone sizes for content hidden behind the bar, clipped text, sideways overflow and small tap targets.
+
 ## 4.2.0 — 2026-09-30
 
 Every surface is now drawn art made for the site, not CSS shapes.

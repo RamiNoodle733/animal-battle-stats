@@ -483,8 +483,10 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         .odds span { font-size: 0.95rem; }
         .verdict-line { min-height: 22px; margin-top: 2px; font-size: 0.8rem; }
         .vs.is-sealed .verdict-line { display: none; }
-        .vs.is-sealed .reveal-btn { flex-direction: row; justify-content: center; align-items: center; inset: 2px 10px 0; height: 22px; }
-        .vs.is-sealed .reveal-btn span { height: 22px; }
+        .vs.is-sealed .odds { height: 32px; }
+        .vs.is-sealed .reveal-btn { flex-direction: row; justify-content: center; align-items: center; inset: 0 10px; height: 32px; }
+        .vs.is-sealed .reveal-btn span { height: 32px; }
+        .vs.is-sealed .reveal-btn b { padding: 5px 12px; }
         .rehide-btn { right: 10px; height: 22px; font-size: 0.68rem; }
         .c-foot { position: sticky; bottom: -8px; z-index: 6; padding-top: 6px; padding-bottom: 8px; margin-bottom: -8px; background: linear-gradient(180deg, #1a1b1f, #141518); border-top: 1px solid var(--line-2); border-radius: 0 0 var(--r) var(--r); box-shadow: 0 -12px 18px -12px rgba(0, 0, 0, 0.85); }
         /* The call and the Fight button share one row, so the pinned footer stays short. */

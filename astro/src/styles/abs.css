@@ -59,8 +59,8 @@
     --tier-d: #9a7cff;
     --tier-f: #8a909c;
 
-    --font-display: "Big Shoulders Display Variable", "Big Shoulders Display", Impact, "Arial Narrow Bold", sans-serif;
-    --font-body: "Inter Variable", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: "Big Shoulders Display", Impact, "Arial Narrow Bold", sans-serif;
+    --font-body: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
     /* Surface art, rendered by scripts/assets/build-ui-textures.py and
        build-ui-scenes.py (2x pixels; shown at half size). --hex is the panel
@@ -172,7 +172,7 @@ body.game {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 0 clamp(10px, 2vw, 22px);
+    padding: 0 max(clamp(10px, 2vw, 22px), env(safe-area-inset-right)) 0 max(clamp(10px, 2vw, 22px), env(safe-area-inset-left));
     background: linear-gradient(180deg, rgba(34, 35, 40, 0.9), rgba(12, 13, 15, 0.94)), var(--tex-bg) 0 0 / var(--tex-bg-size);
     border-bottom: 1px solid var(--frame);
     box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
@@ -283,7 +283,7 @@ body.game {
     .menu a .ui-icon { display: block; width: 22px; height: 22px; }
 }
 @media (max-width: 760px) {
-    :root { --hud-h: 52px; --dock-h: 60px; }
+    :root { --hud-h: 52px; --dock-h: calc(60px + env(safe-area-inset-bottom)); }
     .menu { display: none; }
     /* Phones: search, rewards, the player and the menu. Sound and the Roblox
        game live in the menu sheet (and Roblox in the dock). */
@@ -310,43 +310,69 @@ body.game {
         border-top: 1px solid var(--frame);
         padding-bottom: env(safe-area-inset-bottom);
     }
-    .dock a {
+    .dock a, .dock .dock-menu {
         position: relative;
         display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+        height: 60px; padding: 0;
         font-family: var(--font-display); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase;
         color: var(--muted);
+        background: none; border: 0;
     }
-    .dock a .ui-icon, .dock a .dock-mark { width: 22px; height: 22px; color: var(--text-2); }
-    .dock a[aria-current="page"] { color: #fff; }
-    .dock a[aria-current="page"] .ui-icon, .dock a[aria-current="page"] .dock-mark { color: var(--gold); }
-    .dock a[aria-current="page"]::before { content: ""; position: absolute; top: 0; left: 26%; right: 26%; height: 3px; background: var(--gold); border-radius: 0 0 3px 3px; }
+    .dock .ui-icon { width: 22px; height: 22px; color: var(--text-2); }
+    .dock a[aria-current="page"], .dock .dock-menu[aria-expanded="true"] { color: #fff; }
+    .dock a[aria-current="page"] .ui-icon, .dock .dock-menu[aria-expanded="true"] .ui-icon { color: var(--gold); }
+    .dock a[aria-current="page"]::before, .dock .dock-menu[aria-expanded="true"]::before { content: ""; position: absolute; top: 0; left: 26%; right: 26%; height: 3px; background: var(--gold); border-radius: 0 0 3px 3px; }
+    /* While the menu is open, it is the current place. */
+    .dock:has(.dock-menu[aria-expanded="true"]) a[aria-current="page"] { color: var(--muted); }
+    .dock:has(.dock-menu[aria-expanded="true"]) a[aria-current="page"] .ui-icon { color: var(--text-2); }
+    .dock:has(.dock-menu[aria-expanded="true"]) a[aria-current="page"]::before { display: none; }
 }
 
-/* Settings/more sheet */
+/* The menu: every page as a big tile. A drawer on desktop, a full panel above
+   the dock on phones. */
 .sheet {
     position: fixed;
-    inset: auto 0 0 auto;
     top: var(--hud-h);
+    right: 0;
+    bottom: 0;
     z-index: 60;
-    width: min(360px, 100vw);
-    padding: 18px;
+    width: min(400px, 100vw);
+    padding: 14px 16px calc(18px + env(safe-area-inset-bottom));
     overflow-y: auto;
-    background: var(--hex) 0 0 / var(--hex-size), linear-gradient(180deg, #1a1b1f, #0f1013);
+    overscroll-behavior: contain;
+    background: var(--hex) 0 0 / var(--hex-size);
     border-left: 1px solid var(--frame);
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.5);
     transform: translateX(105%);
-    transition: transform 0.28s var(--ease);
+    visibility: hidden;
+    transition: transform 0.28s var(--ease), visibility 0s 0.28s;
 }
-.sheet.open { transform: none; }
-.sheet h2 { font-size: 1.4rem; margin: 6px 0 12px; }
-.sheet nav { display: grid; gap: 6px; margin-bottom: 18px; }
-.sheet nav a, .sheet-sound { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 12px; border-radius: 9px; font: inherit; font-weight: 700; color: inherit; text-align: left; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); cursor: pointer; }
-.sheet nav a:hover, .sheet-sound:hover { border-color: var(--line-2); background: rgba(255, 255, 255, 0.06); }
-.sheet nav .ui-icon, .sheet-sound .ui-icon { width: 20px; height: 20px; color: var(--gold); flex: none; }
+.sheet.open { transform: none; visibility: visible; transition: transform 0.28s var(--ease); }
+.sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.sheet-grid a {
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 8px;
+    min-height: 82px; padding: 10px 12px;
+    font-family: var(--font-display); font-size: 1.05rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.05;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--line-2);
+    border-radius: 10px;
+}
+.sheet-grid a:hover { border-color: var(--frame-2); background: rgba(255, 255, 255, 0.04); }
+.sheet-grid a[aria-current="page"] { border-color: var(--gold); box-shadow: inset 0 -3px 0 var(--gold); }
+.sheet-grid img { width: 30px; height: 30px; }
+.sheet .sheet-mark { display: grid; place-items: center; width: 30px; height: 30px; color: #fff; }
+.sheet-row { display: grid; gap: 6px; margin-bottom: 14px; }
+.sheet-sound, .sheet-link { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 0 12px; border-radius: 9px; font: inherit; font-size: 0.9rem; font-weight: 700; color: var(--text-2); text-align: left; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); cursor: pointer; }
+.sheet-sound .ui-icon { width: 20px; height: 20px; color: var(--gold); flex: none; }
 .sheet-sound.muted .ui-icon { color: var(--dim); }
-.sheet .sheet-mark { flex: none; display: grid; place-items: center; width: 20px; height: 20px; }
 .sheet .socials { display: flex; flex-wrap: wrap; gap: 6px; }
+.sheet .socials .chip { min-height: 34px; padding: 0 12px; }
 .sheet .fine { margin-top: 18px; font-size: 0.78rem; color: var(--dim); }
+@media (max-width: 760px) {
+    .sheet { bottom: var(--dock-h); width: 100vw; border-left: 0; box-shadow: none; padding-bottom: 18px; }
+    .hud .hud-menu { display: none; }
+}
 
 /* ---------------------------------------------------------------- screens & panels */
 
@@ -361,7 +387,12 @@ body.game {
     scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
     padding: clamp(8px, 1.4vw, 18px);
 }
+.screen { padding-left: max(clamp(8px, 1.4vw, 18px), env(safe-area-inset-left)); padding-right: max(clamp(8px, 1.4vw, 18px), env(safe-area-inset-right)); }
 .screen-grid { height: 100%; min-height: 0; display: grid; gap: clamp(8px, 1.2vw, 14px); }
+/* iPhone Safari zooms into any field under 16px when it is tapped. */
+@media (pointer: coarse) {
+    input, select, textarea { font-size: max(16px, 1em); }
+}
 .screen-grid > * { min-width: 0; }
 /* Flow screens: on phones, tablets and short windows the layout takes its natural height and scrolls. */
 @media (max-width: 900px), (max-height: 700px) {
@@ -893,6 +924,14 @@ body.game {
 .cm-reply { margin: 8px 0 0 26px; background: rgba(255, 255, 255, 0.03); }
 .cm-vote { width: 26px; height: 22px; display: grid; place-items: center; font-size: 0.62rem; color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
 .cm-vote.on { color: var(--green); border-color: rgba(53, 220, 143, 0.5); }
+/* Touch screens: every control at least ~32px to tap. */
+@media (pointer: coarse) {
+    .cm-vote { width: 34px; height: 30px; }
+    .cm-link { min-height: 30px; }
+    .seg button, .seg a { min-height: 34px; }
+    .crumbs a { display: inline-block; padding: 6px 2px; }
+    .link.small { display: inline-block; padding: 6px 0; }
+}
 .cm-vote.down.on { color: var(--red); border-color: rgba(255, 77, 94, 0.5); }
 .cm-score { min-width: 20px; text-align: center; font-family: var(--font-display); font-weight: 900; }
 .cm-link { margin-left: 6px; padding: 0 4px; font: inherit; font-size: 0.76rem; font-weight: 800; color: var(--cyan-2); background: none; border: 0; cursor: pointer; }
@@ -918,7 +957,7 @@ body.game {
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
     overflow: auto;
 }
-.share-sheet::backdrop { background: rgba(4, 4, 6, 0.75); backdrop-filter: blur(3px); }
+.share-sheet::backdrop { background: rgba(4, 4, 6, 0.75); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
 .ss-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px 10px 16px; border-bottom: 1px solid var(--line); }
 .ss-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
 .ss-preview { position: relative; display: grid; place-items: center; margin: 12px 14px 0; aspect-ratio: 4 / 5; max-height: 52dvh; background: #0b0c0e; border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden; }
@@ -944,7 +983,7 @@ body.game {
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
     overflow: hidden;
 }
-.search-dialog::backdrop { background: rgba(4, 4, 6, 0.72); backdrop-filter: blur(3px); }
+.search-dialog::backdrop { background: rgba(4, 4, 6, 0.72); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
 .search-field { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
 .search-field svg { width: 20px; height: 20px; color: var(--muted); }
 .search-field input { flex: 1; min-width: 0; padding: 6px 0; font-size: 1.05rem; background: transparent; border: 0; outline: none; }
@@ -977,8 +1016,10 @@ body.game {
 
 /* Very short screens (landscape phones): let the page scroll instead of clipping. */
 @media (max-height: 540px) {
-    body.game { height: auto; min-height: 100vh; overflow: auto; grid-template-rows: var(--hud-h) auto var(--dock-h); }
-    .screen { overflow: visible; }
+    body.game { height: auto; min-height: 100vh; overflow-x: hidden; overflow-y: auto; grid-template-rows: var(--hud-h) auto var(--dock-h); }
+    /* The page scrolls, but never sideways (the 3D carousel and the arena stay clipped). */
+    .screen { overflow-x: hidden; overflow-x: clip; overflow-y: visible; }
+    .hud { position: sticky; top: 0; }
     .dock { position: sticky; bottom: 0; }
 }
 
@@ -1041,7 +1082,7 @@ body.game {
     border-radius: 18px;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65), 0 0 40px rgba(255, 215, 0, 0.15);
 }
-.daily-dialog::backdrop { background: rgba(4, 4, 6, 0.75); backdrop-filter: blur(3px); }
+.daily-dialog::backdrop { background: rgba(4, 4, 6, 0.75); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
 .daily-dialog[open] { animation: dd-in 0.35s var(--spring); }
 @keyframes dd-in { from { opacity: 0; transform: scale(0.9) translateY(10px); } }
 .dd-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }

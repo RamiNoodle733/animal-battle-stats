@@ -8,8 +8,8 @@ import { toast } from './site.js';
 const W = 1080;
 const H = 1350;
 const GOLD = '#f6b400';
-const DISPLAY = '"Big Shoulders Display Variable", "Big Shoulders Display", Impact, sans-serif';
-const BODY = '"Inter Variable", Inter, system-ui, sans-serif';
+const DISPLAY = '"Big Shoulders Display", Impact, sans-serif';
+const BODY = 'Inter, system-ui, sans-serif';
 
 const images = new Map();
 function load(src) {

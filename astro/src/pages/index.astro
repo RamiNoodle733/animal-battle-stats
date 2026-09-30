@@ -154,8 +154,16 @@ const jsonLd = [
     let last = 0;
     let raf = 0;
     let visible = true;
+    // Cards turned away are hidden here, not with backface-visibility: Safari
+    // draws the backs of the far cards mirrored through the front ones.
+    const slots = [...ring.querySelectorAll('.slot')];
+    const step = 360 / slots.length;
     function paint() {
         ring.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(-6deg) rotateY(${angle.toFixed(3)}deg)`;
+        slots.forEach((slot, index) => {
+            const away = Math.cos(((angle + index * step) * Math.PI) / 180) < -0.02;
+            if (slot.classList.contains('away') !== away) slot.classList.toggle('away', away);
+        });
     }
     function frame(now) {
         const dt = last ? Math.min(0.12, (now - last) / 1000) : 0;
@@ -291,7 +299,11 @@ const jsonLd = [
     .carousel:active { cursor: grabbing; }
     .carousel :global(a), .carousel :global(img) { -webkit-user-drag: none; -webkit-touch-callout: none; user-select: none; }
     .ring { position: relative; z-index: 1; width: 196px; height: 261px; transform-style: preserve-3d; will-change: transform; }
-    .slot { position: absolute; inset: 0; transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--radius)); backface-visibility: hidden; }
+    .slot { position: absolute; inset: 0; transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--radius)); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+    /* Safari: the card must not start its own 3D context, or the backs of the
+       far cards show through mirrored. */
+    .slot.away { visibility: hidden; }
+    .slot :global(.card), .slot :global(.card-inner) { -webkit-backface-visibility: hidden; backface-visibility: hidden; transform-style: flat; }
     /* Twelve cards turning in 3D: no pointer tilt, pulse or moving foil on them
        (repainting those every frame is what made the ring stutter). */
     .slot :global(.card) { width: 100%; height: 100%; animation: none; transform: none; transition: none; }

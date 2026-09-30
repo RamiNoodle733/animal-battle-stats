@@ -10,7 +10,7 @@ const show = getShow(episode.show);
         <img src={poster(episode.id, true)} alt={`${show.name} episode ${episode.number}: ${episode.title}`} width="640" height="360" loading={eager ? 'eager' : 'lazy'} decoding="async" />
         <span class="ep-no">EP {episode.number}</span>
         <span class="ep-len">{clock(episode.seconds)}</span>
-        <span class="ep-seen"><img src="/images/icons/abs/check.webp" alt="" width="16" height="16" loading="lazy" />Watched</span>
+        <span class="ep-seen"><img src="/images/ui/icons/check.svg" alt="" width="16" height="16" loading="lazy" />Watched</span>
     </span>
     <b>{episode.title}</b>
     <small>{episode.hook}</small>

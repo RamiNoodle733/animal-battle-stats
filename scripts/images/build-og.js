@@ -21,7 +21,7 @@ const out = path.join(root, '.cache', 'og');
 const manifestFile = path.join(out, 'manifest.json');
 const W = 1200;
 const H = 630;
-const DESIGN = 3; // bump after any visual change to re-render every card
+const DESIGN = 4; // bump after any visual change to re-render every card
 
 const GOLD = '#f6b400';
 // Only a faint glow of the animal's home biome tints the charcoal.
@@ -164,23 +164,33 @@ function segBar(value, color, x, y, w, h, id, mirror = false) {
     return parts.join('');
 }
 
-function background({ biome = 'arena', biomeRight = null, accent = GOLD }) {
+// The site's surface art (images/ui, from scripts/assets/*), as PNG data for librsvg.
+const ART = {};
+async function loadArt() {
+    const png = async (file, width, height, fit = 'fill') => `data:image/png;base64,${(await sharp(path.join(root, 'images', 'ui', file)).resize(width, height, { fit }).png().toBuffer()).toString('base64')}`;
+    ART.hex = await png('hex-card.webp', 156, 135);
+    ART.stage = await png('stage.webp', 1200, 675, 'cover');
+    for (const tier of ['s', 'a', 'b', 'c', 'd', 'f']) ART[`shards-${tier}`] = await png(`shards-${tier}.webp`, 420, 560);
+}
+
+function background({ biome = 'arena', biomeRight = null, accent = GOLD, stage = false, shards = null }) {
     const left = BIOMES[biome] || BIOMES.arena;
     const right = biomeRight ? (BIOMES[biomeRight] || BIOMES.arena) : null;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
     <defs>
-        <linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e2024"/><stop offset="1" stop-color="#0a0b0d"/></linearGradient>
+        <pattern id="hex" width="156" height="135" patternUnits="userSpaceOnUse"><image href="${ART.hex}" width="156" height="135"/></pattern>
+        <linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e2024" stop-opacity=".2"/><stop offset="1" stop-color="#0a0b0d" stop-opacity=".75"/></linearGradient>
         <radialGradient id="glowL" cx="${right ? 0.25 : 0.28}" cy="0.62" r="0.55"><stop offset="0" stop-color="${left.glow}" stop-opacity=".16"/><stop offset="1" stop-color="${left.glow}" stop-opacity="0"/></radialGradient>
         ${right ? `<radialGradient id="glowR" cx="0.75" cy="0.62" r="0.55"><stop offset="0" stop-color="${right.glow}" stop-opacity=".16"/><stop offset="1" stop-color="${right.glow}" stop-opacity="0"/></radialGradient>` : ''}
         <radialGradient id="vig" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>
-        <pattern id="hex" width="28.58" height="49.5" patternUnits="userSpaceOnUse"><path d="M14.29 0L28.58 8.25V24.75L14.29 33L0 24.75V8.25ZM0 24.75L14.29 33V49.5M28.58 24.75L14.29 33" fill="none" stroke="#fff" stroke-opacity=".05" stroke-width="1.2"/></pattern>
     </defs>
-    <rect width="${W}" height="${H}" fill="url(#base)"/>
+    ${stage
+        ? `<image href="${ART.stage}" x="0" y="-22" width="${W}" height="675"/>`
+        : `<rect width="${W}" height="${H}" fill="url(#hex)"/><rect width="${W}" height="${H}" fill="url(#base)"/>`}
     <rect width="${W}" height="${H}" fill="url(#glowL)"/>
     ${right ? `<rect width="${W}" height="${H}" fill="url(#glowR)"/>` : ''}
-    <rect width="${W}" height="${H}" fill="url(#hex)"/>
-    <polygon points="${right ? '560,0 640,0 520,630 440,630' : '470,0 640,0 460,630 290,630'}" fill="${accent}" opacity=".07"/>
-    <polygon points="${right ? '680,0 712,0 592,630 560,630' : '680,0 740,0 560,630 500,630'}" fill="${accent}" opacity=".05"/>
+    ${shards ? `<image href="${ART[`shards-${shards}`]}" x="-60" y="-120" width="${Math.round(H * 1.2 * 0.75)}" height="${Math.round(H * 1.2)}" opacity=".8"/>` : ''}
+    ${!stage && !shards ? `<polygon points="470,0 640,0 460,630 290,630" fill="${accent}" opacity=".07"/><polygon points="680,0 740,0 560,630 500,630" fill="${accent}" opacity=".05"/>` : ''}
     <rect width="${W}" height="${H}" fill="url(#vig)"/>
     <rect width="${W}" height="5" fill="${GOLD}"/>
     <rect x="8" y="13" width="${W - 16}" height="${H - 21}" rx="14" fill="none" stroke="#d6dbe4" stroke-opacity=".22" stroke-width="2"/>
@@ -307,7 +317,7 @@ async function animalCard(animal, total, file) {
     layers.push({ input: mark, left: 40, top: 30 });
     parts.push(text('display', 'ANIMAL BATTLE STATS', { x: 90, y: 60, size: 24, fill: '#f3f4f6', tracking: 2 }));
     parts.push(brand(1150, 612, 'end', 20));
-    await render(file, { bg: background({ biome: animal.biome, accent }), under, layers, over: parts });
+    await render(file, { bg: background({ biome: animal.biome, accent, shards: TIERS[animal.tier] ? animal.tier.toLowerCase() : 'f' }), under, layers, over: parts });
 }
 
 async function versusCard(a, b, oddsA, file, title = 'Who would win?') {
@@ -346,7 +356,7 @@ async function versusCard(a, b, oddsA, file, title = 'Who would win?') {
     parts.push(text('display', `${oddsA}%`, { x: 54, y: 611, size: 28, fill: '#1d1400' }));
     parts.push(text('display', `${100 - oddsA}%`, { x: 1146, y: 611, size: 28, anchor: 'end', fill: '#111216' }));
     parts.push(text('heavy', 'STATS ODDS', { x: 600, y: 610, size: 14, anchor: 'middle', fill: '#111216', tracking: 3, opacity: 0.9 }));
-    await render(file, { bg: background({ biome: a.biome, biomeRight: b.biome }), under, layers, over: parts });
+    await render(file, { bg: background({ biome: a.biome, biomeRight: b.biome, stage: true }), under, layers, over: parts });
 }
 
 function headline(parts, title, sub, { x = 60, y = 138, width = 700, size = 104 } = {}) {
@@ -442,6 +452,7 @@ async function main() {
     }
     const jobs = JSON.parse(fs.readFileSync(jobsFile, 'utf8'));
     await loadFonts();
+    await loadArt();
     const bySlug = new Map(jobs.animals.map((animal) => [animal.slug, animal]));
     let manifest = {};
     try { manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8')); } catch { manifest = {}; }

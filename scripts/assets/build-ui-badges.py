@@ -210,10 +210,11 @@ def write(name, svg):
     print(f'{name}: {len(svg.encode()) / 1024:.1f} KB')
 
 
-os.makedirs(OUT, exist_ok=True)
-for key, (letter, tier, light, dark) in TIERS.items():
-    write(f'tier-{key}.svg', crest(letter, tier, light, dark))
-write('level.svg', level_emblem())
-for rank, colours in MEDALS.items():
-    write(f'medal-{rank}.svg', medal(rank, *colours))
-write('vs.svg', vs_emblem())
+if __name__ == '__main__':
+    os.makedirs(OUT, exist_ok=True)
+    for key, (letter, tier, light, dark) in TIERS.items():
+        write(f'tier-{key}.svg', crest(letter, tier, light, dark))
+    write('level.svg', level_emblem())
+    for rank, colours in MEDALS.items():
+        write(f'medal-{rank}.svg', medal(rank, *colours))
+    write('vs.svg', vs_emblem())

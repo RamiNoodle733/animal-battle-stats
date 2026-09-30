@@ -25,27 +25,13 @@ function load(src) {
     return images.get(src);
 }
 
-function hexMesh(ctx) {
-    const r = 22;
-    const w = Math.sqrt(3) * r;
+// The site's plate texture (images/ui/hex-card.webp, a seamless tile).
+async function plates(ctx) {
+    const tile = await load('/images/ui/hex-card.webp');
+    if (!tile) return;
     ctx.save();
-    ctx.strokeStyle = 'rgba(255,255,255,0.045)';
-    ctx.lineWidth = 1.5;
-    for (let row = -1; row * r * 1.5 < H + r; row += 1) {
-        for (let col = -1; col * w < W + w; col += 1) {
-            const cx = col * w + (row % 2 ? w / 2 : 0);
-            const cy = row * r * 1.5;
-            ctx.beginPath();
-            for (let i = 0; i < 6; i += 1) {
-                const angle = (Math.PI / 3) * i - Math.PI / 2;
-                const x = cx + r * Math.cos(angle);
-                const y = cy + r * Math.sin(angle);
-                if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-            }
-            ctx.closePath();
-            ctx.stroke();
-        }
-    }
+    ctx.fillStyle = ctx.createPattern(tile, 'repeat');
+    ctx.fillRect(0, 0, W, H);
     ctx.restore();
 }
 
@@ -144,17 +130,21 @@ export async function drawMatchCard({ a, b, odds = null, result = null }) {
     const ctx = canvas.getContext('2d');
 
     // background: charcoal, hex mesh, a faint gold beam, silver frame, gold top bar
-    const bg = ctx.createLinearGradient(0, 0, 0, H);
-    bg.addColorStop(0, '#1f2126');
-    bg.addColorStop(1, '#0a0b0d');
-    ctx.fillStyle = bg;
+    ctx.fillStyle = '#16171b';
     ctx.fillRect(0, 0, W, H);
-    hexMesh(ctx);
-    ctx.save();
-    ctx.globalAlpha = 0.07;
-    ctx.fillStyle = GOLD;
-    ctx.beginPath(); ctx.moveTo(600, 0); ctx.lineTo(820, 0); ctx.lineTo(480, H); ctx.lineTo(260, H); ctx.closePath(); ctx.fill();
-    ctx.restore();
+    await plates(ctx);
+    const shade = ctx.createLinearGradient(0, 0, 0, H);
+    shade.addColorStop(0, 'rgba(0,0,0,0.25)');
+    shade.addColorStop(1, 'rgba(0,0,0,0.6)');
+    ctx.fillStyle = shade;
+    ctx.fillRect(0, 0, W, H);
+    const shards = await load('/images/ui/shards-s.webp');
+    if (shards) {
+        ctx.save();
+        ctx.globalAlpha = 0.55;
+        ctx.drawImage(shards, -60, 60, W * 1.1, W * 1.1 * (4 / 3));
+        ctx.restore();
+    }
     const vignette = ctx.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.8);
     vignette.addColorStop(0, 'rgba(0,0,0,0)');
     vignette.addColorStop(1, 'rgba(0,0,0,0.55)');

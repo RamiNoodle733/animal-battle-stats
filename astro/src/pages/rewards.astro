@@ -30,7 +30,7 @@ const EARN = [
 ];
 const endDate = new Date(PASS.endsAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' });
 const earnText = (item) => ({ callStreak: `Call ${item.earn.value} right in a row`, calls: `Call ${item.earn.value} fights`, votes: `Vote on ${item.earn.value} animals`, loginRun: `Log in ${item.earn.value} days running`, pass: `Pass tier ${item.earn.value}` }[item.earn.what]);
-const BP = '/images/icons/abs/coin.webp';
+const BP = '/images/ui/icons/coin.svg';
 ---
 
 <Base title={`Rewards: BattlePoints, Daily Reward, Quests & Season Pass | ${SITE.name}`} description="Earn BattlePoints and XP for calling fights, voting and playing: a daily login reward, daily quests, the Season 1 Pass and a shop of profile frames and titles." path="/rewards" noindex active="rewards" biome="savanna" seed={17}>
@@ -70,7 +70,7 @@ const BP = '/images/icons/abs/coin.webp';
                         {LOGIN.map((reward, index) => (
                             <li data-day={index + 1} class={index === 6 ? 'big' : ''}>
                                 <small>Day {index + 1}</small>
-                                <img src={index === 6 ? '/images/icons/abs/chest.webp' : BP} alt="" width="52" height="52" />
+                                <img src={index === 6 ? '/images/ui/icons/chest.svg' : BP} alt="" width="52" height="52" />
                                 <b>{reward.coins}</b>
                                 <span class="d-xp">+{reward.xp} XP</span>
                                 <span class="d-tick"><Icon name="check" size={22} /></span>
@@ -91,7 +91,7 @@ const BP = '/images/icons/abs/coin.webp';
                         {[0, 1, 2].map(() => <div class="quest skeleton"></div>)}
                     </div>
                     <div class="chest" data-chest>
-                        <img src="/images/icons/abs/chest.webp" alt="" width="64" height="64" />
+                        <img src="/images/ui/icons/chest.svg" alt="" width="64" height="64" />
                         <span><b>Quest chest</b><small>Claim all three quests to open it</small></span>
                         <span class="c-pay"><em><img src={BP} alt="" width="20" height="20" />+{QUEST_CHEST.coins}</em><em class="xp">+{QUEST_CHEST.xp} XP</em></span>
                         <button class="btn btn-gold" type="button" data-claim="chest" disabled>Open</button>
@@ -114,7 +114,7 @@ const BP = '/images/icons/abs/coin.webp';
                         {tiers.map((tier) => (
                             <li data-tier={tier.tier} class={tier.item ? 'look' : ''}>
                                 <span class="t-n">{tier.tier}</span>
-                                <img class="t-img" src={tier.item ? '/images/icons/abs/chest.webp' : BP} alt="" width="44" height="44" loading="lazy" />
+                                <img class="t-img" src={tier.item ? '/images/ui/icons/chest.svg' : BP} alt="" width="44" height="44" loading="lazy" />
                                 <span class="t-bp"><img src={BP} alt="" width="16" height="16" />{tier.coins}</span>
                                 {tier.item && <em>{itemName.get(tier.item)}</em>}
                                 <span class="t-tick"><Icon name="check" size={20} lazy /></span>
@@ -217,7 +217,7 @@ const BP = '/images/icons/abs/coin.webp';
     .w-bp small { display: block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-2); }
     .w-bp b { display: block; font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; line-height: 0.9; color: #fff; text-shadow: 0 3px 0 rgba(0, 0, 0, 0.5); }
     .w-level { display: flex; align-items: center; gap: 10px; }
-    .w-lvl { flex: none; display: grid; place-items: center; width: 42px; height: 42px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: #1f1400; background: linear-gradient(160deg, var(--gold-2), var(--gold) 45%, var(--gold-d)); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+    .w-lvl { flex: none; display: grid; place-items: center; width: 42px; height: 42px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: #fff; text-shadow: 0 1px 2px #000, 0 0 6px rgba(0, 0, 0, 0.6); background: url("/images/ui/level.svg") center / contain no-repeat; }
     .w-xp { flex: 1; display: grid; gap: 4px; min-width: 0; }
     .w-xpbar, .p-bar, .e-bar { display: block; height: 10px; background: rgba(255, 255, 255, 0.1); clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%); overflow: hidden; }
     .w-xpbar i, .p-bar i, .e-bar i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--cyan-2)); transition: width 0.8s var(--ease); }

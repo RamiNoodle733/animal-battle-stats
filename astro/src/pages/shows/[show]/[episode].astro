@@ -46,7 +46,7 @@ const jsonLd = [
                 <button class="player-facade" type="button" data-play aria-label={`Play ${show.name} episode ${episode.number}: ${episode.title}`}>
                     <img src={poster(episode.id)} srcset={posterSet(episode.id)} sizes="(max-width: 980px) 100vw, 760px" alt="" width="1280" height="720" fetchpriority="high" />
                     <span class="play-disc" set:html={PLAY_SVG} />
-                    <span class="player-label"><span>Episode {episode.number} · {clock(episode.seconds)}</span><span class="reward-tag" data-reward-tag><img src="/images/icons/abs/coin.webp" alt="" width="14" height="14" />+{WATCH_REWARD.coins}</span></span>
+                    <span class="player-label"><span>Episode {episode.number} · {clock(episode.seconds)}</span><span class="reward-tag" data-reward-tag><img src="/images/ui/icons/coin.svg" alt="" width="14" height="14" />+{WATCH_REWARD.coins}</span></span>
                 </button>
                 <div class="up-next" data-up-next hidden>
                     {next ? (
@@ -79,7 +79,7 @@ const jsonLd = [
                 <p class="ep-hook">{episode.hook}</p>
                 <p class="ep-summary">{episode.summary}</p>
                 <p class="ep-status" data-watch-status>
-                    <img src="/images/icons/abs/coin.webp" alt="" width="22" height="22" />
+                    <img src="/images/ui/icons/coin.svg" alt="" width="22" height="22" />
                     <span data-watch-text>Watch to the end: +{WATCH_REWARD.coins} BattlePoints and +{WATCH_REWARD.xp} XP, once.</span>
                 </p>
                 <div class="ep-nav">
@@ -106,7 +106,7 @@ const jsonLd = [
                                 <span class="ep-thumb">
                                     <img src={poster(entry.id, true)} alt="" width="640" height="360" loading="lazy" decoding="async" />
                                     <span class="ep-no">EP {entry.number}</span>
-                                    <span class="ep-seen"><img src="/images/icons/abs/check.webp" alt="" width="16" height="16" loading="lazy" /></span>
+                                    <span class="ep-seen"><img src="/images/ui/icons/check.svg" alt="" width="16" height="16" loading="lazy" /></span>
                                 </span>
                                 <span class="ep-item-copy"><b>{entry.title}</b><p>{entry.hook}</p></span>
                             </a>

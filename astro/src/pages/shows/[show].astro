@@ -47,7 +47,7 @@ const jsonLd = [
             <div class="sw-meta">
                 {show.genre.map((genre) => <span class="chip chip-show">{genre}</span>)}
                 <span class="chip">{show.episodes.length} episodes · {minutes(show.runtime)} min</span>
-                <span class="chip chip-gold"><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />+{WATCH_REWARD.coins} each</span>
+                <span class="chip chip-gold"><img src="/images/ui/icons/coin.svg" alt="" width="16" height="16" />+{WATCH_REWARD.coins} each</span>
             </div>
             <div class="sw-progress" data-show-progress={show.slug} data-total={show.episodes.length}>
                 <div class="sw-progress-row"><span>Your progress{titleName && <span class="progress-note"> · {titleName} title at the end</span>}</span><span><b data-progress-count>0</b> / {show.episodes.length}</span></div>
@@ -74,7 +74,7 @@ const jsonLd = [
                                     <img src={poster(episode.id, true)} alt={`${show.name} episode ${episode.number}: ${episode.title}`} width="640" height="360" loading={index < 4 ? 'eager' : 'lazy'} decoding="async" />
                                     <span class="ep-no">EP {episode.number}</span>
                                     <span class="ep-len">{clock(episode.seconds)}</span>
-                                    <span class="ep-seen"><img src="/images/icons/abs/check.webp" alt="" width="16" height="16" loading="lazy" />Watched</span>
+                                    <span class="ep-seen"><img src="/images/ui/icons/check.svg" alt="" width="16" height="16" loading="lazy" />Watched</span>
                                 </span>
                                 <span class="ep-item-copy">
                                     <span class="k">Episode {episode.number}</span>

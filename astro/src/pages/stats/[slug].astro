@@ -151,7 +151,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 
 <Base title={title} description={description} path={path} image={`/images/og/${animal.slug}.jpg`} imageAlt={`${animal.name} battle card`} jsonLd={jsonLd} active="animals" biome={animal.biome} seed={seed}>
     <div class="profile screen-grid">
-        <section class={`stage cb tier-${tierCls}`} aria-labelledby="animal-name">
+        <section class={`stage cb tier-${tierCls} bio-${animal.biome}`} aria-labelledby="animal-name">
             <div class="cb-top">
                 <nav class="crumbs" aria-label="Breadcrumb"><a href="/stats">Animals</a><span>/</span><a href={`/stats?group=${animal.group}`}>{group?.label}</a></nav>
                 <span class="cb-code" aria-hidden="true">{barcode.map((width) => <i style={`--w:${width}`}></i>)}</span>
@@ -396,21 +396,22 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         min-height: 0;
         display: grid;
         grid-template-rows: minmax(0, 1fr) auto;
-        padding: 4px;
-        border-radius: 14px;
-        background: linear-gradient(155deg, var(--tier-2), var(--tier) 26%, var(--tier-d) 58%, var(--tier) 84%, var(--tier-2));
-        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.7);
+        padding: 0;
+        border: 5px solid transparent;
+        border-image: var(--frame-img) 28 / 14px / 0 stretch;
+        border-radius: 13px;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
     }
     .cb-field {
         position: relative;
         min-height: 0;
         overflow: hidden;
-        border-radius: 10px 10px 0 0;
+        border-radius: 8px 8px 0 0;
         background:
-            linear-gradient(112deg, transparent 0 34%, color-mix(in srgb, var(--tier) 26%, transparent) 34% 45%, transparent 45% 51%, color-mix(in srgb, var(--tier) 13%, transparent) 51% 57%, transparent 57%),
-            radial-gradient(70% 60% at 55% 50%, color-mix(in srgb, var(--tier) 18%, transparent), transparent 72%),
-            var(--hex-strong) 0 0 / var(--hex-size),
-            linear-gradient(180deg, #25272c, #0f1013);
+            var(--shards) center / cover no-repeat,
+            var(--biome-art, none) center 35% / 100% auto no-repeat,
+            var(--hex-strong) 0 0 / var(--hex-card-size),
+            #16171b;
         box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.55);
     }
     .cb-band {
@@ -452,7 +453,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         padding: 10px 16px 11px 44px;
         background: linear-gradient(180deg, #17181c, #0b0c0e);
         border-top: 2px solid var(--tier);
-        border-radius: 0 0 10px 10px;
+        border-radius: 0 0 8px 8px;
     }
     .cb-plate::before { content: ""; position: absolute; left: 18px; top: 50%; width: 12px; height: 18px; transform: translateY(-50%); background: var(--gold); clip-path: polygon(0 0, 100% 50%, 0 100%); }
     .cb-name { font-family: var(--font-display); font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 900; line-height: 0.92; letter-spacing: 0.02em; text-transform: uppercase; }

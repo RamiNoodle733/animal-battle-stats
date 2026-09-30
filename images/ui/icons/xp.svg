@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs><linearGradient id="m" gradientUnits="userSpaceOnUse" x1="0" y1="5" x2="0" y2="60"><stop offset="0" stop-color="#fff6cc"/><stop offset="0.32" stop-color="#ffd54a"/><stop offset="0.52" stop-color="#e9a300"/><stop offset="0.54" stop-color="#b37700"/><stop offset="1" stop-color="#ffdf80"/></linearGradient>
+<filter id="s" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#000" flood-opacity=".75"/></filter></defs>
+<g filter="url(#s)">
+<path d="M32 5L55.4 18.5V45.5L32 59L8.6 45.5V18.5Z" fill="#0b0c0e" stroke="#0b0c0e" stroke-width="3" stroke-linejoin="round"/>
+<path d="M32 5L55.4 18.5V45.5L32 59L8.6 45.5V18.5Z" fill="url(#m)" transform="translate(32 32) scale(.9) translate(-32 -32)"/>
+<path d="M32 5L55.4 18.5V45.5L32 59L8.6 45.5V18.5Z" fill="#1c1d21" transform="translate(32 32) scale(.72) translate(-32 -32)"/>
+<path d="M21.92 41.5 24.57 32.66 21.98 24.5H25.1L26.21 28.47L26.49 31.38H26.91L27.19 28.47L28.25 24.5H31.37L28.91 32.77L31.44 41.5H28.31L27.19 37.31L26.91 34.19H26.49L26.21 37.31L25.04 41.5ZM33.38 41.5V24.5H37.48Q39.86 24.5 40.92 25.46Q41.98 26.42 42.05 28.64Q42.08 29.54 42.08 30.3Q42.08 31.07 42.05 31.96Q41.98 34.17 40.92 35.14Q39.86 36.1 37.48 36.1H36.57V41.5ZM36.57 33.3H37.48Q38.15 33.3 38.49 32.99Q38.83 32.68 38.86 32.13Q38.9 31.61 38.91 30.95Q38.92 30.3 38.91 29.65Q38.9 28.99 38.86 28.47Q38.83 27.91 38.49 27.61Q38.15 27.3 37.48 27.3H36.57Z" fill="url(#m)"/>
+</g>
+</svg>

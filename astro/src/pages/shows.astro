@@ -47,7 +47,7 @@ const jsonLd = [
         <section class="panel hub-main enter" data-tabset>
             <div class="hub-head">
                 <h1 class="hub-title"><Icon name="tv" size={28} />ABS Originals</h1>
-                <p class="hub-sub">{SHOWS.length} animated series · {totalEpisodes} one-minute episodes · free · <span class="reward-tag"><img src="/images/icons/abs/coin.webp" alt="" width="14" height="14" />+{WATCH_REWARD.coins} per episode</span></p>
+                <p class="hub-sub">{SHOWS.length} animated series · {totalEpisodes} one-minute episodes · free · <span class="reward-tag"><img src="/images/ui/icons/coin.svg" alt="" width="14" height="14" />+{WATCH_REWARD.coins} per episode</span></p>
             </div>
             <div class="tabs hub-tabs" role="tablist" aria-label="Shows">
                 {SHOWS.map((show, index) => (
@@ -89,16 +89,16 @@ const jsonLd = [
             ))}
 
             <div class="hub-pane scroll hub-earn" id="pane-earn" role="tabpanel" data-pane="earn" hidden style="--show: var(--gold)">
-                <h2 class="sw-h2"><img src="/images/icons/abs/chest.webp" alt="" width="30" height="30" loading="lazy" />Watch &amp; earn</h2>
+                <h2 class="sw-h2"><img src="/images/ui/icons/chest.svg" alt="" width="30" height="30" loading="lazy" />Watch &amp; earn</h2>
                 <div class="earn">
-                    <div class="earn-item"><img src="/images/icons/abs/coin.webp" alt="" width="44" height="44" loading="lazy" /><span><b>+{WATCH_REWARD.coins} BattlePoints, +{WATCH_REWARD.xp} XP</b><small>for every episode you watch to the end here, once per episode.</small></span></div>
-                    <div class="earn-item"><img src="/images/icons/abs/crown.webp" alt="" width="44" height="44" loading="lazy" /><span><b>A title for each show</b><small>Escape Artist (BREAKOUT), Case Closed (DEDUCTION), Photo Finish (FASTEST).</small></span></div>
-                    <div class="earn-item"><img src="/images/icons/abs/star.webp" alt="" width="44" height="44" loading="lazy" /><span><b>ABS Originals frame</b><small>a gold-and-fire card frame for watching all {totalEpisodes} episodes.</small></span></div>
-                    <div class="earn-item"><img src="/images/icons/abs/friends.webp" alt="" width="44" height="44" loading="lazy" /><span><b>+{FOLLOW_REWARD.coins} per account you follow</b><small>and the ABS Insider title after 3.</small></span></div>
+                    <div class="earn-item"><img src="/images/ui/icons/coin.svg" alt="" width="44" height="44" loading="lazy" /><span><b>+{WATCH_REWARD.coins} BattlePoints, +{WATCH_REWARD.xp} XP</b><small>for every episode you watch to the end here, once per episode.</small></span></div>
+                    <div class="earn-item"><img src="/images/ui/icons/crown.svg" alt="" width="44" height="44" loading="lazy" /><span><b>A title for each show</b><small>Escape Artist (BREAKOUT), Case Closed (DEDUCTION), Photo Finish (FASTEST).</small></span></div>
+                    <div class="earn-item"><img src="/images/ui/icons/star.svg" alt="" width="44" height="44" loading="lazy" /><span><b>ABS Originals frame</b><small>a gold-and-fire card frame for watching all {totalEpisodes} episodes.</small></span></div>
+                    <div class="earn-item"><img src="/images/ui/icons/friends.svg" alt="" width="44" height="44" loading="lazy" /><span><b>+{FOLLOW_REWARD.coins} per account you follow</b><small>and the ABS Insider title after 3.</small></span></div>
                 </div>
                 <p class="guest-note" data-guest-only hidden><Icon name="gift" size={24} /><span>Watching is free for everyone. <b>Log in</b> to keep your progress and collect the rewards.</span><a class="btn btn-cyan btn-sm" href="/login?returnTo=%2Fshows">Log in</a><a class="btn btn-sm" href="/signup">Sign up</a></p>
                 <FollowPanel />
-                <h2 class="sw-h2"><img src="/images/icons/abs/book.webp" alt="" width="30" height="30" loading="lazy" />Questions</h2>
+                <h2 class="sw-h2"><img src="/images/ui/icons/book.svg" alt="" width="30" height="30" loading="lazy" />Questions</h2>
                 <div class="faq">{faq.map((item, index) => <details open={index === 0}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
             </div>
 

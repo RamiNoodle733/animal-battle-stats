@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.2.0 — 2026-09-30
+
+Every surface is now drawn art made for the site, not CSS shapes.
+
+- **Real textures:** seamless hex-plate textures (lit bevels, grain, wear) for the page, the panels and the cards, rendered by `scripts/assets/build-ui-textures.py`.
+- **Card art:** metal tier frames with corner rivets, tier-coloured diagonal shards, and a dark biome scene behind every animal (savanna, forest, jungle, wetlands, desert, mountains, arctic, ocean; `scripts/assets/build-ui-scenes.py`). S-tier cards carry a gold foil that drifts.
+- **Versus arena:** the fight happens on a spotlit hex floor.
+- **Metal buttons and panel frames:** gold, steel, silver, red and green button plates and a hairline panel frame with corner brackets.
+- **New icons:** 47 gold and silver metal icons replace the old cartoon icons everywhere (`scripts/assets/build-ui-icons.py`), with a new BattlePoints coin, treasure chest and XP badge. Level badges use the level emblem everywhere.
+- **Voting is in the Animals page:** every row has up and down votes (one a day, BattlePoints and XP as before), and Rank by has Community votes. The Rankings pages keep their votes too.
+- **Share pictures and link previews** use the same textures, shards and arena.
+- Fixed: the page's own background was covering the backdrop layers behind it.
+
 ## 4.1.0 — 2026-09-29
 
 - **Share a fight as a picture.** Versus has a Share button that draws a 4:5 card (made for Instagram, TikTok photos, X and Discord): both animals, their tier crests and power, the VS emblem and the site address. Before the fight it is a challenge ("make your call", odds hidden); after the fight or Show it names the winner and the odds. Phones open the share sheet with the picture attached; anyone can save it or copy the link.

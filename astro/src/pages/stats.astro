@@ -30,7 +30,8 @@ const jsonLd = [
 const SORTS = [
     ['rank', 'Overall power'], ['attack', 'Strongest (attack)'], ['defense', 'Toughest (defense)'], ['agility', 'Most agile'],
     ['stamina', 'Most stamina'], ['intelligence', 'Smartest'], ['special', 'Best special abilities'],
-    ['weight', 'Heaviest'], ['speed', 'Fastest'], ['length', 'Longest'], ['bite', 'Strongest bite'], ['name', 'Name A–Z']
+    ['weight', 'Heaviest'], ['speed', 'Fastest'], ['length', 'Longest'], ['bite', 'Strongest bite'],
+    ['votes', 'Community votes'], ['name', 'Name A–Z']
 ];
 const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—');
 // Stat grades: 90+ elite (gold), 80s high, 60s-70s solid, 40s-50s low, under 40 weak.
@@ -84,6 +85,7 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
                             <th scope="col" class="c-num" data-col="speed"><button type="button" data-key="speed">Speed</button></th>
                             <th scope="col" class="c-num x-col" data-col="length"><button type="button" data-key="length">Length</button></th>
                             <th scope="col" class="c-num x-col" data-col="bite"><button type="button" data-key="bite">Bite</button></th>
+                            <th scope="col" class="c-votes" data-col="votes"><button type="button" data-key="votes" title="Community votes: stronger or weaker than its rank?">Votes</button></th>
                             <th scope="col" class="c-pick" title="Pick two animals to fight them in Versus"><span>VS</span></th>
                         </tr>
                     </thead>
@@ -106,6 +108,7 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
                                 data-speed={animal.speed_mps || 0}
                                 data-length={animal.length_cm || 0}
                                 data-bite={animal.bite_force_psi || 0}
+                                data-votes="0"
                             >
                                 <td class="c-rank">{animal.rank}</td>
                                 <th scope="row" class="c-name">
@@ -124,6 +127,7 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
                                 <td class="c-num" data-col="speed">{short(fmtSpeed(animal.speed_mps))}</td>
                                 <td class="c-num x-col" data-col="length">{short(fmtLength(animal.length_cm))}</td>
                                 <td class="c-num x-col" data-col="bite">{short(fmtBite(animal.bite_force_psi))}</td>
+                                <td class="c-votes" data-col="votes"><span class="vt"><button type="button" class="vt-b up" data-vote="up" aria-label={`Upvote ${animal.name}: stronger than its rank`}></button><b data-net>·</b><button type="button" class="vt-b down" data-vote="down" aria-label={`Downvote ${animal.name}: weaker than its rank`}></button></span></td>
                                 <td class="c-pick"><button type="button" data-pick aria-pressed="false" aria-label={`Pick ${animal.name} to fight`}>VS</button></td>
                             </tr>
                         ))}
@@ -144,7 +148,9 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
 </Base>
 
 <script>
-    import { loadAnimalIndex, artVars, escapeHtml } from '../scripts/site.js';
+    import { loadAnimalIndex, artVars, escapeHtml, toast, showReward } from '../scripts/site.js';
+    import { loadVotes, castVote } from '../scripts/votes.js';
+    import { sfx } from '../scripts/sfx.js';
 
     const db = document.querySelector('[data-db]');
     const tbody = db.querySelector('[data-rows]');
@@ -229,7 +235,7 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
                 const tier = animal.tier.toLowerCase();
                 const wrap = document.createElement('div');
                 wrap.className = 'db-card';
-                wrap.innerHTML = `<a class="card tier-${tier}" href="/stats/${animal.s}"><span class="card-inner"><span class="card-power"><b>${animal.p}</b><small>PWR</small></span><span class="card-rank">#${animal.r}</span><span class="tier-badge tier-${tier}">${animal.tier}</span><span class="card-art"><img src="${animal.m}" alt="" loading="lazy" decoding="async" style="${artVars(animal)}"></span><span class="card-plate"><span class="card-name">${escapeHtml(animal.n)}</span><span class="card-meta">${escapeHtml(animal.cls)}</span></span></span></a>`;
+                wrap.innerHTML = `<a class="card tier-${tier} bio-${animal.b}" href="/stats/${animal.s}"><span class="card-inner"><span class="card-power"><b>${animal.p}</b><small>PWR</small></span><span class="card-rank">#${animal.r}</span><span class="tier-badge tier-${tier}">${animal.tier}</span><span class="card-art"><img src="${animal.m}" alt="" loading="lazy" decoding="async" style="${artVars(animal)}"></span><span class="card-plate"><span class="card-name">${escapeHtml(animal.n)}</span><span class="card-meta">${escapeHtml(animal.cls)}</span></span></span></a>`;
                 cards.set(animal.s, wrap);
             }
         }
@@ -270,8 +276,42 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
     }
     tray.querySelector('[data-tray-clear]').addEventListener('click', () => { picks.length = 0; paintTray(); });
 
-    // A tap on a row opens the animal (the name is the real link); the + button picks it.
+    // ---- community votes: is this animal stronger or weaker than its rank?
+    let votes = new Map();
+    const nameOf = (row) => row.querySelector('.c-name b').textContent;
+    function paintVote(row) {
+        const entry = votes.get(nameOf(row)) || { up: 0, down: 0, mine: null };
+        const net = entry.up - entry.down;
+        row.dataset.votes = String(net);
+        const cell = row.querySelector('[data-net]');
+        cell.textContent = net > 0 ? `+${net}` : String(net);
+        cell.className = net > 0 ? 'pos' : net < 0 ? 'neg' : '';
+        cell.title = `${entry.up} up, ${entry.down} down`;
+        row.querySelector('.vt-b.up').classList.toggle('on', entry.mine === 'up');
+        row.querySelector('.vt-b.down').classList.toggle('on', entry.mine === 'down');
+    }
+    loadVotes().then((map) => {
+        votes = map;
+        rows.forEach(paintVote);
+        if (state.sort === 'votes') apply();
+    }).catch(() => {});
+    async function vote(button) {
+        const row = button.closest('tr');
+        const entry = votes.get(nameOf(row));
+        if (!entry) { toast('Votes are loading, try again in a second'); return; }
+        const result = await castVote(entry.id, nameOf(row), button.dataset.vote, entry);
+        if (result.needsLogin) { toast('Log in to vote and earn BattlePoints'); setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent('/stats?sort=votes')}`; }, 900); return; }
+        if (result.error) { sfx.error(); toast(result.error); return; }
+        votes.set(nameOf(row), result.entry);
+        paintVote(row);
+        if (result.reward?.awarded) showReward(result.reward, button);
+        else sfx.tick();
+    }
+
+    // A tap on a row opens the animal (the name is the real link); VS picks it; the arrows vote.
     tbody.addEventListener('click', (event) => {
+        const voteButton = event.target.closest('[data-vote]');
+        if (voteButton) { vote(voteButton); return; }
         const pick = event.target.closest('[data-pick]');
         if (pick) {
             const slug = pick.closest('tr').dataset.slug;
@@ -418,6 +458,19 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
     .tray .btn { flex: none; }
     .has-tray .db-body { padding-bottom: 72px; }
 
+    /* Community votes: up / net / down. */
+    .c-votes { width: 104px; }
+    .vt { display: inline-flex; align-items: center; gap: 4px; }
+    .vt b { min-width: 30px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .vt b.pos { color: #8fe9a2; }
+    .vt b.neg { color: #ff9aa2; }
+    .vt-b { position: relative; width: 26px; height: 26px; padding: 0; color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-2); border-radius: 6px; }
+    .vt-b::before { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 7px; transform: translate(-50%, -50%); background: currentColor; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    .vt-b.down::before { clip-path: polygon(0 0, 100% 0, 50% 100%); }
+    .vt-b:hover { color: #fff; border-color: var(--frame-2); }
+    .vt-b.up.on { color: #8fe9a2; border-color: rgba(59, 214, 90, 0.6); background: rgba(59, 214, 90, 0.1); }
+    .vt-b.down.on { color: #ff9aa2; border-color: rgba(255, 65, 80, 0.6); background: rgba(255, 65, 80, 0.1); }
+    .dbp[data-sort="votes"] [data-col="votes"] { background-color: rgba(255, 255, 255, 0.045); }
     /* Length and bite show only when they are the sort. */
     .db-table .x-col { display: none; }
     .dbp[data-sort="length"] [data-col="length"], .dbp[data-sort="bite"] [data-col="bite"] { display: table-cell; background-color: rgba(255, 255, 255, 0.045); }
@@ -443,7 +496,9 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
         .db-sort .db-sort-i { display: block; }
         .db-sort select { font-size: 0.84rem; }
         .db-tiers button { min-width: 26px; padding: 0 5px; }
-        .db-table .c-stat, .db-table [data-col="weight"], .db-table [data-col="speed"] { display: none; }
+        .db-table .c-stat, .db-table [data-col="weight"], .db-table [data-col="speed"], .db-table [data-col="votes"] { display: none; }
+        .dbp[data-sort="votes"] [data-col="votes"] { display: table-cell; }
+        .c-votes { width: 96px; }
         .dbp[data-sort="attack"] [data-col="attack"], .dbp[data-sort="defense"] [data-col="defense"], .dbp[data-sort="agility"] [data-col="agility"],
         .dbp[data-sort="stamina"] [data-col="stamina"], .dbp[data-sort="intelligence"] [data-col="intelligence"], .dbp[data-sort="special"] [data-col="special"],
         .dbp[data-sort="weight"] [data-col="weight"], .dbp[data-sort="speed"] [data-col="speed"] { display: table-cell; }

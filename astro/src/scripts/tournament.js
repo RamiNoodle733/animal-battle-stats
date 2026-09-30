@@ -130,7 +130,7 @@ function paintMode() {
     const user = window.ABS_USER;
     const mode = $('[data-mode]');
     mode.classList.toggle('ranked', Boolean(user));
-    mode.querySelector('img').src = `/images/icons/abs/${user ? 'medal' : 'lock'}.webp`;
+    mode.querySelector('img').src = `/images/ui/icons/${user ? 'medal' : 'lock'}.svg`;
     $('[data-mode-text]').innerHTML = user
         ? `<b>Ranked</b> Playing as ${escapeHtml(user.displayName || user.username)}. The server draws your bracket, every pick moves the battle ratings and your first finished bracket each day earns XP and BattlePoints.`
         : '<b>Casual</b> <a class="link" href="/login?returnTo=%2Ftournament">Log in</a> to play ranked: your picks move the battle ratings and a finished bracket earns XP and BattlePoints once a day.';
@@ -542,7 +542,7 @@ function quitRanked() {
 function podiumCard(animal, crown = false) {
     const tier = animal.tier.toLowerCase();
     return `<a class="card tier-${tier} bio-${animal.b}" href="/stats/${animal.s}">
-        ${crown ? '<img class="pod-crown" src="/images/icons/abs/crown.webp" alt="" width="76" height="76">' : ''}
+        ${crown ? '<img class="pod-crown" src="/images/ui/icons/crown.svg" alt="" width="76" height="76">' : ''}
         <span class="card-inner">
             <span class="card-power"><b>${fmt(animal.p)}</b><small>PWR</small></span>
             <span class="tier-badge tier-${tier}">${animal.tier}</span>

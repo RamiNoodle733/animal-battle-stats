@@ -231,7 +231,7 @@ if (dialog) {
 
 // ---------------------------------------------------------------- player chip + rewards
 
-const COIN = '/images/icons/abs/coin.webp';
+const COIN = '/images/ui/icons/coin.svg';
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const chip = document.querySelector('[data-player-chip]');
 const badge = document.querySelector('[data-rewards-badge]');
@@ -369,13 +369,13 @@ async function openDaily() {
     dialog.setAttribute('aria-labelledby', 'daily-title');
     dialog.innerHTML = `
         <div class="dd-head">
-            <img src="/images/icons/abs/gift.webp" alt="" width="64" height="64">
+            <img src="/images/ui/icons/gift.svg" alt="" width="64" height="64">
             <div><p class="eyebrow">Daily reward</p><h2 id="daily-title" class="screen-title">Day ${login.step}</h2>
             <p class="dd-sub">${login.run > 1 ? `${login.run} days in a row` : 'Come back every day: day 7 pays the most.'}${login.shielded ? ' · Your streak shield saved a missed day.' : ''}</p></div>
         </div>
         <ol class="dd-ladder">${login.rewards.map((reward) => `
             <li class="${reward.day < login.step ? 'done' : reward.day === login.step ? 'now' : ''}${reward.day === 7 ? ' big' : ''}">
-                <small>Day ${reward.day}</small><img src="${reward.day === 7 ? '/images/icons/abs/chest.webp' : COIN}" alt="" width="34" height="34"><b>${reward.coins}</b>
+                <small>Day ${reward.day}</small><img src="${reward.day === 7 ? '/images/ui/icons/chest.svg' : COIN}" alt="" width="34" height="34"><b>${reward.coins}</b>
             </li>`).join('')}</ol>
         <div class="dd-actions">
             <button class="btn btn-gold btn-lg" type="button" data-dd-claim><img src="${COIN}" alt="" width="26" height="26">Claim ${login.reward.coins} BattlePoints</button>

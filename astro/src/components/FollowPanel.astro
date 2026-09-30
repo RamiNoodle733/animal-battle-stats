@@ -20,12 +20,12 @@ const entries = Object.entries(PLATFORMS);
 ---
 {compact ? (
     <div class="follow-strip">
-        <span class="fs-label">{heading}<span class="reward-tag"><img src="/images/icons/abs/coin.webp" alt="" width="14" height="14" loading="lazy" />+{FOLLOW_REWARD.coins} each</span></span>
+        <span class="fs-label">{heading}<span class="reward-tag"><img src="/images/ui/icons/coin.svg" alt="" width="14" height="14" loading="lazy" />+{FOLLOW_REWARD.coins} each</span></span>
         <div class="fs-row">
             {entries.map(([key, platform]) => (
                 <a class={`pf pf-${key} pf-icon-only`} href={platform.url} target="_blank" rel="noopener me" data-follow={key} title={`${platform.verb} on ${platform.label}`} aria-label={`${platform.verb} on ${platform.label}`}>
                     <PlatformIcon name={key} size={22} />
-                    <span class="pf-done"><img src="/images/icons/abs/check.webp" alt="" width="16" height="16" loading="lazy" /></span>
+                    <span class="pf-done"><img src="/images/ui/icons/check.svg" alt="" width="16" height="16" loading="lazy" /></span>
                 </a>
             ))}
         </div>
@@ -33,8 +33,8 @@ const entries = Object.entries(PLATFORMS);
 ) : (
     <div class="follow-block">
         <div class="sw-head">
-            <h2 class="sw-h2"><img src="/images/icons/abs/friends.webp" alt="" width="30" height="30" loading="lazy" />{heading}</h2>
-            <span class="reward-tag"><img src="/images/icons/abs/coin.webp" alt="" width="14" height="14" loading="lazy" />+{FOLLOW_REWARD.coins} BattlePoints each</span>
+            <h2 class="sw-h2"><img src="/images/ui/icons/friends.svg" alt="" width="30" height="30" loading="lazy" />{heading}</h2>
+            <span class="reward-tag"><img src="/images/ui/icons/coin.svg" alt="" width="14" height="14" loading="lazy" />+{FOLLOW_REWARD.coins} BattlePoints each</span>
         </div>
         <div class="platforms">
             {entries.map(([key, platform]) => (
@@ -42,7 +42,7 @@ const entries = Object.entries(PLATFORMS);
                     <PlatformIcon name={key} size={26} />
                     <span class="pf-copy"><span>{platform.verb} on {platform.label}</span><small>{HANDLES[key]}</small></span>
                     <span class="reward-tag">+{FOLLOW_REWARD.coins}</span>
-                    <span class="pf-done"><img src="/images/icons/abs/check.webp" alt="" width="18" height="18" loading="lazy" />Done</span>
+                    <span class="pf-done"><img src="/images/ui/icons/check.svg" alt="" width="18" height="18" loading="lazy" />Done</span>
                 </a>
             ))}
         </div>

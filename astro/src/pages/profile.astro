@@ -54,7 +54,7 @@ const EARN = [
 
             <form class="p-pane scroll" data-p-pane="edit" data-p-form>
                 <p class="p-flag" data-p-flag hidden>Your name needs a change before it can show on leaderboards. Pick a new one below.</p>
-                <a class="btn btn-gold btn-sm" href="/admin" data-p-admin hidden><img src="/images/icons/abs/shield.webp" alt="" width="22" height="22" />Admin tools</a>
+                <a class="btn btn-gold btn-sm" href="/admin" data-p-admin hidden><img src="/images/ui/icons/shield.svg" alt="" width="22" height="22" />Admin tools</a>
                 <label class="fld"><span>Display name</span><input name="displayName" maxlength="30" autocomplete="nickname" /><small>Shown on leaderboards and posts. Change it any time.</small></label>
                 <label class="fld"><span>Username</span><input name="username" maxlength="20" pattern="[A-Za-z0-9_]+" autocomplete="username" /><small data-p-rename>Your login name. 3 changes per week.</small></label>
                 <button class="btn btn-cyan" type="submit" data-p-save><Icon name="check" size={22} />Save profile</button>
@@ -155,7 +155,7 @@ const EARN = [
     .p-art :global(.card) { height: 100%; max-height: 420px; max-width: 100%; aspect-ratio: 3 / 4; width: auto; }
     .p-pick-hint { display: grid; justify-items: center; gap: 8px; padding: 22px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-transform: uppercase; color: var(--muted); border: 2px dashed var(--line-2); border-radius: 14px; cursor: pointer; }
     .p-id { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .p-lvl { flex: none; display: grid; place-items: center; width: 54px; height: 54px; font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: #1f1400; background: linear-gradient(160deg, var(--gold-2), var(--gold) 45%, var(--gold-d)); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+    .p-lvl { flex: none; display: grid; place-items: center; width: 54px; height: 54px; font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: #fff; text-shadow: 0 1px 2px #000, 0 0 6px rgba(0, 0, 0, 0.6); background: url("/images/ui/level.svg") center / contain no-repeat; }
     .p-names { min-width: 0; display: flex; flex-direction: column; }
     .p-name { margin: 0; font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; transform: skewX(-6deg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .p-handle { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 0.82rem; color: var(--muted); }

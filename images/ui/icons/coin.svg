@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs><linearGradient id="m" gradientUnits="userSpaceOnUse" x1="0" y1="2" x2="0" y2="62"><stop offset="0" stop-color="#fff6cc"/><stop offset="0.32" stop-color="#ffd54a"/><stop offset="0.52" stop-color="#e9a300"/><stop offset="0.54" stop-color="#b37700"/><stop offset="1" stop-color="#ffdf80"/></linearGradient>
+<radialGradient id="f" cx=".38" cy=".3" r=".75"><stop offset="0" stop-color="#fff3b0"/><stop offset=".5" stop-color="#f6b400"/><stop offset="1" stop-color="#a86f00"/></radialGradient>
+<filter id="s" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#000" flood-opacity=".75"/></filter></defs>
+<g filter="url(#s)">
+<circle cx="32" cy="32" r="29" fill="#0b0c0e"/>
+<circle cx="32" cy="32" r="27.4" fill="url(#m)"/>
+<circle cx="32" cy="32" r="27.4" fill="none" stroke="#7a5200" stroke-width="1.6" stroke-dasharray="1.6 1.9" opacity=".7"/>
+<circle cx="32" cy="32" r="22" fill="#6b4700"/>
+<circle cx="32" cy="32" r="21" fill="url(#f)"/>
+<path d="M32 17L45 24.5V39.5L32 47L19 39.5V24.5Z" fill="none" stroke="#7a5200" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M34.5 20L25.5 33.5h6.2l-1.8 10.5 9.6-14h-6.3z" fill="#7a5200"/>
+<path d="M34 19.2L25 32.7h6.2l-1.8 10.5 9.6-14h-6.3z" fill="#fff3c4"/>
+</g>
+</svg>

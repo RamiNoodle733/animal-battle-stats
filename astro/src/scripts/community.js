@@ -225,7 +225,7 @@ async function loadLeaders() {
                 .sort((a, b) => b.value - a.value)
                 .slice(0, 5);
             if (!top.length) return '';
-            return `<section class="rec"><h4><img src="/images/icons/abs/${icon}.webp" alt="" width="20" height="20">${label}</h4><ol>${top.map((row, index) => {
+            return `<section class="rec"><h4><img src="/images/ui/icons/${icon}.svg" alt="" width="20" height="20">${label}</h4><ol>${top.map((row, index) => {
                 const animal = animals.get(row.name.toLowerCase());
                 return `<li><span>${index + 1}</span>${animal ? `<img src="${animal.i}" alt="" width="30" height="24" loading="lazy">` : '<span></span>'}<a href="/stats/${animal?.s || ''}">${escapeHtml(row.name)}</a><b class="${tone}">${show(row.value)}</b></li>`;
             }).join('')}</ol></section>`;
@@ -244,7 +244,7 @@ async function loadPlayers() {
             <b class="pos">${player.rank}</b>${await avatar(player.profileAnimal)}
             <span class="pname"><strong>${escapeHtml(player.username)}</strong>${player.title ? `<small class="ptitle">${escapeHtml(player.title)}</small>` : ''}<span class="xpbar"><i style="width:${Math.min(100, Number(player.xpProgress) || 0)}%"></i></span></span>
             <span class="lvl" title="Level">${Number(player.level) || 1}</span>
-            <span class="bp"><img src="/images/icons/abs/coin.webp" alt="" width="18" height="18">${compact(player.battlePoints)}</span>
+            <span class="bp"><img src="/images/ui/icons/coin.svg" alt="" width="18" height="18">${compact(player.battlePoints)}</span>
         </li>`));
         box.innerHTML = rows.join('') || '<li class="muted small">No players yet.</li>';
     } catch {

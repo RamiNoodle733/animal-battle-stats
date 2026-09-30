@@ -8,7 +8,7 @@ const root = document.querySelector('[data-rw]');
 const $ = (selector) => root.querySelector(selector);
 const $$ = (selector) => [...root.querySelectorAll(selector)];
 const fmt = (value) => Number(value || 0).toLocaleString('en-US');
-const BP = '/images/icons/abs/coin.webp';
+const BP = '/images/ui/icons/coin.svg';
 const PAGES = ['daily', 'quests', 'pass', 'shop', 'earn'];
 // Where each quest kind is played, and its icon.
 const QUEST_GO = {
@@ -71,12 +71,12 @@ function questRow(quest) {
     const [icon, href] = QUEST_GO[quest.kind] || ['scroll', '/compare'];
     const pct = Math.round((quest.progress / quest.goal) * 100);
     const end = quest.claimed
-        ? `<img src="/images/icons/abs/check.webp" alt="Claimed" width="34" height="34">`
+        ? `<img src="/images/ui/icons/check.svg" alt="Claimed" width="34" height="34">`
         : quest.done
             ? `<button class="btn btn-gold" type="button" data-claim="quest" data-slot="${quest.slot}">Claim</button>`
             : `<span class="q-count">${quest.progress}/${quest.goal}</span><a class="btn btn-sm" href="${href}">Go</a>`;
     return `<div class="quest${quest.done ? ' done' : ''}${quest.claimed ? ' claimed' : ''}">
-        <img src="/images/icons/abs/${icon}.webp" alt="" width="48" height="48">
+        <img src="/images/ui/icons/${icon}.svg" alt="" width="48" height="48">
         <b>${escapeHtml(quest.text)}</b>
         <span class="q-bar"><i style="width:${pct}%"></i></span>
         <span class="q-pay"><span><img src="${BP}" alt="">+${quest.coins}</span><span class="x">+${quest.xp} XP</span><span class="p">+${quest.pass} pass XP</span></span>

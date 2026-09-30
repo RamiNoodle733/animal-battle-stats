@@ -145,7 +145,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
             <div class="call" data-call data-state="open">
                 <div class="call-head">
                     <b>Call it</b>
-                    <span class="call-pay"><img src="/images/icons/abs/coin.webp" alt="" width="16" height="16" />+10 · bonus if right</span>
+                    <span class="call-pay"><img src="/images/ui/icons/coin.svg" alt="" width="16" height="16" />+10 · bonus if right</span>
                     <span class="call-streak" data-call-streak hidden></span>
                 </div>
                 <div class="call-picks">
@@ -189,6 +189,15 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         gap: 14px;
         max-width: 1560px;
         margin: 0 auto;
+    }
+    /* The arena: a spotlit hex floor (images/ui/stage.webp) behind the fighters. */
+    .vs::before {
+        content: "";
+        position: fixed;
+        inset: var(--hud-h) 0 var(--dock-h);
+        z-index: -1;
+        background: radial-gradient(120% 90% at 50% 60%, transparent 55%, rgba(0, 0, 0, 0.55)), url("/images/ui/stage.webp") center 62% / cover no-repeat;
+        pointer-events: none;
     }
     .side-a { grid-column: 1; grid-row: 1; }
     .console { grid-column: 2; grid-row: 1; }

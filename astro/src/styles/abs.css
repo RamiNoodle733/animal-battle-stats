@@ -62,9 +62,17 @@
     --font-display: "Big Shoulders Display Variable", "Big Shoulders Display", Impact, "Arial Narrow Bold", sans-serif;
     --font-body: "Inter Variable", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-    --hex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19.05' height='33'%3E%3Cpath d='M9.53 0L19.05 5.5V16.5L9.53 22L0 16.5V5.5ZM0 16.5L9.53 22V33L0 38.5L-9.53 33V22ZM19.05 16.5L28.58 22V33L19.05 38.5L9.53 33V22ZM0 -16.5L9.53 -11V0L0 5.5L-9.53 0V-11ZM19.05 -16.5L28.58 -11V0L19.05 5.5L9.53 0V-11Z' fill='none' stroke='%23fff' stroke-opacity='.045' stroke-width='1'/%3E%3C/svg%3E");
-    --hex-strong: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19.05' height='33'%3E%3Cpath d='M9.53 0L19.05 5.5V16.5L9.53 22L0 16.5V5.5ZM0 16.5L9.53 22V33L0 38.5L-9.53 33V22ZM19.05 16.5L28.58 22V33L19.05 38.5L9.53 33V22ZM0 -16.5L9.53 -11V0L0 5.5L-9.53 0V-11ZM19.05 -16.5L28.58 -11V0L19.05 5.5L9.53 0V-11Z' fill='none' stroke='%23fff' stroke-opacity='.08' stroke-width='1'/%3E%3C/svg%3E");
-    --hex-size: 19.05px 33px;
+    /* Surface art, rendered by scripts/assets/build-ui-textures.py and
+       build-ui-scenes.py (2x pixels; shown at half size). --hex is the panel
+       plate texture under a soft shade, --hex-strong the bigger card plates. */
+    --hex: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.32)), url("/images/ui/hex-panel.webp");
+    --hex-size: 147px 127.5px;
+    --hex-strong: url("/images/ui/hex-card.webp");
+    --hex-card-size: 156px 135px;
+    --tex-bg: url("/images/ui/hex-bg.webp");
+    --tex-bg-size: 166.5px 144px;
+    --plate-steel: url("/images/ui/btn-steel.png");
+    --plate-gold: url("/images/ui/btn-gold.png");
 
     --hud-h: 56px;
     --dock-h: 0px;
@@ -89,7 +97,9 @@ body {
     font-family: var(--font-body);
     font-size: 15px;
     line-height: 1.55;
-    background: var(--bg);
+    /* Transparent, so the backdrop layers behind the page (.arena, the Versus
+       stage) show; the colour comes from html. */
+    background: transparent;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
 }
@@ -133,8 +143,8 @@ body.game {
     overflow: hidden;
     background:
         radial-gradient(90% 55% at 50% -12%, color-mix(in srgb, var(--bio-glow) 9%, transparent), transparent 70%),
-        var(--hex) 0 0 / var(--hex-size),
-        linear-gradient(180deg, #111215 0%, #0b0c0e 60%, #08090a 100%);
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%),
+        var(--tex-bg) 0 0 / var(--tex-bg-size);
 }
 .arena::after {
     content: "";
@@ -145,14 +155,14 @@ body.game {
 .arena .horizon, .arena .motes { display: none; }
 
 /* Biome glows (animal pages tint the top of the screen very slightly). */
-.bio-savanna { --bio-glow: #ffb347; }
-.bio-forest { --bio-glow: #7bd48a; }
-.bio-jungle { --bio-glow: #35e0a0; }
-.bio-wetlands { --bio-glow: #66d6c4; }
-.bio-desert { --bio-glow: #ff9f4a; }
-.bio-mountains { --bio-glow: #a9c4ff; }
-.bio-arctic { --bio-glow: #c6ecff; }
-.bio-ocean { --bio-glow: #28b6ff; }
+.bio-savanna { --bio-glow: #ffb347; --biome-art: url("/images/ui/biome-savanna.webp"); }
+.bio-forest { --bio-glow: #7bd48a; --biome-art: url("/images/ui/biome-forest.webp"); }
+.bio-jungle { --bio-glow: #35e0a0; --biome-art: url("/images/ui/biome-jungle.webp"); }
+.bio-wetlands { --bio-glow: #66d6c4; --biome-art: url("/images/ui/biome-wetlands.webp"); }
+.bio-desert { --bio-glow: #ff9f4a; --biome-art: url("/images/ui/biome-desert.webp"); }
+.bio-mountains { --bio-glow: #a9c4ff; --biome-art: url("/images/ui/biome-mountains.webp"); }
+.bio-arctic { --bio-glow: #c6ecff; --biome-art: url("/images/ui/biome-arctic.webp"); }
+.bio-ocean { --bio-glow: #28b6ff; --biome-art: url("/images/ui/biome-ocean.webp"); }
 
 /* ---------------------------------------------------------------- HUD */
 
@@ -163,7 +173,7 @@ body.game {
     align-items: center;
     gap: 12px;
     padding: 0 clamp(10px, 2vw, 22px);
-    background: linear-gradient(180deg, #18191d, #0f1013);
+    background: linear-gradient(180deg, rgba(34, 35, 40, 0.9), rgba(12, 13, 15, 0.94)), var(--tex-bg) 0 0 / var(--tex-bg-size);
     border-bottom: 1px solid var(--frame);
     box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
 }
@@ -212,13 +222,13 @@ body.game {
     width: 40px; height: 40px;
     padding: 0;
     color: var(--text-2);
-    background: linear-gradient(180deg, #2a2c31, #1c1d21);
-    border: 1px solid var(--frame);
+    background: none;
+    border: 1px solid transparent;
+    border-image: var(--plate-steel) 24 fill / 10px / 0 stretch;
     border-radius: 9px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transition: color 0.15s, border-color 0.15s, transform 0.12s;
+    transition: color 0.15s, filter 0.15s, transform 0.12s;
 }
-.hud-btn:hover { color: #fff; border-color: var(--frame-2); }
+.hud-btn:hover { color: #fff; filter: brightness(1.25); }
 .hud-btn:active { transform: translateY(1px); }
 .hud-btn img { width: 24px; height: 24px; }
 .hud-btn svg { width: 20px; height: 20px; }
@@ -231,10 +241,10 @@ body.game {
     gap: 8px;
     height: 40px;
     padding: 0 12px 0 4px;
-    background: linear-gradient(180deg, #2a2c31, #1c1d21);
-    border: 1px solid var(--frame);
+    background: none;
+    border: 1px solid transparent;
+    border-image: var(--plate-steel) 24 fill / 10px / 0 stretch;
     border-radius: 9px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
     font-weight: 800;
     font-size: 0.85rem;
     white-space: nowrap;
@@ -366,8 +376,9 @@ body.game {
     min-width: 0;
     display: flex;
     flex-direction: column;
-    background: var(--hex) 0 0 / var(--hex-size), linear-gradient(180deg, var(--panel-1), var(--panel-2));
-    border: 1px solid var(--frame);
+    background: var(--hex) 0 0 / var(--hex-size);
+    border: 1px solid transparent;
+    border-image: url("/images/ui/panel-frame.png") 40 / 20px / 0 stretch;
     border-radius: var(--r);
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 10px 26px rgba(0, 0, 0, 0.35);
 }
@@ -426,9 +437,7 @@ body.game {
    red = fight, silver = secondary on dark, steel = everything else. */
 
 .btn {
-    --c1: #34373e;
-    --c2: #24262b;
-    --bd: rgba(255, 255, 255, 0.16);
+    --plate: var(--plate-steel);
     --fg: #fff;
     position: relative;
     display: inline-flex;
@@ -443,30 +452,32 @@ body.game {
     letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--fg);
-    background: linear-gradient(180deg, var(--c1), var(--c2));
-    border: 1px solid var(--bd);
+    background: none;
+    border: 1px solid transparent;
+    border-image: var(--plate) 24 fill / 12px / 0 stretch;
     border-radius: 9px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 2px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
     transition: transform 0.12s var(--ease), filter 0.15s;
     white-space: nowrap;
     user-select: none;
 }
 .btn:hover { filter: brightness(1.1); }
-.btn:active { transform: translateY(1px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15); }
+.btn:active { transform: translateY(1px); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35); }
 .btn img { width: 24px; height: 24px; margin-left: -4px; }
+/* Metal icons read as dark engravings on the gold and silver plates. */
+.btn-gold img, .btn-hot img, .btn-cyan img, .btn-white img { filter: brightness(0) opacity(0.72); }
 .btn .ui-icon { width: 18px; height: 18px; margin-left: -2px; }
-.btn-cyan, .btn-gold { --c1: #ffd54a; --c2: #eaa400; --bd: #ffe28a; --fg: #1d1400; }
-.btn-hot { --c1: #ffd54a; --c2: #eaa400; --bd: #ffe28a; --fg: #1d1400; }
-.btn-danger { --c1: #f0374a; --c2: #b8141f; --bd: #ff7d88; --fg: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3); }
-.btn-white { --c1: #f5f6f8; --c2: #cdd0d6; --bd: #fff; --fg: #111216; }
-.btn-ghost { --c1: transparent; --c2: transparent; --bd: var(--frame-2); box-shadow: none; }
-.btn-sm { min-height: 34px; padding: 0 12px; font-size: 0.92rem; border-radius: 8px; }
+.btn-cyan, .btn-gold, .btn-hot { --plate: var(--plate-gold); --fg: #1d1400; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35); }
+.btn-danger { --plate: url("/images/ui/btn-red.png"); --fg: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3); }
+.btn-white { --plate: url("/images/ui/btn-silver.png"); --fg: #111216; }
+.btn-ghost { border-image: none; border-color: var(--frame-2); box-shadow: none; }
+.btn-sm { min-height: 34px; padding: 0 12px; font-size: 0.92rem; border-radius: 8px; border-image-width: 9px; }
 .btn-sm img { width: 20px; height: 20px; }
-.btn-lg { min-height: 50px; padding: 0 26px; font-size: 1.25rem; border-radius: 10px; }
+.btn-lg { min-height: 50px; padding: 0 26px; font-size: 1.25rem; border-radius: 10px; border-image-width: 14px; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
 /* Roblox: the green Play button and the black Roblox sign-in button. */
-.btn-play { --c1: #3be58f; --c2: #10a95c; --bd: #7ff0b6; --fg: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3); }
-.btn-roblox { --c1: #33363c; --c2: #121316; --bd: rgba(255, 255, 255, 0.2); --fg: #fff; }
+.btn-play { --plate: url("/images/ui/btn-green.png"); --fg: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35); }
+.btn-roblox { --plate: var(--plate-steel); --fg: #fff; }
 .btn .rbx-mark { flex: none; width: 18px; height: 18px; }
 .btn-lg .rbx-mark { width: 22px; height: 22px; }
 .btn[aria-disabled="true"] { opacity: 0.55; filter: none; transform: none; cursor: default; pointer-events: none; }
@@ -528,7 +539,7 @@ body.game {
     border-radius: 6px;
 }
 .seg button:hover, .seg a:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
-.seg [aria-pressed="true"], .seg [aria-current="page"] { color: #1d1400; background: linear-gradient(180deg, #ffd54a, #eaa400); }
+.seg [aria-pressed="true"], .seg [aria-current="page"] { color: #1d1400; background: none; border-image: var(--plate-gold) 24 fill / 8px / 0 stretch; }
 
 .field {
     display: flex; align-items: center; gap: 8px;
@@ -545,14 +556,14 @@ body.game {
 
 /* ---------------------------------------------------------------- tiers & stars */
 
-.tier-s { --tier: var(--tier-s); --tier-2: #fff1b0; --tier-d: #a8740a; }
-.tier-a { --tier: var(--tier-a); --tier-2: #ffc488; --tier-d: #9c3d00; }
-.tier-b { --tier: var(--tier-b); --tier-2: #a8dcff; --tier-d: #0b5690; }
-.tier-c { --tier: var(--tier-c); --tier-2: #b0f0cc; --tier-d: #17683e; }
-.tier-d { --tier: var(--tier-d); --tier-2: #d8ccff; --tier-d: #4b3a9e; }
-.tier-f { --tier: var(--tier-f); --tier-2: #d4d7de; --tier-d: #474c57; }
+.tier-s { --tier: var(--tier-s); --tier-2: #fff1b0; --tier-d: #a8740a; --shards: url("/images/ui/shards-s.webp"); --frame-img: url("/images/ui/frame-s.png"); }
+.tier-a { --tier: var(--tier-a); --tier-2: #ffc488; --tier-d: #9c3d00; --shards: url("/images/ui/shards-a.webp"); --frame-img: url("/images/ui/frame-a.png"); }
+.tier-b { --tier: var(--tier-b); --tier-2: #a8dcff; --tier-d: #0b5690; --shards: url("/images/ui/shards-b.webp"); --frame-img: url("/images/ui/frame-b.png"); }
+.tier-c { --tier: var(--tier-c); --tier-2: #b0f0cc; --tier-d: #17683e; --shards: url("/images/ui/shards-c.webp"); --frame-img: url("/images/ui/frame-c.png"); }
+.tier-d { --tier: var(--tier-d); --tier-2: #d8ccff; --tier-d: #4b3a9e; --shards: url("/images/ui/shards-d.webp"); --frame-img: url("/images/ui/frame-d.png"); }
+.tier-f { --tier: var(--tier-f); --tier-2: #d4d7de; --tier-d: #474c57; --shards: url("/images/ui/shards-f.webp"); --frame-img: url("/images/ui/frame-f.png"); }
 /* Human (Versus only): not an animal tier. */
-.tier-h { --tier: #b4bac6; --tier-2: #f1f2f5; --tier-d: #5a606c; }
+.tier-h { --tier: #b4bac6; --tier-2: #f1f2f5; --tier-d: #5a606c; --shards: url("/images/ui/shards-h.webp"); --frame-img: url("/images/ui/frame-h.png"); }
 
 /* Tier crests: drawn badge art (images/ui/tier-*.svg, from
    scripts/assets/build-ui-badges.py). The letter stays in the markup for
@@ -598,10 +609,12 @@ body.game {
     display: block;
     aspect-ratio: 3 / 4;
     min-width: 0;
-    padding: 4px;
+    padding: 0;
+    border: 5px solid transparent;
+    border-image: var(--frame-img, url("/images/ui/frame-f.png")) 28 / 14px / 0 stretch;
     border-radius: 12px;
-    background: linear-gradient(155deg, var(--tier-2), var(--tier) 26%, var(--tier-d) 58%, var(--tier) 84%, var(--tier-2));
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.7);
+    background: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     transform: perspective(800px) rotateX(var(--rx)) rotateY(var(--ry));
     transform-style: preserve-3d;
     transition: transform 0.25s var(--ease), box-shadow 0.25s;
@@ -609,18 +622,19 @@ body.game {
     /* Badges and the name scale with the card, so tiny and huge cards share one layout. */
     container: card / inline-size;
 }
+.card:not([class*="bio-"]) { --biome-art: none; }
 .card:hover { box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6), 0 0 22px color-mix(in srgb, var(--tier) 40%, transparent); }
 .card-inner {
     position: relative;
     display: block;
     height: 100%;
     overflow: hidden;
-    border-radius: 9px;
+    border-radius: 8px;
     background:
-        linear-gradient(112deg, transparent 0 33%, color-mix(in srgb, var(--tier) 30%, transparent) 33% 46%, transparent 46% 52%, color-mix(in srgb, var(--tier) 15%, transparent) 52% 59%, transparent 59%),
-        radial-gradient(75% 52% at 56% 44%, color-mix(in srgb, var(--tier) 20%, transparent), transparent 72%),
-        var(--hex-strong) 0 0 / var(--hex-size),
-        linear-gradient(180deg, #26282d, #0e0f12 88%);
+        var(--shards, none) center / 100% 100% no-repeat,
+        var(--biome-art, none) center / 100% 100% no-repeat,
+        var(--hex-strong) 0 0 / var(--hex-card-size),
+        #16171b;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.6), inset 0 0 18px rgba(0, 0, 0, 0.55);
 }
 .card-inner::before {
@@ -744,7 +758,7 @@ body.game {
     position: absolute;
     inset: 0;
     z-index: 4;
-    border-radius: 9px;
+    border-radius: 8px;
     pointer-events: none;
     background: radial-gradient(circle at var(--gx) var(--gy), rgba(255, 255, 255, 0.24), transparent 45%);
     mix-blend-mode: overlay;
@@ -759,12 +773,12 @@ body.game {
     inset: 0;
     z-index: 2;
     pointer-events: none;
-    background: linear-gradient(115deg, transparent 22%, rgba(255, 240, 180, 0.16) 38%, rgba(255, 255, 255, 0.2) 45%, rgba(255, 220, 120, 0.12) 52%, transparent 66%);
-    background-size: 250% 250%;
+    background: url("/images/ui/foil-s.webp") 0 0 / 150% 150%;
     mix-blend-mode: screen;
-    animation: foil 6s linear infinite;
+    opacity: 0.85;
+    animation: foil 9s ease-in-out infinite alternate;
 }
-@keyframes foil { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+@keyframes foil { from { background-position: 0 0; } to { background-position: 100% 100%; } }
 
 /* ---------------------------------------------------------------- stat meters (card-back stat rows) */
 

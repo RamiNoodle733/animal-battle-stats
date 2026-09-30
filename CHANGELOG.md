@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.0 — 2026-09-29
+
+- **Share a fight as a picture.** Versus has a Share button that draws a 4:5 card (made for Instagram, TikTok photos, X and Discord): both animals, their tier crests and power, the VS emblem and the site address. Before the fight it is a challenge ("make your call", odds hidden); after the fight or Show it names the winner and the odds. Phones open the share sheet with the picture attached; anyone can save it or copy the link.
+- **High stats stand out.** In the Animal Database, 90+ ratings glow gold, 80s are bright white and weak ratings fade back; S-tier power numbers are gold. Animal pages light up elite stats the same way.
+- **Rankings live in the Animals page.** "Rank by" sorts all 344 animals by overall power, strongest, toughest, most agile, most stamina, smartest, best special abilities, heaviest, fastest, longest or strongest bite. Rankings left the top menu (its pages remain, each with a Full table link), so the menu is Animals, Versus, Shows, Tiers, Tournament and Community.
+- **Clearer compare picks:** the + on each row is now a gold VS button. Tap VS on two animals and fight them.
+- **Random fight** on the home screen deals a surprise matchup.
+
 ## 4.0.0 — 2026-09-29
 
 A complete redesign, modelled on the Injustice trading cards.

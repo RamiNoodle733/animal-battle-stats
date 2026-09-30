@@ -13,6 +13,7 @@ import { sfx, shake } from './sfx.js';
 import { mountComments } from './comments.js';
 import { trackFight } from './track.js';
 import { HUMAN } from './human.js';
+import { openShare } from './share-card.js';
 
 // The engine is a UMD file shared with the server build: bundlers hand back
 // its CommonJS export, plain browsers get the global.
@@ -29,7 +30,8 @@ const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const fmt = (value) => (Number.isInteger(Number(value)) ? String(Number(value)) : Number(value).toFixed(1));
 const num = (value) => Number(value).toLocaleString('en-US');
 
-const state = { a: root.dataset.a, b: root.dataset.b, na: 1, nb: 1, picking: 'b', fighting: false, index: new Map(), fan: null, sealedKey: null };
+const state = { a: root.dataset.a, b: root.dataset.b, na: 1, nb: 1, picking: 'b', fighting: false, index: new Map(), fan: null, sealedKey: null, result: null };
+const shareButton = root.querySelector('[data-share-open]');
 const sides = { a: root.querySelector('[data-side="a"]'), b: root.querySelector('[data-side="b"]') };
 const picker = root.querySelector('[data-picker]');
 const grid = root.querySelector('[data-pk-grid]');
@@ -160,7 +162,11 @@ function paintMatchup() {
     const a = state.index.get(state.a);
     const b = state.index.get(state.b);
     if (!a || !b) return;
-    if (state.sealedKey !== matchupKey()) seal();
+    if (state.sealedKey !== matchupKey()) {
+        seal();
+        state.result = null;
+        shareButton?.classList.remove('ready');
+    }
     const odds = probability(a, b);
     const oddsA = Math.round(odds * 100);
     const oddsB = 100 - oddsA;
@@ -533,6 +539,8 @@ async function fight(forced = null) {
     state.fighting = false;
     fightButton.disabled = false;
     fightButton.querySelector('span').textContent = 'Fight again';
+    state.result = plan.winner;
+    shareButton?.classList.add('ready');
 }
 
 // ---------------------------------------------------------------- random matchup
@@ -554,6 +562,38 @@ function randomMatchup() {
     paintMatchup();
 }
 root.querySelector('[data-random]')?.addEventListener('click', randomMatchup);
+
+// ---------------------------------------------------------------- share as a picture
+
+function shareFighter(animal, count) {
+    return {
+        src: animal.m,
+        tier: animal.h ? 'h' : animal.tier.toLowerCase(),
+        label: label(animal, count),
+        meta: animal.h ? 'Human · not ranked with animals' : `${animal.cls} · #${animal.r} of ${state.index.size - 1}`,
+        power: animal.h ? null : fmt(animal.p)
+    };
+}
+shareButton?.addEventListener('click', () => {
+    const a = state.index.get(state.a);
+    const b = state.index.get(state.b);
+    if (!a || !b || state.fighting) return;
+    sfx.select();
+    const la = label(a, state.na);
+    const lb = label(b, state.nb);
+    const revealed = !root.classList.contains('is-sealed');
+    const result = state.result;
+    const winner = result ? label(result === 'a' ? a : b, result === 'a' ? state.na : state.nb) : null;
+    openShare({
+        a: shareFighter(a, state.na),
+        b: shareFighter(b, state.nb),
+        odds: revealed ? Math.round(probability(a, b) * 100) : null,
+        result,
+        url: location.href.split('#')[0],
+        text: result ? `${winner} won the fight. Who would you pick?` : `Who would win: ${la} or ${lb}? Make your call:`,
+        name: `${la} vs ${lb}`
+    });
+});
 
 // ---------------------------------------------------------------- wiring
 
@@ -599,4 +639,6 @@ loadAnimalIndex().then((list) => {
     paintFighter('a', state.index.get(state.a));
     paintFighter('b', state.index.get(state.b));
     paintMatchup();
+    // /compare?random deals a random matchup (the home screen's Random fight).
+    if (location.pathname === '/compare' && params.has('random') && !wantA) randomMatchup();
 });

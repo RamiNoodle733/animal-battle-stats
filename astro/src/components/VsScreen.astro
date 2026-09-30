@@ -85,7 +85,8 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
             <button type="button" role="tab" aria-selected="true" data-ctab="tape">Stats</button>
             {analysis && <button type="button" role="tab" aria-selected="false" data-ctab="verdict">Verdict</button>}
             <button type="button" role="tab" aria-selected="false" data-ctab="talk">Talk</button>
-            <button type="button" class="c-random" data-random title="A random matchup"><UiIcon name="random" size={17} />Random</button>
+            <button type="button" class="c-share" data-share-open title="Share this matchup as a picture"><UiIcon name="share" size={16} /><span>Share</span></button>
+            <button type="button" class="c-random" data-random title="A random matchup"><UiIcon name="random" size={17} /><span>Random</span></button>
         </div>
 
         <div class="c-pane" data-cpane="tape">
@@ -267,7 +268,10 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .vs-title { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05; }
     .vs-title em { display: inline-block; width: 1.8em; height: 1.3em; margin: 0 2px; vertical-align: -0.28em; font-size: 1em; color: transparent; background: url("/images/ui/vs.svg") center / contain no-repeat; overflow: hidden; }
     .c-tabs { justify-content: center; padding-top: 4px; }
-    .c-random { margin-left: auto; color: var(--muted); }
+    .c-share { margin-left: auto; color: var(--gold-2) !important; }
+    .c-share.ready { animation: share-ready 1.6s ease-in-out 3; }
+    @keyframes share-ready { 50% { color: #fff; text-shadow: 0 0 12px rgba(246, 180, 0, 0.9); } }
+    .c-random { color: var(--muted); }
     .c-random:hover { color: #fff; }
     .c-pane { flex: 1; min-height: 0; padding: 10px 14px 6px; overflow-y: auto; }
     .c-pane[data-cpane="tape"] { display: flex; flex-direction: column; justify-content: center; }
@@ -450,6 +454,8 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         .vs-head { display: none; }
         .console { overflow: visible; }
         .c-tabs { padding-top: 2px; }
+        .c-share span, .c-random span { display: none; }
+        .c-share, .c-random { padding: 0 10px !important; }
         .c-pane { flex: none; overflow: visible; padding: 10px 10px 6px; }
         .c-pane[data-cpane="tape"] { justify-content: flex-start; }
         .c-pane[data-cpane="verdict"], .c-pane[data-cpane="talk"] { min-height: 50vh; }

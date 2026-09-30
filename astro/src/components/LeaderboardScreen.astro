@@ -14,6 +14,9 @@ const list = category ? leaderboard(category) : animals;
 const show = category ? category.show : (animal) => fmtScore(animal.powerIndex);
 const path = category ? `/rankings/${category.slug}` : '/rankings';
 const heading = category ? category.label : 'Strongest animals';
+// The same ranking as a sort of the Animal Database (every stat side by side).
+const DB_SORT = { attack: 'attack', defense: 'defense', agility: 'agility', stamina: 'stamina', intelligence: 'intelligence', special: 'special', weight_kg: 'weight', speed_mps: 'speed', bite_force_psi: 'bite', length_cm: 'length' };
+const dbHref = category ? `/stats?sort=${DB_SORT[category.key] || 'rank'}` : '/stats';
 const title = category
     ? `${category.label} in the World (${year}): Top ${list.length} Ranked | ${SITE.name}`
     : `Strongest Animals in the World ${year}: Animal Rankings of ${animals.length} Animals | ${SITE.name}`;
@@ -56,7 +59,7 @@ const jsonLd = [
 const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'crown', key: 'power' }, ...CATEGORIES.map((item) => ({ ...item, icon: { attack: 'attack', defense: 'defense', agility: 'agility', stamina: 'stamina', intelligence: 'intelligence', special: 'special', weight_kg: 'weight', speed_mps: 'speed', bite_force_psi: 'bite', length_cm: 'ruler' }[item.key] }))];
 ---
 
-<Base title={title} description={description} path={path} image="/images/og/rankings.jpg" imageAlt={heading} jsonLd={jsonLd} active="rankings" biome="mountains">
+<Base title={title} description={description} path={path} image="/images/og/rankings.jpg" imageAlt={heading} jsonLd={jsonLd} active="animals" biome="mountains">
     <div class="board screen-grid">
         <nav class="panel rail" aria-label="Ranking categories">
             <div class="panel-head"><span class="panel-title">Leaderboards</span></div>
@@ -74,6 +77,7 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'crown'
             <div class="panel-head">
                 <h1 id="lb-title" class="panel-title">{heading}</h1>
                 <span class="aside">{list.length} ranked{category?.measurement ? ' · measured values only' : ''}</span>
+                <a class="btn btn-sm db-link" href={dbHref}>Full table</a>
                 {!category && (
                     <div class="seg sort" role="group" aria-label="Sort">
                         <button type="button" aria-pressed="true" data-sort="power">Power</button>
@@ -169,6 +173,7 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'crown'
     .list-panel { min-height: 0; }
     .list-panel .panel-head { flex-wrap: wrap; }
     .sort { margin-left: 8px; }
+    .db-link { flex: none; }
     .podium { display: grid; grid-template-columns: repeat(3, minmax(0, 150px)); justify-content: center; align-items: end; gap: 14px; padding: 14px 16px 6px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
     .pod { position: relative; }
     .pod.p1 { order: 2; transform: translateY(-8px); }

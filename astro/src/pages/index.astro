@@ -22,9 +22,9 @@ const description = `Who would win? Compare any two of ${animals.length} real an
 const MENU = [
     { href: '/compare', label: 'Who would win?', sub: 'Pick two animals and fight', icon: 'vs', cls: 'btn-hot primary' },
     { href: '/shows', label: 'Shows', sub: 'ABS Originals: watch & earn BattlePoints', icon: 'tv', badge: 'New' },
-    { href: '/stats', label: 'Animals', sub: `${animals.length} fighters, full stats`, icon: 'paw' },
+    { href: '/stats', label: 'Animals', sub: `All ${animals.length}: stats & rankings`, icon: 'paw' },
     { href: '/tier-list', label: 'Tier list', sub: `S to F, all ${animals.length}`, icon: 'crown' },
-    { href: '/rankings', label: 'Rankings', sub: 'Strongest, fastest, biggest', icon: 'medal' },
+    { href: '/compare?random=1', label: 'Random fight', sub: 'Deal a surprise matchup', icon: 'cards' },
     { href: '/tournament', label: 'Tournament', sub: 'Run a bracket', icon: 'trophy' },
     { href: '/community', label: 'Community', sub: 'Votes, talk, leaderboards', icon: 'friends' }
 ];

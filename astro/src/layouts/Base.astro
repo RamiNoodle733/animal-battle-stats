@@ -31,11 +31,10 @@ const MENU = [
     { key: 'compare', href: '/compare', label: 'Versus', icon: 'vs' },
     { key: 'shows', href: '/shows', label: 'Shows', icon: 'tv' },
     { key: 'tiers', href: '/tier-list', label: 'Tiers', icon: 'crown' },
-    { key: 'rankings', href: '/rankings', label: 'Rankings', icon: 'medal' },
     { key: 'tournament', href: '/tournament', label: 'Tournament', icon: 'trophy' },
     { key: 'community', href: '/community', label: 'Community', icon: 'users' }
 ];
-const DOCK = [MENU[0], MENU[1], MENU[2], MENU[6], { key: 'roblox', href: '/roblox', label: 'Roblox', roblox: true }];
+const DOCK = [MENU[0], MENU[1], MENU[2], MENU[5], { key: 'roblox', href: '/roblox', label: 'Roblox', roblox: true }];
 // Google Analytics 4 (property "Animal Battle Stats", web stream animalbattlestats.com).
 const GA_ID = 'G-NQ328W18LX';
 const graph = [
@@ -181,6 +180,7 @@ const year = new Date().getFullYear();
                 <a href="/"><UiIcon name="home" />Home</a>
                 <a href="/rewards"><UiIcon name="gift" />Rewards &amp; shop</a>
                 <a href="/shows"><UiIcon name="tv" />ABS Originals (shows)</a>
+                <a href="/rankings"><UiIcon name="medal" />Rankings</a>
                 {MENU.filter((item) => item.key !== 'shows').map((item) => <a href={item.href}><UiIcon name={item.icon} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label}</a>)}
                 <a href="/roblox"><span class="sheet-mark"><RobloxMark size={18} /></span>{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
                 <a href="/about"><UiIcon name="book" />About &amp; how ratings work</a>

@@ -5,11 +5,11 @@
 // every rating without running scripts.
 import Base from '../layouts/Base.astro';
 import UiIcon from '../components/UiIcon.astro';
-import { animals, GROUPS, TIERS, STATS, researchedCount, fmtScore, fmtWeight, fmtSpeed } from '../lib/catalog.js';
+import { animals, GROUPS, TIERS, STATS, researchedCount, fmtScore, fmtWeight, fmtSpeed, fmtLength, fmtBite } from '../lib/catalog.js';
 import { SITE, absoluteUrl } from '../lib/site.js';
 
-const title = `Animal Stats Database: Compare ${animals.length} Animals by Strength, Speed & Power | ${SITE.name}`;
-const description = `Sortable battle stats for ${animals.length} real animals: power index, attack, defense, agility, stamina, intelligence, special, weight and top speed. Filter by mammals, birds, reptiles, sea creatures and bugs.`;
+const title = `Animal Rankings & Stats Database: Strongest, Fastest & Heaviest of ${animals.length} Animals | ${SITE.name}`;
+const description = `Rank ${animals.length} real animals by power, attack, defense, agility, stamina, intelligence, special, weight, top speed, length and bite force. One sortable table, filters for mammals, birds, reptiles, sea creatures and bugs.`;
 const jsonLd = [
     {
         '@type': 'CollectionPage',
@@ -26,12 +26,15 @@ const jsonLd = [
         }
     }
 ];
+// Every ranking on the site is one sort of this table.
 const SORTS = [
-    ['rank', 'Power rank'], ['name', 'Name A–Z'],
-    ...STATS.map((stat) => [stat.key, stat.label]),
-    ['weight', 'Weight'], ['speed', 'Top speed']
+    ['rank', 'Overall power'], ['attack', 'Strongest (attack)'], ['defense', 'Toughest (defense)'], ['agility', 'Most agile'],
+    ['stamina', 'Most stamina'], ['intelligence', 'Smartest'], ['special', 'Best special abilities'],
+    ['weight', 'Heaviest'], ['speed', 'Fastest'], ['length', 'Longest'], ['bite', 'Strongest bite'], ['name', 'Name A–Z']
 ];
 const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—');
+// Stat grades: 90+ elite (gold), 80s high, 60s-70s solid, 40s-50s low, under 40 weak.
+const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 'm' : value >= 40 ? 'l' : 'x');
 ---
 
 <Base title={title} description={description} path="/stats" jsonLd={jsonLd} active="animals">
@@ -61,8 +64,8 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
                     {TIERS.map((tier) => <button type="button" aria-pressed="false" data-tier={tier.id} class={`tier-${tier.id.toLowerCase()}`} title={`${tier.id} tier: ${tier.name}`}>{tier.id}</button>)}
                 </div>
                 <label class="field db-sort">
-                    <UiIcon name="sort" size={16} />
-                    <span class="visually-hidden">Sort by</span>
+                    <span class="db-sort-k">Rank by</span>
+                    <UiIcon name="sort" size={16} class="db-sort-i" />
                     <select data-sort-select>{SORTS.map(([value, label]) => <option value={value}>{label}</option>)}</select>
                 </label>
             </div>
@@ -79,7 +82,9 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
                             {STATS.map((stat) => <th scope="col" class="c-stat" data-col={stat.key}><button type="button" data-key={stat.key} title={stat.label}><UiIcon name={stat.key} size={14} />{stat.abbr}</button></th>)}
                             <th scope="col" class="c-num" data-col="weight"><button type="button" data-key="weight">Weight</button></th>
                             <th scope="col" class="c-num" data-col="speed"><button type="button" data-key="speed">Speed</button></th>
-                            <th scope="col" class="c-pick"><span class="visually-hidden">Compare</span></th>
+                            <th scope="col" class="c-num x-col" data-col="length"><button type="button" data-key="length">Length</button></th>
+                            <th scope="col" class="c-num x-col" data-col="bite"><button type="button" data-key="bite">Bite</button></th>
+                            <th scope="col" class="c-pick" title="Pick two animals to fight them in Versus"><span>VS</span></th>
                         </tr>
                     </thead>
                     <tbody data-rows>
@@ -99,6 +104,8 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
                                 data-special={animal.special}
                                 data-weight={animal.weight_kg || 0}
                                 data-speed={animal.speed_mps || 0}
+                                data-length={animal.length_cm || 0}
+                                data-bite={animal.bite_force_psi || 0}
                             >
                                 <td class="c-rank">{animal.rank}</td>
                                 <th scope="row" class="c-name">
@@ -108,14 +115,16 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
                                     </a>
                                 </th>
                                 <td class="c-tier"><span class={`tier-badge sm tier-${animal.tier.toLowerCase()}`}>{animal.tier}</span></td>
-                                <td class="c-pwr">{fmtScore(animal.powerIndex)}</td>
+                                <td class={`c-pwr t-${animal.tier.toLowerCase()}`}>{fmtScore(animal.powerIndex)}</td>
                                 {STATS.map((stat) => {
                                     const value = Number(animal[stat.key]) || 0;
-                                    return <td class="c-stat" data-col={stat.key} style={`--v:${Math.min(100, value)}`}><b>{fmtScore(value)}</b></td>;
+                                    return <td class="c-stat" data-col={stat.key} data-g={grade(value)} style={`--v:${Math.min(100, value)}`}><b>{fmtScore(value)}</b></td>;
                                 })}
                                 <td class="c-num" data-col="weight">{short(fmtWeight(animal.weight_kg))}</td>
                                 <td class="c-num" data-col="speed">{short(fmtSpeed(animal.speed_mps))}</td>
-                                <td class="c-pick"><button type="button" data-pick aria-pressed="false" aria-label={`Compare ${animal.name}`}></button></td>
+                                <td class="c-num x-col" data-col="length">{short(fmtLength(animal.length_cm))}</td>
+                                <td class="c-num x-col" data-col="bite">{short(fmtBite(animal.bite_force_psi))}</td>
+                                <td class="c-pick"><button type="button" data-pick aria-pressed="false" aria-label={`Pick ${animal.name} to fight`}>VS</button></td>
                             </tr>
                         ))}
                     </tbody>
@@ -126,7 +135,7 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
 
             <div class="tray" data-tray hidden>
                 <div class="tray-picks" data-tray-picks></div>
-                <span class="tray-hint" data-tray-hint>Pick one more to compare</span>
+                <span class="tray-hint" data-tray-hint>Tap VS on one more animal</span>
                 <a class="btn btn-hot btn-sm" href="/compare" data-tray-go><UiIcon name="vs" size={16} /><span data-tray-label>Compare</span></a>
                 <button type="button" class="hud-btn tray-clear" data-tray-clear aria-label="Clear picks"><UiIcon name="close" size={16} /></button>
             </div>
@@ -295,8 +304,10 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
     .db-tiers { flex-wrap: nowrap; flex: none; }
     .db-tiers button { min-width: 32px; padding: 0 8px; }
     .db-tiers button[aria-pressed="true"] { color: #101114; background: linear-gradient(165deg, var(--tier-2), var(--tier) 45%, var(--tier-d)); }
-    .db-sort { display: none; min-height: 36px; margin-left: auto; }
-    .db-sort select { height: 34px; font-weight: 700; font-size: 0.86rem; }
+    .db-sort { min-height: 38px; margin-left: auto; padding: 0 4px 0 12px; }
+    .db-sort-k { flex: none; font-family: var(--font-display); font-size: 0.86rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-2); }
+    .db-sort select { height: 36px; font-weight: 700; font-size: 0.88rem; cursor: pointer; }
+    .db-sort .db-sort-i { display: none; color: var(--gold-2); }
 
     .db-body { flex: 1; min-height: 0; position: relative; }
     .db-table { width: 100%; border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
@@ -344,6 +355,17 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
     .c-pwr { width: 64px; }
     .c-stat { width: 64px; }
     td.c-stat b { display: block; font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; line-height: 1; color: var(--text); }
+    /* Stat grades: elite numbers glow gold, weak ones fade back. */
+    td.c-stat[data-g="e"] { background-image: linear-gradient(180deg, rgba(246, 180, 0, 0.13), rgba(246, 180, 0, 0.02)); }
+    td.c-stat[data-g="e"] b { color: var(--gold-2); font-weight: 900; text-shadow: 0 0 12px rgba(246, 180, 0, 0.55); }
+    td.c-stat[data-g="h"] b { color: #fff; font-weight: 900; }
+    td.c-stat[data-g="m"] b { color: var(--text-2); }
+    td.c-stat[data-g="l"] b { color: var(--muted); }
+    td.c-stat[data-g="x"] b { color: var(--dim); }
+    td.c-stat[data-g="l"] b::after, td.c-stat[data-g="x"] b::after { opacity: 0.55; }
+    td.c-stat[data-g="e"] b::after { box-shadow: 0 0 8px color-mix(in srgb, var(--stat) 70%, transparent); }
+    .db-table td.c-pwr.t-s { color: var(--gold-2); text-shadow: 0 0 12px rgba(246, 180, 0, 0.4); }
+    .db-table td.c-pwr.t-d, .db-table td.c-pwr.t-f { color: var(--text-2); }
     td.c-stat b::after { content: ""; display: block; height: 3px; margin: 5px auto 0; width: 40px; border-radius: 2px; background: linear-gradient(90deg, var(--stat) calc(var(--v) * 1%), rgba(255, 255, 255, 0.1) 0); }
     .dbp [data-col="attack"] { --stat: var(--atk); }
     .dbp [data-col="defense"] { --stat: var(--def); }
@@ -353,17 +375,15 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
     .dbp [data-col="special"] { --stat: var(--spl); }
     .c-num { width: 84px; font-size: 0.84rem; color: var(--text-2); white-space: nowrap; }
     .c-pick { width: 48px; }
+    .db-table thead th.c-pick { font-family: var(--font-display); font-size: 0.9rem; font-weight: 800; letter-spacing: 0.07em; color: var(--muted); }
     .c-pick button {
-        display: inline-grid; place-items: center; width: 32px; height: 32px;
-        color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-2); border-radius: 8px;
+        display: inline-grid; place-items: center; min-width: 36px; height: 30px; padding: 0 6px;
+        font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.04em;
+        color: var(--gold-2); background: rgba(246, 180, 0, 0.06); border: 1px solid rgba(246, 180, 0, 0.35); border-radius: 7px;
+        transition: background 0.15s, color 0.15s;
     }
-    .c-pick button:hover { color: #fff; border-color: var(--frame-2); }
-    .c-pick button[aria-pressed="true"] { color: #1d1400; background: var(--gold); border-color: var(--gold-2); }
-    .c-pick button { position: relative; }
-    .c-pick button::before, .c-pick button::after { content: ""; position: absolute; left: 50%; top: 50%; width: 13px; height: 2px; margin: -1px 0 0 -6.5px; background: currentColor; border-radius: 1px; transition: transform 0.15s; }
-    .c-pick button::after { transform: rotate(90deg); }
-    .c-pick button[aria-pressed="true"]::before { transform: rotate(45deg); }
-    .c-pick button[aria-pressed="true"]::after { transform: rotate(135deg); }
+    .c-pick button:hover { color: #1d1400; background: var(--gold-2); border-color: var(--gold-2); }
+    .c-pick button[aria-pressed="true"] { color: #1d1400; background: var(--gold); border-color: var(--gold-2); box-shadow: 0 0 10px rgba(246, 180, 0, 0.4); }
     /* The sorted column is lit. */
     .dbp[data-sort="attack"] [data-col="attack"], .dbp[data-sort="defense"] [data-col="defense"], .dbp[data-sort="agility"] [data-col="agility"],
     .dbp[data-sort="stamina"] [data-col="stamina"], .dbp[data-sort="intelligence"] [data-col="intelligence"], .dbp[data-sort="special"] [data-col="special"],
@@ -398,6 +418,10 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
     .tray .btn { flex: none; }
     .has-tray .db-body { padding-bottom: 72px; }
 
+    /* Length and bite show only when they are the sort. */
+    .db-table .x-col { display: none; }
+    .dbp[data-sort="length"] [data-col="length"], .dbp[data-sort="bite"] [data-col="bite"] { display: table-cell; background-color: rgba(255, 255, 255, 0.045); }
+    .dbp[data-sort="length"] td[data-col="length"], .dbp[data-sort="bite"] td[data-col="bite"] { color: #fff; font-weight: 750; }
     /* Narrow desktops and tablets: weight and speed only when they are the sort. */
     @media (max-width: 1100px) {
         .db-table [data-col="weight"], .db-table [data-col="speed"] { display: none; }
@@ -414,8 +438,11 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
         .db-title .panel-title { font-size: 1.2rem; }
         .db-filters { flex-wrap: wrap; gap: 6px; padding: 6px 10px 8px; }
         .db-groups { flex: 1 1 100%; }
-        .db-sort { display: flex; flex: 1; margin: 0; }
-        .db-tiers button { min-width: 28px; padding: 0 6px; }
+        .db-sort { flex: 1 1 140px; min-width: 0; margin: 0; padding: 0 2px 0 10px; }
+        .db-sort .db-sort-k { display: none; }
+        .db-sort .db-sort-i { display: block; }
+        .db-sort select { font-size: 0.84rem; }
+        .db-tiers button { min-width: 26px; padding: 0 5px; }
         .db-table .c-stat, .db-table [data-col="weight"], .db-table [data-col="speed"] { display: none; }
         .dbp[data-sort="attack"] [data-col="attack"], .dbp[data-sort="defense"] [data-col="defense"], .dbp[data-sort="agility"] [data-col="agility"],
         .dbp[data-sort="stamina"] [data-col="stamina"], .dbp[data-sort="intelligence"] [data-col="intelligence"], .dbp[data-sort="special"] [data-col="special"],
@@ -425,7 +452,8 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
         .c-tier { width: 38px; }
         .db-table td.c-pwr { width: 50px; font-size: 1.15rem; }
         .c-stat, .c-num { width: 62px; }
-        .c-pick { width: 42px; }
+        .c-pick { width: 44px; }
+        .c-pick button { min-width: 34px; padding: 0 4px; font-size: 0.82rem; }
         .db-table tbody td, .db-table tbody th { height: 54px; padding: 0 4px; }
         .c-name img { width: 40px; height: 32px; }
         .c-name a { gap: 8px; }
@@ -437,6 +465,12 @@ const short = (value) => (value ? value.metric.replace(/\s*\(.*\)$/, '') : '—'
         .tray-picks .tray-pick { font-size: 0.8rem; }
         .tray-picks .tray-pick img { width: 30px; height: 24px; }
         .tray-hint { display: none; }
+    }
+    @media (max-width: 400px) {
+        .db-title { gap: 6px; }
+        .db-title .panel-title { font-size: 1.05rem; gap: 6px; }
+        .db-count { font-size: 0.68rem; }
+        .db-view button { padding: 0 7px; min-height: 28px; }
     }
     @media (max-width: 380px) {
         .c-name small { display: none; }

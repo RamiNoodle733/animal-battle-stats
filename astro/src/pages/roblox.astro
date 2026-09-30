@@ -204,7 +204,7 @@ const jsonLd = [
     /* ---- the game card (left) */
     .rbx-card { --trim: #3be58f; padding: clamp(12px, 2vh, 20px) 16px; gap: clamp(10px, 1.8vh, 16px); overflow: hidden; }
     .rbx-id { display: flex; align-items: center; gap: 14px; }
-    .rbx-icon { flex: none; display: grid; place-items: center; width: 84px; height: 84px; overflow: hidden; background: linear-gradient(160deg, #1a2750, #070b1a); border: 1px solid var(--line-2); border-radius: 20px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+    .rbx-icon { flex: none; display: grid; place-items: center; width: 84px; height: 84px; overflow: hidden; background: linear-gradient(160deg, #2e3137, #101114); border: 1px solid var(--line-2); border-radius: 20px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
     .rbx-icon :global(img) { width: 72px; height: 72px; object-fit: cover; }
     .rbx-icon :global(img).is-roblox { width: 100%; height: 100%; }
     .rbx-id-text { display: grid; gap: 5px; min-width: 0; }
@@ -220,13 +220,13 @@ const jsonLd = [
     .rbx-cta .btn-lg { min-height: clamp(54px, 8vh, 68px); font-size: clamp(1.3rem, 2.4vh, 1.6rem); }
     .rbx-live { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; }
     .rbx-live[hidden] { display: none; }
-    .rbx-live div { padding: 7px 10px; background: rgba(4, 7, 18, 0.65); border: 1px solid var(--line); border-radius: 10px; }
+    .rbx-live div { padding: 7px 10px; background: rgba(9, 10, 12, 0.65); border: 1px solid var(--line); border-radius: 10px; }
     .rbx-live dt { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
     .rbx-live dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; }
     .rbx-tags { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; margin: 0; padding: 0; list-style: none; }
     .rbx-tags li { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; color: var(--text-2); white-space: nowrap; }
     .rbx-tags :global(img) { flex: none; }
-    .rbx-connect { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 10px; background: rgba(4, 7, 18, 0.65); border: 1px solid var(--line-2); border-radius: 12px; }
+    .rbx-connect { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 10px; background: rgba(9, 10, 12, 0.65); border: 1px solid var(--line-2); border-radius: 12px; }
     .rbx-connect[hidden] { display: none; }
     .cn-tile { display: grid; place-items: center; width: 40px; height: 40px; color: #fff; background: linear-gradient(160deg, #3a3d44, #0d0e10); border-radius: 10px; }
     .cn-copy { display: grid; min-width: 0; }
@@ -242,19 +242,19 @@ const jsonLd = [
     .rbx-stage-panel { min-height: 0; }
     .pane { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 10px; padding: clamp(10px, 1.8vh, 18px) clamp(10px, 1.4vw, 18px); }
     .pane[hidden] { display: none; }
-    .plate { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 14px; font-size: 0.86rem; color: var(--text-2); background: rgba(3, 6, 16, 0.55); border: 1px solid var(--line); border-radius: 10px; }
+    .plate { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 14px; font-size: 0.86rem; color: var(--text-2); background: rgba(9, 10, 12, 0.55); border: 1px solid var(--line); border-radius: 10px; }
     .plate :global(img) { flex: none; }
     .plate b { color: var(--text); }
 
     /* shared video bits: play disc and labels (also used by roblox.js) */
-    .rbx :global(.play-disc) { position: relative; z-index: 2; display: grid; place-items: center; width: clamp(56px, 8vw, 92px); aspect-ratio: 1; color: #fff; background: rgba(8, 12, 26, 0.55); border: 2px solid rgba(255, 255, 255, 0.85); border-radius: 50%; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); transition: transform 0.2s var(--spring), background 0.2s; }
+    .rbx :global(.play-disc) { position: relative; z-index: 2; display: grid; place-items: center; width: clamp(56px, 8vw, 92px); aspect-ratio: 1; color: #fff; background: rgba(16, 17, 20, 0.55); border: 2px solid rgba(255, 255, 255, 0.85); border-radius: 50%; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); transition: transform 0.2s var(--spring), background 0.2s; }
     .rbx :global(.play-disc svg) { width: 44%; margin-left: 6%; }
     .rbx :global(button:hover > .play-disc) { transform: scale(1.08); background: #10a95c; border-color: #fff; }
     .rbx :global(.play-disc.is-off) { z-index: 3; opacity: 0.9; }
 
     /* trailer: the 16:9 stage as big as the pane allows */
     .stage-box { flex: 1; min-height: 0; display: grid; place-items: center; container-type: size; }
-    .rbx-stage { position: relative; width: min(100cqw, 100cqh * 16 / 9); aspect-ratio: 16 / 9; overflow: hidden; background: #03050c; border: 1px solid var(--line-2); border-radius: 14px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.5); }
+    .rbx-stage { position: relative; width: min(100cqw, 100cqh * 16 / 9); aspect-ratio: 16 / 9; overflow: hidden; background: #0a0b0d; border: 1px solid var(--line-2); border-radius: 14px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.5); }
     .rbx-stage :global(.stage-img), .rbx-stage :global(iframe), .rbx-stage :global(video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; background: #000; }
     .rbx-stage :global(.stage-video) { position: absolute; inset: 0; display: grid; place-items: center; padding: 0; background: none; border: 0; cursor: pointer; }
     .rbx-stage :global(.stage-video img), .rbx-stage :global(.stage-video video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease), filter 0.3s; }
@@ -262,8 +262,8 @@ const jsonLd = [
     .rbx-stage :global(.stage-label) { position: absolute; left: 16px; bottom: 14px; z-index: 2; display: grid; gap: 1px; text-align: left; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
     .rbx-stage :global(.stage-label b) { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
     .rbx-stage :global(.stage-label span) { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-2); }
-    .stage-soon { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(70% 80% at 50% 45%, color-mix(in srgb, var(--bio-glow) 34%, transparent), transparent 70%), linear-gradient(180deg, var(--bio-sky), #040712 88%); }
-    .stage-soon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 5, 12, 0.15), rgba(3, 5, 12, 0.35) 55%, rgba(3, 5, 12, 0.85)); pointer-events: none; }
+    .stage-soon { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(70% 80% at 50% 45%, color-mix(in srgb, var(--bio-glow) 34%, transparent), transparent 70%), linear-gradient(180deg, var(--bio-sky), #0a0b0d 88%); }
+    .stage-soon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 9, 11, 0.15), rgba(8, 9, 11, 0.35) 55%, rgba(8, 9, 11, 0.85)); pointer-events: none; }
     /* The bottom fifth stays clear for the label. */
     .soon-cards { position: absolute; inset: 6% 0 21%; display: flex; justify-content: center; align-items: center; }
     .soon-cards :global(.card) { height: 100%; width: auto; margin: 0 -3%; pointer-events: none; }
@@ -272,7 +272,7 @@ const jsonLd = [
     .soon-cards :global(.card:nth-child(3)) { transform: rotate(10deg) translateY(6%) scale(0.86); }
     .rbx-thumbs { flex: none; display: flex; justify-content: center; gap: 10px; }
     .rbx-thumbs[hidden] { display: none; }
-    .rbx-thumbs :global(.thumb) { position: relative; flex: 0 1 150px; display: block; aspect-ratio: 16 / 9; overflow: hidden; padding: 0; background: #070b1a; border: 1px solid var(--line-2); border-radius: 10px; cursor: pointer; transition: transform 0.15s var(--ease), border-color 0.15s, box-shadow 0.15s; }
+    .rbx-thumbs :global(.thumb) { position: relative; flex: 0 1 150px; display: block; aspect-ratio: 16 / 9; overflow: hidden; padding: 0; background: #101114; border: 1px solid var(--line-2); border-radius: 10px; cursor: pointer; transition: transform 0.15s var(--ease), border-color 0.15s, box-shadow 0.15s; }
     .rbx-thumbs :global(.thumb img), .rbx-thumbs :global(.thumb video) { width: 100%; height: 100%; object-fit: cover; }
     .rbx-thumbs :global(.thumb:hover) { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.5); }
     .rbx-thumbs :global(.thumb[aria-pressed="true"]) { border-color: #fff; box-shadow: 0 0 0 2px #fff; }
@@ -281,15 +281,15 @@ const jsonLd = [
 
     /* gameplay: a fitted 3x3 wall, the first clip big */
     .clips { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 10px; }
-    .clip { position: relative; margin: 0; min-height: 0; overflow: hidden; background: #03050c; border: 1px solid var(--line-2); border-radius: 12px; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45); }
+    .clip { position: relative; margin: 0; min-height: 0; overflow: hidden; background: #0a0b0d; border: 1px solid var(--line-2); border-radius: 12px; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45); }
     .clip.is-big { grid-column: span 2; grid-row: span 2; }
     .clip > video, .clip :global(iframe), .clip-yt :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
     .clip-yt { position: absolute; inset: 0; display: grid; place-items: center; padding: 0; background: none; border: 0; cursor: pointer; }
-    .clip-pending { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(70% 80% at 50% 40%, color-mix(in srgb, var(--bio-glow) 38%, transparent), transparent 72%), linear-gradient(180deg, var(--bio-sky), #040712 90%); }
+    .clip-pending { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(70% 80% at 50% 40%, color-mix(in srgb, var(--bio-glow) 38%, transparent), transparent 72%), linear-gradient(180deg, var(--bio-sky), #0a0b0d 90%); }
     .clip-art { position: absolute; inset: 8% 10% 26%; display: grid; place-items: center; container-type: size; opacity: 0.8; }
     .clip-art :global(.animal-art) { --fit: 0.95; filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.6)); }
     .clip:not(.is-big) :global(.play-disc) { width: 44px; margin-bottom: 12%; }
-    .clip figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; padding: 26px 12px 10px; background: linear-gradient(180deg, transparent, rgba(3, 5, 12, 0.9)); pointer-events: none; }
+    .clip figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; padding: 26px 12px 10px; background: linear-gradient(180deg, transparent, rgba(8, 9, 11, 0.9)); pointer-events: none; }
     .clip figcaption b { font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; line-height: 1; letter-spacing: 0.03em; text-transform: uppercase; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8); }
     .clip.is-big figcaption { padding: 40px 20px 18px; }
     .clip.is-big figcaption b { font-size: clamp(1.4rem, 2.4vw, 2rem); }
@@ -298,7 +298,7 @@ const jsonLd = [
     /* codes */
     .pane-codes { justify-content: center; gap: 16px; }
     .codes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
-    .codes li { display: grid; align-content: start; gap: 8px; padding: 14px; background: linear-gradient(180deg, rgba(24, 36, 76, 0.7), rgba(6, 10, 24, 0.85)); border: 1px solid var(--line-2); border-radius: 14px; }
+    .codes li { display: grid; align-content: start; gap: 8px; padding: 14px; background: linear-gradient(180deg, rgba(44, 46, 52, 0.7), rgba(14, 15, 18, 0.85)); border: 1px solid var(--line-2); border-radius: 14px; }
     .code-reward { font-size: 0.9rem; font-weight: 700; color: var(--text); }
     .codes small { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-2); }
     .code { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; color: var(--gold-2); background: rgba(255, 215, 0, 0.07); border: 1px dashed rgba(255, 215, 0, 0.5); border-radius: 10px; cursor: pointer; transition: transform 0.12s; }
@@ -312,7 +312,7 @@ const jsonLd = [
 
     /* leaderboards */
     .boards { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-content: center; }
-    .board { display: grid; align-content: start; gap: 8px; padding: 12px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .board { display: grid; align-content: start; gap: 8px; padding: 12px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 12px; }
     .board h3 { display: flex; align-items: center; gap: 8px; margin: 0; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
     .board ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
     .board :global(li) { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 6px; font-size: 0.86rem; border-radius: 8px; }
@@ -329,8 +329,8 @@ const jsonLd = [
     /* questions: one open at a time */
     .pane-faq { justify-content: center; }
     .faq { display: grid; gap: 8px; }
-    .faq details { background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
-    .faq details[open] { border-color: var(--line-2); background: linear-gradient(180deg, rgba(24, 36, 76, 0.6), rgba(6, 10, 24, 0.8)); }
+    .faq details { background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .faq details[open] { border-color: var(--line-2); background: linear-gradient(180deg, rgba(44, 46, 52, 0.6), rgba(14, 15, 18, 0.8)); }
     .faq summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; cursor: pointer; list-style: none; }
     .faq summary::-webkit-details-marker { display: none; }
     .faq summary::after { content: ""; flex: none; width: 10px; height: 10px; border-right: 3px solid var(--cyan); border-bottom: 3px solid var(--cyan); transform: rotate(45deg); transition: transform 0.2s; }

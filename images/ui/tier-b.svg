@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 142" width="120" height="142">
+<defs>
+<linearGradient id="rim" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#ffffff"/><stop offset=".16" stop-color="#aee0ff"/><stop offset=".46" stop-color="#2fa8ff"/>
+<stop offset=".5" stop-color="#083f70"/><stop offset=".78" stop-color="#2fa8ff"/><stop offset="1" stop-color="#aee0ff"/>
+</linearGradient>
+<linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#2fa8ff"/><stop offset=".55" stop-color="#083f70"/><stop offset="1" stop-color="#101114"/>
+</linearGradient>
+<radialGradient id="glow-top" cx=".5" cy=".18" r=".6">
+<stop offset="0" stop-color="#aee0ff" stop-opacity=".75"/><stop offset="1" stop-color="#aee0ff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="gloss" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity=".42"/><stop offset=".45" stop-color="#fff" stop-opacity=".08"/><stop offset=".46" stop-color="#fff" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f1f2f5"/><stop offset="1" stop-color="#aee0ff"/>
+</linearGradient>
+<pattern id="hex" width="9.53" height="16.5" patternUnits="userSpaceOnUse"><path d="M4.76 0L9.53 2.75V8.25L4.76 11L0 8.25V2.75ZM0 8.25L4.76 11V16.5L0 19.25L-4.76 16.5V11ZM9.53 8.25L14.29 11V16.5L9.53 19.25L4.76 16.5V11Z" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width=".6"/></pattern>
+<clipPath id="inner"><path d="M24.00 14.00H96.00Q103.00 14.00 103.00 21.00V80.00C103.00 100.40 85.30 113.00 60 121.85C34.70 113.00 17.00 100.40 17.00 80V21.00Q17.00 14.00 24.00 14.00Z"/></clipPath>
+<filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.4"/></filter>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<path d="M16.00 6.00H104.00Q111.00 6.00 111.00 13.00V80.00C111.00 103.60 87.70 121.00 60 132.65C32.30 121.00 9.00 103.60 9.00 80V13.00Q9.00 6.00 16.00 6.00Z" transform="translate(0 3)" fill="#000" opacity=".55" filter="url(#shadow)"/>
+<path d="M15.00 5.00H105.00Q112.00 5.00 112.00 12.00V80.00C112.00 104.00 88.00 122.00 60 134.00C32.00 122.00 8.00 104.00 8.00 80V12.00Q8.00 5.00 15.00 5.00Z" fill="#0b0c0e"/>
+<path d="M16.60 6.60H103.40Q110.40 6.60 110.40 13.60V80.00C110.40 103.36 87.52 120.40 60 131.84C32.48 120.40 9.60 103.36 9.60 80V13.60Q9.60 6.60 16.60 6.60Z" fill="url(#rim)"/>
+<path d="M22.40 12.40H97.60Q104.60 12.40 104.60 19.40V80.00C104.60 101.04 85.78 114.60 60 124.01C34.22 114.60 15.40 101.04 15.40 80V19.40Q15.40 12.40 22.40 12.40Z" fill="#0b0c0e"/>
+<path d="M24.00 14.00H96.00Q103.00 14.00 103.00 21.00V80.00C103.00 100.40 85.30 113.00 60 121.85C34.70 113.00 17.00 100.40 17.00 80V21.00Q17.00 14.00 24.00 14.00Z" fill="url(#field)"/>
+<g clip-path="url(#inner)">
+<rect x="0" y="0" width="120" height="142" fill="url(#hex)"/>
+<rect x="0" y="0" width="120" height="142" fill="url(#glow-top)"/>
+<path d="M0 0H120V26L0 70Z" fill="url(#gloss)"/>
+</g>
+<path d="M24.60 14.60H95.40Q102.40 14.60 102.40 21.60V80.00C102.40 100.16 85.12 112.40 60 121.04C34.88 112.40 17.60 100.16 17.60 80V21.60Q17.60 14.60 24.60 14.60Z" fill="none" stroke="#fff" stroke-opacity=".32" stroke-width="1"/>
+<path d="M47.47 91V41H59.03Q66.03 41 69.25 43.83Q72.47 46.66 72.47 53.19Q72.47 54.06 72.47 54.88Q72.47 55.69 72.41 56.5Q72.19 59.91 70.88 61.92Q69.56 63.94 66.78 64.88V66.38Q69.66 67.31 71 69.36Q72.34 71.41 72.47 74.94Q72.53 75.97 72.53 76.84Q72.53 77.72 72.47 78.81Q72.19 85.31 69.11 88.16Q66.03 91 59.03 91ZM56.84 82.75H59.03Q61 82.75 62.05 81.7Q63.09 80.66 63.09 78.69Q63.09 77.84 63.09 77.03Q63.09 76.22 63.09 75.38Q63.09 72.28 62.14 70.98Q61.19 69.69 59.03 69.69H56.84ZM56.84 61.44H59.03Q61 61.44 62.05 60.08Q63.09 58.72 63.09 56.25Q63.09 55.34 63.09 54.45Q63.09 53.56 63.09 52.69Q63.09 51.03 62.05 50.14Q61 49.25 59.03 49.25H56.84Z" transform="translate(0 2.4)" fill="#000" opacity=".6"/>
+<path d="M47.47 91V41H59.03Q66.03 41 69.25 43.83Q72.47 46.66 72.47 53.19Q72.47 54.06 72.47 54.88Q72.47 55.69 72.41 56.5Q72.19 59.91 70.88 61.92Q69.56 63.94 66.78 64.88V66.38Q69.66 67.31 71 69.36Q72.34 71.41 72.47 74.94Q72.53 75.97 72.53 76.84Q72.53 77.72 72.47 78.81Q72.19 85.31 69.11 88.16Q66.03 91 59.03 91ZM56.84 82.75H59.03Q61 82.75 62.05 81.7Q63.09 80.66 63.09 78.69Q63.09 77.84 63.09 77.03Q63.09 76.22 63.09 75.38Q63.09 72.28 62.14 70.98Q61.19 69.69 59.03 69.69H56.84ZM56.84 61.44H59.03Q61 61.44 62.05 60.08Q63.09 58.72 63.09 56.25Q63.09 55.34 63.09 54.45Q63.09 53.56 63.09 52.69Q63.09 51.03 62.05 50.14Q61 49.25 59.03 49.25H56.84Z" fill="url(#ink)" stroke="#0b0c0e" stroke-width="2.2" paint-order="stroke" stroke-linejoin="round"/>
+
+</svg>

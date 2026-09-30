@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import Icon from './Icon.astro';
+import UiIcon from './UiIcon.astro';
 import AnimalImage from './AnimalImage.astro';
 import HoloCard from './HoloCard.astro';
 import { animals, fmtScore, POWER_WEIGHTS } from '../lib/catalog.js';
@@ -53,17 +53,17 @@ const jsonLd = [
     },
     { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }
 ];
-const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal' }, ...CATEGORIES.map((item) => ({ ...item, icon: { attack: 'claws', defense: 'shield', agility: 'wind', stamina: 'heart', intelligence: 'target', special: 'bolt', weight_kg: 'tower', speed_mps: 'fire', bite_force_psi: 'burst', length_cm: 'arrow' }[item.key] }))];
+const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'crown', key: 'power' }, ...CATEGORIES.map((item) => ({ ...item, icon: { attack: 'attack', defense: 'defense', agility: 'agility', stamina: 'stamina', intelligence: 'intelligence', special: 'special', weight_kg: 'weight', speed_mps: 'speed', bite_force_psi: 'bite', length_cm: 'ruler' }[item.key] }))];
 ---
 
 <Base title={title} description={description} path={path} image="/images/og/rankings.jpg" imageAlt={heading} jsonLd={jsonLd} active="rankings" biome="mountains">
     <div class="board screen-grid">
         <nav class="panel rail" aria-label="Ranking categories">
-            <div class="panel-head"><Icon name="medal" size={28} /><span class="panel-title">Leaderboards</span></div>
+            <div class="panel-head"><span class="panel-title">Leaderboards</span></div>
             <div class="rail-list scroll">
                 {RAIL.map((item) => (
                     <a href={item.slug ? `/rankings/${item.slug}` : '/rankings'} aria-current={(item.slug || null) === (category?.slug || null) ? 'page' : undefined}>
-                        <Icon name={item.icon} size={26} />
+                        <span class={`rail-ico ic-${item.key}`}><UiIcon name={item.icon} size={18} /></span>
                         <span><b>{item.slug ? item.label.replace(/^Animals with the /, '').replace(/ animals$/i, '') : 'Power index'}</b><small>{item.stat}</small></span>
                     </a>
                 ))}
@@ -84,7 +84,7 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
             <div class="podium">
                 {podium.map((animal, index) => (
                     <div class={`pod p${index + 1}`}>
-                        <span class="place">{index + 1}</span>
+                        <img class="place" src={`/images/ui/medal-${index + 1}.svg`} alt={`Number ${index + 1}`} width="38" height="38" />
                         <HoloCard animal={animal} priority sizes="170px" meta={show(animal)} />
                     </div>
                 ))}
@@ -159,8 +159,11 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
     .rail { min-height: 0; }
     .rail-list { flex: 1; min-height: 0; padding: 8px; display: grid; gap: 4px; align-content: start; }
     .rail-list a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 9px; border: 1px solid transparent; }
+    .rail-ico { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; color: var(--c, var(--gold)); background: rgba(0, 0, 0, 0.35); border: 1px solid var(--line-2); }
+    .ic-attack { --c: var(--atk); } .ic-defense { --c: var(--def); } .ic-agility { --c: var(--agi); } .ic-stamina { --c: var(--sta); }
+    .ic-intelligence { --c: var(--int); } .ic-special { --c: var(--spl); } .ic-weight_kg, .ic-speed_mps, .ic-bite_force_psi, .ic-length_cm { --c: #d5d9e0; }
     .rail-list a:hover { background: rgba(255, 255, 255, 0.04); }
-    .rail-list a[aria-current="page"] { background: linear-gradient(90deg, rgba(0, 212, 255, 0.16), transparent); border-color: rgba(0, 212, 255, 0.35); }
+    .rail-list a[aria-current="page"] { background: linear-gradient(90deg, rgba(246, 180, 0, 0.16), transparent); border-color: rgba(246, 180, 0, 0.35); }
     .rail-list b { display: block; font-family: var(--font-display); font-size: 1.02rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05; }
     .rail-list small { font-size: 0.68rem; color: var(--muted); }
     .list-panel { min-height: 0; }
@@ -171,9 +174,7 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
     .pod.p1 { order: 2; transform: translateY(-8px); }
     .pod.p2 { order: 1; }
     .pod.p3 { order: 3; }
-    .place { position: absolute; top: -10px; left: 50%; z-index: 6; transform: translateX(-50%); display: grid; place-items: center; width: 30px; height: 30px; font-family: var(--font-display); font-weight: 900; color: #0b0e1a; border-radius: 50%; background: linear-gradient(160deg, #fff3b0, var(--tier-s)); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); }
-    .p2 .place { background: linear-gradient(160deg, #fff, #b9c3dc); }
-    .p3 .place { background: linear-gradient(160deg, #ffd0a8, #c7773f); }
+    .place { position: absolute; top: -14px; left: 50%; z-index: 6; width: 38px; height: 38px; transform: translateX(-50%); filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5)); }
     .rows { flex: 1; min-height: 0; margin: 0; padding: 10px 12px; list-style: none; display: grid; gap: 6px; align-content: start; }
     .row {
         display: grid;
@@ -181,23 +182,26 @@ const RAIL = [{ slug: null, label: 'Power index', stat: 'Overall', icon: 'medal'
         align-items: center;
         gap: 10px;
         padding: 5px 12px 5px 6px;
-        background: linear-gradient(90deg, color-mix(in srgb, var(--tier) 12%, transparent), transparent 45%), rgba(3, 6, 16, 0.45);
-        border: 1px solid var(--line);
+        background: rgba(0, 0, 0, 0.28);
+        border: 1px solid var(--line-2);
         border-radius: 9px;
     }
-    .row:hover { border-color: color-mix(in srgb, var(--tier) 55%, transparent); }
+    .row:hover { border-color: var(--frame-2); }
+    .row:nth-child(-n + 3) .pos { color: transparent; background: url("/images/ui/medal-1.svg") center / 30px no-repeat; }
+    .row:nth-child(2) .pos { background-image: url("/images/ui/medal-2.svg"); }
+    .row:nth-child(3) .pos { background-image: url("/images/ui/medal-3.svg"); }
     .pos { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; text-align: center; color: var(--text-2); }
     .thumb { width: 64px; height: 44px; display: grid; place-items: center; container-type: size; }
     .row :global(img) { --fit: 0.9; }
     .nm { font-weight: 800; line-height: 1.15; overflow-wrap: anywhere; }
     .nm small { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
     .nm:hover { color: var(--cyan-2); }
-    .row .tier-badge { height: 26px; min-width: 28px; font-size: 1rem; }
+    .row .tier-badge { width: 26px; height: 31px; }
     .val { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-align: right; font-variant-numeric: tabular-nums; }
     .votes { display: flex; gap: 4px; }
     :global(.vote) { padding: 3px 7px; font-size: 0.74rem; font-weight: 800; color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); border-radius: 6px; font-variant-numeric: tabular-nums; }
-    :global(.vote.up:hover), :global(.vote.up.on) { color: #86f2c2; border-color: rgba(53, 220, 143, 0.5); }
-    :global(.vote.down:hover), :global(.vote.down.on) { color: #ff9aa5; border-color: rgba(255, 77, 94, 0.5); }
+    :global(.vote.up:hover), :global(.vote.up.on) { color: #8fe9a2; border-color: rgba(59, 214, 90, 0.5); }
+    :global(.vote.down:hover), :global(.vote.down.on) { color: #ff9aa2; border-color: rgba(255, 65, 80, 0.5); }
     .lb-faq { flex-shrink: 0; padding: 0 16px; border-top: 1px solid var(--line); font-size: 0.84rem; }
     .lb-faq p { color: var(--text-2); }
     @media (max-width: 900px) {

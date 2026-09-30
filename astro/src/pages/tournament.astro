@@ -197,11 +197,11 @@ const jsonLd = [
     .t-size:hover:not(:disabled) { filter: brightness(1.15); transform: translateY(-1px); }
     .t-size b { font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; line-height: 0.9; }
     .t-size span { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-    .t-size[aria-pressed="true"] { color: #1d0800; background: linear-gradient(180deg, #ffb36b, #ff5f00); border-color: transparent; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -4px 0 #a13a00, 0 0 22px rgba(255, 107, 0, 0.35); }
+    .t-size[aria-pressed="true"] { color: #1d0800; background: linear-gradient(180deg, #ffd54a, #eaa400); border-color: transparent; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), inset 0 -4px 0 #a13a00, 0 0 22px rgba(255, 107, 0, 0.35); }
     .t-size[aria-pressed="true"] span { color: #4a1c00; }
     .t-size:disabled, .t-divs button:disabled { opacity: 0.35; cursor: not-allowed; }
     .t-divs button small { margin-left: 3px; font-size: 0.72em; opacity: 0.7; }
-    .t-mode { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; font-size: 0.84rem; color: var(--text-2); background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 10px; }
+    .t-mode { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; font-size: 0.84rem; color: var(--text-2); background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 10px; }
     .t-mode p { margin: 0; }
     .t-mode :global(b) { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
     .t-mode.ranked { border-color: rgba(255, 215, 0, 0.45); background: rgba(255, 215, 0, 0.06); }
@@ -215,7 +215,7 @@ const jsonLd = [
 
     .t-board { min-height: 0; }
     .t-ratings { flex: 1; min-height: 0; margin: 0; padding: 10px 12px; list-style: none; display: grid; gap: 6px; align-content: start; }
-    .tourney :global(.t-rate) { display: grid; grid-template-columns: 26px 44px minmax(0, 1fr) auto 58px; align-items: center; gap: 8px; padding: 5px 10px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 8px; }
+    .tourney :global(.t-rate) { display: grid; grid-template-columns: 26px 44px minmax(0, 1fr) auto 58px; align-items: center; gap: 8px; padding: 5px 10px; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 8px; }
     .tourney :global(.t-rate .pos) { font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; text-align: center; color: var(--text-2); }
     .tourney :global(.t-rate:nth-child(-n+3) .pos) { color: var(--gold); text-shadow: 0 0 12px rgba(255, 215, 0, 0.45); }
     .tourney :global(.t-rate img) { width: 44px; height: 34px; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.5)); }
@@ -236,7 +236,7 @@ const jsonLd = [
     .t-round b { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; letter-spacing: 0.04em; text-transform: uppercase; transform: skewX(-6deg); }
     .t-round span { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
     .t-progress { flex: 1; height: 12px; background: rgba(255, 255, 255, 0.08); clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); overflow: hidden; }
-    .t-progress i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--orange)); transition: width 0.4s var(--ease); }
+    .t-progress i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--gold-d), var(--gold)); transition: width 0.4s var(--ease); }
     [data-mode-chip].ranked { color: var(--gold-2); border-color: rgba(255, 215, 0, 0.45); background: rgba(255, 215, 0, 0.08); }
     [data-quit][data-armed] { --c1: #ff7a86; --c2: #d8243a; --edge: #7a0f1c; }
 
@@ -276,11 +276,11 @@ const jsonLd = [
     .t-odds { display: flex; height: 30px; overflow: hidden; clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
     .t-odds span { display: flex; align-items: center; padding: 0 12px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; color: #06101c; transition: flex-basis 0.5s var(--ease); }
     .o-a { flex: 0 0 var(--p, 50%); background: linear-gradient(180deg, #7eeaff, var(--cyan)); }
-    .o-b { flex: 0 0 var(--p, 50%); justify-content: flex-end; background: linear-gradient(180deg, #ffb27a, var(--orange)); }
+    .o-b { flex: 0 0 var(--p, 50%); justify-content: flex-end; background: linear-gradient(180deg, #f1f2f5, #b9bec8); color: #111216; }
     .t-cap { display: flex; justify-content: space-between; gap: 8px; margin: -2px 0 2px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 
     /* guess the crowd */
-    .t-guess-toggle { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; text-align: left; font: inherit; color: var(--text-2); background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 10px; cursor: pointer; }
+    .t-guess-toggle { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; text-align: left; font: inherit; color: var(--text-2); background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 10px; cursor: pointer; }
     .t-guess-toggle b { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; }
     .t-guess-toggle small { font-size: 0.78rem; }
     .t-guess-toggle[aria-checked="true"] { border-color: rgba(176, 140, 255, 0.6); background: rgba(176, 140, 255, 0.1); }
@@ -288,11 +288,11 @@ const jsonLd = [
     .t-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: transform 0.2s var(--ease); }
     .t-guess-toggle[aria-checked="true"] .t-switch { background: var(--int); }
     .t-guess-toggle[aria-checked="true"] .t-switch::after { transform: translateX(20px); }
-    .t-streak { color: #ffd27a; border-color: rgba(255, 159, 67, 0.5); background: rgba(255, 107, 0, 0.12); }
+    .t-streak { color: var(--gold-2); border-color: rgba(246, 180, 0, 0.5); background: rgba(246, 180, 0, 0.1); }
     .t-streak b { font-family: var(--font-display); font-size: 1rem; }
     .t-streak.bump { animation: bump 0.45s var(--spring); }
     @keyframes bump { 40% { transform: scale(1.35); } }
-    .t-crowd { display: grid; gap: 4px; padding: 8px 10px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 10px; }
+    .t-crowd { display: grid; gap: 4px; padding: 8px 10px; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 10px; }
     .t-crowd-bar { display: flex; height: 24px; overflow: hidden; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
     .t-crowd-bar span { display: flex; align-items: center; flex: 0 0 var(--p, 50%); padding: 0 10px; font-family: var(--font-display); font-size: 1rem; font-weight: 900; color: #fff; transition: flex-basis 0.7s var(--ease), filter 0.3s; }
     .c-a { background: linear-gradient(180deg, #8e76ff, #5b3fd6); }
@@ -317,8 +317,8 @@ const jsonLd = [
     .duel-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) 46px minmax(0, 1fr) 34px; align-items: center; gap: 5px; }
     .duel-row b { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-align: center; color: var(--muted); }
     .duel-row b.lead { color: #fff; }
-    .duel-row b.lead:first-child { color: #3cc8ff; }
-    .duel-row b.lead:last-child { color: #ff8a3d; }
+    .duel-row b.lead:first-child { color: var(--gold-2); }
+    .duel-row b.lead:last-child { color: #fff; }
     .seg-bar { display: flex; gap: 2px; height: 13px; transition: --v 0.5s var(--ease); }
     .seg-bar.left { flex-direction: row-reverse; }
     .seg-bar i {
@@ -326,13 +326,13 @@ const jsonLd = [
         transform: skewX(-24deg);
         background:
             linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.3)),
-            linear-gradient(90deg, #ff8a3d calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), rgba(255, 255, 255, 0.09) 0);
+            linear-gradient(90deg, #d5d9e0 calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), rgba(255, 255, 255, 0.09) 0);
     }
     .seg-bar.left i {
         transform: skewX(24deg);
         background:
             linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.3)),
-            linear-gradient(270deg, #3cc8ff calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), rgba(255, 255, 255, 0.09) 0);
+            linear-gradient(270deg, var(--gold) calc(clamp(0, (var(--v) - var(--i) * 10) / 10, 1) * 100%), rgba(255, 255, 255, 0.09) 0);
     }
     .d-mid { display: flex; flex-direction: column; align-items: center; line-height: 1; }
     .d-mid small { font-family: var(--font-display); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.06em; color: var(--stat); }
@@ -342,7 +342,7 @@ const jsonLd = [
     .tourney[data-busy] .t-auto .btn { pointer-events: none; filter: grayscale(0.6) brightness(0.8); }
 
     .announcer { position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; pointer-events: none; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; text-align: center; }
-    .announcer :global(.big) { padding: 14px 44px; font-size: clamp(2.6rem, 6.5vw, 5.6rem); line-height: 0.9; color: #fff; background: linear-gradient(90deg, transparent, rgba(4, 7, 18, 0.9) 18%, rgba(4, 7, 18, 0.9) 82%, transparent); transform: skewX(-8deg); text-shadow: 0 6px 0 rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 0, 0.6); animation: slam 0.5s var(--spring) both; }
+    .announcer :global(.big) { padding: 14px 44px; font-size: clamp(2.6rem, 6.5vw, 5.6rem); line-height: 0.9; color: #fff; background: linear-gradient(90deg, transparent, rgba(9, 10, 12, 0.9) 18%, rgba(9, 10, 12, 0.9) 82%, transparent); transform: skewX(-8deg); text-shadow: 0 6px 0 rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 0, 0.6); animation: slam 0.5s var(--spring) both; }
     .announcer :global(.big small) { display: block; margin-top: 6px; font-size: 0.32em; letter-spacing: 0.2em; color: var(--gold-2); }
     @keyframes slam { from { opacity: 0; transform: skewX(-8deg) scale(1.8); } to { opacity: 1; transform: skewX(-8deg) scale(1); } }
 
@@ -373,14 +373,14 @@ const jsonLd = [
     .t-recap-body { flex: 1; }
     .t-champ { margin: 0 0 10px; font-family: var(--font-display); font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 900; line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; color: var(--gold-2); transform: skewX(-6deg); text-shadow: 0 0 24px rgba(255, 215, 0, 0.35); }
     .t-nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-bottom: 10px; }
-    .tourney :global(.t-nums div) { display: flex; flex-direction: column; padding: 7px 8px; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .tourney :global(.t-nums div) { display: flex; flex-direction: column; padding: 7px 8px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 8px; }
     .tourney :global(.t-nums b) { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; }
     .tourney :global(.t-nums span) { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
     .t-upset { margin: 0 0 10px; color: var(--text-2); }
     .t-reward { margin: 0 0 12px; padding: 8px 10px; font-size: 0.86rem; color: var(--text-2); background: rgba(255, 215, 0, 0.07); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; }
     .t-reward :global(b) { color: var(--gold-2); }
     .t-road { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; }
-    .tourney :global(.t-road li) { display: grid; grid-template-columns: 68px 30px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 4px 8px; font-size: 0.84rem; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 6px; }
+    .tourney :global(.t-road li) { display: grid; grid-template-columns: 68px 30px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 4px 8px; font-size: 0.84rem; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 6px; }
     .tourney :global(.t-road .rnd) { font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cyan-2); }
     .tourney :global(.t-road img) { width: 30px; height: 24px; object-fit: contain; }
     .tourney :global(.t-road .pct) { font-family: var(--font-display); font-weight: 900; color: var(--muted); }

@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import AnimalImage from '../../components/AnimalImage.astro';
 import Meters from '../../components/Meters.astro';
 import Radar from '../../components/Radar.astro';
-import Icon from '../../components/Icon.astro';
+import UiIcon from '../../components/UiIcon.astro';
 import {
     animals, STATS, SUBSTATS, GROUPS, BIOMES, groupRank, statRank, rivals, tierInfo,
     fmtWeight, fmtLength, fmtSpeed, fmtYears, fmtBite, fmtScore, ordinal, article
@@ -131,9 +131,12 @@ const jsonLd = [
 ];
 
 const TABS = [
-    ['stats', 'Stats', 'claws'], ['kit', 'Abilities', 'bolt'], ['facts', 'Facts', 'map'],
-    ['versus', 'Matchups', 'vs'], ['lore', 'Analysis', 'book'], ['sources', 'Sources', 'scroll'], ['talk', 'Talk', 'friends']
+    ['stats', 'Stats'], ['kit', 'Abilities'], ['facts', 'Facts'],
+    ['versus', 'Matchups'], ['lore', 'Analysis'], ['sources', 'Sources'], ['talk', 'Talk']
 ];
+const tierCls = animal.tier.toLowerCase();
+// The barcode strip on the back of the card, drawn from the animal's name.
+const barcode = [...`${animal.slug}${animal.rank}`].flatMap((char) => [1 + (char.charCodeAt(0) % 3), 1 + ((char.charCodeAt(0) >> 2) % 2)]).slice(0, 34);
 // The measurements under the photo: the database at a glance.
 const glance = [
     ['Weight', fmtWeight(animal.weight_kg)],
@@ -148,55 +151,50 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 
 <Base title={title} description={description} path={path} image={`/images/og/${animal.slug}.jpg`} imageAlt={`${animal.name} battle card`} jsonLd={jsonLd} active="animals" biome={animal.biome} seed={seed}>
     <div class="profile screen-grid">
-        <section class={`stage tier-${animal.tier.toLowerCase()}`} aria-labelledby="animal-name">
-            <div class="stage-top enter">
-                <nav class="crumbs" aria-label="Breadcrumb"><a href="/stats">Animals</a> / <a href={`/stats?group=${animal.group}`}>{group?.label}</a></nav>
-                <div class="badges">
-                    <span class={`tier-badge lg tier-${animal.tier.toLowerCase()}`} title={`${animal.tier} tier: ${tier.name}`}>{animal.tier}</span>
-                    <div>
-                        <h1 id="animal-name" class="screen-title">{animal.name}</h1>
-                        <p class="sci"><em>{animal.scientific_name}</em> · <b>#{animal.rank}</b> of {animals.length} · {tier.name}</p>
+        <section class={`stage cb tier-${tierCls}`} aria-labelledby="animal-name">
+            <div class="cb-top">
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="/stats">Animals</a><span>/</span><a href={`/stats?group=${animal.group}`}>{group?.label}</a></nav>
+                <span class="cb-code" aria-hidden="true">{barcode.map((width) => <i style={`--w:${width}`}></i>)}</span>
+                <span class="cb-num" title={`Ranked #${animal.rank} of ${animals.length} by power`}><b>#{animal.rank}</b>/{animals.length}</span>
+            </div>
+            <div class="cb-frame">
+                <div class="cb-field">
+                    <span class="cb-band" aria-hidden="true">Animal Battle Stats</span>
+                    <div class="cb-power"><b>{fmtScore(animal.powerIndex)}</b><small>PWR</small></div>
+                    <span class={`tier-badge lg tier-${tierCls}`} title={`${animal.tier} tier: ${tier.name}`}>{animal.tier}</span>
+                    <div class="podium" style={`view-transition-name: art-${animal.slug}`}>
+                        <AnimalImage animal={animal} priority sizes="(max-width: 760px) 70vw, 520px" class="hero-art" />
                     </div>
+                    {credit && <p class="credit">Photo: {credit.artist} · <a href={credit.sourcePage} rel="noopener" target="_blank">{credit.license}</a></p>}
                 </div>
-                <div class="chips">
-                    <span class="chip">{group?.label?.replace(/s$/, '') || animal.type}</span>
-                    <span class="chip">{animal.class}</span>
-                    {profile.conservationStatus && <span class={`chip status ${conservationClass}`}><i></i>{profile.conservationStatus}</span>}
-                    <span class="votes" data-votes={animal.name} role="group" aria-label={`Community vote on the ${animal.name}`}>
-                        <button type="button" class="vbtn up" data-vote="up" title="Upvote: stronger than its rank"><span aria-hidden="true">▲</span><b data-count="up">·</b></button>
-                        <button type="button" class="vbtn down" data-vote="down" title="Downvote: weaker than its rank"><span aria-hidden="true">▼</span><b data-count="down">·</b></button>
-                    </span>
+                <div class="cb-plate">
+                    <h1 id="animal-name" class="cb-name">{animal.name}</h1>
+                    <p class="sci"><em>{animal.scientific_name}</em><span>{animal.tier} tier · {tier.name}</span><span>{ordinal(inGroup.rank)} of {inGroup.total} {group?.label.toLowerCase()}</span></p>
                 </div>
             </div>
-
-            <div class="podium" style={`view-transition-name: art-${animal.slug}`}>
-                <div class="platform" aria-hidden="true"></div>
-                <AnimalImage animal={animal} priority sizes="(max-width: 760px) 70vw, 520px" class="hero-art" />
+            <div class="chips">
+                <span class="chip">{group?.label?.replace(/s$/, '') || animal.type}</span>
+                <span class="chip">{animal.class}</span>
+                {profile.conservationStatus && <span class={`chip status ${conservationClass}`}><i></i>{profile.conservationStatus}</span>}
+                <span class="votes" data-votes={animal.name} role="group" aria-label={`Community vote on the ${animal.name}`}>
+                    <button type="button" class="vbtn up" data-vote="up" title="Upvote: stronger than its rank"><span aria-hidden="true">▲</span><b data-count="up">·</b></button>
+                    <button type="button" class="vbtn down" data-vote="down" title="Downvote: weaker than its rank"><span aria-hidden="true">▼</span><b data-count="down">·</b></button>
+                </span>
             </div>
-
-            <dl class="glance enter-2">
+            <dl class="glance">
                 {glance.map((fact) => <div class={fact.main ? 'main' : ''}><dt>{fact.label}</dt><dd>{fact.value || '—'}</dd></div>)}
             </dl>
-
-            <div class="stage-bottom enter-2">
-                <div class="power">
-                    <span>Power</span>
-                    <strong>{fmtScore(animal.powerIndex)}</strong>
-                    <small>{ordinal(inGroup.rank)} of {inGroup.total} {group?.label.toLowerCase()}</small>
-                </div>
-                <div class="btn-row actions">
-                    <a class="btn btn-hot" href={`/compare?a=${animal.slug}`}><Icon name="swords" size={26} />Compare</a>
-                    <button class="btn btn-sm" type="button" data-share><Icon name="flag" size={22} />Share</button>
-                </div>
+            <div class="actions">
+                <a class="btn btn-hot" href={`/compare?a=${animal.slug}`}><UiIcon name="vs" />Compare</a>
+                <button class="btn" type="button" data-share><UiIcon name="share" /><span>Share</span></button>
             </div>
-            {credit && <p class="credit">Photo: {credit.artist} · <a href={credit.sourcePage} rel="noopener" target="_blank">{credit.license}</a></p>}
         </section>
 
         <section class="panel dossier enter-3" aria-label={`${animal.name} details`}>
             <div class="tabs" role="tablist">
-                {TABS.map(([id, label, icon], index) => (
+                {TABS.map(([id, label], index) => (
                     <button type="button" role="tab" id={`tab-${id}`} aria-controls={`pane-${id}`} aria-selected={index === 0 ? 'true' : 'false'} data-tab={id}>
-                        <Icon name={icon} size={22} />{label}
+                        {label}
                     </button>
                 ))}
             </div>
@@ -230,24 +228,24 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 
             <div class="pane scroll" id="pane-kit" role="tabpanel" aria-labelledby="tab-kit" hidden>
                 <h2 class="pane-h">Special abilities</h2>
-                <div class="kit">
-                    {abilities.map((ability, index) => (
-                        <div class="kit-item"><Icon name={index === 0 ? 'bolt' : 'fire'} size={30} lazy /><small>Ability {index + 1}</small><b>{ability.name}</b>{ability.description && <p>{cap(ability.description)}</p>}</div>
+                <div class="moves">
+                    {abilities.map((ability) => (
+                        <div class="move"><div class="mv-head"><b>{ability.name}</b><i></i><small>Ability</small></div>{ability.description && <p>{cap(ability.description)}</p>}</div>
                     ))}
                 </div>
                 <h2 class="pane-h">Unique traits</h2>
-                <div class="kit">
+                <div class="moves">
                     {traits.map((trait) => (
-                        <div class="kit-item trait"><Icon name="star" size={30} lazy /><small>Trait</small><b>{trait.name}</b>{trait.description && <p>{cap(trait.description)}</p>}</div>
+                        <div class="move trait"><div class="mv-head"><b>{trait.name}</b><i></i><small>Trait</small></div>{trait.description && <p>{cap(trait.description)}</p>}</div>
                     ))}
                 </div>
                 {(weaponLines.length > 0 || combat.badMatchups?.length > 0) && (
                     <>
                         <h2 class="pane-h">How it fights</h2>
                         <div class="fight-grid">
-                            {weaponLines.length > 0 && <div class="fight good"><h3><Icon name="claws" size={22} lazy />Weapons</h3><ul>{weaponLines.slice(0, 4).map((line) => <li>{line}</li>)}</ul></div>}
-                            {combat.goodMatchups?.length > 0 && <div class="fight good"><h3><Icon name="check" size={22} lazy />Beats</h3><ul>{combat.goodMatchups.slice(0, 4).map((line) => <li>{line}</li>)}</ul></div>}
-                            {(combat.badMatchups?.length > 0 || combat.weaknesses?.length > 0) && <div class="fight bad"><h3><Icon name="alert" size={22} lazy />Struggles vs</h3><ul>{(combat.badMatchups?.length ? combat.badMatchups : combat.weaknesses).slice(0, 5).map((line) => <li>{line}</li>)}</ul></div>}
+                            {weaponLines.length > 0 && <div class="fight good"><h3><UiIcon name="attack" size={16} />Weapons</h3><ul>{weaponLines.slice(0, 4).map((line) => <li>{line}</li>)}</ul></div>}
+                            {combat.goodMatchups?.length > 0 && <div class="fight good"><h3><UiIcon name="check" size={16} />Beats</h3><ul>{combat.goodMatchups.slice(0, 4).map((line) => <li>{line}</li>)}</ul></div>}
+                            {(combat.badMatchups?.length > 0 || combat.weaknesses?.length > 0) && <div class="fight bad"><h3><UiIcon name="close" size={16} />Struggles vs</h3><ul>{(combat.badMatchups?.length ? combat.badMatchups : combat.weaknesses).slice(0, 5).map((line) => <li>{line}</li>)}</ul></div>}
                         </div>
                     </>
                 )}
@@ -285,7 +283,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                         );
                     })}
                 </div>
-                <a class="btn btn-cyan" href={`/compare?a=${animal.slug}`} style="margin-top:12px"><Icon name="vs" size={26} />Pick any opponent</a>
+                <a class="btn btn-cyan" href={`/compare?a=${animal.slug}`} style="margin-top:12px"><UiIcon name="vs" />Pick any opponent</a>
             </div>
 
             <div class="pane scroll prose" id="pane-lore" role="tabpanel" aria-labelledby="tab-lore" hidden>
@@ -307,7 +305,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                     </ol>
                 ) : <p class="empty-state">Sources appear here when the research profile is published.</p>}
                 {credit && <p class="note">Photo: “{credit.title}” by {credit.artist}, {credit.license}{credit.modified ? `, ${credit.modified.toLowerCase()}` : ''}. <a class="link" href={credit.sourcePage} rel="noopener" target="_blank">Original</a></p>}
-                <a class="btn btn-sm" href={`https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml&title=${encodeURIComponent(`Data correction: ${animal.name}`)}`} rel="noopener" target="_blank"><Icon name="alert" size={22} lazy />Suggest a correction</a>
+                <a class="btn btn-sm" href={`https://github.com/RamiNoodle733/animal-battle-stats/issues/new?template=data-correction.yml&title=${encodeURIComponent(`Data correction: ${animal.name}`)}`} rel="noopener" target="_blank">Suggest a correction</a>
             </div>
 
             <div class="pane scroll" id="pane-talk" role="tabpanel" aria-labelledby="tab-talk" hidden data-comments={animal.name}></div>
@@ -381,145 +379,202 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 </script>
 
 <style>
-    .profile { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); max-width: 1500px; margin: 0 auto; }
-    .stage { position: relative; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto; gap: 10px; }
-    .crumbs { font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
-    .crumbs a:hover { color: var(--text); }
-    .badges { display: flex; align-items: center; gap: 14px; }
-    .badges .screen-title { font-size: clamp(2.2rem, 4.6vw, 4.2rem); }
-    .sci { margin: 6px 0 0; color: var(--muted); font-size: 0.9rem; }
-    .sci b { color: var(--text); }
-    .chip.status i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-    .chips .chip { color: var(--text-2); border-color: var(--line-2); background: rgba(255, 255, 255, 0.04); }
-    .chips .chip.status.chip-red { color: #ff9aa5; }
-    .chips .chip.status.chip-green { color: #86f2c2; }
-    .chips .chip.status.chip-orange { color: var(--orange-2); }
-    .glance { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; }
-    .glance div { padding: 7px 10px; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); min-width: 0; }
-    .glance dt { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-    .glance dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; line-height: 1.1; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .profile { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); max-width: 1500px; margin: 0 auto; }
 
-    /* Explicit row + size container: the photo is sized to the stage, never the stage to the photo. */
-    .podium { position: relative; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: end center; min-height: 0; padding-bottom: 7%; container-type: size; }
-    .platform {
-        position: absolute;
-        left: 12%; right: 12%; bottom: 3%;
-        height: 16%;
-        border-radius: 50%;
-        background: radial-gradient(closest-side, rgba(255, 255, 255, 0.13), transparent 72%);
-        transform: perspective(400px) rotateX(62deg);
-    }
-    .podium :global(.hero-art) {
-        --fit: 1.05;
+    /* ---- the card back: number strip, framed portrait, name plate */
+    .stage { position: relative; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto auto; gap: 8px; }
+    .cb-top { display: flex; align-items: center; gap: 12px; min-height: 26px; }
+    .crumbs { display: flex; gap: 6px; font-size: 0.78rem; color: var(--muted); }
+    .crumbs a:hover { color: var(--text); }
+    .cb-code { display: flex; align-items: stretch; gap: 2px; height: 20px; margin-left: auto; opacity: 0.5; }
+    .cb-code i { width: calc(var(--w) * 1px); background: #fff; }
+    .cb-num { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; letter-spacing: 0.04em; color: var(--muted); }
+    .cb-num b { font-size: 1.45rem; color: #fff; }
+
+    .cb-frame {
         position: relative;
-        width: min(92cqw, calc(var(--fit) * var(--k, 1) * 92cqh), calc(92cqh * var(--ar, 1)));
+        min-height: 0;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        padding: 4px;
+        border-radius: 14px;
+        background: linear-gradient(155deg, var(--tier-2), var(--tier) 26%, var(--tier-d) 58%, var(--tier) 84%, var(--tier-2));
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.7);
+    }
+    .cb-field {
+        position: relative;
+        min-height: 0;
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+        background:
+            linear-gradient(112deg, transparent 0 34%, color-mix(in srgb, var(--tier) 26%, transparent) 34% 45%, transparent 45% 51%, color-mix(in srgb, var(--tier) 13%, transparent) 51% 57%, transparent 57%),
+            radial-gradient(70% 60% at 55% 50%, color-mix(in srgb, var(--tier) 18%, transparent), transparent 72%),
+            var(--hex-strong) 0 0 / var(--hex-size),
+            linear-gradient(180deg, #25272c, #0f1013);
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.55);
+    }
+    .cb-band {
+        position: absolute; left: 0; top: 0; bottom: 0; z-index: 2;
+        display: flex; align-items: center; justify-content: center;
+        width: 30px;
+        writing-mode: vertical-rl; transform: rotate(180deg);
+        font-family: var(--font-display); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.34em; text-transform: uppercase; white-space: nowrap;
+        color: rgba(255, 255, 255, 0.5);
+        background: linear-gradient(270deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25));
+        border-left: 1px solid color-mix(in srgb, var(--tier) 50%, transparent);
+    }
+    .cb-power {
+        position: absolute; top: 12px; left: 42px; z-index: 3;
+        display: flex; flex-direction: column; align-items: center;
+        min-width: 76px; padding: 6px 12px 4px;
+        background: rgba(8, 9, 11, 0.82); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 9px;
+    }
+    .cb-power b { font-family: var(--font-display); font-size: 2.3rem; font-weight: 900; line-height: 0.95; color: #fff; }
+    .cb-power small { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; color: var(--gold-2); }
+    .cb-field .tier-badge { position: absolute; top: 10px; right: 12px; z-index: 3; width: 54px; height: 64px; }
+    /* A size container: the photo is sized to the frame, never the frame to the photo. */
+    .podium { position: absolute; inset: 14% 4% 4% 36px; display: grid; place-items: end center; container-type: size; }
+    .podium :global(.hero-art) {
+        --fit: 1.02;
+        position: relative;
+        width: min(96cqw, calc(var(--fit) * var(--k, 1) * 96cqh), calc(96cqh * var(--ar, 1)));
         height: auto;
         aspect-ratio: var(--ar, auto);
         object-fit: contain;
-        filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.6));
+        filter: drop-shadow(0 22px 18px rgba(0, 0, 0, 0.65));
         animation: arrive 0.45s ease-out both;
     }
     @keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-
-    .stage-bottom { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
-    .power {
-        display: flex; flex-direction: column; align-items: flex-start;
-        padding: 8px 16px 8px 14px;
-        background: linear-gradient(180deg, rgba(8, 12, 28, 0.9), rgba(8, 12, 28, 0.7));
-        border: 1px solid color-mix(in srgb, var(--tier) 60%, transparent);
-        clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
-    }
-    .power span { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-    .power strong { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; line-height: 0.95; color: #fff; }
-    .power small { font-size: 0.7rem; color: var(--text-2); }
-    .quick { display: flex; gap: 14px; }
-    .votes { display: inline-flex; gap: 4px; }
-    .vbtn { display: inline-flex; align-items: center; gap: 5px; height: 26px; padding: 0 9px; font: inherit; font-size: 0.72rem; font-weight: 800; color: var(--text-2); background: rgba(4, 7, 18, 0.75); border: 1px solid var(--line-2); border-radius: 7px; cursor: pointer; transition: color 0.15s, border-color 0.15s, transform 0.12s var(--ease); }
-    .vbtn b { font-family: var(--font-display); font-size: 0.95rem; font-weight: 900; font-variant-numeric: tabular-nums; }
-    .vbtn:hover { transform: translateY(-1px); color: #fff; }
-    .vbtn.up:hover, .vbtn.up.on { color: #86f2c2; border-color: rgba(53, 220, 143, 0.6); }
-    .vbtn.down:hover, .vbtn.down.on { color: #ff9aa5; border-color: rgba(255, 77, 94, 0.6); }
-    .vbtn.on { background: rgba(255, 255, 255, 0.06); }
-    .quick span { display: flex; flex-direction: column; }
-    .quick b { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; line-height: 1; }
-    .quick small { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-    .actions { margin-left: auto; }
-    .credit { position: absolute; right: 0; top: 0; margin: 0; max-width: 45%; text-align: right; font-size: 0.64rem; color: var(--dim); }
+    .credit { position: absolute; right: 10px; bottom: 6px; z-index: 3; margin: 0; max-width: 60%; text-align: right; font-size: 0.62rem; color: rgba(255, 255, 255, 0.45); }
     .credit a { text-decoration: underline; }
+    .cb-plate {
+        position: relative;
+        padding: 10px 16px 11px 44px;
+        background: linear-gradient(180deg, #17181c, #0b0c0e);
+        border-top: 2px solid var(--tier);
+        border-radius: 0 0 10px 10px;
+    }
+    .cb-plate::before { content: ""; position: absolute; left: 18px; top: 50%; width: 12px; height: 18px; transform: translateY(-50%); background: var(--gold); clip-path: polygon(0 0, 100% 50%, 0 100%); }
+    .cb-name { font-family: var(--font-display); font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 900; line-height: 0.92; letter-spacing: 0.02em; text-transform: uppercase; }
+    .sci { display: flex; flex-wrap: wrap; gap: 0 14px; margin: 5px 0 0; font-size: 0.84rem; color: var(--muted); }
+    .sci em { color: var(--text-2); }
 
+    .chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .chip.status i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .votes { display: inline-flex; gap: 4px; margin-left: auto; }
+    .vbtn { display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; font: inherit; font-size: 0.72rem; font-weight: 800; color: var(--text-2); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-2); border-radius: 7px; cursor: pointer; transition: color 0.15s, border-color 0.15s; }
+    .vbtn b { font-family: var(--font-display); font-size: 0.95rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+    .vbtn:hover { color: #fff; }
+    .vbtn.up:hover, .vbtn.up.on { color: #8fe9a2; border-color: rgba(59, 214, 90, 0.6); }
+    .vbtn.down:hover, .vbtn.down.on { color: #ff9aa2; border-color: rgba(255, 65, 80, 0.6); }
+    .vbtn.on { background: rgba(255, 255, 255, 0.07); }
+
+    .glance { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; margin: 0; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden; }
+    .glance div { padding: 7px 10px; min-width: 0; border-left: 1px solid var(--line); }
+    .glance div:first-child { border-left: 0; }
+    .glance dt { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .glance dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; line-height: 1.1; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+
+    /* ---- the dossier (tabs) */
     .dossier { min-height: 0; }
     .pane { flex: 1; min-height: 0; padding: 14px 16px 18px; }
-    .summary { color: var(--text-2); font-size: 0.93rem; }
-    .stats-split { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr); gap: 14px; align-items: center; }
+    .summary { margin: 14px 0 0; padding: 12px 14px; font-size: 0.92rem; color: var(--text-2); background: rgba(0, 0, 0, 0.28); border: 1px solid var(--line-2); border-radius: 10px; }
+    .stats-split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr); gap: 16px; align-items: center; }
+    .stats-split :global(.meters) { gap: 12px; }
     .radar-box { display: grid; place-items: center; }
-    .radar-box :global(svg) { width: min(100%, 250px); height: auto; }
-    .callouts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0 4px; }
-    .callouts div { padding: 8px 12px; background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-left: 3px solid var(--stat); border-radius: 8px; }
+    .radar-box :global(svg) { width: min(100%, 240px); height: auto; }
+    .callouts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0 0; }
+    .callouts div { padding: 8px 12px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--line-2); border-left: 3px solid var(--stat); border-radius: 8px; }
     .callouts span { display: block; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
     .callouts strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; color: var(--stat); }
     .callouts small { display: block; font-size: 0.72rem; color: var(--text-2); }
-    .pane-h { margin: 16px 0 8px; font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text); transform: skewX(-6deg); }
+    .pane-h { display: flex; align-items: center; gap: 8px; margin: 18px 0 8px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); }
+    .pane-h::before { content: ""; width: 4px; height: 0.95em; background: var(--gold); transform: skewX(-14deg); }
     .note { margin-top: 12px; font-size: 0.78rem; color: var(--muted); }
 
+    /* Abilities: the ATTACKS panel, name ........ tag */
+    .moves { display: grid; gap: 2px; }
+    .move { padding: 9px 2px; border-bottom: 1px solid var(--line); }
+    .mv-head { display: flex; align-items: baseline; gap: 8px; }
+    .mv-head b { font-family: var(--font-display); font-size: 1.12rem; font-weight: 900; letter-spacing: 0.03em; text-transform: uppercase; }
+    .mv-head i { flex: 1; min-width: 20px; border-bottom: 2px dotted rgba(255, 255, 255, 0.22); transform: translateY(-4px); }
+    .mv-head small { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-2); }
+    .move.trait .mv-head small { color: var(--spl); }
+    .move p { margin: 4px 0 0; font-size: 0.86rem; color: var(--text-2); }
+
     .fight-grid { display: grid; gap: 8px; }
-    .fight { padding: 10px 12px; border-radius: 10px; background: rgba(3, 6, 16, 0.4); border: 1px solid var(--line); }
+    .fight { padding: 10px 12px; border-radius: 10px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--line-2); }
     .fight.good { border-left: 3px solid var(--green); }
     .fight.bad { border-left: 3px solid var(--red); }
-    .fight h3 { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; text-transform: uppercase; }
+    .fight h3 { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
+    .fight.good h3 :global(.ui-icon) { color: var(--green); }
+    .fight.bad h3 :global(.ui-icon) { color: var(--red); }
     .fight ul { margin: 0; padding-left: 18px; font-size: 0.84rem; color: var(--text-2); display: grid; gap: 4px; }
 
     .fun { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 0.86rem; color: var(--text-2); }
-    .fun li { position: relative; padding-left: 22px; }
-    .fun li::before { content: "★"; position: absolute; left: 0; color: var(--gold); }
+    .fun li { position: relative; padding-left: 20px; }
+    .fun li::before { content: ""; position: absolute; left: 2px; top: 0.45em; width: 8px; height: 10px; background: var(--gold); clip-path: polygon(0 0, 100% 50%, 0 100%); }
 
-    .vs-list { display: grid; gap: 7px; }
+    .vs-list { display: grid; gap: 6px; }
     .vs-row {
         display: grid; grid-template-columns: 58px minmax(0, 1fr) 58px 30px; align-items: center; gap: 10px;
         padding: 6px 10px 6px 6px;
-        background: rgba(3, 6, 16, 0.45); border: 1px solid var(--line); border-radius: 10px;
-        transition: transform 0.15s var(--ease), border-color 0.15s;
+        background: rgba(0, 0, 0, 0.28); border: 1px solid var(--line-2); border-radius: 10px;
+        transition: border-color 0.15s;
     }
-    .vs-row:hover { transform: translateX(3px); border-color: var(--line-2); }
-    .vs-row.win { background: linear-gradient(90deg, rgba(53, 220, 143, 0.12), transparent 60%); }
-    .vs-row.loss { background: linear-gradient(90deg, rgba(255, 77, 94, 0.12), transparent 60%); }
+    .vs-row:hover { border-color: var(--frame-2); }
+    .vs-row.win { box-shadow: inset 3px 0 0 var(--green); }
+    .vs-row.loss { box-shadow: inset 3px 0 0 var(--red); }
     .vs-row :global(img) { width: 58px; height: 44px; object-fit: contain; }
     .vs-row .flip :global(img) { transform: scaleX(-1); }
     .vs-mid b { display: block; font-size: 0.92rem; }
     .vs-mid small { font-size: 0.74rem; color: var(--muted); }
 
     .sources { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 0.84rem; }
-    .sources a { font-weight: 700; color: var(--cyan-2); }
+    .sources a { font-weight: 700; color: var(--gold-2); }
     .sources span { display: block; color: var(--muted); font-size: 0.76rem; }
 
-    /* Phones and tablets: the stage keeps a real height and the whole screen scrolls,
-       instead of squeezing the photo and the stats into half a screen each. */
+    @media (max-width: 1200px) {
+        .glance { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .glance div:nth-child(4) { border-left: 0; }
+        .glance div:nth-child(n + 4) { border-top: 1px solid var(--line); }
+    }
+    /* Phones and tablets: a compact card on top, the tabbed dossier filling the rest
+       (its panes scroll inside). */
     @media (max-width: 900px) {
-        /* A character screen on phones: a compact portrait on top, the tabbed dossier
-           filling the rest (its panes scroll inside). */
         .profile { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
-        .stage { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto clamp(80px, 16vh, 220px) auto auto; gap: 6px; }
-        .glance div:not(.main) { display: none; }
-        .glance div { padding: 5px 8px; }
-        .glance dd { font-size: 1rem; }
+        .stage { grid-template-rows: auto clamp(150px, 27vh, 300px) auto auto auto; gap: 6px; }
+        .cb-top { min-height: 20px; }
+        .cb-code { height: 14px; }
+        .cb-num { font-size: 0.95rem; }
+        .cb-num b { font-size: 1.15rem; }
+        .cb-band { width: 22px; font-size: 0.62rem; }
+        .cb-power { top: 8px; left: 30px; min-width: 58px; padding: 4px 8px 3px; }
+        .cb-power b { font-size: 1.6rem; }
+        .cb-field .tier-badge { top: 8px; right: 10px; width: 36px; height: 43px; }
+        .podium { inset: 8% 4% 3% 26px; }
+        .cb-plate { padding: 7px 12px 8px 34px; }
+        .cb-plate::before { left: 13px; width: 10px; height: 15px; }
+        .cb-name { font-size: clamp(1.6rem, 7.4vw, 2.4rem); }
+        .sci { font-size: 0.74rem; gap: 0 10px; }
+        .sci span:last-child { display: none; }
+        .credit { display: none; }
         .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
         .chips::-webkit-scrollbar { display: none; }
         .chips > * { flex: none; }
-        .stage-bottom { flex-wrap: nowrap; justify-content: space-between; }
-        .quick { display: none; }
-        .actions { flex-wrap: nowrap; gap: 6px; }
-        .actions [data-share] { font-size: 0; gap: 0; padding: 0 10px; }
+        .glance { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .glance div:not(.main) { display: none; }
+        .glance div { padding: 5px 8px; border-top: 0 !important; }
+        .glance dd { font-size: 1rem; }
+        .actions [data-share] span { display: none; }
         /* Stats first, the write-up after them. */
         #pane-stats:not([hidden]) { display: flex; flex-direction: column; }
         #pane-stats .summary { order: 2; }
-        .badges .screen-title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
-        .tier-badge.lg { height: 38px; min-width: 44px; font-size: 1.5rem; }
-        .crumbs, .credit { display: none; }
-        .chips { margin-top: 6px; }
-        .stage-bottom { gap: 8px; }
-        .power { padding: 4px 12px; }
-        .power strong { font-size: 1.8rem; }
         .stats-split { grid-template-columns: 1fr; }
         .radar-box { display: none; }
+    }
+    @media (max-width: 900px) and (max-height: 700px) {
+        .stage { grid-template-rows: auto clamp(120px, 22vh, 220px) auto auto auto; }
     }
 </style>

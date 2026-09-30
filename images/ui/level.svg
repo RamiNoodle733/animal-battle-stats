@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+<defs>
+<linearGradient id="rim" x1="0" y1="0" x2=".4" y2="1">
+<stop offset="0" stop-color="#fffbe6"/><stop offset=".2" stop-color="#ffe38a"/><stop offset=".48" stop-color="#f2ac00"/>
+<stop offset=".52" stop-color="#8a5d00"/><stop offset=".8" stop-color="#e6a200"/><stop offset="1" stop-color="#ffe38a"/>
+</linearGradient>
+<linearGradient id="field" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c2e34"/><stop offset="1" stop-color="#0d0e11"/></linearGradient>
+<linearGradient id="gloss" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<pattern id="hex" width="9.53" height="16.5" patternUnits="userSpaceOnUse"><path d="M4.76 0L9.53 2.75V8.25L4.76 11L0 8.25V2.75ZM0 8.25L4.76 11V16.5L0 19.25L-4.76 16.5V11ZM9.53 8.25L14.29 11V16.5L9.53 19.25L4.76 16.5V11Z" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width=".6"/></pattern>
+<clipPath id="inner"><path d="M50.00 15.00L80.31 32.50L80.31 67.50L50.00 85.00L19.69 67.50L19.69 32.50Z"/></clipPath>
+</defs>
+<path d="M50.00 1.00L92.44 25.50L92.44 74.50L50.00 99.00L7.56 74.50L7.56 25.50Z" fill="#0b0c0e"/>
+<path d="M50.00 3.50L90.27 26.75L90.27 73.25L50.00 96.50L9.73 73.25L9.73 26.75Z" fill="url(#rim)"/>
+<path d="M50.00 12.00L82.91 31.00L82.91 69.00L50.00 88.00L17.09 69.00L17.09 31.00Z" fill="#0b0c0e"/>
+<path d="M50.00 14.50L80.74 32.25L80.74 67.75L50.00 85.50L19.26 67.75L19.26 32.25Z" fill="url(#field)"/>
+<g clip-path="url(#inner)"><rect width="100" height="100" fill="url(#hex)"/><path d="M0 0H100V30L0 58Z" fill="url(#gloss)"/></g>
+<path d="M50.00 15.00L80.31 32.50L80.31 67.50L50.00 85.00L19.69 67.50L19.69 32.50Z" fill="none" stroke="#ffe38a" stroke-opacity=".45" stroke-width="1"/>
+</svg>

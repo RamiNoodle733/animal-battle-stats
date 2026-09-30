@@ -1,7 +1,8 @@
 ---
-// Six stat bars, one per line: label, the slanted segmented bar (ten segments,
-// the site's signature), number. One colour for every stat, so the numbers
-// carry the page (scripts update .m-bar --v and .m-val).
+// The six stat rows from the back of the card: icon, name, the slanted
+// segmented bar (ten segments, the site's signature) and the number, each stat
+// in its own colour. 100 reads MAX. Scripts can update .m-bar --v and .m-val.
+import UiIcon from './UiIcon.astro';
 import { STATS, fmtScore } from '../lib/catalog.js';
 
 const { animal, compact = false } = Astro.props;
@@ -10,13 +11,15 @@ const SEGMENTS = Array.from({ length: 10 }, (_, index) => index);
 <div class={`meters${compact ? ' compact' : ''}`}>
     {STATS.map((stat) => {
         const value = Number(animal[stat.key]) || 0;
+        const max = value >= 100;
         return (
             <div class="meter" data-meter={stat.key} title={`${stat.label}: ${stat.blurb}`}>
+                <UiIcon name={stat.key} class="m-ico" />
                 <span class="m-label">{stat.label}</span>
                 <span class="m-bar sbar" style={`--v:${Math.min(100, value)}`} role="meter" aria-label={stat.label} aria-valuemin="0" aria-valuemax="100" aria-valuenow={value}>
                     {SEGMENTS.map((index) => <i style={`--i:${index}`}></i>)}
                 </span>
-                <b class="m-val">{fmtScore(value)}</b>
+                <b class={`m-val${max ? ' max' : ''}`}>{max ? 'MAX' : fmtScore(value)}</b>
             </div>
         );
     })}

@@ -19,19 +19,19 @@ const labelPoint = (index) => {
 <svg class="radar" viewBox={`0 0 ${size} ${size}`} width={size} height={size} role="img" aria-label={label || `${animal.name} stat radar`}>
     <defs>
         <radialGradient id={`rg-${animal.slug}`} cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.55" />
-            <stop offset="100%" stop-color="#00d4ff" stop-opacity="0.12" />
+            <stop offset="0%" stop-color="#f6b400" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#f6b400" stop-opacity="0.12" />
         </radialGradient>
     </defs>
     {[25, 50, 75, 100].map((level) => (
-        <polygon points={ring(level)} fill="none" stroke="rgba(150,170,255,0.16)" stroke-width={level === 100 ? 1.4 : 1} />
+        <polygon points={ring(level)} fill="none" stroke="rgba(255,255,255,0.16)" stroke-width={level === 100 ? 1.4 : 1} />
     ))}
     {STATS.map((_, index) => {
         const [x, y] = point(index, 100);
-        return <line x1={center} y1={center} x2={x} y2={y} stroke="rgba(150,170,255,0.12)" />;
+        return <line x1={center} y1={center} x2={x} y2={y} stroke="rgba(255,255,255,0.12)" />;
     })}
-    {versus && <polygon points={polygon(versus)} fill="rgba(255,107,0,0.22)" stroke="#ff8a1f" stroke-width="2" stroke-linejoin="round" />}
-    <polygon points={polygon(animal)} fill={`url(#rg-${animal.slug})`} stroke="#00d4ff" stroke-width="2.2" stroke-linejoin="round" />
+    {versus && <polygon points={polygon(versus)} fill="rgba(213,217,224,0.16)" stroke="#d5d9e0" stroke-width="2" stroke-linejoin="round" />}
+    <polygon points={polygon(animal)} fill={`url(#rg-${animal.slug})`} stroke="#f6b400" stroke-width="2.2" stroke-linejoin="round" />
     {STATS.map((stat, index) => {
         const [x, y] = point(index, Number(animal[stat.key]) || 0);
         return <circle cx={x} cy={y} r="3.4" fill="#e9fbff" />;

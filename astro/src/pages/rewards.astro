@@ -223,7 +223,7 @@ const BP = '/images/icons/abs/coin.webp';
     .w-xpbar i, .p-bar i, .e-bar i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--cyan-2)); transition: width 0.8s var(--ease); }
     .w-xp small { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .w-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-    .w-chip { display: grid; grid-template-columns: 22px minmax(0, 1fr); column-gap: 8px; align-items: center; padding: 6px 8px; background: rgba(3, 6, 16, 0.55); border: 1px solid var(--line); border-radius: 8px; }
+    .w-chip { display: grid; grid-template-columns: 22px minmax(0, 1fr); column-gap: 8px; align-items: center; padding: 6px 8px; background: rgba(9, 10, 12, 0.55); border: 1px solid var(--line); border-radius: 8px; }
     .w-chip :global(img) { grid-row: 1 / 3; }
     .w-chip b { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; line-height: 1; }
     .w-chip small { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
@@ -231,22 +231,22 @@ const BP = '/images/icons/abs/coin.webp';
     /* menu: the home screen's main-menu buttons */
     .rw-menu { display: grid; gap: 8px; align-content: start; min-height: 0; }
     .mm {
-        --c1: #22325f; --c2: #131d3d; --edge: #080d20;
         position: relative; display: flex; align-items: center; gap: 12px; width: 100%;
-        padding: 9px 18px; border: 0; color: var(--text); text-align: left; font: inherit;
-        background: linear-gradient(180deg, var(--c1), var(--c2));
-        clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
-        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.16), inset 0 -4px 0 var(--edge);
+        min-height: 54px;
+        padding: 8px 16px; color: var(--text); text-align: left; font: inherit;
+        background: var(--hex) 0 0 / var(--hex-size), linear-gradient(180deg, #222429, #16171b);
+        border: 1px solid var(--frame);
+        border-radius: 10px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
         cursor: pointer;
-        transition: transform 0.15s var(--ease), filter 0.15s;
+        transition: border-color 0.15s;
     }
-    .mm:hover { transform: translateX(5px); filter: brightness(1.15); }
-    .mm[aria-pressed="true"] { --c1: #ffa24d; --c2: #ff5f00; --edge: #a13a00; color: #1d0800; transform: translateX(8px); }
-    .mm[aria-pressed="true"] small { color: #3b1500; }
+    .mm:hover { border-color: var(--frame-2); }
+    .mm[aria-pressed="true"] { border-color: var(--gold); background: linear-gradient(90deg, rgba(246, 180, 0, 0.16), rgba(246, 180, 0, 0.03)), linear-gradient(180deg, #222429, #16171b); box-shadow: inset 4px 0 0 var(--gold); }
     .mm :global(img) { flex: none; }
     .mm-t { min-width: 0; }
-    .mm b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1; transform: skewX(-6deg); }
-    .mm small { display: block; font-size: 0.72rem; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mm b { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1; }
+    .mm small { display: block; font-size: 0.72rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .mm-badge { margin-left: auto; flex: none; padding: 2px 9px; font-style: normal; font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.04em; color: #fff; background: var(--red); border-radius: 999px; box-shadow: 0 0 12px rgba(255, 77, 94, 0.5); }
     .mm-badge[hidden] { display: none; }
 
@@ -255,18 +255,18 @@ const BP = '/images/icons/abs/coin.webp';
     .pg { flex: 1; min-height: 0; display: flex; flex-direction: column; }
     .pg[hidden] { display: none; }
     .pg-body { flex: 1; min-height: 0; padding: clamp(12px, 2.2vh, 24px) clamp(12px, 2vw, 24px); display: flex; flex-direction: column; gap: clamp(10px, 2vh, 18px); transition: opacity 0.2s; }
-    .plate { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 14px; font-size: 0.86rem; color: var(--text-2); background: rgba(3, 6, 16, 0.55); border: 1px solid var(--line); border-radius: 10px; }
+    .plate { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 14px; font-size: 0.86rem; color: var(--text-2); background: rgba(9, 10, 12, 0.55); border: 1px solid var(--line); border-radius: 10px; }
     .plate :global(img) { flex: none; }
 
     /* daily */
     .daily { justify-content: center; }
     .d-ladder { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: clamp(6px, 1vw, 12px); margin: 0; padding: 8px 0 0; list-style: none; }
-    .d-ladder li { position: relative; display: grid; justify-items: center; align-content: center; gap: clamp(4px, 1vh, 10px); min-height: clamp(150px, 30vh, 280px); padding: clamp(10px, 2.4vh, 22px) 4px; background: linear-gradient(180deg, rgba(24, 36, 76, 0.8), rgba(6, 10, 24, 0.9)); border: 1px solid var(--line-2); border-radius: 14px; transition: transform 0.2s var(--spring); }
+    .d-ladder li { position: relative; display: grid; justify-items: center; align-content: center; gap: clamp(4px, 1vh, 10px); min-height: clamp(150px, 30vh, 280px); padding: clamp(10px, 2.4vh, 22px) 4px; background: linear-gradient(180deg, rgba(44, 46, 52, 0.8), rgba(14, 15, 18, 0.9)); border: 1px solid var(--line-2); border-radius: 14px; transition: transform 0.2s var(--spring); }
     .d-ladder small { font-family: var(--font-display); font-size: 0.95rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
     .d-ladder li > :global(img) { width: clamp(34px, 8vh, 80px); height: auto; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5)); }
     .d-ladder b { font-family: var(--font-display); font-size: clamp(1.4rem, 4vh, 2.6rem); font-weight: 900; line-height: 1; color: var(--gold-2); }
     .d-xp { font-size: 0.7rem; font-weight: 800; color: var(--cyan-2); }
-    .d-ladder .big { background: linear-gradient(180deg, rgba(255, 215, 0, 0.22), rgba(6, 10, 24, 0.9)); border-color: rgba(255, 215, 0, 0.5); }
+    .d-ladder .big { background: linear-gradient(180deg, rgba(255, 215, 0, 0.22), rgba(14, 15, 18, 0.9)); border-color: rgba(255, 215, 0, 0.5); }
     .d-ladder .now { border-color: var(--gold); box-shadow: 0 0 22px rgba(255, 215, 0, 0.45); transform: translateY(-6px) scale(1.04); }
     .d-ladder .done { opacity: 0.5; }
     .d-tick { position: absolute; top: 6px; right: 6px; display: none; }
@@ -277,7 +277,7 @@ const BP = '/images/icons/abs/coin.webp';
     /* quests */
     .quests { justify-content: center; }
     .q-list { display: grid; gap: clamp(8px, 1.6vh, 14px); }
-    .rw :global(.quest) { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; column-gap: 14px; row-gap: 7px; padding: clamp(10px, 1.8vh, 16px) 16px; background: linear-gradient(180deg, rgba(24, 36, 76, 0.7), rgba(6, 10, 24, 0.85)); border: 1px solid var(--line-2); border-radius: 14px; }
+    .rw :global(.quest) { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; column-gap: 14px; row-gap: 7px; padding: clamp(10px, 1.8vh, 16px) 16px; background: linear-gradient(180deg, rgba(44, 46, 52, 0.7), rgba(14, 15, 18, 0.85)); border: 1px solid var(--line-2); border-radius: 14px; }
     .rw :global(.quest > img) { grid-row: 1 / 4; width: 48px; height: 48px; }
     .rw :global(.quest b) { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.05; }
     .rw :global(.quest.done) { border-color: rgba(53, 220, 143, 0.6); box-shadow: 0 0 18px rgba(53, 220, 143, 0.2); }
@@ -285,14 +285,14 @@ const BP = '/images/icons/abs/coin.webp';
     .rw :global(.q-bar) { display: block; height: 10px; background: rgba(255, 255, 255, 0.08); clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%); overflow: hidden; }
     .rw :global(.q-bar i) { display: block; height: 100%; background: linear-gradient(90deg, var(--green), #9bf0c6); transition: width 0.6s var(--ease); }
     .rw :global(.q-pay) { display: flex; flex-wrap: wrap; gap: 6px; }
-    .rw :global(.q-pay span) { display: inline-flex; align-items: center; gap: 4px; padding: 1px 9px; font-size: 0.74rem; font-weight: 800; color: var(--gold-2); background: rgba(3, 6, 16, 0.6); border-radius: 999px; }
+    .rw :global(.q-pay span) { display: inline-flex; align-items: center; gap: 4px; padding: 1px 9px; font-size: 0.74rem; font-weight: 800; color: var(--gold-2); background: rgba(9, 10, 12, 0.6); border-radius: 999px; }
     .rw :global(.q-pay img) { width: 14px; height: 14px; }
     .rw :global(.q-pay span.x) { color: var(--cyan-2); }
     .rw :global(.q-pay span.p) { color: var(--orange-2); }
     .rw :global(.q-end) { grid-column: 3; grid-row: 1 / 4; display: grid; justify-items: center; gap: 4px; }
     .rw :global(.q-count) { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; color: var(--text-2); }
     .quest.skeleton { min-height: 96px; }
-    .chest { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 14px; padding: 12px 16px; background: linear-gradient(180deg, rgba(255, 215, 0, 0.12), rgba(3, 6, 16, 0.5)); border: 1px dashed rgba(255, 215, 0, 0.5); border-radius: 14px; }
+    .chest { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 14px; padding: 12px 16px; background: linear-gradient(180deg, rgba(255, 215, 0, 0.12), rgba(9, 10, 12, 0.5)); border: 1px dashed rgba(255, 215, 0, 0.5); border-radius: 14px; }
     .chest b { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; line-height: 1.05; }
     .chest small { font-size: 0.8rem; color: var(--text-2); }
     .c-pay { display: flex; gap: 10px; }
@@ -311,13 +311,13 @@ const BP = '/images/icons/abs/coin.webp';
     .p-bar { height: 14px; }
     .p-bar i { background: linear-gradient(90deg, var(--orange), var(--gold)); }
     .p-bar-wrap small { font-size: 0.8rem; color: var(--text-2); }
-    .p-track { flex: none; display: flex; gap: 8px; margin: 0; padding: 8px 2px 10px; list-style: none; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: rgba(120, 150, 255, 0.35) transparent; }
+    .p-track { flex: none; display: flex; gap: 8px; margin: 0; padding: 8px 2px 10px; list-style: none; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.35) transparent; }
     .pass { justify-content: center; }
-    .p-track li { position: relative; flex: 0 0 clamp(92px, 8vw, 118px); display: grid; justify-items: center; align-content: start; gap: 6px; min-height: clamp(128px, 24vh, 200px); padding: 12px 6px; text-align: center; background: linear-gradient(180deg, rgba(24, 36, 76, 0.8), rgba(6, 10, 24, 0.9)); border: 1px solid var(--line-2); border-radius: 12px; }
+    .p-track li { position: relative; flex: 0 0 clamp(92px, 8vw, 118px); display: grid; justify-items: center; align-content: start; gap: 6px; min-height: clamp(128px, 24vh, 200px); padding: 12px 6px; text-align: center; background: linear-gradient(180deg, rgba(44, 46, 52, 0.8), rgba(14, 15, 18, 0.9)); border: 1px solid var(--line-2); border-radius: 12px; }
     .t-img { width: clamp(30px, 6vh, 52px); height: auto; margin: auto 0; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5)); }
     .t-tick { position: absolute; top: 5px; right: 5px; display: none; }
     .p-track li.claimed .t-tick { display: block; }
-    .p-track li.look { background: linear-gradient(180deg, rgba(255, 107, 0, 0.24), rgba(6, 10, 24, 0.9)); border-color: rgba(255, 140, 50, 0.45); }
+    .p-track li.look { background: linear-gradient(180deg, rgba(255, 107, 0, 0.24), rgba(14, 15, 18, 0.9)); border-color: rgba(255, 140, 50, 0.45); }
     .t-n { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; color: var(--muted); }
     .t-bp { display: inline-flex; align-items: center; gap: 3px; font-size: 0.8rem; font-weight: 800; color: var(--gold-2); }
     .p-track em { font-style: normal; font-size: 0.64rem; font-weight: 800; line-height: 1.15; color: var(--orange-2); }
@@ -326,7 +326,7 @@ const BP = '/images/icons/abs/coin.webp';
     .p-track li.claimed { opacity: 0.45; }
     .p-track li.next { border-color: var(--orange); }
     .p-looks { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-    .pl { display: grid; justify-items: center; align-content: end; gap: 5px; padding: 10px 6px; text-align: center; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .pl { display: grid; justify-items: center; align-content: end; gap: 5px; padding: 10px 6px; text-align: center; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 12px; }
     .pl .look-frame { width: 54px; padding: 4px; border-radius: 13px; }
     .pl .lf-card { border-radius: 9px; }
     .pl .title-chip { margin: 12px 0 10px; font-size: 0.78rem; padding: 3px 9px; }
@@ -341,12 +341,12 @@ const BP = '/images/icons/abs/coin.webp';
     .shop-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(8px, 1vw, 12px); }
     .shop-grid[hidden] { display: none; }
     .shop-grid.titles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .item { display: grid; justify-items: center; align-content: start; gap: 7px; padding: 10px 6px; text-align: center; background: rgba(3, 6, 16, 0.5); border: 1px solid var(--line); border-radius: 12px; }
+    .item { display: grid; justify-items: center; align-content: start; gap: 7px; padding: 10px 6px; text-align: center; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 12px; }
     .item b { font-family: var(--font-display); font-size: 1rem; font-weight: 900; text-transform: uppercase; line-height: 1; }
     .item.owned { border-color: rgba(53, 220, 143, 0.45); }
     .item.worn { border-color: var(--gold); box-shadow: 0 0 16px rgba(255, 215, 0, 0.35); }
     .shop-grid:not(.titles) .look-frame { height: clamp(84px, 15vh, 128px); width: auto; aspect-ratio: 3 / 4; }
-    .lf-card { display: grid; place-items: center; height: 100%; aspect-ratio: 3 / 4; border-radius: 12px; background: radial-gradient(80% 60% at 50% 40%, rgba(0, 212, 255, 0.25), transparent 70%), linear-gradient(180deg, #16224a, #070b1a); }
+    .lf-card { display: grid; place-items: center; height: 100%; aspect-ratio: 3 / 4; border-radius: 12px; background: radial-gradient(80% 60% at 50% 40%, rgba(246, 180, 0, 0.25), transparent 70%), linear-gradient(180deg, #2e3137, #101114); }
     .title-chip { display: inline-block; padding: 5px 12px; font-family: var(--font-display); font-size: 1rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gold-2); background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.4); border-radius: 999px; }
     .shop-grid.titles .item { align-content: center; min-height: 104px; }
     .lock { display: inline-flex; align-items: center; gap: 4px; font-size: 0.68rem; font-weight: 700; line-height: 1.2; color: var(--muted); }
@@ -356,7 +356,7 @@ const BP = '/images/icons/abs/coin.webp';
 
     /* earn */
     .earn { justify-content: center; }
-    .earn-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto minmax(150px, 210px); align-items: center; gap: 16px; padding: clamp(10px, 1.8vh, 16px) 18px; background: linear-gradient(180deg, rgba(24, 36, 76, 0.7), rgba(6, 10, 24, 0.85)); border: 1px solid var(--line-2); border-radius: 14px; transition: transform 0.15s var(--ease), border-color 0.15s; }
+    .earn-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto minmax(150px, 210px); align-items: center; gap: 16px; padding: clamp(10px, 1.8vh, 16px) 18px; background: linear-gradient(180deg, rgba(44, 46, 52, 0.7), rgba(14, 15, 18, 0.85)); border: 1px solid var(--line-2); border-radius: 14px; transition: transform 0.15s var(--ease), border-color 0.15s; }
     .earn-row:hover { transform: translateX(4px); border-color: var(--cyan); }
     .e-what b { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; line-height: 1.05; }
     .e-what small { font-size: 0.78rem; color: var(--text-2); }
@@ -365,7 +365,7 @@ const BP = '/images/icons/abs/coin.webp';
     .e-cap small { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
     .e-bar i { background: linear-gradient(90deg, var(--orange), var(--gold)); }
 
-    .guest-gate { position: absolute; inset: 0; z-index: 5; display: grid; place-content: center; justify-items: center; gap: 12px; padding: 24px; text-align: center; background: rgba(5, 8, 20, 0.86); backdrop-filter: blur(4px); }
+    .guest-gate { position: absolute; inset: 0; z-index: 5; display: grid; place-content: center; justify-items: center; gap: 12px; padding: 24px; text-align: center; background: rgba(10, 11, 13, 0.86); backdrop-filter: blur(4px); }
     .guest-gate[hidden] { display: none; }
     .guest-gate p { max-width: 46ch; margin: 0; color: var(--text-2); }
 

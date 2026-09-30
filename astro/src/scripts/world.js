@@ -68,8 +68,8 @@ export function mountGlobe(stage, { onSelect } = {}) {
 
         // Atmosphere glow and ocean.
         const glow = ctx.createRadialGradient(cx, cy, radius * 0.92, cx, cy, radius * 1.16);
-        glow.addColorStop(0, 'rgba(0, 212, 255, 0.28)');
-        glow.addColorStop(1, 'rgba(0, 212, 255, 0)');
+        glow.addColorStop(0, 'rgba(246, 180, 0, 0.28)');
+        glow.addColorStop(1, 'rgba(246, 180, 0, 0)');
         ctx.fillStyle = glow;
         ctx.beginPath();
         ctx.arc(cx, cy, radius * 1.16, 0, Math.PI * 2);
@@ -110,7 +110,7 @@ export function mountGlobe(stage, { onSelect } = {}) {
             ctx.arc(p.x, p.y, Math.max(1.2 * dpr, r * 0.55), 0, Math.PI * 2);
             ctx.fill();
             if (point.fresh || point === selected) {
-                ctx.strokeStyle = point === selected ? '#ffffff' : `rgba(108, 231, 255, ${0.65 * (1 - pulse)})`;
+                ctx.strokeStyle = point === selected ? '#ffffff' : `rgba(255, 211, 77, ${0.65 * (1 - pulse)})`;
                 ctx.lineWidth = (point === selected ? 2 : 1.5) * dpr;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, point === selected ? r * 1.6 : r * (1 + pulse * 1.8), 0, Math.PI * 2);
@@ -238,7 +238,7 @@ export function mountGlobe(stage, { onSelect } = {}) {
                         lat: point.lat * RAD,
                         lon: point.lng * RAD,
                         r: Math.min(13, 2.2 + Math.sqrt(point.uniqueVisitors || point.totalVisits || 1) * 0.9),
-                        color: age < DAY ? '#6ce7ff' : age < 7 * DAY ? '#ffd23f' : '#ff9a4d',
+                        color: age < DAY ? '#ffd34d' : age < 7 * DAY ? '#ffd23f' : '#ff9a4d',
                         fresh: age < DAY,
                         data: point
                     };

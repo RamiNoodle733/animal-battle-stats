@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.0.0 — 2026-09-29
+
+A complete redesign, modelled on the Injustice trading cards.
+
+- **One look everywhere:** charcoal hex-mesh panels in thin silver frames, condensed white capitals, and one accent colour (gold). The old cyan, orange and navy are gone. Menus and tabs are flat and text-first, buttons come in three sizes (34, 42 and 50 px), and the top bar and phone dock use one set of clean icons.
+- **Real badge art:** tier crests (S to F, and the Human) with metal rims and engraved letters, a gold hex level emblem, gold, silver and bronze medals for the top three, and a VS emblem. They are drawn from the site's own display typeface by `scripts/assets/build-ui-badges.py` and live in `images/ui/`.
+- **Cards:** every card has the Injustice front: diagonal tier-coloured stripes behind the animal, the "Animal Battle Stats" band down the side, the power number, a tier crest and a dark name plate with a gold chevron.
+- **Every stat has its own colour and icon** (attack red, defense blue, agility green, stamina orange, intelligence purple, special teal), on the slanted segmented bars, with MAX at 100.
+- **The Animals page is a full database:** one sortable table of all 344 animals (rank, tier, power, all six stats, weight, top speed), fast filters by group and tier, search by name or species, a Cards view, and a compare tray: tap + on any two animals and fight them. On phones the table shows the column you sort by.
+- **Animal pages are the back of the card:** a framed portrait with the power, crest and number, the name plate, the measurements, and the Stats, Abilities (with the card's dotted-leader layout), Facts, Matchups, Analysis, Sources and Talk tabs.
+- **Versus:** gold against silver instead of blue against orange, both health bars gold, the tale of the tape in each stat's colour (the side that leads stays bright), and on phones the stats scroll with room to read while the call and the Fight button stay pinned at the bottom.
+- **Tier list and rankings** use the crests and medals; the home page, rewards and community menus share one tile style; the phone home carousel no longer squeezes its cards.
+
 ## 3.11.0 — 2026-09-29
 
 - **The slanted segmented stat bars are back**, in one colour, on animal pages, the animal list preview, the Versus tape (cyan left, orange right) and the tournament.

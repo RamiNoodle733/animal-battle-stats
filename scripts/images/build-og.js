@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-// Social cards (1200x630 JPEG) in the site's game style: one per animal, one
+// Social cards (1200x630 JPEG) in the site's Injustice-card style (charcoal
+// hex mesh, gold accent, the badge art in images/ui/): one per animal, one
 // per static matchup page and one per section. Text is drawn as vector paths
 // from the bundled @fontsource fonts, so output never depends on system fonts.
 //
@@ -20,35 +21,43 @@ const out = path.join(root, '.cache', 'og');
 const manifestFile = path.join(out, 'manifest.json');
 const W = 1200;
 const H = 630;
-const DESIGN = 2; // bump after any visual change to re-render every card
+const DESIGN = 3; // bump after any visual change to re-render every card
 
+const GOLD = '#f6b400';
+// Only a faint glow of the animal's home biome tints the charcoal.
 const BIOMES = {
-    savanna: { sky: '#3a1f2e', glow: '#ffb347', accent: '#ffc56b' },
-    forest: { sky: '#10261f', glow: '#7bd48a', accent: '#6fdc8c' },
-    jungle: { sky: '#0b2a24', glow: '#35e0a0', accent: '#38e6a4' },
-    wetlands: { sky: '#0e2733', glow: '#66d6c4', accent: '#6fe0d0' },
-    desert: { sky: '#3a1a12', glow: '#ff9f4a', accent: '#ffae62' },
-    mountains: { sky: '#16203c', glow: '#a9c4ff', accent: '#b6caff' },
-    arctic: { sky: '#122c4a', glow: '#c6ecff', accent: '#d4f1ff' },
-    ocean: { sky: '#06203f', glow: '#28b6ff', accent: '#3cc4ff' },
-    arena: { sky: '#1a1440', glow: '#ff6b00', accent: '#00d4ff' }
+    savanna: { glow: '#ffb347' },
+    forest: { glow: '#7bd48a' },
+    jungle: { glow: '#35e0a0' },
+    wetlands: { glow: '#66d6c4' },
+    desert: { glow: '#ff9f4a' },
+    mountains: { glow: '#a9c4ff' },
+    arctic: { glow: '#c6ecff' },
+    ocean: { glow: '#28b6ff' },
+    arena: { glow: GOLD }
 };
 const TIERS = {
-    S: ['#fff3b0', '#ffcf3f', '#a8740a'],
-    A: ['#ffc27a', '#ff7a1a', '#9c3d00'],
-    B: ['#9be9ff', '#22c7ff', '#0a5f8a'],
-    C: ['#a8f5cf', '#3ddc97', '#16704a'],
-    D: ['#d4caff', '#a08cff', '#4b3a9e'],
-    F: ['#c8cfe6', '#7b86a8', '#3b4462']
+    S: ['#fff1b0', '#ffc933', '#8a5d00'],
+    A: ['#ffc488', '#ff7a1a', '#7a2a00'],
+    B: ['#a8dcff', '#2fa8ff', '#0b4a80'],
+    C: ['#b0f0cc', '#37cf7a', '#145c36'],
+    D: ['#d8ccff', '#9a7cff', '#3e2f8a'],
+    F: ['#d4d7de', '#8a909c', '#3c4049']
 };
+// The site's stat colours and icons (astro/src/components/UiIcon.astro, 24px grid).
 const STATS = [
-    ['attack', 'Attack', '#ff5a3c', 'claws'],
-    ['defense', 'Defense', '#3f8cff', 'shield'],
-    ['agility', 'Agility', '#25e2a8', 'wind'],
-    ['stamina', 'Stamina', '#ffc53d', 'heart'],
-    ['intelligence', 'Intelligence', '#b08cff', 'target'],
-    ['special', 'Special', '#ff4fc3', 'bolt']
+    ['attack', 'Attack', '#ff4150', 'M4.2 19.6L12.6 3.4l1.9 1-8.4 16.2zM9.6 20.8L17.4 5.6l1.9 1-7.8 15.2zM15.3 21.2l4.6-9 1.9 1-4.6 9z'],
+    ['defense', 'Defense', '#3f7dff', 'M12 2.4l8.2 3.1v6.1c0 5-3.4 8.7-8.2 10-4.8-1.3-8.2-5-8.2-10V5.5z'],
+    ['agility', 'Agility', '#3bd65a', 'M3.5 5.5h3.2l6.3 6.5-6.3 6.5H3.5l6.3-6.5zM11.5 5.5h3.2l6.3 6.5-6.3 6.5h-3.2l6.3-6.5z'],
+    ['stamina', 'Stamina', '#ff8d24', 'M12 20.8C5 15.8 2.8 12.6 2.8 9.1 2.8 6.3 5 4 7.8 4c1.8 0 3.2 1 4.2 2.5C13 5 14.4 4 16.2 4 19 4 21.2 6.3 21.2 9.1c0 3.5-2.2 6.7-9.2 11.7z'],
+    ['intelligence', 'Intelligence', '#a35bff', 'M12 2.6a6.6 6.6 0 0 0-3.9 11.9c.7.5 1.1 1.3 1.1 2.2v.5h5.6v-.5c0-.9.4-1.7 1.1-2.2A6.6 6.6 0 0 0 12 2.6zM9.2 18.6h5.6v1.3c0 .8-.6 1.5-1.4 1.5h-2.8c-.8 0-1.4-.7-1.4-1.5z'],
+    ['special', 'Special', '#20cfe6', 'M13.6 2L4.8 13.4h6.1L9.8 22l9.4-12.2h-6.3z']
 ];
+const uiArt = new Map();
+function uiImage(name) {
+    if (!uiArt.has(name)) uiArt.set(name, fs.readFileSync(path.join(root, 'images', 'ui', `${name}.svg`)).toString('base64'));
+    return `data:image/svg+xml;base64,${uiArt.get(name)}`;
+}
 
 const fmt = (value) => {
     const number = Number(value) || 0;
@@ -124,13 +133,11 @@ function twoLines(value) {
 
 // ---------------------------------------------------------------- shapes
 
-function tierBadge(tier, x, y, w = 64, h = 48, size = 40) {
-    const [light, mid, dark] = TIERS[tier] || TIERS.F;
-    const id = `tb${tier}${Math.round(x)}${Math.round(y)}`;
-    const slant = w * 0.22;
-    return `<defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${light}"/><stop offset=".45" stop-color="${mid}"/><stop offset="1" stop-color="${dark}"/></linearGradient></defs>
-        <polygon points="${x + slant},${y} ${x + w},${y} ${x + w - slant},${y + h} ${x},${y + h}" fill="url(#${id})"/>
-        ${text('display', tier, { x: x + w / 2, y: y + h / 2 + size * 0.36, size, anchor: 'middle', fill: '#0b0e1a' })}`;
+// The tier crest (images/ui/tier-*.svg), h pixels tall, top-left at (x, y).
+function tierBadge(tier, x, y, h = 56) {
+    const w = h * (120 / 142);
+    const key = TIERS[tier] ? tier.toLowerCase() : 'f';
+    return `<image x="${x}" y="${y}" width="${w.toFixed(1)}" height="${h}" href="${uiImage(`tier-${key}`)}"/>`;
 }
 
 function segBar(value, color, x, y, w, h, id, mirror = false) {
@@ -145,7 +152,7 @@ function segBar(value, color, x, y, w, h, id, mirror = false) {
         const shape = mirror
             ? `${sx},${y} ${sx + seg - slant},${y} ${sx + seg},${y + h} ${sx + slant},${y + h}`
             : `${sx + slant},${y} ${sx + seg},${y} ${sx + seg - slant},${y + h} ${sx},${y + h}`;
-        parts.push(`<polygon points="${shape}" fill="#5b6176"/>`);
+        parts.push(`<polygon points="${shape}" fill="#3a3c42"/>`);
         if (fill > 0) {
             const clip = `${id}c${i}`;
             const cw = seg * fill;
@@ -157,33 +164,30 @@ function segBar(value, color, x, y, w, h, id, mirror = false) {
     return parts.join('');
 }
 
-function background({ biome = 'arena', biomeRight = null, accent = '#00d4ff' }) {
+function background({ biome = 'arena', biomeRight = null, accent = GOLD }) {
     const left = BIOMES[biome] || BIOMES.arena;
     const right = biomeRight ? (BIOMES[biomeRight] || BIOMES.arena) : null;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
     <defs>
-        <linearGradient id="base" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101a3c"/><stop offset="1" stop-color="#050814"/></linearGradient>
-        <radialGradient id="glowL" cx="${right ? 0.25 : 0.28}" cy="0.62" r="0.55"><stop offset="0" stop-color="${left.glow}" stop-opacity=".5"/><stop offset="1" stop-color="${left.glow}" stop-opacity="0"/></radialGradient>
-        ${right ? `<radialGradient id="glowR" cx="0.75" cy="0.62" r="0.55"><stop offset="0" stop-color="${right.glow}" stop-opacity=".5"/><stop offset="1" stop-color="${right.glow}" stop-opacity="0"/></radialGradient>` : ''}
-        <radialGradient id="vig" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".65"/></radialGradient>
-        <pattern id="hex" width="28" height="48.5" patternUnits="userSpaceOnUse"><path d="M14 0 28 8.08v16.17L14 32.33 0 24.25V8.08zM14 32.33 28 40.42V56.58M14 32.33 0 40.42V56.58" fill="none" stroke="#b4c3ff" stroke-opacity=".08" stroke-width="1.2"/></pattern>
-        <linearGradient id="trim" x1="0" x2="1"><stop offset="0" stop-color="#00d4ff"/><stop offset=".5" stop-color="#6ce7ff"/><stop offset="1" stop-color="#ff6b00"/></linearGradient>
+        <linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e2024"/><stop offset="1" stop-color="#0a0b0d"/></linearGradient>
+        <radialGradient id="glowL" cx="${right ? 0.25 : 0.28}" cy="0.62" r="0.55"><stop offset="0" stop-color="${left.glow}" stop-opacity=".16"/><stop offset="1" stop-color="${left.glow}" stop-opacity="0"/></radialGradient>
+        ${right ? `<radialGradient id="glowR" cx="0.75" cy="0.62" r="0.55"><stop offset="0" stop-color="${right.glow}" stop-opacity=".16"/><stop offset="1" stop-color="${right.glow}" stop-opacity="0"/></radialGradient>` : ''}
+        <radialGradient id="vig" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>
+        <pattern id="hex" width="28.58" height="49.5" patternUnits="userSpaceOnUse"><path d="M14.29 0L28.58 8.25V24.75L14.29 33L0 24.75V8.25ZM0 24.75L14.29 33V49.5M28.58 24.75L14.29 33" fill="none" stroke="#fff" stroke-opacity=".05" stroke-width="1.2"/></pattern>
     </defs>
     <rect width="${W}" height="${H}" fill="url(#base)"/>
-    ${right
-        ? `<polygon points="0,0 660,0 540,${H} 0,${H}" fill="${left.sky}" opacity=".75"/><polygon points="660,0 ${W},0 ${W},${H} 540,${H}" fill="${right.sky}" opacity=".75"/>`
-        : `<rect width="${W}" height="${H}" fill="${left.sky}" opacity=".7"/>`}
     <rect width="${W}" height="${H}" fill="url(#glowL)"/>
     ${right ? `<rect width="${W}" height="${H}" fill="url(#glowR)"/>` : ''}
     <rect width="${W}" height="${H}" fill="url(#hex)"/>
-    <polygon points="${right ? '560,0 640,0 520,630 440,630' : '520,0 700,0 520,630 340,630'}" fill="${accent}" opacity=".08"/>
-    <g stroke="#fff" stroke-opacity=".05" stroke-width="2">${Array.from({ length: 9 }, (_, i) => `<line x1="${60 + i * 140}" y1="0" x2="${i * 140 - 120}" y2="${H}"/>`).join('')}</g>
+    <polygon points="${right ? '560,0 640,0 520,630 440,630' : '470,0 640,0 460,630 290,630'}" fill="${accent}" opacity=".07"/>
+    <polygon points="${right ? '680,0 712,0 592,630 560,630' : '680,0 740,0 560,630 500,630'}" fill="${accent}" opacity=".05"/>
     <rect width="${W}" height="${H}" fill="url(#vig)"/>
-    <rect width="${W}" height="6" fill="url(#trim)"/>
+    <rect width="${W}" height="5" fill="${GOLD}"/>
+    <rect x="8" y="13" width="${W - 16}" height="${H - 21}" rx="14" fill="none" stroke="#d6dbe4" stroke-opacity=".22" stroke-width="2"/>
 </svg>`;
 }
 
-function floor(cx, cy, rx, accent) {
+function floor(cx, cy, rx, accent = GOLD) {
     const id = `fl${Math.round(cx)}`;
     return `<defs><radialGradient id="${id}"><stop offset="0" stop-color="${accent}" stop-opacity=".5"/><stop offset="1" stop-color="${accent}" stop-opacity="0"/></radialGradient>
         <filter id="${id}b" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="8"/></filter></defs>
@@ -192,7 +196,7 @@ function floor(cx, cy, rx, accent) {
 }
 
 function brand(x, y, anchor = 'end', size = 24) {
-    return text('display', 'ANIMALBATTLESTATS.COM', { x, y, size, anchor, fill: '#eef2ff', tracking: 2.5, opacity: 0.92 });
+    return text('display', 'ANIMALBATTLESTATS.COM', { x, y, size, anchor, fill: '#f3f4f6', tracking: 2.5, opacity: 0.92 });
 }
 
 // ---------------------------------------------------------------- raster layers
@@ -224,16 +228,6 @@ async function animalLayer(animal, maxW, maxH, mirror = false) {
     return task;
 }
 
-const iconCache = new Map();
-function icon(name, size) {
-    const key = `${name}|${size}`;
-    if (!iconCache.has(key)) {
-        const file = path.join(root, 'images', 'icons', 'abs', `${name}.webp`);
-        iconCache.set(key, fs.existsSync(file) ? sharp(file).resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer() : Promise.resolve(null));
-    }
-    return iconCache.get(key);
-}
-
 const logoCache = new Map();
 function logo(size) {
     if (!logoCache.has(size)) logoCache.set(size, sharp(path.join(root, 'images', 'logo.png')).resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer());
@@ -261,7 +255,7 @@ async function render(file, { bg, under = [], layers = [], over = [] }) {
     fs.mkdirSync(path.dirname(file), { recursive: true });
     await sharp(Buffer.from(bg))
         .composite(composite)
-        .flatten({ background: '#050814' })
+        .flatten({ background: '#0b0c0e' })
         .jpeg({ quality: 84, mozjpeg: true, chromaSubsampling: '4:4:4' })
         .toFile(file);
 }
@@ -270,17 +264,16 @@ async function render(file, { bg, under = [], layers = [], over = [] }) {
 
 async function animalCard(animal, total, file) {
     const accent = (TIERS[animal.tier] || TIERS.F)[1];
-    const bio = BIOMES[animal.biome] || BIOMES.arena;
     const layers = [];
-    const under = [floor(330, 588, 260, bio.accent)];
+    const under = [floor(330, 588, 260, accent)];
     await placeAnimal(layers, animal, 330, 596, 580, 500);
     const parts = [];
 
     // tier, rank and power
-    parts.push(tierBadge(animal.tier, 640, 52, 66, 50, 42));
-    parts.push(text('heavy', `RANK #${animal.rank} OF ${total}`, { x: 722, y: 86, size: 21, fill: '#c6cfeb', tracking: 2 }));
-    parts.push(text('heavy', 'POWER', { x: 1150, y: 64, size: 13, anchor: 'end', fill: '#8f9bc0', tracking: 3 }));
-    parts.push(text('display', fmt(animal.power), { x: 1150, y: 104, size: 46, anchor: 'end', fill: (TIERS[animal.tier] || TIERS.F)[0] }));
+    parts.push(tierBadge(animal.tier, 640, 40, 66));
+    parts.push(text('heavy', `RANK #${animal.rank} OF ${total}`, { x: 712, y: 84, size: 21, fill: '#c5c9d1', tracking: 2 }));
+    parts.push(text('heavy', 'POWER', { x: 1150, y: 64, size: 13, anchor: 'end', fill: GOLD, tracking: 3 }));
+    parts.push(text('display', fmt(animal.power), { x: 1150, y: 104, size: 46, anchor: 'end', fill: '#fff' }));
 
     // name
     const upper = animal.name.toUpperCase();
@@ -293,27 +286,26 @@ async function animalCard(animal, total, file) {
     }
     let baseline = lines.length === 1 ? 198 : 162;
     for (const line of lines) {
-        parts.push(text('display', line, { x: 640, y: baseline, size, fill: '#fff', tracking: 1, skew: -6, stroke: '#000', strokeWidth: 6 }));
+        parts.push(text('display', line, { x: 640, y: baseline, size, fill: '#fff', tracking: 1, stroke: '#000', strokeWidth: 6 }));
         baseline += size * 0.92;
     }
     const sciY = baseline - size * 0.92 + (lines.length === 1 ? 40 : 34);
-    if (animal.sci) parts.push(text('body', animal.sci, { x: 642, y: sciY, size: 22, fill: '#8f9bc0' }));
+    if (animal.sci) parts.push(text('body', animal.sci, { x: 642, y: sciY, size: 22, fill: '#8d929b' }));
 
     // stats, Injustice-style
     const top = 282;
-    for (const [index, [key, label, color, iconName]] of STATS.entries()) {
+    for (const [index, [key, label, color, glyphPath]] of STATS.entries()) {
         const y = top + index * 50;
         const value = animal.stats[key] || 0;
-        const icn = await icon(iconName, 34);
-        if (icn) layers.push({ input: icn, left: 640, top: y + 4 });
-        parts.push(text('heavy', label.toUpperCase(), { x: 684, y: y + 17, size: 15, fill: '#c6cfeb', tracking: 2.4 }));
+        parts.push(`<path d="${glyphPath}" transform="translate(640 ${y + 6}) scale(1.35)" fill="${color}"/>`);
+        parts.push(text('heavy', label.toUpperCase(), { x: 684, y: y + 17, size: 15, fill: '#f3f4f6', tracking: 2.4 }));
         parts.push(text('display', fmt(value), { x: 1150, y: y + 21, size: 30, anchor: 'end', fill: '#fff' }));
         parts.push(segBar(value, color, 684, y + 24, 466, 14, `sb${index}`));
     }
 
     const mark = await logo(40);
     layers.push({ input: mark, left: 40, top: 30 });
-    parts.push(text('display', 'ANIMAL BATTLE STATS', { x: 90, y: 60, size: 24, fill: '#eef2ff', tracking: 2 }));
+    parts.push(text('display', 'ANIMAL BATTLE STATS', { x: 90, y: 60, size: 24, fill: '#f3f4f6', tracking: 2 }));
     parts.push(brand(1150, 612, 'end', 20));
     await render(file, { bg: background({ biome: animal.biome, accent }), under, layers, over: parts });
 }
@@ -321,54 +313,48 @@ async function animalCard(animal, total, file) {
 async function versusCard(a, b, oddsA, file, title = 'Who would win?') {
     const layers = [];
     const parts = [];
-    const bioA = BIOMES[a.biome] || BIOMES.arena;
-    const bioB = BIOMES[b.biome] || BIOMES.arena;
-    const under = [floor(300, 502, 230, bioA.accent), floor(900, 502, 230, bioB.accent)];
+    const under = [floor(300, 502, 230), floor(900, 502, 230, '#d5d9e0')];
     await placeAnimal(layers, a, 300, 508, 500, 380);
     await placeAnimal(layers, b, 900, 508, 500, 380, true);
-    const vs = await icon('vs', 190);
-    if (vs) layers.push({ input: vs, left: 505, top: 205 });
+    parts.push(`<image x="510" y="224" width="180" height="134" href="${uiImage('vs')}"/>`);
 
-    parts.push(`<defs><filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feFlood flood-color="#ff6b00" flood-opacity=".75"/><feComposite in2="b" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>`);
+    parts.push(`<defs><filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feFlood flood-color="${GOLD}" flood-opacity=".55"/><feComposite in2="b" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>`);
     const heading = title.toUpperCase();
-    parts.push(text('display', heading, { x: 600, y: 96, size: fitSize('display', heading, 70, 700, 2), anchor: 'middle', fill: '#fff', tracking: 2, skew: -6, filter: 'glow' }));
+    parts.push(text('display', heading, { x: 600, y: 96, size: fitSize('display', heading, 70, 700, 2), anchor: 'middle', fill: '#fff', tracking: 2, filter: 'glow' }));
     const mark = await logo(34);
     layers.push({ input: mark, left: 36, top: 26 });
-    parts.push(text('display', 'ANIMALBATTLESTATS.COM', { x: 78, y: 52, size: 19, fill: '#eef2ff', tracking: 2, opacity: 0.85 }));
+    parts.push(text('display', 'ANIMALBATTLESTATS.COM', { x: 78, y: 52, size: 19, fill: '#f3f4f6', tracking: 2, opacity: 0.85 }));
 
     // name plates
     for (const [animal, side] of [[a, 'a'], [b, 'b']]) {
         const [x0, x1] = side === 'a' ? [40, 560] : [640, 1160];
         const color = (TIERS[animal.tier] || TIERS.F)[1];
-        const plate = side === 'a'
-            ? `${x0 + 14},518 ${x1},518 ${x1 - 14},574 ${x0},574`
-            : `${x0},518 ${x1 - 14},518 ${x1},574 ${x0 + 14},574`;
-        parts.push(`<polygon points="${plate}" fill="#050814" fill-opacity=".86" stroke="${color}" stroke-width="2"/>`);
-        const badgeX = side === 'a' ? x0 + 24 : x1 - 24 - 50;
-        parts.push(tierBadge(animal.tier, badgeX, 525, 50, 42, 34));
+        parts.push(`<rect x="${x0}" y="516" width="${x1 - x0}" height="60" rx="10" fill="#0b0c0e" fill-opacity=".9" stroke="#d6dbe4" stroke-opacity=".35" stroke-width="2"/><rect x="${x0}" y="516" width="${x1 - x0}" height="3" fill="${color}"/>`);
+        const badgeX = side === 'a' ? x0 + 16 : x1 - 16 - 42;
+        parts.push(tierBadge(animal.tier, badgeX, 521, 50));
         const upper = animal.name.toUpperCase();
         const size = fitSize('display', upper, 46, 390, 1);
         parts.push(side === 'a'
-            ? text('display', upper, { x: x0 + 88, y: 546 + size * 0.36, size, fill: '#fff', tracking: 1, skew: -6 })
-            : text('display', upper, { x: x1 - 88, y: 546 + size * 0.36, size, anchor: 'end', fill: '#fff', tracking: 1, skew: -6 }));
+            ? text('display', upper, { x: x0 + 72, y: 546 + size * 0.36, size, fill: '#fff', tracking: 1 })
+            : text('display', upper, { x: x1 - 72, y: 546 + size * 0.36, size, anchor: 'end', fill: '#fff', tracking: 1 }));
     }
 
     // stats odds bar
     const split = 40 + (1120 * oddsA) / 100;
-    parts.push(`<defs><linearGradient id="oa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7eeaff"/><stop offset="1" stop-color="#00d4ff"/></linearGradient><linearGradient id="ob" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb27a"/><stop offset="1" stop-color="#ff6b00"/></linearGradient></defs>`);
-    parts.push(`<polygon points="52,586 ${split},586 ${split - 10},616 40,616" fill="url(#oa)"/><polygon points="${split + 4},586 1160,586 1148,616 ${split - 6},616" fill="url(#ob)"/>`);
-    parts.push(text('display', `${oddsA}%`, { x: 64, y: 611, size: 28, fill: '#06101c' }));
-    parts.push(text('display', `${100 - oddsA}%`, { x: 1136, y: 611, size: 28, anchor: 'end', fill: '#1d0800' }));
-    parts.push(text('heavy', 'STATS ODDS', { x: 600, y: 610, size: 14, anchor: 'middle', fill: '#fff', tracking: 3, opacity: 0.9 }));
-    await render(file, { bg: background({ biome: a.biome, biomeRight: b.biome, accent: '#ff6b00' }), under, layers, over: parts });
+    parts.push(`<defs><linearGradient id="oa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd54a"/><stop offset="1" stop-color="#eaa400"/></linearGradient><linearGradient id="ob" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f2f5"/><stop offset="1" stop-color="#b9bec8"/></linearGradient><clipPath id="oc"><rect x="40" y="586" width="1120" height="30" rx="8"/></clipPath></defs>`);
+    parts.push(`<g clip-path="url(#oc)"><rect x="40" y="586" width="${split - 40}" height="30" fill="url(#oa)"/><rect x="${split}" y="586" width="${1160 - split}" height="30" fill="url(#ob)"/><rect x="${split - 1.5}" y="586" width="3" height="30" fill="#0b0c0e"/></g>`);
+    parts.push(text('display', `${oddsA}%`, { x: 54, y: 611, size: 28, fill: '#1d1400' }));
+    parts.push(text('display', `${100 - oddsA}%`, { x: 1146, y: 611, size: 28, anchor: 'end', fill: '#111216' }));
+    parts.push(text('heavy', 'STATS ODDS', { x: 600, y: 610, size: 14, anchor: 'middle', fill: '#111216', tracking: 3, opacity: 0.9 }));
+    await render(file, { bg: background({ biome: a.biome, biomeRight: b.biome }), under, layers, over: parts });
 }
 
 function headline(parts, title, sub, { x = 60, y = 138, width = 700, size = 104 } = {}) {
     const upper = title.toUpperCase();
     const fitted = fitSize('display', upper, size, width, 2);
-    parts.push(text('display', upper, { x, y, size: fitted, fill: '#fff', tracking: 2, skew: -6, stroke: '#000', strokeWidth: 6 }));
-    parts.push(`<rect x="${x}" y="${y + 18}" width="120" height="5" fill="#ff6b00"/><rect x="${x + 126}" y="${y + 18}" width="40" height="5" fill="#00d4ff"/>`);
-    if (sub) parts.push(text('body', sub, { x: x + 2, y: y + 60, size: fitSize('body', sub, 27, width, 0), fill: '#c6cfeb' }));
+    parts.push(text('display', upper, { x, y, size: fitted, fill: '#fff', tracking: 2, stroke: '#000', strokeWidth: 6 }));
+    parts.push(`<rect x="${x}" y="${y + 18}" width="120" height="5" fill="${GOLD}"/><rect x="${x + 126}" y="${y + 18}" width="40" height="5" fill="#d5d9e0"/>`);
+    if (sub) parts.push(text('body', sub, { x: x + 2, y: y + 60, size: fitSize('body', sub, 27, width, 0), fill: '#c5c9d1' }));
 }
 
 async function sectionCard(page, bySlug, file) {
@@ -388,7 +374,7 @@ async function sectionCard(page, bySlug, file) {
             const animal = lineup[index];
             if (!animal) continue;
             const [cx, maxW, maxH] = slots[index];
-            under.push(floor(cx, 588, maxW * 0.55, (BIOMES[animal.biome] || BIOMES.arena).accent));
+            under.push(floor(cx, 588, maxW * 0.55));
             await placeAnimal(layers, animal, cx, 596, maxW, maxH, cx > 600);
         }
     } else if (page.kind === 'tiers') {
@@ -400,15 +386,15 @@ async function sectionCard(page, bySlug, file) {
                 under.push(floor(cx, 520, 90, TIERS[letter][1]));
                 await placeAnimal(layers, animal, cx, 526, 180, 200);
             }
-            parts.push(tierBadge(letter, cx - 40, 540, 80, 56, 48));
+            parts.push(tierBadge(letter, cx - 27, 534, 64));
         }
     } else if (page.kind === 'podium') {
-        const steps = [[600, 1, 150, '#ffcf3f'], [390, 2, 110, '#c8cfe6'], [810, 3, 80, '#d98c4a']];
+        const steps = [[600, 1, 150, '#ffc933'], [390, 2, 110, '#c9cdd5'], [810, 3, 80, '#d38a4f']];
         for (const [cx, place, height, color] of steps) {
             const animal = lineup[place - 1];
             const topY = 630 - 20 - height;
             under.push(`<polygon points="${cx - 100},${topY} ${cx + 100},${topY} ${cx + 92},610 ${cx - 92},610" fill="${color}" fill-opacity=".9"/><polygon points="${cx - 100},${topY} ${cx + 100},${topY} ${cx + 96},${topY + 10} ${cx - 96},${topY + 10}" fill="#fff" fill-opacity=".4"/>`);
-            under.push(text('display', `#${place}`, { x: cx, y: topY + 66, size: 56, anchor: 'middle', fill: '#0b0e1a' }));
+            under.push(text('display', `#${place}`, { x: cx, y: topY + 66, size: 56, anchor: 'middle', fill: '#101114' }));
             if (animal) await placeAnimal(layers, animal, cx, topY + 6, 230, place === 1 ? 250 : 200);
         }
     } else if (page.kind === 'cards') {
@@ -417,23 +403,22 @@ async function sectionCard(page, bySlug, file) {
             const animal = lineup[index];
             if (!animal) continue;
             const [light, mid, dark] = TIERS[animal.tier] || TIERS.F;
-            const bio = BIOMES[animal.biome] || BIOMES.arena;
             const w = 220;
             const h = 300;
             const x = cx - w / 2;
             under.push(`<defs><linearGradient id="cf${index}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${light}"/><stop offset=".3" stop-color="${mid}"/><stop offset=".62" stop-color="${dark}"/><stop offset=".88" stop-color="${light}"/></linearGradient>
-                <linearGradient id="ci${index}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${bio.sky}"/><stop offset="1" stop-color="#070b1a"/></linearGradient></defs>
+                <linearGradient id="ci${index}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26282d"/><stop offset="1" stop-color="#0e0f12"/></linearGradient></defs>
                 <rect x="${x}" y="${top}" width="${w}" height="${h}" rx="16" fill="url(#cf${index})"/>
                 <rect x="${x + 6}" y="${top + 6}" width="${w - 12}" height="${h - 12}" rx="12" fill="url(#ci${index})"/>`);
             await placeAnimal(layers, animal, cx, top + h - 58, w - 30, h - 110);
-            parts.push(`<rect x="${x + 6}" y="${top + h - 56}" width="${w - 12}" height="50" rx="0" fill="#03050e" fill-opacity=".82"/>`);
+            parts.push(`<rect x="${x + 6}" y="${top + h - 56}" width="${w - 12}" height="50" rx="0" fill="#0b0c0e" fill-opacity=".92"/><rect x="${x + 6}" y="${top + h - 57}" width="${w - 12}" height="2" fill="${mid}"/>`);
             const upper = animal.name.toUpperCase();
             parts.push(text('display', upper, { x: cx, y: top + h - 22, size: fitSize('display', upper, 28, w - 30, 1), anchor: 'middle', fill: '#fff', tracking: 1 }));
-            parts.push(tierBadge(animal.tier, x + w - 50, top + 12, 40, 30, 24));
+            parts.push(tierBadge(animal.tier, x + w - 46, top + 12, 40));
         }
     }
     const bio = lineup[0]?.biome || 'arena';
-    await render(file, { bg: background({ biome: bio, accent: '#ff6b00' }), under, layers, over: parts });
+    await render(file, { bg: background({ biome: bio }), under, layers, over: parts });
 }
 
 // ---------------------------------------------------------------- run

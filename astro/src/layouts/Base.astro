@@ -4,8 +4,7 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/big-shoulders-display';
 import '../styles/abs.css';
 import packageJson from '../../../package.json';
-import Arena from '../components/Arena.astro';
-import Icon from '../components/Icon.astro';
+import UiIcon from '../components/UiIcon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
 import { SITE, SOCIAL, ROBLOX, absoluteUrl } from '../lib/site.js';
 
@@ -34,7 +33,7 @@ const MENU = [
     { key: 'tiers', href: '/tier-list', label: 'Tiers', icon: 'crown' },
     { key: 'rankings', href: '/rankings', label: 'Rankings', icon: 'medal' },
     { key: 'tournament', href: '/tournament', label: 'Tournament', icon: 'trophy' },
-    { key: 'community', href: '/community', label: 'Community', icon: 'friends' }
+    { key: 'community', href: '/community', label: 'Community', icon: 'users' }
 ];
 const DOCK = [MENU[0], MENU[1], MENU[2], MENU[6], { key: 'roblox', href: '/roblox', label: 'Roblox', roblox: true }];
 // Google Analytics 4 (property "Animal Battle Stats", web stream animalbattlestats.com).
@@ -80,7 +79,7 @@ const year = new Date().getFullYear();
         <meta name="description" content={description} />
         <link rel="canonical" href={canonical} />
         <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
-        <meta name="theme-color" content="#050814" />
+        <meta name="theme-color" content="#0b0c0e" />
         <meta name="color-scheme" content="dark" />
         <meta name="abs-version" content={version} />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
@@ -128,7 +127,7 @@ const year = new Date().getFullYear();
     </head>
     <body class={`game bio-${biome} ${bodyClass}`.trim()}>
         <a class="skip-link" href="#main">Skip to content</a>
-        <Arena biome={biome} seed={seed} />
+        <div class="arena" aria-hidden="true"></div>
 
         <header class="hud">
             <a class="brand" href="/" aria-label="Animal Battle Stats home">
@@ -138,27 +137,27 @@ const year = new Date().getFullYear();
             <nav class="menu" aria-label="Main">
                 {MENU.map((item) => (
                     <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>
-                        <Icon name={item.icon} size={26} />
+                        <UiIcon name={item.icon} />
                         <span>{item.label}</span>
                     </a>
                 ))}
             </nav>
             <div class="hud-right">
                 <button class="hud-btn" type="button" data-open-search aria-label="Search animals" title="Search (press /)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
+                    <UiIcon name="search" />
                 </button>
                 <button class="hud-btn hud-sound" type="button" data-sound-toggle aria-label="Sound effects" aria-pressed="true">
-                    <Icon name="roar" size={26} />
+                    <UiIcon name="sound" />
                 </button>
                 {ROBLOX.live
                     ? <a class="btn btn-play btn-sm play-btn" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={20} /><span>Play<span class="long"> on Roblox</span></span></a>
                     : <a class="btn btn-white btn-sm play-btn" href="/roblox" aria-current={active === 'roblox' ? 'page' : undefined}><RobloxMark size={20} /><span>Roblox<span class="long"> game</span></span></a>}
                 <a class="hud-btn rewards-btn" href="/rewards" data-rewards-btn aria-label="Rewards" title="Rewards: daily reward, quests, Season Pass and shop" aria-current={active === 'rewards' ? 'page' : undefined}>
-                    <Icon name="gift" size={26} /><span class="rw-badge" data-rewards-badge hidden>0</span>
+                    <UiIcon name="gift" /><span class="rw-badge" data-rewards-badge hidden>0</span>
                 </a>
                 <a class="player-chip" href="/login" data-player-chip><span class="lvl">?</span><span class="who">Log in</span></a>
                 <button class="hud-btn" type="button" data-sheet-toggle aria-expanded="false" aria-controls="more-sheet" aria-label="Menu">
-                    <Icon name="gear" size={26} />
+                    <UiIcon name="menu" />
                 </button>
             </div>
         </header>
@@ -170,7 +169,7 @@ const year = new Date().getFullYear();
         <nav class="dock" aria-label="Quick">
             {DOCK.map((item) => (
                 <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>
-                    {item.roblox ? <RobloxMark size={26} class="dock-mark" /> : <Icon name={item.icon} size={30} />}
+                    {item.roblox ? <RobloxMark size={22} class="dock-mark" /> : <UiIcon name={item.icon} size={22} />}
                     <span>{item.label}</span>
                 </a>
             ))}
@@ -179,15 +178,15 @@ const year = new Date().getFullYear();
         <aside class="sheet" id="more-sheet" aria-label="More">
             <h2 class="screen-title" style="font-size:1.6rem">Menu</h2>
             <nav aria-label="All pages">
-                <a href="/"><Icon name="home" size={26} />Home</a>
-                <a href="/rewards"><Icon name="gift" size={26} />Rewards &amp; shop</a>
-                <a href="/shows"><Icon name="tv" size={26} />ABS Originals (shows)</a>
-                {MENU.filter((item) => item.key !== 'shows').map((item) => <a href={item.href}><Icon name={item.icon} size={26} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label}</a>)}
+                <a href="/"><UiIcon name="home" />Home</a>
+                <a href="/rewards"><UiIcon name="gift" />Rewards &amp; shop</a>
+                <a href="/shows"><UiIcon name="tv" />ABS Originals (shows)</a>
+                {MENU.filter((item) => item.key !== 'shows').map((item) => <a href={item.href}><UiIcon name={item.icon} />{item.label === 'Versus' ? 'Who would win?' : item.label === 'Tiers' ? 'Tier list' : item.label}</a>)}
                 <a href="/roblox"><span class="sheet-mark"><RobloxMark size={18} /></span>{ROBLOX.live ? 'Play on Roblox' : 'The Roblox game'}</a>
-                <a href="/about"><Icon name="book" size={26} />About &amp; how ratings work</a>
-                <a href="/credits"><Icon name="scroll" size={26} />Sources &amp; photo credits</a>
-                <button class="sheet-sound" type="button" data-sound-toggle aria-pressed="true"><Icon name="roar" size={26} /><span data-sound-text>Sound effects: on</span></button>
-                <a href="/llms.txt"><Icon name="bolt" size={26} />Data for AI assistants</a>
+                <a href="/about"><UiIcon name="book" />About &amp; how ratings work</a>
+                <a href="/credits"><UiIcon name="doc" />Sources &amp; photo credits</a>
+                <button class="sheet-sound" type="button" data-sound-toggle aria-pressed="true"><UiIcon name="sound" /><span data-sound-text>Sound effects: on</span></button>
+                <a href="/llms.txt"><UiIcon name="bolt" />Data for AI assistants</a>
             </nav>
             <div class="socials">
                 {SOCIAL.map((item) => <a class="chip" href={item.url} rel="me noopener" target="_blank">{item.name}</a>)}

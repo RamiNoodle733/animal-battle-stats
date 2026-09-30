@@ -40,7 +40,7 @@ function rowHtml(user) {
     const reason = user.reason ? `<small>${escapeHtml(user.reason)}${user.censoredBy === 'auto' ? ' (automatic)' : ''}</small>` : '';
     const acts = [];
     if (user.role !== 'admin') {
-        acts.push(user.censored ? `<button class="btn btn-sm" type="button" data-act="restore">Show name</button>` : `<button class="btn btn-hot btn-sm" type="button" data-act="censor">Hide name</button>`);
+        acts.push(user.censored ? `<button class="btn btn-sm" type="button" data-act="restore">Show name</button>` : `<button class="btn btn-danger btn-sm" type="button" data-act="censor">Hide name</button>`);
         acts.push(user.mutedUntil ? `<button class="btn btn-sm" type="button" data-act="unmute">Unmute</button>` : `<button class="btn btn-sm" type="button" data-act="mute">Mute</button>`);
         if (isAdmin) acts.push(`<button class="btn btn-sm" type="button" data-act="rename">Rename</button>`);
         if (isAdmin) acts.push(`<button class="btn btn-sm" type="button" data-act="role">Role</button>`);

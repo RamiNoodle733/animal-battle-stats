@@ -555,7 +555,7 @@ function podiumCard(animal, crown = false) {
 function confetti() {
     if (reduced) return;
     const box = $('[data-confetti]');
-    const colors = ['#ffd700', '#00d4ff', '#ff6b00', '#35dc8f', '#ff4fc3', '#ffffff'];
+    const colors = ['#ffd54a', '#f6b400', '#ffffff', '#d5d9e0', '#fff1b0', '#c98a00'];
     box.innerHTML = Array.from({ length: 70 }, (_, i) => `<i style="--x:${(Math.random() * 100).toFixed(1)}%;--dx:${Math.round(Math.random() * 160 - 80)}px;--d:${(Math.random() * 0.9).toFixed(2)}s;--t:${(2.2 + Math.random() * 1.8).toFixed(2)}s;--r:${Math.round(Math.random() * 900 - 450)}deg;--c:${colors[i % colors.length]}"></i>`).join('');
     setTimeout(() => { box.innerHTML = ''; }, 5200);
 }

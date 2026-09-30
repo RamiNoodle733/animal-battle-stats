@@ -99,7 +99,7 @@
 .ep-right { min-height: 0; }
 
 /* ---------------------------------------------------------------- episode cards and lists */
-.ep-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(180px, 210px); gap: 10px; overflow-x: auto; overscroll-behavior-x: contain; padding-bottom: 6px; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: rgba(120, 150, 255, 0.35) transparent; }
+.ep-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(180px, 210px); gap: 10px; overflow-x: auto; overscroll-behavior-x: contain; padding-bottom: 6px; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.35) transparent; }
 .ep-rail > * { scroll-snap-align: start; }
 .ep-card { position: relative; display: grid; gap: 6px; padding: 6px 6px 10px; color: inherit; text-decoration: none; border-radius: 12px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); transition: border-color 0.2s, background 0.2s; }
 .ep-card:hover { border-color: color-mix(in srgb, var(--show) 70%, transparent); background: rgba(255, 255, 255, 0.07); }
@@ -140,7 +140,7 @@
 .player-label { position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; color: #fff; font-weight: 800; font-size: 0.9rem; text-align: left; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8); }
 .player iframe, .player .player-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .season-player { margin-bottom: 12px; }
-.up-next { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; padding: 14px; background: rgba(3, 6, 16, 0.88); backdrop-filter: blur(4px); text-align: center; }
+.up-next { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; padding: 14px; background: rgba(9, 10, 12, 0.88); backdrop-filter: blur(4px); text-align: center; }
 .up-next[hidden] { display: none; }
 .up-next-box { display: grid; gap: 8px; justify-items: center; max-width: 420px; }
 .up-next-box img { width: min(100%, 280px); border-radius: 10px; box-shadow: 0 0 0 2px var(--show); }
@@ -193,7 +193,7 @@
 .earn-item img { width: 40px; height: 40px; }
 .earn-item b { display: block; font-size: 0.92rem; }
 .earn-item small { color: var(--text-2); font-size: 0.8rem; line-height: 1.35; }
-.guest-note { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: rgba(0, 212, 255, 0.07); border: 1px solid rgba(0, 212, 255, 0.3); font-size: 0.86rem; font-weight: 650; }
+.guest-note { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: rgba(246, 180, 0, 0.07); border: 1px solid rgba(246, 180, 0, 0.3); font-size: 0.86rem; font-weight: 650; }
 .guest-note[hidden] { display: none; }
 .chapters { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 6px; margin: 0 0 10px; padding: 0; list-style: none; }
 .chapters a { display: flex; gap: 10px; padding: 8px 10px; border-radius: 8px; color: inherit; text-decoration: none; font-size: 0.86rem; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); }

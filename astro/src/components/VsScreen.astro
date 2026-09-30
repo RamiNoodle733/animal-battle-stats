@@ -4,7 +4,7 @@
 // player fights or asks for them, so calling the winner means something.
 // Each side can be a crowd ("500 gorillas vs 23 army ants") or the Human.
 // scripts/versus.js runs the screen; a/b are the fighters on first paint.
-import Icon from './Icon.astro';
+import UiIcon from './UiIcon.astro';
 import AnimalImage from './AnimalImage.astro';
 import { STATS, BIOMES, fmtScore, fmtWeight, fmtLength, fmtSpeed, fmtBite } from '../lib/catalog.js';
 import { verdict, PAIRS } from '../lib/matchups.js';
@@ -71,7 +71,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
                     <label><span aria-hidden="true">×</span><input type="number" inputmode="numeric" min="1" max="1000000" value="1" data-count={side} aria-label={`How many (fighter ${side === 'a' ? 1 : 2})`} /></label>
                     <button type="button" data-count-step="1" aria-label="More">+</button>
                 </div>
-                <button class="btn btn-sm f-change" type="button" data-pick={side}><Icon name="cards" size={20} />Change</button>
+                <button class="btn btn-sm f-change" type="button" data-pick={side}>Change</button>
             </div>
         </section>
     ))}
@@ -82,10 +82,10 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         </div>
 
         <div class="tabs c-tabs" role="tablist">
-            <button type="button" role="tab" aria-selected="true" data-ctab="tape"><Icon name="target" size={20} />Stats</button>
-            {analysis && <button type="button" role="tab" aria-selected="false" data-ctab="verdict"><Icon name="book" size={20} />Verdict</button>}
-            <button type="button" role="tab" aria-selected="false" data-ctab="talk"><Icon name="friends" size={20} />Talk</button>
-            <button type="button" class="c-random" data-random title="A random matchup"><Icon name="cards" size={20} />Random</button>
+            <button type="button" role="tab" aria-selected="true" data-ctab="tape">Stats</button>
+            {analysis && <button type="button" role="tab" aria-selected="false" data-ctab="verdict">Verdict</button>}
+            <button type="button" role="tab" aria-selected="false" data-ctab="talk">Talk</button>
+            <button type="button" class="c-random" data-random title="A random matchup"><UiIcon name="random" size={17} />Random</button>
         </div>
 
         <div class="c-pane" data-cpane="tape">
@@ -96,7 +96,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
                         <div class="t-row" data-stat={stat.key}>
                             <b class={va > vb ? 'lead' : ''} data-va>{fmtScore(va)}</b>
                             <span class="sbar rev ta" style={`--v:${va}`} data-ba>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
-                            <span class="t-label"><span class="long">{stat.label}</span><span class="short">{SHORT[stat.key]}</span></span>
+                            <span class="t-label"><UiIcon name={stat.key} size={14} class="t-ico" /><span class="long">{stat.label}</span><span class="short">{SHORT[stat.key]}</span></span>
                             <span class="sbar tb" style={`--v:${vb}`} data-bb>{SEG.map((i) => <i style={`--i:${i}`}></i>)}</span>
                             <b class={vb > va ? 'lead' : ''} data-vb>{fmtScore(vb)}</b>
                         </div>
@@ -129,13 +129,14 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         )}
         <div class="c-pane scroll" data-cpane="talk" hidden></div>
 
+        <div class="c-foot">
         <div class="reveal" data-reveal>
             <div class="odds" aria-label="Win odds">
                 <span class="o-a" style={`--p:${oddsA}%`} data-odds-a>{oddsA}%</span>
                 <span class="o-b" style={`--p:${oddsB}%`} data-odds-b>{oddsB}%</span>
             </div>
-            <p class="verdict-line"><Icon name="crown" size={20} /><strong data-winner>{result.winner.name}</strong> <span data-strength>{result.strength.toLowerCase()}</span></p>
-            <button class="reveal-btn" type="button" data-reveal-btn><Icon name="lock" size={18} /><span>Odds hidden until the fight</span><b>Show</b></button>
+            <p class="verdict-line"><UiIcon name="crown" size={18} /><strong data-winner>{result.winner.name}</strong> <span data-strength>{result.strength.toLowerCase()}</span></p>
+            <button class="reveal-btn" type="button" data-reveal-btn><span>Odds hidden until the fight</span><b>Show</b></button>
             <button class="rehide-btn" type="button" data-hide-odds>Hide</button>
         </div>
 
@@ -153,7 +154,8 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
                 </div>
                 <p class="call-note" data-call-note>Pick who wins, then watch the fight. Right calls build a streak.</p>
             </div>
-            <button class="btn btn-hot fight-btn" type="button" data-fight><Icon name="swords" size={24} /><span>Fight</span></button>
+            <button class="btn btn-gold fight-btn" type="button" data-fight><UiIcon name="vs" size={20} /><span>Fight</span></button>
+        </div>
         </div>
         <div class="announcer" data-announcer aria-live="assertive"></div>
     </section>
@@ -165,7 +167,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
                 <input type="search" placeholder="Search animals…" data-pk-q autocomplete="off" spellcheck="false" aria-label="Search animals" />
             </label>
-            <button class="hud-btn pk-close" type="button" data-pk-close aria-label="Close"><Icon name="close" size={22} /></button>
+            <button class="hud-btn pk-close" type="button" data-pk-close aria-label="Close"><UiIcon name="close" /></button>
         </div>
         <div class="pk-classics" aria-label="Popular matchups">
             {classics.map((pair) => <a class="chip" href={`/compare/${pair.slug}`}>{pair.a.name} vs {pair.b.name}</a>)}
@@ -176,8 +178,8 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
 
 <style>
     .vs {
-        --fa: #3cc8ff;
-        --fb: #ff8a3d;
+        --fa: #f6b400;
+        --fb: #d5d9e0;
         height: 100%;
         min-height: 0;
         display: grid;
@@ -203,8 +205,9 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .tier-badge.tier-h { --tier: #aab4d6; }
     .hp { position: relative; height: 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
     .hp i { position: absolute; top: 0; bottom: 0; width: 100%; border-radius: inherit; transition: width 0.45s var(--ease), background 0.3s; }
-    .side-a .hp i { right: 0; background: var(--fa); }
-    .side-b .hp i { left: 0; background: var(--fb); }
+    .hp i { background: linear-gradient(180deg, #ffe38a, #f2ac00 55%, #c98a00); }
+    .side-a .hp i { right: 0; }
+    .side-b .hp i { left: 0; }
     .hp.mid i { background: var(--gold); }
     .hp.low i { background: var(--red); }
 
@@ -262,7 +265,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .console { min-height: 0; overflow: hidden; }
     .vs-head { padding: 12px 16px 2px; text-align: center; }
     .vs-title { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05; }
-    .vs-title em { font-style: normal; color: var(--muted); padding: 0 4px; font-size: 0.8em; }
+    .vs-title em { display: inline-block; width: 1.8em; height: 1.3em; margin: 0 2px; vertical-align: -0.28em; font-size: 1em; color: transparent; background: url("/images/ui/vs.svg") center / contain no-repeat; overflow: hidden; }
     .c-tabs { justify-content: center; padding-top: 4px; }
     .c-random { margin-left: auto; color: var(--muted); }
     .c-random:hover { color: #fff; }
@@ -270,17 +273,27 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .c-pane[data-cpane="tape"] { display: flex; flex-direction: column; justify-content: center; }
 
     .tape { display: grid; gap: clamp(6px, 1.2vh, 12px); }
-    .t-row { display: grid; grid-template-columns: 58px minmax(0, 1fr) 100px minmax(0, 1fr) 58px; align-items: center; gap: 8px; }
+    .t-row { display: grid; grid-template-columns: 58px minmax(0, 1fr) 118px minmax(0, 1fr) 58px; align-items: center; gap: 8px; }
     .t-row b { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
     .t-row b:first-child { text-align: right; }
     .t-row b.lead { color: #fff; }
-    .t-row b.lead:first-child { color: var(--fa); }
-    .t-row b.lead:last-child { color: var(--fb); }
-    .t-label { text-align: center; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); white-space: nowrap; }
+
+    .t-label { display: flex; align-items: center; justify-content: center; gap: 5px; font-family: var(--font-display); font-size: 0.92rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text); white-space: nowrap; }
+    .t-label :global(.t-ico) { flex: none; color: var(--stat); }
+    .t-row[data-stat="attack"] { --stat: var(--atk); }
+    .t-row[data-stat="defense"] { --stat: var(--def); }
+    .t-row[data-stat="agility"] { --stat: var(--agi); }
+    .t-row[data-stat="stamina"] { --stat: var(--sta); }
+    .t-row[data-stat="intelligence"] { --stat: var(--int); }
+    .t-row[data-stat="special"] { --stat: var(--spl); }
+    .t-row.fact .t-label { font-size: 0.82rem; color: var(--text-2); }
     .t-label .short { display: none; }
     .t-row .sbar { height: 14px; transition: --v 0.5s var(--ease); }
-    .ta { --seg: var(--fa); }
-    .tb { --seg: var(--fb); }
+    .ta, .tb { --seg: var(--stat, #b9bec8); }
+    /* The side that leads a row keeps full colour; the other side dims. */
+    .t-row .sbar { filter: saturate(0.4) brightness(0.72); }
+    .t-row b.lead + .ta, .t-row .tb:has(+ b.lead) { filter: none; }
+    .t-row.fact { --stat: #c9cdd5; }
     .t-row.fact b { font-family: var(--font-body); font-size: 0.86rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .t-row.fact .sbar { height: 8px; gap: 2px; opacity: 0.85; }
     .t-sep { height: 1px; margin: 4px 0; background: var(--line); }
@@ -291,18 +304,19 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
 
     .reveal { position: relative; padding: 4px 14px 2px; }
     .odds { display: flex; height: 26px; border-radius: 8px; overflow: hidden; }
-    .odds span { display: flex; align-items: center; padding: 0 10px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: #04111c; transition: flex-basis 0.6s var(--ease); }
-    .o-a { flex: 0 0 var(--p); background: var(--fa); }
-    .o-b { flex: 0 0 var(--p); justify-content: flex-end; background: var(--fb); color: #1d0a00; }
+    .odds span { display: flex; align-items: center; padding: 0 10px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35); transition: flex-basis 0.6s var(--ease); }
+    .odds .o-a { flex: 0 0 var(--p); color: #1d1400; text-shadow: none; background: linear-gradient(180deg, #ffd54a, #eaa400); }
+    .odds .o-b { flex: 0 0 var(--p); justify-content: flex-end; color: #111216; text-shadow: none; background: linear-gradient(180deg, #f1f2f5, #b9bec8); }
     .verdict-line { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 26px; margin: 4px 0 0; font-size: 0.86rem; color: var(--text-2); }
+    .verdict-line :global(.ui-icon) { color: var(--gold); }
     .verdict-line strong { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; text-transform: uppercase; color: var(--gold-2); }
     .reveal-btn { display: none; }
     .rehide-btn { position: absolute; right: 14px; bottom: 2px; height: 24px; padding: 0 9px; border: 1px solid var(--line-2); border-radius: 6px; background: transparent; color: var(--muted); font: inherit; font-size: 0.72rem; font-weight: 800; cursor: pointer; }
     .rehide-btn:hover { color: #fff; border-color: var(--text-2); }
     .vs.is-sealed .rehide-btn { display: none; }
-    .vs.is-sealed .odds span { flex-basis: 50%; color: transparent; }
-    .vs.is-sealed .o-a { background: color-mix(in srgb, var(--fa) 22%, #0b1229); }
-    .vs.is-sealed .o-b { background: color-mix(in srgb, var(--fb) 22%, #0b1229); }
+    .vs.is-sealed .odds span { flex-basis: 50%; color: transparent; user-select: none; }
+    .vs.is-sealed .o-a { background: color-mix(in srgb, var(--fa) 18%, #17181c); }
+    .vs.is-sealed .o-b { background: color-mix(in srgb, var(--fb) 14%, #17181c); }
     .vs.is-sealed .verdict-line { visibility: hidden; }
     .vs.is-sealed .reveal-btn {
         position: absolute; inset: 4px 14px 2px;
@@ -337,9 +351,9 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .cp-crowd { font-family: var(--font-body); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; color: var(--muted); }
     .call[data-state="called"] .call-pick, .call[data-state="busy"] .call-pick, .call[data-state="off"] .call-pick { pointer-events: none; }
     .call[data-state="called"] .call-pick:not(.picked), .call[data-state="off"] .call-pick { opacity: 0.45; }
-    .call-pick.picked { border-color: var(--gold); background: rgba(255, 215, 0, 0.12); }
-    .call-pick.right { border-color: var(--green); background: rgba(53, 220, 143, 0.16); }
-    .call-pick.wrong { border-color: var(--red); background: rgba(255, 77, 94, 0.14); }
+    .call-pick.picked { border-color: var(--gold); background: rgba(246, 180, 0, 0.12); }
+    .call-pick.right { border-color: var(--green); background: rgba(59, 214, 90, 0.16); }
+    .call-pick.wrong { border-color: var(--red); background: rgba(255, 65, 80, 0.14); }
     .call-note { margin: 0; font-size: 0.76rem; text-align: center; color: var(--text-2); }
     .call-note :global(a) { color: var(--cyan-2); text-decoration: underline; }
     .call-note :global(b) { color: var(--gold-2); }
@@ -349,14 +363,14 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         pointer-events: none;
         font-family: var(--font-display); font-weight: 900; text-transform: uppercase; text-align: center;
     }
-    .announcer :global(.big) { padding: 14px 36px; background: rgba(4, 7, 18, 0.9); border-radius: 14px; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 0.9; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.5); color: #fff; animation: slam 0.45s var(--spring) both; }
-    .announcer :global(.move) { max-width: 90%; padding: 10px 16px; border-radius: 10px; font-size: clamp(1.1rem, 2vw, 1.5rem); color: #1d0800; background: var(--orange); animation: slam 0.35s var(--spring) both; }
+    .announcer :global(.big) { padding: 14px 36px; background: rgba(9, 10, 12, 0.9); border-radius: 14px; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 0.9; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.5); color: #fff; animation: slam 0.45s var(--spring) both; }
+    .announcer :global(.move) { max-width: 90%; padding: 10px 16px; border-radius: 10px; font-size: clamp(1.1rem, 2vw, 1.5rem); color: #1d1400; background: var(--gold); animation: slam 0.35s var(--spring) both; }
     @keyframes slam { from { opacity: 0; transform: scale(1.6); } to { opacity: 1; transform: scale(1); } }
 
     /* ---------------------------------------------------------------- picker */
-    .picker { width: min(960px, 94vw); max-height: min(760px, 88vh); padding: 0; color: var(--text); background: #0c1430; border: 1px solid var(--line-2); border-radius: 16px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); overflow: hidden; }
+    .picker { width: min(960px, 94vw); max-height: min(760px, 88vh); padding: 0; color: var(--text); background: var(--hex) 0 0 / var(--hex-size), linear-gradient(180deg, #1c1d21, #131417); border: 1px solid var(--frame-2); border-radius: 14px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); overflow: hidden; }
     .picker[open] { display: grid; grid-template-rows: auto auto minmax(0, 1fr); }
-    .picker::backdrop { background: rgba(2, 4, 12, 0.72); }
+    .picker::backdrop { background: rgba(4, 4, 6, 0.72); }
     .pk-head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
     .pk-title { flex: none; font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; }
     .pk-search { flex: 1; min-width: 0; }
@@ -366,12 +380,12 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .pk-classics .chip { white-space: nowrap; }
     .pk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); align-content: start; gap: 8px; padding: 12px 14px 16px; overflow-y: auto; overscroll-behavior: contain; }
     :global(.pk-card) { position: relative; display: grid; grid-template-rows: 78px auto; gap: 4px; padding: 8px 6px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255, 255, 255, 0.04); color: inherit; text-align: center; cursor: pointer; }
-    :global(.pk-card:hover), :global(.pk-card:focus-visible) { border-color: var(--cyan); background: rgba(0, 212, 255, 0.08); outline: none; }
+    :global(.pk-card:hover), :global(.pk-card:focus-visible) { border-color: var(--cyan); background: rgba(246, 180, 0, 0.08); outline: none; }
     :global(.pk-card[hidden]) { display: none; }
     :global(.pk-card .pk-art) { display: grid; place-items: center; min-height: 0; container-type: size; }
     :global(.pk-card .pk-art img) { --fit: 0.95; width: min(100cqw, calc(var(--fit) * var(--k, 1) * 100cqh), calc(100cqh * var(--ar, 1))); height: auto; aspect-ratio: var(--ar, auto); object-fit: contain; }
     :global(.pk-card b) { font-size: 0.8rem; font-weight: 750; line-height: 1.15; }
-    :global(.pk-card .tier-badge) { position: absolute; top: 6px; left: 6px; height: 20px; min-width: 20px; font-size: 0.72rem; }
+    :global(.pk-card .tier-badge) { position: absolute; top: 6px; left: 6px; width: 22px; height: 26px; }
     :global(.pk-card.is-human) { border-color: rgba(170, 180, 214, 0.5); background: rgba(170, 180, 214, 0.08); }
     :global(.pk-card.is-human small) { font-size: 0.66rem; color: var(--muted); }
     :global(.pk-card.is-current) { border-color: var(--gold); }
@@ -417,55 +431,63 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     @media (max-width: 900px) {
         /* One screen on phones: the two fighters side by side on top, the whole
            tape below them, the call and the Fight button at the foot. */
-        .vs { grid-template-columns: 1fr 1fr; grid-template-rows: clamp(150px, 25vh, 250px) minmax(0, 1fr); gap: 8px; }
+        .vs { height: auto; min-height: 100%; grid-template-columns: 1fr 1fr; grid-template-rows: clamp(150px, 25vh, 250px) auto; gap: 8px; }
         .side-a { grid-column: 1; grid-row: 1; }
         .side-b { grid-column: 2; grid-row: 1; }
         .console { grid-column: 1 / -1; grid-row: 2; }
         .fighter { gap: 4px; }
         .f-head { gap: 6px; }
-        .f-head .tier-badge { height: 22px; min-width: 22px; font-size: 0.8rem; }
+        .f-head .tier-badge { width: 24px; height: 29px; }
         .f-name { font-size: 1.1rem; }
         .f-title small { display: none; }
         .hp { height: 6px; }
         .f-foot { gap: 4px; }
         .f-change { min-height: 32px; padding: 0 8px; font-size: 0.78rem; }
-        .f-change :global(img) { width: 18px; height: 18px; }
         .count { height: 32px; }
         .count button { width: 26px; font-size: 1rem; }
         .count input { width: 4.2ch; font-size: 0.95rem; }
         .crowd-badge { font-size: 1rem; padding: 1px 8px; }
         .vs-head { display: none; }
+        .console { overflow: visible; }
         .c-tabs { padding-top: 2px; }
-        .c-pane { padding: 6px 10px 2px; }
-        .tape { gap: 3px; }
-        .t-row { grid-template-columns: 50px minmax(0, 1fr) 40px minmax(0, 1fr) 50px; gap: 5px; }
-        .t-row b { font-size: 1.02rem; }
-        .t-row.fact b { font-size: 0.72rem; }
-        .t-label { font-size: 0.64rem; letter-spacing: 0.06em; }
+        .c-pane { flex: none; overflow: visible; padding: 10px 10px 6px; }
+        .c-pane[data-cpane="tape"] { justify-content: flex-start; }
+        .c-pane[data-cpane="verdict"], .c-pane[data-cpane="talk"] { min-height: 50vh; }
+        .tape { gap: 10px; }
+        .t-row { grid-template-columns: 46px minmax(0, 1fr) 62px minmax(0, 1fr) 46px; gap: 6px; }
+        .t-row b { font-size: 1.2rem; }
+        .t-row.fact b { font-size: 0.74rem; }
+        .t-label { flex-direction: column; gap: 1px; font-size: 0.72rem; letter-spacing: 0.05em; }
         .t-label .long { display: none; }
         .t-label .short { display: inline; }
-        .t-row .sbar { height: 11px; gap: 2px; }
-        .t-row.fact .sbar { height: 6px; }
+        .t-row .sbar { height: 13px; gap: 2px; }
+        .t-row.fact .sbar { height: 7px; }
         .t-sep { margin: 2px 0; }
         .reveal { padding: 2px 10px 0; }
         .odds { height: 22px; }
         .odds span { font-size: 0.95rem; }
         .verdict-line { min-height: 22px; margin-top: 2px; font-size: 0.8rem; }
+        .vs.is-sealed .verdict-line { display: none; }
         .vs.is-sealed .reveal-btn { flex-direction: row; justify-content: center; align-items: center; inset: 2px 10px 0; height: 22px; }
         .vs.is-sealed .reveal-btn span { height: 22px; }
         .rehide-btn { right: 10px; height: 22px; font-size: 0.68rem; }
-        .c-actions { padding: 4px 10px 10px; gap: 6px; }
+        .c-foot { position: sticky; bottom: -8px; z-index: 6; padding-top: 6px; padding-bottom: 8px; margin-bottom: -8px; background: linear-gradient(180deg, #1a1b1f, #141518); border-top: 1px solid var(--line-2); border-radius: 0 0 var(--r) var(--r); box-shadow: 0 -12px 18px -12px rgba(0, 0, 0, 0.85); }
+        /* The call and the Fight button share one row, so the pinned footer stays short. */
+        .c-actions { grid-template-columns: minmax(0, 1fr) 104px; align-items: stretch; padding: 4px 10px 10px; gap: 6px; }
+        .call[data-state="off"] + .fight-btn { grid-column: 1 / -1; }
+        .call-picks { gap: 4px; }
+        .call-or { font-size: 0.6rem; }
         .call-head, .call-note { display: none; }
         .call[data-state="off"] { display: none; }
-        .call-pick { min-height: 40px; font-size: 0.92rem; }
-        .fight-btn { min-height: 44px; font-size: 1.15rem; }
+        .call-pick { min-height: 44px; padding: 4px 6px; font-size: 0.84rem; }
+        .fight-btn { min-height: 44px; padding: 0 10px; font-size: 1.1rem; }
         .picker { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border-radius: 0; border: 0; }
         .pk-grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 6px; padding: 10px; }
         :global(.pk-card) { grid-template-rows: 64px auto; }
     }
     /* Tall tablets in portrait: bigger fighters, so the stage is not half empty. */
     @media (max-width: 900px) and (min-height: 960px) {
-        .vs { grid-template-rows: clamp(250px, 34vh, 420px) minmax(0, 1fr); }
+        .vs { grid-template-rows: clamp(250px, 34vh, 420px) auto; }
         .f-name { font-size: 1.5rem; }
         .t-row b { font-size: 1.3rem; }
         .t-row .sbar { height: 14px; }
@@ -473,7 +495,6 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         .tape { gap: 12px; }
     }
     @media (max-width: 900px) and (max-height: 700px) {
-        .vs { grid-template-rows: clamp(120px, 22vh, 180px) minmax(0, 1fr); }
-        .t-row.fact, .t-sep { display: none; }
+        .vs { grid-template-rows: clamp(120px, 22vh, 180px) auto; }
     }
 </style>

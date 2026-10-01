@@ -288,8 +288,40 @@ export function oddsBar(ctx, x, y, w, h, odds, fill = 1, label = 'ODDS ON THE ST
 }
 
 // The finished picture as a JPEG; every canvas used for it is freed.
+// The picture as a JPEG. toBlob can fail to call back on some phones; then the
+// same picture comes from toDataURL instead.
+function jpeg(canvas, quality) {
+    return new Promise((resolve) => {
+        let done = false;
+        const fromDataUrl = () => {
+            if (done) return;
+            done = true;
+            try {
+                const [head, data] = canvas.toDataURL('image/jpeg', quality).split(',');
+                const bytes = atob(data);
+                const buffer = new Uint8Array(bytes.length);
+                for (let index = 0; index < bytes.length; index += 1) buffer[index] = bytes.charCodeAt(index);
+                resolve(new Blob([buffer], { type: head.match(/^data:([^;]+)/)?.[1] || 'image/jpeg' }));
+            } catch {
+                resolve(null);
+            }
+        };
+        const timer = setTimeout(fromDataUrl, 4000);
+        try {
+            canvas.toBlob((blob) => {
+                if (done) return;
+                clearTimeout(timer);
+                if (blob) { done = true; resolve(blob); } else fromDataUrl();
+            }, 'image/jpeg', quality);
+        } catch {
+            clearTimeout(timer);
+            fromDataUrl();
+        }
+    });
+}
+
 async function finish(canvas, ...used) {
-    const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/jpeg', 0.93));
+    const blob = await jpeg(canvas, 0.93);
     release(canvas, ...used);
     return blob;
 }

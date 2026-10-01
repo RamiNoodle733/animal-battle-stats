@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.8.1 — 2026-10-01
+
+- **Sharing a card no longer gets stuck on "Drawing the card…" on iPhone.** The share picture waited on Safari's font loading and on the canvas handing back its picture, and on some iPhones neither ever finishes. Now the fonts the page already has are used straight away (and the wait is capped at 3 seconds), a picture the canvas will not hand back is taken another way after 4 seconds, an image that stalls gives up after 15, and if anything still goes wrong the sheet says so ("Tap Card to try again") instead of waiting forever.
+
 ## 4.8.0 — 2026-10-01
 
 The owner's Events tab (Community → World stats → Events) and the Discord activity feed, fleshed out.

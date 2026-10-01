@@ -117,28 +117,51 @@ export function setImageLoader(loader) {
     images.clear();
 }
 
+// Resolves to `promise`, or to null after `ms`: nothing the card waits on may
+// keep it waiting for good (a stalled download, Safari's font loading).
+function within(promise, ms) {
+    return new Promise((resolve) => {
+        const timer = setTimeout(() => resolve(null), ms);
+        timer?.unref?.(); // the build runs this in Node
+        Promise.resolve(promise).then((value) => { clearTimeout(timer); resolve(value); }, () => { clearTimeout(timer); resolve(null); });
+    });
+}
+
 const images = new Map();
 export function loadImage(src) {
     if (!src) return Promise.resolve(null);
     if (!images.has(src) && customLoader) images.set(src, customLoader(src));
     if (!images.has(src)) {
-        images.set(src, new Promise((resolve) => {
+        const loading = new Promise((resolve) => {
             const img = new Image();
             img.decoding = 'async';
             img.onload = () => resolve(img);
-            // a failed image is not remembered, so trying again downloads it again
-            img.onerror = () => { images.delete(src); resolve(null); };
+            img.onerror = () => resolve(null);
             img.src = src;
+        });
+        images.set(src, within(loading, 15000).then((img) => {
+            // a failed image is not remembered, so trying again downloads it again
+            if (!img) images.delete(src);
+            return img;
         }));
     }
     return images.get(src);
 }
 
+// The card's fonts. The page has usually loaded them already (check), and
+// Safari's document.fonts.load() can stay pending for good, so this never
+// waits more than a few seconds; a face still missing then falls back.
 let fonts = null;
 export function fontsReady() {
     if (!fonts) {
+        const set = document.fonts;
         const faces = [`700 40px ${DISPLAY}`, `800 40px ${DISPLAY}`, `900 40px ${DISPLAY}`, `600 16px ${BODY}`, `700 16px ${BODY}`, `800 16px ${BODY}`, `italic 600 16px ${BODY}`];
-        fonts = Promise.all(faces.map((face) => document.fonts?.load(face).catch(() => null))).catch(() => null);
+        fonts = within(Promise.all(faces.map((face) => {
+            try {
+                if (set?.check?.(face)) return null;
+            } catch { /* no check: load it */ }
+            return set?.load(face).catch(() => null);
+        })), 3000);
     }
     return fonts;
 }

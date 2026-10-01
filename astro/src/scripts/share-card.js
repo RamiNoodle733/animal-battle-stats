@@ -132,7 +132,8 @@ async function select(ui, format) {
     if (!result) {
         try {
             if (format.kind === 'image') {
-                const blob = await format.make();
+                // never "Drawing the card…" for good: give up after half a minute
+                const blob = await Promise.race([format.make(), new Promise((resolve) => { setTimeout(resolve, 30000, null); })]);
                 if (!blob) throw new Error('No picture');
                 result = { blob, ext: 'jpg' };
             } else {
@@ -159,7 +160,7 @@ async function select(ui, format) {
             ui.rec.hidden = true;
             ui.progress.hidden = true;
             ui.wait.hidden = false;
-            ui.wait.textContent = format.kind === 'video' ? 'This browser could not record the video. Try the picture instead.' : 'Could not draw the card.';
+            ui.wait.textContent = format.kind === 'video' ? 'This browser could not record the video. Try the picture instead.' : `Could not draw the card. Tap ${format.label} to try again.`;
             return;
         }
         if (ui.state !== state) return;

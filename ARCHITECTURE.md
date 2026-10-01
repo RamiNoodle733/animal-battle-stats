@@ -40,6 +40,8 @@ animal-stats/
 ├── lib/                    # Backend shared libraries
 │   ├── auth.js             # Auth utilities (JWT, validation)
 │   ├── discord.js          # Discord webhook integration
+│   ├── page-labels.js      # Names pages for people ("Cassowary", "Lion vs Tiger")
+│   ├── tracking-settings.js # Untracked accounts, what goes to Discord
 │   ├── mongodb.js          # Database connection
 │   ├── xpSystem.js         # XP/leveling system
 │   └── models/             # Mongoose models

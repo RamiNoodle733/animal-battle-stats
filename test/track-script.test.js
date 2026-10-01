@@ -8,7 +8,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const source = fs.readFileSync(path.join(__dirname, '..', 'astro/src/scripts/track.js'), 'utf8');
-const GLOBALS = ['window', 'navigator', 'location', 'document', 'screen', 'sessionStorage', 'fetch', 'addEventListener', 'setInterval', 'clearInterval'];
+const GLOBALS = ['window', 'navigator', 'location', 'document', 'screen', 'sessionStorage', 'localStorage', 'fetch', 'addEventListener', 'setInterval', 'clearInterval'];
 const saved = Object.fromEntries(GLOBALS.map((name) => [name, Object.getOwnPropertyDescriptor(globalThis, name)]));
 let loads = 0;
 
@@ -25,20 +25,25 @@ test.after(() => {
     }
 });
 
-function fakeTab() {
+function fakeStorage() {
     const store = new Map();
     return {
-        storage: {
-            getItem: (key) => (store.has(key) ? store.get(key) : null),
-            setItem: (key, value) => store.set(key, String(value)),
-            removeItem: (key) => store.delete(key)
-        },
+        getItem: (key) => (store.has(key) ? store.get(key) : null),
+        setItem: (key, value) => store.set(key, String(value)),
+        removeItem: (key) => store.delete(key)
+    };
+}
+
+function fakeTab() {
+    return {
+        storage: fakeStorage(),
+        local: fakeStorage(),
         requests: [],
         beacons: []
     };
 }
 
-async function loadPage(tab, { pathname, referrer = '', hostname = 'animalbattlestats.com', userAgent = 'Mozilla/5.0 Chrome/140' }) {
+async function loadPage(tab, { pathname, search = '', referrer = '', hostname = 'animalbattlestats.com', userAgent = 'Mozilla/5.0 Chrome/140' }) {
     const listeners = {};
     const on = (type, handler) => { (listeners[type] ||= []).push(handler); };
     const env = {
@@ -49,10 +54,11 @@ async function loadPage(tab, { pathname, referrer = '', hostname = 'animalbattle
             language: 'en-US',
             sendBeacon: (url, blob) => { tab.beacons.push({ url, blob }); return true; }
         },
-        location: { hostname, pathname, origin: `https://${hostname}`, href: `https://${hostname}${pathname}` },
+        location: { hostname, pathname, search, origin: `https://${hostname}`, href: `https://${hostname}${pathname}${search}` },
         document: { referrer, visibilityState: 'visible', addEventListener: on },
         screen: { width: 390, height: 844 },
         sessionStorage: tab.storage,
+        localStorage: tab.local,
         fetch: async (url, options) => {
             tab.requests.push({ url, body: JSON.parse(options.body) });
             return { ok: true };
@@ -140,4 +146,41 @@ test('bots and local development send nothing', async () => {
     const localTab = fakeTab();
     await loadPage(localTab, { pathname: '/', hostname: 'localhost' });
     assert.equal(localTab.requests.length, 0);
+});
+
+test('Versus sends the matchup it shows; other pages send no query', async () => {
+    const tab = fakeTab();
+    await loadPage(tab, { pathname: '/compare', search: '?a=human&b=gorilla&na=10' });
+    assert.equal(notifies(tab)[0].body.search, '?a=human&b=gorilla&na=10');
+    const other = fakeTab();
+    await loadPage(other, { pathname: '/stats/cassowary', search: '?utm_source=x' });
+    assert.equal(notifies(other)[0].body.search, '');
+});
+
+test('an untracked browser sends no page views, visits or exits, only presence', async () => {
+    const tab = fakeTab();
+    tab.local.setItem('abs:untracked', 'manual');
+    const page = await loadPage(tab, { pathname: '/stats/cassowary' });
+    assert.deepEqual(urls(tab), ['/api/community?action=ping']);
+    page.fire('pagehide');
+    assert.equal(tab.beacons.length, 0);
+});
+
+test('signing in with an untracked account stops this browser; tracking it again starts it', async () => {
+    const tab = fakeTab();
+    const first = await loadPage(tab, { pathname: '/' });
+    first.fire('abs:user', { detail: { username: 'RamiNoodle733', untracked: true } });
+    assert.equal(tab.local.getItem('abs:untracked'), 'account');
+
+    tab.requests.length = 0;
+    const second = await loadPage(tab, { pathname: '/rankings' });
+    assert.deepEqual(urls(tab), ['/api/community?action=ping']);
+
+    second.fire('abs:user', { detail: { username: 'RamiNoodle733', untracked: false } });
+    assert.equal(tab.local.getItem('abs:untracked'), null);
+
+    // The owner's own switch stays on whoever signs in.
+    tab.local.setItem('abs:untracked', 'manual');
+    second.fire('abs:user', { detail: { username: 'Someone', untracked: false } });
+    assert.equal(tab.local.getItem('abs:untracked'), 'manual');
 });

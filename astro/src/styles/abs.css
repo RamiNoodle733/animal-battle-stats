@@ -941,6 +941,8 @@ body.game {
     padding: 10px 16px; font-weight: 700;
     background: linear-gradient(180deg, #2e3137, #1e2025); border: 1px solid var(--line-2); border-radius: 10px;
     box-shadow: var(--shadow); transition: transform 0.25s var(--ease), opacity 0.25s;
+    /* text only: a faded toast must not catch taps meant for what is under it */
+    pointer-events: none;
 }
 .toast.show { transform: translate(-50%, 0); opacity: 1; }
 

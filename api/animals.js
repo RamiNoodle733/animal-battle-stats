@@ -140,7 +140,7 @@ async function handleNotification(req, res) {
         if (typeof body === 'string') {
             try { body = JSON.parse(body); } catch (_e) { body = {}; }
         }
-        const { type, page, referrer, sessionId, duration, screenSize, language, pages } = body || {};
+        const { type, page, search, referrer, sessionId, duration, seconds, screenSize, language, pages } = body || {};
         const notificationType = type === 'logout'
             ? 'logout'
             : type === 'site_leave'
@@ -160,9 +160,11 @@ async function handleNotification(req, res) {
         const notifyData = {
             username: username || 'Anonymous',
             page: page || '/',
+            search: search || null,
             referrer: referrer || null,
             sessionId: sessionId || null,
             duration: duration || null,
+            seconds: Number.isFinite(Number(seconds)) ? Number(seconds) : null,
             screenSize: screenSize || null,
             language: language || null,
             pages: pages || null

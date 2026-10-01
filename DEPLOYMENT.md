@@ -337,7 +337,20 @@ Everything is in `data/roblox-game.json`:
 - "Online now" comes from a heartbeat every 45 seconds from each open tab, stored in the
   `presence` collection with a 2-minute TTL index (created automatically).
 - Community → World stats shows the numbers; its Events tab (the site owner, `role: admin`,
-  only) lists the raw event stream with each event's Discord delivery and retries failed posts.
+  only) has three views:
+  - **Live**: who is on the site and on which page, the last 24 hours in numbers, the most
+    viewed pages, where visitors came from this week, active players and the Discord backlog.
+  - **Events**: every event in words ("Guest a1b2c3 landed on Cassowary from google.com"),
+    filterable by type, player, page, Discord status or one visitor, each opening to its full
+    details, with a retry for failed Discord posts.
+  - **Settings**: accounts that are not tracked (RamiNoodle733 by default; nothing they do is
+    stored or posted, and their stored events can be deleted), "Don't track this browser", and
+    which events are posted to Discord (page views every time, only the first page of a visit,
+    or never; any other type on or off). Saved in the `sitesettings` collection
+    (`lib/tracking-settings.js`), so no deploy is needed.
+- Page views are named for people (`lib/page-labels.js`): "African Lion vs Siberian Tiger",
+  "Versus: 10 Humans vs Gorilla". A landing says whether the visitor has been before, and
+  leaving lists the pages of the visit.
 
 ### Selling BattlePoints (Stripe, not live)
 

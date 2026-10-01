@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.8.0 — 2026-10-01
+
+The owner's Events tab (Community → World stats → Events) and the Discord activity feed, fleshed out.
+
+- **Which page, not just "page view".** Every page is named: "Cassowary", "African Lion vs Siberian Tiger", "Versus: 10 Humans vs Gorilla" (Versus now sends the matchup it shows), "Rankings: Strongest", "BREAKOUT, Episode 1: The Transfer", "Bob's profile".
+- **Accounts left out of tracking.** RamiNoodle733 is not tracked by default: nothing it does is stored, counted or posted to Discord. Add or remove accounts in Events → Settings, and delete an untracked account's past events. A browser that account signs in on stops sending page views even when logged out, and **Don't track this browser** does the same for any device.
+- **Choose what goes to Discord:** page views every time, only the first page of each visit, or never; and any other event type (logins, votes, chat...) on or off. Events that are not posted are still stored and listed.
+- **Better Discord posts.** Titles say what happened and link to it ("🛬 Cassowary", "⚔️ Fight: African Lion vs Siberian Tiger", "🔓 Bob logged in"). Guests get a tag (Guest a1b2c3) so one visitor can be followed; a landing says where they came from and whether they have been before ("Back for their 3rd visit, last 2 days ago"); leaving lists the whole visit ("Home → Cassowary → African Lion vs Siberian Tiger"). Players link to their profiles, animals to their pages.
+- **Events tab, three views.** *Live*: who is on the site and on which page, the last 24 hours (page views, visits, visitors, sign-ups, logins, fights, votes, comments, chat, tournaments), the most viewed pages, where visitors came from this week, active players and the Discord backlog. *Events*: every event in words, filterable by type (or "all but page views"), player, page, Discord status, or one visitor; tap one for its details. *Settings*: untracked accounts, this browser, and Discord.
+- Fixed: on phones a faded message ("Saved") kept catching taps meant for the buttons under it.
+
 ## 4.7.2 — 2026-10-01
 
 - **Home page on phones:** the card ring no longer runs over the Daily matchup and Animal of the day tiles. Squeezed into one screen, the ring got what was left after the menu and its front cards (which lean toward you) hung over the tiles. On phones the home page now scrolls: the menu, then the ring at a proper size with bigger cards, then the tiles, the Roblox tile and the Just researched strip, all whole. Tablets fit it on one screen.

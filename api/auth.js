@@ -1560,10 +1560,20 @@ async function handleMe(req, res) {
         console.warn('me: moderation update failed:', error.message);
     }
 
+    // An account the owner left out of tracking tells its browser, so that
+    // browser stops sending page views even when logged out later.
+    let untracked = false;
+    try {
+        const { getTrackingSettings, isIgnoredAccount } = require('../lib/tracking-settings');
+        untracked = isIgnoredAccount(await getTrackingSettings(), { userId: user._id, username: user.username });
+    } catch (error) {
+        console.warn('me: tracking settings unavailable:', error.message);
+    }
+
     res.status(200).json({
         success: true,
         data: {
-            user: buildUserPayload(user),
+            user: { ...buildUserPayload(user), untracked },
             token
         }
     });

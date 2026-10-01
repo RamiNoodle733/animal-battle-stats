@@ -6,6 +6,8 @@
  * GET /api/community?action=presence - Get online users list
  * GET /api/community?action=stats - Get site statistics
  * GET /api/community?action=admin-analytics - Get owner-only detailed analytics
+ * GET /api/community?action=admin-overview - Owner: who is online where, today's numbers
+ * GET|POST /api/community?action=admin-settings - Owner: untracked accounts, Discord choices
  * ALL /api/community?action=gone - Return 410 for removed sensitive exports
  * POST /api/community?action=ping - Update user presence (heartbeat)
  * POST /api/community?action=visit - Increment site visit counter
@@ -22,6 +24,7 @@ const { waitUntil } = require('@vercel/functions');
 const { robloxSnapshot } = require('../lib/roblox-game');
 const { ITEM_BY_ID } = require('../lib/economy');
 const { publicName } = require('../lib/moderation');
+const { describePage } = require('../lib/page-labels');
 
 // Presence lives in Mongo (lib/models/Presence.js) so every serverless instance
 // sees the same visitors. Pages ping every ~45 seconds while visible, so a tab
@@ -256,6 +259,9 @@ function buildOwnerEventDetails(event) {
         'username',
         'user',
         'page',
+        'search',
+        'path',
+        'visitor',
         'route',
         'location',
         'device',
@@ -267,13 +273,24 @@ function buildOwnerEventDetails(event) {
         'sessionHash'
     ].forEach((field) => delete details[field]);
 
+    const place = safe.page ? describePage(safe.page, safe.search) : null;
+    const pathLabel = (entry) => {
+        const [page, search] = String(entry).split('?');
+        return describePage(page, search ? `?${search}` : '').label;
+    };
     return {
         id: String(event._id),
         occurredAt: event.occurredAt,
         eventType: event.eventType,
         username: safe.username || safe.user || 'Anonymous',
         visitorPseudonym: event.visitorHash || null,
+        visitor: event.visitorHash ? String(event.visitorHash).slice(0, 6) : null,
         page: safe.page || null,
+        search: safe.search || null,
+        pageLabel: place?.label || null,
+        pageKind: place?.kind || null,
+        pageUrl: place?.url || null,
+        path: Array.isArray(safe.path) ? safe.path.map(pathLabel) : null,
         location: safe.location || null,
         coordinates: event.coordinates || null,
         device: safe.device || null,
@@ -337,6 +354,9 @@ async function handleAdminAnalytics(req, res) {
     }
 
     const key = typeof req.query.key === 'string' ? req.query.key.trim().slice(0, 320) : '';
+    const visitor = typeof req.query.visitor === 'string' ? req.query.visitor.trim().toLowerCase() : '';
+    const pageFilter = typeof req.query.page === 'string' ? req.query.page.trim().slice(0, 200) : '';
+    const hideViews = req.query.hideViews === '1';
     const eventType = typeof req.query.eventType === 'string' ? req.query.eventType.trim().slice(0, 64) : '';
     const username = typeof req.query.user === 'string' ? req.query.user.trim().slice(0, 100) : '';
     const deliveryStatus = typeof req.query.deliveryStatus === 'string' ? req.query.deliveryStatus.trim().toLowerCase() : '';
@@ -349,6 +369,17 @@ async function handleAdminAnalytics(req, res) {
 
     if (key) query.locationKey = key;
     if (eventType) query.eventType = eventType;
+    else if (hideViews) query.eventType = { $nin: ['site_visit', 'site_leave'] };
+    if (visitor) {
+        if (!/^[a-f0-9]{6,32}$/.test(visitor)) return res.status(400).json({ success: false, error: 'Invalid visitor' });
+        query.visitorHash = { $regex: `^${visitor}` };
+    }
+    // A path ("/stats/cassowary", prefix match) or words from one ("cassowary", "lion vs tiger").
+    if (pageFilter) {
+        query.page = pageFilter.startsWith('/')
+            ? { $regex: `^${escapeRegex(pageFilter)}` }
+            : { $regex: escapeRegex(pageFilter.toLowerCase().replace(/\s+/g, '-')) };
+    }
     if (username) query.username = { $regex: escapeRegex(username), $options: 'i' };
     if (deliveryStatus) {
         if (!['pending', 'sent', 'failed'].includes(deliveryStatus)) {
@@ -393,6 +424,9 @@ async function handleAdminAnalytics(req, res) {
                 eventType: eventType || null,
                 user: username || null,
                 deliveryStatus: deliveryStatus || null,
+                visitor: visitor || null,
+                page: pageFilter || null,
+                hideViews,
                 from: from && !Number.isNaN(from.getTime()) ? from.toISOString() : null,
                 to: to && !Number.isNaN(to.getTime()) ? to.toISOString() : null
             }
@@ -438,6 +472,185 @@ async function handleAdminRetryDiscord(req, res) {
     return res.status(200).json({ success: true, data: result });
 }
 
+// Owner: who is on the site right now and on which page, the last 24 hours in
+// numbers, the most viewed pages, where visitors came from this week, and how
+// the Discord feed is doing.
+async function handleAdminOverview(req, res) {
+    const SiteActivity = require('../lib/models/SiteActivity');
+    const Presence = require('../lib/models/Presence');
+    const User = require('../lib/models/User');
+    const { getTrackingSettings, isIgnoredAccount } = require('../lib/tracking-settings');
+    setCorsHeaders(req, res, { methods: 'GET, OPTIONS', credentials: true });
+    res.setHeader('Cache-Control', 'private, no-store');
+    res.setHeader('Vary', 'Authorization, Cookie, Origin');
+    if (req.method === 'OPTIONS') return res.status(200).end();
+    if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
+    if (!await requireAdministrator(req, res)) return null;
+
+    const now = Date.now();
+    const day = new Date(now - 24 * 60 * 60 * 1000);
+    const week = new Date(now - 7 * 24 * 60 * 60 * 1000);
+    const settings = await getTrackingSettings();
+
+    const [present, byType, visitors, landings, pages, referrers, players, failed, pending] = await Promise.all([
+        Presence.find({ lastSeen: { $gte: presenceCutoff() } }).sort({ lastSeen: -1 }).limit(60).lean(),
+        SiteActivity.aggregate([{ $match: { occurredAt: { $gte: day } } }, { $group: { _id: '$eventType', count: { $sum: 1 } } }]),
+        SiteActivity.distinct('visitorHash', { eventType: 'site_visit', occurredAt: { $gte: day } }),
+        SiteActivity.countDocuments({ eventType: 'site_visit', occurredAt: { $gte: day }, 'metadata.pages': { $not: { $gt: 1 } } }),
+        SiteActivity.aggregate([
+            { $match: { eventType: 'site_visit', occurredAt: { $gte: day } } },
+            { $group: { _id: { page: '$page', search: '$metadata.search' }, count: { $sum: 1 }, visitors: { $addToSet: '$visitorHash' } } },
+            { $project: { count: 1, visitors: { $size: '$visitors' } } },
+            { $sort: { count: -1 } },
+            { $limit: 12 }
+        ]),
+        SiteActivity.aggregate([
+            { $match: { eventType: 'site_visit', occurredAt: { $gte: week }, 'metadata.referrer': { $nin: [null, 'Direct'] } } },
+            { $group: { _id: '$metadata.referrer', count: { $sum: 1 } } },
+            { $sort: { count: -1 } },
+            { $limit: 200 }
+        ]),
+        SiteActivity.aggregate([
+            { $match: { occurredAt: { $gte: day }, username: { $nin: ['Anonymous', null] } } },
+            { $group: { _id: '$username', count: { $sum: 1 }, last: { $max: '$occurredAt' } } },
+            { $sort: { last: -1 } },
+            { $limit: 12 }
+        ]),
+        SiteActivity.countDocuments({ 'discordDelivery.status': 'failed' }),
+        SiteActivity.countDocuments({ 'discordDelivery.status': 'pending' })
+    ]);
+
+    const ids = present.map((row) => row.userId).filter(Boolean);
+    const names = new Map((ids.length ? await User.find({ _id: { $in: ids } }).select('username').lean() : []).map((user) => [String(user._id), user.username]));
+    const online = present.map((row) => {
+        const username = row.userId ? names.get(String(row.userId)) || 'Player' : null;
+        const place = row.page ? describePage(row.page) : null;
+        return {
+            who: username || `Guest ${String(row._id).replace(/^visitor:/, '').slice(0, 6)}`,
+            player: Boolean(username),
+            untracked: Boolean(username) && isIgnoredAccount(settings, { userId: row.userId, username }),
+            page: row.page || null,
+            pageLabel: place?.label || null,
+            pageUrl: place?.url || null,
+            lastSeen: row.lastSeen
+        };
+    });
+
+    const hosts = new Map();
+    for (const row of referrers) {
+        let host = null;
+        try { host = new URL(row._id).hostname.replace(/^www\./, ''); } catch { host = null; }
+        if (!host || host.endsWith('animalbattlestats.com')) continue;
+        hosts.set(host, (hosts.get(host) || 0) + row.count);
+    }
+
+    const counts = Object.fromEntries(byType.map((row) => [row._id, row.count]));
+    return res.status(200).json({
+        success: true,
+        data: {
+            online,
+            today: {
+                pageViews: counts.site_visit || 0,
+                visits: landings,
+                visitors: visitors.filter(Boolean).length,
+                signups: counts.signup || 0,
+                logins: counts.login || 0,
+                fights: counts.fight || 0,
+                votes: (counts.vote || 0) + (counts.vote_changed || 0),
+                comments: (counts.comment || 0) + (counts.comment_reply || 0),
+                chat: (counts.chat_message || 0) + (counts.chat_reply || 0),
+                tournaments: counts.tournament_complete || 0,
+                events: byType.reduce((sum, row) => sum + row.count, 0)
+            },
+            topPages: pages.map((row) => {
+                const place = describePage(row._id.page, row._id.search || '');
+                return { page: row._id.page, search: row._id.search || null, label: place.label, kind: place.kind, url: place.url, views: row.count, visitors: row.visitors };
+            }),
+            referrers: [...hosts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([host, count]) => ({ host, count })),
+            players: players.map((row) => ({ username: row._id, events: row.count, last: row.last })),
+            discord: { failed, pending }
+        }
+    });
+}
+
+// Owner: the tracking settings (lib/tracking-settings.js). POST ops:
+//   ignore { username }    leave an account out of tracking
+//   unignore { username }  track it again
+//   purge { username }     delete the stored events of an account that is left out
+//   discord { pageViews, off }  what gets posted to Discord
+async function handleAdminSettings(req, res) {
+    const SiteActivity = require('../lib/models/SiteActivity');
+    const User = require('../lib/models/User');
+    const tracking = require('../lib/tracking-settings');
+    setCorsHeaders(req, res, { methods: 'GET, POST, OPTIONS', credentials: true });
+    res.setHeader('Cache-Control', 'private, no-store');
+    res.setHeader('Vary', 'Authorization, Cookie, Origin');
+    if (req.method === 'OPTIONS') return res.status(200).end();
+    if (!['GET', 'POST'].includes(req.method)) return res.status(405).json({ success: false, error: 'Method not allowed' });
+    if (req.method === 'POST' && !enforceRequestSecurity(req, res, { maxBodyBytes: 16 * 1024 })) return null;
+    if (!await requireAdministrator(req, res)) return null;
+    const actor = getAuthUser(req);
+
+    const exactName = (name) => ({ $regex: `^${escapeRegex(name)}$`, $options: 'i' });
+    const payload = async (settings, extra = {}) => ({
+        success: true,
+        data: {
+            ignored: await Promise.all(settings.ignored.map(async (entry) => ({
+                ...entry,
+                events: await SiteActivity.countDocuments({ username: exactName(entry.username) })
+            }))),
+            discord: settings.discord,
+            groups: tracking.EVENT_GROUPS,
+            pageViewModes: tracking.PAGE_VIEW_MODES,
+            ...extra
+        }
+    });
+
+    let settings = await tracking.getTrackingSettings();
+    if (req.method === 'GET') return res.status(200).json(await payload(settings));
+
+    const body = req.body && typeof req.body === 'object' ? req.body : {};
+    const op = String(body.op || '');
+    const by = actor?.username || null;
+
+    if (op === 'ignore' || op === 'unignore' || op === 'purge') {
+        const username = tracking.cleanUsername(body.username);
+        if (!username) return res.status(400).json({ success: false, error: 'Type a username' });
+        const listed = settings.ignored.find((entry) => entry.username.toLowerCase() === username.toLowerCase());
+
+        if (op === 'ignore') {
+            if (listed) return res.status(200).json(await payload(settings, { message: `${listed.username} is already left out.` }));
+            const user = await User.findOne({ username: exactName(username) }).select('username').lean();
+            if (!user) return res.status(404).json({ success: false, error: `No player is called ${username}` });
+            settings = await tracking.saveTrackingSettings({
+                ...settings,
+                ignored: [...settings.ignored, { username: user.username, userId: String(user._id), addedAt: new Date().toISOString() }]
+            }, by);
+            return res.status(200).json(await payload(settings, { message: `${user.username} is no longer tracked.` }));
+        }
+        if (op === 'unignore') {
+            if (!listed) return res.status(200).json(await payload(settings, { message: `${username} is already tracked.` }));
+            settings = await tracking.saveTrackingSettings({
+                ...settings,
+                ignored: settings.ignored.filter((entry) => entry !== listed)
+            }, by);
+            return res.status(200).json(await payload(settings, { message: `${listed.username} is tracked again.` }));
+        }
+        // purge: only for accounts already left out, so a slip cannot wipe a real player's history
+        if (!listed) return res.status(400).json({ success: false, error: 'Leave the account out of tracking first' });
+        const result = await SiteActivity.deleteMany({ username: exactName(listed.username) });
+        return res.status(200).json(await payload(settings, { message: `Deleted ${Number(result.deletedCount || 0).toLocaleString('en-US')} events from ${listed.username}.` }));
+    }
+
+    if (op === 'discord') {
+        const discord = body.discord && typeof body.discord === 'object' ? body.discord : {};
+        settings = await tracking.saveTrackingSettings({ ...settings, discord: { pageViews: discord.pageViews, off: discord.off } }, by);
+        return res.status(200).json(await payload(settings, { message: 'Discord settings saved.' }));
+    }
+
+    return res.status(400).json({ success: false, error: 'Unknown settings change' });
+}
+
 async function handleDiscordRetryCron(req, res) {
     const { retryDueDiscordDeliveries } = require('../lib/discord');
     const { repairGeolocationBatch } = require('../lib/geolocation-repair');
@@ -473,6 +686,12 @@ module.exports = async function handler(req, res) {
     }
     if (requestedActions.includes('admin-retry-discord')) {
         return handleAdminRetryDiscord(req, res);
+    }
+    if (requestedActions.includes('admin-overview')) {
+        return handleAdminOverview(req, res);
+    }
+    if (requestedActions.includes('admin-settings')) {
+        return handleAdminSettings(req, res);
     }
     if (requestedActions.includes('discord-retry-cron')) {
         return handleDiscordRetryCron(req, res);
@@ -745,8 +964,15 @@ async function handleStats(req, res) {
  */
 async function handleVisit(req, res) {
     const SiteStats = require('../lib/models/SiteStats');
-    
+    const { getTrackingSettings, isIgnoredAccount } = require('../lib/tracking-settings');
+
     try {
+        // Accounts the owner left out of tracking do not count as visits.
+        const account = getAuthUser(req);
+        if (account && isIgnoredAccount(await getTrackingSettings(), { userId: account.id, username: account.username })) {
+            return res.status(200).json({ success: true, counted: false });
+        }
+
         const budget = await consumeRateLimit({
             scope: 'community-visit',
             identity: requestIdentity(req),

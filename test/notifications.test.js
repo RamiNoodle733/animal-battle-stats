@@ -124,7 +124,7 @@ test('Slack deliveries post the formatted message and record success', async () 
         assert.equal(result.success, true);
         assert.equal(calls.length, 1);
         assert.equal(calls[0].url, 'https://hooks.slack.com/services/T000/B000/secret');
-        assert.match(calls[0].body.text, /Battle Comparison/);
+        assert.match(calls[0].body.text, /Fight: African Lion vs Siberian Tiger/);
         assert.match(JSON.stringify(calls[0].body.attachments[0].blocks), /African Lion/);
         assert.equal(stub.updates.at(-1)['slackDelivery.status'], 'sent');
     } finally {
@@ -241,7 +241,7 @@ test('the Referer header is only a fallback, and our own pages never show as Cam
 
     // Internal page views carry their place in the visit; the landing does not show it.
     const internal = createEmbed('site_visit', sanitizeEventData('site_visit', { page: '/rankings', pages: 3 }));
-    assert.equal(internal.fields.find((field) => field.name.endsWith('Pages This Visit'))?.value, '3');
+    assert.equal(internal.fields.find((field) => field.name.endsWith(' Visit'))?.value, 'Page 3 of their visit');
     const landing = createEmbed('site_visit', sanitizeEventData('site_visit', { page: '/', pages: 1 }));
-    assert.equal(landing.fields.some((field) => field.name.endsWith('Pages This Visit')), false);
+    assert.equal(landing.fields.some((field) => field.name.endsWith(' Visit')), false);
 });

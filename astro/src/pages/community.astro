@@ -203,31 +203,99 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                     <section><h3 class="sub-h">Top countries</h3><ol class="bars" data-top-countries></ol></section>
                 </div>
 
-                <div class="ip" data-ip="events" hidden>
-                    <form class="ev-filters" data-ev-filters>
-                        <select class="ev-select" name="eventType" aria-label="Event type">
-                            <option value="">All events</option>
-                            <option value="site_visit">Page views</option>
-                            <option value="site_leave">Site exits</option>
-                            <option value="login">Logins</option>
-                            <option value="signup">Signups</option>
-                            <option value="vote">Votes</option>
-                            <option value="fight">Fights</option>
-                            <option value="comment">Comments</option>
-                            <option value="chat_message">Chat</option>
-                            <option value="tournament_complete">Tournaments</option>
-                            <option value="level_up">Level ups</option>
-                        </select>
-                        <select class="ev-select" name="deliveryStatus" aria-label="Discord delivery">
-                            <option value="">Any Discord status</option>
-                            <option value="sent">Sent</option>
-                            <option value="pending">Pending</option>
-                            <option value="failed">Failed</option>
-                        </select>
-                        <input class="ev-select" name="user" type="search" placeholder="Player" aria-label="Player" />
-                    </form>
-                    <ol class="ev-list scroll" data-ev-list></ol>
-                    <div class="ev-foot"><button class="btn btn-sm" type="button" data-ev-more hidden>Load more</button><button class="btn btn-sm" type="button" data-ev-retry hidden>Retry failed Discord posts</button></div>
+                <div class="ip ev" data-ip="events" hidden>
+                    <div class="seg ev-views" aria-label="Owner tools">
+                        <button type="button" aria-pressed="true" data-ev-view="live">Live</button>
+                        <button type="button" aria-pressed="false" data-ev-view="stream">Events</button>
+                        <button type="button" aria-pressed="false" data-ev-view="settings">Settings</button>
+                    </div>
+
+                    <div class="ev-pane scroll" data-ev-pane="live">
+                        <section>
+                            <h3 class="sub-h">On the site now <small data-ev-online-n></small></h3>
+                            <ol class="ev-online" data-ev-online><li class="muted small">Loading…</li></ol>
+                        </section>
+                        <section>
+                            <h3 class="sub-h">Last 24 hours</h3>
+                            <div class="ev-tiles" data-ev-today></div>
+                        </section>
+                        <section>
+                            <h3 class="sub-h">Most viewed pages <small>24 hours</small></h3>
+                            <ol class="bars" data-ev-pages></ol>
+                        </section>
+                        <section>
+                            <h3 class="sub-h">Where visitors came from <small>7 days</small></h3>
+                            <ol class="bars" data-ev-refs></ol>
+                        </section>
+                        <section>
+                            <h3 class="sub-h">Players active <small>24 hours</small></h3>
+                            <ol class="ev-players" data-ev-players></ol>
+                        </section>
+                        <p class="small muted" data-ev-discord></p>
+                    </div>
+
+                    <div class="ev-pane ev-stream" data-ev-pane="stream" hidden>
+                        <form class="ev-filters" data-ev-filters>
+                            <select class="ev-select" name="eventType" aria-label="Event type">
+                                <option value="">All events</option>
+                                <option value="-views">All but page views</option>
+                                <option value="site_visit">Page views</option>
+                                <option value="site_leave">Left the site</option>
+                                <option value="signup">Sign-ups</option>
+                                <option value="login">Logins</option>
+                                <option value="logout">Logouts</option>
+                                <option value="vote">Votes and fight calls</option>
+                                <option value="fight">Fights</option>
+                                <option value="comment">Comments</option>
+                                <option value="comment_reply">Comment replies</option>
+                                <option value="chat_message">Arena chat</option>
+                                <option value="tournament_complete">Tournaments</option>
+                                <option value="level_up">Level ups</option>
+                                <option value="prestige">Prestiges</option>
+                            </select>
+                            <select class="ev-select" name="deliveryStatus" aria-label="Discord delivery">
+                                <option value="">Any Discord status</option>
+                                <option value="sent">Posted</option>
+                                <option value="pending">Waiting</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                            <input class="ev-select" name="user" type="search" placeholder="Player" aria-label="Player" autocomplete="off" />
+                            <input class="ev-select" name="page" type="search" placeholder="Page, e.g. cassowary" aria-label="Page" autocomplete="off" />
+                        </form>
+                        <p class="ev-visitor" data-ev-visitor hidden><span>One visitor: <b data-ev-visitor-name></b></span><button type="button" class="link-btn" data-ev-visitor-clear>Show everyone</button></p>
+                        <ol class="ev-list scroll" data-ev-list></ol>
+                        <div class="ev-foot"><button class="btn btn-sm" type="button" data-ev-more hidden>Load more</button><button class="btn btn-sm" type="button" data-ev-retry hidden>Retry failed Discord posts</button></div>
+                    </div>
+
+                    <div class="ev-pane scroll" data-ev-pane="settings" hidden>
+                        <section>
+                            <h3 class="sub-h">Accounts not tracked</h3>
+                            <p class="small muted">Nothing these accounts do is stored or posted to Discord, and a browser they sign in on stops sending page views, even logged out.</p>
+                            <form class="ev-add" data-ev-ignore>
+                                <input class="ev-select" name="username" placeholder="Username" aria-label="Username to stop tracking" autocomplete="off" maxlength="40" required />
+                                <button class="btn btn-sm" type="submit">Stop tracking</button>
+                            </form>
+                            <ol class="ev-ignored" data-ev-ignored><li class="muted small">Loading…</li></ol>
+                        </section>
+                        <section>
+                            <h3 class="sub-h">This browser</h3>
+                            <label class="ev-check"><input type="checkbox" data-ev-device /> <span><b>Don't track this browser</b><small>Its page views and visits are not sent, even when nobody is logged in. Use it on your own phone and computer.</small></span></label>
+                        </section>
+                        <section>
+                            <h3 class="sub-h">Posted to Discord</h3>
+                            <form class="ev-discord" data-ev-discord-form>
+                                <fieldset>
+                                    <legend>Page views</legend>
+                                    <label class="ev-check"><input type="radio" name="pageViews" value="all" /> <span><b>Every page view</b><small>One post per page anyone opens.</small></span></label>
+                                    <label class="ev-check"><input type="radio" name="pageViews" value="landing" /> <span><b>First page of each visit</b><small>Where people land and where they came from; the pages after it are still listed here.</small></span></label>
+                                    <label class="ev-check"><input type="radio" name="pageViews" value="off" /> <span><b>None</b></span></label>
+                                </fieldset>
+                                <div class="ev-groups" data-ev-groups></div>
+                                <p class="small muted">Events that are not posted are still stored and listed under Events.</p>
+                                <button class="btn btn-gold btn-sm" type="submit">Save Discord settings</button>
+                            </form>
+                        </section>
+                    </div>
                 </div>
             </section>
         </div>
@@ -395,13 +463,70 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .place-detail :global(.pd-cols) { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
     .place-detail :global(.pd-cols h4) { margin: 0 0 4px; font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-2); }
 
-    .ev-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+    /* owner tools: Live, Events, Settings (the column widens while they are open) */
+    .stats-view:has([data-ip-tab="events"][aria-selected="true"]) { grid-template-columns: minmax(230px, 0.62fr) minmax(0, 0.9fr) minmax(460px, 1.55fr); }
+    .ev { gap: 8px; }
+    .ev-views { align-self: flex-start; }
+    .ev-views button { padding: 5px 14px; }
+    .ev-pane { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
+    .ev-pane[hidden] { display: none; }
+    .ev-pane section { display: grid; gap: 6px; }
+    .ev-pane .sub-h { margin: 0; }
+    .ev-pane .sub-h small { margin-left: 6px; font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: none; color: var(--muted); }
+    .ev-stream { gap: 8px; overflow: hidden; }
+    .hub :global(.ev-online), .hub :global(.ev-players), .hub :global(.ev-ignored) { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+    .hub :global(.ev-online li), .hub :global(.ev-players li), .hub :global(.ev-ignored li) { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 10px; padding: 6px 10px; font-size: 0.82rem; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 8px; }
+    .hub :global(.ev-online li b), .hub :global(.ev-players li b) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hub :global(.ev-online li a), .hub :global(.ev-players li a) { color: var(--cyan-2); font-weight: 700; }
+    .hub :global(.ev-online li small), .hub :global(.ev-players li small), .hub :global(.ev-ignored li small) { color: var(--muted); font-size: 0.72rem; white-space: nowrap; }
+    .hub :global(.ev-online .dot) { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px rgba(53, 220, 143, 0.8); vertical-align: 1px; }
+    .hub :global(.ev-tag) { display: inline-block; margin-left: 6px; padding: 0 6px; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-2); border: 1px solid rgba(246, 180, 0, 0.4); border-radius: 4px; vertical-align: 1px; }
+    .hub :global(.ev-tiles) { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 6px; }
+    .hub :global(.ev-tiles div) { display: grid; padding: 7px 10px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .hub :global(.ev-tiles b) { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; line-height: 1.05; color: #fff; }
+    .hub :global(.ev-tiles small) { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .hub :global(.ev-ignored li) { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 10px; }
+    .hub :global(.ev-ignored li > span:first-child) { min-width: 0; overflow-wrap: anywhere; }
+    .hub :global(.ev-ignored li .acts) { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+    .hub :global(.ev-ignored li .btn) { min-height: 30px; padding: 0 10px; font-size: 0.78rem; }
+    .ev-add { display: flex; gap: 6px; }
+    .ev-add input { flex: 1; height: 34px; }
+    .hub :global(.ev-check) { display: flex; align-items: flex-start; gap: 8px; padding: 6px 2px; font-size: 0.84rem; cursor: pointer; }
+    .hub :global(.ev-check input) { flex: none; margin-top: 3px; accent-color: var(--gold); }
+    .hub :global(.ev-check span) { display: grid; }
+    .hub :global(.ev-check small) { color: var(--muted); font-size: 0.74rem; }
+    .ev-discord { display: grid; gap: 8px; }
+    .hub :global(.ev-discord fieldset) { margin: 0; padding: 6px 10px 8px; border: 1px solid var(--line); border-radius: 8px; }
+    .hub :global(.ev-discord legend) { padding: 0 4px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-2); }
+    .hub :global(.ev-groups) { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+    .hub :global(.ev-groups fieldset .ev-check) { padding: 3px 2px; }
+    .ev-discord .btn { justify-self: start; }
+    .ev-visitor { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; padding: 6px 10px; font-size: 0.8rem; background: rgba(246, 180, 0, 0.1); border: 1px solid rgba(246, 180, 0, 0.4); border-radius: 8px; }
+    .ev-visitor[hidden] { display: none; }
+
+    .ev-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
     .ev-select { min-width: 0; height: 34px; padding: 0 8px; color: var(--text); font: inherit; font-size: 0.8rem; background: rgba(9, 10, 12, 0.6); border: 1px solid var(--line-2); border-radius: 8px; }
     .ev-select option { background: #17181c; }
     .hub :global(.ev-list) { flex: 1; min-height: 0; margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; align-content: start; }
-    .hub :global(.ev-list li) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; padding: 6px 10px; font-size: 0.8rem; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 8px; }
+    .hub :global(.ev-list > li) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; padding: 6px 10px; font-size: 0.8rem; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 8px; }
     .hub :global(.ev-list li b) { font-weight: 800; }
-    .hub :global(.ev-list li small) { grid-column: 1 / -1; color: var(--muted); font-size: 0.7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hub :global(.ev-list > li > small) { grid-column: 1 / -1; color: var(--muted); font-size: 0.7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hub :global(.ev-list > li:has(> details)) { display: block; padding: 0; }
+    .hub :global(.ev-list summary) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; padding: 6px 10px; list-style: none; cursor: pointer; }
+    .hub :global(.ev-list summary::-webkit-details-marker) { display: none; }
+    .hub :global(.ev-list summary:hover) { background: rgba(255, 255, 255, 0.03); }
+    .hub :global(.ev-list summary > small) { grid-column: 1 / -1; color: var(--muted); font-size: 0.7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hub :global(.ev-list .what) { overflow: hidden; text-overflow: ellipsis; }
+    .hub :global(.ev-list .what a) { color: var(--cyan-2); font-weight: 700; }
+    .hub :global(.ev-list .when) { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .hub :global(.ev-list .when small) { color: var(--muted); font-size: 0.7rem; }
+    .hub :global(.ev-list .ev-type) { display: inline-block; margin-right: 6px; font-size: 0.95rem; }
+    .hub :global(.ev-list details[open]) { background: rgba(246, 180, 0, 0.04); }
+    .hub :global(.ev-more) { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 3px 12px; margin: 0; padding: 4px 10px 10px 30px; font-size: 0.76rem; }
+    .hub :global(.ev-more dt) { color: var(--muted); font-weight: 700; }
+    .hub :global(.ev-more dd) { margin: 0; color: var(--text-2); overflow-wrap: anywhere; }
+    .hub :global(.ev-more dd a) { color: var(--cyan-2); }
+    .hub :global(.ev-more .link-btn) { margin: 0; padding: 0; }
     .hub :global(.ev-list .dstat) { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
     .hub :global(.ev-list .dstat.sent) { color: var(--green); }
     .hub :global(.ev-list .dstat.failed) { color: var(--red); }
@@ -481,8 +606,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
         .st-body { overflow-y: auto; }
         .w-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         .w-strip div:nth-child(n + 4) { display: none; }
-        .ev-filters { grid-template-columns: 1fr 1fr; }
-        .ev-filters input { grid-column: 1 / -1; }
+        .stats-view:has([data-ip-tab="events"][aria-selected="true"]) { grid-template-columns: minmax(0, 1fr); }
         .place-detail :global(.pd-nums) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 480px) {

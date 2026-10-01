@@ -1,9 +1,12 @@
 // Community world stats: who is online, the all-time site numbers, the visitor
 // globe, activity over time, places (with a per-place breakdown), top pages and
-// actions, and for the site owner the raw event stream with Discord delivery.
-// Data: /api/community?action=stats|presence|globe|globe-point|admin-analytics.
+// actions, and for the site owner: who is on which page now, every event in
+// words (with Discord delivery), and the tracking settings.
+// Data: /api/community?action=stats|presence|globe|globe-point, and for the
+// owner admin-overview|admin-analytics|admin-settings.
 import { escapeHtml, toast } from './site.js';
 import { mountGlobe } from './world.js';
+import { deviceUntracked, setDeviceUntracked } from './track.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const fmt = (value) => Number(value || 0).toLocaleString('en-US');
@@ -83,7 +86,7 @@ export function mountStats(root, { avatar }) {
         showing = name;
         $$('[data-ip-tab]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.ipTab === name)));
         $$('[data-ip]').forEach((pane) => { pane.hidden = pane.dataset.ip !== name; });
-        if (name === 'events') loadEvents(true);
+        if (name === 'events') openOwnerTools();
     }
     $$('[data-ip-tab]').forEach((tab) => tab.addEventListener('click', () => showIntel(tab.dataset.ipTab)));
     const revealOwner = () => { if (isOwner()) $('[data-owner-only]').hidden = false; };
@@ -285,16 +288,102 @@ export function mountStats(root, { avatar }) {
         world.select(null);
     });
 
-    // ------------------------------------------------------------ owner: event stream
+    // ------------------------------------------------------------ owner tools: Live, Events, Settings
     const eventList = $('[data-ev-list]');
     const filters = $('[data-ev-filters]');
     let cursor = null;
+    let ownerView = 'live';
+    let visitorFilter = null;
+    let liveTimer = 0;
+
+    const link = (url, text) => (url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(text)}</a>` : escapeHtml(text));
+    const quote = (text, max = 90) => {
+        const clean = String(text || '').replace(/\s+/g, ' ').trim();
+        return clean ? `“${escapeHtml(clean.length > max ? `${clean.slice(0, max - 1)}…` : clean)}”` : '';
+    };
+    const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return null; } };
+    const external = (url) => url && url !== 'Direct' && !/animalbattlestats\.com/.test(url);
+    const isGuest = (name) => !name || name === 'Anonymous';
+
+    // Who did it: a player (their profile) or a guest by their tag (tap to follow them).
+    function whoHtml(event) {
+        if (!isGuest(event.username)) return `<b>${link(`/profile/${encodeURIComponent(event.username)}`, event.username)}</b>`;
+        return event.visitor
+            ? `<button type="button" class="link-btn" data-ev-follow="${escapeHtml(event.visitor)}" title="Show only this visitor">Guest ${escapeHtml(event.visitor)}</button>`
+            : '<b>Guest</b>';
+    }
+
+    // What happened, in words: "landed on Cassowary from google.com".
+    function whatHtml(event) {
+        const d = event.details || {};
+        const page = event.pageLabel ? link(event.pageUrl, event.pageLabel) : '';
+        switch (event.eventType) {
+            case 'site_visit': {
+                if (Number(d.pages) > 1) return `opened ${page} <small>· page ${d.pages}</small>`;
+                const from = external(event.referrer) ? ` <small>from ${escapeHtml(hostOf(event.referrer) || event.referrer)}</small>` : '';
+                const back = Number(d.visitNumber) > 1 ? ` <span class="ev-tag">visit ${d.visitNumber}</span>` : Number(d.visitNumber) === 1 ? ' <span class="ev-tag">new</span>' : '';
+                return `landed on ${page}${from}${back}`;
+            }
+            case 'site_leave': return `left${d.duration ? ` after ${escapeHtml(d.duration)}` : ''}${page ? ` from ${page}` : ''}${d.pages ? ` <small>· ${d.pages} pages</small>` : ''}`;
+            case 'vote': return String(d.animal || '').includes(' vs ')
+                ? `called <b>${escapeHtml(d.voteType || '?')}</b> in ${escapeHtml(d.animal)}`
+                : `${d.voteType === 'up' ? 'upvoted' : 'downvoted'} ${escapeHtml(d.animal || 'an animal')}`;
+            case 'vote_changed': return `changed their vote on ${escapeHtml(d.animal || 'an animal')}`;
+            case 'vote_removed': return `removed their vote on ${escapeHtml(d.animal || 'an animal')}`;
+            case 'fight': return `ran a fight: ${escapeHtml(d.animal1 || '?')} vs ${escapeHtml(d.animal2 || '?')}`;
+            case 'comment': return `commented on ${escapeHtml(d.target || 'a page')} ${quote(d.content)}`;
+            case 'comment_reply': return `replied to ${escapeHtml(d.replyTo || 'a comment')} on ${escapeHtml(d.target || 'a page')} ${quote(d.content)}`;
+            case 'comment_upvote': return `upvoted ${escapeHtml(d.commentAuthor || 'a')}'s comment on ${escapeHtml(d.target || 'a page')}`;
+            case 'comment_downvote': return `downvoted ${escapeHtml(d.commentAuthor || 'a')}'s comment on ${escapeHtml(d.target || 'a page')}`;
+            case 'comment_deleted': return `deleted a comment on ${escapeHtml(d.target || 'a page')}`;
+            case 'chat_message': return `in the arena: ${quote(d.content)}`;
+            case 'chat_reply': return `replied in the arena: ${quote(d.content)}`;
+            case 'tournament_complete': return `finished a ${d.bracketSize || '?'}-animal tournament, won by <b>${escapeHtml(d.champion || '?')}</b>`;
+            case 'tournament_quit': return `quit a tournament at ${d.completedMatches || 0}/${d.totalMatches || 0}`;
+            case 'level_up': return `reached level ${d.level || '?'}`;
+            case 'prestige': return `prestiged to ${d.prestige || '?'}`;
+            default: return escapeHtml((EVENT_NAMES[event.eventType] || event.eventType).toLowerCase());
+        }
+    }
+
+    const ICONS = { site_visit: '👀', site_leave: '👋', login: '🔓', logout: '🔒', signup: '🎉', vote: '🗳️', vote_changed: '🔄', vote_removed: '🗑️', fight: '⚔️', comment: '💬', comment_reply: '↩️', comment_deleted: '🗑️', comment_upvote: '👍', comment_downvote: '👎', chat_message: '💬', chat_reply: '↩️', tournament_complete: '🏆', tournament_quit: '🚪', prestige: '✨', level_up: '⭐' };
+    const VERBS = { login: 'logged in', logout: 'logged out', signup: 'signed up' };
+
+    function detailRows(event) {
+        const d = { ...(event.details || {}) };
+        const rows = [];
+        const add = (label, html) => { if (html) rows.push(`<dt>${label}</dt><dd>${html}</dd>`); };
+        add('When', escapeHtml(new Date(event.occurredAt).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'medium' })));
+        if (event.pageLabel) add('Page', `${link(event.pageUrl, event.pageLabel)} <small>${escapeHtml(event.pageKind || '')} · ${escapeHtml(`${event.page || ''}${event.search || ''}`)}</small>`);
+        if (Array.isArray(event.path) && event.path.length) add('Their visit', event.path.map(escapeHtml).join(' → '));
+        if (d.lastVisitAt) add('Last visit', `${escapeHtml(ago(d.lastVisitAt))}${d.visitNumber ? ` · this is visit ${d.visitNumber}` : ''}`);
+        if (external(event.referrer)) add('Came from', link(event.referrer, event.referrer));
+        if (!isGuest(event.username)) add('Player', `${link(`/profile/${encodeURIComponent(event.username)}`, event.username)} · <button type="button" class="link-btn" data-ev-player="${escapeHtml(event.username)}">only their events</button>`);
+        if (event.visitor) add('Visitor', `Guest ${escapeHtml(event.visitor)} · <button type="button" class="link-btn" data-ev-follow="${escapeHtml(event.visitor)}">only this visitor</button>`);
+        add('Where', escapeHtml([event.location?.city, event.location?.region, countryName(event.location?.country)].filter((part) => part && part !== 'Unknown').join(', ')));
+        add('Device', escapeHtml([event.device, event.browser, event.os, event.screenSize, event.language].filter(Boolean).join(' · ')));
+        const delivery = event.discordDelivery;
+        if (delivery?.status) add('Discord', escapeHtml([delivery.status === 'sent' ? 'posted' : delivery.status, delivery.attempts > 1 ? `${delivery.attempts} tries` : '', delivery.lastError || ''].filter(Boolean).join(' · ')));
+        else add('Discord', 'not posted (Settings)');
+        ['pages', 'visitNumber', 'lastVisitAt', 'duration', 'seconds'].forEach((key) => delete d[key]);
+        for (const [key, value] of Object.entries(d)) {
+            if (value === null || value === undefined || value === '') continue;
+            const text = Array.isArray(value) ? value.map((item) => (typeof item === 'object' ? Object.values(item).join(' beat ') : item)).join(', ') : typeof value === 'object' ? JSON.stringify(value) : String(value);
+            add(escapeHtml(key.replace(/([A-Z])/g, ' $1').toLowerCase()), escapeHtml(text.slice(0, 600)));
+        }
+        return rows.join('');
+    }
 
     function eventRow(event) {
-        const where = [event.location?.city, event.location?.region, event.location?.country].filter(Boolean).join(', ');
-        const extra = [pageName(event.page), where, [event.device, event.browser].filter(Boolean).join(' '), event.referrer && !/animalbattlestats\.com/.test(event.referrer) ? `from ${event.referrer}` : ''].filter(Boolean).join(' · ');
         const status = event.discordDelivery?.status || '';
-        return `<li><span><b>${escapeHtml(event.username || 'Anonymous')}</b> ${escapeHtml(EVENT_NAMES[event.eventType] || event.eventType)}</span><span>${status ? `<span class="dstat ${escapeHtml(status)}" title="Discord">${escapeHtml(status)}</span> ` : ''}<small>${ago(event.occurredAt)}</small></span><small>${escapeHtml(extra)}</small></li>`;
+        const what = VERBS[event.eventType] || whatHtml(event);
+        const where = [event.location?.city, event.location?.country].filter(Boolean).join(', ');
+        const extra = [where, [event.device, event.browser].filter(Boolean).join(' '), event.eventType !== 'site_visit' && event.pageLabel ? `on ${event.pageLabel}` : ''].filter(Boolean).join(' · ');
+        return `<li><details><summary>
+            <span class="what"><span class="ev-type" aria-hidden="true">${ICONS[event.eventType] || '•'}</span>${whoHtml(event)} ${what}</span>
+            <span class="when">${status ? `<span class="dstat ${escapeHtml(status)}" title="Discord">${status === 'sent' ? 'posted' : escapeHtml(status)}</span>` : ''}<small>${ago(event.occurredAt)}</small></span>
+            <small>${escapeHtml(extra)}</small>
+        </summary><dl class="ev-more">${detailRows(event)}</dl></details></li>`;
     }
 
     async function loadEventPage(query) {
@@ -302,7 +391,7 @@ export function mountStats(root, { avatar }) {
         for (const [key, value] of Object.entries(query)) if (value) params.set(key, value);
         const body = await getJson(`/api/community?${params}`);
         const events = body.data?.events || [];
-        return { rows: events.map(eventRow).join(''), next: body.data?.nextCursor || null, failed: events.some((event) => event.discordDelivery?.status === 'failed'), ids: events.filter((event) => event.discordDelivery?.status === 'failed').map((event) => event.id) };
+        return { rows: events.map(eventRow).join(''), next: body.data?.nextCursor || null, ids: events.filter((event) => event.discordDelivery?.status === 'failed').map((event) => event.id) };
     }
 
     let failedIds = [];
@@ -310,8 +399,19 @@ export function mountStats(root, { avatar }) {
         if (!isOwner()) return;
         if (fresh) { cursor = null; failedIds = []; eventList.innerHTML = '<li class="muted small">Loading events…</li>'; }
         const form = new FormData(filters);
+        const type = String(form.get('eventType') || '');
+        $('[data-ev-visitor]').hidden = !visitorFilter;
+        $('[data-ev-visitor-name]').textContent = visitorFilter ? `Guest ${visitorFilter}` : '';
         try {
-            const page = await loadEventPage({ eventType: form.get('eventType'), deliveryStatus: form.get('deliveryStatus'), user: String(form.get('user') || '').trim(), cursor });
+            const page = await loadEventPage({
+                eventType: type === '-views' ? '' : type,
+                hideViews: type === '-views' ? '1' : '',
+                deliveryStatus: form.get('deliveryStatus'),
+                user: String(form.get('user') || '').trim(),
+                page: String(form.get('page') || '').trim(),
+                visitor: visitorFilter,
+                cursor
+            });
             if (fresh) eventList.innerHTML = '';
             eventList.insertAdjacentHTML('beforeend', page.rows || (fresh ? '<li class="muted small">No events match.</li>' : ''));
             cursor = page.next;
@@ -327,10 +427,133 @@ export function mountStats(root, { avatar }) {
     filters.addEventListener('submit', (event) => event.preventDefault());
     $('[data-ev-more]').addEventListener('click', () => loadEvents(false));
     $('[data-ev-retry]').addEventListener('click', async () => {
-        const response = await fetch('/api/community?action=admin-retry-discord', { method: 'POST', credentials: 'same-origin', headers: { ...headers(), 'Content-Type': 'application/json' }, body: JSON.stringify({ ids: failedIds.slice(0, 50) }) }).catch(() => null);
-        toast(response?.ok ? 'Retrying those Discord posts' : 'Could not retry right now');
-        if (response?.ok) setTimeout(() => loadEvents(true), 1500);
+        const result = await postJson('/api/community?action=admin-retry-discord', { ids: failedIds.slice(0, 50) });
+        toast(result.ok ? 'Retrying those Discord posts' : 'Could not retry right now');
+        if (result.ok) setTimeout(() => loadEvents(true), 1500);
     });
+    $('[data-ev-visitor-clear]').addEventListener('click', () => { visitorFilter = null; loadEvents(true); });
+
+    // Following someone: a guest's tag or a player's name shows only their events.
+    function follow({ visitor = null, player = null }) {
+        visitorFilter = visitor;
+        filters.elements.user.value = player || '';
+        filters.elements.page.value = '';
+        filters.elements.eventType.value = '';
+        showOwner('stream');
+    }
+    $('[data-ip="events"]').addEventListener('click', (event) => {
+        const guest = event.target.closest('[data-ev-follow]');
+        const player = event.target.closest('[data-ev-player]');
+        if (guest) { event.preventDefault(); follow({ visitor: guest.dataset.evFollow }); }
+        if (player) { event.preventDefault(); follow({ player: player.dataset.evPlayer }); }
+    });
+
+    async function postJson(url, body) {
+        const response = await fetch(url, {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { ...headers(), 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        }).catch(() => null);
+        const json = response ? await response.json().catch(() => ({})) : {};
+        return { ok: Boolean(response?.ok), body: json };
+    }
+
+    // Live: who is on which page now, the last day in numbers, top pages and sources.
+    async function loadLive() {
+        if (!isOwner()) return;
+        try {
+            const { data } = await getJson('/api/community?action=admin-overview');
+            const online = data.online || [];
+            set('[data-ev-online-n]', online.length ? `${fmt(online.length)} now` : '');
+            $('[data-ev-online]').innerHTML = online.length
+                ? online.map((row) => `<li><span><span class="dot"></span><b>${escapeHtml(row.who)}</b>${row.untracked ? '<span class="ev-tag">not tracked</span>' : ''}<br />${row.pageLabel ? link(row.pageUrl, row.pageLabel) : '<small>somewhere</small>'}</span><small>${ago(row.lastSeen)}</small></li>`).join('')
+                : '<li class="muted small">Nobody right now.</li>';
+            const t = data.today || {};
+            const tiles = [['Page views', t.pageViews], ['Visits', t.visits], ['Visitors', t.visitors], ['Sign-ups', t.signups], ['Logins', t.logins], ['Fights', t.fights], ['Votes', t.votes], ['Comments', t.comments], ['Arena chat', t.chat], ['Tournaments', t.tournaments]];
+            $('[data-ev-today]').innerHTML = tiles.map(([label, value]) => `<div><b>${compact(value)}</b><small>${label}</small></div>`).join('');
+            $('[data-ev-pages]').innerHTML = bars((data.topPages || []).map((row) => ({ label: `${link(row.url, row.label)} <small>${escapeHtml(row.kind)}</small>`, value: row.views, note: `${fmt(row.visitors)} visitors` })), { empty: 'No page views today.' });
+            $('[data-ev-refs]').innerHTML = bars((data.referrers || []).map((row) => ({ label: escapeHtml(row.host), value: row.count })), { empty: 'Everyone came straight in this week.' });
+            $('[data-ev-players]').innerHTML = (data.players || []).length
+                ? data.players.map((row) => `<li><span><button type="button" class="link-btn" data-ev-player="${escapeHtml(row.username)}">${escapeHtml(row.username)}</button></span><small>${fmt(row.events)} events · ${ago(row.last)}</small></li>`).join('')
+                : '<li class="muted small">No signed-in players today.</li>';
+            const discord = data.discord || {};
+            $('[data-ev-discord]').textContent = discord.failed || discord.pending
+                ? `Discord: ${fmt(discord.failed)} failed, ${fmt(discord.pending)} waiting. Filter Events by "Failed" to retry them.`
+                : 'Discord: every post went through.';
+        } catch {
+            $('[data-ev-online]').innerHTML = '<li class="muted small">Live numbers are unavailable right now.</li>';
+        }
+    }
+
+    // Settings: accounts left out, this browser, and what goes to Discord.
+    const deviceBox = $('[data-ev-device]');
+    function paintSettings(data) {
+        $('[data-ev-ignored]').innerHTML = (data.ignored || []).length
+            ? data.ignored.map((row) => `<li><span><b>${escapeHtml(row.username)}</b><br /><small>${fmt(row.events)} stored events${row.addedAt ? ` · since ${escapeHtml(day(row.addedAt))}` : ''}</small></span><span class="acts">${row.events ? `<button type="button" class="btn btn-sm btn-danger" data-ev-purge="${escapeHtml(row.username)}" data-n="${row.events}">Delete their events</button>` : ''}<button type="button" class="btn btn-sm" data-ev-unignore="${escapeHtml(row.username)}">Track again</button></span></li>`).join('')
+            : '<li class="muted small">Every account is tracked.</li>';
+        const form = $('[data-ev-discord-form]');
+        const mode = data.discord?.pageViews || 'all';
+        for (const radio of form.querySelectorAll('[name="pageViews"]')) radio.checked = radio.value === mode;
+        const off = new Set(data.discord?.off || []);
+        $('[data-ev-groups]').innerHTML = (data.groups || []).map((group) => `<fieldset><legend>${escapeHtml(group.label)}</legend>${group.types.map(([type, label]) => `<label class="ev-check"><input type="checkbox" name="post" value="${escapeHtml(type)}"${off.has(type) ? '' : ' checked'} /> <span>${escapeHtml(label)}</span></label>`).join('')}</fieldset>`).join('');
+    }
+    async function loadSettings() {
+        if (!isOwner()) return;
+        deviceBox.checked = deviceUntracked();
+        try {
+            const body = await getJson('/api/community?action=admin-settings');
+            paintSettings(body.data || {});
+        } catch {
+            $('[data-ev-ignored]').innerHTML = '<li class="muted small">Settings are unavailable right now.</li>';
+        }
+    }
+    async function changeSettings(change) {
+        const result = await postJson('/api/community?action=admin-settings', change);
+        if (!result.ok) { toast(result.body?.error || 'Could not save that'); return false; }
+        paintSettings(result.body.data || {});
+        if (result.body.data?.message) toast(result.body.data.message);
+        return true;
+    }
+    $('[data-ev-ignore]').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const input = event.currentTarget.elements.username;
+        if (await changeSettings({ op: 'ignore', username: input.value.trim() })) input.value = '';
+    });
+    $('[data-ev-ignored]').addEventListener('click', async (event) => {
+        const purge = event.target.closest('[data-ev-purge]');
+        const unignore = event.target.closest('[data-ev-unignore]');
+        if (purge) {
+            const name = purge.dataset.evPurge;
+            if (!window.confirm(`Delete all ${fmt(purge.dataset.n)} stored events from ${name}? This cannot be undone. The site's numbers and the globe drop them too.`)) return;
+            purge.disabled = true;
+            await changeSettings({ op: 'purge', username: name });
+        }
+        if (unignore) await changeSettings({ op: 'unignore', username: unignore.dataset.evUnignore });
+    });
+    deviceBox.addEventListener('change', () => {
+        setDeviceUntracked(deviceBox.checked);
+        toast(deviceBox.checked ? 'This browser is no longer tracked' : 'This browser is tracked again');
+    });
+    $('[data-ev-discord-form]').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const posted = new Set([...form.querySelectorAll('[name="post"]:checked')].map((box) => box.value));
+        const off = [...form.querySelectorAll('[name="post"]')].map((box) => box.value).filter((type) => !posted.has(type));
+        await changeSettings({ op: 'discord', discord: { pageViews: form.elements.pageViews.value || 'all', off } });
+    });
+
+    function showOwner(view) {
+        ownerView = view;
+        $$('[data-ev-view]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.evView === view)));
+        $$('[data-ev-pane]').forEach((pane) => { pane.hidden = pane.dataset.evPane !== view; });
+        clearInterval(liveTimer);
+        if (view === 'live') { loadLive(); liveTimer = setInterval(() => { if (showing === 'events' && ownerView === 'live' && !document.hidden && !root.hidden) loadLive(); }, 30000); }
+        if (view === 'stream') loadEvents(true);
+        if (view === 'settings') loadSettings();
+    }
+    $$('[data-ev-view]').forEach((button) => button.addEventListener('click', () => showOwner(button.dataset.evView)));
+    function openOwnerTools() { showOwner(ownerView); }
 
     // ------------------------------------------------------------ refresh while open
     let timers = [];

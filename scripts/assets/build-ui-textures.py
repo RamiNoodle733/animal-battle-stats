@@ -139,9 +139,11 @@ def hex_texture(cols, rowpairs, r, seed, base, spread, hi, lo, groove, grain, pl
 
 # ---------------------------------------------------------------- card shards
 
-def shards(tier, light, dark, seed=7):
-    """Angular diagonal bands behind the animal, tinted to the tier, with a glow."""
-    w, h = 600, 800
+def shards(tier, light, dark, seed=7, scale=1.0, size=(420, 560)):
+    """Angular diagonal bands behind the animal, tinted to the tier, with a glow.
+    Drawn on a 600x800 grid times `scale` (the full-size card uses 1.5), then
+    resized to `size` (None keeps the drawn size)."""
+    w, h = round(600 * scale), round(800 * scale)
     rng = np.random.default_rng(seed)
     mask = Image.new('L', (w, h), 0)
     edges = Image.new('L', (w, h), 0)
@@ -150,12 +152,13 @@ def shards(tier, light, dark, seed=7):
     # bands: (x at top, width, alpha, top y, bottom y) running down-left at the card angle
     slope = 0.42  # x shift per unit of y
     bands = [(330, 130, 98, -40, 860), (505, 46, 70, 60, 700), (600, 22, 54, -20, 520), (170, 18, 48, 380, 860)]
+    bands = [tuple(value * scale if index != 2 else value for index, value in enumerate(band)) for band in bands]
     for x0, width, alpha, top, bottom in bands:
         tip = width * 0.9
         pts = [(x0 - slope * top, top), (x0 + width - slope * top, top + tip * 0.2), (x0 + width - slope * bottom, bottom), (x0 - slope * bottom, bottom - tip * 0.2)]
         draw.polygon(pts, fill=alpha)
-        edge.line([pts[0], pts[3]], fill=235, width=3)
-        edge.line([pts[1], pts[2]], fill=140, width=2)
+        edge.line([pts[0], pts[3]], fill=235, width=round(3 * scale))
+        edge.line([pts[1], pts[2]], fill=140, width=round(2 * scale))
     m = np.asarray(mask, dtype=np.float64)
     # streaks along the bands
     streak = rng.normal(0, 1, (h // 4, w // 40))
@@ -174,7 +177,8 @@ def shards(tier, light, dark, seed=7):
     base = rgb(tier)
     colour = base[None, None, :] + (rgb(light) - base)[None, None, :] * np.clip(e[..., None] / 255, 0, 1)
     out = np.dstack([colour, alpha])
-    return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8), 'RGBA').resize((420, 560), Image.LANCZOS)
+    image = Image.fromarray(np.clip(out, 0, 255).astype(np.uint8), 'RGBA')
+    return image.resize(size, Image.LANCZOS) if size else image
 
 
 # ---------------------------------------------------------------- signed distance helpers

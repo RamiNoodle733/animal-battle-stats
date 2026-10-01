@@ -102,9 +102,20 @@ Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, import
 - `community.js`, `comments.js`, `votes.js`, `world.js` - community hub, comment threads, animal votes, visitor globe
 - `auth.js`, `profile.js` - sign-in forms and player profiles
 - `sfx.js`, `track.js` - synthesized sound effects and visit analytics
+- The collectible cards, loaded only when someone opens a card or shares (dynamic `import()`, so no page carries them up front):
+  - `abs-card.js` - draws an animal's card on a canvas: the front (art over its biome and tier shards, power, crest, archetype tag, name plate, card number) and the back (number strip, portrait, stat bars, abilities, the signature move). Every other card feature uses it, so they always match
+  - `card-scenes.js` - the share pictures (1080x1350): the card, front and back, and the Versus face-off with the result
+  - `card-reel.js` - the 9:16 videos, drawn frame by frame and recorded with `MediaRecorder` (MP4 where the browser can, WebM otherwise)
+  - `card-viewer.js` - the 3D card on animal pages (`/stats/<animal>#card` opens it): drag to turn, tap or arrow keys to flip, live foil and glare
+  - `share-card.js` - the share sheet for animals and matchups: format tabs, the native share sheet with the file attached, save and copy link
+  - `card-styles.js` - adds `styles/cards.css` the first time the viewer or the share sheet opens
+
+The card data for each animal is written into its page at build time (`astro/src/lib/card.js`, a `<script type="application/json" id="abs-card">`); Versus builds cards from `/data/animals-lite.json` (`cardFromIndex`).
 
 ### Styles
-`astro/src/styles/abs.css` is the design system, imported once by `Base.astro`; Astro bundles it into `/_astro/*.css`. Fonts come from `@fontsource-variable` packages.
+`astro/src/styles/abs.css` is the design system, imported once by `Base.astro`; Astro bundles it into `/_astro/*.css`. Fonts come from `@fontsource-variable` packages. `astro/src/styles/cards.css` styles the card viewer and the share sheet and ships inside their script (see above).
+
+The surface art in `images/ui/` is rendered by the Python scripts in `scripts/assets/` (`build-ui-textures.py`, `build-ui-scenes.py`, `build-ui-badges.py`, `build-ui-icons.py`); `build-ui-cards.py` renders the full-size card art: the 9-slice metal frames, the tier shards and biome backdrops at card resolution, and the holographic foil tile.
 
 ---
 

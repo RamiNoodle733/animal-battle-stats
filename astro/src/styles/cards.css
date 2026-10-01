@@ -1,0 +1,233 @@
+/* =====================================================================
+   The collectible cards: the 3D card viewer (scripts/card-viewer.js) and
+   the share sheet (scripts/share-card.js). Loaded with those scripts, only
+   when someone opens a card or shares, so no page carries it up front.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------- the 3D card viewer */
+
+.card-viewer {
+    --tier: #8a909c;
+    --tier-2: #d4d7de;
+    --cw: min(82vw, calc((100dvh - 230px) * 5 / 7), 470px);
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0 0 env(safe-area-inset-bottom);
+    color: var(--text);
+    background:
+        radial-gradient(55% 45% at 50% 46%, color-mix(in srgb, var(--tier) 26%, transparent), transparent 72%),
+        radial-gradient(120% 90% at 50% 60%, transparent 50%, rgba(0, 0, 0, 0.6)),
+        url("/images/ui/stage.webp") center 60% / cover no-repeat,
+        #0b0c0e;
+    border: 0;
+    overflow: hidden;
+}
+.card-viewer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto; }
+.card-viewer::backdrop { background: rgba(4, 4, 6, 0.85); }
+
+.cv-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: max(10px, env(safe-area-inset-top)) 14px 6px 18px; }
+.cv-title { display: grid; gap: 2px; min-width: 0; }
+.cv-title b { overflow: hidden; font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; }
+.cv-title small { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-2); }
+
+.cv-stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 0;
+    touch-action: none;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.cv-stage:active { cursor: grabbing; }
+.cv-float { perspective: 1500px; animation: cv-float 5.5s ease-in-out infinite; }
+@keyframes cv-float { 0%, 100% { transform: translateY(-5px); } 50% { transform: translateY(6px); } }
+
+.cv-card {
+    --rx: 8deg;
+    --ry: -38deg;
+    --band: 50%;
+    --hx: 0px;
+    --hy: 0px;
+    --gx: 40%;
+    --gy: 25%;
+    position: relative;
+    width: var(--cw);
+    aspect-ratio: 5 / 7;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    outline: none;
+}
+.cv-card:focus-visible .cv-face { outline: 2px solid var(--gold); outline-offset: 4px; }
+.cv-face {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: calc(var(--cw) * 0.046);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(2px);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+    box-shadow: 0 26px 50px rgba(0, 0, 0, 0.55);
+}
+.cv-card.is-ready .cv-face { opacity: 1; }
+.cv-back { transform: rotateY(180deg) translateZ(2px); }
+.cv-layer { position: absolute; inset: 0; }
+.cv-layer canvas { display: block; width: 100%; height: 100%; }
+
+/* The foil sits between the front's background and its art (the same field
+   as the card art: 2.4% in from the sides, 24% up from the bottom). A band of
+   it catches the light; the band and the rainbow slide as the card turns. */
+.cv-holo {
+    position: absolute;
+    top: 1.71%; left: 2.4%; right: 2.4%; bottom: 24%;
+    background: url("/images/ui/holo.webp") var(--hx) var(--hy) / 46% auto repeat;
+    mix-blend-mode: color-dodge;
+    opacity: var(--foil, 0.5);
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(115deg, transparent calc(var(--band) - 40%), rgba(0, 0, 0, 0.5) calc(var(--band) - 16%), #000 var(--band), rgba(0, 0, 0, 0.5) calc(var(--band) + 16%), transparent calc(var(--band) + 40%));
+    mask-image: linear-gradient(115deg, transparent calc(var(--band) - 40%), rgba(0, 0, 0, 0.5) calc(var(--band) - 16%), #000 var(--band), rgba(0, 0, 0, 0.5) calc(var(--band) + 16%), transparent calc(var(--band) + 40%));
+}
+.cv-holo + .cv-holo { mix-blend-mode: screen; opacity: calc(var(--foil, 0.5) * 0.5); }
+.cv-glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--gx) var(--gy), rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.08) 26%, transparent 56%);
+    mix-blend-mode: overlay;
+}
+/* The card's edges, so it has a thickness when it turns side-on. */
+.cv-edge {
+    position: absolute;
+    top: 4.6%;
+    bottom: 4.6%;
+    width: 4px;
+    background: linear-gradient(180deg, var(--tier-2), var(--tier) 30%, color-mix(in srgb, var(--tier) 45%, #000) 100%);
+}
+.cv-edge-l { left: -2px; transform: rotateY(-90deg); }
+.cv-edge-r { right: -2px; transform: rotateY(90deg); }
+.cv-floor {
+    position: absolute;
+    left: 50%;
+    top: calc(50% + var(--cw) * 0.72);
+    width: calc(var(--cw) * 0.9);
+    height: 26px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(0, 0, 0, 0.65), transparent);
+    pointer-events: none;
+}
+.cv-wait { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.9rem; color: var(--muted); pointer-events: none; }
+.cv-hint { margin: 0; padding: 4px 16px 0; text-align: center; font-size: 0.78rem; color: var(--muted); }
+.cv-actions { display: flex; justify-content: center; gap: 10px; padding: 10px 16px max(16px, env(safe-area-inset-bottom)); }
+.cv-actions .btn { min-width: 140px; }
+
+@media (hover: hover) and (pointer: fine) {
+    .cv-hint::after { content: " · or use the arrow keys"; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .cv-float { animation: none; }
+}
+
+/* ---------------------------------------------------------------- the share sheet */
+
+.share-sheet {
+    width: min(480px, calc(100vw - 20px));
+    max-height: calc(100dvh - 24px);
+    padding: 0;
+    color: var(--text);
+    background: var(--hex) 0 0 / var(--hex-size), linear-gradient(180deg, #1c1d21, #131417);
+    border: 1px solid var(--frame-2);
+    border-radius: 14px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+.share-sheet::backdrop { background: rgba(4, 4, 6, 0.75); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+.ss-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px 10px 16px; border-bottom: 1px solid var(--line); }
+.ss-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* Formats: segmented plates, the chosen one gold. */
+.ss-tabs { display: flex; gap: 6px; padding: 12px 14px 0; }
+.ss-tab {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 38px;
+    padding: 0 8px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--line-2);
+    border-radius: 8px;
+    transition: color 0.15s, border-color 0.15s;
+}
+.ss-tab:hover { color: #fff; border-color: var(--frame-2); }
+.ss-tab[aria-pressed="true"] {
+    color: #1d1400;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+    border-color: transparent;
+    border-image: var(--plate-gold) 24 fill / 9px / 0 stretch;
+}
+.ss-tab svg { width: 16px; height: 16px; flex: none; }
+
+/* One box for every format (pictures are 4:5, videos 9:16), so nothing jumps. */
+.ss-preview {
+    position: relative;
+    display: grid;
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+    place-items: center;
+    height: min(54dvh, 520px);
+    margin: 12px 14px 0;
+    background: #0b0c0e;
+    border: 1px solid var(--line-2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.ss-preview > * { grid-area: 1 / 1; }
+.ss-preview img, .ss-preview video { width: 100%; height: 100%; object-fit: contain; }
+.ss-preview canvas { width: auto; max-width: 100%; height: 100%; aspect-ratio: 9 / 16; }
+.ss-preview img:not([src]), .ss-preview video:not([src]) { display: none; }
+.ss-wait { font-size: 0.86rem; color: var(--muted); }
+.ss-progress {
+    position: absolute;
+    left: 14px; right: 14px; bottom: 12px;
+    height: 6px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 3px;
+}
+.ss-progress i { display: block; width: calc(var(--p, 0) * 100%); height: 100%; background: linear-gradient(90deg, var(--gold-d), var(--gold)); }
+.ss-rec {
+    position: absolute;
+    top: 10px; left: 10px;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 9px;
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+    background: rgba(8, 9, 11, 0.8);
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+}
+.ss-rec::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: ss-blink 1s steps(2) infinite; }
+@keyframes ss-blink { 50% { opacity: 0.2; } }
+
+.ss-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 8px; padding: 12px 14px 4px; }
+.ss-actions .btn { min-height: 44px; padding: 0 10px; font-size: 0.98rem; }
+.ss-actions [hidden] { display: none; }
+.ss-actions .is-busy { pointer-events: none; filter: grayscale(0.6) brightness(0.75); }
+.ss-note { margin: 4px 16px 14px; font-size: 0.78rem; color: var(--muted); }
+
+@media (max-width: 420px) {
+    .ss-tab { font-size: 0.9rem; }
+    .ss-tab svg { display: none; }
+}

@@ -196,6 +196,11 @@ const nf = (value, digits = 0) => Number(value).toLocaleString('en-US', { maximu
 export function fmtWeight(kg) {
     const value = Number(kg);
     if (!(value > 0)) return null;
+    // insects weigh milligrams: "0 g" would read as nothing
+    if (value < 0.001) {
+        const oz = value * 35.274;
+        return { metric: `${nf(value * 1e6, value < 0.00001 ? 1 : 0)} mg`, imperial: `${nf(oz, Math.min(8, 1 - Math.floor(Math.log10(oz))))} oz` };
+    }
     if (value < 1) return { metric: `${nf(value * 1000, value < 0.01 ? 1 : 0)} g`, imperial: `${nf(value * 35.274, 1)} oz` };
     if (value >= 1000) return { metric: `${nf(value / 1000, 1)} t`, imperial: `${nf(value * 2.20462 / 2000, 1)} US tons` };
     return { metric: `${nf(value, value < 100 ? 1 : 0)} kg`, imperial: `${nf(value * 2.20462, 0)} lb` };

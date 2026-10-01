@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.5.0 — 2026-10-01
+
+Every animal is now a collectible card, like the Injustice trading cards, and sharing sends the card, not just a link.
+
+- **The ABS card.** Each of the 344 animals has a full-size card. The front is the site's card at full size: the animal over its biome, the tier shards and a holographic foil, power, the tier crest, the archetype on a gold tag (Striker, Heavyweight...), the name plate and the card number (No. 114/344). The back is laid out like an Injustice card back: the barcode strip with the number and tier stars, a portrait, all six stat bars, two abilities and two traits with their metal icons, the conservation status, the measurements and the signature move with what it does.
+- **The card in 3D.** Animal pages have a Card button: the card opens on the arena floor and can be turned by dragging (it keeps spinning a little and settles on a side), flipped with a tap or the arrow keys, and on a computer it leans toward the pointer. The foil and the gloss move with the light. A link like `/stats/cassowary#card` opens straight to it.
+- **Share the card.** Share on an animal page offers the card, the front and back side by side (4:5, made for Instagram, X and Discord) or an 8-second video for Reels, TikTok, Shorts and Stories: the card rises in, the foil catches the light, it flips and the stat bars fill. Phones open the share sheet with the picture or video attached; anyone can save it or copy the link, which opens the card in 3D.
+- **Share a fight as a face-off.** Versus shares the two cards squared up across the VS emblem: before the fight a challenge with the odds hidden ("make your call"), after it the result, with the winner's card glowing under a WINNER plate and the loser drained of colour with a K.O. stamp, and the odds. Crowds are named on a gold plate under their card ("10 Humans"). There is a face-off video too: the cards slide in, the VS slams down and the loser gets knocked out.
+- New art for the cards (`scripts/assets/build-ui-cards.py`): metal frames for each tier with an engraved groove and corner rivets, the tier shards and biome backdrops at card resolution, and a holographic foil of hex facets that flash as the card turns.
+- The card code loads only when someone opens a card or shares, so pages are no heavier.
+- Fixed: the smallest insects (mosquito, army ant, bombardier beetle, honey bee) showed a weight of "0 g"; they now show milligrams.
+
 ## 4.4.0 — 2026-09-30
 
 - **Halal wording across the site.** No Greek or Roman mythology, other religions' gods or figures, or superstition in anything the site says:

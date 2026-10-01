@@ -944,31 +944,6 @@ body.game {
 }
 .toast.show { transform: translate(-50%, 0); opacity: 1; }
 
-/* ---------------------------------------------------------------- share sheet (scripts/share-card.js) */
-
-.share-sheet {
-    width: min(460px, calc(100vw - 20px));
-    max-height: calc(100dvh - 24px);
-    padding: 0;
-    color: var(--text);
-    background: var(--hex) 0 0 / var(--hex-size), linear-gradient(180deg, #1c1d21, #131417);
-    border: 1px solid var(--frame-2);
-    border-radius: 14px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
-    overflow: auto;
-}
-.share-sheet::backdrop { background: rgba(4, 4, 6, 0.75); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
-.ss-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px 10px 16px; border-bottom: 1px solid var(--line); }
-.ss-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
-.ss-preview { position: relative; display: grid; place-items: center; margin: 12px 14px 0; aspect-ratio: 4 / 5; max-height: 52dvh; background: #0b0c0e; border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden; }
-.ss-preview img { width: 100%; height: 100%; object-fit: contain; }
-.ss-preview img:not([src]) { display: none; }
-.ss-wait { font-size: 0.86rem; color: var(--muted); }
-.ss-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 8px; padding: 12px 14px 4px; }
-.ss-actions .btn { min-height: 44px; padding: 0 10px; font-size: 0.98rem; }
-.ss-actions [hidden] { display: none; }
-.ss-note { margin: 4px 16px 14px; font-size: 0.78rem; color: var(--muted); }
-
 /* ---------------------------------------------------------------- search dialog */
 
 .search-dialog {

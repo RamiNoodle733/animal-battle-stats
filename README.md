@@ -18,6 +18,7 @@ A web application that presents animal statistics in an engaging fighting game-s
 ### 🎮 Fighting Game Interface
 - **Character Select Screen**: Stats view with centered character display and flanking stat panels
 - **VS Battle Mode**: Compare two fighters head-to-head with dramatic VS badge
+- **Collectible Cards**: Every animal has an Injustice-style card (front and back) you can turn in 3D and share as a picture or a short video; fights share as a face-off of the two cards
 - **Photographic Animal Cutouts**: Animal assets are being standardized on real photos with genuine transparency and traceable sources
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 

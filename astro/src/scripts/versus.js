@@ -13,7 +13,6 @@ import { sfx, shake } from './sfx.js';
 import { mountComments } from './comments.js';
 import { trackFight } from './track.js';
 import { HUMAN } from './human.js';
-import { openShare } from './share-card.js';
 
 // The engine is a UMD file shared with the server build: bundlers hand back
 // its CommonJS export, plain browsers get the global.
@@ -563,18 +562,11 @@ function randomMatchup() {
 }
 root.querySelector('[data-random]')?.addEventListener('click', randomMatchup);
 
-// ---------------------------------------------------------------- share as a picture
+// ---------------------------------------------------------------- share the face-off
 
-function shareFighter(animal, count) {
-    return {
-        src: animal.m,
-        tier: animal.h ? 'h' : animal.tier.toLowerCase(),
-        label: label(animal, count),
-        meta: animal.h ? 'Human · not ranked with animals' : `${animal.cls} · #${animal.r} of ${state.index.size - 1}`,
-        power: animal.h ? null : fmt(animal.p)
-    };
-}
-shareButton?.addEventListener('click', () => {
+// The two fighters' cards squared up (scripts/share-card.js, loaded on demand):
+// before the fight a challenge with the odds hidden, after it the result.
+shareButton?.addEventListener('click', async () => {
     const a = state.index.get(state.a);
     const b = state.index.get(state.b);
     if (!a || !b || state.fighting) return;
@@ -584,15 +576,22 @@ shareButton?.addEventListener('click', () => {
     const revealed = !root.classList.contains('is-sealed');
     const result = state.result;
     const winner = result ? label(result === 'a' ? a : b, result === 'a' ? state.na : state.nb) : null;
-    openShare({
-        a: shareFighter(a, state.na),
-        b: shareFighter(b, state.nb),
-        odds: revealed ? Math.round(probability(a, b) * 100) : null,
-        result,
-        url: location.href.split('#')[0],
-        text: result ? `${winner} won the fight. Who would you pick?` : `Who would win: ${la} or ${lb}? Make your call:`,
-        name: `${la} vs ${lb}`
-    });
+    try {
+        const [{ shareMatchup }, { cardFromIndex }] = await Promise.all([import('./share-card.js'), import('./abs-card.js')]);
+        const total = state.index.size - 1;
+        shareMatchup({
+            a: cardFromIndex(a, total),
+            b: cardFromIndex(b, total),
+            na: state.na,
+            nb: state.nb,
+            labels: [la, lb],
+            odds: revealed ? Math.round(probability(a, b) * 100) : null,
+            result,
+            url: location.href.split('#')[0],
+            text: result ? `${winner} won the fight. Who would you pick?` : `Who would win: ${la} or ${lb}? Make your call:`,
+            name: `${la} vs ${lb}`
+        });
+    } catch { toast('Could not open sharing. Check your connection.'); }
 });
 
 // ---------------------------------------------------------------- wiring

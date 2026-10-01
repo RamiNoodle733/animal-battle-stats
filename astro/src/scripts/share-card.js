@@ -1,288 +1,227 @@
-// Share a matchup as a picture: a 1080x1350 card (4:5, right for Instagram,
-// TikTok photos, X and Discord) drawn on a canvas in the site's card style.
-// Before the fight it is a challenge ("who would win? make your call"); after
-// the fight or Show it carries the result and the odds. Phones get the native
-// share sheet with the image attached; everyone can save it or copy the link.
-import { toast } from './site.js';
+// The share sheet. An animal shares as its card (the front, or front and back
+// together) or as a short video of the card; a matchup shares as the
+// face-off (before the fight a challenge with the odds hidden, after it the
+// result) or as a face-off video. Pictures are drawn and videos recorded in
+// the browser (card-scenes.js, card-reel.js). Phones get the share sheet with
+// the file attached; everyone can save the file or copy the link.
+import './card-styles.js';
+import { cardPicture, bothPicture, faceoffPicture } from './card-scenes.js';
+import { cardReel, faceoffReel, record, videoType, CARD_REEL, FACEOFF_REEL } from './card-reel.js';
 
-const W = 1080;
-const H = 1350;
-const GOLD = '#f6b400';
-const DISPLAY = '"Big Shoulders Display", Impact, sans-serif';
-const BODY = 'Inter, system-ui, sans-serif';
-
-const images = new Map();
-function load(src) {
-    if (!images.has(src)) {
-        images.set(src, new Promise((resolve) => {
-            const img = new Image();
-            img.decoding = 'async';
-            img.onload = () => resolve(img);
-            img.onerror = () => resolve(null);
-            img.src = src;
-        }));
-    }
-    return images.get(src);
-}
-
-// The site's plate texture (images/ui/hex-card.webp, a seamless tile).
-async function plates(ctx) {
-    const tile = await load('/images/ui/hex-card.webp');
-    if (!tile) return;
-    ctx.save();
-    ctx.fillStyle = ctx.createPattern(tile, 'repeat');
-    ctx.fillRect(0, 0, W, H);
-    ctx.restore();
-}
-
-function roundRect(ctx, x, y, w, h, r) {
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.arcTo(x + w, y, x + w, y + h, r);
-    ctx.arcTo(x + w, y + h, x, y + h, r);
-    ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
-    ctx.closePath();
-}
-
-function fitText(ctx, text, font, size, maxWidth) {
-    let current = size;
-    ctx.font = `900 ${current}px ${font}`;
-    while (ctx.measureText(text).width > maxWidth && current > 20) {
-        current -= 2;
-        ctx.font = `900 ${current}px ${font}`;
-    }
-    return current;
-}
-
-// Draws one fighter: the photo in a box (equal-area, mirrored for the right
-// side), then a name plate with the tier crest and the power number.
-async function fighter(ctx, f, box, plateY, mirror) {
-    const img = await load(f.src);
-    if (img) {
-        const scale = Math.min(box.w / img.width, box.h / img.height);
-        const dw = img.width * scale;
-        const dh = img.height * scale;
-        const dx = box.x + (box.w - dw) / 2;
-        const dy = box.y + box.h - dh;
-        ctx.save();
-        ctx.shadowColor = 'rgba(0,0,0,0.6)';
-        ctx.shadowBlur = 30;
-        ctx.shadowOffsetY = 18;
-        if (mirror) {
-            ctx.translate(dx + dw, dy);
-            ctx.scale(-1, 1);
-            ctx.drawImage(img, 0, 0, dw, dh);
-        } else ctx.drawImage(img, dx, dy, dw, dh);
-        ctx.restore();
-    }
-    // plate
-    const x = 60;
-    const w = W - 120;
-    const h = 104;
-    ctx.save();
-    roundRect(ctx, x, plateY, w, h, 14);
-    ctx.fillStyle = 'rgba(11,12,14,0.94)';
-    ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = f.winner ? GOLD : 'rgba(214,219,228,0.35)';
-    ctx.stroke();
-    ctx.restore();
-    const crest = await load(`/images/ui/tier-${f.tier}.svg`);
-    if (crest) ctx.drawImage(crest, x + 18, plateY + 12, 68, 80);
-    // gold chevron + name
-    const nameX = x + 106;
-    const size = fitText(ctx, f.label.toUpperCase(), DISPLAY, f.meta ? 60 : 70, w - 106 - 190);
-    ctx.fillStyle = '#fff';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(f.label.toUpperCase(), nameX, f.meta ? plateY + 40 : plateY + h / 2 + 4);
-    ctx.font = `600 21px ${BODY}`;
-    ctx.fillStyle = '#9ba0a8';
-    if (f.meta) ctx.fillText(f.meta, nameX, plateY + 82);
-    // power (or the winner tag)
-    ctx.textAlign = 'right';
-    if (f.winner) {
-        ctx.font = `900 30px ${DISPLAY}`;
-        const tag = 'WINNER';
-        const tw = ctx.measureText(tag).width + 36;
-        roundRect(ctx, x + w - 20 - tw, plateY + 30, tw, 44, 8);
-        ctx.fillStyle = GOLD;
-        ctx.fill();
-        ctx.fillStyle = '#1d1400';
-        ctx.fillText(tag, x + w - 38, plateY + 54);
-    } else if (f.power != null) {
-        ctx.font = `900 52px ${DISPLAY}`;
-        ctx.fillStyle = '#fff';
-        ctx.fillText(String(f.power), x + w - 26, plateY + 48);
-        ctx.font = `800 18px ${BODY}`;
-        ctx.fillStyle = GOLD;
-        ctx.fillText('POWER', x + w - 26, plateY + 84);
-    }
-    ctx.textAlign = 'left';
-    return size;
-}
-
-export async function drawMatchCard({ a, b, odds = null, result = null }) {
-    try { await Promise.all([document.fonts.load(`900 80px ${DISPLAY}`), document.fonts.load(`600 24px ${BODY}`)]); } catch { /* system font */ }
-    const canvas = document.createElement('canvas');
-    canvas.width = W;
-    canvas.height = H;
-    const ctx = canvas.getContext('2d');
-
-    // background: charcoal, hex mesh, a faint gold beam, silver frame, gold top bar
-    ctx.fillStyle = '#16171b';
-    ctx.fillRect(0, 0, W, H);
-    await plates(ctx);
-    const shade = ctx.createLinearGradient(0, 0, 0, H);
-    shade.addColorStop(0, 'rgba(0,0,0,0.25)');
-    shade.addColorStop(1, 'rgba(0,0,0,0.6)');
-    ctx.fillStyle = shade;
-    ctx.fillRect(0, 0, W, H);
-    const shards = await load('/images/ui/shards-s.webp');
-    if (shards) {
-        ctx.save();
-        ctx.globalAlpha = 0.55;
-        ctx.drawImage(shards, -60, 60, W * 1.1, W * 1.1 * (4 / 3));
-        ctx.restore();
-    }
-    const vignette = ctx.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.8);
-    vignette.addColorStop(0, 'rgba(0,0,0,0)');
-    vignette.addColorStop(1, 'rgba(0,0,0,0.55)');
-    ctx.fillStyle = vignette;
-    ctx.fillRect(0, 0, W, H);
-    ctx.fillStyle = GOLD;
-    ctx.fillRect(0, 0, W, 10);
-    roundRect(ctx, 16, 26, W - 32, H - 42, 22);
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgba(214,219,228,0.25)';
-    ctx.stroke();
-
-    // header
-    const logo = await load('/images/logo.png');
-    if (logo) ctx.drawImage(logo, 60, 58, 64, 64);
-    ctx.font = `900 30px ${DISPLAY}`;
-    ctx.fillStyle = '#f3f4f6';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('ANIMAL BATTLE STATS', 138, 92);
-    const title = result ? 'THE RESULT' : 'WHO WOULD WIN?';
-    ctx.textAlign = 'center';
-    fitText(ctx, title, DISPLAY, 112, W - 140);
-    ctx.fillStyle = '#fff';
-    ctx.shadowColor = 'rgba(0,0,0,0.5)';
-    ctx.shadowOffsetY = 5;
-    ctx.fillText(title, W / 2, 196);
-    ctx.shadowColor = 'transparent';
-    ctx.textAlign = 'left';
-
-    // fighters: A on top, B below (mirrored), the VS emblem between
-    await fighter(ctx, { ...a, winner: result === 'a' }, { x: 110, y: 262, w: W - 220, h: 290 }, 566, false);
-    await fighter(ctx, { ...b, winner: result === 'b' }, { x: 110, y: 752, w: W - 220, h: 290 }, 1056, true);
-    const vs = await load('/images/ui/vs.svg');
-    if (vs) ctx.drawImage(vs, W / 2 - 110, 660, 220, 163);
-
-    // footer: odds, or the challenge
-    const footY = 1196;
-    if (odds != null) {
-        const split = 60 + ((W - 120) * odds) / 100;
-        ctx.save();
-        roundRect(ctx, 60, footY, W - 120, 56, 12);
-        ctx.clip();
-        const ga = ctx.createLinearGradient(0, footY, 0, footY + 56);
-        ga.addColorStop(0, '#ffd54a'); ga.addColorStop(1, '#eaa400');
-        ctx.fillStyle = ga;
-        ctx.fillRect(60, footY, split - 60, 56);
-        const gb = ctx.createLinearGradient(0, footY, 0, footY + 56);
-        gb.addColorStop(0, '#f1f2f5'); gb.addColorStop(1, '#b9bec8');
-        ctx.fillStyle = gb;
-        ctx.fillRect(split, footY, W - 60 - split, 56);
-        ctx.fillStyle = '#0b0c0e';
-        ctx.fillRect(split - 2, footY, 4, 56);
-        ctx.restore();
-        ctx.font = `900 40px ${DISPLAY}`;
-        ctx.fillStyle = '#1d1400';
-        ctx.fillText(`${odds}%`, 80, footY + 30);
-        ctx.textAlign = 'right';
-        ctx.fillStyle = '#111216';
-        ctx.fillText(`${100 - odds}%`, W - 80, footY + 30);
-        ctx.textAlign = 'center';
-        ctx.font = `800 18px ${BODY}`;
-        ctx.fillText('STATS ODDS', W / 2, footY + 30);
-    } else {
-        ctx.textAlign = 'center';
-        ctx.font = `900 46px ${DISPLAY}`;
-        ctx.fillStyle = GOLD;
-        ctx.fillText('MAKE YOUR CALL', W / 2, footY + 28);
-    }
-    ctx.textAlign = 'center';
-    ctx.font = `900 34px ${DISPLAY}`;
-    ctx.fillStyle = '#f3f4f6';
-    ctx.fillText('ANIMALBATTLESTATS.COM', W / 2, 1296);
-    ctx.textAlign = 'left';
-
-    return new Promise((resolve) => canvas.toBlob((blob) => resolve(blob), 'image/png'));
-}
-
-// ---------------------------------------------------------------- the share sheet
+const ICONS = {
+    card: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 15h8"/></svg>',
+    both: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="9" height="14" rx="1.5"/><rect x="12.5" y="5" width="9" height="14" rx="1.5"/></svg>',
+    video: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg>',
+    versus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4l9.5 9.5M20 4l-9.5 9.5M6.5 16.5L4 19M17.5 16.5L20 19"/></svg>'
+};
 
 let sheet = null;
-function ensureSheet() {
-    if (sheet) return sheet;
-    sheet = document.createElement('dialog');
-    sheet.className = 'share-sheet';
-    sheet.setAttribute('aria-label', 'Share this matchup');
-    sheet.innerHTML = `
+
+function build() {
+    const dialog = document.createElement('dialog');
+    dialog.className = 'share-sheet';
+    dialog.innerHTML = `
         <div class="ss-head"><b class="ss-title" data-ss-title>Share</b><button type="button" class="hud-btn" data-ss-close aria-label="Close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-        <div class="ss-preview"><img alt="Matchup card" data-ss-img /><span class="ss-wait" data-ss-wait>Drawing the card…</span></div>
+        <div class="ss-tabs" role="group" aria-label="Format" data-ss-tabs></div>
+        <div class="ss-preview" data-ss-preview aria-live="polite">
+            <img alt="" data-ss-img />
+            <video muted loop playsinline autoplay data-ss-video></video>
+            <span class="ss-wait" data-ss-wait>Drawing the card…</span>
+            <span class="ss-rec" data-ss-rec hidden>Recording</span>
+            <span class="ss-progress" data-ss-progress hidden><i></i></span>
+        </div>
         <div class="ss-actions">
             <button type="button" class="btn btn-gold" data-ss-share>Share</button>
-            <a class="btn" data-ss-save download="animal-battle-stats.png">Save image</a>
+            <a class="btn" data-ss-save>Save</a>
             <button type="button" class="btn" data-ss-copy>Copy link</button>
         </div>
         <p class="ss-note" data-ss-note></p>`;
-    document.body.appendChild(sheet);
-    sheet.querySelector('[data-ss-close]').addEventListener('click', () => sheet.close());
-    sheet.addEventListener('click', (event) => { if (event.target === sheet) sheet.close(); });
-    return sheet;
+    document.body.appendChild(dialog);
+    const $ = (selector) => dialog.querySelector(selector);
+    const ui = {
+        dialog,
+        title: $('[data-ss-title]'),
+        tabs: $('[data-ss-tabs]'),
+        preview: $('[data-ss-preview]'),
+        img: $('[data-ss-img]'),
+        video: $('[data-ss-video]'),
+        wait: $('[data-ss-wait]'),
+        rec: $('[data-ss-rec]'),
+        progress: $('[data-ss-progress]'),
+        share: $('[data-ss-share]'),
+        save: $('[data-ss-save]'),
+        copy: $('[data-ss-copy]'),
+        note: $('[data-ss-note]'),
+        current: null
+    };
+    ui.video.muted = true;
+    $('[data-ss-close]').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => {
+        ui.current?.abort?.abort();
+        ui.video.pause();
+        ui.state?.results.forEach((result) => URL.revokeObjectURL(result.url));
+        ui.state = null;
+    });
+    return ui;
 }
 
-function track(method, name) {
-    window.gtag?.('event', 'share', { method, content_type: 'matchup', item_id: name });
+function track(method, config, format) {
+    window.gtag?.('event', 'share', { method, content_type: config.contentType, item_id: config.name, format });
 }
 
-// data: { a, b, odds, result, url, text, name }
-export async function openShare(data) {
-    const dialog = ensureSheet();
-    const img = dialog.querySelector('[data-ss-img]');
-    const waitNote = dialog.querySelector('[data-ss-wait]');
-    const save = dialog.querySelector('[data-ss-save]');
-    dialog.querySelector('[data-ss-title]').textContent = data.result ? 'Share the result' : 'Challenge your friends';
-    dialog.querySelector('[data-ss-note]').textContent = data.result
-        ? 'The card shows who won and the odds. The link opens this fight.'
-        : 'The odds stay hidden on the card, so your friends have to make their call first.';
-    img.removeAttribute('src');
-    waitNote.hidden = false;
-    dialog.showModal();
-    const blob = await drawMatchCard(data);
-    if (!blob) { toast('Could not draw the card'); return; }
-    const url = URL.createObjectURL(blob);
-    img.src = url;
-    waitNote.hidden = true;
-    const fileName = `${data.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.png`;
-    save.href = url;
-    save.download = fileName;
-    const file = new File([blob], fileName, { type: 'image/png' });
-    const shareButton = dialog.querySelector('[data-ss-share]');
-    const canFiles = Boolean(navigator.canShare?.({ files: [file] }));
-    shareButton.hidden = !navigator.share;
-    shareButton.onclick = async () => {
+const slugify = (text) => String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+// config: { title, name, url, text, contentType, formats: [{ id, label, icon, note, kind: 'image'|'video', make }] }
+function open(config) {
+    sheet ||= build();
+    const ui = sheet;
+    ui.state = { config, results: new Map() };
+    ui.title.textContent = config.title;
+    ui.tabs.replaceChildren(...config.formats.map((format) => {
+        const tab = document.createElement('button');
+        tab.type = 'button';
+        tab.className = 'ss-tab';
+        tab.dataset.format = format.id;
+        tab.innerHTML = `${ICONS[format.icon] || ''}<span>${format.label}</span>`;
+        tab.addEventListener('click', () => select(ui, format));
+        return tab;
+    }));
+    ui.tabs.hidden = config.formats.length < 2;
+    ui.copy.textContent = 'Copy link';
+    ui.copy.onclick = async () => {
         try {
-            if (canFiles) await navigator.share({ files: [file], title: data.name, text: `${data.text} ${data.url}` });
-            else await navigator.share({ title: data.name, text: data.text, url: data.url });
-            track(canFiles ? 'native_image' : 'native_link', data.name);
+            await navigator.clipboard.writeText(`${config.text} ${config.url}`);
+            ui.copy.textContent = 'Copied';
+            setTimeout(() => { ui.copy.textContent = 'Copy link'; }, 1600);
+            track('copy_link', config, ui.current?.format.id);
+        } catch { window.prompt('Copy this link', config.url); }
+    };
+    if (!ui.dialog.open) ui.dialog.showModal();
+    select(ui, config.formats[0]);
+}
+
+function busy(ui, on) {
+    ui.share.classList.toggle('is-busy', on);
+    ui.save.classList.toggle('is-busy', on);
+    ui.share.setAttribute('aria-disabled', String(on));
+    ui.save.setAttribute('aria-disabled', String(on));
+}
+
+async function select(ui, format) {
+    const { state } = ui;
+    if (!state) return;
+    ui.current?.abort?.abort();
+    const current = { format, abort: format.kind === 'video' ? new AbortController() : null };
+    ui.current = current;
+    for (const tab of ui.tabs.children) tab.setAttribute('aria-pressed', String(tab.dataset.format === format.id));
+    ui.note.textContent = format.note;
+    ui.preview.querySelector('canvas')?.remove();
+    ui.img.removeAttribute('src');
+    ui.video.pause();
+    ui.video.removeAttribute('src');
+    ui.rec.hidden = true;
+    ui.progress.hidden = true;
+    ui.wait.hidden = false;
+    ui.wait.textContent = format.kind === 'video' ? 'Setting up the video…' : 'Drawing the card…';
+    ui.save.textContent = format.kind === 'video' ? 'Save video' : 'Save image';
+    busy(ui, true);
+    const stale = () => ui.state !== state || ui.current !== current;
+
+    let result = state.results.get(format.id);
+    if (!result) {
+        try {
+            if (format.kind === 'image') {
+                const blob = await format.make();
+                if (!blob) throw new Error('No picture');
+                result = { blob, ext: 'jpg' };
+            } else {
+                const reel = await format.make();
+                if (stale()) { reel.dispose(); return; }
+                ui.wait.hidden = true;
+                ui.rec.hidden = false;
+                ui.progress.hidden = false;
+                ui.preview.append(reel.canvas);
+                const bar = ui.progress.firstElementChild;
+                try {
+                    result = await record(reel.canvas, reel.draw, reel.duration, {
+                        signal: current.abort.signal,
+                        onFrame: (p) => { bar.style.setProperty('--p', p.toFixed(3)); }
+                    });
+                } finally {
+                    reel.canvas.remove();
+                    reel.dispose();
+                }
+            }
+        } catch (error) {
+            if (stale() || error?.name === 'AbortError') return;
+            ui.preview.querySelector('canvas')?.remove();
+            ui.rec.hidden = true;
+            ui.progress.hidden = true;
+            ui.wait.hidden = false;
+            ui.wait.textContent = format.kind === 'video' ? 'This browser could not record the video. Try the picture instead.' : 'Could not draw the card.';
+            return;
+        }
+        if (ui.state !== state) return;
+        result.url = URL.createObjectURL(result.blob);
+        state.results.set(format.id, result);
+    }
+    if (stale()) return;
+    ui.rec.hidden = true;
+    ui.progress.hidden = true;
+    ui.wait.hidden = true;
+    if (format.kind === 'video') {
+        ui.video.src = result.url;
+        ui.video.play().catch(() => {});
+    } else ui.img.src = result.url;
+    ui.img.alt = format.kind === 'image' ? `${state.config.name}: ${format.label.toLowerCase()}` : '';
+
+    const fileName = `${slugify(state.config.name)}-${format.id}.${result.ext}`;
+    const file = new File([result.blob], fileName, { type: result.blob.type });
+    ui.save.href = result.url;
+    ui.save.download = fileName;
+    ui.save.onclick = () => track('save', state.config, format.id);
+    const canFiles = Boolean(navigator.canShare?.({ files: [file] }));
+    ui.share.hidden = !navigator.share;
+    ui.share.onclick = async () => {
+        const { config } = state;
+        try {
+            if (canFiles) await navigator.share({ files: [file], title: config.name, text: `${config.text} ${config.url}` });
+            else await navigator.share({ title: config.name, text: config.text, url: config.url });
+            track(canFiles ? `native_${format.kind}` : 'native_link', config, format.id);
         } catch { /* cancelled */ }
     };
-    save.onclick = () => track('save_image', data.name);
-    dialog.querySelector('[data-ss-copy]').onclick = async () => {
-        try { await navigator.clipboard.writeText(`${data.text} ${data.url}`); toast('Link copied'); track('copy_link', data.name); } catch { toast(data.url); }
-    };
+    busy(ui, false);
+}
+
+const canVideo = () => Boolean(videoType());
+const seconds = (n) => `${/^(8|11|18)/.test(String(n)) ? 'An' : 'A'} ${n}-second`;
+
+// ---------------------------------------------------------------- an animal's card
+
+// card: the card data (abs-card.js); url: the page to send people to.
+export function shareAnimal(card, { url }) {
+    const text = card.rank
+        ? `${card.name}: #${card.rank} of ${card.total}, ${card.tierLabel} tier, power ${card.power}. See the card:`
+        : `${card.name} on Animal Battle Stats. See the card:`;
+    const formats = [
+        { id: 'card', label: 'Card', icon: 'card', kind: 'image', note: 'The card, sized for Instagram, X and Discord. The link opens it in 3D.', make: () => cardPicture(card) },
+        { id: 'front-back', label: 'Front + back', icon: 'both', kind: 'image', note: 'Both sides: the stats, abilities and signature move on the back.', make: () => bothPicture(card) }
+    ];
+    if (canVideo()) formats.push({ id: 'video', label: 'Video', icon: 'video', kind: 'video', note: `${seconds(Math.round(CARD_REEL))} clip for Reels, TikTok, Shorts and Stories: the card turns, flips and fills its stats.`, make: () => cardReel(card) });
+    open({ title: 'Share the card', name: card.name, url, text, contentType: 'animal_card', formats });
+}
+
+// ---------------------------------------------------------------- a matchup
+
+// data: { a, b (cards), na, nb, labels, odds (left side, 0..100, or null while hidden), result ('a'|'b'|null), url, text, name }
+export function shareMatchup(data) {
+    const note = data.result
+        ? 'The card shows who won and the odds. The link opens this fight.'
+        : 'The odds stay hidden, so your friends have to make their call first.';
+    const formats = [
+        { id: 'face-off', label: 'Face-off', icon: 'versus', kind: 'image', note, make: () => faceoffPicture(data) }
+    ];
+    if (canVideo()) formats.push({ id: 'video', label: 'Video', icon: 'video', kind: 'video', note: `${seconds(FACEOFF_REEL)} clip: the cards square up, the VS slams in${data.result ? ' and the loser gets knocked out' : ''}.`, make: () => faceoffReel(data) });
+    open({ title: data.result ? 'Share the result' : 'Challenge your friends', name: data.name, url: data.url, text: data.text, contentType: 'matchup', formats });
 }

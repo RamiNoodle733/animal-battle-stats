@@ -12,6 +12,7 @@ import { verdict, matchupHref } from '../../lib/matchups.js';
 import { creditFor } from '../../lib/credits.js';
 import { SITE, absoluteUrl } from '../../lib/site.js';
 import { rolesFor, logo as showLogo } from '../../lib/shows.js';
+import { cardJson } from '../../lib/card.js';
 
 export function getStaticPaths() {
     return animals.map((animal) => ({ params: { slug: animal.slug }, props: { animal } }));
@@ -186,8 +187,10 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
             </dl>
             <div class="actions">
                 <a class="btn btn-hot" href={`/compare?a=${animal.slug}`}><UiIcon name="vs" />Compare</a>
-                <button class="btn" type="button" data-share><UiIcon name="share" /><span>Share</span></button>
+                <button class="btn" type="button" data-card title={`See the ${animal.name} card in 3D`}><UiIcon name="cards" /><span>Card</span></button>
+                <button class="btn" type="button" data-share title={`Share the ${animal.name} card`}><UiIcon name="share" /><span>Share</span></button>
             </div>
+            <script type="application/json" id="abs-card" is:inline set:html={cardJson(animal)}></script>
         </section>
 
         <section class="panel dossier enter-3" aria-label={`${animal.name} details`}>
@@ -367,15 +370,31 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
             }
         });
     });
-    if (location.hash) show(location.hash.slice(1));
+    if (location.hash && location.hash !== '#card') show(location.hash.slice(1));
 
-    document.querySelector('[data-share]')?.addEventListener('click', async () => {
-        const data = { title: document.title, url: location.href.split('#')[0] };
+    // The collectible card: in 3D (#card links straight to it), or shared as a
+    // picture or a video. Both load only when asked for.
+    const card = JSON.parse(document.getElementById('abs-card').textContent);
+    const cardUrl = () => `${location.origin}${location.pathname}#card`;
+    async function shareCard() {
         try {
-            if (navigator.share) await navigator.share(data);
-            else { await navigator.clipboard.writeText(data.url); toast('Link copied'); }
-        } catch { /* cancelled */ }
+            const { shareAnimal } = await import('../../scripts/share-card.js');
+            shareAnimal(card, { url: cardUrl() });
+        } catch { toast('Could not open sharing. Check your connection.'); }
+    }
+    async function viewCard() {
+        try {
+            const { openCardViewer } = await import('../../scripts/card-viewer.js');
+            openCardViewer(card, { onShare: shareCard });
+        } catch { toast('Could not open the card. Check your connection.'); }
+    }
+    document.querySelector('[data-card]').addEventListener('click', () => {
+        sfx.select();
+        history.replaceState(null, '', '#card');
+        viewCard();
     });
+    document.querySelector('[data-share]').addEventListener('click', () => { sfx.select(); shareCard(); });
+    if (location.hash === '#card') viewCard();
 </script>
 
 <style>
@@ -475,7 +494,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     .glance div:first-child { border-left: 0; }
     .glance dt { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .glance dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; line-height: 1.1; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+    .actions { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; }
 
     /* ---- the dossier (tabs) */
     .dossier { min-height: 0; }

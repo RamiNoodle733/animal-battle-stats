@@ -159,7 +159,7 @@ const jsonLd = [
     const slots = [...ring.querySelectorAll('.slot')];
     const step = 360 / slots.length;
     function paint() {
-        ring.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(-6deg) rotateY(${angle.toFixed(3)}deg)`;
+        ring.style.transform = `translateY(var(--lift, 0px)) translateZ(calc(var(--radius) * -1)) rotateX(-6deg) rotateY(${angle.toFixed(3)}deg)`;
         slots.forEach((slot, index) => {
             const away = Math.cos(((angle + index * step) * Math.PI) / 180) < -0.02;
             if (slot.classList.contains('away') !== away) slot.classList.toggle('away', away);
@@ -326,6 +326,7 @@ const jsonLd = [
     .aart { flex: none; width: 96px; height: 72px; display: grid; place-items: center; container-type: size; }
     .aotd-row :global(img) { --fit: 0.9; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); }
     .aotd-row strong { display: block; }
+    .aotd-row small { display: block; text-wrap: balance; }
     .roblox .tile-k { color: var(--gold-2); }
     .tile-pay { display: inline-flex; align-items: center; gap: 3px; margin-left: auto; padding: 1px 8px; font-size: 0.62rem; letter-spacing: 0.06em; color: var(--gold-2); background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.4); border-radius: 999px; }
     .roblox .btn { margin-top: auto; align-self: flex-start; }
@@ -359,8 +360,9 @@ const jsonLd = [
         .dart { height: 52px; }
     }
     @media (max-width: 900px) {
-        /* One screen on phones too: the ring takes whatever height is left. */
-        .home { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
+        /* Phones: the menu, then the ring, then the tiles, scrolling as one
+           page (squeezed into one screen, the ring ran over the tiles). */
+        .home { grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 8px; height: auto; min-height: 100%; }
         .menu-col { gap: 8px; }
         .intro { display: none; }
         .home-search { min-height: 44px; }
@@ -370,10 +372,12 @@ const jsonLd = [
         .mm.primary { grid-column: 1 / -1; min-height: 56px; }
         .mm small { display: none; }
         .mm :global(img) { width: 30px; height: 30px; }
-        .show-col { grid-template-rows: minmax(200px, 1fr) auto; gap: 8px; }
-        .carousel { container-type: size; }
-        /* Twelve cards around the ring need a radius of about 1.9 card widths, or they overlap. */
-        .ring { height: min(220px, 86cqh); width: auto; aspect-ratio: 3 / 4; --radius: calc(min(220px, 86cqh) * 1.45); }
+        .show-col { grid-template-rows: auto auto auto; gap: 10px; }
+        .carousel { container-type: size; height: clamp(250px, 70vw, 340px); }
+        /* Twelve cards around the ring need a radius of about 1.9 card widths,
+           or they overlap. The ring leans back, which drops the front cards
+           by a tenth of the radius: --lift raises it so they stay in the box. */
+        .ring { height: min(260px, 78cqh); width: auto; aspect-ratio: 3 / 4; --radius: calc(min(260px, 78cqh) * 1.45); --lift: calc(var(--radius) * -0.08); }
         .logo-block { gap: 10px; }
         .logo-block img { width: 52px; }
         .logo-block h1 { font-size: 1.7rem; }
@@ -381,7 +385,7 @@ const jsonLd = [
         .tile-pay { display: none; }
         .dart { height: 48px; }
         .aart { width: 72px; height: 54px; }
-        .ring-hint, .ticker { display: none; }
+        .ring-hint { display: none; }
         .tiles { grid-template-columns: 1fr 1fr; }
         .tiles { gap: 8px; }
         .tiles .roblox { grid-column: 1 / -1; min-height: 0; flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: 10px; }
@@ -389,9 +393,5 @@ const jsonLd = [
         .tiles .roblox strong { flex: 1; font-size: 1rem; }
         .tiles .roblox .tile-k { flex-basis: 100%; }
         .tile { min-height: 0; }
-    }
-    /* Small phones: the HUD's Play button stands in for the Roblox tile. */
-    @media (max-width: 900px) and (max-height: 700px) {
-        .tiles .roblox { display: none; }
     }
 </style>

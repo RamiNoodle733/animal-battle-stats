@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.7.2 — 2026-10-01
+
+- **Home page on phones:** the card ring no longer runs over the Daily matchup and Animal of the day tiles. Squeezed into one screen, the ring got what was left after the menu and its front cards (which lean toward you) hung over the tiles. On phones the home page now scrolls: the menu, then the ring at a proper size with bigger cards, then the tiles, the Roblox tile and the Just researched strip, all whole. Tablets fit it on one screen.
+
 ## 4.7.1 — 2026-10-01
 
 - **The 3D card opens at once.** It used to be drawn on the phone each time from about 20 pictures, which was slow and, on some iPhones, never finished ("Printing the card…"). It now shows the card the build already drew (the build redraws every card whenever its stats or art change), so opening it is a ~320 KB download. The build draws two more files per animal for this, the front's background and what sits over the foil, so the foil still moves between them.

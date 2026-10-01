@@ -8,6 +8,7 @@ import { verdict } from '../../lib/matchups.js';
 import { fmtWeight } from '../../lib/catalog.js';
 import { HUMAN_FIGHTER, HUMAN_OPPONENTS, humanPairSlug, humansNeeded, humansWin, animalsNeeded } from '../../lib/human.js';
 import { SITE, absoluteUrl } from '../../lib/site.js';
+import { matchupPreview } from '../../lib/card.js';
 
 export function getStaticPaths() {
     return HUMAN_OPPONENTS.map((animal) => ({ params: { animal: animal.slug }, props: { animal } }));
@@ -68,8 +69,8 @@ const jsonLd = [
     }
 ];
 ---
-<Base title={title} description={description} path={path} image="/images/og/compare.jpg" imageAlt={`Human vs ${aName}`} jsonLd={jsonLd} active="compare" biome={animal.biome}>
-    <VsScreen a={human} b={animal} extraFaq={extraFaq} />
+<Base title={title} description={description} path={path} image={matchupPreview(`vs/${humanPairSlug(animal)}`, human, animal)} imageAlt={`Human vs ${aName} battle cards: who would win?`} jsonLd={jsonLd} active="compare" biome={animal.biome}>
+    <VsScreen a={human} b={animal} extraFaq={extraFaq} cardImage={{ src: matchupPreview(`vs/${humanPairSlug(animal)}`, human, animal), alt: `Human vs ${aName} battle cards: who would win?` }} />
 </Base>
 <script>
     import '../../scripts/versus.js';

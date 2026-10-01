@@ -60,11 +60,12 @@ for (const file of htmlFiles(dist)) {
     const images = [];
     const og = html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
     if (/^\/(stats|compare)\//.test(pathname)) {
-        for (const match of html.matchAll(/<img[^>]+src="(\/images\/animals\/v\/[^"]+)"[^>]*alt="([^"]*)"/g)) {
-            if (images.length >= 2) break;
-            if (match[2]) images.push({ loc: `${SITE}${match[1]}`, title: match[2] });
-        }
-        if (og) images.push({ loc: og, title: html.match(/<meta property="og:image:alt" content="([^"]+)"/i)?.[1] || '' });
+        // the battle cards first (front, back, the matchup face-off), then the photos
+        const found = [...html.matchAll(/<img[^>]+src="(\/images\/(?:cards|og\/vs|animals\/v)\/[^"]+)"[^>]*alt="([^"]*)"/g)]
+            .filter((match) => match[2])
+            .sort((x, y) => Number(x[1].startsWith('/images/animals/')) - Number(y[1].startsWith('/images/animals/')));
+        for (const match of found.slice(0, 4)) images.push({ loc: `${SITE}${match[1].replace(/&amp;/g, '&')}`, title: match[2] });
+        if (og && !images.some((image) => image.loc === og)) images.push({ loc: og, title: html.match(/<meta property="og:image:alt" content="([^"]+)"/i)?.[1] || '' });
     }
     const episode = episodeByPath.get(pathname);
     const video = episode ? {

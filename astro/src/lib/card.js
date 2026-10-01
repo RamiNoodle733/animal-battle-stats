@@ -1,7 +1,12 @@
 // The collectible card's data for one animal, written into its page at build
 // time and drawn in the browser by scripts/abs-card.js (the 3D card, the share
 // pictures and videos). Same facts as the page: unverified measurements stay off.
-import { animals, GROUPS, STATS, fmtWeight, fmtLength, fmtSpeed, fmtBite, fmtYears, fmtScore } from './catalog.js';
+// The build also draws every card as files (scripts/images/build-cards.mjs);
+// cardFiles() and matchupPreview() name them for the pages.
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { animals, GROUPS, STATS, matchup, fmtWeight, fmtLength, fmtSpeed, fmtBite, fmtYears, fmtScore } from './catalog.js';
 
 const cap = (text) => (text ? text.charAt(0).toUpperCase() + text.slice(1) : '');
 const firstSentence = (text) => String(text || '').split(/(?<=[.!?])\s+(?=[A-Z])/)[0];
@@ -47,3 +52,55 @@ export function cardData(animal) {
 
 // For a <script type="application/json">: no "</script>" can close it early.
 export const cardJson = (animal) => JSON.stringify(cardData(animal)).replace(/</g, '\\u003c');
+
+// ---------------------------------------------------------------- the card files
+
+export const CARD_FILE = Object.freeze({ width: 750, height: 1050 });
+export const PREVIEW_FILE = Object.freeze({ width: 1200, height: 630 });
+
+// Images are cached for a year under one name, and link previews are cached by
+// address, so each file's address carries a version: a hash of everything it
+// is drawn from (the card data, the renderer and the art). A change to any of
+// them gives the card a new address.
+const RENDERER = (() => {
+    const root = process.cwd();
+    const ui = path.join(root, 'images', 'ui');
+    const files = [
+        path.join(root, 'astro', 'src', 'scripts', 'abs-card.js'),
+        path.join(root, 'astro', 'src', 'scripts', 'card-scenes.js'),
+        ...fs.readdirSync(ui).filter((name) => /\.(png|webp|svg)$/.test(name)).sort().map((name) => path.join(ui, name)),
+        ...fs.readdirSync(path.join(ui, 'icons')).sort().map((name) => path.join(ui, 'icons', name)),
+        path.join(root, 'images', 'logo.png')
+    ];
+    const hash = crypto.createHash('sha1');
+    for (const file of files) hash.update(fs.readFileSync(file));
+    return hash.digest('hex');
+})();
+const version = (value) => crypto.createHash('sha1').update(RENDERER + JSON.stringify(value)).digest('hex').slice(0, 10);
+
+// An animal's card (front and back) and its page preview.
+export function cardFiles(animal) {
+    const v = version(cardData(animal));
+    return {
+        front: `/images/cards/${animal.slug}.webp?v=${v}`,
+        back: `/images/cards/${animal.slug}-back.webp?v=${v}`,
+        preview: `/images/og/${animal.slug}.jpg?v=${v}`
+    };
+}
+
+// A matchup's preview job (what the build draws) and its address. `file` is
+// where it lands under /images/og/ ("vs/<a>-vs-<b>", or "compare").
+export function matchupJob(file, a, b) {
+    const result = matchup(a, b);
+    return { file, a: a.slug, b: b.slug, oddsA: result.winner.slug === a.slug ? result.odds : 100 - result.odds, draw: result.draw };
+}
+export function matchupPreview(file, a, b) {
+    return `/images/og/${file}.jpg?v=${version([matchupJob(file, a, b), cardData(a), cardData(b)])}`;
+}
+
+// Alt text that reads the card out.
+export function cardAlt(animal, side = 'front') {
+    const card = cardData(animal);
+    if (side === 'back') return `${animal.name} battle card, back: ${STATS.map((stat) => `${stat.label.toLowerCase()} ${fmtScore(card.stats[stat.key])}`).join(', ')}${card.signature ? `; signature move ${card.signature.name}` : ''}`;
+    return `${animal.name} battle card: ${card.rank ? `#${card.rank} of ${card.total}, ` : ''}${card.tierLabel} tier, power ${card.power}`;
+}

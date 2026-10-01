@@ -1,6 +1,7 @@
 // /llms-full.txt: the whole roster as plain text for AI assistants.
 import { animals, STATS, BIOMES, fmtScore, fmtWeight, fmtLength, fmtSpeed, fmtBite, fmtYears } from '../lib/catalog.js';
 import { SITE } from '../lib/site.js';
+import { cardFiles } from '../lib/card.js';
 import { BRAND, SHOWS } from '../lib/shows.js';
 
 export function GET() {
@@ -12,7 +13,9 @@ export function GET() {
             ['Top speed', fmtSpeed(animal.speed_mps)], ['Bite force', fmtBite(animal.bite_force_psi)], ['Lifespan', fmtYears(animal.lifespan_years)]
         ].filter(([key, value]) => value && !((profile.unverifiedFacts || []).includes({ Weight: 'weight_kg' }[key]))).map(([key, value]) => `${key} ${value.metric}${value.imperial ? ` (${value.imperial})` : ''}`);
         out.push(`## ${animal.name} (${animal.scientific_name})`);
+        const card = cardFiles(animal);
         out.push(`URL: ${SITE.url}/stats/${animal.slug}`);
+        out.push(`Battle card: ${SITE.url}${card.front} (back: ${SITE.url}${card.back})`);
         out.push(`Rank #${animal.rank} of ${animals.length} | ${animal.tier} tier | power index ${fmtScore(animal.powerIndex)} | ${animal.type}, ${animal.class} | home biome: ${BIOMES[animal.biome]?.label || 'n/a'}${profile.conservationStatus ? ` | IUCN: ${profile.conservationStatus}` : ''}`);
         out.push(`Stats: ${STATS.map((stat) => `${stat.label} ${fmtScore(animal[stat.key])}`).join(', ')}`);
         if (facts.length) out.push(`Measurements: ${facts.join('; ')}`);

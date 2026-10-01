@@ -109,9 +109,18 @@ export function cardFromIndex(entry, total) {
 
 // ---------------------------------------------------------------- assets
 
+// The build (scripts/images/build-cards.mjs) draws the same cards in Node and
+// hands in its own loader (src -> Promise<image|null>).
+let customLoader = null;
+export function setImageLoader(loader) {
+    customLoader = loader;
+    images.clear();
+}
+
 const images = new Map();
 export function loadImage(src) {
     if (!src) return Promise.resolve(null);
+    if (!images.has(src) && customLoader) images.set(src, customLoader(src));
     if (!images.has(src)) {
         images.set(src, new Promise((resolve) => {
             const img = new Image();
@@ -174,18 +183,33 @@ export function unit(ctx) {
     return Math.hypot(m.a, m.b) || 1;
 }
 
-function shadow(ctx, colour, blur, y = 0) {
-    const k = unit(ctx);
-    ctx.shadowColor = colour;
-    ctx.shadowBlur = blur * k;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = y * k;
+let blurScratch = null;
+// Something blurred under the drawing (a drop shadow, a glow), drawn at a
+// quarter of the size and scaled up: a full-size blur is slow on a CPU canvas
+// (the build draws every card in Node) and looks the same. `paint(s, w, h)`
+// draws the shape at (0, 0); its shadow, in `colour`, is what lands.
+function blurred(ctx, x, y, w, h, { blur, colour, offsetY = 0 }, paint) {
+    const k = unit(ctx) * 0.25;
+    const pad = blur * 2;
+    const sw = Math.max(1, Math.ceil((w + pad * 2) * k));
+    const sh = Math.max(1, Math.ceil((h + pad * 2) * k));
+    blurScratch ||= document.createElement('canvas');
+    const scratch = blurScratch;
+    scratch.width = sw;
+    scratch.height = sh;
+    const s = scratch.getContext('2d');
+    s.setTransform(1, 0, 0, 1, 0, 0);
+    s.clearRect(0, 0, sw, sh);
+    // the shape is drawn off the canvas; only its shadow lands on it
+    s.shadowColor = colour;
+    s.shadowBlur = blur * k;
+    s.shadowOffsetX = sw + 10;
+    s.translate(pad * k - sw - 10, pad * k);
+    s.scale(k, k);
+    paint(s, w, h);
+    ctx.drawImage(scratch, x - pad, y - pad + offsetY, w + pad * 2, h + pad * 2);
 }
-function noShadow(ctx) {
-    ctx.shadowColor = 'transparent';
-    ctx.shadowBlur = 0;
-    ctx.shadowOffsetY = 0;
-}
+const imageShadow = (ctx, img, x, y, w, h, options) => blurred(ctx, x, y, w, h, options, (s) => s.drawImage(img, 0, 0, w, h));
 
 const font = (weight, size, family = DISPLAY, style = '') => `${style ? `${style} ` : ''}${weight} ${size}px ${family}`;
 
@@ -359,7 +383,7 @@ function barcode(card) {
 
 const icon = (path) => new Path2D(path);
 const statIcons = new Map();
-function statIcon(ctx, key, path, x, y, size, colour) {
+export function statIcon(ctx, key, path, x, y, size, colour) {
     if (!statIcons.has(key)) statIcons.set(key, icon(path));
     ctx.save();
     ctx.translate(x, y);
@@ -370,7 +394,7 @@ function statIcon(ctx, key, path, x, y, size, colour) {
 }
 
 // The slanted segmented bar (abs.css .sbar): ten skewed segments, lit to `value`.
-function segBar(ctx, x, y, w, h, value, colour) {
+export function segBar(ctx, x, y, w, h, value, colour) {
     const gap = h * 0.22;
     const seg = (w - gap * 9) / 10;
     const skew = Math.tan((24 * Math.PI) / 180) * h;
@@ -549,9 +573,8 @@ export function drawFront(ctx, card, A, { layer = 'all', sheen = 0.32, foil = 1 
             const box = artBox(card.art, A.art, 420, 412, 1.0);
             const cx = 270;
             const bottom = PLATE_Y - 12;
-            shadow(ctx, 'rgba(0,0,0,0.7)', 26, 18);
+            imageShadow(ctx, A.art, cx - box.w / 2, bottom - box.h, box.w, box.h, { blur: 26, offsetY: 18, colour: 'rgba(0,0,0,0.7)' });
             ctx.drawImage(A.art, cx - box.w / 2, bottom - box.h, box.w, box.h);
-            noShadow(ctx);
         }
         drawGloss(ctx, FIELD.x, FIELD.y, FIELD.w, FIELD.h, sheen, foil);
 
@@ -573,9 +596,8 @@ export function drawFront(ctx, card, A, { layer = 'all', sheen = 0.32, foil = 1 
 
         // tier crest, top right
         if (A.crest) {
-            shadow(ctx, 'rgba(0,0,0,0.55)', 8, 3);
+            imageShadow(ctx, A.crest, 406, 22, 70, 83, { blur: 8, offsetY: 3, colour: 'rgba(0,0,0,0.55)' });
             ctx.drawImage(A.crest, 406, 22, 70, 83);
-            noShadow(ctx);
         }
 
         // the name plate
@@ -653,9 +675,12 @@ export function drawFront(ctx, card, A, { layer = 'all', sheen = 0.32, foil = 1 
             const label = card.cls.toUpperCase();
             ctx.font = font(900, 17);
             const tw = spacedWidth(ctx, label, 1.8) + 30;
-            shadow(ctx, 'rgba(0,0,0,0.5)', 8, 3);
+            blurred(ctx, 474 - tw, PLATE_Y - 16, tw, 32, { blur: 8, offsetY: 3, colour: 'rgba(0,0,0,0.5)' }, (s, w, h) => {
+                roundRect(s, 0, 0, w, h, 8);
+                s.fillStyle = '#000';
+                s.fill();
+            });
             nineSlice(ctx, A.tag, 474 - tw, PLATE_Y - 16, tw, 32, 24, 9);
-            noShadow(ctx);
             ctx.fillStyle = '#1d1400';
             ctx.textBaseline = 'middle';
             spaced(ctx, label, 474 - tw / 2, PLATE_Y + 1, 1.8, 'center');
@@ -741,9 +766,8 @@ export function drawBack(ctx, card, A, { fill = 1 } = {}) {
     ctx.fillRect(P.x, P.y, P.w, P.h);
     if (A.art) {
         const box = artBox(card.art, A.art, P.w - 18, P.h - 70, 0.95);
-        shadow(ctx, 'rgba(0,0,0,0.65)', 12, 8);
+        imageShadow(ctx, A.art, P.x + (P.w - box.w) / 2, P.y + P.h - 12 - box.h, box.w, box.h, { blur: 12, offsetY: 8, colour: 'rgba(0,0,0,0.65)' });
         ctx.drawImage(A.art, P.x + (P.w - box.w) / 2, P.y + P.h - 12 - box.h, box.w, box.h);
-        noShadow(ctx);
     }
     ctx.restore();
     ctx.save();
@@ -751,9 +775,8 @@ export function drawBack(ctx, card, A, { fill = 1 } = {}) {
     frame(ctx, A.frame, P.x - 4, P.y - 4, P.w + 8, P.h + 8, 6);
     ctx.restore();
     if (A.crest) {
-        shadow(ctx, 'rgba(0,0,0,0.55)', 6, 2);
+        imageShadow(ctx, A.crest, P.x + P.w - 46, P.y + 10, 36, 43, { blur: 6, offsetY: 2, colour: 'rgba(0,0,0,0.55)' });
         ctx.drawImage(A.crest, P.x + P.w - 46, P.y + 10, 36, 43);
-        noShadow(ctx);
     }
     roundRect(ctx, P.x + 10, P.y + 10, 58, 44, 8);
     ctx.fillStyle = 'rgba(8,9,11,0.84)';
@@ -831,21 +854,27 @@ export function drawBack(ctx, card, A, { fill = 1 } = {}) {
         ctx.font = font(800, 15);
         ctx.fillStyle = '#f3f4f6';
         spaced(ctx, labelText.toUpperCase(), 251, sy + 14, 0.9);
+        // elite stats (90+) glow
         if (value >= 90 && fill >= 1) {
-            ctx.save();
-            shadow(ctx, `${colour}aa`, 8);
-            segBar(ctx, 318, sy + 3, 104, 13, shown, colour);
-            ctx.restore();
-            noShadow(ctx);
-        } else segBar(ctx, 318, sy + 3, 104, 13, shown, colour);
+            blurred(ctx, 318, sy + 3, 104 * (shown / 100), 13, { blur: 8, colour: `${colour}aa` }, (s, w, h) => {
+                s.fillStyle = '#000';
+                s.fillRect(0, 0, w, h);
+            });
+        }
+        segBar(ctx, 318, sy + 3, 104, 13, shown, colour);
         ctx.textAlign = 'right';
         const max = value >= 100 && fill >= 1;
         const text = max ? 'MAX' : fmtScore(Math.round(shown * 10) / 10 === value ? value : Math.round(shown));
         ctx.font = font(900, max ? 18 : 25);
+        if (value >= 90 && fill >= 1) {
+            const tw = ctx.measureText(text).width;
+            blurred(ctx, 470 - tw, sy - 2, tw, 22, { blur: 10, colour: 'rgba(246,180,0,0.55)' }, (s, w, h) => {
+                s.fillStyle = '#000';
+                s.fillRect(0, h * 0.15, w, h * 0.75);
+            });
+        }
         ctx.fillStyle = value >= 90 ? GOLD_2 : value < 40 ? MUTED : '#fff';
-        if (value >= 90 && fill >= 1) shadow(ctx, 'rgba(246,180,0,0.55)', 10);
         ctx.fillText(text, 470, sy + 17);
-        noShadow(ctx);
         ctx.textAlign = 'left';
         sy += 31;
     }

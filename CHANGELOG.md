@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.7.0 — 2026-10-01
+
+The battle cards now go wherever the site's pages go: link previews, Google and AI assistants show the card.
+
+- **Every card is a picture on the site.** The build draws all 344 cards, front and back, with the same code as the 3D card, and publishes them at `/images/cards/<animal>.webp`. Animal pages have a new **Card** tab with both sides, Turn it in 3D, Share and Save the card.
+- **Link previews are the cards.** An animal page's preview (in Google, ChatGPT, Discord, iMessage, X...) is its card with its rank, tier, power and stat bars. A matchup page's preview is the two cards squared up with the odds, or "Dead even · A draw" for a draw; all 906 matchup pages have one, and so do the 41 Human pages and Versus. Matchup verdicts show the same picture.
+- **Made for search and AI answers:** each animal page describes its card front and back as images of the page (JSON-LD `ImageObject` with a caption that reads the card out), matchup pages name their face-off as the page's main image, the image sitemap lists the cards first, and `llms.txt` / `llms-full.txt` link every card and face-off.
+- Each picture's address changes when its card does, so previews never show an old card.
+- The cards are drawn in Node with `@napi-rs/canvas` (`scripts/images/build-cards.mjs`) and reused between builds when nothing changed; a full redraw takes about two minutes.
+
 ## 4.6.0 — 2026-10-01
 
 - **Fights are no longer left to chance.** On Versus the side the odds favour always wins, and the same matchup always plays out the same way, blow for blow. A matchup the odds put at 50-50 ends in a draw: the bell goes with both fighters still standing. 25 matchup pages are draws (Python vs Reticulated Python, Cape Buffalo vs Water Buffalo, Martial Eagle vs Golden Eagle...); their verdicts, descriptions and answers now say so, animal pages show D in Matchups next to W and L, and the About page explains the rule.

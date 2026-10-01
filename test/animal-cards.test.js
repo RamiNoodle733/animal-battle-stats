@@ -80,3 +80,35 @@ test('the card code loads only when someone opens a card or shares', { skip: !bu
         assert.doesNotMatch(html, /<link[^>]+href="[^"]*cards\.[^"]*\.css"/, file);
     }
 });
+
+// Link previews, search results and AI answers show these: each page names its
+// drawn card files by a versioned address, and the files are in the build.
+test('every animal and matchup page shows its drawn battle cards', { skip: !built && 'dist/ not built' }, () => {
+    const exists = (src) => fs.existsSync(path.join(dist, src.split('?')[0]));
+    const versioned = /^\/images\/(cards|og)\/[a-z0-9/-]+\.(webp|jpg)\?v=[0-9a-f]{10}$/;
+    const pages = [
+        ...fs.readdirSync(path.join(dist, 'stats')).filter((file) => file.endsWith('.html')).map((file) => `stats/${file}`),
+        ...fs.readdirSync(path.join(dist, 'compare')).filter((file) => file.endsWith('.html')).map((file) => `compare/${file}`),
+        'compare.html'
+    ];
+    assert.ok(pages.length >= 1000);
+    for (const file of pages) {
+        const html = fs.readFileSync(path.join(dist, file), 'utf8');
+        const og = html.match(/<meta property="og:image" content="https:\/\/animalbattlestats\.com([^"]+)"/)?.[1];
+        assert.match(og || '', versioned, `${file}: og:image`);
+        assert.ok(exists(og), `${file}: ${og}`);
+        assert.match(html, /<meta property="og:image:alt" content="[^"]*battle card/, `${file}: og:image:alt`);
+        if (file.startsWith('stats/')) {
+            const slug = path.basename(file, '.html');
+            for (const side of [`${slug}.webp`, `${slug}-back.webp`]) {
+                const src = html.match(new RegExp(`<img[^>]+src="(/images/cards/${side}\\?v=[0-9a-f]+)"`))?.[1];
+                assert.match(src || '', versioned, `${file}: ${side}`);
+                assert.ok(exists(src), `${file}: ${src}`);
+            }
+            assert.match(html, /"@type":"ImageObject","@id":"[^"]+#card"/, `${file}: card ImageObject`);
+        } else if (file !== 'compare.html') {
+            const src = html.match(/<img class="verdict-cards" src="([^"]+)"/)?.[1];
+            assert.equal(src, og, `${file}: face-off picture`);
+        }
+    }
+});

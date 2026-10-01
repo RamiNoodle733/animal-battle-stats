@@ -3,7 +3,7 @@
 // up across the VS emblem, with the result when there is one). Pictures are
 // 1080x1350 (4:5: right for Instagram, TikTok photos, X and Discord); the
 // videos (card-reel.js) reuse the same pieces at 1080x1920.
-import { CARD_W, CARD_H, TIER_COLOURS, cardAssets, renderSide, drawTurned, turnedQuad, loadImage, roundRect, nineSlice, fontsReady, release } from './abs-card.js';
+import { CARD_W, CARD_H, TIER_COLOURS, STAT_ROWS, cardAssets, renderSide, drawTurned, turnedQuad, loadImage, roundRect, nineSlice, fontsReady, release, segBar, statIcon, fmtScore } from './abs-card.js';
 
 export const PICTURE = { w: 1080, h: 1350 };
 export const STORY = { w: 1080, h: 1920 };
@@ -21,11 +21,33 @@ export const sceneArt = () => Promise.all([
     fontsReady()
 ]).then(([hex, stage, logo, vs, gold, silver]) => ({ hex, stage, logo, vs, gold, silver }));
 
+// Drawn once per set of scene art and reused: the build draws hundreds of
+// previews on the same backdrop, and a video draws the VS emblem every frame.
+function cached(S, key, w, h, paint) {
+    S.cache ||= new Map();
+    if (!S.cache.has(key)) {
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        paint(canvas.getContext('2d'));
+        S.cache.set(key, canvas);
+    }
+    return S.cache.get(key);
+}
+
+// The VS emblem with its drop shadow, 280x208 at (40, 40) on a 360x300 sprite.
+const vsSprite = (S) => cached(S, 'vs', 360, 300, (ctx) => {
+    ctx.shadowColor = 'rgba(0,0,0,0.7)';
+    ctx.shadowBlur = 30;
+    ctx.shadowOffsetY = 10;
+    ctx.drawImage(S.vs, 40, 40, 280, 208);
+});
+
 // ---------------------------------------------------------------- the backdrop
 
 // Charcoal plates (or the Versus arena), a glow in the tier colour behind the
 // card, a vignette, the gold top bar and a hairline frame, like the site.
-export function backdrop(ctx, W, H, S, { tier = 'f', arena = false, glowY = 0.5 } = {}) {
+export function backdrop(ctx, W, H, S, { tier = 'f', arena = false, glowY = 0.5, glowX = 0.5 } = {}) {
     ctx.fillStyle = '#121316';
     ctx.fillRect(0, 0, W, H);
     if (S.hex) {
@@ -49,7 +71,7 @@ export function backdrop(ctx, W, H, S, { tier = 'f', arena = false, glowY = 0.5 
     ctx.fillStyle = shade;
     ctx.fillRect(0, 0, W, H);
     const [colour] = TIER_COLOURS[tier] || TIER_COLOURS.f;
-    const glow = ctx.createRadialGradient(W / 2, H * glowY, 40, W / 2, H * glowY, W * 0.75);
+    const glow = ctx.createRadialGradient(W * glowX, H * glowY, 40, W * glowX, H * glowY, W * 0.75);
     glow.addColorStop(0, `${colour}55`);
     glow.addColorStop(0.45, `${colour}18`);
     glow.addColorStop(1, `${colour}00`);
@@ -230,7 +252,7 @@ export function goldTag(ctx, S, text, x, y, size, { rotate = 0, alpha = 1, metal
 }
 
 // The odds bar: gold for the left fighter, silver for the right.
-export function oddsBar(ctx, x, y, w, h, odds, fill = 1) {
+export function oddsBar(ctx, x, y, w, h, odds, fill = 1, label = 'ODDS ON THE STATS') {
     const shown = 50 + (odds - 50) * fill;
     const split = x + (w * shown) / 100;
     ctx.save();
@@ -250,7 +272,7 @@ export function oddsBar(ctx, x, y, w, h, odds, fill = 1) {
     ctx.fillRect(split - 2, y, 4, h);
     ctx.restore();
     ctx.textBaseline = 'middle';
-    ctx.font = `900 40px ${DISPLAY}`;
+    ctx.font = `900 ${Math.round(h * 0.69)}px ${DISPLAY}`;
     ctx.fillStyle = '#1d1400';
     ctx.textAlign = 'left';
     ctx.fillText(`${Math.round(shown)}%`, x + 20, y + h / 2 + 2);
@@ -259,9 +281,9 @@ export function oddsBar(ctx, x, y, w, h, odds, fill = 1) {
     ctx.fillText(`${100 - Math.round(shown)}%`, x + w - 20, y + h / 2 + 2);
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
-    ctx.font = `800 18px ${BODY}`;
+    ctx.font = `800 ${Math.max(14, Math.round(h * 0.31))}px ${BODY}`;
     ctx.fillStyle = '#c5c9d1';
-    ctx.fillText('ODDS ON THE STATS', x + w / 2, y - 14);
+    ctx.fillText(label, x + w / 2, y - 14);
     ctx.textAlign = 'left';
 }
 
@@ -351,7 +373,7 @@ export async function faceoffPicture({ a, b, na = 1, nb = 1, labels = [], odds =
 
 // The two cards angled in toward each other, the VS emblem between them,
 // and the result. `t` lets the reel animate it: {enter: 0..1, vs: 0..1, ko: 0..1}.
-export function faceoffCards(ctx, S, data, { W, y, cardW, gap }, t = { enter: 1, vs: 1, ko: 1 }) {
+export function faceoffCards(ctx, S, data, { W, y, cardW, gap, vs: vsSize }, t = { enter: 1, vs: 1, ko: 1 }) {
     const { a, b, Aa, Ab, na, nb, labels, result } = data;
     data.faces ||= {
         a: renderSide(a, Aa, 'front', 720, { sheen: 0.3 }),
@@ -398,15 +420,83 @@ export function faceoffCards(ctx, S, data, { W, y, cardW, gap }, t = { enter: 1,
     }
     if (S.vs && t.vs > 0) {
         const pop = Math.min(1, t.vs);
-        const scale = 1 + (1 - pop) * 2.2;
-        const vw = 250 * scale;
-        const vh = vw * (104 / 140);
+        const f = ((vsSize || 250) * (1 + (1 - pop) * 2.2)) / 280;
         ctx.save();
         ctx.globalAlpha = pop;
-        ctx.shadowColor = 'rgba(0,0,0,0.7)';
-        ctx.shadowBlur = 30;
-        ctx.shadowOffsetY = 10;
-        ctx.drawImage(S.vs, W / 2 - vw / 2, y - vh / 2, vw, vh);
+        ctx.drawImage(vsSprite(S), W / 2 - 180 * f, y - 144 * f, 360 * f, 300 * f);
         ctx.restore();
     }
+}
+
+// ---------------------------------------------------------------- link previews
+
+// 1200x630, drawn at build time (scripts/images/build-cards.mjs) for every
+// animal and matchup page: what a shared link, a search result or an AI
+// answer shows. `face` is the rendered card front.
+export const PREVIEW = { w: 1200, h: 630 };
+
+// An animal: its card on the left; the name, rank and six stats beside it.
+export function drawAnimalPreview(ctx, card, face, S) {
+    const { w: W, h: H } = PREVIEW;
+    const x = 566;
+    ctx.drawImage(cached(S, `animal-${card.tier}`, W, H, (bg) => {
+        backdrop(bg, W, H, S, { tier: card.tier, glowX: 0.26, glowY: 0.52 });
+        if (S.logo) bg.drawImage(S.logo, x, 44, 44, 44);
+        bg.font = `900 24px ${DISPLAY}`;
+        bg.fillStyle = '#f3f4f6';
+        bg.textBaseline = 'middle';
+        bg.fillText('ANIMAL BATTLE STATS', x + 56, 67);
+        bg.textAlign = 'right';
+        bg.textBaseline = 'alphabetic';
+        bg.fillStyle = '#c5c9d1';
+        bg.fillText('ANIMALBATTLESTATS.COM', W - 58, H - 36);
+        bg.textAlign = 'left';
+    }), 0, 0);
+    placeCard(ctx, face, 288, 336, 376, -0.13);
+    let size = 96;
+    const name = card.name.toUpperCase();
+    ctx.font = `900 ${size}px ${DISPLAY}`;
+    while (ctx.measureText(name).width > W - x - 56 && size > 44) {
+        size -= 2;
+        ctx.font = `900 ${size}px ${DISPLAY}`;
+    }
+    ctx.fillStyle = '#fff';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetY = 4;
+    ctx.fillText(name, x - 3, 160);
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.font = `800 22px ${BODY}`;
+    ctx.fillStyle = GOLD;
+    const facts = [card.rank ? `#${card.rank} OF ${card.total}` : null, `${card.tierLabel} TIER`, `POWER ${card.power}`].filter(Boolean).join('   ·   ');
+    ctx.fillText(facts, x, 200);
+    let y = 238;
+    for (const [key, label, colour, path] of STAT_ROWS) {
+        const value = Math.max(0, Math.min(100, Number(card.stats?.[key]) || 0));
+        statIcon(ctx, key, path, x, y + 2, 26, colour);
+        ctx.font = `800 24px ${DISPLAY}`;
+        ctx.fillStyle = '#f3f4f6';
+        ctx.fillText(label.toUpperCase(), x + 38, y + 23);
+        segBar(ctx, x + 182, y + 6, 316, 18, value, colour);
+        ctx.textAlign = 'right';
+        ctx.font = `900 36px ${DISPLAY}`;
+        ctx.fillStyle = value >= 90 ? '#ffd34d' : value < 40 ? '#8d929b' : '#fff';
+        ctx.fillText(value >= 100 ? 'MAX' : fmtScore(value), W - 58, y + 28);
+        ctx.textAlign = 'left';
+        y += 52;
+    }
+}
+
+// A matchup: both cards squared up across the VS emblem, with the odds.
+export function drawMatchupPreview(ctx, a, b, faces, S, { odds = null, draw = false } = {}) {
+    const { w: W, h: H } = PREVIEW;
+    ctx.drawImage(cached(S, `matchup-${draw ? 'draw' : 'win'}`, W, H, (bg) => {
+        backdrop(bg, W, H, S, { tier: draw ? 'f' : 's', arena: true, glowY: 0.5 });
+        if (S.logo) bg.drawImage(S.logo, 46, 42, 40, 40);
+        title(bg, 'WHO WOULD WIN?', W / 2, 100, 66, W - 360);
+    }), 0, 0);
+    faceoffCards(ctx, S, { a, b, faces, na: 1, nb: 1, labels: [], result: null }, { W, y: 330, cardW: 288, gap: 560, vs: 200 });
+    if (odds != null) oddsBar(ctx, 60, 566, W - 120, 40, odds, 1, draw ? 'DEAD EVEN · A DRAW' : 'ODDS ON THE STATS');
 }

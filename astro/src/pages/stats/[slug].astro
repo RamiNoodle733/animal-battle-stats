@@ -12,7 +12,7 @@ import { verdict, matchupHref } from '../../lib/matchups.js';
 import { creditFor } from '../../lib/credits.js';
 import { SITE, absoluteUrl } from '../../lib/site.js';
 import { rolesFor, logo as showLogo } from '../../lib/shows.js';
-import { cardJson } from '../../lib/card.js';
+import { cardJson, cardFiles, cardAlt, CARD_FILE } from '../../lib/card.js';
 
 export function getStaticPaths() {
     return animals.map((animal) => ({ params: { slug: animal.slug }, props: { animal } }));
@@ -29,6 +29,8 @@ const inGroup = groupRank(animal);
 const credit = creditFor(animal.slug);
 const path = `/stats/${animal.slug}`;
 const seed = animal.rank;
+// The battle card as files (front, back, and the page preview that shows it).
+const cardFile = cardFiles(animal);
 
 const sortedStats = [...STATS].sort((a, b) => (animal[b.key] || 0) - (animal[a.key] || 0));
 const best = sortedStats[0];
@@ -100,6 +102,8 @@ const jsonLd = [
         isPartOf: { '@id': `${SITE.url}/#website` },
         dateModified: profile.researchedAt || undefined,
         primaryImageOfPage: { '@id': `${absoluteUrl(path)}#image` },
+        image: [{ '@id': `${absoluteUrl(path)}#card` }, { '@id': `${absoluteUrl(path)}#card-back` }, { '@id': `${absoluteUrl(path)}#image` }],
+        thumbnailUrl: absoluteUrl(cardFile.preview),
         about: { '@type': 'Taxon', name: animal.name, scientificName: animal.scientific_name, alternateName: animal.scientific_name, description: summary },
         mainEntity: {
             '@type': 'Dataset',
@@ -122,6 +126,21 @@ const jsonLd = [
         caption: `${animal.name} (${animal.scientific_name})`,
         ...(credit ? { creditText: credit.artist, creator: { '@type': 'Person', name: credit.artist }, license: credit.licenseUrl || undefined, acquireLicensePage: credit.sourcePage || undefined, copyrightNotice: credit.artist } : {})
     },
+    // The battle card: what link previews, image search and AI answers show.
+    ...[['card', cardFile.front, cardAlt(animal)], ['card-back', cardFile.back, cardAlt(animal, 'back')]].map(([id, file, caption]) => ({
+        '@type': 'ImageObject',
+        '@id': `${absoluteUrl(path)}#${id}`,
+        contentUrl: absoluteUrl(file),
+        url: absoluteUrl(file),
+        name: `${animal.name} battle card${id === 'card-back' ? ' (back)' : ''}`,
+        caption,
+        width: CARD_FILE.width,
+        height: CARD_FILE.height,
+        encodingFormat: 'image/webp',
+        creator: { '@id': `${SITE.url}/#organization` },
+        creditText: SITE.name,
+        about: { '@type': 'Taxon', name: animal.name, scientificName: animal.scientific_name }
+    })),
     {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -134,7 +153,7 @@ const jsonLd = [
 ];
 
 const TABS = [
-    ['stats', 'Stats'], ['kit', 'Abilities'], ['facts', 'Facts'],
+    ['stats', 'Stats'], ['battle-card', 'Card'], ['kit', 'Abilities'], ['facts', 'Facts'],
     ['versus', 'Matchups'], ['lore', 'Analysis'], ['sources', 'Sources'], ['talk', 'Talk']
 ];
 const tierCls = animal.tier.toLowerCase();
@@ -152,7 +171,7 @@ const glance = [
 const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(profile.conservationStatus || '') ? 'chip-red' : profile.conservationStatus === 'Extinct' ? 'chip-orange' : 'chip-green';
 ---
 
-<Base title={title} description={description} path={path} image={`/images/og/${animal.slug}.jpg`} imageAlt={`${animal.name} battle card`} jsonLd={jsonLd} active="animals" biome={animal.biome} seed={seed}>
+<Base title={title} description={description} path={path} image={cardFile.preview} imageAlt={cardAlt(animal)} jsonLd={jsonLd} active="animals" biome={animal.biome} seed={seed}>
     <div class="profile screen-grid">
         <section class={`stage cb tier-${tierCls} bio-${animal.biome}`} aria-labelledby="animal-name">
             <div class="cb-top">
@@ -229,6 +248,25 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                     })}
                 </div>
                 <p class="note">{researched ? `Research-backed ratings on one 0–100 scale for all ${animals.length} animals (updated ${profile.researchedAt}).` : 'Research for this animal is in progress; these are earlier ratings.'} <a class="link" href="/about#ratings">How ratings work</a></p>
+            </div>
+
+            <div class="pane scroll" id="pane-battle-card" role="tabpanel" aria-labelledby="tab-battle-card" hidden>
+                <div class="card-files">
+                    <figure>
+                        <img src={cardFile.front} width={CARD_FILE.width} height={CARD_FILE.height} alt={cardAlt(animal)} loading="lazy" decoding="async" />
+                        <figcaption>Front</figcaption>
+                    </figure>
+                    <figure>
+                        <img src={cardFile.back} width={CARD_FILE.width} height={CARD_FILE.height} alt={cardAlt(animal, 'back')} loading="lazy" decoding="async" />
+                        <figcaption>Back</figcaption>
+                    </figure>
+                </div>
+                <div class="btn-row card-actions">
+                    <button class="btn btn-gold" type="button" data-card><UiIcon name="cards" />Turn it in 3D</button>
+                    <button class="btn" type="button" data-share><UiIcon name="share" />Share</button>
+                    <a class="btn" href={cardFile.front} download={`${animal.slug}-battle-card.webp`}>Save the card</a>
+                </div>
+                <p class="note">Card No. {animal.rank} of {animals.length}. Every animal on Animal Battle Stats has one: its power, tier and archetype on the front; its six battle stats, abilities and signature move on the back.</p>
             </div>
 
             <div class="pane scroll" id="pane-kit" role="tabpanel" aria-labelledby="tab-kit" hidden>
@@ -391,12 +429,12 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
             openCardViewer(card, { onShare: shareCard });
         } catch { toast('Could not open the card. Check your connection.'); }
     }
-    document.querySelector('[data-card]').addEventListener('click', () => {
+    document.querySelectorAll('[data-card]').forEach((button) => button.addEventListener('click', () => {
         sfx.select();
         history.replaceState(null, '', '#card');
         viewCard();
-    });
-    document.querySelector('[data-share]').addEventListener('click', () => { sfx.select(); shareCard(); });
+    }));
+    document.querySelectorAll('[data-share]').forEach((button) => button.addEventListener('click', () => { sfx.select(); shareCard(); }));
     if (location.hash === '#card') viewCard();
 </script>
 
@@ -555,6 +593,12 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     .vs-mid b { display: block; font-size: 0.92rem; }
     .vs-mid small { font-size: 0.74rem; color: var(--muted); }
 
+    /* The Card tab: the card files themselves, front and back. */
+    .card-files { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 640px; margin: 0 auto; }
+    .card-files figure { margin: 0; text-align: center; }
+    .card-files img { width: 100%; height: auto; filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.55)); }
+    .card-files figcaption { margin-top: 6px; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .card-actions { justify-content: center; margin-top: 14px; }
     .sources { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 0.84rem; }
     .sources a { font-weight: 700; color: var(--gold-2); }
     .sources span { display: block; color: var(--muted); font-size: 0.76rem; }

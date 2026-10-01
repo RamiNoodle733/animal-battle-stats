@@ -104,13 +104,15 @@ Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, import
 - `sfx.js`, `track.js` - synthesized sound effects and visit analytics
 - The collectible cards, loaded only when someone opens a card or shares (dynamic `import()`, so no page carries them up front):
   - `abs-card.js` - draws an animal's card on a canvas: the front (art over its biome and tier shards, power, crest, archetype tag, name plate, card number) and the back (number strip, portrait, stat bars, abilities, the signature move). Every other card feature uses it, so they always match
-  - `card-scenes.js` - the share pictures (1080x1350): the card, front and back, and the Versus face-off with the result
+  - `card-scenes.js` - the share pictures (1080x1350): the card, front and back, and the Versus face-off with the result; and the link previews (1200x630): an animal's card with its stats, a matchup's two cards with the odds
   - `card-reel.js` - the 9:16 videos, drawn frame by frame and recorded with `MediaRecorder` (MP4 where the browser can, WebM otherwise)
   - `card-viewer.js` - the 3D card on animal pages (`/stats/<animal>#card` opens it): drag to turn, tap or arrow keys to flip, live foil and glare
   - `share-card.js` - the share sheet for animals and matchups: format tabs, the native share sheet with the file attached, save and copy link
   - `card-styles.js` - adds `styles/cards.css` the first time the viewer or the share sheet opens
 
 The card data for each animal is written into its page at build time (`astro/src/lib/card.js`, a `<script type="application/json" id="abs-card">`); Versus builds cards from `/data/animals-lite.json` (`cardFromIndex`).
+
+The build also draws every card as image files with the same renderer, on a Node canvas (`scripts/images/build-cards.mjs`, `@napi-rs/canvas`): `/images/cards/<slug>.webp` and `<slug>-back.webp` (750x1050), the animal page preview `/images/og/<slug>.jpg`, and a preview for every matchup page, `/images/og/vs/<a>-vs-<b>.jpg` (the Human pages too, and `/images/og/compare.jpg`). They are what link previews, Google and AI assistants show for those pages: `og:image`, the pages' JSON-LD `ImageObject`s, the image sitemap and `llms.txt` all point at them. `cardFiles()` and `matchupPreview()` in `card.js` give each file an address versioned by a hash of what it is drawn from, so a changed card gets a new address (images are cached for a year). Unchanged cards are reused between builds (`.cache/cards/manifest.json`).
 
 ### Styles
 `astro/src/styles/abs.css` is the design system, imported once by `Base.astro`; Astro bundles it into `/_astro/*.css`. Fonts come from `@fontsource-variable` packages. `astro/src/styles/cards.css` styles the card viewer and the share sheet and ships inside their script (see above).
@@ -126,7 +128,7 @@ The surface art in `images/ui/` is rendered by the Python scripts in `scripts/as
 1. reject sensitive exports from the workspace
 2. import finished research into `animal_stats.json` / `data/animal-profiles.json`
 3. encode responsive image variants
-4. `astro build` into `.cache/astro-dist`, then draw the social cards
+4. `astro build` into `.cache/astro-dist`, then draw the section social cards (`build-og.js`) and the battle cards and page previews (`build-cards.mjs`) from the job lists it writes
 5. assemble an allowlisted `dist/` (Astro output, images, public data), write `sitemap.xml` and `version.json`, and check that every page carries the package version
 
 `node scripts/preview-dist.js 4321` serves `dist/` locally with the `vercel.json` redirects and rewrites. `npm run perf:budget` checks the gzip weight of each screen; `npm test` runs the unit and contract tests (tests that inspect pages skip until `dist/` is built).

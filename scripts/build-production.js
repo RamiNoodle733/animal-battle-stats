@@ -7,7 +7,8 @@
 //  2. refresh canonical data from the research reports
 //  3. encode responsive image variants
 //  4. build every static page with Astro (.cache/astro-dist), then draw the
-//     social cards (.cache/og) from the job list it emits
+//     social cards (.cache/og) and the battle cards (.cache/cards) from the
+//     job lists it emits
 //  5. assemble an allowlisted dist/, write sitemap.xml + version.json
 //
 // Generated HTML is never committed; tests that inspect pages read dist/.
@@ -21,6 +22,7 @@ const outputRoot = path.join(repoRoot, 'dist');
 const astroOut = path.join(repoRoot, '.cache', 'astro-dist');
 const variantsOut = path.join(repoRoot, '.cache', 'image-variants');
 const ogOut = path.join(repoRoot, '.cache', 'og');
+const cardsOut = path.join(repoRoot, '.cache', 'cards');
 
 const ROOT_FILES = Object.freeze(['manifest.json', 'robots.txt', 'animal_stats.json']);
 const PUBLIC_DATA = Object.freeze(['game-balance.json', 'animal-profiles.json', 'roblox-game.json']);
@@ -82,7 +84,9 @@ execFileSync(process.execPath, [path.join(repoRoot, 'node_modules', 'astro', 'bi
 // Social cards are drawn from the job list the Astro build just wrote; the
 // list itself is build-only and never deployed.
 run('scripts/images/build-og.js');
+run('scripts/images/build-cards.mjs');
 fs.rmSync(path.join(astroOut, 'data', 'og-jobs.json'), { force: true });
+fs.rmSync(path.join(astroOut, 'data', 'card-jobs.json'), { force: true });
 
 // 5: assemble dist/
 fs.rmSync(outputRoot, { recursive: true, force: true });
@@ -91,6 +95,8 @@ copyTree(astroOut, '.');
 copyTree(path.join(repoRoot, 'images'), 'images', IMAGE_EXTENSIONS);
 copyTree(variantsOut, path.join('images', 'animals', 'v'), new Set(['.webp']));
 copyTree(ogOut, path.join('images', 'og'), new Set(['.jpg', '.png']));
+copyTree(path.join(cardsOut, 'og'), path.join('images', 'og'), new Set(['.jpg']));
+copyTree(path.join(cardsOut, 'cards'), path.join('images', 'cards'), new Set(['.webp']));
 for (const file of ROOT_FILES) {
     const source = path.join(repoRoot, file);
     if (fs.existsSync(source)) copyFile(source, file);

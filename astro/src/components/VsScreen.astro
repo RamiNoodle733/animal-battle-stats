@@ -9,7 +9,7 @@ import AnimalImage from './AnimalImage.astro';
 import { STATS, BIOMES, fmtScore, fmtWeight, fmtLength, fmtSpeed, fmtBite } from '../lib/catalog.js';
 import { verdict, PAIRS } from '../lib/matchups.js';
 
-const { a, b, pageLevel = 'h1', analysis = true, extraFaq = [] } = Astro.props;
+const { a, b, pageLevel = 'h1', analysis = true, extraFaq = [], cardImage = null } = Astro.props;
 const result = verdict(a, b);
 const oddsA = result.winner.slug === a.slug ? result.odds : 100 - result.odds;
 const oddsB = 100 - oddsA;
@@ -124,6 +124,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
                 <div class="verdict-body" data-verdict-body>
                     <div data-verdict-text>{result.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
                     <div class="faq" data-faq>{faq.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+                    {cardImage && <img class="verdict-cards" src={cardImage.src} alt={cardImage.alt} width="1200" height="630" loading="lazy" decoding="async" />}
                     <p class="small muted">Odds come from the Animal Battle Stats model: six researched ratings, weighted and compared head to head, plus body size. <a class="link" href="/about#model">How it works</a></p>
                 </div>
             </div>
@@ -314,6 +315,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
 
     .verdict-pane .sealed-note { display: none; padding: 10px 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: var(--text-2); font-size: 0.86rem; }
     .vs.is-sealed .verdict-pane .sealed-note { display: block; }
+    .verdict-cards { width: 100%; height: auto; margin: 12px 0 4px; border: 1px solid var(--line-2); border-radius: 10px; }
     .vs.is-sealed .verdict-body { filter: blur(6px); user-select: none; pointer-events: none; }
 
     .reveal { position: relative; padding: 4px 14px 2px; }

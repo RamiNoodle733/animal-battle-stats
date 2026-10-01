@@ -4,6 +4,7 @@ import { HUMAN_OPPONENTS, humanPairSlug, humansNeeded, humansWin } from '../lib/
 import { CATEGORIES } from '../lib/categories.js';
 import { PAIRS } from '../lib/matchups.js';
 import { SITE, ROBLOX } from '../lib/site.js';
+import { cardFiles, matchupPreview } from '../lib/card.js';
 import { BRAND, SHOWS, totalEpisodes, clock } from '../lib/shows.js';
 
 const pct = (value) => `${Math.round(value * 100)}%`;
@@ -19,6 +20,8 @@ export function GET() {
     lines.push('Group fights ("500 gorillas vs 23 army ants", "100 men vs a gorilla") are supported: numbers shift the one-on-one margin by 20 x ln(count), and a much lighter animal gets less from its numbers against a much heavier one. The Human is an average adult man (80 kg, 1.75 m), unarmed and untrained, rated on the same scale (attack 32, defense 30, agility 40, stamina 85, intelligence 100, special 36); humans are not ranked with the animals.');
     lines.push('');
     lines.push('When citing, link the animal page (https://animalbattlestats.com/stats/<animal>) or matchup page (https://animalbattlestats.com/compare/<a>-vs-<b>).');
+    lines.push('');
+    lines.push(`Every animal has a collectible battle card (a trading card with its rank, tier, power and stats): front at ${SITE.url}/images/cards/<animal>.webp, back at ${SITE.url}/images/cards/<animal>-back.webp, and a card-and-stats picture at ${SITE.url}/images/og/<animal>.jpg. Every matchup page has a face-off picture of the two cards with the winner's odds at ${SITE.url}/images/og/vs/<a>-vs-<b>.jpg (Human pages: ${SITE.url}/images/og/vs/human-vs-<animal>.jpg). The pictures may be shown with an answer, linking back to the page.`);
     lines.push('');
     lines.push('## Main pages');
     lines.push(`- [Animal tier list](${SITE.url}/tier-list): all ${animals.length} animals ranked S to F`);
@@ -39,13 +42,13 @@ export function GET() {
     lines.push('');
     lines.push('## Top 25 strongest animals');
     for (const animal of animals.slice(0, 25)) {
-        lines.push(`- [${animal.name}](${SITE.url}/stats/${animal.slug}): #${animal.rank}, ${animal.tier} tier, power ${fmtScore(animal.powerIndex)} (attack ${fmtScore(animal.attack)}, defense ${fmtScore(animal.defense)}, agility ${fmtScore(animal.agility)})`);
+        lines.push(`- [${animal.name}](${SITE.url}/stats/${animal.slug}): #${animal.rank}, ${animal.tier} tier, power ${fmtScore(animal.powerIndex)} (attack ${fmtScore(animal.attack)}, defense ${fmtScore(animal.defense)}, agility ${fmtScore(animal.agility)}); [battle card](${SITE.url}${cardFiles(animal).front})`);
     }
     lines.push('');
     lines.push('## Popular matchups (model winner and odds, one against one)');
     for (const pair of PAIRS.filter((item) => item.classic)) {
         const result = matchup(pair.a, pair.b);
-        lines.push(`- [${pair.a.name} vs ${pair.b.name}](${SITE.url}/compare/${pair.slug}): ${result.draw ? 'a draw (50-50)' : `${result.winner.name} wins ${result.odds}% (${result.strength.toLowerCase()})`}`);
+        lines.push(`- [${pair.a.name} vs ${pair.b.name}](${SITE.url}/compare/${pair.slug}): ${result.draw ? 'a draw (50-50)' : `${result.winner.name} wins ${result.odds}% (${result.strength.toLowerCase()})`}; [card face-off](${SITE.url}${matchupPreview(`vs/${pair.slug}`, pair.a, pair.b)})`);
     }
     lines.push('');
     lines.push('## Human vs animal (an average unarmed man)');

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import VsScreen from '../../components/VsScreen.astro';
 import { PAIRS, verdict, notesFor } from '../../lib/matchups.js';
 import { SITE, absoluteUrl } from '../../lib/site.js';
+import { matchupPreview, PREVIEW_FILE } from '../../lib/card.js';
 
 export function getStaticPaths() {
     return PAIRS.map((pair) => ({ params: { matchup: pair.slug }, props: { pair } }));
@@ -12,6 +13,9 @@ const { pair } = Astro.props;
 const { a, b } = pair;
 const result = verdict(a, b);
 const path = `/compare/${pair.slug}`;
+// The two battle cards squared up (scripts/images/build-cards.mjs).
+const preview = matchupPreview(`vs/${pair.slug}`, a, b);
+const previewAlt = `${a.name} vs ${b.name} battle cards: who would win?${result.draw ? ' Dead even, a draw.' : ` ${result.winner.name}, ${result.odds}%.`}`;
 const notes = notesFor(a, b);
 const extraFaq = notes?.faq || [];
 const title = `${notes?.title || `${a.name} vs ${b.name}`}: Who Would Win? | ${SITE.name}`;
@@ -25,6 +29,8 @@ const jsonLd = [
         name: `${a.name} vs ${b.name}: who would win?`,
         description,
         isPartOf: { '@id': `${SITE.url}/#website` },
+        primaryImageOfPage: { '@type': 'ImageObject', contentUrl: absoluteUrl(preview), url: absoluteUrl(preview), caption: previewAlt, width: PREVIEW_FILE.width, height: PREVIEW_FILE.height, creator: { '@id': `${SITE.url}/#organization` } },
+        image: absoluteUrl(preview),
         about: [
             { '@type': 'Taxon', name: a.name, scientificName: a.scientific_name, url: absoluteUrl(`/stats/${a.slug}`) },
             { '@type': 'Taxon', name: b.name, scientificName: b.scientific_name, url: absoluteUrl(`/stats/${b.slug}`) }
@@ -48,8 +54,8 @@ const jsonLd = [
     }
 ];
 ---
-<Base title={title} description={description} path={path} image={`/images/og/vs/${pair.slug}.jpg`} imageAlt={`${a.name} vs ${b.name}`} jsonLd={jsonLd} active="compare" biome={result.winner.biome}>
-    <VsScreen a={a} b={b} extraFaq={extraFaq} />
+<Base title={title} description={description} path={path} image={preview} imageAlt={previewAlt} jsonLd={jsonLd} active="compare" biome={result.winner.biome}>
+    <VsScreen a={a} b={b} extraFaq={extraFaq} cardImage={{ src: preview, alt: previewAlt }} />
 </Base>
 <script>
     import '../../scripts/versus.js';

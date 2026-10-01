@@ -228,6 +228,8 @@ function paintMatchup() {
         verdict.innerHTML = `<p>${opening}${crowd ? ' Numbers count for a lot, but much smaller animals get less from them against much heavier ones.' : ''} One on one, the ${escapeHtml(winner.n)} leads in ${leads.length} of 6 battle stats${leads.length ? ` (${leads.join(', ')})` : ''}, with a power index of ${fmt(winner.p)} against ${fmt(loser.p)}.</p>
             <p>${a.h || b.h ? 'The Human is an average adult man, unarmed and untrained. ' : ''}Open each animal's profile for sources, measurements and how it fights.</p>`;
         root.querySelector('[data-faq]')?.setAttribute('hidden', '');
+        // the page's own battle-card picture belongs to its own matchup
+        root.querySelector('.verdict-cards')?.setAttribute('hidden', '');
     }
 
     root.querySelector('[data-fan-a]').textContent = label(a, state.na);

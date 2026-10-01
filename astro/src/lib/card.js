@@ -51,7 +51,8 @@ export function cardData(animal) {
 }
 
 // For a <script type="application/json">: no "</script>" can close it early.
-export const cardJson = (animal) => JSON.stringify(cardData(animal)).replace(/</g, '\\u003c');
+// With the card's files, so the page shows the card the build drew.
+export const cardJson = (animal) => JSON.stringify({ ...cardData(animal), files: cardFiles(animal) }).replace(/</g, '\\u003c');
 
 // ---------------------------------------------------------------- the card files
 
@@ -78,12 +79,16 @@ const RENDERER = (() => {
 })();
 const version = (value) => crypto.createHash('sha1').update(RENDERER + JSON.stringify(value)).digest('hex').slice(0, 10);
 
-// An animal's card (front and back) and its page preview.
+// An animal's card (front and back), the front in two layers for the 3D
+// card's live foil (base: the background; top: everything over the foil), and
+// its page preview.
 export function cardFiles(animal) {
     const v = version(cardData(animal));
     return {
         front: `/images/cards/${animal.slug}.webp?v=${v}`,
         back: `/images/cards/${animal.slug}-back.webp?v=${v}`,
+        base: `/images/cards/${animal.slug}-base.webp?v=${v}`,
+        top: `/images/cards/${animal.slug}-top.webp?v=${v}`,
         preview: `/images/og/${animal.slug}.jpg?v=${v}`
     };
 }

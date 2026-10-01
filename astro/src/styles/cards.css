@@ -78,7 +78,8 @@
 .cv-card.is-ready .cv-face { opacity: 1; }
 .cv-back { transform: rotateY(180deg) translateZ(2px); }
 .cv-layer { position: absolute; inset: 0; }
-.cv-layer canvas { display: block; width: 100%; height: 100%; }
+.cv-layer canvas, .cv-layer img { display: block; width: 100%; height: 100%; }
+.cv-layer img { pointer-events: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 
 /* The foil sits between the front's background and its art (the same field
    as the card art: 2.4% in from the sides, 24% up from the bottom). A band of
@@ -111,6 +112,7 @@
 }
 .cv-edge-l { left: -2px; transform: rotateY(-90deg); }
 .cv-edge-r { right: -2px; transform: rotateY(90deg); }
+.cv-card:not(.is-ready) .cv-edge { visibility: hidden; }
 .cv-floor {
     position: absolute;
     left: 50%;
@@ -121,7 +123,8 @@
     background: radial-gradient(closest-side, rgba(0, 0, 0, 0.65), transparent);
     pointer-events: none;
 }
-.cv-wait { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.9rem; color: var(--muted); pointer-events: none; }
+.cv-wait { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 0 24px; text-align: center; font-size: 0.9rem; color: var(--muted); pointer-events: none; }
+.cv-wait .btn { pointer-events: auto; }
 .cv-hint { margin: 0; padding: 4px 16px 0; text-align: center; font-size: 0.78rem; color: var(--muted); }
 .cv-actions { display: flex; justify-content: center; gap: 10px; padding: 10px 16px max(16px, env(safe-area-inset-bottom)); }
 .cv-actions .btn { min-width: 140px; }

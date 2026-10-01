@@ -429,11 +429,16 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
             openCardViewer(card, { onShare: shareCard });
         } catch { toast('Could not open the card. Check your connection.'); }
     }
-    document.querySelectorAll('[data-card]').forEach((button) => button.addEventListener('click', () => {
-        sfx.select();
-        history.replaceState(null, '', '#card');
-        viewCard();
-    }));
+    // the card's files start downloading as the finger lands
+    const warm = () => { for (const src of [card.files?.base, card.files?.top, card.files?.back]) if (src) new Image().src = src; };
+    document.querySelectorAll('[data-card]').forEach((button) => {
+        button.addEventListener('pointerdown', warm, { once: true });
+        button.addEventListener('click', () => {
+            sfx.select();
+            history.replaceState(null, '', '#card');
+            viewCard();
+        });
+    });
     document.querySelectorAll('[data-share]').forEach((button) => button.addEventListener('click', () => { sfx.select(); shareCard(); }));
     if (location.hash === '#card') viewCard();
 </script>

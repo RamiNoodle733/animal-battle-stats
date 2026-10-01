@@ -3,7 +3,7 @@
 // up across the VS emblem, with the result when there is one). Pictures are
 // 1080x1350 (4:5: right for Instagram, TikTok photos, X and Discord); the
 // videos (card-reel.js) reuse the same pieces at 1080x1920.
-import { CARD_W, CARD_H, TIER_COLOURS, STAT_ROWS, cardAssets, renderSide, drawTurned, turnedQuad, loadImage, roundRect, nineSlice, fontsReady, release, segBar, statIcon, fmtScore } from './abs-card.js';
+import { CARD_W, CARD_H, TIER_COLOURS, STAT_ROWS, cardAssets, cardFaces, renderSide, drawTurned, turnedQuad, loadImage, roundRect, nineSlice, fontsReady, release, segBar, statIcon, fmtScore } from './abs-card.js';
 
 export const PICTURE = { w: 1080, h: 1350 };
 export const STORY = { w: 1080, h: 1920 };
@@ -305,7 +305,8 @@ function canvasOf(W, H) {
 
 // The card on its own.
 export async function cardPicture(card) {
-    const [A, S] = await Promise.all([cardAssets(card), sceneArt()]);
+    const [faces, S] = await Promise.all([cardFaces(card), sceneArt()]);
+    const A = faces ? null : await cardAssets(card);
     const { w: W, h: H } = PICTURE;
     const canvas = canvasOf(W, H);
     const ctx = canvas.getContext('2d');
@@ -316,7 +317,7 @@ export async function cardPicture(card) {
     ctx.fillStyle = '#8d929b';
     ctx.fillText(card.rank ? `CARD ${card.rank} OF ${card.total}` : 'SPECIAL CARD', W - 62, 92);
     ctx.textAlign = 'left';
-    const face = renderSide(card, A, 'front', 900, { sheen: 0.36 });
+    const face = faces?.front || renderSide(card, A, 'front', 900, { sheen: 0.36 });
     placeCard(ctx, face, W / 2, 690, 760, -0.1);
     siteLine(ctx, W, 1302);
     return finish(canvas, face);
@@ -324,7 +325,8 @@ export async function cardPicture(card) {
 
 // Front and back, side by side.
 export async function bothPicture(card) {
-    const [A, S] = await Promise.all([cardAssets(card), sceneArt()]);
+    const [faces, S] = await Promise.all([cardFaces(card), sceneArt()]);
+    const A = faces ? null : await cardAssets(card);
     const { w: W, h: H } = PICTURE;
     const canvas = canvasOf(W, H);
     const ctx = canvas.getContext('2d');
@@ -337,8 +339,8 @@ export async function bothPicture(card) {
     const facts = [card.rank ? `#${card.rank} of ${card.total}` : null, card.tierLabel ? `${card.tierLabel} tier` : null, `Power ${card.power}`].filter(Boolean).join('  ·  ');
     ctx.fillText(facts, W / 2, 292);
     ctx.textAlign = 'left';
-    const front = renderSide(card, A, 'front', 700, { sheen: 0.36 });
-    const back = renderSide(card, A, 'back', 700);
+    const front = faces?.front || renderSide(card, A, 'front', 700, { sheen: 0.36 });
+    const back = faces?.back || renderSide(card, A, 'back', 700);
     placeCard(ctx, front, 282, 760, 478, 0.08);
     placeCard(ctx, back, 798, 760, 478, -0.08);
     siteLine(ctx, W, 1302);

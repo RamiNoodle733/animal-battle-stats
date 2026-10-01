@@ -5,6 +5,8 @@
 // card a visitor sees:
 //
 //   .cache/cards/cards/<slug>.webp, <slug>-back.webp  each animal's card (750x1050)
+//   .cache/cards/cards/<slug>-base.webp, <slug>-top.webp  the front in two layers,
+//                                                     for the 3D card's live foil
 //   .cache/cards/og/<slug>.jpg                        animal page preview: the card and its stats
 //   .cache/cards/og/vs/<a>-vs-<b>.jpg                 matchup page preview: the two cards squared up
 //   .cache/cards/og/vs/human-vs-<animal>.jpg          the same for the Human pages
@@ -73,7 +75,7 @@ for (const [pkg, family, faces] of FONTS) {
     for (const face of faces) GlobalFonts.registerFromPath(path.join(root, 'node_modules', '@fontsource', pkg, 'files', `${pkg}-latin-${face}.woff2`), family);
 }
 
-const { setImageLoader, cardAssets, renderSide, release } = await import(pathToFileURL(path.join(lib, 'abs-card.js')).href);
+const { setImageLoader, cardAssets, renderSide, frontLayers, release } = await import(pathToFileURL(path.join(lib, 'abs-card.js')).href);
 const scenes = await import(pathToFileURL(path.join(lib, 'card-scenes.js')).href);
 
 // Site paths to files: the repository's images, and the encoded animal photos.
@@ -133,7 +135,7 @@ let drawn = 0;
 
 for (const card of jobs.animals) {
     const key = hash(card);
-    const names = [`cards/${card.slug}.webp`, `cards/${card.slug}-back.webp`, `og/${card.slug}.jpg`];
+    const names = [`cards/${card.slug}.webp`, `cards/${card.slug}-back.webp`, `og/${card.slug}.jpg`, `cards/${card.slug}-base.webp`, `cards/${card.slug}-top.webp`];
     names.forEach((name) => { nextManifest[name] = key; });
     if (names.every((name) => fresh(name, key))) continue;
     const A = await cardAssets(card);
@@ -141,17 +143,19 @@ for (const card of jobs.animals) {
     // Drawing snapshots its sources, so each canvas can be freed once drawn from.
     const front = renderSide(card, A, 'front', CARD_WIDTH, { sheen: 0.32 });
     const back = renderSide(card, A, 'back', CARD_WIDTH);
+    const layers = frontLayers(card, A, CARD_WIDTH);
     const preview = createCanvas(scenes.PREVIEW.w, scenes.PREVIEW.h);
     scenes.drawAnimalPreview(preview.getContext('2d'), card, front, S);
     const small = shrink(front);
     drawn += 1;
     await later(async () => {
-        const [frontFile, backFile, previewFile, faceFile] = await Promise.all([front.encode('webp', 90), back.encode('webp', 90), preview.encode('jpeg', 88), small.encode('png')]);
-        write(names[0], frontFile);
-        write(names[1], backFile);
-        write(names[2], previewFile);
+        const [frontFile, backFile, previewFile, baseFile, topFile, faceFile] = await Promise.all([
+            front.encode('webp', 90), back.encode('webp', 90), preview.encode('jpeg', 88),
+            layers.under.encode('webp', 88), layers.over.encode('webp', 90), small.encode('png')
+        ]);
+        [frontFile, backFile, previewFile, baseFile, topFile].forEach((file, index) => write(names[index], file));
         faceFiles.set(card.slug, faceFile);
-        release(front, back, preview, small);
+        release(front, back, preview, layers.under, layers.over, small);
     });
 }
 // Fighters that only appear in matchups (the Human): their fronts, small.
@@ -207,4 +211,4 @@ for (const name of Object.keys(manifest)) {
 fs.writeFileSync(manifestFile, JSON.stringify(nextManifest));
 const total = Object.keys(nextManifest).length;
 const seconds = (ms) => `${(ms / 1000).toFixed(1)}s`;
-console.log(`Battle cards: ${drawn} animals (${seconds(animalsDone - started)}) and ${pairs} matchups (${seconds(Date.now() - animalsDone)}) drawn, ${total - drawn * 3 - pairs} files reused, ${THREADS} threads.`);
+console.log(`Battle cards: ${drawn} animals (${seconds(animalsDone - started)}) and ${pairs} matchups (${seconds(Date.now() - animalsDone)}) drawn, ${total - drawn * 5 - pairs} files reused, ${THREADS} threads.`);

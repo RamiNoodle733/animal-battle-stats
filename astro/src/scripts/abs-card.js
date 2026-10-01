@@ -126,7 +126,8 @@ export function loadImage(src) {
             const img = new Image();
             img.decoding = 'async';
             img.onload = () => resolve(img);
-            img.onerror = () => resolve(null);
+            // a failed image is not remembered, so trying again downloads it again
+            img.onerror = () => { images.delete(src); resolve(null); };
             img.src = src;
         }));
     }
@@ -162,6 +163,18 @@ export async function cardAssets(card) {
         fontsReady()
     ]);
     return { frame, shards, scene, hex, art, crest, logo, holo, foil, tag, icons: Object.fromEntries(icons.map((name, index) => [name, iconImages[index]])) };
+}
+
+// The card as the build drew it (scripts/images/build-cards.mjs; the page
+// names the files in card.files): the front, the back, and the front in two
+// layers for live foil (base: the background; top: everything over the foil).
+// Four downloads instead of drawing the card, which is slow on a phone. Null
+// when the card has no files or they will not load.
+export async function cardFaces(card) {
+    const files = card.files;
+    if (!files?.front || !files.back || !files.base || !files.top) return null;
+    const [front, back, base, top] = await Promise.all([files.front, files.back, files.base, files.top].map(loadImage));
+    return front && back && base && top ? { front, back, base, top } : null;
 }
 
 // ---------------------------------------------------------------- drawing helpers
@@ -997,7 +1010,8 @@ export function drawSheen(ctx, phase, strength = 1) {
 // slow to give it back on its own).
 export function release(...canvases) {
     for (const canvas of canvases.flat()) {
-        if (!canvas) continue;
+        // only canvases: the card files are shared images
+        if (!canvas?.getContext) continue;
         canvas.width = 0;
         canvas.height = 0;
     }

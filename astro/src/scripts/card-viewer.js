@@ -4,7 +4,7 @@
 // the foil is a live layer between the front's background and its art, and it
 // slides as the card turns, so the rainbow moves the way real foil does.
 import './card-styles.js';
-import { cardAssets, frontLayers, renderSide, release, TIER_COLOURS } from './abs-card.js';
+import { cardAssets, cardFaces, frontLayers, renderSide, release, TIER_COLOURS } from './abs-card.js';
 import { sfx } from './sfx.js';
 
 const FOIL = { s: 0.75, a: 0.62, b: 0.55, c: 0.5, d: 0.46, f: 0.42, h: 0.42 };
@@ -38,7 +38,7 @@ function build() {
                 </div>
             </div>
             <span class="cv-floor"></span>
-            <span class="cv-wait" data-cv-wait>Printing the card…</span>
+            <span class="cv-wait" data-cv-wait><span data-cv-wait-text>Printing the card…</span><button type="button" class="btn" data-cv-retry hidden>Try again</button></span>
         </div>
         <p class="cv-hint">Drag to turn it · tap to flip</p>
         <div class="cv-actions">
@@ -68,6 +68,9 @@ function build() {
         if (location.hash === '#card') history.replaceState(null, '', location.pathname + location.search);
     });
     $('[data-cv-flip]').addEventListener('click', () => flip(state));
+    const retry = $('[data-cv-retry]');
+    retry.addEventListener('pointerdown', (event) => event.stopPropagation());
+    retry.addEventListener('click', () => state.retry?.());
     $('[data-cv-share]').addEventListener('click', () => state.onShare?.());
     state.card.addEventListener('keydown', (event) => {
         if (['ArrowLeft', 'ArrowRight', 'Enter', ' '].includes(event.key)) {
@@ -188,6 +191,28 @@ function paint(state) {
 
 // ---------------------------------------------------------------- opening
 
+// The three layers the viewer shows: the card files the build drew when the
+// card has them (copies, decoded before they show), else drawn here.
+async function print(card, state) {
+    const faces = await cardFaces(card).catch(() => null);
+    if (faces) {
+        const copy = async (img) => {
+            const clone = img.cloneNode();
+            clone.alt = '';
+            clone.draggable = false;
+            await clone.decode().catch(() => {});
+            return clone;
+        };
+        const [under, over, back] = await Promise.all([faces.base, faces.top, faces.back].map(copy));
+        return { under, over, back };
+    }
+    const A = await cardAssets(card);
+    const cssWidth = state.card.getBoundingClientRect().width || 400;
+    const width = Math.min(1100, Math.round(cssWidth * Math.min(2.5, window.devicePixelRatio || 1)));
+    const layers = frontLayers(card, A, width);
+    return { ...layers, back: renderSide(card, A, 'back', width) };
+}
+
 // card: the card data (abs-card.js); onShare: what the Share button does.
 export async function openCardViewer(card, { onShare } = {}) {
     viewer ||= build();
@@ -206,7 +231,12 @@ export async function openCardViewer(card, { onShare } = {}) {
     dialog.querySelector('[data-cv-meta]').textContent = card.rank ? `Card ${card.rank} of ${card.total} · ${card.tierLabel} tier` : 'Special card';
     dialog.querySelector('[data-cv-share]').hidden = !onShare;
     const wait = dialog.querySelector('[data-cv-wait]');
+    const waitText = dialog.querySelector('[data-cv-wait-text]');
+    const retry = dialog.querySelector('[data-cv-retry]');
     wait.hidden = false;
+    waitText.textContent = 'Printing the card…';
+    retry.hidden = true;
+    state.retry = () => openCardViewer(card, { onShare });
     state.card.classList.remove('is-ready');
     for (const slot of dialog.querySelectorAll('.cv-layer')) {
         release([...slot.querySelectorAll('canvas')]);
@@ -222,15 +252,22 @@ export async function openCardViewer(card, { onShare } = {}) {
     if (!dialog.open) dialog.showModal();
     state.card.focus({ preventScroll: true });
 
-    const A = await cardAssets(card);
-    if (!state.open || state.token !== token) return;
-    const cssWidth = state.card.getBoundingClientRect().width || 400;
-    const width = Math.min(1100, Math.round(cssWidth * Math.min(2.5, window.devicePixelRatio || 1)));
-    const layers = frontLayers(card, A, width);
-    const back = renderSide(card, A, 'back', width);
-    dialog.querySelector('[data-cv-under]').append(layers.under);
-    dialog.querySelector('[data-cv-over]').append(layers.over);
-    dialog.querySelector('[data-cv-back]').append(back);
+    let sides = null;
+    try {
+        sides = await Promise.race([print(card, state), new Promise((resolve) => { setTimeout(resolve, 20000, null); })]);
+    } catch { sides = null; }
+    if (!state.open || state.token !== token) {
+        if (sides) release(Object.values(sides));
+        return;
+    }
+    if (!sides) {
+        waitText.textContent = 'The card would not print. Check your connection.';
+        retry.hidden = false;
+        return;
+    }
+    dialog.querySelector('[data-cv-under]').append(sides.under);
+    dialog.querySelector('[data-cv-over]').append(sides.over);
+    dialog.querySelector('[data-cv-back]').append(sides.back);
     wait.hidden = true;
     state.card.classList.add('is-ready');
     sfx.whoosh();

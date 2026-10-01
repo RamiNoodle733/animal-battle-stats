@@ -69,6 +69,11 @@ test('every animal page carries its card data', { skip: !built && 'dist/ not bui
         assert.ok(card.moves.length > 0 && card.moves.length <= 4, `${file}: moves`);
         assert.ok(card.signature?.name, `${file}: signature move`);
         assert.ok(fs.existsSync(path.join(dist, card.art.src.split('?')[0])), `${file}: art ${card.art.src}`);
+        // the files the 3D card and the share pictures use instead of drawing
+        for (const key of ['front', 'back', 'base', 'top']) {
+            assert.match(card.files?.[key] || '', new RegExp(`^/images/cards/${card.slug}(-${key})?\\.webp\\?v=[0-9a-f]{10}$`), `${file}: files.${key}`);
+            assert.ok(fs.existsSync(path.join(dist, card.files[key].split('?')[0])), `${file}: ${card.files[key]}`);
+        }
         assert.ok(html.includes('data-card') && html.includes('data-share'), `${file}: card and share buttons`);
     }
 });

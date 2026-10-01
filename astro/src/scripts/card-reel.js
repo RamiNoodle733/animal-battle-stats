@@ -4,7 +4,7 @@
 // and stamps the K.O. Frames are drawn live on a canvas and recorded with
 // MediaRecorder (MP4 where the browser can, WebM otherwise), so a reel takes
 // as long to make as it does to watch, and the preview plays while it records.
-import { CARD_W, cardAssets, frontLayers, drawFoil, drawSheen, drawBack, renderSide, release } from './abs-card.js';
+import { CARD_W, cardAssets, cardFaces, frontLayers, drawFoil, drawSheen, drawBack, renderSide, release } from './abs-card.js';
 import { STORY, sceneArt, backdrop, brand, siteLine, title, placeCard, faceoffCards, oddsBar } from './card-scenes.js';
 
 const DISPLAY = '"Big Shoulders Display", Impact, sans-serif';
@@ -92,11 +92,12 @@ export const CARD_REEL = 8.4;
 
 // Prepares a reel for one card; returns { canvas, duration, draw, dispose }.
 export async function cardReel(card) {
-    const [A, S] = await Promise.all([cardAssets(card), sceneArt()]);
+    const [A, S, faces] = await Promise.all([cardAssets(card), sceneArt(), cardFaces(card)]);
     const { w: W, h: H } = STORY;
-    const faceW = 900;
-    const layers = frontLayers(card, A, faceW);
-    const back = renderSide(card, A, 'back', faceW);
+    // the build's layers when there are some; the stat bars filling is still drawn here
+    const faceW = faces ? faces.base.width : 900;
+    const layers = faces ? { under: faces.base, over: faces.top } : frontLayers(card, A, faceW);
+    const back = faces?.back || renderSide(card, A, 'back', faceW);
     const face = document.createElement('canvas');
     face.width = layers.under.width;
     face.height = layers.under.height;

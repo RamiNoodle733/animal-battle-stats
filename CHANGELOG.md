@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.7.1 — 2026-10-01
+
+- **The 3D card opens at once.** It used to be drawn on the phone each time from about 20 pictures, which was slow and, on some iPhones, never finished ("Printing the card…"). It now shows the card the build already drew (the build redraws every card whenever its stats or art change), so opening it is a ~320 KB download. The build draws two more files per animal for this, the front's background and what sits over the foil, so the foil still moves between them.
+- Sharing an animal's card uses the same files, so the pictures are ready in a moment.
+- If the card can't load, the viewer says so and offers Try again instead of waiting forever.
+
 ## 4.7.0 — 2026-10-01
 
 The battle cards now go wherever the site's pages go: link previews, Google and AI assistants show the card.

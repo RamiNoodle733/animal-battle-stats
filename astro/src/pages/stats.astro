@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import AnimalDatabase from '../components/AnimalDatabase.astro';
 import { animals } from '../lib/catalog.js';
 import { SITE, absoluteUrl } from '../lib/site.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const title = `Animal Rankings & Stats Database: Strongest, Fastest & Heaviest of ${animals.length} Animals | ${SITE.name}`;
 const description = `Rank ${animals.length} real animals by power, attack, defense, agility, stamina, intelligence, special, weight, top speed, length, bite force and fan votes. One sortable table, filters for mammals, birds, reptiles, sea creatures and bugs.`;
@@ -25,6 +26,6 @@ const jsonLd = [
 ];
 ---
 
-<Base title={title} description={description} path="/stats" jsonLd={jsonLd} active="animals">
+<Base title={title} description={description} path="/stats" image={sectionPreview('animals')} imageAlt={sectionAlt('animals')} jsonLd={jsonLd} active="animals">
     <AnimalDatabase />
 </Base>

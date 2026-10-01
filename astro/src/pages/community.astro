@@ -4,6 +4,7 @@ import Icon from '../components/Icon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
 import { PAIRS } from '../lib/matchups.js';
 import { SITE, ROBLOX, SOCIAL, absoluteUrl } from '../lib/site.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const title = `Community: Animal Debates, Votes & Leaderboards | ${SITE.name}`;
 const description = 'Join the Animal Battle Stats community: debate who would win, vote on the strongest animals, climb the player leaderboard and follow the Animal Battle Stats Roblox game.';
@@ -13,7 +14,7 @@ const discord = SOCIAL.find((item) => item.name === 'Discord');
 const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
 ---
 
-<Base title={title} description={description} path="/community" jsonLd={jsonLd} active="community" biome="jungle" seed={21}>
+<Base title={title} description={description} path="/community" image={sectionPreview('community')} imageAlt={sectionAlt('community')} jsonLd={jsonLd} active="community" biome="jungle" seed={21}>
     <h1 class="visually-hidden">Animal Battle Stats community</h1>
     <div class="hub" data-hub data-view="arena">
         <nav class="hub-views" aria-label="Community views">

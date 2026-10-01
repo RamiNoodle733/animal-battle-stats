@@ -117,3 +117,41 @@ test('every animal and matchup page shows its drawn battle cards', { skip: !buil
         }
     }
 });
+
+// Every page has a picture of its own for link previews: the section pages a
+// hand of cards (lib/previews.js), every one versioned and in the build.
+test('every page links a preview picture that is in the build', { skip: !built && 'dist/ not built' }, () => {
+    const pages = [];
+    const walk = (dir) => {
+        for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+            const file = path.join(dir, entry.name);
+            if (entry.isDirectory() && !['images', 'data', '_astro'].includes(entry.name)) walk(file);
+            else if (entry.name.endsWith('.html')) pages.push(file);
+        }
+    };
+    walk(dist);
+    assert.ok(pages.length > 1000);
+    const sections = new Set();
+    for (const file of pages) {
+        const html = fs.readFileSync(file, 'utf8');
+        const og = html.match(/<meta property="og:image" content="https:\/\/animalbattlestats\.com([^"]+)"/)?.[1];
+        assert.ok(og, `${path.relative(dist, file)}: og:image`);
+        assert.ok(fs.existsSync(path.join(dist, og.split('?')[0])), `${path.relative(dist, file)}: ${og}`);
+        if (og.startsWith('/images/og/section/')) {
+            assert.match(og, /\?v=[0-9a-f]{10}$/, `${path.relative(dist, file)}: versioned`);
+            sections.add(og.split('?')[0]);
+        }
+    }
+    // home, all animals, tier lists, rankings, Versus, tournament, community, about
+    for (const id of ['home', 'animals', 'tiers', 'tiers-birds', 'rankings', 'rankings-fastest', 'versus', 'tournament', 'community', 'about']) {
+        assert.ok(sections.has(`/images/og/section/${id}.jpg`), `section preview ${id} is used`);
+    }
+    const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
+    assert.match(home, /"primaryImageOfPage":\{"@type":"ImageObject","url":"https:\/\/animalbattlestats\.com\/images\/og\/section\/home\.jpg\?v=/);
+});
+
+test('Versus knows which matchups have their own page', { skip: !built && 'dist/ not built' }, () => {
+    const slugs = JSON.parse(fs.readFileSync(path.join(dist, 'data', 'matchup-pages.json'), 'utf8'));
+    assert.ok(slugs.length > 900);
+    for (const slug of slugs) assert.ok(fs.existsSync(path.join(dist, 'compare', `${slug}.html`)), slug);
+});

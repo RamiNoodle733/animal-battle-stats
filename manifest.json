@@ -1,23 +1,30 @@
 {
   "name": "Animal Battle Stats",
-  "short_name": "Animal Stats",
-  "description": "Explore scientifically accurate animal statistics presented like video game characters",
+  "short_name": "ABS",
+  "description": "Who would win? 344 real animals with research-backed battle stats, tier lists, battle cards and an animated fight.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#ff0033",
+  "background_color": "#0b0c0e",
+  "theme_color": "#0b0c0e",
+  "categories": ["education", "entertainment", "games"],
   "icons": [
     {
       "src": "/images/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/images/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ]
 }

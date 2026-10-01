@@ -662,6 +662,25 @@ root.querySelector('[data-random]')?.addEventListener('click', randomMatchup);
 
 // ---------------------------------------------------------------- share the face-off
 
+// The link to share: a one-on-one fight that has its own page goes there, so
+// the link preview shows this fight's cards; anything else, this screen.
+let matchupPages = null;
+async function shareLink(a, b) {
+    const here = location.href.split('#')[0];
+    if (state.na !== 1 || state.nb !== 1) return here;
+    try {
+        matchupPages ||= Promise.race([
+            fetch('/data/matchup-pages.json').then((response) => (response.ok ? response.json() : [])),
+            new Promise((resolve) => { setTimeout(resolve, 1500, []); })
+        ]).then((list) => new Set(list));
+        const pages = await matchupPages;
+        const slug = [`${a.s}-vs-${b.s}`, `${b.s}-vs-${a.s}`].find((candidate) => pages.has(candidate));
+        return slug ? `${location.origin}/compare/${slug}` : here;
+    } catch {
+        return here;
+    }
+}
+
 // The two fighters' cards squared up (scripts/share-card.js, loaded on demand):
 // before the fight a challenge with the odds hidden, after it the result.
 shareButton?.addEventListener('click', async () => {
@@ -675,7 +694,7 @@ shareButton?.addEventListener('click', async () => {
     const result = state.result;
     const winner = result && result !== 'draw' ? label(result === 'a' ? a : b, result === 'a' ? state.na : state.nb) : null;
     try {
-        const [{ shareMatchup }, { cardFromIndex }] = await Promise.all([import('./share-card.js'), import('./abs-card.js')]);
+        const [{ shareMatchup }, { cardFromIndex }, url] = await Promise.all([import('./share-card.js'), import('./abs-card.js'), shareLink(a, b)]);
         const total = state.index.size - 1;
         shareMatchup({
             a: cardFromIndex(a, total),
@@ -685,7 +704,7 @@ shareButton?.addEventListener('click', async () => {
             labels: [la, lb],
             odds: revealed ? Math.round(probability(a, b) * 100) : null,
             result,
-            url: location.href.split('#')[0],
+            url,
             text: result === 'draw' ? `${la} vs ${lb} ended in a draw: dead even on the stats. Who would you pick?` : result ? `${winner} won the fight. Who would you pick?` : `Who would win: ${la} or ${lb}? Make your call:`,
             name: `${la} vs ${lb}`
         });

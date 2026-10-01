@@ -3,9 +3,10 @@
 import Base from '../layouts/Base.astro';
 import AnimalDatabase from '../components/AnimalDatabase.astro';
 import { rankingPage } from '../lib/ranking-meta.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const page = rankingPage();
 ---
-<Base title={page.title} description={page.description} path={page.path} image="/images/og/rankings.jpg" imageAlt={page.heading} jsonLd={page.jsonLd} active="animals">
+<Base title={page.title} description={page.description} path={page.path} image={sectionPreview('rankings')} imageAlt={sectionAlt('rankings')} jsonLd={page.jsonLd} active="animals">
     <AnimalDatabase sort={page.sort} heading={page.heading} list={page.list} about={page.about} />
 </Base>

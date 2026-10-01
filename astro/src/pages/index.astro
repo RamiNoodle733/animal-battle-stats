@@ -6,6 +6,7 @@ import AnimalImage from '../components/AnimalImage.astro';
 import RobloxMark from '../components/RobloxMark.astro';
 import { animals, gameAnimals, researchedCount, sourceCount, fmtScore } from '../lib/catalog.js';
 import { PAIRS } from '../lib/matchups.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 import { SITE, ROBLOX, absoluteUrl } from '../lib/site.js';
 
 const ring = [...animals.filter((animal) => animal.tier === 'S'), ...animals.filter((animal) => animal.tier === 'A')].slice(0, 12);
@@ -37,6 +38,10 @@ const jsonLd = [
         description,
         isPartOf: { '@id': `${SITE.url}/#website` },
         about: { '@type': 'Thing', name: 'Animal powerscaling and hypothetical animal matchups' },
+        // the picture for this page in search and link previews (not the logo)
+        primaryImageOfPage: { '@type': 'ImageObject', url: absoluteUrl(sectionPreview('home')), contentUrl: absoluteUrl(sectionPreview('home')), width: 1200, height: 630, caption: sectionAlt('home') },
+        image: absoluteUrl(sectionPreview('home')),
+        thumbnailUrl: absoluteUrl(sectionPreview('home')),
         mainEntity: {
             '@type': 'Dataset',
             name: 'Animal Battle Stats dataset',
@@ -51,7 +56,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={title} description={description} path="/" image="/images/og/site.jpg" imageAlt="Animal Battle Stats" jsonLd={jsonLd} active="" biome="savanna" seed={3}>
+<Base title={title} description={description} path="/" image={sectionPreview('home')} imageAlt={sectionAlt('home')} jsonLd={jsonLd} active="" biome="savanna" seed={3}>
     <div class="home screen-grid">
         <section class="menu-col enter">
             <div class="logo-block">

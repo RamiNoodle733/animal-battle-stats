@@ -6,6 +6,7 @@ import { animals, getAnimal } from '../../lib/catalog.js';
 import { PAIRS } from '../../lib/matchups.js';
 import { cardData, matchupJob } from '../../lib/card.js';
 import { HUMAN_FIGHTER, HUMAN_OPPONENTS, humanPairSlug } from '../../lib/human.js';
+import { SECTIONS, sectionJob } from '../../lib/previews.js';
 
 export function GET() {
     const lion = getAnimal('african-lion');
@@ -17,9 +18,11 @@ export function GET() {
         matchups: [
             ...PAIRS.map((pair) => matchupJob(`vs/${pair.slug}`, pair.a, pair.b)),
             ...HUMAN_OPPONENTS.map((animal) => matchupJob(`vs/${humanPairSlug(animal)}`, HUMAN_FIGHTER, animal)),
-            // the Versus screen's own preview: a classic
+            // the Versus screen's old preview, kept for links already shared
             ...(lion && tiger ? [matchupJob('compare', lion, tiger)] : [])
-        ]
+        ],
+        // the section pages' previews: a hand of cards and the page's title
+        sections: Object.keys(SECTIONS).map(sectionJob)
     };
     return new Response(JSON.stringify(jobs), { headers: { 'Content-Type': 'application/json' } });
 }

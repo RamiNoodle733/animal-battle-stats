@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import { STATS, TIERS, POWER_WEIGHTS, researchedCount, sourceCount, lastResearchDate, animals } from '../lib/catalog.js';
 import { SITE, SOCIAL, absoluteUrl } from '../lib/site.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const title = `About Animal Battle Stats: How the Ratings, Tiers and Matchups Work | ${SITE.name}`;
 const description = `How Animal Battle Stats researches ${animals.length} animals, turns sources into six 0-100 battle ratings, builds the power index and tiers, and predicts who would win.`;
@@ -32,7 +33,7 @@ const sourcesList = [
 ];
 ---
 
-<Base title={title} description={description} path="/about" jsonLd={jsonLd} biome="forest">
+<Base title={title} description={description} path="/about" image={sectionPreview('about')} imageAlt={sectionAlt('about')} jsonLd={jsonLd} biome="forest">
     <div class="info screen-grid">
         <aside class="panel side">
             <div class="panel-head"><Icon name="book" size={30} /><h1 class="panel-title">About ABS</h1></div>

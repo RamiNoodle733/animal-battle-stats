@@ -3,7 +3,7 @@
 // up across the VS emblem, with the result when there is one). Pictures are
 // 1080x1350 (4:5: right for Instagram, TikTok photos, X and Discord); the
 // videos (card-reel.js) reuse the same pieces at 1080x1920.
-import { CARD_W, CARD_H, TIER_COLOURS, STAT_ROWS, cardAssets, cardFaces, renderSide, drawTurned, turnedQuad, loadImage, roundRect, nineSlice, fontsReady, release, segBar, statIcon, fmtScore } from './abs-card.js';
+import { CARD_W, CARD_H, TIER_COLOURS, STAT_ROWS, cardAssets, cardFaces, renderSide, drawTurned, turnedQuad, loadImage, roundRect, nineSlice, fontsReady, release, segBar, statIcon, fmtScore, wrap, balance } from './abs-card.js';
 
 export const PICTURE = { w: 1080, h: 1350 };
 export const STORY = { w: 1080, h: 1920 };
@@ -533,4 +533,139 @@ export function drawMatchupPreview(ctx, a, b, faces, S, { odds = null, draw = fa
     }), 0, 0);
     faceoffCards(ctx, S, { a, b, faces, na: 1, nb: 1, labels: [], result: null }, { W, y: 330, cardW: 288, gap: 560, vs: 200 });
     if (odds != null) oddsBar(ctx, 60, 566, W - 120, 40, odds, 1, draw ? 'DEAD EVEN · A DRAW' : 'ODDS ON THE STATS');
+}
+
+// ---------------------------------------------------------------- section pages
+
+// A card held in a hand: rotated `angle` radians (flat, no perspective) about
+// its centre (x, y), with the card-outline shadow under it.
+function heldCard(ctx, face, x, y, w, angle) {
+    const h = w * (CARD_H / CARD_W);
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.globalAlpha = 0.8;
+    ctx.drawImage(cardShadow(), -w / 2 - w * 0.25, -h / 2 - h * (50 / 300) + w * 0.06, w * 1.5, h * (400 / 300));
+    ctx.globalAlpha = 1;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(face, -w / 2, -h / 2, w, h);
+    ctx.restore();
+}
+
+// A fan of cards: the first in the middle and on top, the rest alternating
+// right and left of it, further out and further under.
+function cardFan(ctx, faces, cx, cy) {
+    const count = faces.length;
+    const w = count <= 3 ? 250 : count === 4 ? 232 : count === 5 ? 216 : 196;
+    const spread = count > 1 ? Math.min(0.62, 0.16 * (count - 1)) : 0;
+    const radius = 620;
+    const middle = Math.floor((count - 1) / 2);
+    const slots = faces.map((_, index) => middle + (index % 2 ? 1 : -1) * Math.ceil(index / 2));
+    for (let index = count - 1; index >= 0; index -= 1) {
+        const angle = count > 1 ? -spread / 2 + (spread * slots[index]) / (count - 1) : 0;
+        heldCard(ctx, faces[index], cx + Math.sin(angle) * radius, cy + (1 - Math.cos(angle)) * radius, w, angle);
+    }
+}
+
+// The top three: #1 in the middle, raised and bigger.
+function cardPodium(ctx, S, faces, cx, cy) {
+    const spots = [[1, cx - 200, cy + 34, 206, -0.1], [2, cx + 200, cy + 34, 206, 0.1], [0, cx, cy - 6, 252, 0]];
+    for (const [index, x, y, w, angle] of spots) {
+        if (!faces[index]) continue;
+        heldCard(ctx, faces[index], x, y, w, angle);
+    }
+    for (const [index, x, y, w] of spots) {
+        if (!faces[index]) continue;
+        goldTag(ctx, S, `#${index + 1}`, x, y + (w * (CARD_H / CARD_W)) / 2 + 6, index === 0 ? 30 : 24, { metal: index === 0 ? 'gold' : 'silver' });
+    }
+}
+
+export const sectionBackdrop = (S, tier) => cached(S, `section-${tier}`, PREVIEW.w, PREVIEW.h, (bg) => {
+    const { w: W, h: H } = PREVIEW;
+    backdrop(bg, W, H, S, { tier, glowX: 0.73, glowY: 0.5 });
+    if (S.logo) bg.drawImage(S.logo, 58, 42, 50, 50);
+    bg.font = `900 27px ${DISPLAY}`;
+    bg.fillStyle = '#f3f4f6';
+    bg.textBaseline = 'middle';
+    bg.fillText('ANIMAL BATTLE STATS', 120, 68);
+    bg.textBaseline = 'alphabetic';
+    bg.fillStyle = '#c5c9d1';
+    bg.fillText('ANIMALBATTLESTATS.COM', 60, H - 40);
+});
+
+// A section page (home, all animals, a tier list, a ranking...): its title,
+// what it is and a line of gold chips on the left, its cards on the right
+// (a fan, the top-three podium, or one card front and back).
+// section: { title, sub, chips, layout, tier }; faces: card fronts; back: for the pair.
+export function drawSectionPreview(ctx, section, faces, S, { back = null } = {}) {
+    ctx.drawImage(sectionBackdrop(S, section.tier || 's'), 0, 0);
+    const cx = 884;
+    const cy = 330;
+    if (section.layout === 'podium') cardPodium(ctx, S, faces, cx, cy);
+    else if (section.layout === 'versus') {
+        // two cards squared up, the VS emblem between them
+        if (faces[0]) heldCard(ctx, faces[0], cx - 150, cy + 14, 236, -0.09);
+        if (faces[1]) heldCard(ctx, faces[1], cx + 150, cy + 14, 236, 0.09);
+        ctx.drawImage(vsSprite(S), cx - 108, cy - 76, 216, 180);
+    }
+    else if (section.layout === 'pair' && back) {
+        placeCard(ctx, faces[0], cx - 128, cy + 8, 252, 0.12);
+        placeCard(ctx, back, cx + 128, cy + 8, 252, -0.12);
+    } else cardFan(ctx, faces, cx, cy + 20);
+
+    // the words: the title as big as fits on one line, else two
+    const textW = 500;
+    const name = section.title.toUpperCase();
+    let size = 112;
+    let lines = [name];
+    ctx.font = `900 ${size}px ${DISPLAY}`;
+    while (ctx.measureText(name).width > textW && size > 84) {
+        size -= 4;
+        ctx.font = `900 ${size}px ${DISPLAY}`;
+    }
+    if (ctx.measureText(name).width > textW) {
+        size = 100;
+        for (;;) {
+            ctx.font = `900 ${size}px ${DISPLAY}`;
+            lines = balance(ctx, name, textW);
+            if (lines.every((line) => ctx.measureText(line).width <= textW) || size <= 48) break;
+            size -= 4;
+        }
+    }
+    ctx.font = `600 26px ${BODY}`;
+    const sub = section.sub ? wrap(ctx, section.sub, textW - 10, 3) : [];
+    const lineH = size * 0.92;
+    const height = lines.length * lineH + (sub.length ? 22 + sub.length * 35 : 0) + (section.chips ? 50 : 0);
+    let y = Math.max(140, 330 - height / 2) + size * 0.78;
+
+    ctx.fillStyle = '#fff';
+    ctx.shadowColor = 'rgba(0,0,0,0.55)';
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 4;
+    ctx.font = `900 ${size}px ${DISPLAY}`;
+    for (const line of lines) {
+        ctx.fillText(line, 56, y);
+        y += lineH;
+    }
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+    // a gold rule under the title, like the site's headings
+    ctx.fillStyle = GOLD;
+    ctx.fillRect(60, y - lineH + size * 0.2, 86, 6);
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.fillRect(152, y - lineH + size * 0.2, 30, 6);
+    y += 28;
+    ctx.font = `600 26px ${BODY}`;
+    ctx.fillStyle = '#d5d8de';
+    for (const line of sub) {
+        ctx.fillText(line, 60, y);
+        y += 35;
+    }
+    if (section.chips) {
+        y += 18;
+        ctx.font = `800 19px ${BODY}`;
+        ctx.fillStyle = GOLD;
+        ctx.fillText(section.chips, 60, y, textW);
+    }
 }

@@ -106,10 +106,12 @@ Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, import
 - `sfx.js`, `track.js` - synthesized sound effects and visit analytics
 - The collectible cards, loaded only when someone opens a card or shares (dynamic `import()`, so no page carries them up front):
   - `abs-card.js` - draws an animal's card on a canvas: the front (art over its biome and tier shards, power, crest, archetype tag, name plate, card number) and the back (number strip, portrait, stat bars, abilities, the signature move). Every other card feature uses it, so they always match
-  - `card-scenes.js` - the share pictures (1080x1350): the card, front and back, and the Versus face-off with the result; and the link previews (1200x630): an animal's card with its stats, a matchup's two cards with the odds
-  - `card-reel.js` - the 9:16 videos, drawn frame by frame and recorded with `MediaRecorder` (MP4 where the browser can, WebM otherwise)
+  - `card-scenes.js` - the share pictures (1080x1350): the card, front and back, and the Versus face-off with the result; and the link previews (1200x630): an animal's card with its stats, a matchup's two cards with the odds, and each section page's title beside a fan, podium or pair of cards (`astro/src/lib/previews.js` lists the sections)
+  - `card-reel.js` - the 9:16 videos, drawn frame by frame and recorded with `MediaRecorder` (MP4 where the browser can, WebM otherwise), with their soundtrack
+  - `reel-audio.js` - the videos' soundtracks, synthesized with Web Audio and rendered offline: a beat in A minor and the hits timed to the animation (flips, stat bars, VS slam, K.O.)
+  - `card-gif.js` - the same videos as looping GIFs (`gifenc`): one palette, and each frame keeps only the pixels that changed
   - `card-viewer.js` - the 3D card on animal pages (`/stats/<animal>#card` opens it): drag to turn, tap or arrow keys to flip, live foil and glare
-  - `share-card.js` - the share sheet for animals and matchups: format tabs, the native share sheet with the file attached, save and copy link
+  - `share-card.js` - the share sheet for animals and matchups: format tabs (picture, video, GIF), the native share sheet with the file attached, Save to Photos on iPhone and iPad, save and copy link
   - `card-styles.js` - adds `styles/cards.css` the first time the viewer or the share sheet opens
 
 The card data for each animal is written into its page at build time (`astro/src/lib/card.js`, a `<script type="application/json" id="abs-card">`); Versus builds cards from `/data/animals-lite.json` (`cardFromIndex`).

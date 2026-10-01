@@ -4,7 +4,7 @@ import VsScreen from '../components/VsScreen.astro';
 import { getAnimal, rosterSize } from '../lib/catalog.js';
 import { PAIRS } from '../lib/matchups.js';
 import { SITE, absoluteUrl } from '../lib/site.js';
-import { matchupPreview } from '../lib/card.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const a = getAnimal('african-lion');
 const b = getAnimal('siberian-tiger');
@@ -27,7 +27,7 @@ const jsonLd = [
     }
 ];
 ---
-<Base title={title} description={description} path="/compare" image={matchupPreview('compare', a, b)} imageAlt={`Who would win? ${a.name} vs ${b.name} battle cards`} jsonLd={jsonLd} active="compare" biome="arena">
+<Base title={title} description={description} path="/compare" image={sectionPreview('versus')} imageAlt={sectionAlt('versus')} jsonLd={jsonLd} active="compare" biome="arena">
     <h1 class="visually-hidden">Who would win? Compare any two animals</h1>
     <VsScreen a={a} b={b} pageLevel="h2" analysis={false} />
 </Base>

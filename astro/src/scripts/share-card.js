@@ -1,18 +1,23 @@
 // The share sheet. An animal shares as its card (the front, or front and back
-// together) or as a short video of the card; a matchup shares as the
-// face-off (before the fight a challenge with the odds hidden, after it the
-// result) or as a face-off video. Pictures are drawn and videos recorded in
+// together) or as a short video of the card (with its soundtrack) or a GIF of
+// it; a matchup shares as the face-off (before the fight a challenge with the
+// odds hidden, after it the result), a face-off video or a GIF. Pictures are drawn and videos recorded in
 // the browser (card-scenes.js, card-reel.js). Phones get the share sheet with
-// the file attached; everyone can save the file or copy the link.
+// the file attached; iPhones and iPads get Save to Photos (the share sheet with
+// only the file, which offers Save Image / Save Video); everyone else can save
+// the file, and everyone can copy the link.
 import './card-styles.js';
 import { cardPicture, bothPicture, faceoffPicture } from './card-scenes.js';
 import { cardReel, faceoffReel, record, videoType, CARD_REEL, FACEOFF_REEL } from './card-reel.js';
+import { primeAudio, liveAudio } from './reel-audio.js';
+import { encodeGif } from './card-gif.js';
 
 const ICONS = {
     card: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 15h8"/></svg>',
     both: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="9" height="14" rx="1.5"/><rect x="12.5" y="5" width="9" height="14" rx="1.5"/></svg>',
     video: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg>',
-    versus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4l9.5 9.5M20 4l-9.5 9.5M6.5 16.5L4 19M17.5 16.5L20 19"/></svg>'
+    versus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4l9.5 9.5M20 4l-9.5 9.5M6.5 16.5L4 19M17.5 16.5L20 19"/></svg>',
+    gif: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M9.5 10H7.8a1.3 1.3 0 0 0-1.3 1.3v1.4A1.3 1.3 0 0 0 7.8 14h1.7v-2M12.5 10v4M15.5 14v-4h2.5M15.5 12h2"/></svg>'
 };
 
 let sheet = null;
@@ -26,12 +31,14 @@ function build() {
         <div class="ss-preview" data-ss-preview aria-live="polite">
             <img alt="" data-ss-img />
             <video muted loop playsinline autoplay data-ss-video></video>
+            <button type="button" class="ss-sound" data-ss-sound aria-pressed="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="on" d="M15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/><path class="off" d="M16 9.5l5 5M21 9.5l-5 5"/></svg><span>Sound</span></button>
             <span class="ss-wait" data-ss-wait>Drawing the card…</span>
             <span class="ss-rec" data-ss-rec hidden>Recording</span>
             <span class="ss-progress" data-ss-progress hidden><i></i></span>
         </div>
         <div class="ss-actions">
             <button type="button" class="btn btn-gold" data-ss-share>Share</button>
+            <button type="button" class="btn" data-ss-photos hidden>Save to Photos</button>
             <a class="btn" data-ss-save>Save</a>
             <button type="button" class="btn" data-ss-copy>Copy link</button>
         </div>
@@ -45,16 +52,24 @@ function build() {
         preview: $('[data-ss-preview]'),
         img: $('[data-ss-img]'),
         video: $('[data-ss-video]'),
+        sound: $('[data-ss-sound]'),
         wait: $('[data-ss-wait]'),
         rec: $('[data-ss-rec]'),
         progress: $('[data-ss-progress]'),
         share: $('[data-ss-share]'),
         save: $('[data-ss-save]'),
+        photos: $('[data-ss-photos]'),
         copy: $('[data-ss-copy]'),
         note: $('[data-ss-note]'),
         current: null
     };
     ui.video.muted = true;
+    // the preview plays muted (autoplay); the button turns its sound on
+    ui.sound.addEventListener('click', () => {
+        ui.video.muted = !ui.video.muted;
+        ui.sound.setAttribute('aria-pressed', String(!ui.video.muted));
+        ui.video.play().catch(() => {});
+    });
     $('[data-ss-close]').addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
     dialog.addEventListener('close', () => {
@@ -102,17 +117,23 @@ function open(config) {
 }
 
 function busy(ui, on) {
-    ui.share.classList.toggle('is-busy', on);
-    ui.save.classList.toggle('is-busy', on);
-    ui.share.setAttribute('aria-disabled', String(on));
-    ui.save.setAttribute('aria-disabled', String(on));
+    for (const button of [ui.share, ui.save, ui.photos]) {
+        button.classList.toggle('is-busy', on);
+        button.setAttribute('aria-disabled', String(on));
+    }
 }
+
+// iPhone and iPad (iPadOS reports a Mac with touch): there the only way into
+// Photos is the share sheet.
+export const isApplePhone = () => /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
 async function select(ui, format) {
     const { state } = ui;
     if (!state) return;
     ui.current?.abort?.abort();
-    const current = { format, abort: format.kind === 'video' ? new AbortController() : null };
+    // a video's soundtrack needs audio started inside this tap (iPhones)
+    if (format.kind === 'video') primeAudio();
+    const current = { format, abort: format.kind === 'video' || format.kind === 'gif' ? new AbortController() : null };
     ui.current = current;
     for (const tab of ui.tabs.children) tab.setAttribute('aria-pressed', String(tab.dataset.format === format.id));
     ui.note.textContent = format.note;
@@ -120,25 +141,41 @@ async function select(ui, format) {
     ui.img.removeAttribute('src');
     ui.video.pause();
     ui.video.removeAttribute('src');
+    ui.video.muted = true;
+    ui.sound.hidden = true;
+    ui.sound.setAttribute('aria-pressed', 'false');
     ui.rec.hidden = true;
     ui.progress.hidden = true;
     ui.wait.hidden = false;
-    ui.wait.textContent = format.kind === 'video' ? 'Setting up the video…' : 'Drawing the card…';
-    ui.save.textContent = format.kind === 'video' ? 'Save video' : 'Save image';
+    ui.wait.textContent = format.kind === 'video' ? 'Setting up the video…' : format.kind === 'gif' ? 'Making the GIF…' : 'Drawing the card…';
+    ui.save.textContent = format.kind === 'video' ? 'Save video' : format.kind === 'gif' ? 'Save GIF' : 'Save image';
     busy(ui, true);
     const stale = () => ui.state !== state || ui.current !== current;
 
     let result = state.results.get(format.id);
     if (!result) {
         try {
-            if (format.kind === 'image') {
-                // never "Drawing the card…" for good: give up after half a minute
-                const blob = await Promise.race([format.make(), new Promise((resolve) => { setTimeout(resolve, 30000, null); })]);
+            if (format.kind === 'image' || format.kind === 'gif') {
+                const gif = format.kind === 'gif';
+                const bar = ui.progress.firstElementChild;
+                if (gif) {
+                    ui.progress.hidden = false;
+                    bar.style.setProperty('--p', '0');
+                }
+                const making = gif
+                    ? format.make({ signal: current.abort.signal, onFrame: (p) => { bar.style.setProperty('--p', p.toFixed(3)); } })
+                    : format.make();
+                // never stuck for good: give up after half a minute (two for a GIF)
+                const blob = await Promise.race([making, new Promise((resolve) => { setTimeout(resolve, gif ? 120000 : 30000, null); })]);
                 if (!blob) throw new Error('No picture');
-                result = { blob, ext: 'jpg' };
+                result = { blob, ext: gif ? 'gif' : 'jpg' };
             } else {
                 const reel = await format.make();
                 if (stale()) { reel.dispose(); return; }
+                // the soundtrack is ready in a moment (it is rendered, not played)
+                const soundtrack = await Promise.race([reel.soundtrack?.().catch(() => null), new Promise((resolve) => { setTimeout(resolve, 5000, null); })]);
+                if (stale()) { reel.dispose(); return; }
+                const audio = soundtrack && liveAudio() ? { context: liveAudio(), buffer: soundtrack } : null;
                 ui.wait.hidden = true;
                 ui.rec.hidden = false;
                 ui.progress.hidden = false;
@@ -147,6 +184,7 @@ async function select(ui, format) {
                 try {
                     result = await record(reel.canvas, reel.draw, reel.duration, {
                         signal: current.abort.signal,
+                        audio,
                         onFrame: (p) => { bar.style.setProperty('--p', p.toFixed(3)); }
                     });
                 } finally {
@@ -160,7 +198,7 @@ async function select(ui, format) {
             ui.rec.hidden = true;
             ui.progress.hidden = true;
             ui.wait.hidden = false;
-            ui.wait.textContent = format.kind === 'video' ? 'This browser could not record the video. Try the picture instead.' : `Could not draw the card. Tap ${format.label} to try again.`;
+            ui.wait.textContent = format.kind === 'video' ? 'This browser could not record the video. Try the picture or the GIF instead.' : `Could not make the ${format.kind === 'gif' ? 'GIF' : 'card'}. Tap ${format.label} to try again.`;
             return;
         }
         if (ui.state !== state) return;
@@ -174,8 +212,9 @@ async function select(ui, format) {
     if (format.kind === 'video') {
         ui.video.src = result.url;
         ui.video.play().catch(() => {});
+        ui.sound.hidden = !result.sound;
     } else ui.img.src = result.url;
-    ui.img.alt = format.kind === 'image' ? `${state.config.name}: ${format.label.toLowerCase()}` : '';
+    ui.img.alt = format.kind === 'video' ? '' : `${state.config.name}: ${format.label.toLowerCase()}`;
 
     const fileName = `${slugify(state.config.name)}-${format.id}.${result.ext}`;
     const file = new File([result.blob], fileName, { type: result.blob.type });
@@ -184,6 +223,16 @@ async function select(ui, format) {
     ui.save.onclick = () => track('save', state.config, format.id);
     const canFiles = Boolean(navigator.canShare?.({ files: [file] }));
     ui.share.hidden = !navigator.share;
+    // Save to Photos: the file alone, so the sheet offers Save Image / Save Video.
+    const toPhotos = canFiles && isApplePhone();
+    ui.photos.hidden = !toPhotos;
+    ui.save.hidden = toPhotos;
+    ui.photos.onclick = async () => {
+        try {
+            await navigator.share({ files: [file] });
+            track('save_photos', state.config, format.id);
+        } catch { /* cancelled */ }
+    };
     ui.share.onclick = async () => {
         const { config } = state;
         try {
@@ -196,6 +245,16 @@ async function select(ui, format) {
 }
 
 const canVideo = () => Boolean(videoType());
+
+// A GIF of a reel; the reel is freed once the GIF is made.
+async function gifOf(makeReel, options) {
+    const reel = await makeReel();
+    try {
+        return new Blob([await encodeGif(reel, options)], { type: 'image/gif' });
+    } finally {
+        reel.dispose();
+    }
+}
 const seconds = (n) => `${/^(8|11|18)/.test(String(n)) ? 'An' : 'A'} ${n}-second`;
 
 // ---------------------------------------------------------------- an animal's card
@@ -209,7 +268,8 @@ export function shareAnimal(card, { url }) {
         { id: 'card', label: 'Card', icon: 'card', kind: 'image', note: 'The card, sized for Instagram, X and Discord. The link opens it in 3D.', make: () => cardPicture(card) },
         { id: 'front-back', label: 'Front + back', icon: 'both', kind: 'image', note: 'Both sides: the stats, abilities and signature move on the back.', make: () => bothPicture(card) }
     ];
-    if (canVideo()) formats.push({ id: 'video', label: 'Video', icon: 'video', kind: 'video', note: `${seconds(Math.round(CARD_REEL))} clip for Reels, TikTok, Shorts and Stories: the card turns, flips and fills its stats.`, make: () => cardReel(card) });
+    if (canVideo()) formats.push({ id: 'video', label: 'Video', icon: 'video', kind: 'video', note: `${seconds(Math.round(CARD_REEL))} clip with sound for Reels, TikTok, Shorts and Stories: the card turns, flips and fills its stats.`, make: () => cardReel(card) });
+    formats.push({ id: 'gif', label: 'GIF', icon: 'gif', kind: 'gif', note: 'The video as a looping GIF (no sound), for chats and Discord.', make: (options) => gifOf(() => cardReel(card), options) });
     open({ title: 'Share the card', name: card.name, url, text, contentType: 'animal_card', formats });
 }
 
@@ -225,6 +285,7 @@ export function shareMatchup(data) {
     const formats = [
         { id: 'face-off', label: 'Face-off', icon: 'versus', kind: 'image', note, make: () => faceoffPicture(data) }
     ];
-    if (canVideo()) formats.push({ id: 'video', label: 'Video', icon: 'video', kind: 'video', note: `${seconds(FACEOFF_REEL)} clip: the cards square up, the VS slams in${data.result === 'draw' ? ' and it ends dead even' : data.result ? ' and the loser gets knocked out' : ''}.`, make: () => faceoffReel(data) });
+    if (canVideo()) formats.push({ id: 'video', label: 'Video', icon: 'video', kind: 'video', note: `${seconds(FACEOFF_REEL)} clip with sound: the cards square up, the VS slams in${data.result === 'draw' ? ' and it ends dead even' : data.result ? ' and the loser gets knocked out' : ''}.`, make: () => faceoffReel(data) });
+    formats.push({ id: 'gif', label: 'GIF', icon: 'gif', kind: 'gif', note: 'The face-off as a looping GIF (no sound), for chats and Discord.', make: (options) => gifOf(() => faceoffReel(data), options) });
     open({ title: data.result ? 'Share the result' : 'Challenge your friends', name: data.name, url: data.url, text: data.text, contentType: 'matchup', formats });
 }

@@ -78,6 +78,8 @@ const RENDERER = (() => {
     return hash.digest('hex');
 })();
 const version = (value) => crypto.createHash('sha1').update(RENDERER + JSON.stringify(value)).digest('hex').slice(0, 10);
+// The same versioning for other drawn files (lib/previews.js).
+export const fileVersion = version;
 
 // An animal's card (front and back), the front in two layers for the 3D
 // card's live foil (base: the background; top: everything over the foil), and

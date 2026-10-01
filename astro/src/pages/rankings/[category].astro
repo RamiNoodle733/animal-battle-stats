@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import AnimalDatabase from '../../components/AnimalDatabase.astro';
 import { CATEGORIES } from '../../lib/categories.js';
 import { rankingPage } from '../../lib/ranking-meta.js';
+import { sectionPreview, sectionAlt } from '../../lib/previews.js';
 
 export function getStaticPaths() {
     return CATEGORIES.map((category) => ({ params: { category: category.slug }, props: { category } }));
@@ -12,6 +13,6 @@ export function getStaticPaths() {
 const { category } = Astro.props;
 const page = rankingPage(category);
 ---
-<Base title={page.title} description={page.description} path={page.path} image="/images/og/rankings.jpg" imageAlt={page.heading} jsonLd={page.jsonLd} active="animals">
+<Base title={page.title} description={page.description} path={page.path} image={sectionPreview(`rankings-${category.slug}`)} imageAlt={sectionAlt(`rankings-${category.slug}`)} jsonLd={page.jsonLd} active="animals">
     <AnimalDatabase sort={page.sort} heading={page.heading} list={page.list} about={page.about} />
 </Base>

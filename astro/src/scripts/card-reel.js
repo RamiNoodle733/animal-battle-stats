@@ -4,8 +4,10 @@
 // and stamps the K.O. Frames are drawn live on a canvas and recorded with
 // MediaRecorder (MP4 where the browser can, WebM otherwise), so a reel takes
 // as long to make as it does to watch, and the preview plays while it records.
+// Each reel has a soundtrack timed to it (reel-audio.js), recorded with it.
 import { CARD_W, cardAssets, cardFaces, frontLayers, drawFoil, drawSheen, drawBack, renderSide, release } from './abs-card.js';
 import { STORY, sceneArt, backdrop, brand, siteLine, title, placeCard, faceoffCards, oddsBar } from './card-scenes.js';
+import { cardSoundtrack, faceoffSoundtrack } from './reel-audio.js';
 
 const DISPLAY = '"Big Shoulders Display", Impact, sans-serif';
 const BODY = 'Inter, system-ui, sans-serif';
@@ -13,9 +15,27 @@ const GOLD = '#f6b400';
 const FPS = 30;
 
 const TYPES = ['video/mp4;codecs=avc1.640028', 'video/mp4;codecs=avc1.4d0028', 'video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'];
-export function videoType() {
+const AUDIO_TYPES = ['video/mp4;codecs=avc1.640028,mp4a.40.2', 'video/mp4;codecs=avc1.4d0028,mp4a.40.2', 'video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'];
+export function videoType(withAudio = false) {
     if (typeof MediaRecorder === 'undefined' || typeof HTMLCanvasElement === 'undefined' || !HTMLCanvasElement.prototype.captureStream) return null;
-    return TYPES.find((type) => { try { return MediaRecorder.isTypeSupported(type); } catch { return false; } }) || null;
+    return (withAudio ? AUDIO_TYPES : TYPES).find((type) => { try { return MediaRecorder.isTypeSupported(type); } catch { return false; } }) || null;
+}
+
+// A recorder for the canvas, with the soundtrack's track when there is one
+// (and without it if this browser cannot record both).
+function recorderFor(canvas, audio) {
+    const video = canvas.captureStream(FPS);
+    if (audio?.context && audio.buffer && audio.context.createMediaStreamDestination) {
+        try {
+            const destination = audio.context.createMediaStreamDestination();
+            const type = videoType(true);
+            const stream = new MediaStream([...video.getVideoTracks(), ...destination.stream.getAudioTracks()]);
+            const recorder = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 10_000_000, audioBitsPerSecond: 160_000 });
+            return { recorder, stream, type, destination };
+        } catch { /* silent video below */ }
+    }
+    const type = videoType();
+    return { recorder: new MediaRecorder(video, { mimeType: type, videoBitsPerSecond: 10_000_000 }), stream: video, type, destination: null };
 }
 
 // ---------------------------------------------------------------- easing
@@ -29,14 +49,14 @@ const easeBack = (x) => { const c = 1.5; return 1 + (c + 1) * (x - 1) ** 3 + c *
 // ---------------------------------------------------------------- recording
 
 // Plays `draw(ctx, t)` on `canvas` for `duration` seconds and records it.
-// onFrame(t) runs after each frame (progress); returns { blob, type, ext }.
-export function record(canvas, draw, duration, { onFrame, signal } = {}) {
-    const type = videoType();
-    if (!type) return Promise.reject(new Error('Video recording is not supported in this browser'));
+// onFrame(t) runs after each frame (progress); audio: { context, buffer } plays
+// the soundtrack into the recording from the first frame. Returns { blob, type, ext, sound }.
+export function record(canvas, draw, duration, { onFrame, signal, audio = null } = {}) {
+    if (!videoType()) return Promise.reject(new Error('Video recording is not supported in this browser'));
     const ctx = canvas.getContext('2d');
     draw(ctx, 0);
-    const stream = canvas.captureStream(FPS);
-    const recorder = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 10_000_000 });
+    const { recorder, stream, type, destination } = recorderFor(canvas, audio);
+    let source = null;
     const chunks = [];
     recorder.ondataavailable = (event) => { if (event.data?.size) chunks.push(event.data); };
     return new Promise((resolve, reject) => {
@@ -45,19 +65,30 @@ export function record(canvas, draw, duration, { onFrame, signal } = {}) {
         const finish = () => {
             if (stopped) return;
             stopped = true;
+            try { source?.stop(); } catch { /* already stopped */ }
             recorder.stop();
         };
         recorder.onstop = () => {
             stream.getTracks().forEach((track) => track.stop());
+            source?.disconnect();
             if (signal?.aborted) { reject(new DOMException('Cancelled', 'AbortError')); return; }
             const blob = new Blob(chunks, { type: type.split(';')[0] });
-            resolve({ blob, type: blob.type, ext: blob.type.includes('mp4') ? 'mp4' : 'webm' });
+            resolve({ blob, type: blob.type, ext: blob.type.includes('mp4') ? 'mp4' : 'webm', sound: Boolean(destination) });
         };
         recorder.onerror = (event) => reject(event.error || new Error('Recording failed'));
         signal?.addEventListener('abort', finish, { once: true });
         const tick = (now) => {
             if (stopped) return;
-            if (!start) start = now;
+            if (!start) {
+                start = now;
+                // the soundtrack starts with the first frame
+                if (destination) {
+                    source = audio.context.createBufferSource();
+                    source.buffer = audio.buffer;
+                    source.connect(destination);
+                    source.start();
+                }
+            }
             const t = Math.min(duration, (now - start) / 1000);
             draw(ctx, t);
             onFrame?.(t / duration);
@@ -190,7 +221,7 @@ export async function cardReel(card) {
     }
     const canvas = storyCanvas();
     const dispose = () => release(canvas, stage, face, back, backFill, layers.under, layers.over);
-    return { canvas, duration: CARD_REEL, draw, dispose };
+    return { canvas, duration: CARD_REEL, draw, dispose, soundtrack: () => cardSoundtrack(CARD_REEL) };
 }
 
 // ---------------------------------------------------------------- the face-off reel
@@ -249,6 +280,6 @@ export async function faceoffReel(data) {
     }
     const canvas = storyCanvas();
     const dispose = () => release(canvas, stage, Object.values(scene.faces || {}), Object.values(scene.ko || {}));
-    return { canvas, duration: FACEOFF_REEL, draw, dispose };
+    return { canvas, duration: FACEOFF_REEL, draw, dispose, soundtrack: () => faceoffSoundtrack(FACEOFF_REEL, data.result) };
 }
 

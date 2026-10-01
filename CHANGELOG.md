@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.9.0 — 2026-10-01
+
+- **Better link previews everywhere.** Every section page now has a preview of its own, drawn from the real battle cards: the home page ("Who would win?" with a fan of the top five), All animals, the tier list and each group's tier list, the rankings and every ranking (its top three on a podium), Versus, Tournament, Community and How ratings work. Each preview's address changes whenever it is redrawn, so apps that cached an old preview (or just the logo) fetch the new one. The home page also names the preview as its main image for Google.
+- **Shared fights preview the right fight.** Sharing a one-on-one fight that has its own page now sends that page's link, whose preview is that fight's cards and odds; any other fight sends Versus, whose preview no longer shows Lion vs Tiger's odds.
+- **Save to Photos.** On iPhone and iPad the share sheet has **Save to Photos** (the share sheet with only the picture, video or GIF, so it offers Save Image / Save Video), and the Card tab's Save the card puts the front and back in Photos.
+- **The videos have sound.** Each video has its own soundtrack, made in the browser like the site's sound effects: a beat with the card rising in, glints on the foil, whooshes on the flips, a rising note for each stat bar, and a hit for the call to action; the face-off gets the cards sliding in, the VS slam, then the K.O. and a fanfare, a bell for a draw, or a tense sting for a challenge. The preview plays muted with a Sound button.
+- **GIF.** A new GIF option makes the card video (or the face-off) into a looping GIF for chats and Discord.
+- Fixed: the Discord activity feed's logo pointed at a missing file; posts about an animal now show its card instead. The app manifest has the site's colours and description.
+
 ## 4.8.1 — 2026-10-01
 
 - **Sharing a card no longer gets stuck on "Drawing the card…" on iPhone.** The share picture waited on Safari's font loading and on the canvas handing back its picture, and on some iPhones neither ever finishes. Now the fonts the page already has are used straight away (and the wait is capped at 3 seconds), a picture the canvas will not hand back is taken another way after 4 seconds, an image that stalls gives up after 15, and if anything still goes wrong the sheet says so ("Tap Card to try again") instead of waiting forever.

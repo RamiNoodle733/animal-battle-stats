@@ -5,6 +5,7 @@ import Icon from './Icon.astro';
 import HoloCard from './HoloCard.astro';
 import { animals, GROUPS, TIERS, POWER_WEIGHTS, fmtScore } from '../lib/catalog.js';
 import { SITE, absoluteUrl } from '../lib/site.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const { group = null } = Astro.props;
 const list = group ? animals.filter((animal) => animal.group === group.key) : animals;
@@ -56,7 +57,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={title} description={description} path={path} image="/images/og/tier-list.jpg" imageAlt={heading} jsonLd={jsonLd} active="tiers" biome={group?.key === 'sea' ? 'ocean' : group?.key === 'birds' ? 'mountains' : group?.key === 'bugs' ? 'jungle' : group?.key === 'reptiles' ? 'desert' : group?.key === 'amphibians' ? 'wetlands' : 'savanna'}>
+<Base title={title} description={description} path={path} image={sectionPreview(group ? `tiers-${group.key}` : 'tiers')} imageAlt={sectionAlt(group ? `tiers-${group.key}` : 'tiers')} jsonLd={jsonLd} active="tiers" biome={group?.key === 'sea' ? 'ocean' : group?.key === 'birds' ? 'mountains' : group?.key === 'bugs' ? 'jungle' : group?.key === 'reptiles' ? 'desert' : group?.key === 'amphibians' ? 'wetlands' : 'savanna'}>
     <div class="tiers screen-grid">
         <section class="panel board" aria-labelledby="tl-title">
             <div class="panel-head">

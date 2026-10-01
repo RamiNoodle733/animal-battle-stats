@@ -264,7 +264,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                 <div class="btn-row card-actions">
                     <button class="btn btn-gold" type="button" data-card><UiIcon name="cards" />Turn it in 3D</button>
                     <button class="btn" type="button" data-share><UiIcon name="share" />Share</button>
-                    <a class="btn" href={cardFile.front} download={`${animal.slug}-battle-card.webp`}>Save the card</a>
+                    <a class="btn" href={cardFile.front} download={`${animal.slug}-battle-card.webp`} data-save-card>Save the card</a>
                 </div>
                 <p class="note">Card No. {animal.rank} of {animals.length}. Every animal on Animal Battle Stats has one: its power, tier and archetype on the front; its six battle stats, abilities and signature move on the back.</p>
             </div>
@@ -440,6 +440,51 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         });
     });
     document.querySelectorAll('[data-share]').forEach((button) => button.addEventListener('click', () => { sfx.select(); shareCard(); }));
+
+    // On iPhone and iPad, Save the card goes into Photos: the share sheet with
+    // the front and back as pictures (it offers Save 2 Images). They are made
+    // ready while the Card tab is open, so the tap opens the sheet at once.
+    const saveCard = document.querySelector('[data-save-card]');
+    const applePhone = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (saveCard && applePhone && navigator.canShare && card.files) {
+        let ready = null;
+        let preparing = null;
+        const asJpeg = async (src, name) => {
+            const img = new Image();
+            img.src = src;
+            await img.decode();
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            const bytes = atob(canvas.toDataURL('image/jpeg', 0.93).split(',')[1]);
+            const buffer = new Uint8Array(bytes.length);
+            for (let index = 0; index < bytes.length; index += 1) buffer[index] = bytes.charCodeAt(index);
+            canvas.width = 0;
+            canvas.height = 0;
+            return new File([buffer], `${card.slug}-${name}.jpg`, { type: 'image/jpeg' });
+        };
+        const prepare = () => {
+            preparing ||= Promise.all([asJpeg(card.files.front, 'battle-card'), asJpeg(card.files.back, 'battle-card-back')])
+                .then((files) => { if (navigator.canShare({ files })) ready = files; })
+                .catch(() => { preparing = null; });
+            return preparing;
+        };
+        saveCard.textContent = 'Save to Photos';
+        new IntersectionObserver((entries, observer) => {
+            if (entries.some((entry) => entry.isIntersecting)) { prepare(); observer.disconnect(); }
+        }).observe(saveCard);
+        saveCard.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (ready) {
+                navigator.share({ files: ready }).catch(() => {});
+                window.gtag?.('event', 'share', { method: 'save_photos', content_type: 'animal_card', item_id: card.name });
+            } else {
+                toast('Getting the card ready. Tap again in a moment.');
+                prepare();
+            }
+        });
+    }
     if (location.hash === '#card') viewCard();
 </script>
 

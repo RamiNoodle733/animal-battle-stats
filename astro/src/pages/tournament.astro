@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import { animals, STATS } from '../lib/catalog.js';
 import { SITE, absoluteUrl } from '../lib/site.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 // Divisions match the server's ranked roster filter (exact animal type), so
 // only types with enough animals for the smallest bracket are offered.
@@ -33,7 +34,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={title} description={description} path="/tournament" image="/images/og/tournament.jpg" imageAlt="Animal tournament bracket" jsonLd={jsonLd} active="tournament" biome="mountains" seed={17}>
+<Base title={title} description={description} path="/tournament" image={sectionPreview('tournament')} imageAlt={sectionAlt('tournament')} jsonLd={jsonLd} active="tournament" biome="mountains" seed={17}>
     <h1 class="visually-hidden">Animal tournament bracket</h1>
     <div class="tourney" data-tourney data-stage="setup">
 

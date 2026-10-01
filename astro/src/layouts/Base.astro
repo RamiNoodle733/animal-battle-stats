@@ -15,13 +15,14 @@ import UiIcon from '../components/UiIcon.astro';
 import Icon from '../components/Icon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
 import { SITE, SOCIAL, ROBLOX, absoluteUrl } from '../lib/site.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const {
     title,
     description,
     path = '/',
-    image = '/images/og/site.jpg',
-    imageAlt = 'Animal Battle Stats',
+    image = sectionPreview('home'),
+    imageAlt = sectionAlt('home'),
     type = 'website',
     jsonLd = [],
     active = '',

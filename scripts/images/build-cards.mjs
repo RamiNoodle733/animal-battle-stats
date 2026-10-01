@@ -11,6 +11,7 @@
 //   .cache/cards/og/vs/<a>-vs-<b>.jpg                 matchup page preview: the two cards squared up
 //   .cache/cards/og/vs/human-vs-<animal>.jpg          the same for the Human pages
 //   .cache/cards/og/compare.jpg                       the Versus screen's preview
+//   .cache/cards/og/section/<id>.jpg                  section pages: a hand of cards and the title
 //
 // These are what link previews, search results and AI answers show for each
 // animal and matchup page. Input: .cache/astro-dist/data/card-jobs.json (from
@@ -204,6 +205,26 @@ for (const job of jobs.matchups) {
 }
 await drain();
 
+// The section pages: their title beside a fan of cards (full-size fronts).
+let sections = 0;
+const fullCard = (slug, side = '') => loadImage(fs.readFileSync(path.join(out, 'cards', `${slug}${side}.webp`)));
+for (const job of jobs.sections || []) {
+    const name = `og/${job.file}.jpg`;
+    const key = hash(['section', job]);
+    nextManifest[name] = key;
+    if (fresh(name, key)) continue;
+    const faces = await Promise.all(job.cards.map((card) => fullCard(card.slug)));
+    const back = job.layout === 'pair' && job.cards[0] ? await fullCard(job.cards[0].slug, '-back') : null;
+    const canvas = createCanvas(scenes.PREVIEW.w, scenes.PREVIEW.h);
+    scenes.drawSectionPreview(canvas.getContext('2d'), job, faces, S, { back });
+    sections += 1;
+    await later(async () => {
+        write(name, await canvas.encode('jpeg', 88));
+        release(canvas);
+    });
+}
+await drain();
+
 // Drop files for animals and pages that no longer exist.
 for (const name of Object.keys(manifest)) {
     if (!nextManifest[name]) fs.rmSync(path.join(out, name), { force: true });
@@ -211,4 +232,4 @@ for (const name of Object.keys(manifest)) {
 fs.writeFileSync(manifestFile, JSON.stringify(nextManifest));
 const total = Object.keys(nextManifest).length;
 const seconds = (ms) => `${(ms / 1000).toFixed(1)}s`;
-console.log(`Battle cards: ${drawn} animals (${seconds(animalsDone - started)}) and ${pairs} matchups (${seconds(Date.now() - animalsDone)}) drawn, ${total - drawn * 5 - pairs} files reused, ${THREADS} threads.`);
+console.log(`Battle cards: ${drawn} animals (${seconds(animalsDone - started)}), ${pairs} matchups and ${sections} section previews (${seconds(Date.now() - animalsDone)}) drawn, ${total - drawn * 5 - pairs - sections} files reused, ${THREADS} threads.`);

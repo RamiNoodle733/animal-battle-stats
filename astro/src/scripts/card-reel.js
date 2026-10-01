@@ -202,7 +202,7 @@ export async function faceoffReel(data) {
     const { w: W, h: H } = STORY;
     const winner = data.result === 'a' ? data.a : data.result === 'b' ? data.b : null;
     const stage = staticLayer((ctx) => {
-        backdrop(ctx, W, H, S, { tier: winner ? winner.tier : 's', arena: true, glowY: 0.47 });
+        backdrop(ctx, W, H, S, { tier: winner ? winner.tier : data.result === 'draw' ? 'f' : 's', arena: true, glowY: 0.47 });
         brand(ctx, S, 60, 70);
         siteLine(ctx, W, H - 92, 40);
     });
@@ -216,7 +216,7 @@ export async function faceoffReel(data) {
         const shake = (slam > 0 && slam < 1 ? (1 - slam) * 18 : 0) + (koT > 0 && koT < 1 ? (1 - koT) * 22 : 0);
         ctx.translate(Math.sin(t * 90) * shake, Math.cos(t * 70) * shake * 0.6);
         ctx.drawImage(stage, 0, 0);
-        const heading = data.result && t >= 3.1 ? 'THE RESULT' : 'WHO WOULD WIN?';
+        const heading = data.result && t >= 3.1 ? (data.result === 'draw' ? "IT'S A DRAW" : 'THE RESULT') : 'WHO WOULD WIN?';
         const headIn = easeOut(span(t, 0.2, 0.8));
         ctx.save();
         ctx.globalAlpha = headIn;

@@ -15,7 +15,9 @@ const path = `/compare/${pair.slug}`;
 const notes = notesFor(a, b);
 const extraFaq = notes?.faq || [];
 const title = `${notes?.title || `${a.name} vs ${b.name}`}: Who Would Win? | ${SITE.name}`;
-const description = `${result.winner.name} beats the ${result.loser.name} ${result.odds}% of the time in our model (${result.strength.toLowerCase()}). Stat duel, size comparison, speed, bite force and an animated fight.`;
+const description = result.draw
+    ? `${a.name} vs ${b.name} is dead even in our model (50-50): the fight ends in a draw. Stat duel, size comparison, speed, bite force and an animated fight.`
+    : `${result.winner.name} beats the ${result.loser.name} ${result.odds}% of the time in our model (${result.strength.toLowerCase()}). Stat duel, size comparison, speed, bite force and an animated fight.`;
 const jsonLd = [
     {
         '@type': 'WebPage',
@@ -31,8 +33,8 @@ const jsonLd = [
     {
         '@type': 'FAQPage',
         mainEntity: [
-            { '@type': 'Question', name: `Who would win, ${a.name} or ${b.name}?`, acceptedAnswer: { '@type': 'Answer', text: `${result.winner.name}. ${result.paragraphs.join(' ')}` } },
-            { '@type': 'Question', name: `Is the ${result.winner.name} stronger than the ${result.loser.name}?`, acceptedAnswer: { '@type': 'Answer', text: `Overall, yes: power index ${result.winner.powerIndex} vs ${result.loser.powerIndex} on the Animal Battle Stats scale.` } },
+            { '@type': 'Question', name: `Who would win, ${a.name} or ${b.name}?`, acceptedAnswer: { '@type': 'Answer', text: `${result.draw ? 'Neither: it is a draw.' : `${result.winner.name}.`} ${result.paragraphs.join(' ')}` } },
+            { '@type': 'Question', name: `Is the ${result.winner.name} stronger than the ${result.loser.name}?`, acceptedAnswer: { '@type': 'Answer', text: result.draw ? `They are dead even: power index ${result.winner.powerIndex} vs ${result.loser.powerIndex} on the Animal Battle Stats scale, and a 50-50 fight.` : `Overall, yes: power index ${result.winner.powerIndex} vs ${result.loser.powerIndex} on the Animal Battle Stats scale.` } },
             ...extraFaq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } }))
         ]
     },

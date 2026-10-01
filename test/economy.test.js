@@ -54,14 +54,6 @@ test('the Season Pass matches the game: 30 tiers, 7,350 XP, looks at 5, 10, 20, 
     assert.equal(economy.passActive(Date.UTC(2026, 11, 1)), false);
 });
 
-test('a called fight is fixed per player, matchup and day and follows the model odds', () => {
-    const base = { secret: 's', matchupKey: 'A::B', dayKey: '2026-10-01', firstWinsProbability: 0.7 };
-    assert.deepEqual(economy.drawFight({ ...base, userId: 'u1' }), economy.drawFight({ ...base, userId: 'u1' }));
-    let wins = 0;
-    for (let index = 0; index < 4000; index += 1) if (economy.drawFight({ ...base, userId: `u${index}` }).firstWins) wins += 1;
-    assert.ok(Math.abs(wins / 4000 - 0.7) < 0.03, `first side won ${wins / 40}%`);
-});
-
 test('the save rolls over each UTC day and hands out milestone looks', () => {
     const eco = economy.normalizeEconomy({
         today: { day: TODAY - 1, n: { matchup_call: 9 } },

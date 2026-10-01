@@ -62,3 +62,23 @@ test('body size settles big mismatches and stays symmetric', () => {
     assert.ok(Math.abs(model.compare(cat, dog).probability + model.compare(dog, cat).probability - 1) < 1e-12);
     assert.equal(model.compare(statsOnly(cat), dog).size, 0);
 });
+
+test('fights are not left to chance: the favourite wins and 50-50 is a draw', () => {
+    assert.equal(model.outcome(0.51), 'left');
+    assert.equal(model.outcome(0.49), 'right');
+    assert.equal(model.outcome(0.95), 'left');
+    assert.equal(model.outcome(0.5), 'draw');
+    // shown as 50% either way round: a draw from both sides
+    for (const p of [0.4951, 0.5049]) {
+        assert.equal(model.outcome(p), 'draw');
+        assert.equal(model.outcome(1 - p), 'draw');
+    }
+    assert.equal(model.outcome(null), 'draw');
+    // every pair agrees from both sides
+    for (const [left, right] of [[profile(60), profile(40)], [profile(50), profile(50)], [profile(51), profile(50)]]) {
+        const there = model.outcome(model.compare(left, right).probability);
+        const back = model.outcome(model.compare(right, left).probability);
+        assert.equal(there === 'draw' ? 'draw' : there === 'left' ? 'right' : 'left', back);
+    }
+    assert.equal(model.outcome(model.compare(profile(50), profile(50)).probability), 'draw');
+});

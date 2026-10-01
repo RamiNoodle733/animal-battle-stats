@@ -107,7 +107,7 @@ function lower(value) {
 // says something specific about its own pair.
 export function verdict(a, b) {
     const result = matchup(a, b);
-    const { winner, loser, odds, strength } = result;
+    const { winner, loser, odds, strength, draw } = result;
     const wins = STATS.filter((stat) => (winner[stat.key] || 0) > (loser[stat.key] || 0));
     const losses = STATS.filter((stat) => (loser[stat.key] || 0) > (winner[stat.key] || 0));
     // Biggest weighted stat advantage in the winner's favour.
@@ -116,7 +116,8 @@ export function verdict(a, b) {
         .sort((x, y) => y.edge - x.edge)[0];
     const paragraphs = [];
 
-    paragraphs.push(`${winner.name} wins this matchup ${odds}% of the time in the Animal Battle Stats model (${lower(strength)}). It leads in ${wins.length} of 6 battle stats${wins.length ? `, with the biggest swing coming from ${lead.label.toLowerCase()} (${fmtScore(winner[lead.key] ?? 0)} vs ${fmtScore(loser[lead.key] ?? 0)})` : ''}. Its power index is ${fmtScore(winner.powerIndex)} against ${fmtScore(loser.powerIndex)} for the ${loser.name}.`);
+    if (draw) paragraphs.push(`This one is dead even: the Animal Battle Stats model puts it at 50-50, so the fight ends in a draw. The ${winner.name} leads in ${wins.length} of 6 battle stats and the ${loser.name} in ${losses.length}, and their power indexes are ${fmtScore(winner.powerIndex)} and ${fmtScore(loser.powerIndex)}.`);
+    else paragraphs.push(`${winner.name} wins this matchup ${odds}% of the time in the Animal Battle Stats model (${lower(strength)}). It leads in ${wins.length} of 6 battle stats${wins.length ? `, with the biggest swing coming from ${lead.label.toLowerCase()} (${fmtScore(winner[lead.key] ?? 0)} vs ${fmtScore(loser[lead.key] ?? 0)})` : ''}. Its power index is ${fmtScore(winner.powerIndex)} against ${fmtScore(loser.powerIndex)} for the ${loser.name}.`);
 
     const wa = Number(winner.weight_kg) || 0;
     const la = Number(loser.weight_kg) || 0;
@@ -127,13 +128,13 @@ export function verdict(a, b) {
         const hw = fmtWeight(heavier.weight_kg);
         const lw = fmtWeight(lighter.weight_kg);
         if (ratio >= 1.25) {
-            paragraphs.push(`Size matters here: a typical adult ${heavier.name} weighs about ${hw.metric} (${hw.imperial}), roughly ${ratio >= 10 ? Math.round(ratio) : ratio.toFixed(1)}× the ${lighter.name}'s ${lw.metric}.${heavier === loser ? ` Despite that, the ${winner.name}'s weapons and fighting stats carry the day.` : ''}`);
+            paragraphs.push(`Size matters here: a typical adult ${heavier.name} weighs about ${hw.metric} (${hw.imperial}), roughly ${ratio >= 10 ? Math.round(ratio) : ratio.toFixed(1)}× the ${lighter.name}'s ${lw.metric}.${draw ? ` The ${lighter.name}'s fighting stats make up for it.` : heavier === loser ? ` Despite that, the ${winner.name}'s weapons and fighting stats carry the day.` : ''}`);
         } else {
             paragraphs.push(`The two are close in size (${hw.metric} vs ${lw.metric}), so the fight comes down to weapons, defense and technique rather than mass.`);
         }
     }
 
-    if (losses.length) {
+    if (losses.length && !draw) {
         const best = losses.sort((x, y) => ((loser[y.key] || 0) - (winner[y.key] || 0)) - ((loser[x.key] || 0) - (winner[x.key] || 0)))[0];
         paragraphs.push(`The ${loser.name}'s best chance is its ${best.label.toLowerCase()} (${fmtScore(loser[best.key])} vs ${fmtScore(winner[best.key])})${loser.special_abilities?.length ? `, plus abilities like ${loser.special_abilities.slice(0, 2).join(' and ')}` : ''}. ${odds < 65 ? 'This one is close enough that terrain, first contact and motivation could flip it.' : 'It is a real edge, but not enough to overcome the gap everywhere else.'}`);
     }

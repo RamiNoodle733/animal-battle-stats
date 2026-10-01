@@ -52,8 +52,9 @@ const summary = profile.summary || animal.description;
 const specimenRaw = (profile.specimen || '').split(/(?<=[.!?])\s+(?=[A-Z])/)[0];
 const specimen = cap(specimenRaw);
 const rivalList = rivals(animal, 8).map((rival) => ({ rival, result: verdict(animal, rival), href: matchupHref(animal, rival) }));
-const beats = rivalList.filter(({ result }) => result.winner.slug === animal.slug);
-const loses = rivalList.filter(({ result }) => result.winner.slug !== animal.slug);
+const beats = rivalList.filter(({ result }) => !result.draw && result.winner.slug === animal.slug);
+const loses = rivalList.filter(({ result }) => !result.draw && result.winner.slug !== animal.slug);
+const draws = rivalList.filter(({ result }) => result.draw);
 
 // Reports sometimes merge headings ("Diet and social system"): show each text once.
 const sections = {};
@@ -81,11 +82,12 @@ faq.push({ q: `How fast is ${article(animal.name)} ${animal.name}?`, a: s ? `The
 if (bite) faq.push({ q: `What is the ${animal.name}'s bite force?`, a: `The ${animal.name}'s bite force is about ${bite.metric}.` });
 if (sections.diet) faq.push({ q: `What does ${article(animal.name)} ${animal.name} eat?`, a: sections.diet });
 if (profile.conservationStatus) faq.push({ q: `Is the ${animal.name} endangered?`, a: `${profile.conservationStatus === 'Least Concern' ? `No. The ${animal.name} is listed as Least Concern.` : `The ${animal.name}'s conservation status is ${profile.conservationStatus}.`} ${(sections.conservation || '').slice(0, 400)}`.trim() });
+const drawLine = draws.length ? ` It is dead even with ${draws.map(({ rival }) => `the ${rival.name}`).join(', ')}: a draw.` : '';
 faq.push({
     q: `What animals can beat ${article(animal.name)} ${animal.name}?`,
     a: loses.length
-        ? `Among its closest rivals, ${loses.map(({ rival, result }) => `the ${rival.name} (${result.odds}%)`).join(', ')} would be favored against the ${animal.name}. It would be favored against ${beats.length ? beats.map(({ rival }) => `the ${rival.name}`).join(', ') : 'none of them'}.`
-        : `The ${animal.name} is favored against all of its closest rivals, including ${beats.map(({ rival }) => `the ${rival.name}`).join(', ')}.`
+        ? `Among its closest rivals, ${loses.map(({ rival, result }) => `the ${rival.name} (${result.odds}%)`).join(', ')} would be favored against the ${animal.name}. It would be favored against ${beats.length ? beats.map(({ rival }) => `the ${rival.name}`).join(', ') : 'none of them'}.${drawLine}`
+        : `The ${animal.name} is favored against ${draws.length ? 'its other' : 'all of its'} closest rivals, including ${beats.map(({ rival }) => `the ${rival.name}`).join(', ')}.${drawLine}`
 });
 
 const jsonLd = [
@@ -275,13 +277,14 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                 <p class="note" style="margin-top:0">Closest rivals by power. Tap one for the full breakdown, or pick any opponent.</p>
                 <div class="vs-list">
                     {rivalList.map(({ rival, result, href }) => {
-                        const win = result.winner.slug === animal.slug;
+                        const end = result.draw ? 'draw' : result.winner.slug === animal.slug ? 'win' : 'loss';
+                        const word = { win: ['Wins', 'W', 'chip-green'], loss: ['Loses', 'L', 'chip-red'], draw: ['Draw', 'D', ''] }[end];
                         return (
-                            <a class={`vs-row ${win ? 'win' : 'loss'}`} href={href} data-sfx>
+                            <a class={`vs-row ${end}`} href={href} data-sfx>
                                 <AnimalImage animal={animal} sizes="64px" alt="" />
-                                <span class="vs-mid"><b>vs {rival.name}</b><small>{win ? 'Wins' : 'Loses'} · {result.odds}% · {result.strength}</small></span>
+                                <span class="vs-mid"><b>vs {rival.name}</b><small>{word[0]} · {result.draw ? '50-50' : `${result.odds}%`} · {result.strength}</small></span>
                                 <span class="flip"><AnimalImage animal={rival} sizes="64px" alt="" /></span>
-                                <span class={`chip ${win ? 'chip-green' : 'chip-red'}`}>{win ? 'W' : 'L'}</span>
+                                <span class={`chip ${word[2]}`}>{word[1]}</span>
                             </a>
                         );
                     })}
@@ -546,6 +549,7 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     .vs-row:hover { border-color: var(--frame-2); }
     .vs-row.win { box-shadow: inset 3px 0 0 var(--green); }
     .vs-row.loss { box-shadow: inset 3px 0 0 var(--red); }
+    .vs-row.draw { box-shadow: inset 3px 0 0 var(--muted); }
     .vs-row :global(img) { width: 58px; height: 44px; object-fit: contain; }
     .vs-row .flip :global(img) { transform: scaleX(-1); }
     .vs-mid b { display: block; font-size: 0.92rem; }

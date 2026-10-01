@@ -214,14 +214,16 @@ export function shareAnimal(card, { url }) {
 
 // ---------------------------------------------------------------- a matchup
 
-// data: { a, b (cards), na, nb, labels, odds (left side, 0..100, or null while hidden), result ('a'|'b'|null), url, text, name }
+// data: { a, b (cards), na, nb, labels, odds (left side, 0..100, or null while hidden), result ('a'|'b'|'draw'|null), url, text, name }
 export function shareMatchup(data) {
-    const note = data.result
-        ? 'The card shows who won and the odds. The link opens this fight.'
-        : 'The odds stay hidden, so your friends have to make their call first.';
+    const note = data.result === 'draw'
+        ? 'The card shows the draw and the odds. The link opens this fight.'
+        : data.result
+            ? 'The card shows who won and the odds. The link opens this fight.'
+            : 'The odds stay hidden, so your friends have to make their call first.';
     const formats = [
         { id: 'face-off', label: 'Face-off', icon: 'versus', kind: 'image', note, make: () => faceoffPicture(data) }
     ];
-    if (canVideo()) formats.push({ id: 'video', label: 'Video', icon: 'video', kind: 'video', note: `${seconds(FACEOFF_REEL)} clip: the cards square up, the VS slams in${data.result ? ' and the loser gets knocked out' : ''}.`, make: () => faceoffReel(data) });
+    if (canVideo()) formats.push({ id: 'video', label: 'Video', icon: 'video', kind: 'video', note: `${seconds(FACEOFF_REEL)} clip: the cards square up, the VS slams in${data.result === 'draw' ? ' and it ends dead even' : data.result ? ' and the loser gets knocked out' : ''}.`, make: () => faceoffReel(data) });
     open({ title: data.result ? 'Share the result' : 'Challenge your friends', name: data.name, url: data.url, text: data.text, contentType: 'matchup', formats });
 }

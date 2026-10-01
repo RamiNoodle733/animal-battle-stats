@@ -12,7 +12,7 @@ const faq = [
     { q: 'Are the battle ratings scientific measurements?', a: 'No. Measurements such as weight, speed and bite force come from sources. The six battle ratings are editorial judgments built from that research, on one absolute scale so every animal can be compared.' },
     { q: 'Is it pound-for-pound?', a: 'No. Ratings are absolute. An ant is incredibly strong for its size and still rates far below a gorilla, because a real fight is about absolute force, weapons and durability.' },
     { q: 'Which animal is rated for males or females?', a: 'Each profile rates a healthy adult. When one sex is clearly larger or does the fighting, that sex is used: usually males, but females for species like eagles, most spiders and anacondas.' },
-    { q: 'Does the higher power index always win?', a: 'No. The matchup model gives the stronger animal better odds, not a guarantee, and it ignores terrain, ambush and motivation. Those are exactly what the written verdicts discuss.' },
+    { q: 'Does the higher power index always win?', a: 'Usually. The fight goes to the animal the matchup odds favour, and the odds weigh the stats like the power index does, plus body size, so a much heavier animal can be favoured with a lower power index. The model ignores terrain, ambush and motivation; those are exactly what the written verdicts discuss.' },
     { q: 'Can I compare groups, like 100 men vs a gorilla?', a: 'Yes. In Who would win? each side has a number box. Numbers count for a lot (twice as many equal fighters is worth about a 14-point stat lead), but a much smaller animal gets less from its numbers against a much heavier one, so a thousand army ants still lose to a gorilla most of the time.' },
     { q: 'Are humans on Animal Battle Stats?', a: 'The Human can step into the Who would win? ring: an average adult man, unarmed and untrained, rated on the same scale as the animals. Humans are not ranked or listed with the animals. Pages like Human vs Gorilla answer how many men it would take.' },
     { q: 'Who made Animal Battle Stats?', a: `${SITE.founder} designed and built Animal Battle Stats as an animal powerscaling and community project, with a companion game on Roblox.` }
@@ -80,9 +80,9 @@ const sourcesList = [
             </div>
             <div class="pane scroll prose" id="p-model" role="tabpanel" hidden>
                 <h2 class="pane-h" id="model">How "who would win" works</h2>
-                <p>For two animals, each stat gap is multiplied by its weight (the same weights as the power index) and the results are added up. Body size is added on top: an animal ten times heavier gains about 8 points, which settles the big mismatches without moving close fights. That margin becomes a win probability on a logistic curve, capped between 5% and 95% because upsets happen. The animated fight draws a winner with that probability, so a 70% favorite still loses three fights in ten.</p>
+                <p>For two animals, each stat gap is multiplied by its weight (the same weights as the power index) and the results are added up. Body size is added on top: an animal ten times heavier gains about 8 points, which settles the big mismatches without moving close fights. That margin becomes a win probability on a logistic curve, capped between 5% and 95%: the model's estimate of how often each animal would win a real fight. The animated fight on this site is not left to chance: the favourite always wins, and a matchup the odds put at 50-50 ends in a draw.</p>
                 <p>The model deliberately ignores terrain, ambush and motivation. The written verdict on each matchup page calls those out, for example when one animal lives in water and the other on land.</p>
-                <p>Upsets, rematches and fan votes are part of the fun. Fan votes are shown next to the model and never change the ratings.</p>
+                <p>Fan votes are part of the fun: they are shown next to the model and never change the ratings.</p>
             </div>
             <div class="pane scroll prose" id="p-sources" role="tabpanel" hidden>
                 <h2 class="pane-h">Where the facts come from</h2>

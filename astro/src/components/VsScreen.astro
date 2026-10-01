@@ -26,7 +26,7 @@ const facts = [
     ['size', 'Size', 'Size', fmtLength(a.length_cm || a.height_cm)?.metric, fmtLength(b.length_cm || b.height_cm)?.metric, a.length_cm || a.height_cm, b.length_cm || b.height_cm]
 ];
 const faq = [
-    { q: `Who would win, ${a.name} or ${b.name}?`, a: `${result.winner.name}. ${result.paragraphs[0]}` },
+    { q: `Who would win, ${a.name} or ${b.name}?`, a: `${result.draw ? 'Neither: it is a draw.' : `${result.winner.name}.`} ${result.paragraphs[0]}` },
     { q: `Which is bigger, the ${a.name} or the ${b.name}?`, a: (() => {
         const wa = Number(a.weight_kg) || 0; const wb = Number(b.weight_kg) || 0;
         if (!wa || !wb) return 'A reliable weight is missing for one of them.';
@@ -136,7 +136,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
                 <span class="o-a" style={`--p:${oddsA}%`} data-odds-a>{oddsA}%</span>
                 <span class="o-b" style={`--p:${oddsB}%`} data-odds-b>{oddsB}%</span>
             </div>
-            <p class="verdict-line"><UiIcon name="crown" size={18} /><strong data-winner>{result.winner.name}</strong> <span data-strength>{result.strength.toLowerCase()}</span></p>
+            <p class="verdict-line"><UiIcon name="crown" size={18} /><strong data-winner>{result.draw ? 'Draw' : result.winner.name}</strong> <span data-strength>{result.strength.toLowerCase()}</span></p>
             <button class="reveal-btn" type="button" data-reveal-btn><span>Odds hidden until the fight</span><b>Show</b></button>
             <button class="rehide-btn" type="button" data-hide-odds>Hide</button>
         </div>
@@ -160,6 +160,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         </div>
         <div class="announcer" data-announcer aria-live="assertive"></div>
     </section>
+    <button type="button" class="ff" data-ff aria-pressed="false" title="Hold to speed up the fight (or hold Space)"><UiIcon name="fast" size={16} /><span class="ff-slow">Hold to speed up</span><span class="ff-fast">{'4× speed'}</span></button>
 
     <dialog class="picker" data-picker aria-labelledby="picker-title">
         <div class="pk-head">
@@ -214,7 +215,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .f-title small { font-size: 0.78rem; font-weight: 600; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .tier-badge.tier-h { --tier: #aab4d6; }
     .hp { position: relative; height: 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
-    .hp i { position: absolute; top: 0; bottom: 0; width: 100%; border-radius: inherit; transition: width 0.45s var(--ease), background 0.3s; }
+    .hp i { position: absolute; top: 0; bottom: 0; width: 100%; border-radius: inherit; transition: width calc(0.45s / var(--fs, 1)) var(--ease), background 0.3s; }
     .hp i { background: linear-gradient(180deg, #ffe38a, #f2ac00 55%, #c98a00); }
     .side-a .hp i { right: 0; }
     .side-b .hp i { left: 0; }
@@ -237,7 +238,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         aspect-ratio: var(--ar, auto);
         object-fit: contain;
         filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.55));
-        transition: transform 0.25s var(--ease), filter 0.25s;
+        transition: transform calc(0.25s / var(--fs, 1)) var(--ease), filter calc(0.25s / var(--fs, 1));
         -webkit-user-drag: none;
         user-select: none;
     }
@@ -376,8 +377,8 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         pointer-events: none;
         font-family: var(--font-display); font-weight: 900; text-transform: uppercase; text-align: center;
     }
-    .announcer :global(.big) { padding: 14px 36px; background: rgba(9, 10, 12, 0.9); border-radius: 14px; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 0.9; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.5); color: #fff; animation: slam 0.45s var(--spring) both; }
-    .announcer :global(.move) { max-width: 90%; padding: 10px 16px; border-radius: 10px; font-size: clamp(1.1rem, 2vw, 1.5rem); color: #1d1400; background: var(--gold); animation: slam 0.35s var(--spring) both; }
+    .announcer :global(.big) { padding: 14px 36px; background: rgba(9, 10, 12, 0.9); border-radius: 14px; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 0.9; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.5); color: #fff; animation: slam calc(0.45s / var(--fs, 1)) var(--spring) both; }
+    .announcer :global(.move) { max-width: 90%; padding: 10px 16px; border-radius: 10px; font-size: clamp(1.1rem, 2vw, 1.5rem); color: #1d1400; background: var(--gold); animation: slam calc(0.35s / var(--fs, 1)) var(--spring) both; }
     @keyframes slam { from { opacity: 0; transform: scale(1.6); } to { opacity: 1; transform: scale(1); } }
 
     /* ---------------------------------------------------------------- picker */
@@ -408,21 +409,59 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .side-b.lunge .f-art :global(img:not(.ghost)) { transform: scaleX(-1) translateX(12%) rotate(-4deg) scale(1.05); }
     .fighter.hit .f-art :global(img:not(.ghost)) { filter: drop-shadow(0 0 18px rgba(255, 60, 60, 0.9)) brightness(1.6) saturate(0.4); transform: translateX(-5%); }
     .side-b.hit .f-art :global(img:not(.ghost)) { transform: scaleX(-1) translateX(-5%); }
-    .fighter.ko .f-art :global(img) { filter: grayscale(1) brightness(0.45); transition: transform 0.8s var(--ease), filter 0.8s; }
+    .fighter.ko .f-art :global(img) { filter: grayscale(1) brightness(0.45); transition: transform calc(0.8s / var(--fs, 1)) var(--ease), filter calc(0.8s / var(--fs, 1)); }
     .fighter.ko .f-art :global(img:not(.ghost)) { transform: translateY(10%) rotate(14deg); }
     .side-b.ko .f-art :global(img:not(.ghost)) { transform: scaleX(-1) translateY(10%) rotate(14deg); }
     .fighter.winner .f-art :global(img:not(.ghost)) { filter: drop-shadow(0 0 26px rgba(255, 215, 0, 0.55)) drop-shadow(0 18px 18px rgba(0, 0, 0, 0.55)); transform: translateY(-3%) scale(1.05); }
     .side-b.winner .f-art :global(img:not(.ghost)) { transform: scaleX(-1) translateY(-3%) scale(1.05); }
+    /* A draw: both still standing, in a cool silver light. */
+    .fighter.draw .f-art :global(img:not(.ghost)) { filter: drop-shadow(0 0 22px rgba(214, 219, 228, 0.5)) drop-shadow(0 18px 18px rgba(0, 0, 0, 0.55)); }
     .fx :global(.dmg) {
         position: absolute; left: 50%; top: 35%;
         font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; color: #fff;
         text-shadow: 0 3px 0 #000, 0 0 14px rgba(255, 60, 60, 0.9);
-        animation: float-up 0.9s var(--ease) forwards;
+        animation: float-up calc(0.9s / var(--fs, 1)) var(--ease) forwards;
     }
     .fx :global(.dmg.crit) { color: var(--gold-2); font-size: 3rem; }
-    .fx :global(.burst) { position: absolute; left: 50%; top: 45%; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 170, 60, 0.6) 30%, transparent 65%); animation: burst 0.35s ease-out forwards; }
+    .fx :global(.burst) { position: absolute; left: 50%; top: 45%; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 170, 60, 0.6) 30%, transparent 65%); animation: burst calc(0.35s / var(--fs, 1)) ease-out forwards; }
     @keyframes float-up { from { opacity: 1; transform: translate(-50%, 0) scale(0.8); } 20% { transform: translate(-50%, -12px) scale(1.15); } to { opacity: 0; transform: translate(-50%, -80px) scale(1); } }
     @keyframes burst { from { opacity: 1; transform: scale(0.2); } to { opacity: 0; transform: scale(1.4); } }
+
+    /* Hold to speed up: the button shows while a fight runs (holding anywhere works too). */
+    .vs.is-fighting { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+    .vs.is-fighting .fighter, .vs.is-fighting .console { touch-action: none; }
+    .ff {
+        position: fixed;
+        left: 50%;
+        bottom: calc(var(--dock-h) + 18px + env(safe-area-inset-bottom));
+        z-index: 40;
+        display: none;
+        align-items: center;
+        gap: 7px;
+        min-height: 40px;
+        padding: 0 16px;
+        transform: translateX(-50%);
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: var(--text-2);
+        background: rgba(9, 10, 12, 0.88);
+        border: 1px solid var(--line-2);
+        border-radius: 999px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        touch-action: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    .vs.is-fighting .ff { display: inline-flex; animation: ff-in 0.3s var(--ease) both; }
+    .ff-fast { display: none; }
+    .vs.is-fast .ff { color: #1d1400; background: var(--gold); border-color: var(--gold); }
+    .vs.is-fast .ff-slow { display: none; }
+    .vs.is-fast .ff-fast { display: inline; }
+    @keyframes ff-in { from { opacity: 0; transform: translate(-50%, 8px); } }
 
     /* Short laptop windows: tighter rows so the whole tape and the actions fit. */
     @media (max-height: 820px) and (min-width: 901px) {

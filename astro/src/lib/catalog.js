@@ -168,8 +168,11 @@ export function related(animal, count = 8) {
 
 // ---------------------------------------------------------------- matchups
 
+// The favourite always wins a fight; a 50-50 matchup is a draw (`draw`; winner
+// and loser then name the slight favourite, for the write-up).
 export function matchup(left, right) {
     const result = battleModel.compare(left, right);
+    const draw = battleModel.outcome(result.probability) === 'draw';
     const winner = result.probability >= 0.5 ? left : right;
     const loser = winner === left ? right : left;
     const odds = Math.round((winner === left ? result.probability : 1 - result.probability) * 100);
@@ -179,10 +182,11 @@ export function matchup(left, right) {
         gap: Math.abs(factor.left - factor.right)
     }));
     let strength = 'Toss-up';
-    if (odds >= 85) strength = 'Decisive';
+    if (draw) strength = 'Dead even';
+    else if (odds >= 85) strength = 'Decisive';
     else if (odds >= 70) strength = 'Clear edge';
     else if (odds >= 58) strength = 'Slight edge';
-    return { winner, loser, odds, strength, factors: top, margin: result.margin, raw: result };
+    return { winner, loser, draw, odds, strength, factors: top, margin: result.margin, raw: result };
 }
 
 export function matchupSlug(left, right) {

@@ -260,7 +260,6 @@ Defines:
 | `ROBLOX_REDIRECT_URI` | No | Overrides the Roblox redirect URL (default `<site>/api/auth?action=roblox-callback`) |
 | `ROBLOX_OPEN_CLOUD_KEY` | No | Open Cloud API key with ordered DataStore read access: game leaderboards and each linked player's in-game stats |
 | `ROBLOX_UNIVERSE_ID` / `ROBLOX_PLACE_ID` | No | Override the ids in `data/roblox-game.json` |
-| `CALL_SECRET` | No | Seeds the fights players call on Versus (falls back to `JWT_SECRET`). Changing it redraws today's calls |
 
 ### Roblox sign-in (Continue with Roblox / Connect Roblox)
 
@@ -293,8 +292,9 @@ MongoDB transaction with a unique `RewardClaim`, so nothing can be paid twice.
 - **Paid actions**, each up to a daily cap (then they still count for quests): calling a fight
   on Versus (+10, plus a bonus for a right call that grows with the streak), voting on an animal,
   commenting or replying, and a ranked tournament.
-- **Fight calls**: the player picks a winner, then the server draws the fight with the model's
-  odds from a secret seed (`CALL_SECRET`), fixed per player, matchup and UTC day.
+- **Fight calls**: the player picks a winner, then watches the fight. Fights are not left to
+  chance: the side the model's odds favour always wins (`outcome` in `js/battle-engine.js`), and a
+  50-50 matchup is a draw, which can't be called. Calls close on a matchup once its odds were shown.
 - **Daily reward**: a 7-day ladder on the UTC day with a weekly streak shield.
 - **Daily quests**: three a day, the same for everyone, and a chest for finishing all three.
 - **Season 1 Pass**: 30 free tiers (the game's season and end date, 2026-12-01).

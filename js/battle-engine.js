@@ -1,4 +1,4 @@
-/* Shared by Astro, Node tests and the browser. No database, randomness or side effects. */
+/* Shared by Astro, Node tests, the API and the browser. No database, randomness or side effects. */
 (function exposeBattleEngine(root) {
     'use strict';
 
@@ -91,7 +91,16 @@
         };
     }
 
-    const api = Object.freeze({ VERSION, FACTORS, compare, compareGroups, measurement });
+    // How a fight ends. No chance: the side the odds favour always wins, and a
+    // matchup the site shows as 50-50 (within half a percent of even, so it
+    // rounds to 50% either way round) is a draw. Returns 'left', 'right' or 'draw'.
+    function outcome(probability) {
+        if (typeof probability !== 'number' || !Number.isFinite(probability)) return 'draw';
+        if (Math.abs(probability - 0.5) < 0.005) return 'draw';
+        return probability > 0.5 ? 'left' : 'right';
+    }
+
+    const api = Object.freeze({ VERSION, FACTORS, compare, compareGroups, measurement, outcome });
     if (typeof module !== 'undefined' && module.exports) module.exports = api;
     else root.ABSBattleEngine = api;
 })(globalThis);

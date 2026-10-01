@@ -20,7 +20,6 @@ const SiteStats = require('../lib/models/SiteStats');
 const { getAuthUser } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const battleEngine = require('../js/battle-engine');
-const { drawFight } = require('../lib/economy');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
@@ -55,20 +54,18 @@ function modelStats(animal) {
     };
 }
 
-// The fight a player calls: drawn with the model's odds from a secret seed, so the
-// same player, matchup and day always get the same fight (see lib/economy.js).
-function drawCalledFight(sorted, matchupKey, dayKey, userId) {
+// The fight a player calls ends the way every Versus fight does: the side the
+// odds favour wins, and a 50-50 matchup is a draw (winner null), which can't be
+// called (js/battle-engine.js outcome).
+function calledFight(sorted) {
     const first = findAnimal(sorted[0]);
     const second = findAnimal(sorted[1]);
     const probability = battleEngine.compare(modelStats(first), modelStats(second)).probability ?? 0.5;
-    const { firstWins } = drawFight({
-        secret: process.env.CALL_SECRET || process.env.JWT_SECRET,
-        matchupKey,
-        dayKey,
-        userId: String(userId),
-        firstWinsProbability: probability
-    });
-    return { winner: firstWins ? sorted[0] : sorted[1], odds: { [sorted[0]]: probability, [sorted[1]]: 1 - probability } };
+    const result = battleEngine.outcome(probability);
+    return {
+        winner: result === 'draw' ? null : result === 'left' ? sorted[0] : sorted[1],
+        odds: { [sorted[0]]: probability, [sorted[1]]: 1 - probability }
+    };
 }
 
 function callView(ballot, odds = null) {
@@ -246,8 +243,11 @@ async function recordMatchupVote(req, res) {
             return res.status(400).json({ success: false, error: 'Both matchup animals must exist' });
         }
 
+        const fight = calledFight(sorted);
+        if (!fight.winner) {
+            return res.status(409).json({ success: false, draw: true, error: 'This matchup is dead even: it ends in a draw, so there is no winner to call.' });
+        }
         const dayKey = new Date().toISOString().split('T')[0];
-        const fight = drawCalledFight(sorted, matchupKey, dayKey, user.id);
         const correct = fight.winner === votedFor;
         try {
             await MatchupVoteBallot.create({

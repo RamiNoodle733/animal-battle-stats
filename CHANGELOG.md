@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.6.0 — 2026-10-01
+
+- **Fights are no longer left to chance.** On Versus the side the odds favour always wins, and the same matchup always plays out the same way, blow for blow. A matchup the odds put at 50-50 ends in a draw: the bell goes with both fighters still standing. 25 matchup pages are draws (Python vs Reticulated Python, Cape Buffalo vs Water Buffalo, Martial Eagle vs Golden Eagle...); their verdicts, descriptions and answers now say so, animal pages show D in Matchups next to W and L, and the About page explains the rule.
+- **Hold to speed up.** During a fight, hold anywhere on the screen (or the Hold to speed up button, or Space) to run it at 4× speed; let go to watch at normal speed.
+- **Fight calls follow the same rule:** calling the favourite is the right call. A draw can't be called, and once you've seen how a matchup ends (Show, or fighting it first) it can't be called that visit. Calls made before today keep their result.
+- The share pictures and videos know draws too: "It's a draw", with a silver DRAW plate on both cards.
+- `CALL_SECRET` is no longer used.
+
 ## 4.5.0 — 2026-10-01
 
 Every animal is now a collectible card, like the Injustice trading cards, and sharing sends the card, not just a link.

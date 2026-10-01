@@ -45,7 +45,7 @@ export function GET() {
     lines.push('## Popular matchups (model winner and odds, one against one)');
     for (const pair of PAIRS.filter((item) => item.classic)) {
         const result = matchup(pair.a, pair.b);
-        lines.push(`- [${pair.a.name} vs ${pair.b.name}](${SITE.url}/compare/${pair.slug}): ${result.winner.name} wins ${result.odds}% (${result.strength.toLowerCase()})`);
+        lines.push(`- [${pair.a.name} vs ${pair.b.name}](${SITE.url}/compare/${pair.slug}): ${result.draw ? 'a draw (50-50)' : `${result.winner.name} wins ${result.odds}% (${result.strength.toLowerCase()})`}`);
     }
     lines.push('');
     lines.push('## Human vs animal (an average unarmed man)');

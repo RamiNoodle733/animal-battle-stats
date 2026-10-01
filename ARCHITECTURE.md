@@ -97,7 +97,7 @@ Each route is an Astro page in `astro/src/pages/`. The build writes one HTML fil
 Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, imported from the pages that need them:
 
 - `site.js` - shared by every screen: HUD menus, quick search (`/data/animals-lite.json`), sound effects, card tilt, signed-in player chip
-- `versus.js` - Versus screen: odds, stat duel and animated fight using `js/battle-engine.js`
+- `versus.js` - Versus screen: odds, stat duel and the animated fight using `js/battle-engine.js` (the favourite always wins, 50-50 is a draw, the same matchup always plays out the same way; holding the screen or Space fast-forwards it)
 - `tournament.js` - bracket play; ranked brackets for signed-in players go through the server-owned bracket API
 - `community.js`, `comments.js`, `votes.js`, `world.js` - community hub, comment threads, animal votes, visitor globe
 - `auth.js`, `profile.js` - sign-in forms and player profiles

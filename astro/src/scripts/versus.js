@@ -1,12 +1,15 @@
 // Versus screen: pick two fighters, compare the tale of the tape, then watch an
-// animated fight. The fight's winner is drawn with the model's probability, so
-// an underdog can still pull off the upset now and then.
-// The odds stay hidden until the fight (or "Show"), so a call is a real call.
+// animated fight. Nothing is left to chance: the side the odds favour always
+// wins, a 50-50 matchup ends in a draw (js/battle-engine.js outcome), and the
+// same matchup always plays out the same way. Holding the screen (or Space)
+// fast-forwards the fight.
+// The odds stay hidden until the fight (or "Show"), so a call is a real call;
+// once a matchup's odds have been seen, it can't be called.
 // Either side can be a crowd (the count box: "500 gorillas vs 23 army ants"),
 // scored by the engine's compareGroups, or the Human (scripts/human.js).
-// CALL IT (signed in, 1 vs 1 only): pick the winner first. The server draws the
-// fight you called (once per matchup a day), pays BattlePoints and XP, and a
-// right call builds a streak with a bonus, like the game's Who Would Win? show.
+// CALL IT (signed in, 1 vs 1 only): pick the winner first. The server settles the
+// call (once per matchup a day), pays BattlePoints and XP, and a right call
+// builds a streak with a bonus, like the game's Who Would Win? show.
 import engine from '../../../js/battle-engine.js';
 import { loadAnimalIndex, escapeHtml, toast, artVars, showReward } from './site.js';
 import { sfx, shake } from './sfx.js';
@@ -25,11 +28,10 @@ const STATS = [
 const BIOME = { savanna: 'Savanna', forest: 'Forest', jungle: 'Jungle', wetlands: 'Wetlands', desert: 'Desert', mountains: 'Mountains', arctic: 'Arctic', ocean: 'Ocean' };
 const STEPS = [1, 2, 3, 5, 10, 20, 50, 100, 500, 1000, 5000, 10000, 100000, 1000000];
 const MAX_COUNT = 1000000;
-const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const fmt = (value) => (Number.isInteger(Number(value)) ? String(Number(value)) : Number(value).toFixed(1));
 const num = (value) => Number(value).toLocaleString('en-US');
 
-const state = { a: root.dataset.a, b: root.dataset.b, na: 1, nb: 1, picking: 'b', fighting: false, index: new Map(), fan: null, sealedKey: null, result: null };
+const state = { a: root.dataset.a, b: root.dataset.b, na: 1, nb: 1, picking: 'b', fighting: false, index: new Map(), fan: null, sealedKey: null, result: null, peeked: null, speed: 1 };
 const shareButton = root.querySelector('[data-share-open]');
 const sides = { a: root.querySelector('[data-side="a"]'), b: root.querySelector('[data-side="b"]') };
 const picker = root.querySelector('[data-picker]');
@@ -78,6 +80,12 @@ function probability(a, b) {
     return model.compareGroups(toModel(a), toModel(b), state.na, state.nb, a.w, b.w).probability;
 }
 
+// How this matchup ends: 'a', 'b' or 'draw'. Always the same for the same matchup.
+function ending(a, b) {
+    const end = model.outcome(probability(a, b));
+    return end === 'draw' ? 'draw' : end === 'left' ? 'a' : 'b';
+}
+
 // ---------------------------------------------------------------- sealed odds
 
 const matchupKey = () => `${state.a}|${state.b}|${state.na}|${state.nb}`;
@@ -87,6 +95,11 @@ function seal() {
 }
 function reveal() {
     root.classList.remove('is-sealed');
+    // Seen the odds (Show, or a fight without a call)? Then the result is known: no call.
+    if (callBox.dataset.state === 'open') {
+        state.peeked = matchupKey();
+        resetCall();
+    }
 }
 root.querySelector('[data-reveal-btn]').addEventListener('click', () => { sfx.flip(); reveal(); });
 root.querySelector('[data-hide-odds]').addEventListener('click', () => { sfx.flip(); root.classList.add('is-sealed'); });
@@ -169,10 +182,11 @@ function paintMatchup() {
     const odds = probability(a, b);
     const oddsA = Math.round(odds * 100);
     const oddsB = 100 - oddsA;
+    const draw = ending(a, b) === 'draw';
     const winnerSide = oddsA >= 50 ? 'a' : 'b';
     const winner = winnerSide === 'a' ? a : b;
     const edge = Math.max(oddsA, oddsB);
-    const strength = edge >= 85 ? 'decisive' : edge >= 70 ? 'clear edge' : edge >= 58 ? 'slight edge' : 'toss-up';
+    const strength = draw ? 'dead even' : edge >= 85 ? 'decisive' : edge >= 70 ? 'clear edge' : edge >= 58 ? 'slight edge' : 'toss-up';
     root.querySelector('[data-t-a]').textContent = label(a, state.na);
     root.querySelector('[data-t-b]').textContent = label(b, state.nb);
     const oa = root.querySelector('[data-odds-a]');
@@ -181,7 +195,7 @@ function paintMatchup() {
     ob.style.setProperty('--p', `${Math.max(8, oddsB)}%`);
     oa.textContent = `${oddsA}%`;
     ob.textContent = `${oddsB}%`;
-    root.querySelector('[data-winner]').textContent = label(winner, winnerSide === 'a' ? state.na : state.nb);
+    root.querySelector('[data-winner]').textContent = draw ? 'Draw' : label(winner, winnerSide === 'a' ? state.na : state.nb);
     root.querySelector('[data-strength]').textContent = strength;
 
     for (const [key, short] of STATS) {
@@ -208,7 +222,10 @@ function paintMatchup() {
         const loser = winner === a ? b : a;
         const leads = STATS.filter(([, short]) => (winner[short] || 0) > (loser[short] || 0)).map(([, , name]) => name.toLowerCase());
         const crowd = state.na > 1 || state.nb > 1;
-        verdict.innerHTML = `<p>${escapeHtml(label(winner, winnerSide === 'a' ? state.na : state.nb))} win${winnerSide === 'a' ? (state.na > 1 ? '' : 's') : (state.nb > 1 ? '' : 's')} this ${crowd ? 'group fight' : 'matchup'} ${edge}% of the time in the Animal Battle Stats model (${strength}).${crowd ? ' Numbers count for a lot, but much smaller animals get less from them against much heavier ones.' : ''} One on one, the ${escapeHtml(winner.n)} leads in ${leads.length} of 6 battle stats${leads.length ? ` (${leads.join(', ')})` : ''}, with a power index of ${fmt(winner.p)} against ${fmt(loser.p)}.</p>
+        const opening = draw
+            ? `This ${crowd ? 'group fight' : 'matchup'} is dead even: the Animal Battle Stats model puts it at 50-50, so the fight ends in a draw.`
+            : `${escapeHtml(label(winner, winnerSide === 'a' ? state.na : state.nb))} win${winnerSide === 'a' ? (state.na > 1 ? '' : 's') : (state.nb > 1 ? '' : 's')} this ${crowd ? 'group fight' : 'matchup'} ${edge}% of the time in the Animal Battle Stats model (${strength}).`;
+        verdict.innerHTML = `<p>${opening}${crowd ? ' Numbers count for a lot, but much smaller animals get less from them against much heavier ones.' : ''} One on one, the ${escapeHtml(winner.n)} leads in ${leads.length} of 6 battle stats${leads.length ? ` (${leads.join(', ')})` : ''}, with a power index of ${fmt(winner.p)} against ${fmt(loser.p)}.</p>
             <p>${a.h || b.h ? 'The Human is an average adult man, unarmed and untrained. ' : ''}Open each animal's profile for sources, measurements and how it fights.</p>`;
         root.querySelector('[data-faq]')?.setAttribute('hidden', '');
     }
@@ -317,10 +334,17 @@ function paintStreak(streak) {
 }
 
 function resetCall() {
-    const crowd = state.na > 1 || state.nb > 1 || state.index.get(state.a)?.h || state.index.get(state.b)?.h;
-    callBox.dataset.state = crowd ? 'off' : 'open';
+    const a = state.index.get(state.a);
+    const b = state.index.get(state.b);
+    const crowd = state.na > 1 || state.nb > 1 || a?.h || b?.h;
+    const draw = a && b && ending(a, b) === 'draw';
+    const peeked = state.peeked === matchupKey();
+    callBox.dataset.state = crowd || draw || peeked ? 'off' : 'open';
     callBox.querySelectorAll('[data-vote-side]').forEach((button) => button.classList.remove('picked', 'right', 'wrong'));
-    callNote.textContent = crowd ? 'Calls are for one animal against one animal. Fight to see who wins.' : CALL_NOTE;
+    callNote.textContent = crowd ? 'Calls are for one animal against one animal. Fight to see who wins.'
+        : draw ? 'Dead even: this one ends in a draw, so there is no winner to call.'
+            : peeked ? 'You have seen how this one ends, so it can\'t be called. Pick another matchup to call.'
+                : CALL_NOTE;
     paintStreak(window.ABS_USER?.economy?.callStreak || 0);
 }
 
@@ -391,6 +415,7 @@ async function callFight(button) {
         body: JSON.stringify({ animal1: a.n, animal2: b.n, votedFor })
     }).catch(() => null);
     const body = await response?.json().catch(() => null);
+    if (body?.draw) { sfx.error(); resetCall(); return; }
     if (!response?.ok || !body?.success) {
         sfx.error();
         toast(response?.status === 429 ? 'Slow down a little, then call again.' : 'That call did not go through. Try again soon.');
@@ -416,9 +441,25 @@ document.addEventListener('abs:user', () => {
 
 // ---------------------------------------------------------------- the fight
 
+// Fight time runs at state.speed: holding the screen or Space fast-forwards it.
+const FAST = 4;
+function fightWait(ms) {
+    return new Promise((resolve) => {
+        let left = ms;
+        let last = performance.now();
+        const tick = (now) => {
+            left -= (now - last) * state.speed;
+            last = now;
+            if (left <= 0) resolve();
+            else requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+    });
+}
+
 function say(html, ms = 800) {
     announcer.innerHTML = html;
-    return wait(ms).then(() => { announcer.innerHTML = ''; });
+    return fightWait(ms).then(() => { announcer.innerHTML = ''; });
 }
 
 function spawn(side, className, text = '') {
@@ -437,65 +478,108 @@ function setHp(side, value) {
     hp.classList.toggle('low', value <= 25);
 }
 
-// Plans a fight whose winner was drawn with the model probability: both sides
-// trade blows, bigger stat gaps mean a more lopsided fight, and the winner
-// lands the final hit.
-function planFight(a, b, odds, forced = null) {
-    const winner = forced || (Math.random() < odds ? 'a' : 'b');
-    const loser = winner === 'a' ? 'b' : 'a';
+// A small seeded generator (mulberry32): the same matchup always gets the same
+// fight, blow for blow.
+function seeded(text) {
+    let hash = 1779033703 ^ text.length;
+    for (let index = 0; index < text.length; index += 1) {
+        hash = Math.imul(hash ^ text.charCodeAt(index), 3432918353);
+        hash = (hash << 13) | (hash >>> 19);
+    }
+    let seed = hash >>> 0;
+    return () => {
+        seed = (seed + 0x6d2b79f5) >>> 0;
+        let t = seed;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
+// Plans the fight to its fixed ending ('a', 'b' or 'draw'): both sides trade
+// blows, a bigger edge means a more lopsided fight, the winner lands the final
+// hit, and a draw goes the distance with both still standing.
+function planFight(a, b, odds, end) {
+    const rng = seeded(matchupKey());
+    const other = (side) => (side === 'a' ? 'b' : 'a');
+    const draw = end === 'draw';
+    const winner = draw ? null : end;
+    const loser = draw ? null : other(end);
     const edge = Math.abs(odds - 0.5) * 2;
-    const winnerLeft = Math.round(15 + edge * 55 + Math.random() * 12);
-    const exchanges = Math.max(5, Math.round(9 - edge * 4 + Math.random() * 2));
-    const fighters = { a, b };
+    const exchanges = draw ? 8 + Math.round(rng() * 2) : Math.max(5, Math.round(9 - edge * 4 + rng() * 2));
     let first = (a.agi || 0) >= (b.agi || 0) ? 'a' : 'b';
-    if (Math.random() < 0.25) first = first === 'a' ? 'b' : 'a';
-    const turns = [];
-    for (let i = 0; i < exchanges; i += 1) turns.push(i % 2 === 0 ? first : (first === 'a' ? 'b' : 'a'));
-    if (turns[turns.length - 1] !== winner) turns.push(winner);
-    const hitsOnLoser = turns.filter((side) => side === winner).length;
-    const hitsOnWinner = turns.filter((side) => side === loser).length;
+    if (rng() < 0.25) first = other(first);
+    const turns = Array.from({ length: exchanges }, (_, index) => (index % 2 === 0 ? first : other(first)));
+    if (!draw && turns[turns.length - 1] !== winner) turns.push(winner);
+    // Damage each side takes over the fight.
+    const taken = draw
+        ? (() => { const left = 14 + Math.round(rng() * 10); return { a: 100 - left, b: 100 - left }; })()
+        : { [loser]: 100, [winner]: 100 - Math.round(15 + edge * 55 + rng() * 12) };
     const split = (total, count) => {
-        const weights = Array.from({ length: count }, () => 0.6 + Math.random());
+        const weights = Array.from({ length: count }, () => 0.6 + rng());
         const sum = weights.reduce((acc, value) => acc + value, 0);
         return weights.map((value) => (value / sum) * total);
     };
-    const damageOnLoser = split(100, hitsOnLoser);
-    const damageOnWinner = split(100 - winnerLeft, Math.max(1, hitsOnWinner));
-    let li = 0;
-    let wi = 0;
+    const hitsOn = (side) => turns.filter((attacker) => attacker !== side).length;
+    const damage = { a: split(taken.a, hitsOn('a')), b: split(taken.b, hitsOn('b')) };
+    const used = { a: 0, b: 0 };
+    const fighters = { a, b };
     return {
         winner,
         loser,
+        draw,
         steps: turns.map((attacker, index) => {
-            const amount = attacker === winner ? damageOnLoser[li++] : damageOnWinner[wi++];
-            const special = amount > 26 || (index === turns.length - 1 && attacker === winner);
+            const defender = other(attacker);
+            const amount = damage[defender][used[defender]++];
+            const special = amount > 26 || (!draw && index === turns.length - 1 && attacker === winner);
             const moves = fighters[attacker].ab || [];
-            return {
-                attacker,
-                defender: attacker === 'a' ? 'b' : 'a',
-                amount,
-                special,
-                move: special && moves.length ? moves[index % moves.length] : null
-            };
+            return { attacker, defender, amount, special, move: special && moves.length ? moves[index % moves.length] : null };
         })
     };
 }
 
-// `forced` = the side that wins a called fight ('a' or 'b'); otherwise drawn here.
+// Hold to fast-forward: anywhere on the screen, the button, or Space / Enter.
+const fastButton = root.querySelector('[data-ff]');
+function setSpeed(fast) {
+    const speed = fast && state.fighting ? FAST : 1;
+    if (state.speed === speed) return;
+    state.speed = speed;
+    root.style.setProperty('--fs', String(speed));
+    root.classList.toggle('is-fast', speed > 1);
+    fastButton?.setAttribute('aria-pressed', String(speed > 1));
+}
+root.addEventListener('pointerdown', (event) => {
+    if (!state.fighting || event.button > 0) return;
+    setSpeed(true);
+});
+for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) document.addEventListener(type, () => setSpeed(false));
+root.addEventListener('contextmenu', (event) => { if (state.fighting) event.preventDefault(); });
+const typing = (target) => target?.closest?.('input, textarea, select, [contenteditable="true"]');
+document.addEventListener('keydown', (event) => {
+    if (!state.fighting || ![' ', 'Enter'].includes(event.key) || typing(event.target)) return;
+    event.preventDefault();
+    setSpeed(true);
+});
+document.addEventListener('keyup', (event) => { if ([' ', 'Enter'].includes(event.key)) setSpeed(false); });
+window.addEventListener('blur', () => setSpeed(false));
+
+// `forced` = how a called fight ends, as the server settled it ('a' or 'b');
+// otherwise the matchup's own ending.
 async function fight(forced = null) {
     if (state.fighting) return;
     const a = state.index.get(state.a);
     const b = state.index.get(state.b);
     if (!a || !b) return;
     state.fighting = true;
+    root.classList.add('is-fighting');
     fightButton.disabled = true;
     trackFight(label(a, state.na), label(b, state.nb));
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const beat = reduced ? 250 : 520;
     const hp = { a: 100, b: 100 };
-    for (const side of ['a', 'b']) { setHp(side, 100); sides[side].classList.remove('ko', 'winner'); }
+    for (const side of ['a', 'b']) { setHp(side, 100); sides[side].classList.remove('ko', 'winner', 'draw'); }
     const odds = probability(a, b);
-    const plan = planFight(a, b, odds, forced);
+    const plan = planFight(a, b, odds, forced || ending(a, b));
 
     for (const count of ['3', '2', '1']) { sfx.countdown(); await say(`<span class="big">${count}</span>`, reduced ? 200 : 420); }
     sfx.go();
@@ -508,37 +592,49 @@ async function fight(forced = null) {
             await say(`<span class="move">${escapeHtml(attacker.n)}: ${escapeHtml(step.move)}!</span>`, reduced ? 250 : 650);
         }
         sides[step.attacker].classList.add('lunge');
-        await wait(beat * 0.35);
+        await fightWait(beat * 0.35);
         sides[step.defender].classList.add('hit');
         hp[step.defender] = Math.max(0, hp[step.defender] - step.amount);
         setHp(step.defender, hp[step.defender]);
         spawn(step.defender, 'burst');
         spawn(step.defender, `dmg${step.special ? ' crit' : ''}`, `-${Math.round(step.amount)}`);
         if (step.special) { sfx.crit(); shake(root, 1.2); } else sfx.hit();
-        await wait(beat * 0.4);
+        await fightWait(beat * 0.4);
         sides[step.attacker].classList.remove('lunge');
         sides[step.defender].classList.remove('hit');
-        await wait(beat * 0.35);
+        await fightWait(beat * 0.35);
     }
 
-    setHp(plan.loser, 0);
-    sides[plan.loser].classList.add('ko');
-    sfx.ko();
-    shake(root, 1.6);
-    await say('<span class="big">K.O.!</span>', reduced ? 300 : 900);
-    sides[plan.winner].classList.add('winner');
-    const winnerCount = plan.winner === 'a' ? state.na : state.nb;
-    const winnerName = label(plan.winner === 'a' ? a : b, winnerCount);
-    const upset = (plan.winner === 'a' ? odds : 1 - odds) < 0.5;
-    sfx.win();
-    reveal();
-    announcer.innerHTML = `<span class="big">${escapeHtml(winnerName)} win${winnerCount > 1 ? '' : 's'}${upset ? '<br><small style="font-size:.4em">Upset!</small>' : ''}</span>`;
-    await wait(reduced ? 600 : 1800);
+    if (plan.draw) {
+        // the bell: both still standing, dead even
+        sfx.go();
+        await say('<span class="big">Time!</span>', reduced ? 300 : 800);
+        sides.a.classList.add('draw');
+        sides.b.classList.add('draw');
+        sfx.flip();
+        reveal();
+        announcer.innerHTML = '<span class="big">Draw!<br><small style="font-size:.4em">Dead even on the stats</small></span>';
+    } else {
+        setHp(plan.loser, 0);
+        sides[plan.loser].classList.add('ko');
+        sfx.ko();
+        shake(root, 1.6);
+        await say('<span class="big">K.O.!</span>', reduced ? 300 : 900);
+        sides[plan.winner].classList.add('winner');
+        const winnerCount = plan.winner === 'a' ? state.na : state.nb;
+        const winnerName = label(plan.winner === 'a' ? a : b, winnerCount);
+        sfx.win();
+        reveal();
+        announcer.innerHTML = `<span class="big">${escapeHtml(winnerName)} win${winnerCount > 1 ? '' : 's'}</span>`;
+    }
+    await fightWait(reduced ? 600 : 1800);
     announcer.innerHTML = '';
     state.fighting = false;
+    root.classList.remove('is-fighting');
+    setSpeed(false);
     fightButton.disabled = false;
     fightButton.querySelector('span').textContent = 'Fight again';
-    state.result = plan.winner;
+    state.result = plan.draw ? 'draw' : plan.winner;
     shareButton?.classList.add('ready');
 }
 
@@ -575,7 +671,7 @@ shareButton?.addEventListener('click', async () => {
     const lb = label(b, state.nb);
     const revealed = !root.classList.contains('is-sealed');
     const result = state.result;
-    const winner = result ? label(result === 'a' ? a : b, result === 'a' ? state.na : state.nb) : null;
+    const winner = result && result !== 'draw' ? label(result === 'a' ? a : b, result === 'a' ? state.na : state.nb) : null;
     try {
         const [{ shareMatchup }, { cardFromIndex }] = await Promise.all([import('./share-card.js'), import('./abs-card.js')]);
         const total = state.index.size - 1;
@@ -588,7 +684,7 @@ shareButton?.addEventListener('click', async () => {
             odds: revealed ? Math.round(probability(a, b) * 100) : null,
             result,
             url: location.href.split('#')[0],
-            text: result ? `${winner} won the fight. Who would you pick?` : `Who would win: ${la} or ${lb}? Make your call:`,
+            text: result === 'draw' ? `${la} vs ${lb} ended in a draw: dead even on the stats. Who would you pick?` : result ? `${winner} won the fight. Who would you pick?` : `Who would win: ${la} or ${lb}? Make your call:`,
             name: `${la} vs ${lb}`
         });
     } catch { toast('Could not open sharing. Check your connection.'); }

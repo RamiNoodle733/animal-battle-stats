@@ -17,8 +17,9 @@ export const sceneArt = () => Promise.all([
     loadImage('/images/logo.png'),
     loadImage('/images/ui/vs.svg'),
     loadImage('/images/ui/btn-gold.png'),
+    loadImage('/images/ui/btn-silver.png'),
     fontsReady()
-]).then(([hex, stage, logo, vs, gold]) => ({ hex, stage, logo, vs, gold }));
+]).then(([hex, stage, logo, vs, gold, silver]) => ({ hex, stage, logo, vs, gold, silver }));
 
 // ---------------------------------------------------------------- the backdrop
 
@@ -195,8 +196,9 @@ export function koStamp(ctx, x, y, size, alpha = 1, scale = 1) {
     ctx.restore();
 }
 
-// A gold plate with dark capitals (the WINNER ribbon, crowd counts).
-export function goldTag(ctx, S, text, x, y, size, { rotate = 0, alpha = 1 } = {}) {
+// A gold plate with dark capitals (the WINNER ribbon, crowd counts), or a
+// silver one (DRAW).
+export function goldTag(ctx, S, text, x, y, size, { rotate = 0, alpha = 1, metal = 'gold' } = {}) {
     ctx.save();
     ctx.globalAlpha = alpha;
     ctx.translate(x, y);
@@ -209,14 +211,15 @@ export function goldTag(ctx, S, text, x, y, size, { rotate = 0, alpha = 1 } = {}
     ctx.shadowColor = 'rgba(0,0,0,0.55)';
     ctx.shadowBlur = 16;
     ctx.shadowOffsetY = 6;
-    if (S.gold) nineSlice(ctx, S.gold, -w / 2, -h / 2, w, h, 24, size * 0.42);
+    const plate = metal === 'silver' ? S.silver : S.gold;
+    if (plate) nineSlice(ctx, plate, -w / 2, -h / 2, w, h, 24, size * 0.42);
     else {
         roundRect(ctx, -w / 2, -h / 2, w, h, 10);
         ctx.fillStyle = GOLD;
         ctx.fill();
     }
     ctx.shadowColor = 'transparent';
-    ctx.fillStyle = '#1d1400';
+    ctx.fillStyle = metal === 'silver' ? '#111216' : '#1d1400';
     ctx.textBaseline = 'middle';
     let cursor = -textW / 2;
     for (const char of text) {
@@ -321,16 +324,16 @@ export async function bothPicture(card) {
 }
 
 // The face-off. a/b: cards; na/nb: crowd sizes; labels: how to name each side;
-// odds: the left side's chance (0..100) or null while sealed; result: 'a' | 'b' | null.
+// odds: the left side's chance (0..100) or null while sealed; result: 'a' | 'b' | 'draw' | null.
 export async function faceoffPicture({ a, b, na = 1, nb = 1, labels = [], odds = null, result = null }) {
     const [Aa, Ab, S] = await Promise.all([cardAssets(a), cardAssets(b), sceneArt()]);
     const { w: W, h: H } = PICTURE;
     const canvas = canvasOf(W, H);
     const ctx = canvas.getContext('2d');
     const winner = result === 'a' ? a : result === 'b' ? b : null;
-    backdrop(ctx, W, H, S, { tier: winner ? winner.tier : 's', arena: true, glowY: 0.5 });
+    backdrop(ctx, W, H, S, { tier: winner ? winner.tier : result === 'draw' ? 'f' : 's', arena: true, glowY: 0.5 });
     brand(ctx, S);
-    title(ctx, result ? 'THE RESULT' : 'WHO WOULD WIN?', W / 2, 228, 112, W - 140);
+    title(ctx, result === 'draw' ? "IT'S A DRAW" : result ? 'THE RESULT' : 'WHO WOULD WIN?', W / 2, 228, 112, W - 140);
     const scene = { a, b, Aa, Ab, na, nb, labels, result };
     faceoffCards(ctx, S, scene, { W, y: 676, cardW: 466, gap: 524 });
     const footY = 1128;
@@ -361,8 +364,9 @@ export function faceoffCards(ctx, S, data, { W, y, cardW, gap }, t = { enter: 1,
         const enter = Math.max(0, Math.min(1, t.enter));
         const ease = 1 - (1 - enter) ** 3;
         const x = cx + dir * (1 - ease) * W * 0.7;
-        const lost = result && result !== side;
+        const lost = result && result !== 'draw' && result !== side;
         const won = result === side;
+        const even = result === 'draw';
         let face = data.faces[side];
         if (lost && t.ko > 0) {
             data.ko[side] ||= knockedOut(face);
@@ -390,6 +394,7 @@ export function faceoffCards(ctx, S, data, { W, y, cardW, gap }, t = { enter: 1,
             koStamp(ctx, x, y + cardH * 0.05, 120, slam, 1 + (1 - slam) * 1.4);
         }
         if (won && t.ko > 0) goldTag(ctx, S, 'WINNER', x, y - cardH / 2 + 4, 38, { rotate: dir * -0.05, alpha: Math.min(1, t.ko) });
+        if (even && t.ko > 0) goldTag(ctx, S, 'DRAW', x, y - cardH / 2 + 4, 38, { rotate: dir * -0.05, alpha: Math.min(1, t.ko), metal: 'silver' });
     }
     if (S.vs && t.vs > 0) {
         const pop = Math.min(1, t.vs);

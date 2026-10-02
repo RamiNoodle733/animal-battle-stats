@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.12.3 — 2026-10-02
+
+- On a weak connection, the animal list behind search, Vote and Versus tries again once before giving up, and a failed try is no longer remembered until a refresh. Before, one dropped request could leave the Vote page saying the animals could not load.
+
 ## 4.12.2 — 2026-10-02
 
 - **Privacy policy and terms of use** (/privacy, /terms), in plain language, linked from the menu and the log in and sign up screens. They describe what the site actually collects, what other players can see, who else gets data, cookies, how long things are kept and how to get your data or account deleted. Roblox and Google ask for both before letting everyone sign in with them.

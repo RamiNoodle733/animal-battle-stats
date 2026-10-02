@@ -1,6 +1,6 @@
 {
   "name": "animal-battle-stats",
-  "version": "4.12.2",
+  "version": "4.12.3",
   "description": "Animal Battle Stats - a versioned wildlife comparison and animal powerscaling website",
   "main": "api/index.js",
   "scripts": {

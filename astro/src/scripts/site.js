@@ -7,9 +7,18 @@ let indexPromise = null;
 
 export function loadAnimalIndex() {
     if (!indexPromise) {
-        indexPromise = fetch('/data/animals-lite.json', { credentials: 'omit' })
-            .then((response) => (response.ok ? response.json() : []))
-            .catch(() => []);
+        const get = () => fetch('/data/animals-lite.json', { credentials: 'omit' }).then((response) => {
+            if (!response.ok) throw new Error(`animals-lite ${response.status}`);
+            return response.json();
+        });
+        // A dropped request on a weak phone connection gets one more try a second later, and a
+        // failure isn't kept, so the next caller (search, Vote, Versus) asks again.
+        indexPromise = get()
+            .catch(() => new Promise((resolve) => setTimeout(resolve, 1000)).then(get))
+            .catch(() => {
+                indexPromise = null;
+                return [];
+            });
     }
     return indexPromise;
 }

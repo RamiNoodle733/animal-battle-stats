@@ -122,12 +122,12 @@ Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, import
 - `vote.js` - the Vote page: deals matchups (every matchup page that is not dead even, classics first) and animals; picks go to the same APIs as Versus calls and the list's arrows (`votes.js`), guests' votes are kept on the device and cast after login (`rememberVote` / `flushPendingVotes` in `votes.js`), and challenges are a friend's picks encoded in the link
 - `collection.js` - the card collection binder: a player's cards, the starter pick, the card of the day and buying a card by name; `?u=<name>` shows someone else's, read-only. Animals in the Roblox game carry a Roblox mark (and their level there, once collected)
 - `roblox-trainer.js` - the trainer card: a linked player's progress in the Roblox game, drawn from `/data/roblox-lite.json` (profiles, public profiles); `roblox.js` also fills the /roblox page's This week tab (the game's Weekly Cup, Family of the Week, featured island and timed events, with live countdowns)
-- `sfx.js`, `track.js` - synthesized sound effects and visit analytics
+- `sfx.js`, `track.js` - synthesized sound effects (knocks, rustles, whooshes, punches, stomps, chest beats: no music, notes or chimes) and visit analytics
 - The collectible cards, loaded only when someone opens a card or shares (dynamic `import()`, so no page carries them up front):
   - `abs-card.js` - draws an animal's card on a canvas: the front (art over its biome and tier shards, power, crest, archetype tag, name plate, card number) and the back (number strip, portrait, stat bars, abilities, the signature move). Every other card feature uses it, so they always match
   - `card-scenes.js` - the share pictures (1080x1350): the card, front and back, and the Versus face-off with the result; and the link previews (1200x630): an animal's card with its stats, a matchup's two cards with the odds, and each section page's title beside a fan, podium or pair of cards (`astro/src/lib/previews.js` lists the sections)
-  - `card-reel.js` - the 9:16 videos, drawn frame by frame and recorded with `MediaRecorder` (MP4 where the browser can, WebM otherwise), with their soundtrack
-  - `reel-audio.js` - the videos' soundtracks, synthesized with Web Audio and rendered offline: a beat in A minor and the hits timed to the animation (flips, stat bars, VS slam, K.O.)
+  - `card-reel.js` - the 9:16 videos, drawn frame by frame and recorded with `MediaRecorder` (MP4 where the browser can, WebM otherwise), with their sound effects
+  - `reel-audio.js` - the videos' sound effects, synthesized with Web Audio and rendered offline: wind, whooshes, card flips, footsteps, punches, thunder and a roar timed to the animation (flips, stat bars, VS slam, K.O.). **No music anywhere on the site:** no beat, bass, chord, note, chime or bell, here or in `sfx.js`
   - `card-gif.js` - the same videos as looping GIFs (`gifenc`): one palette, and each frame keeps only the pixels that changed
   - `card-viewer.js` - the 3D card on animal pages (`/stats/<animal>#card` opens it): drag to turn, tap or arrow keys to flip, live foil and glare
   - `share-card.js` - the share sheet for animals and matchups: format tabs (picture, video, GIF), the native share sheet with the file attached, Save to Photos on iPhone and iPad, save and copy link
@@ -191,6 +191,10 @@ Players collect the battle cards, one of each animal. Nothing is random and noth
 | Buying by name | S 500, A 300, B 160, C 100, D 60, F 40 BattlePoints | `buyCard`, `{op:'buy'}` |
 
 `GET /api/auth?action=collection` returns the player's own collection (with the card of the day and the starters left to pick); `&username=` returns anyone's (which cards and how they got them). Profiles include a summary (`collectionSummary`). A new card is posted to the activity feed and Discord as `card_collected`.
+
+### Deleting an account
+
+`POST /api/auth?action=delete-account` (`{ password }`, or `{ confirm: <username> }` for an account without a password; the owner's account is refused) runs `lib/account-deletion.js`: the player's comments and chat messages with the replies under them, their votes on other posts, animal votes, fight-call ballots (the matchup totals keep them as anonymous counts), XP and reward claims, tournament entries, presence and their `SiteActivity` rows, then the user. The account goes last, so a failed run can be repeated. When something new is stored per user, add it there and to /privacy.
 
 ### The Roblox link
 

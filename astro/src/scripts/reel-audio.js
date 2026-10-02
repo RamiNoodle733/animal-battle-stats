@@ -1,16 +1,13 @@
-// Soundtracks for the share videos (card-reel.js), synthesized with Web Audio
-// like the site's sound effects (sfx.js): no files. A beat and a bass line in
-// A minor, and the hits that land with the animation: the card rising in, the
-// foil's glints, each flip, the six stat bars filling, the VS slam, the K.O.
-// Rendered offline into one buffer, then played into the recording.
+// Sound for the share videos (card-reel.js), synthesized with Web Audio like the site's sound
+// effects (sfx.js): no files, and no music. There is no beat, bass, chord, note, chime or bell
+// anywhere: only wind, whooshes, card flips, footsteps, punches, thunder and a roar, timed to the
+// animation (the card landing, each flip, the six stat bars, the VS slam, the K.O.). Rendered
+// offline into one buffer, then played into the recording.
 
 const RATE = 44100;
-const NOTE = { A1: 55, C2: 65.41, D2: 73.42, E2: 82.41, F1: 43.65, G1: 49, A3: 220, B3: 246.94, C4: 261.63, D4: 293.66, E4: 329.63, F3: 174.61, G3: 196, G4: 392, A4: 440, C5: 523.25, D5: 587.33, E5: 659.25, G5: 783.99, A5: 880, C6: 1046.5 };
-// Am | F | C | G: bass root and the chord above it
-const BARS = [[NOTE.A1, [NOTE.A3, NOTE.C4, NOTE.E4]], [NOTE.F1, [NOTE.F3, NOTE.A3, NOTE.C4]], [NOTE.C2, [NOTE.G3, NOTE.C4, NOTE.E4]], [NOTE.G1, [NOTE.G3, NOTE.B3, NOTE.D4]]];
 
-// A small synth that writes into one (offline) context.
-function synth(ctx) {
+// Noise and short falling thumps (the body of a punch or a footstep) written into one (offline) context.
+function kit(ctx) {
     const master = ctx.createGain();
     master.gain.value = 0.85;
     const compressor = ctx.createDynamicsCompressor();
@@ -20,7 +17,7 @@ function synth(ctx) {
     let noiseBuffer = null;
     const noiseData = () => {
         if (!noiseBuffer) {
-            noiseBuffer = ctx.createBuffer(1, RATE * 2, RATE);
+            noiseBuffer = ctx.createBuffer(1, RATE * 3, RATE);
             const data = noiseBuffer.getChannelData(0);
             for (let i = 0; i < data.length; i += 1) data[i] = Math.random() * 2 - 1;
         }
@@ -33,30 +30,21 @@ function synth(ctx) {
         panner.connect(master);
         return panner;
     };
-    const envelope = (gain, at, { vol, attack = 0.004, dur, hold = 0 }) => {
+    const envelope = (gain, at, { vol, attack, dur }) => {
         gain.gain.setValueAtTime(0.0001, at);
         gain.gain.exponentialRampToValueAtTime(vol, at + attack);
-        if (hold) gain.gain.setValueAtTime(vol, at + attack + hold);
-        gain.gain.exponentialRampToValueAtTime(0.0001, at + Math.max(dur, attack + hold + 0.01));
+        gain.gain.exponentialRampToValueAtTime(0.0001, at + Math.max(dur, attack + 0.01));
     };
-    const s = {
+    const k = {
         master,
-        tone({ at, freq, type = 'sine', dur = 0.2, vol = 0.2, attack = 0.004, hold = 0, slideTo = null, detune = 0, pan = 0, lowpass = null }) {
+        // A falling sine over a fraction of a second: a thud, never a held note.
+        thump({ at, from = 160, to = 50, dur = 0.16, vol = 0.4, pan = 0 }) {
             const osc = ctx.createOscillator();
-            osc.type = type;
-            osc.frequency.setValueAtTime(freq, at);
-            osc.detune.value = detune;
-            if (slideTo) osc.frequency.exponentialRampToValueAtTime(Math.max(20, slideTo), at + dur);
+            osc.frequency.setValueAtTime(from, at);
+            osc.frequency.exponentialRampToValueAtTime(to, at + dur);
             const gain = ctx.createGain();
-            envelope(gain, at, { vol, attack, dur, hold });
-            let node = osc;
-            if (lowpass) {
-                const filter = ctx.createBiquadFilter();
-                filter.type = 'lowpass';
-                filter.frequency.value = lowpass;
-                node = osc.connect(filter);
-            }
-            node.connect(gain).connect(out(pan));
+            envelope(gain, at, { vol, attack: 0.003, dur });
+            osc.connect(gain).connect(out(pan));
             osc.start(at);
             osc.stop(at + dur + 0.05);
         },
@@ -71,148 +59,126 @@ function synth(ctx) {
             const gain = ctx.createGain();
             envelope(gain, at, { vol, attack, dur });
             source.connect(filter).connect(gain).connect(out(pan));
-            source.start(at, Math.random());
+            source.start(at, Math.random() * 2);
             source.stop(at + dur + 0.05);
         }
     };
-    // the kit
-    s.kick = (at, vol = 0.9) => {
-        s.tone({ at, freq: 150, slideTo: 42, dur: 0.38, vol });
-        s.noise({ at, dur: 0.02, vol: vol * 0.25, from: 4000, type: 'highpass' });
-    };
-    s.snare = (at, vol = 0.32) => {
-        s.noise({ at, dur: 0.2, vol, from: 1900, q: 0.7 });
-        s.tone({ at, freq: 210, slideTo: 150, dur: 0.1, vol: vol * 0.6, type: 'triangle' });
-    };
-    s.hat = (at, vol = 0.08, open = false) => s.noise({ at, dur: open ? 0.16 : 0.045, vol, from: 8000, type: 'highpass', q: 0.5 });
-    s.bass = (at, freq, dur, vol = 0.32) => {
-        s.tone({ at, freq, type: 'sawtooth', dur, vol, attack: 0.01, hold: dur * 0.5, lowpass: 380 });
-        s.tone({ at, freq: freq / 2, type: 'sine', dur, vol: vol * 0.9, attack: 0.01, hold: dur * 0.5 });
-    };
-    s.pad = (at, freqs, dur, vol = 0.045) => {
-        for (const freq of freqs) {
-            s.tone({ at, freq, type: 'sawtooth', dur, vol, attack: 0.25, hold: dur * 0.55, detune: -7, lowpass: 1400, pan: -0.3 });
-            s.tone({ at, freq, type: 'sawtooth', dur, vol, attack: 0.25, hold: dur * 0.55, detune: 7, lowpass: 1400, pan: 0.3 });
+    // Gusts of wind from `from` to `to`: overlapping swells of low, slowly moving noise.
+    k.wind = (from, to, vol = 0.07) => {
+        for (let at = from; at < to; at += 1.1) {
+            const dur = Math.min(2.4, to - at);
+            if (dur < 0.3) break;
+            const low = 260 + Math.random() * 260;
+            k.noise({ at, dur, vol: vol * (0.7 + Math.random() * 0.6), from: low, to: low * (1.3 + Math.random() * 0.6), q: 0.6, type: 'lowpass', attack: dur * 0.45, pan: Math.random() * 0.8 - 0.4 });
         }
     };
-    // the hits
-    s.riser = (at, dur, vol = 0.22) => {
-        s.noise({ at, dur, vol, from: 300, to: 6500, q: 1.1, attack: dur * 0.9 });
-        s.tone({ at, freq: 180, slideTo: 1100, dur, vol: vol * 0.25, type: 'sawtooth', attack: dur * 0.9, lowpass: 2400 });
+    k.whoosh = (at, pan = 0, vol = 0.28) => k.noise({ at, dur: 0.38, vol, from: 380, to: 4200, q: 0.9, attack: 0.18, pan });
+    // Air rushing in before a hit.
+    k.rush = (at, dur, vol = 0.22) => k.noise({ at, dur, vol, from: 300, to: 5000, q: 1.1, attack: dur * 0.9 });
+    k.flip = (at) => {
+        k.noise({ at, dur: 0.12, vol: 0.22, from: 2600, to: 900, q: 1.2 });
+        k.noise({ at: at + 0.07, dur: 0.02, vol: 0.12, from: 5000, type: 'highpass' });
     };
-    s.impact = (at, vol = 0.8) => {
-        s.tone({ at, freq: 120, slideTo: 30, dur: 0.9, vol });
-        s.noise({ at, dur: 0.7, vol: vol * 0.55, from: 1400, to: 90, type: 'lowpass' });
-        s.noise({ at, dur: 1.4, vol: vol * 0.12, from: 6000, type: 'highpass', q: 0.4 }); // the cymbal tail
+    // Sand or dust catching the light: tiny dry ticks.
+    k.dust = (at, pan = 0) => {
+        k.noise({ at, dur: 0.02, vol: 0.05, from: 7000, type: 'highpass', q: 0.5, pan });
+        k.noise({ at: at + 0.05, dur: 0.015, vol: 0.03, from: 8000, type: 'highpass', q: 0.5, pan: -pan });
     };
-    s.whoosh = (at, pan = 0, vol = 0.28) => s.noise({ at, dur: 0.38, vol, from: 380, to: 4200, q: 0.9, attack: 0.18, pan });
-    s.flip = (at) => {
-        s.noise({ at, dur: 0.12, vol: 0.2, from: 2600, to: 900, q: 1.2 });
-        s.tone({ at: at + 0.06, freq: 900, dur: 0.06, vol: 0.06 });
+    k.step = (at, vol = 0.5, pan = 0) => {
+        k.thump({ at, from: 95, to: 42, dur: 0.18, vol, pan });
+        k.noise({ at, dur: 0.12, vol: vol * 0.4, from: 380, type: 'lowpass', pan });
     };
-    s.glint = (at, freq, pan = 0) => {
-        s.tone({ at, freq, type: 'triangle', dur: 0.18, vol: 0.06, pan });
-        s.tone({ at: at + 0.12, freq: freq * 2, type: 'sine', dur: 0.22, vol: 0.025, pan: -pan }); // a little echo
+    k.punch = (at, vol = 0.6, pan = 0) => {
+        k.thump({ at, from: 170, to: 52, dur: 0.16, vol, pan });
+        k.noise({ at, dur: 0.08, vol: vol * 0.5, from: 1700, type: 'lowpass', pan });
+        k.noise({ at, dur: 0.015, vol: vol * 0.25, from: 4500, type: 'highpass', pan });
     };
-    s.blip = (at, freq) => {
-        s.tone({ at, freq, type: 'square', dur: 0.08, vol: 0.05, lowpass: 3200 });
-        s.tone({ at, freq: freq * 2, type: 'triangle', dur: 0.1, vol: 0.04 });
+    k.thunder = (at, vol = 0.45) => {
+        k.noise({ at, dur: 0.25, vol: vol * 0.6, from: 2200, to: 400, type: 'lowpass' });
+        k.noise({ at: at + 0.05, dur: 2.2, vol, from: 420, to: 70, type: 'lowpass', attack: 0.12 });
     };
-    s.bell = (at, freq = 1320, vol = 0.18) => {
-        for (const [ratio, part] of [[1, 1], [2.76, 0.45], [5.4, 0.2]]) s.tone({ at, freq: freq * ratio, dur: 1.4, vol: vol * part });
+    k.impact = (at, vol = 0.8) => {
+        k.thump({ at, from: 120, to: 30, dur: 0.9, vol });
+        k.noise({ at, dur: 0.7, vol: vol * 0.55, from: 1400, to: 90, type: 'lowpass' });
+        k.noise({ at, dur: 0.9, vol: vol * 0.1, from: 5000, type: 'highpass', q: 0.4 }); // debris settling
     };
-    s.fanfare = (at) => {
-        [NOTE.C5, NOTE.E5, NOTE.G5, NOTE.C6].forEach((freq, index) => s.tone({ at: at + index * 0.09, freq, type: 'triangle', dur: index === 3 ? 0.7 : 0.2, vol: 0.13, hold: index === 3 ? 0.3 : 0 }));
-        s.tone({ at: at + 0.36, freq: NOTE.C6 * 2, dur: 0.6, vol: 0.04 });
+    // An animal roar: a swell of rough mid noise that drops away.
+    k.roar = (at, vol = 0.3) => {
+        k.noise({ at, dur: 1.1, vol, from: 380, to: 900, q: 1.4, attack: 0.25 });
+        k.noise({ at, dur: 1.1, vol: vol * 0.5, from: 150, to: 260, q: 1, type: 'lowpass', attack: 0.25 });
     };
-    s.ko = (at) => {
-        s.tone({ at, freq: 95, type: 'sawtooth', dur: 0.8, vol: 0.25, slideTo: 28, lowpass: 900 });
-        s.noise({ at, dur: 0.6, vol: 0.4, from: 1500, to: 80, type: 'lowpass' });
-        s.tone({ at, freq: 1760, type: 'triangle', dur: 0.16, vol: 0.08 });
-    };
-    // A groove from `from` to `to`: kick, snare, hats, bass and the chords.
-    s.groove = (from, to, bpm, { drums = true, pads = true, startBar = 0 } = {}) => {
-        const beat = 60 / bpm;
-        for (let index = 0; from + index * beat < to - 0.05; index += 1) {
-            const at = from + index * beat;
-            const inBar = index % 4;
-            const [root, chord] = BARS[(Math.floor(index / 4) + startBar) % BARS.length];
-            if (drums) {
-                if (inBar === 0 || inBar === 2) s.kick(at);
-                if (inBar === 1 || inBar === 3) s.snare(at);
-                s.hat(at + beat / 2, 0.07);
-                if (inBar === 3) s.hat(at + beat * 0.75, 0.05);
-            }
-            if (inBar === 0) {
-                const length = Math.min(4 * beat, to - at);
-                s.bass(at, root, beat * 0.9);
-                s.bass(at + beat * 1.5, root, beat * 0.45, 0.22);
-                s.bass(at + beat * 2, root, beat * 0.9);
-                s.bass(at + beat * 3.5, root * 1.5, beat * 0.45, 0.2);
-                if (pads) s.pad(at, chord, length);
-            }
+    // A gorilla beating its chest: hollow thumps in a quick run.
+    k.chest = (at, count = 4, vol = 0.45) => {
+        for (let index = 0; index < count; index += 1) {
+            k.thump({ at: at + index * 0.11, from: 140, to: 75, dur: 0.1, vol: vol * (index % 2 ? 0.8 : 1), pan: index % 2 ? 0.25 : -0.25 });
+            k.noise({ at: at + index * 0.11, dur: 0.06, vol: vol * 0.3, from: 450, type: 'lowpass' });
         }
     };
-    return s;
+    return k;
 }
 
 async function render(duration, compose) {
     const Offline = window.OfflineAudioContext || window.webkitOfflineAudioContext;
     if (!Offline) return null;
     const ctx = new Offline(2, Math.ceil(RATE * duration), RATE);
-    const s = synth(ctx);
-    compose(s);
+    const k = kit(ctx);
+    compose(k);
     // fade out over the last half second
-    s.master.gain.setValueAtTime(0.85, Math.max(0, duration - 0.6));
-    s.master.gain.linearRampToValueAtTime(0.0001, duration - 0.02);
+    k.master.gain.setValueAtTime(0.85, Math.max(0, duration - 0.6));
+    k.master.gain.linearRampToValueAtTime(0.0001, duration - 0.02);
     return ctx.startRendering();
 }
 
 // The card video (CARD_REEL, 8.4 s): rise in, foil, flip, stats fill, flip home, the call to action.
-export function cardSoundtrack(duration) {
-    return render(duration, (s) => {
-        s.riser(0.05, 0.95);
-        s.whoosh(0.15, 0, 0.18);
-        s.impact(1.0, 0.7);
-        s.groove(1.0, duration - 0.5, 112);
-        [NOTE.E5, NOTE.A5, NOTE.G5, NOTE.C6, NOTE.E5].forEach((freq, index) => s.glint(1.3 + index * 0.33, freq, index % 2 ? 0.5 : -0.5));
-        s.whoosh(3.05);
-        s.flip(3.45);
-        // six stat bars filling
-        [NOTE.C5, NOTE.D5, NOTE.E5, NOTE.G5, NOTE.A5, NOTE.C6].forEach((freq, index) => s.blip(4.05 + index * 0.2, freq));
-        s.riser(4.0, 1.25, 0.08);
-        s.whoosh(6.55);
-        s.flip(6.95);
-        s.impact(7.3, 0.85);
-        s.pad(7.3, [NOTE.A3, NOTE.C4, NOTE.E4, NOTE.A4], 1.1, 0.06);
+export function cardSounds(duration) {
+    return render(duration, (k) => {
+        k.wind(0, duration);
+        k.rush(0.05, 0.95);
+        k.whoosh(0.15, 0, 0.18);
+        k.impact(1.0, 0.7);
+        k.thunder(1.05, 0.25);
+        for (let index = 0; index < 5; index += 1) k.dust(1.3 + index * 0.33, index % 2 ? 0.5 : -0.5);
+        k.whoosh(3.05);
+        k.flip(3.45);
+        // six stat bars filling: footsteps coming closer
+        for (let index = 0; index < 6; index += 1) k.step(4.05 + index * 0.2, 0.18 + index * 0.06, index % 2 ? 0.2 : -0.2);
+        k.rush(4.0, 1.25, 0.06);
+        k.whoosh(6.55);
+        k.flip(6.95);
+        k.impact(7.3, 0.85);
+        k.chest(7.45, 4, 0.35);
     });
 }
 
-// The face-off video (FACEOFF_REEL, 7 s): the cards slide in, the VS slams,
-// then the K.O. and the fanfare, a bell for a draw, or a tense wait for a challenge.
-export function faceoffSoundtrack(duration, result) {
-    return render(duration, (s) => {
-        s.whoosh(0.05, -0.7);
-        s.whoosh(0.2, 0.7);
-        s.groove(0, 1.0, 120, { drums: false, pads: false });
-        for (let at = 0; at < 1.0; at += 0.25) s.hat(at, 0.05);
-        s.riser(0.55, 0.72);
-        s.impact(1.28, 0.95);
-        s.groove(1.3, duration - 0.4, 120, { startBar: 0 });
+// The face-off video (FACEOFF_REEL, 7 s): the cards slide in, the VS slams, then the K.O. and a
+// roar, two hits that cancel out for a draw, or a stamping wait for a challenge.
+export function faceoffSounds(duration, result) {
+    return render(duration, (k) => {
+        k.wind(0, duration, 0.06);
+        k.whoosh(0.05, -0.7);
+        k.whoosh(0.2, 0.7);
+        for (let index = 0; index < 4; index += 1) k.step(0.1 + index * 0.24, 0.3, index % 2 ? 0.6 : -0.6);
+        k.rush(0.55, 0.72);
+        k.impact(1.28, 0.95);
+        k.thunder(1.32, 0.35);
         if (result === 'draw') {
-            s.bell(3.25);
-            s.bell(3.55);
-            s.bell(3.85, 1320, 0.14);
+            k.punch(3.25, 0.7, -0.5);
+            k.punch(3.27, 0.7, 0.5);
+            k.impact(3.3, 0.5);
+            k.noise({ at: 3.4, dur: 1.2, vol: 0.08, from: 900, to: 300, type: 'lowpass', attack: 0.2 }); // dust settling
         } else if (result) {
-            s.riser(2.6, 0.55, 0.14);
-            s.ko(3.2);
-            s.impact(3.2, 0.6);
-            s.fanfare(3.65);
+            k.rush(2.6, 0.55, 0.14);
+            k.punch(3.15, 0.7);
+            k.impact(3.2, 0.7);
+            k.roar(3.55, 0.3);
+            k.chest(4.1, 5, 0.4);
         } else {
             // a challenge: the call to make
-            s.riser(1.6, 0.6, 0.1);
-            s.tone({ at: 2.2, freq: NOTE.E5, type: 'triangle', dur: 0.5, vol: 0.09, hold: 0.2 });
-            s.tone({ at: 2.45, freq: NOTE.A5, type: 'triangle', dur: 0.7, vol: 0.08, hold: 0.3 });
+            k.rush(1.6, 0.6, 0.1);
+            k.step(2.2, 0.45, -0.3);
+            k.step(2.45, 0.45, 0.3);
+            k.step(2.95, 0.35, -0.3);
+            k.step(3.2, 0.35, 0.3);
         }
     });
 }

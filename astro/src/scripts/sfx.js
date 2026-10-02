@@ -1,5 +1,6 @@
-// Sound effects, synthesized with Web Audio: no files, no music. Every sound is
-// a short UI cue (hover tick, select, whoosh, impact...). Off switch persists
+// Sound effects, synthesized with Web Audio: no files and no music. No notes, chimes, bells,
+// beeps or jingles either: every sound is noise or a falling thud, like things in the real world
+// (a knock, a rustle, a whoosh, a punch, a stomp, a gorilla beating its chest). Off switch persists
 // in localStorage; nothing plays until the first click/tap unlocks audio.
 
 const STORAGE_KEY = 'abs-sfx';
@@ -25,25 +26,24 @@ function audio() {
     return context;
 }
 
-function tone({ freq = 440, type = 'sine', duration = 0.08, volume = 0.2, attack = 0.004, slideTo = null, delay = 0, detune = 0 }) {
+// A falling sine over a fraction of a second: the body of a knock, punch or footstep, never a held note.
+function thump({ from = 160, to = 55, duration = 0.12, volume = 0.3, delay = 0 }) {
     const ctx = audio();
     if (!ctx) return;
     const start = ctx.currentTime + delay;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, start);
-    osc.detune.value = detune;
-    if (slideTo) osc.frequency.exponentialRampToValueAtTime(Math.max(20, slideTo), start + duration);
+    osc.frequency.setValueAtTime(from, start);
+    osc.frequency.exponentialRampToValueAtTime(Math.max(20, to), start + duration);
     gain.gain.setValueAtTime(0.0001, start);
-    gain.gain.exponentialRampToValueAtTime(volume, start + attack);
+    gain.gain.exponentialRampToValueAtTime(volume, start + 0.003);
     gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
     osc.connect(gain).connect(master);
     osc.start(start);
     osc.stop(start + duration + 0.02);
 }
 
-function noise({ duration = 0.2, volume = 0.2, from = 800, to = null, q = 0.8, type = 'bandpass', delay = 0 }) {
+function noise({ duration = 0.2, volume = 0.2, from = 800, to = null, q = 0.8, type = 'bandpass', delay = 0, attack = 0.01 }) {
     const ctx = audio();
     if (!ctx) return;
     const start = ctx.currentTime + delay;
@@ -60,7 +60,7 @@ function noise({ duration = 0.2, volume = 0.2, from = 800, to = null, q = 0.8, t
     if (to) filter.frequency.exponentialRampToValueAtTime(to, start + duration);
     const gain = ctx.createGain();
     gain.gain.setValueAtTime(0.0001, start);
-    gain.gain.exponentialRampToValueAtTime(volume, start + 0.01);
+    gain.gain.exponentialRampToValueAtTime(volume, start + Math.min(attack, duration * 0.9));
     gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
     source.connect(filter).connect(gain).connect(master);
     source.start(start);
@@ -70,46 +70,85 @@ function noise({ duration = 0.2, volume = 0.2, from = 800, to = null, q = 0.8, t
 let lastTick = 0;
 
 export const sfx = {
+    // hover: a tiny dry click, like a twig
     tick() {
         const now = performance.now();
         if (now - lastTick < 45) return;
         lastTick = now;
-        tone({ freq: 2400, type: 'triangle', duration: 0.028, volume: 0.035 });
+        noise({ duration: 0.012, volume: 0.05, from: 5000, type: 'highpass', q: 0.7, attack: 0.002 });
     },
+    // a knock on wood
     select() {
-        tone({ freq: 520, type: 'square', duration: 0.06, volume: 0.07, slideTo: 880 });
-        tone({ freq: 1320, type: 'triangle', duration: 0.07, volume: 0.05, delay: 0.035 });
+        thump({ from: 190, to: 95, duration: 0.07, volume: 0.22 });
+        noise({ duration: 0.035, volume: 0.1, from: 1300, q: 1.2, attack: 0.002 });
     },
-    back() { tone({ freq: 700, type: 'square', duration: 0.07, volume: 0.06, slideTo: 380 }); },
-    tab() { tone({ freq: 1100, type: 'triangle', duration: 0.04, volume: 0.07 }); },
+    // a soft swish away
+    back() { noise({ duration: 0.16, volume: 0.12, from: 2800, to: 600, q: 0.9, attack: 0.02 }); },
+    // a leaf rustle
+    tab() {
+        noise({ duration: 0.05, volume: 0.08, from: 3400, q: 1.5, attack: 0.004 });
+        noise({ duration: 0.04, volume: 0.05, from: 2600, q: 1.5, delay: 0.03, attack: 0.004 });
+    },
     whoosh() { noise({ duration: 0.32, volume: 0.22, from: 400, to: 4200, q: 0.9 }); },
-    flip() { noise({ duration: 0.12, volume: 0.14, from: 2400, to: 900, q: 1.2 }); tone({ freq: 900, type: 'sine', duration: 0.05, volume: 0.05, delay: 0.06 }); },
-    hit() {
-        tone({ freq: 190, type: 'sine', duration: 0.16, volume: 0.35, slideTo: 60 });
-        noise({ duration: 0.09, volume: 0.22, from: 1800, type: 'lowpass' });
+    // a card flipping over
+    flip() {
+        noise({ duration: 0.12, volume: 0.14, from: 2400, to: 900, q: 1.2 });
+        noise({ duration: 0.02, volume: 0.07, from: 5000, type: 'highpass', delay: 0.06, attack: 0.002 });
     },
+    // a punch landing
+    hit() {
+        thump({ from: 170, to: 55, duration: 0.15, volume: 0.36 });
+        noise({ duration: 0.08, volume: 0.22, from: 1700, type: 'lowpass' });
+        noise({ duration: 0.015, volume: 0.1, from: 4500, type: 'highpass', attack: 0.002 });
+    },
+    // a heavy punch
     crit() {
-        tone({ freq: 150, type: 'sine', duration: 0.3, volume: 0.45, slideTo: 40 });
+        thump({ from: 150, to: 40, duration: 0.3, volume: 0.46 });
         noise({ duration: 0.18, volume: 0.3, from: 2600, to: 600, type: 'lowpass' });
-        tone({ freq: 1760, type: 'triangle', duration: 0.12, volume: 0.08, delay: 0.02 });
+        noise({ duration: 0.02, volume: 0.14, from: 4000, type: 'highpass', attack: 0.002 });
     },
     impact() {
-        tone({ freq: 110, type: 'sine', duration: 0.5, volume: 0.55, slideTo: 32 });
+        thump({ from: 110, to: 32, duration: 0.5, volume: 0.55 });
         noise({ duration: 0.35, volume: 0.35, from: 900, to: 120, type: 'lowpass' });
     },
+    // a knockout: a deep thud and the ground rumbling
     ko() {
-        tone({ freq: 90, type: 'sawtooth', duration: 0.6, volume: 0.2, slideTo: 30 });
+        thump({ from: 100, to: 28, duration: 0.6, volume: 0.5 });
         noise({ duration: 0.5, volume: 0.3, from: 1200, to: 80, type: 'lowpass' });
+        noise({ duration: 1.1, volume: 0.12, from: 260, to: 60, type: 'lowpass', delay: 0.08, attack: 0.1 });
     },
+    // a win: a gorilla beating its chest
     win() {
-        [523.25, 659.25, 783.99, 1046.5].forEach((freq, index) => tone({ freq, type: 'triangle', duration: 0.16, volume: 0.13, delay: index * 0.075 }));
-        tone({ freq: 2093, type: 'sine', duration: 0.35, volume: 0.05, delay: 0.3 });
+        [0, 0.11, 0.22, 0.33].forEach((delay, index) => {
+            thump({ from: 140, to: 75, duration: 0.1, volume: index % 2 ? 0.3 : 0.38, delay });
+            noise({ duration: 0.06, volume: 0.12, from: 450, type: 'lowpass', delay });
+        });
     },
-    lose() { [440, 370, 311].forEach((freq, index) => tone({ freq, type: 'triangle', duration: 0.18, volume: 0.1, delay: index * 0.1 })); },
-    coin() { tone({ freq: 1568, type: 'square', duration: 0.05, volume: 0.05 }); tone({ freq: 2093, type: 'square', duration: 0.12, volume: 0.05, delay: 0.05 }); },
-    error() { tone({ freq: 140, type: 'square', duration: 0.16, volume: 0.08 }); },
-    countdown() { tone({ freq: 880, type: 'square', duration: 0.09, volume: 0.06 }); },
-    go() { tone({ freq: 1320, type: 'square', duration: 0.22, volume: 0.07 }); noise({ duration: 0.2, volume: 0.1, from: 3000, q: 0.6 }); }
+    // a loss: the air going out, then a fall into the dirt
+    lose() {
+        noise({ duration: 0.45, volume: 0.14, from: 1600, to: 250, q: 0.9, attack: 0.04 });
+        thump({ from: 90, to: 45, duration: 0.18, volume: 0.3, delay: 0.36 });
+        noise({ duration: 0.2, volume: 0.1, from: 500, type: 'lowpass', delay: 0.36 });
+    },
+    // BattlePoints: pebbles knocking together
+    coin() {
+        [0, 0.06, 0.11].forEach((delay, index) => noise({ duration: 0.025, volume: index === 2 ? 0.06 : 0.1, from: 2600, q: 2, delay, attack: 0.002 }));
+    },
+    // something didn't work: a dull bump
+    error() {
+        thump({ from: 120, to: 70, duration: 0.1, volume: 0.28 });
+        noise({ duration: 0.08, volume: 0.12, from: 500, type: 'lowpass' });
+    },
+    // a stomp for each count
+    countdown() {
+        thump({ from: 90, to: 45, duration: 0.16, volume: 0.42 });
+        noise({ duration: 0.1, volume: 0.14, from: 300, type: 'lowpass' });
+    },
+    // go: a rush of air and a stomp
+    go() {
+        noise({ duration: 0.35, volume: 0.2, from: 500, to: 2600, q: 0.9, attack: 0.05 });
+        thump({ from: 140, to: 40, duration: 0.3, volume: 0.45 });
+    }
 };
 
 export function isSoundOn() { return enabled; }

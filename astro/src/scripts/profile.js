@@ -355,6 +355,42 @@ $('[data-p-logout]').addEventListener('click', async () => {
     location.href = '/';
 });
 
+// Delete account: the password, or for a Google- or Roblox-only account the username typed out.
+const deleteForm = $('[data-p-delete-form]');
+const deleteNote = $('[data-p-delete-note]');
+$('[data-p-delete-open]').addEventListener('click', () => {
+    const passwordless = me?.hasPassword === false;
+    $('[data-p-delete-pass]').hidden = passwordless;
+    $('[data-p-delete-name]').hidden = !passwordless;
+    $('[data-p-delete-username]').textContent = me?.username || '';
+    deleteNote.hidden = true;
+    deleteForm.hidden = false;
+    $('[data-p-delete-open]').hidden = true;
+    deleteForm.querySelector(passwordless ? '[name="confirm"]' : '[name="password"]').focus();
+});
+$('[data-p-delete-cancel]').addEventListener('click', () => {
+    deleteForm.reset();
+    deleteForm.hidden = true;
+    $('[data-p-delete-open]').hidden = false;
+});
+deleteForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const go = $('[data-p-delete-go]');
+    go.disabled = true;
+    const values = Object.fromEntries(new FormData(deleteForm).entries());
+    const result = await api('action=delete-account', { method: 'POST', body: { password: values.password || '', confirm: values.confirm || '' } });
+    go.disabled = false;
+    if (!result.ok) {
+        sfx.error();
+        deleteNote.textContent = result.body.error || 'The account could not be deleted. Please try again.';
+        deleteNote.hidden = false;
+        return;
+    }
+    try { localStorage.removeItem('auth_token'); localStorage.removeItem('user'); localStorage.removeItem('abs-pending-votes'); } catch { /* private mode */ }
+    toast('Your account is deleted.');
+    setTimeout(() => { location.href = '/'; }, 900);
+});
+
 // Old links: /profile?tab=... and /battlepoints land here. Roblox sign-in
 // comes back with ?roblox_welcome, ?roblox_linked or ?roblox_error.
 const params = new URLSearchParams(location.search);

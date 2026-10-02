@@ -43,6 +43,7 @@ const { consumeRateLimit, clearRateLimit, clientAddress } = require('../lib/dist
 const { hiddenName, isNameHidden, validatePublicName } = require('../lib/moderation');
 const { AdminError, ensureOwnerRole, flagBrokenName, isMuted, isOwnerAccount, listUsers, runAction, summary: adminSummary } = require('../lib/admin');
 const { EPISODE_BY_ID, FOLLOW_PLATFORMS, minWatchSeconds } = require('../lib/shows');
+const { deleteAccount } = require('../lib/account-deletion');
 const {
     emailConfigured,
     normalizeNotificationPreferences,
@@ -267,6 +268,8 @@ function buildUserPayload(user) {
         username: user.username,
         email: hasRealEmail(user) ? user.email : null,
         hasEmail: hasRealEmail(user),
+        // Only where the password was loaded (the account's own profile): never the hash, just whether there is one.
+        ...(typeof user.isSelected === 'function' && user.isSelected('password') ? { hasPassword: Boolean(user.password) } : {}),
         emailVerified: Boolean(user.emailVerified),
         emailNotifications: normalizeNotificationPreferences(user.emailNotifications || {}),
         authProviders,
@@ -431,6 +434,12 @@ module.exports = async function handler(req, res) {
                     return res.status(405).json({ success: false, error: 'Method not allowed' });
                 }
                 return await handleResetPassword(req, res);
+
+            case 'delete-account':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleDeleteAccount(req, res);
 
             case 'logout':
                 if (req.method !== 'POST') {
@@ -812,6 +821,45 @@ async function handleGoogleCallback(req, res) {
         console.error('Google OAuth callback error:', error);
         return googleErrorRedirect(req, res, state, 'oauth_failed', 'Google sign-in failed. Please try again.');
     }
+}
+
+// Deleting your own account (profile → Account → Delete account). It asks for the password, or,
+// for an account that signs in only with Google or Roblox, the username typed out. The owner's
+// account can't be deleted this way. lib/account-deletion.js says what goes.
+async function handleDeleteAccount(req, res) {
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) {
+        return res.status(401).json({ success: false, error: 'Authentication required' });
+    }
+    const budget = await consumeRateLimit({ scope: 'delete-account', identity: String(authUser.id), max: 6, windowMs: 60 * 60 * 1000 });
+    if (!budget.allowed) {
+        return res.status(429).json({ success: false, error: 'Too many attempts. Try again in an hour.' });
+    }
+
+    const user = await User.findById(authUser.id).select('+password');
+    if (!user) {
+        clearAuthCookie(res);
+        return res.status(404).json({ success: false, error: 'Account not found' });
+    }
+    if (isOwnerAccount(user)) {
+        return res.status(403).json({ success: false, error: "The site owner's account can't be deleted here." });
+    }
+
+    if (user.password) {
+        const password = typeof req.body?.password === 'string' ? req.body.password : '';
+        if (!password || !(await user.comparePassword(password))) {
+            return res.status(400).json({ success: false, error: 'That password is not right.' });
+        }
+    } else {
+        const typed = String(req.body?.confirm || '').trim().toLowerCase();
+        if (typed !== String(user.username).toLowerCase()) {
+            return res.status(400).json({ success: false, error: 'Type your username to confirm.' });
+        }
+    }
+
+    await deleteAccount(user._id);
+    clearAuthCookie(res);
+    return res.status(200).json({ success: true, message: 'Your account and its data are deleted.' });
 }
 
 async function handleUnlinkGoogle(req, res) {
@@ -1633,7 +1681,8 @@ async function handleGetProfile(req, res) {
         return res.status(401).json({ success: false, error: 'Invalid or expired token' });
     }
 
-    const user = await User.findById(decoded.id);
+    // The password is loaded only to say whether there is one (Delete account asks for it, or for the username).
+    const user = await User.findById(decoded.id).select('+password');
     if (!user) {
         return res.status(404).json({ success: false, error: 'User not found' });
     }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.13.0 — 2026-10-02
+
+- **No music anywhere on the site.** The share videos no longer have music (the beat, bass line, chords, fanfare and bells are gone). They now have sound effects only: wind, whooshes, card flips, footsteps, punches, thunder, a roar and a gorilla's chest beats, timed to the animation. The site's own sound effects lost every note, chime and beep too: buttons knock and rustle, hits are punches, a win is a gorilla beating its chest, a loss is the air going out and a thud, BattlePoints are pebbles knocking together, and countdowns are stomps.
+- **Delete your account** from your profile (Account → Delete account), with your password, or your username typed out for an account that signs in with Google or Roblox. It deletes the account and its cards, BattlePoints, votes, fight calls, comments and chat messages (with the replies under them), its votes on other people's posts and its visit records, straight away.
+- **No minimum age** for accounts. The terms and privacy policy say so, and parents can delete a child's account from the profile.
+
 ## 4.12.3 — 2026-10-02
 
 - On a weak connection, the animal list behind search, Vote and Versus tries again once before giving up, and a failed try is no longer remembered until a refresh. Before, one dropped request could leave the Vote page saying the animals could not load.

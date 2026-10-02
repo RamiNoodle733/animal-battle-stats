@@ -1,5 +1,5 @@
 // The share sheet. An animal shares as its card (the front, or front and back
-// together) or as a short video of the card (with its soundtrack) or a GIF of
+// together) or as a short video of the card (with sound effects, no music) or a GIF of
 // it; a matchup shares as the face-off (before the fight a challenge with the
 // odds hidden, after it the result), a face-off video or a GIF. Pictures are drawn and videos recorded in
 // the browser (card-scenes.js, card-reel.js). Phones get the share sheet with
@@ -131,7 +131,7 @@ async function select(ui, format) {
     const { state } = ui;
     if (!state) return;
     ui.current?.abort?.abort();
-    // a video's soundtrack needs audio started inside this tap (iPhones)
+    // a video's sound needs audio started inside this tap (iPhones)
     if (format.kind === 'video') primeAudio();
     const current = { format, abort: format.kind === 'video' || format.kind === 'gif' ? new AbortController() : null };
     ui.current = current;
@@ -172,10 +172,10 @@ async function select(ui, format) {
             } else {
                 const reel = await format.make();
                 if (stale()) { reel.dispose(); return; }
-                // the soundtrack is ready in a moment (it is rendered, not played)
-                const soundtrack = await Promise.race([reel.soundtrack?.().catch(() => null), new Promise((resolve) => { setTimeout(resolve, 5000, null); })]);
+                // the sound is ready in a moment (it is rendered, not played)
+                const sounds = await Promise.race([reel.sounds?.().catch(() => null), new Promise((resolve) => { setTimeout(resolve, 5000, null); })]);
                 if (stale()) { reel.dispose(); return; }
-                const audio = soundtrack && liveAudio() ? { context: liveAudio(), buffer: soundtrack } : null;
+                const audio = sounds && liveAudio() ? { context: liveAudio(), buffer: sounds } : null;
                 ui.wait.hidden = true;
                 ui.rec.hidden = false;
                 ui.progress.hidden = false;

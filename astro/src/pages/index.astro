@@ -22,6 +22,7 @@ const title = `${SITE.name}: Who Would Win? Animal Matchups, Stats & Powerscalin
 const description = `Who would win? Compare any two of ${animals.length} real animals with research-backed battle stats, tier lists and power rankings, sources on every profile. Group fights like 100 men vs a gorilla, and an animated fight.`;
 const MENU = [
     { href: '/compare', label: 'Who would win?', sub: 'Pick two animals and fight', icon: 'vs', cls: 'btn-hot primary' },
+    { href: '/vote', label: 'Vote', sub: 'Who wins? Overrated or underrated?', icon: 'medal', cls: 'vote' },
     { href: '/shows', label: 'Shows', sub: 'ABS Originals: watch & earn BattlePoints', icon: 'tv', badge: 'New' },
     { href: '/stats', label: 'Animals', sub: `All ${animals.length}: stats & rankings`, icon: 'paw' },
     { href: '/tier-list', label: 'Tier list', sub: `S to F, all ${animals.length}`, icon: 'crown' },
@@ -63,7 +64,7 @@ const jsonLd = [
                 <img src="/images/logo.png" alt="Animal Battle Stats logo" width="120" height="120" />
                 <div>
                     <h1 class="screen-title">Animal Battle Stats</h1>
-                    <p class="tag">The animal powerscaling database</p>
+                    <p class="tag"><a href="/powerscaling">The animal powerscaling database</a></p>
                 </div>
             </div>
             <p class="intro">Research-backed battle stats for {animals.length} real animals: {researchedCount} full research profiles with {sourceCount.toLocaleString('en-US')} cited sources. Settle any "who would win" debate.</p>
@@ -294,6 +295,9 @@ const jsonLd = [
     .mm.primary::after { background: #1d1400; }
     .mm-new { display: inline-block; margin-left: 8px; padding: 1px 7px 2px; font-style: normal; font-family: var(--font-body); font-size: 0.62rem; font-weight: 900; letter-spacing: 0.08em; vertical-align: middle; color: #1d1400; background: var(--gold); border-radius: 5px; transform: translateY(-2px); }
     .mm.primary b { font-size: clamp(1.5rem, 2.2vw, 2rem); }
+    /* Vote: right under Who would win?, lit in the fans' green and red. */
+    .mm.vote { border-color: rgba(246, 180, 0, 0.55); background: linear-gradient(100deg, rgba(59, 214, 90, 0.14), rgba(9, 10, 12, 0.5) 45%, rgba(255, 65, 80, 0.12)); }
+    .mm.vote small { color: var(--text-2); }
     .home-search { cursor: text; gap: 10px; color: var(--muted); text-align: left; }
     .home-search span { flex: 1; }
 
@@ -374,7 +378,7 @@ const jsonLd = [
         .main-menu { grid-template-columns: 1fr 1fr; gap: 6px; }
         .mm { min-height: 48px; padding: 6px 12px; gap: 8px; }
         .mm::after { display: none; }
-        .mm.primary { grid-column: 1 / -1; min-height: 56px; }
+        .mm.primary, .mm.vote { grid-column: 1 / -1; min-height: 56px; }
         .mm small { display: none; }
         .mm :global(img) { width: 30px; height: 30px; }
         .show-col { grid-template-rows: auto auto auto; gap: 10px; }

@@ -15,6 +15,7 @@ import { creditFor } from '../../lib/credits.js';
 import { SITE, ROBLOX, absoluteUrl } from '../../lib/site.js';
 import { rolesFor, logo as showLogo } from '../../lib/shows.js';
 import { cardJson, cardFiles, cardAlt, CARD_FILE } from '../../lib/card.js';
+import { vitals, scale } from '../../lib/body.js';
 
 export function getStaticPaths() {
     return animals.map((animal) => ({ params: { slug: animal.slug }, props: { animal } }));
@@ -33,6 +34,10 @@ const path = `/stats/${animal.slug}`;
 const seed = animal.rank;
 // The battle card as files (front, back, and the page preview that shows it).
 const cardFile = cardFiles(animal);
+// Size & speed: the measurements next to everyday things, and a to-scale drawing.
+const bodyTiles = vitals(animal);
+const drawing = scale(animal);
+const scaleArt = animal.img.variants?.[1]?.src || animal.img.thumb || animal.img.src;
 // The animal in the Roblox game (data/roblox-game-data.json, from the game's own code): how rare it
 // is there, its island and family, its two moves, and whether it is an island boss or a starter.
 const inGame = gameData.animals.find((item) => item.id === animal.slug) || null;
@@ -172,15 +177,6 @@ const TABS = [
 const tierCls = animal.tier.toLowerCase();
 // The barcode strip on the back of the card, drawn from the animal's name.
 const barcode = [...`${animal.slug}${animal.rank}`].flatMap((char) => [1 + (char.charCodeAt(0) % 3), 1 + ((char.charCodeAt(0) >> 2) % 2)]).slice(0, 34);
-// The measurements under the photo: the database at a glance.
-const glance = [
-    ['Weight', fmtWeight(animal.weight_kg)],
-    [animal.length_cm ? 'Length' : 'Height', fmtLength(animal.length_cm || animal.height_cm)],
-    ['Top speed', fmtSpeed(animal.speed_mps)],
-    ['Bite force', fmtBite(animal.bite_force_psi)],
-    ['Lifespan', fmtYears(animal.lifespan_years)],
-    ['Habitat', biome ? { metric: biome.label } : null]
-].map(([label, value], index) => ({ label, value: value?.metric || null, main: index < 3 }));
 const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(profile.conservationStatus || '') ? 'chip-red' : profile.conservationStatus === 'Extinct' ? 'chip-orange' : 'chip-green';
 ---
 
@@ -211,14 +207,17 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                 <span class="chip">{group?.label?.replace(/s$/, '') || animal.type}</span>
                 <span class="chip">{animal.class}</span>
                 {profile.conservationStatus && <span class={`chip status ${conservationClass}`}><i></i>{profile.conservationStatus}</span>}
-                <span class="votes" data-votes={animal.name} role="group" aria-label={`Community vote on the ${animal.name}`}>
-                    <button type="button" class="vbtn up" data-vote="up" title="Upvote: stronger than its rank"><span aria-hidden="true">▲</span><b data-count="up">·</b></button>
-                    <button type="button" class="vbtn down" data-vote="down" title="Downvote: weaker than its rank"><span aria-hidden="true">▼</span><b data-count="down">·</b></button>
-                </span>
             </div>
-            <dl class="glance">
-                {glance.map((fact) => <div class={fact.main ? 'main' : ''}><dt>{fact.label}</dt><dd>{fact.value || '—'}</dd></div>)}
-            </dl>
+            <div class="vote-bar" data-votes={animal.name} role="group" aria-label={`Fan vote on the ${animal.name}`}>
+                <p class="vb-q">Is the <b>{animal.name}</b> underrated or overrated at <b>#{animal.rank}</b>?</p>
+                <div class="vb-btns">
+                    <button type="button" class="vb up" data-vote="up" aria-pressed="false" title="Stronger than its rank"><span class="vb-arrow" aria-hidden="true"></span><span class="vb-word">Underrated</span><b data-count="up">·</b></button>
+                    <button type="button" class="vb down" data-vote="down" aria-pressed="false" title="Weaker than its rank"><span class="vb-arrow" aria-hidden="true"></span><span class="vb-word">Overrated</span><b data-count="down">·</b></button>
+                </div>
+                <div class="vb-meter" aria-hidden="true"><i data-vb-meter></i></div>
+                <p class="vb-note" data-vb-note>One vote a day per animal, and it earns BattlePoints. <a href="/vote#rank">Vote on more animals</a></p>
+                <button type="button" class="vb-share" data-vb-share hidden><UiIcon name="share" size={15} />Ask your friends</button>
+            </div>
             <div class="actions">
                 <a class="btn btn-hot" href={`/compare?a=${animal.slug}`}><UiIcon name="vs" />Compare</a>
                 <button class="btn" type="button" data-card title={`See the ${animal.name} card in 3D`}><UiIcon name="cards" /><span>Card</span></button>
@@ -245,6 +244,35 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                     <div class={best.cls}><span>Best stat</span><strong>{best.label}</strong><small>{ordinal(statRank(animal, best.key).rank)} of {animals.length}</small></div>
                     <div class={worst.cls}><span>Weak spot</span><strong>{worst.label}</strong><small>{fmtScore(animal[worst.key])} / 100</small></div>
                 </div>
+                {bodyTiles.length > 0 && (
+                    <section class="body-sec" aria-labelledby="body-title">
+                        <h2 class="pane-h" id="body-title">Size &amp; speed</h2>
+                        {drawing && (
+                            <figure class="scale">
+                                <div class="scale-box" style={`--ground:${drawing.ground}`}>
+                                    <span class={`scale-ref ${drawing.ref.kind}`} style={`left:${drawing.ref.left};width:${drawing.ref.width};height:${drawing.ref.height}`}>
+                                        {drawing.ref.kind === 'person' && <img src="/images/human/human.svg" alt="" width="200" height="480" loading="lazy" decoding="async" />}
+                                    </span>
+                                    <span class="scale-animal" style={`left:${drawing.animal.left};width:${drawing.animal.width};height:${drawing.animal.height}`}>
+                                        <img src={scaleArt} alt="" loading="lazy" decoding="async" />
+                                    </span>
+                                </div>
+                                <figcaption>{drawing.caption}</figcaption>
+                            </figure>
+                        )}
+                        <dl class="vitals">
+                            {bodyTiles.map((tile) => (
+                                <div class={`vital v-${tile.key}`}>
+                                    <dt>{tile.label}</dt>
+                                    <dd><b>{tile.value.metric}</b>{tile.value.imperial && <small>{tile.value.imperial}</small>}</dd>
+                                    <p class="v-line">{tile.line}</p>
+                                    <span class="v-bar" style={`--p:${tile.beats}%`}><i></i></span>
+                                    <small class="v-rank">{tile.rank}</small>
+                                </div>
+                            ))}
+                        </dl>
+                    </section>
+                )}
                 {roles.map(({ show, character }) => (
                     <a class="stars-in" href={show.url} style={`--show:${show.accent}`}>
                         <img src={showLogo(show)} alt={show.name} width="720" height="360" loading="lazy" />
@@ -384,30 +412,69 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     import { sfx } from '../../scripts/sfx.js';
     import { toast, showReward } from '../../scripts/site.js';
     import { mountComments } from '../../scripts/comments.js';
-    import { loadVotes, castVote } from '../../scripts/votes.js';
+    import { loadVotes, castVote, fanRanking, rememberVote, flushPendingVotes } from '../../scripts/votes.js';
 
-    // Community up/down vote on this animal (one per day, earns XP).
+    // The fan vote: is this animal underrated or overrated at its rank? One vote a day per animal
+    // for signed-in players (it earns BattlePoints); a guest's vote is kept and cast after they log in.
     const voteBox = document.querySelector('[data-votes]');
+    const voteName = voteBox.dataset.votes;
+    const voteNote = voteBox.querySelector('[data-vb-note]');
+    let votes = new Map();
     let voteEntry = null;
     function paintVotes() {
         if (!voteEntry) return;
+        const total = voteEntry.up + voteEntry.down;
         for (const type of ['up', 'down']) {
+            const button = voteBox.querySelector(`[data-vote="${type}"]`);
             voteBox.querySelector(`[data-count="${type}"]`).textContent = voteEntry[type];
-            voteBox.querySelector(`[data-vote="${type}"]`).classList.toggle('on', voteEntry.mine === type);
-            voteBox.querySelector(`[data-vote="${type}"]`).setAttribute('aria-pressed', String(voteEntry.mine === type));
+            button.classList.toggle('on', voteEntry.mine === type);
+            button.setAttribute('aria-pressed', String(voteEntry.mine === type));
         }
+        voteBox.querySelector('[data-vb-meter]').style.setProperty('--p', `${total ? Math.round((voteEntry.up / total) * 100) : 50}%`);
+        voteBox.querySelector('[data-vb-share]').hidden = !voteEntry.mine;
+        if (!total) return;
+        const place = fanRanking(votes).findIndex((entry) => entry.name === voteName) + 1;
+        const share = Math.round((Math.max(voteEntry.up, voteEntry.down) / total) * 100);
+        const side = voteEntry.up >= voteEntry.down ? 'underrated' : 'overrated';
+        voteNote.innerHTML = `${share}% of ${total} fan${total === 1 ? '' : 's'} say ${side}${place ? ` · #${place} with the fans` : ''}. <a href="/vote#rank">Vote on more animals</a>`;
     }
-    loadVotes().then((map) => { voteEntry = map.get(voteBox.dataset.votes) || null; paintVotes(); }).catch(() => {});
+    loadVotes().then(async (map) => {
+        votes = map;
+        if (window.ABS_USER) await flushPendingVotes(votes);
+        voteEntry = votes.get(voteName) || null;
+        paintVotes();
+    }).catch(() => {});
     voteBox.addEventListener('click', async (event) => {
         const button = event.target.closest('[data-vote]');
-        if (!button || !voteEntry) return;
-        const result = await castVote(voteEntry.id, voteBox.dataset.votes, button.dataset.vote, voteEntry);
-        if (result.needsLogin) { toast('Log in to vote'); return; }
+        if (!button) return;
+        if (!voteEntry) { toast('Votes are loading, try again in a second'); return; }
+        const result = await castVote(voteEntry.id, voteName, button.dataset.vote, voteEntry);
+        if (result.needsLogin) {
+            rememberVote({ kind: 'rank', name: voteName, type: button.dataset.vote });
+            const back = encodeURIComponent(location.pathname);
+            voteNote.innerHTML = `Saved on this device. <a href="/login?returnTo=${back}">Log in</a> or <a href="/signup?returnTo=${back}">sign up</a> to make your vote count.`;
+            button.classList.add('on');
+            sfx.tick();
+            return;
+        }
         if (result.error) { sfx.error(); toast(result.error); return; }
         voteEntry = result.entry;
+        votes.set(voteName, voteEntry);
         paintVotes();
         if (result.reward?.awarded) showReward(result.reward, button);
         else sfx.tick();
+    });
+    // After voting: ask friends the same question (they land on it in /vote).
+    voteBox.querySelector('[data-vb-share]').addEventListener('click', async () => {
+        const slug = location.pathname.split('/').pop();
+        const said = voteEntry?.mine === 'down' ? 'overrated' : 'underrated';
+        const rank = document.querySelector('.cb-num b')?.textContent || '';
+        const data = { title: `Is the ${voteName} overrated?`, text: `Is the ${voteName} underrated or overrated at ${rank}? I said ${said}. Vote:`, url: `${location.origin}/vote?mode=rank&a=${slug}` };
+        try {
+            if (navigator.share) { await navigator.share(data); return; }
+            await navigator.clipboard.writeText(`${data.text} ${data.url}`);
+            toast('Link copied. Paste it anywhere.');
+        } catch { /* the share sheet was closed */ }
     });
 
     const tabs = [...document.querySelectorAll('[data-tab]')];
@@ -595,19 +662,28 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 
     .chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
     .chip.status i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-    .votes { display: inline-flex; gap: 4px; margin-left: auto; }
-    .vbtn { display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; font: inherit; font-size: 0.72rem; font-weight: 800; color: var(--text-2); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-2); border-radius: 7px; cursor: pointer; transition: color 0.15s, border-color 0.15s; }
-    .vbtn b { font-family: var(--font-display); font-size: 0.95rem; font-weight: 900; font-variant-numeric: tabular-nums; }
-    .vbtn:hover { color: #fff; }
-    .vbtn.up:hover, .vbtn.up.on { color: #8fe9a2; border-color: rgba(59, 214, 90, 0.6); }
-    .vbtn.down:hover, .vbtn.down.on { color: #ff9aa2; border-color: rgba(255, 65, 80, 0.6); }
-    .vbtn.on { background: rgba(255, 255, 255, 0.07); }
+    /* The fan vote: underrated or overrated at its rank (api/votes.js). */
+    .vote-bar { display: grid; gap: 7px; padding: 9px 12px 8px; background: linear-gradient(180deg, rgba(246, 180, 0, 0.09), rgba(9, 10, 12, 0.5)); border: 1px solid rgba(246, 180, 0, 0.38); border-radius: 12px; }
+    .vb-q { margin: 0; font-size: 0.86rem; color: var(--text-2); }
+    .vb-q b { color: #fff; }
+    .vb-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .vb { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 12px; font: inherit; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 10px; cursor: pointer; transition: background 0.15s, border-color 0.15s, transform 0.12s; }
+    .vb:active { transform: scale(0.97); }
+    .vb-arrow { flex: none; width: 15px; height: 12px; background: currentColor; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    .vb.down .vb-arrow { clip-path: polygon(0 0, 100% 0, 50% 100%); }
+    .vb b { min-width: 1.4em; font-size: 1.05rem; color: #fff; font-variant-numeric: tabular-nums; }
+    .vb.up { color: #8fe9a2; background: rgba(59, 214, 90, 0.07); border: 1px solid rgba(59, 214, 90, 0.45); }
+    .vb.down { color: #ff9aa2; background: rgba(255, 65, 80, 0.07); border: 1px solid rgba(255, 65, 80, 0.45); }
+    .vb.up:hover, .vb.up.on { background: rgba(59, 214, 90, 0.2); border-color: #3bd65a; }
+    .vb.down:hover, .vb.down.on { background: rgba(255, 65, 80, 0.2); border-color: #ff4150; }
+    .vb.on { box-shadow: 0 0 14px color-mix(in srgb, currentColor 35%, transparent); }
+    .vb-meter { height: 6px; border-radius: 3px; background: rgba(255, 65, 80, 0.4); overflow: hidden; }
+    .vb-meter i { display: block; width: var(--p, 50%); height: 100%; background: #3bd65a; transition: width 0.6s var(--ease); }
+    .vb-note { margin: 0; font-size: 0.74rem; color: var(--muted); }
+    .vb-note :global(a) { color: var(--gold-2); font-weight: 700; text-decoration: underline; }
+    .vb-share { justify-self: start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font: inherit; font-size: 0.78rem; font-weight: 800; color: var(--text); background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line-2); border-radius: 8px; cursor: pointer; }
+    .vb-share:hover { border-color: var(--frame-2); }
 
-    .glance { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; margin: 0; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden; }
-    .glance div { padding: 7px 10px; min-width: 0; border-left: 1px solid var(--line); }
-    .glance div:first-child { border-left: 0; }
-    .glance dt { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .glance dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; line-height: 1.1; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .actions { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; }
 
     /* ---- the dossier (tabs) */
@@ -625,6 +701,30 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     .callouts small { display: block; font-size: 0.72rem; color: var(--text-2); }
     .pane-h { display: flex; align-items: center; gap: 8px; margin: 18px 0 8px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); }
     .pane-h::before { content: ""; width: 4px; height: 0.95em; background: var(--gold); transform: skewX(-14deg); }
+
+    /* Size & speed (lib/body.js): a to-scale drawing beside a person, then each measure next to
+       everyday things and where it ranks among all the animals. */
+    .body-sec { margin-top: 4px; }
+    .scale { margin: 0 0 10px; }
+    .scale-box { position: relative; aspect-ratio: 2.4; background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.25)); border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden; }
+    .scale-box::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: var(--ground); background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)); border-top: 1px solid rgba(255, 255, 255, 0.25); }
+    .scale-ref, .scale-animal { position: absolute; bottom: var(--ground); z-index: 1; display: block; }
+    .scale-ref img, .scale-animal img { display: block; width: 100%; height: 100%; }
+    .scale-animal img { object-fit: fill; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.5)); }
+    .scale-ref.person img { opacity: 0.9; }
+    .scale-ref.card { background: linear-gradient(135deg, #4a7bd8, #1f3f88); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 6%/10%; }
+    .scale-ref.coin { background: radial-gradient(circle at 35% 35%, #f3d27a, #b88a2c); border-radius: 50%; }
+    .scale figcaption { margin-top: 5px; font-size: 0.72rem; color: var(--muted); }
+    .vitals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; }
+    .vital { display: grid; align-content: start; gap: 2px; padding: 9px 11px 10px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--line-2); border-radius: 10px; }
+    .vital dt { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .vital dd { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 7px; margin: 0; }
+    .vital dd b { font-family: var(--font-display); font-size: 1.55rem; font-weight: 900; line-height: 1.05; color: #fff; }
+    .vital dd small { font-size: 0.74rem; color: var(--muted); }
+    .v-line { margin: 1px 0 4px; font-size: 0.84rem; font-weight: 700; line-height: 1.25; color: var(--gold-2); }
+    .v-bar { display: block; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+    .v-bar i { display: block; width: var(--p); height: 100%; background: linear-gradient(90deg, var(--cyan), var(--cyan-2)); }
+    .v-rank { font-size: 0.7rem; color: var(--text-2); }
     .note { margin-top: 12px; font-size: 0.78rem; color: var(--muted); }
 
     /* Abilities: the ATTACKS panel, name ........ tag */
@@ -676,11 +776,6 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     .sources a { font-weight: 700; color: var(--gold-2); }
     .sources span { display: block; color: var(--muted); font-size: 0.76rem; }
 
-    @media (max-width: 1200px) {
-        .glance { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .glance div:nth-child(4) { border-left: 0; }
-        .glance div:nth-child(n + 4) { border-top: 1px solid var(--line); }
-    }
     /* Phones and tablets: a compact card on top, the tabbed dossier filling the rest
        (its panes scroll inside). */
     @media (max-width: 900px) {
@@ -704,10 +799,6 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
         .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
         .chips::-webkit-scrollbar { display: none; }
         .chips > * { flex: none; }
-        .glance { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .glance div:not(.main) { display: none; }
-        .glance div { padding: 5px 8px; border-top: 0 !important; }
-        .glance dd { font-size: 1rem; }
         .actions [data-share] span { display: none; }
         /* Stats first, the write-up after them. */
         #pane-stats:not([hidden]) { display: flex; flex-direction: column; }
@@ -717,5 +808,19 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
     }
     @media (max-width: 900px) and (max-height: 700px) {
         .stage { grid-template-rows: auto clamp(120px, 22vh, 220px) auto auto auto; }
+    }
+    /* Phones: the page scrolls (abs.css), so the card is big again and nothing is squeezed. */
+    @media (max-width: 760px) {
+        .profile { grid-template-rows: auto auto; }
+        .stage { grid-template-rows: auto auto auto auto auto; }
+        .cb-field { height: min(70vw, 340px); }
+        .cb-power { top: 10px; left: 32px; }
+        .cb-power b { font-size: 2rem; }
+        .cb-field .tier-badge { width: 44px; height: 52px; }
+        .vb { font-size: 1rem; min-height: 46px; }
+        .vitals { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+        .vital { padding: 8px 9px; }
+        .vital dd b { font-size: 1.35rem; }
+        .v-line { font-size: 0.78rem; }
     }
 </style>

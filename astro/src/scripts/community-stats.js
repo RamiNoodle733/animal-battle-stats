@@ -11,7 +11,7 @@ import { deviceUntracked, setDeviceUntracked } from './track.js';
 const DAY = 24 * 60 * 60 * 1000;
 const fmt = (value) => Number(value || 0).toLocaleString('en-US');
 const compact = (value) => Number(value || 0).toLocaleString('en-US', { notation: value >= 100000 ? 'compact' : 'standard', maximumFractionDigits: 1 });
-const PAGE_NAMES = { '/': 'Home', '/compare': 'Versus', '/rankings': 'Rankings', '/tier-list': 'Tier list', '/tournament': 'Tournament', '/community': 'Community', '/profile': 'Profile', '/rewards': 'Rewards', '/roblox': 'Roblox game', '/stats': 'Animals' };
+const PAGE_NAMES = { '/': 'Home', '/compare': 'Versus', '/vote': 'Vote', '/rankings': 'Rankings', '/tier-list': 'Tier list', '/tournament': 'Tournament', '/community': 'Community', '/profile': 'Profile', '/rewards': 'Rewards', '/roblox': 'Roblox game', '/stats': 'Animals' };
 const EVENT_NAMES = { site_visit: 'Page view', site_leave: 'Left the site', login: 'Logged in', signup: 'Signed up', logout: 'Logged out', vote: 'Voted', vote_changed: 'Changed a vote', vote_removed: 'Removed a vote', fight: 'Ran a fight', comment: 'Commented', comment_reply: 'Replied', comment_deleted: 'Deleted a comment', comment_upvote: 'Upvoted a comment', comment_downvote: 'Downvoted a comment', chat_message: 'Posted in the arena', chat_reply: 'Replied in the arena', tournament_complete: 'Finished a tournament', tournament_quit: 'Quit a tournament', prestige: 'Prestiged', level_up: 'Leveled up' };
 
 let regionNames = null;

@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.12.0 — 2026-10-02
+
+Phones get real pages, voting becomes a main feature, and animals get a proper size and speed section.
+
+- **No more tiny windows on phones.** Every page now scrolls like a normal website: the header stays on top, the bottom bar stays at the bottom, and each section shows at full height (Safari's bars tuck away as you scroll). Before, the animal page's tabs, the animal list, rankings, tier list, tournament ratings, about and credits all scrolled inside a small box at the bottom of the screen. The animal card is big again on phones, and the Versus pick-and-fight row sits just above the bottom bar.
+- **Vote** (new page, and the gold button in the middle of the phone's bottom bar):
+  - **Who would win?** One matchup after another: tap the winner, see how the fans split and what the stats say. It's the same call as the Versus screen (+10 BattlePoints, bonus when the stats agree).
+  - **Overrated or underrated?** One animal at a time against its rank. Every vote moves the fan rankings.
+  - **Fan rankings** (most underrated, most overrated), your agreement with the fans and with the stats, **Share** for any vote, and **challenges**: after five fights, send friends your picks and they see how many they match.
+  - Guests can vote too: their votes are saved on the device and count as soon as they log in.
+- **Voting everywhere.** Every animal page has a big **Underrated / Overrated** vote under the card, with the fans' split, the animal's place with the fans and an "Ask your friends" share. The animal list shows the vote arrows on phones too (they used to appear only when sorting by fan votes). Vote is on the home page, in the tier list and in the menus. Shows moved from the phone's bottom bar to a button in the header.
+- **Size & speed** on every animal page (Stats tab), instead of the plain weight/length/speed strip: a drawing of the animal next to a person, to scale (a credit card or a coin for small animals), and each measurement next to something everyday ("As heavy as 3.3 cars", "3.7× a person's height", "Faster than Usain Bolt") with where it ranks among all animals ("Heavier than 98% of animals").
+- **Animal powerscaling guide** (/powerscaling): what animal powerscaling is, the S to F power scale with each tier's strongest animal, the top ten, how an animal is scaled, the classic debates settled with odds, the category leaders and a FAQ. Linked from the home page, about, the menu and llms.txt for AI assistants.
+- **Wrong addresses find their page:** a matchup typed the other way round (/compare/african-lion-vs-siberian-tiger) opens the real page, any other pair opens in Versus, and /stats/lion opens the African Lion.
+- Fight calls can be made up to 60 times per 10 minutes (was 30), the same as animal votes, for the Vote page.
+
 ## 4.11.0 — 2026-10-02
 
 The Roblox game and the site, connected. Connect your Roblox account once and your game progress comes to the site by itself.

@@ -298,6 +298,13 @@ body.game {
     .hud-btn { width: 38px; height: 38px; }
 }
 
+/* Shows: its own HUD button on phones (the dock holds Vote instead). */
+.hud-shows { display: none; }
+.hud-shows[aria-current="page"] { color: var(--gold); }
+@media (max-width: 760px) {
+    .hud-shows { display: inline-grid; }
+}
+
 /* Mobile dock: the bottom tab bar of a phone game. */
 .dock { display: none; }
 @media (max-width: 760px) {
@@ -319,6 +326,10 @@ body.game {
         background: none; border: 0;
     }
     .dock .ui-icon { width: 22px; height: 22px; color: var(--text-2); }
+    /* Vote, in the middle, is always lit: voting is what the site is about. */
+    .dock .dock-vote .ui-icon { width: 30px; height: 30px; padding: 4px; color: #1d1400; background: linear-gradient(165deg, var(--gold-2), var(--gold)); border-radius: 50%; box-shadow: 0 0 12px rgba(246, 180, 0, 0.45); }
+    .dock .dock-vote { color: var(--gold-2); gap: 1px; }
+    .dock .dock-vote[aria-current="page"] .ui-icon { color: #1d1400; box-shadow: 0 0 0 2px #fff, 0 0 16px rgba(246, 180, 0, 0.6); }
     .dock a[aria-current="page"], .dock .dock-menu[aria-expanded="true"] { color: #fff; }
     .dock a[aria-current="page"] .ui-icon, .dock .dock-menu[aria-expanded="true"] .ui-icon { color: var(--gold); }
     .dock a[aria-current="page"]::before, .dock .dock-menu[aria-expanded="true"]::before { content: ""; position: absolute; top: 0; left: 26%; right: 26%; height: 3px; background: var(--gold); border-radius: 0 0 3px 3px; }
@@ -397,6 +408,18 @@ body.game {
 /* Flow screens: on phones, tablets and short windows the layout takes its natural height and scrolls. */
 @media (max-width: 900px), (max-height: 700px) {
     .screen-grid.flow { height: auto; min-height: 100%; }
+}
+/* Phones: the page itself scrolls, like any website (Safari's bars tuck away as you go), instead of
+   every panel scrolling inside its own slice of the screen. The HUD sticks to the top and the dock
+   to the bottom; panels take their natural height. A box that must keep its own scroll (a chat log)
+   carries .keep-scroll. */
+@media (max-width: 760px) {
+    body.game { height: auto; min-height: 100vh; min-height: 100dvh; overflow: visible; grid-template-rows: var(--hud-h) auto var(--dock-h); }
+    .hud { position: sticky; top: 0; }
+    .dock { position: sticky; bottom: 0; }
+    .screen { overflow-x: hidden; overflow-x: clip; overflow-y: visible; overscroll-behavior: auto; }
+    .screen-grid { height: auto; min-height: 0; }
+    .scroll:not(.keep-scroll) { overflow-y: visible; overscroll-behavior: auto; max-height: none; }
 }
 
 /* The card-back panel: charcoal hex mesh in a thin silver frame. */

@@ -64,6 +64,7 @@ const jsonLd = [
                 <Icon name="crown" size={30} />
                 <h1 id="tl-title" class="panel-title">{heading}</h1>
                 <span class="aside">{list.length} animals · {year}</span>
+                <a class="tl-vote-chip" href="/vote#rank" title="Vote animals underrated or overrated"><span aria-hidden="true">▲▼</span>Vote</a>
             </div>
             <nav class="tabs" aria-label="Tier list by group">
                 <a href="/tier-list" aria-current={!group ? 'page' : undefined}>All</a>
@@ -82,6 +83,10 @@ const jsonLd = [
                     </ol>
                 </div>
             </section>
+            <a class="panel tl-vote" href="/vote#rank">
+                <span class="tl-vote-arrows" aria-hidden="true"><i></i><i></i></span>
+                <span><b>Disagree with a tier?</b><small>Vote animals underrated or overrated. Every vote moves the fan rankings.</small></span>
+            </a>
             <section class="panel info">
                 <div class="panel-head"><Icon name="book" size={28} /><h2 class="panel-title">How tiers work</h2></div>
                 <div class="panel-body scroll">
@@ -98,8 +103,16 @@ const jsonLd = [
 <style>
     .tiers { grid-template-columns: minmax(0, 1fr) minmax(280px, 340px); max-width: 1600px; margin: 0 auto; }
     .board { min-height: 0; }
+    .tl-vote { flex: none; display: flex; flex-direction: row; align-items: center; gap: 12px; padding: 12px 14px; background: linear-gradient(100deg, rgba(59, 214, 90, 0.14), rgba(9, 10, 12, 0.6) 50%, rgba(255, 65, 80, 0.12)); transition: filter 0.15s; }
+    .tl-vote:hover { filter: brightness(1.15); }
+    .tl-vote > span:last-child { display: grid; gap: 2px; }
+    .tl-vote b { font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
+    .tl-vote small { font-size: 0.76rem; color: var(--text-2); }
+    .tl-vote-arrows { display: grid; gap: 4px; flex: none; }
+    .tl-vote-arrows i { width: 18px; height: 13px; background: #3bd65a; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    .tl-vote-arrows i + i { background: #ff4150; clip-path: polygon(0 0, 100% 0, 50% 100%); }
     .board-scroll { flex: 1; min-height: 0; padding: 12px; }
-    .side { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 12px; min-height: 0; }
+    .side { display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 12px; min-height: 0; }
     .top-body { display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center; }
     .top-wrap { width: 130px; }
     .runners { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
@@ -113,8 +126,12 @@ const jsonLd = [
     .tier-key span { display: flex; align-items: center; gap: 8px; font-size: 0.84rem; font-weight: 700; }
     .tier-key i { font-style: normal; height: 24px; min-width: 26px; font-size: 1rem; }
     .tier-key em { margin-left: auto; font-style: normal; font-size: 0.74rem; color: var(--muted); }
+    .tl-vote-chip { display: none; }
     @media (max-width: 1000px) {
         .tiers { grid-template-columns: 1fr; }
         .side { display: none; }
+        /* The side panel's vote prompt, as a button in the board's head. */
+        .tl-vote-chip { display: inline-flex; align-items: center; gap: 5px; flex: none; margin-left: 8px; padding: 4px 10px; font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; color: #1d1400; background: linear-gradient(165deg, var(--gold-2), var(--gold)); border-radius: 8px; }
+        .tl-vote-chip span { font-size: 0.62rem; letter-spacing: -1px; }
     }
 </style>

@@ -1,0 +1,202 @@
+---
+// /powerscaling: what animal powerscaling is and how this site does it, written for people who
+// search the word and for AI assistants that answer "what is the strongest animal". Every number
+// on the page comes from the same catalogue as the rest of the site, so it stays current.
+import Base from '../layouts/Base.astro';
+import UiIcon from '../components/UiIcon.astro';
+import { animals, TIERS, POWER_WEIGHTS, STATS, GROUPS, fmtScore, researchedCount, sourceCount, lastResearchDate, matchup, getAnimal } from '../lib/catalog.js';
+import { CATEGORIES, leaderboard } from '../lib/categories.js';
+import { PAIRS } from '../lib/matchups.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
+
+const n = animals.length;
+const top = animals.slice(0, 10);
+const tierRows = TIERS.map((tier, index) => {
+    const list = animals.filter((animal) => animal.tier === tier.id);
+    return { ...tier, max: index ? TIERS[index - 1].min : 100, count: list.length, best: list[0] };
+});
+const weights = Object.entries(POWER_WEIGHTS)
+    .sort((a, b) => b[1] - a[1])
+    .map(([key, weight]) => ({ label: STATS.find((stat) => stat.key === key)?.label || key, weight: Math.round(weight * 100) }));
+const bestStat = (animal) => {
+    const stat = [...STATS].sort((a, b) => (animal[b.key] || 0) - (animal[a.key] || 0))[0];
+    return `${stat.label} ${fmtScore(animal[stat.key])}`;
+};
+// The classic debates, settled by the same model as every matchup page.
+const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14).map((pair) => {
+    const result = matchup(pair.a, pair.b);
+    return { ...pair, result };
+});
+const kings = CATEGORIES.filter((category) => !category.measurement || ['heaviest', 'fastest'].includes(category.slug))
+    .map((category) => ({ category, leader: leaderboard(category)[0] }))
+    .filter((row) => row.leader);
+const sea = GROUPS.find((group) => group.key === 'sea');
+const landAnimal = animals.find((animal) => animal.group !== sea?.key && animal.group !== 'birds');
+const strongest = kings.find((row) => row.category.slug === 'strongest')?.leader;
+const lionTiger = classics.find((pair) => [pair.a.slug, pair.b.slug].sort().join('|') === 'african-lion|siberian-tiger');
+const extinct = getAnimal('megalodon');
+
+const faq = [
+    { q: 'What is animal powerscaling?', a: `Powerscaling is ranking how strong fighters are so you can settle who would beat whom. Animal powerscaling does it for real animals with real evidence: size, weapons, defenses, speed, stamina and behaviour. Animal Battle Stats rates ${n} animals on six battle stats on one absolute 0-100 scale and ranks them from S tier (Apex) to F tier.` },
+    { q: 'What is the strongest animal in the world?', a: `By overall fighting power, the ${top[0].name} is #1 on Animal Battle Stats with a power index of ${fmtScore(top[0].powerIndex)}, ahead of the ${top[1].name} (${fmtScore(top[1].powerIndex)}) and the ${top[2].name} (${fmtScore(top[2].powerIndex)}).${strongest ? ` By raw attack alone, the ${strongest.name} leads with ${fmtScore(strongest.attack)}.` : ''}${extinct ? ' The Megalodon is extinct and is rated from fossil evidence.' : ''}` },
+    ...(landAnimal ? [{ q: 'What is the strongest land animal?', a: `The ${landAnimal.name}, #${landAnimal.rank} overall with a power index of ${fmtScore(landAnimal.powerIndex)} (${landAnimal.tier} tier). Sea creatures take the very top spots because of their size.` }] : []),
+    { q: 'Is the ranking pound for pound?', a: 'No. Ratings are absolute: a bigger, heavier animal scores higher for its size, the way it would in a real fight. They describe a healthy adult of the larger or fighting sex.' },
+    { q: 'How does Animal Battle Stats decide who would win?', a: `Each matchup compares the two animals' six weighted battle stats and adds a body-size term (8 × log10 of the weight ratio), on a logistic curve that keeps one-on-one odds between 5% and 95%. A 50-50 matchup is a draw. Group fights (100 men vs a gorilla) are supported too.` },
+    ...(lionTiger ? [{ q: 'Who would win, a lion or a tiger?', a: `The ${lionTiger.result.winner.name}, ${lionTiger.result.odds}% of the time in the Animal Battle Stats model (${lionTiger.result.strength.toLowerCase()}). See the full breakdown at ${absoluteUrl(`/compare/${lionTiger.slug}`)}.` }] : []),
+    { q: 'Can fans disagree with the rankings?', a: 'Yes. Every animal can be voted underrated or overrated, and every matchup can be called. The fan votes are shown next to the stats, and corrections with sources are welcome.' }
+];
+const title = `Animal Powerscaling: The Strongest Animals Ranked S to F | ${SITE.name}`;
+const description = `What animal powerscaling is and how it works: ${n} real animals rated on six battle stats on one 0-100 scale, the S to F power scale, the strongest animals, and the classic "who would win" debates settled with odds.`;
+const jsonLd = [
+    {
+        '@type': 'Article',
+        '@id': `${absoluteUrl('/powerscaling')}#article`,
+        headline: 'Animal powerscaling: the strongest animals ranked S to F',
+        description,
+        url: absoluteUrl('/powerscaling'),
+        image: absoluteUrl(sectionPreview('tiers')),
+        dateModified: lastResearchDate || undefined,
+        author: { '@id': `${SITE.url}/#organization` },
+        publisher: { '@id': `${SITE.url}/#organization` },
+        isPartOf: { '@id': `${SITE.url}/#website` },
+        about: { '@type': 'Thing', name: 'Animal powerscaling' }
+    },
+    {
+        '@type': 'ItemList',
+        name: 'The strongest animals by power index',
+        itemListElement: top.map((animal, index) => ({ '@type': 'ListItem', position: index + 1, name: animal.name, url: absoluteUrl(`/stats/${animal.slug}`) }))
+    },
+    {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+            { '@type': 'ListItem', position: 2, name: 'Animal powerscaling', item: absoluteUrl('/powerscaling') }
+        ]
+    },
+    { '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) }
+];
+---
+
+<Base title={title} description={description} path="/powerscaling" image={sectionPreview('tiers')} imageAlt={sectionAlt('tiers')} jsonLd={jsonLd} type="article" active="about" biome="savanna" seed={41}>
+    <article class="ps screen-grid flow">
+        <div class="panel ps-body">
+            <header class="ps-head">
+                <p class="ps-kicker">The guide</p>
+                <h1 class="screen-title">Animal powerscaling</h1>
+                <p class="ps-lead"><strong>Powerscaling</strong> is ranking how strong fighters are so you can settle who would beat whom. <strong>Animal powerscaling</strong> does it for real animals, with real evidence: size, weapons, armour, speed, stamina and behaviour. Animal Battle Stats rates <strong>{n} animals</strong> on six battle stats on <strong>one absolute 0-100 scale</strong>, ranks them from S tier to F tier, and turns any two of them into a "who would win" prediction. {researchedCount} have full research profiles citing {sourceCount.toLocaleString('en-US')} sources.</p>
+                <div class="btn-row">
+                    <a class="btn btn-hot" href="/compare"><UiIcon name="vs" />Who would win?</a>
+                    <a class="btn btn-gold" href="/vote"><UiIcon name="vote" />Vote on the rankings</a>
+                    <a class="btn" href="/tier-list"><UiIcon name="crown" />The tier list</a>
+                </div>
+            </header>
+
+            <section>
+                <h2>The power scale, S to F</h2>
+                <p>Every animal gets a <strong>power index</strong> from 0 to 100, and its tier comes from that number. The scale is absolute, not pound for pound: a bigger animal scores higher for its size, as it would in a real fight.</p>
+                <div class="ps-table-wrap">
+                    <table class="ps-table">
+                        <thead><tr><th>Tier</th><th>Power index</th><th>Animals</th><th>Strongest</th></tr></thead>
+                        <tbody>
+                            {tierRows.map((tier) => (
+                                <tr>
+                                    <td><span class={`tier-badge sm tier-${tier.id.toLowerCase()}`}>{tier.id}</span> {tier.name}</td>
+                                    <td>{tier.id === 'S' ? `${tier.min}+` : tier.id === 'F' ? `under ${TIERS[TIERS.length - 2].min}` : `${tier.min}–${tier.max - 1}`}</td>
+                                    <td>{tier.count}</td>
+                                    <td>{tier.best ? <a href={`/stats/${tier.best.slug}`}>{tier.best.name}</a> : '–'}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>The strongest animals</h2>
+                <ol class="ps-top">
+                    {top.map((animal) => (
+                        <li><a href={`/stats/${animal.slug}`}><b>{animal.name}</b><span class={`tier-badge sm tier-${animal.tier.toLowerCase()}`}>{animal.tier}</span><em>{fmtScore(animal.powerIndex)}</em><small>{bestStat(animal)}</small></a></li>
+                    ))}
+                </ol>
+                <p><a class="link" href="/rankings">All {n} animals by power</a> · <a class="link" href="/tier-list">The full tier list</a></p>
+            </section>
+
+            <section>
+                <h2>How an animal is scaled</h2>
+                <p>Each animal is researched from scratch and rated on six battle stats. The power index weights them like this:</p>
+                <ul class="ps-weights">
+                    {weights.map((item) => <li><b>{item.label}</b><span class="bar"><i style={`--w:${item.weight * 3}%`}></i></span><em>{item.weight}%</em></li>)}
+                </ul>
+                <p>Ratings describe a healthy adult of the larger or fighting sex. Matchups compare the weighted stats and add a body-size term, so a heavyweight keeps its edge; group fights ("100 men vs a gorilla") let numbers count, less so against a much heavier opponent. <a class="link" href="/about">How the ratings work</a></p>
+            </section>
+
+            <section>
+                <h2>The classic debates, settled</h2>
+                <ul class="ps-debates">
+                    {classics.map((pair) => (
+                        <li><a href={`/compare/${pair.slug}`}><span>{pair.a.name} <em>vs</em> {pair.b.name}</span><b>{pair.result.draw ? 'Draw' : `${pair.result.winner.name} ${pair.result.odds}%`}</b></a></li>
+                    ))}
+                </ul>
+                <p>Think the stats got one wrong? <a class="link" href="/vote">Vote on it</a>: the fans' picks are shown next to the model's.</p>
+            </section>
+
+            <section>
+                <h2>Category kings</h2>
+                <ul class="ps-kings">
+                    {kings.map(({ category, leader }) => (
+                        <li><a href={`/rankings/${category.slug}`}><small>{category.label}</small><b>{leader.name}</b><em>{category.show(leader)}</em></a></li>
+                    ))}
+                </ul>
+            </section>
+
+            <section>
+                <h2>Questions</h2>
+                <div class="faq">{faq.map((item, index) => <details open={index < 2}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+            </section>
+        </div>
+    </article>
+</Base>
+
+<style>
+    .ps { max-width: 920px; margin: 0 auto; }
+    .ps-body { padding: clamp(14px, 3vw, 28px); gap: 22px; }
+    .ps-kicker { margin: 0 0 6px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-2); }
+    .ps-lead { margin: 12px 0 14px; font-size: 1.02rem; color: var(--text-2); }
+    .ps-lead strong { color: #fff; }
+    .ps section h2 { margin: 0 0 10px; font-family: var(--font-display); font-size: 1.45rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ps section p { color: var(--text-2); }
+    .link { color: var(--gold-2); font-weight: 700; text-decoration: underline; }
+    .ps-table-wrap { overflow-x: auto; }
+    .ps-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .ps-table th { padding: 8px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: var(--muted); border-bottom: 1px solid var(--line-2); }
+    .ps-table td { padding: 8px; border-bottom: 1px solid var(--line); }
+    .ps-table td:first-child { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+    .ps-table a, .ps-top a, .ps-debates a, .ps-kings a { color: inherit; }
+    .ps-top { display: grid; gap: 6px; margin: 0 0 10px; padding: 0; list-style: none; counter-reset: top; }
+    .ps-top li { counter-increment: top; }
+    .ps-top a { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto 56px; grid-template-areas: "n name tier pwr" "n best best pwr"; align-items: center; gap: 0 10px; padding: 8px 12px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--line-2); border-radius: 10px; }
+    .ps-top a::before { content: counter(top); grid-area: n; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--muted); }
+    .ps-top b { grid-area: name; font-size: 1rem; }
+    .ps-top .tier-badge { grid-area: tier; }
+    .ps-top em { grid-area: pwr; font-style: normal; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: var(--gold-2); text-align: right; }
+    .ps-top small { grid-area: best; font-size: 0.74rem; color: var(--muted); }
+    .ps-weights { display: grid; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+    .ps-weights li { display: grid; grid-template-columns: 120px minmax(0, 1fr) 44px; align-items: center; gap: 10px; font-size: 0.9rem; }
+    .ps-weights .bar { height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+    .ps-weights .bar i { display: block; width: var(--w); height: 100%; background: linear-gradient(90deg, var(--gold-d), var(--gold)); }
+    .ps-weights em { font-style: normal; font-weight: 800; color: var(--gold-2); text-align: right; }
+    .ps-debates, .ps-kings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0 0 10px; padding: 0; list-style: none; }
+    .ps-debates a { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; font-size: 0.86rem; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--line-2); border-radius: 10px; }
+    .ps-debates em { font-style: normal; color: var(--gold); font-weight: 900; }
+    .ps-debates b { flex: none; color: #8fe9a2; }
+    .ps-kings a { display: grid; gap: 1px; padding: 8px 12px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--line-2); border-radius: 10px; }
+    .ps-kings small { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .ps-kings b { font-size: 1rem; }
+    .ps-kings em { font-style: normal; font-family: var(--font-display); font-weight: 900; color: var(--gold-2); }
+    .ps .faq details { margin-bottom: 6px; }
+    @media (max-width: 760px) {
+        .ps-debates, .ps-kings { grid-template-columns: minmax(0, 1fr); }
+        .ps-weights li { grid-template-columns: 96px minmax(0, 1fr) 40px; }
+    }
+</style>

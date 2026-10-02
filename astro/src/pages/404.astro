@@ -21,6 +21,29 @@ const sloth = getAnimal('sloth') || getAnimal('snapping-turtle');
         </div>
     </div>
 </Base>
+<script>
+    // Wrong addresses that still say what they want: a matchup typed the other way round
+    // (/compare/african-lion-vs-siberian-tiger when the page is siberian-tiger-vs-african-lion), any
+    // other pair (it opens in Versus), and an animal page under a shorter name (/stats/lion).
+    const path = location.pathname.replace(/\/+$/, '').toLowerCase();
+    const pair = path.match(/^\/compare\/([a-z0-9-]+?)-vs-([a-z0-9-]+)$/);
+    const animal = path.match(/^\/stats\/([a-z0-9-]+)$/);
+    if (pair) {
+        const [, a, b] = pair;
+        fetch(`/compare/${b}-vs-${a}`, { method: 'HEAD' })
+            .then((response) => location.replace(response.ok ? `/compare/${b}-vs-${a}` : `/compare?a=${a}&b=${b}`))
+            .catch(() => location.replace(`/compare?a=${a}&b=${b}`));
+    } else if (animal) {
+        const want = animal[1];
+        fetch('/data/animals-lite.json').then((response) => response.json()).then((list) => {
+            const words = want.split('-');
+            const match = list.find((item) => item.s === want)
+                || list.find((item) => item.s.endsWith(`-${want}`))
+                || list.find((item) => words.every((word) => item.s.split('-').includes(word)));
+            if (match) location.replace(`/stats/${match.s}`);
+        }).catch(() => {});
+    }
+</script>
 <style>
     .nf { height: 100%; display: flex; align-items: center; justify-content: center; gap: clamp(20px, 5vw, 60px); flex-wrap: wrap; }
     .nf-card { width: 200px; transform: rotate(-6deg); }

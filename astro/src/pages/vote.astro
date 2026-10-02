@@ -1,0 +1,255 @@
+---
+// /vote: the fastest way to vote. "Who would win?" deals one matchup after another (tap the winner,
+// see how the fans split and what the stats say); "Overrated or underrated?" deals one animal at a
+// time against its rank. Every vote moves the fan rankings (api/votes.js, api/battles.js), signed-in
+// players earn BattlePoints, and a guest's votes are kept and cast once they log in. ?m=<a>-vs-<b>
+// opens on one matchup (shared links); ?ch=<code> plays a friend's challenge. scripts/vote.js runs it.
+import Base from '../layouts/Base.astro';
+import UiIcon from '../components/UiIcon.astro';
+import Icon from '../components/Icon.astro';
+import { animals, matchup } from '../lib/catalog.js';
+import { PAIRS } from '../lib/matchups.js';
+import { SITE, absoluteUrl } from '../lib/site.js';
+import { sectionPreview, sectionAlt } from '../lib/previews.js';
+import economy from '../../../lib/economy.js';
+
+// Every matchup with its own page that is not dead even: [a, b, the stats' pick (0 | 1), its odds, classic].
+const pool = PAIRS.map((pair) => {
+    const result = matchup(pair.a, pair.b);
+    if (result.draw) return null;
+    return [pair.a.slug, pair.b.slug, result.winner.slug === pair.a.slug ? 0 : 1, result.odds, pair.classic ? 1 : 0];
+}).filter(Boolean);
+const { ACTIONS } = economy;
+const title = `Vote: Who Would Win? Rank the Animals | ${SITE.name}`;
+const description = `Vote on who would win in ${pool.length} animal matchups and say which of ${animals.length} animals are overrated or underrated. See how the fans split and what the stats say. Every vote moves the fan rankings.`;
+const jsonLd = [
+    {
+        '@type': 'WebPage',
+        '@id': `${absoluteUrl('/vote')}#webpage`,
+        url: absoluteUrl('/vote'),
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE.url}/#website` }
+    },
+    {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+            { '@type': 'ListItem', position: 2, name: 'Vote', item: absoluteUrl('/vote') }
+        ]
+    }
+];
+---
+
+<Base title={title} description={description} path="/vote" image={sectionPreview('vote')} imageAlt={sectionAlt('vote')} jsonLd={jsonLd} active="vote" biome="savanna" seed={31}>
+    <div class="vote screen-grid flow" data-vote-page data-mode="fight" data-state="loading">
+        <section class="panel gold vt-stage enter" aria-labelledby="vote-title">
+            <header class="vt-head">
+                <h1 id="vote-title" class="panel-title">Vote</h1>
+                <div class="seg vt-modes" role="group" aria-label="What to vote on">
+                    <button type="button" aria-pressed="true" data-mode-btn="fight"><UiIcon name="vs" size={16} /><span>Who would win?</span></button>
+                    <button type="button" aria-pressed="false" data-mode-btn="rank"><UiIcon name="vote" size={16} /><span>Overrated?</span></button>
+                </div>
+            </header>
+
+            <p class="vt-challenge-bar" data-challenge-bar hidden></p>
+            <h2 class="vt-q" data-q>Who would win?</h2>
+
+            <div class="vt-pair" data-pair>
+                {['a', 'b'].map((side) => (
+                    <button type="button" class={`vt-pick side-${side}`} data-side={side} aria-label={`Pick fighter ${side === 'a' ? 1 : 2}`}>
+                        <span class="vt-art"><img alt="" data-art width="512" height="384" decoding="async" /></span>
+                        <span class="tier-badge sm" data-tier></span>
+                        <span class="vt-crown" data-crown hidden><UiIcon name="crown" size={14} />Stats pick</span>
+                        <span class="vt-name" data-name>–</span>
+                        <small class="vt-meta" data-meta></small>
+                        <span class="vt-pct" data-pct hidden><b data-pct-n></b><i data-pct-bar></i></span>
+                    </button>
+                ))}
+                <span class="vt-vs" aria-hidden="true"></span>
+            </div>
+
+            <div class="vt-one" data-one hidden>
+                <a class="vt-card" data-card-link href="/stats">
+                    <span class="vt-art big"><img alt="" data-one-art width="512" height="384" decoding="async" /></span>
+                    <span class="tier-badge" data-one-tier></span>
+                    <span class="vt-rankno" data-one-rank></span>
+                    <span class="vt-name" data-one-name>–</span>
+                    <small class="vt-meta" data-one-meta></small>
+                </a>
+                <div class="vt-rank-btns">
+                    <button type="button" class="vt-rb up" data-rank="up"><span class="arrow" aria-hidden="true"></span><span>Underrated</span><small>stronger than its rank</small></button>
+                    <button type="button" class="vt-rb down" data-rank="down"><span class="arrow" aria-hidden="true"></span><span>Overrated</span><small>weaker than its rank</small></button>
+                </div>
+                <div class="vt-split" data-split hidden><i data-split-bar></i></div>
+            </div>
+
+            <p class="vt-result" data-result aria-live="polite">Tap the animal you think wins.</p>
+
+            <div class="vt-controls">
+                <button type="button" class="btn btn-sm" data-skip>Skip</button>
+                <a class="btn btn-sm vt-more" data-more href="/compare">Full matchup</a>
+                <button type="button" class="btn btn-sm vt-share" data-share title="Share this vote"><UiIcon name="share" size={16} /><span>Share</span></button>
+                <button type="button" class="btn btn-gold vt-next" data-next disabled>Next<UiIcon name="arrow" size={18} /></button>
+            </div>
+
+            <p class="vt-guest" data-guest hidden>
+                <Icon name="lock" size={22} />
+                <span><span data-kept></span><a href="/signup?returnTo=%2Fvote">Sign up</a> or <a href="/login?returnTo=%2Fvote">log in</a> to make them count toward the fan rankings and earn BattlePoints.</span>
+            </p>
+        </section>
+
+        <aside class="vt-side">
+            <section class="panel vt-you enter-2">
+                <div class="panel-head"><UiIcon name="vote" size={22} /><h2 class="panel-title">Your votes</h2></div>
+                <dl class="vt-stats">
+                    <div><dt>Votes</dt><dd data-stat-votes>0</dd></div>
+                    <div><dt>With the fans</dt><dd data-stat-fans>–</dd></div>
+                    <div><dt>With the stats</dt><dd data-stat-model>–</dd></div>
+                </dl>
+                <p class="vt-pay small"><img src="/images/ui/icons/coin.svg" alt="" width="16" height="16" />+{ACTIONS.matchup_call.coins} BattlePoints a fight called (bonus when the stats agree), +{ACTIONS.vote.coins} a rank vote.</p>
+                <div class="vt-challenge" data-challenge hidden>
+                    <b>Challenge your friends</b>
+                    <p class="small">Send them your picks: they vote on the same fights and see how many they match.</p>
+                    <button type="button" class="btn btn-hot btn-sm" data-make-challenge><UiIcon name="share" size={16} />Send a challenge</button>
+                </div>
+            </section>
+
+            <section class="panel vt-fans enter-3" data-fans hidden>
+                <div class="panel-head"><UiIcon name="crown" size={22} /><h2 class="panel-title">Fan rankings</h2></div>
+                <div class="vt-fan-lists">
+                    <div><h3>Most underrated</h3><ol data-fans-up></ol></div>
+                    <div><h3>Most overrated</h3><ol data-fans-down></ol></div>
+                </div>
+                <a class="btn btn-sm vt-all" href="/stats?sort=votes">All {animals.length} by fan votes</a>
+            </section>
+
+            <section class="panel vt-links enter-3">
+                <a href="/tournament"><UiIcon name="trophy" size={20} /><span><b>Pick a whole bracket</b><small>8 to 64 animals in a tournament</small></span></a>
+                <a href="/compare"><UiIcon name="vs" size={20} /><span><b>Any two animals</b><small>Or 100 humans vs a gorilla</small></span></a>
+                <a href="/tier-list"><UiIcon name="crown" size={20} /><span><b>The tier list</b><small>All {animals.length}, S to F</small></span></a>
+            </section>
+        </aside>
+
+        <script type="application/json" id="vote-pool" is:inline set:html={JSON.stringify(pool)}></script>
+    </div>
+</Base>
+
+<script>
+    import '../scripts/vote.js';
+</script>
+
+<style>
+    .vote { grid-template-columns: minmax(0, 1fr) minmax(280px, 340px); max-width: 1320px; margin: 0 auto; }
+    .vt-stage { min-height: 0; padding: 0 0 14px; gap: 10px; }
+    .vt-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+    .vt-head .panel-title { font-size: 1.45rem; }
+    .vt-modes { margin-left: auto; }
+    .vt-modes button { gap: 6px; }
+    .vt-challenge-bar { margin: 0 14px; padding: 8px 12px; font-size: 0.86rem; font-weight: 700; color: #1d1400; background: linear-gradient(90deg, var(--gold-2), var(--gold)); border-radius: 10px; }
+    .vt-q { margin: 2px 14px 0; font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.3rem); font-weight: 900; line-height: 1; text-align: center; text-transform: uppercase; letter-spacing: 0.02em; }
+
+    .vt-pair { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(10px, 3vw, 44px); padding: 4px 14px; }
+    .vt-vs { position: absolute; left: 50%; top: 38%; width: clamp(54px, 9vw, 86px); aspect-ratio: 1.4; transform: translate(-50%, -50%); background: url("/images/ui/vs.svg") center / contain no-repeat; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7)); pointer-events: none; z-index: 3; }
+    .vt-pick {
+        position: relative; display: grid; justify-items: center; gap: 2px; min-width: 0; padding: 10px 10px 12px;
+        font: inherit; color: inherit; text-align: center; cursor: pointer;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(9, 10, 12, 0.55)); border: 2px solid var(--line-2); border-radius: 14px;
+        transition: border-color 0.15s, transform 0.15s var(--ease), box-shadow 0.2s;
+    }
+    .vt-pick:hover { border-color: var(--frame-2); transform: translateY(-2px); }
+    .vt-pick:active { transform: scale(0.98); }
+    /* The photo always fits its 4:3 box, whatever its shape. */
+    .vt-art { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; }
+    .vt-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 12px 12px rgba(0, 0, 0, 0.6)); }
+    .side-b .vt-art img { transform: scaleX(-1); }
+    .vt-pick .tier-badge, .vt-card .tier-badge { position: absolute; top: 8px; left: 8px; }
+    .vt-name { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-display); font-size: clamp(1.15rem, 2.2vw, 1.7rem); font-weight: 900; line-height: 1.05; text-transform: uppercase; letter-spacing: 0.02em; }
+    .vt-meta { font-size: 0.74rem; font-weight: 700; color: var(--muted); }
+    .vt-crown { position: absolute; top: 8px; right: 8px; display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #1d1400; background: var(--gold); border-radius: 999px; }
+    .vt-pct { display: grid; gap: 4px; width: 100%; margin-top: 6px; }
+    .vt-pct b { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; }
+    .vt-pct i { display: block; height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--gold) var(--p, 0%), rgba(255, 255, 255, 0.1) 0); transition: background 0.6s; }
+    .vote[data-state="result"] .vt-pick { cursor: default; transform: none; }
+    .vt-pick.is-picked { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 0 24px rgba(246, 180, 0, 0.35); }
+    .vote[data-state="result"] .vt-pick:not(.is-picked) { opacity: 0.78; }
+
+    .vt-one { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: center; padding: 4px 14px; }
+    .vt-card { position: relative; display: grid; justify-items: center; gap: 2px; padding: 10px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(9, 10, 12, 0.55)); border: 2px solid var(--line-2); border-radius: 14px; }
+    .vt-rankno { position: absolute; top: 10px; right: 10px; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: var(--gold-2); }
+    .vt-rank-btns { display: grid; gap: 10px; }
+    .vt-rb { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; align-items: center; gap: 0 12px; min-height: 76px; padding: 10px 16px; font: inherit; text-align: left; color: var(--text); background: rgba(9, 10, 12, 0.55); border: 2px solid var(--line-2); border-radius: 14px; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+    .vt-rb .arrow { grid-row: span 2; width: 26px; height: 20px; background: currentColor; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    .vt-rb.down .arrow { clip-path: polygon(0 0, 100% 0, 50% 100%); }
+    .vt-rb span:not(.arrow) { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1; }
+    .vt-rb small { font-size: 0.74rem; color: var(--muted); }
+    .vt-rb.up { color: #8fe9a2; }
+    .vt-rb.down { color: #ff9aa2; }
+    .vt-rb.up:hover, .vt-rb.up.on { border-color: rgba(59, 214, 90, 0.7); background: rgba(59, 214, 90, 0.1); }
+    .vt-rb.down:hover, .vt-rb.down.on { border-color: rgba(255, 65, 80, 0.7); background: rgba(255, 65, 80, 0.1); }
+    .vt-split { grid-column: 1 / -1; height: 12px; border-radius: 6px; background: rgba(255, 65, 80, 0.55); overflow: hidden; }
+    .vt-split i { display: block; height: 100%; width: var(--p, 50%); background: #3bd65a; transition: width 0.6s var(--ease); }
+
+    .vt-result { min-height: 2.6em; margin: 0 14px; font-size: 0.95rem; text-align: center; color: var(--text-2); }
+    .vt-result :global(b) { color: #fff; }
+    .vt-result :global(.good) { color: #8fe9a2; }
+    .vt-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0 14px; }
+    .vt-next { min-width: 150px; }
+    .vt-next:disabled { opacity: 0.45; cursor: default; }
+    .vote:not([data-state="result"]) .vt-more, .vote:not([data-state="result"]) .vt-share { display: none; }
+    .vt-guest { display: flex; align-items: center; gap: 10px; margin: 0 14px; padding: 10px 12px; font-size: 0.84rem; color: var(--text-2); background: rgba(246, 180, 0, 0.08); border: 1px solid rgba(246, 180, 0, 0.35); border-radius: 10px; }
+    .vt-guest a { color: var(--gold-2); font-weight: 800; text-decoration: underline; }
+
+    .vt-side { min-height: 0; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
+    .vt-side > .panel { flex: none; }
+    .vt-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 12px 14px 4px; }
+    .vt-stats div { padding: 7px 8px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .vt-stats dt { font-size: 0.56rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .vt-stats dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; color: var(--gold-2); }
+    .vt-pay { display: flex; align-items: center; gap: 6px; margin: 6px 14px 12px; color: var(--muted); }
+    .vt-challenge { display: grid; gap: 6px; margin: 0 14px 14px; padding: 10px 12px; background: rgba(255, 106, 0, 0.08); border: 1px solid rgba(255, 106, 0, 0.4); border-radius: 10px; }
+    .vt-challenge p { margin: 0; color: var(--text-2); }
+    .vt-challenge .btn { justify-self: start; }
+    .vt-fan-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px 14px; }
+    .vt-fan-lists h3 { margin: 0 0 6px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .vt-fan-lists ol { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+    .vt-fan-lists :global(a) { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; }
+    .vt-fan-lists :global(img) { width: 34px; height: 26px; object-fit: contain; }
+    .vt-fan-lists :global(span) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .vt-fan-lists :global(em) { font-style: normal; font-family: var(--font-display); font-weight: 900; }
+    .vt-fan-lists :global(em.pos) { color: #8fe9a2; }
+    .vt-fan-lists :global(em.neg) { color: #ff9aa2; }
+    .vt-all { margin: 0 14px 14px; align-self: flex-start; }
+    .vt-links { display: grid; padding: 6px; }
+    .vt-links a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 9px; color: var(--text-2); }
+    .vt-links a:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+    .vt-links span { display: grid; }
+    .vt-links b { font-size: 0.88rem; color: #fff; }
+    .vt-links small { font-size: 0.72rem; color: var(--muted); }
+
+    .vote[data-mode="rank"] .vt-pair { display: none; }
+    .vote[data-state="loading"] .vt-pair, .vote[data-state="loading"] .vt-one { opacity: 0.4; }
+
+    @media (max-width: 900px) {
+        .vote { grid-template-columns: minmax(0, 1fr); }
+        .vt-side { overflow: visible; }
+    }
+    @media (max-width: 760px) {
+        .vt-head { padding: 8px 10px; }
+        .vt-head .panel-title { font-size: 1.25rem; }
+        .vt-modes button { padding: 0 9px; font-size: 0.82rem; }
+        .vt-pair { padding: 4px 10px; gap: 10px; }
+        .vt-pick { padding: 8px 6px 10px; }
+        .vt-meta { font-size: 0.68rem; }
+        .vt-crown { top: auto; bottom: calc(100% - 8px); right: 50%; transform: translateX(50%); white-space: nowrap; }
+        .vt-one { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 4px 10px; }
+        .vt-card { max-width: 340px; width: 100%; justify-self: center; }
+        .vt-rank-btns { grid-template-columns: 1fr 1fr; }
+        .vt-rb { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; min-height: 86px; padding: 10px 8px; }
+        .vt-rb .arrow { grid-row: auto; }
+        .vt-rb span:not(.arrow) { font-size: 1.25rem; }
+        .vt-controls .btn { min-height: 44px; }
+        .vt-next { flex: 1 1 100%; order: -1; }
+        .vt-fan-lists { grid-template-columns: 1fr; }
+    }
+</style>

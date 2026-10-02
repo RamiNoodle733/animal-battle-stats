@@ -411,6 +411,13 @@ const jsonLd = [
         .faq summary { font-size: 0.95rem; padding: 10px 12px; }
         .faq p { font-size: 0.84rem; padding: 0 12px 12px; }
     }
+    /* Phones: the page scrolls (abs.css), so the stage takes its own 16:9 height. */
+    @media (max-width: 760px) {
+        .rbx { grid-template-rows: auto auto; }
+        .pane { overflow: visible; }
+        .stage-box { flex: none; container-type: inline-size; }
+        .rbx-stage { width: 100%; }
+    }
     @media (max-width: 480px) {
         .rbx-tabs :global(img) { display: none; }
         .rbx-tabs button { padding: 8px 8px 9px; }

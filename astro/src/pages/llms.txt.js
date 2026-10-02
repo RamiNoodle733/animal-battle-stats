@@ -24,11 +24,13 @@ export function GET() {
     lines.push(`Every animal has a collectible battle card (a trading card with its rank, tier, power and stats): front at ${SITE.url}/images/cards/<animal>.webp, back at ${SITE.url}/images/cards/<animal>-back.webp, and a card-and-stats picture at ${SITE.url}/images/og/<animal>.jpg. Every matchup page has a face-off picture of the two cards with the winner's odds at ${SITE.url}/images/og/vs/<a>-vs-<b>.jpg (Human pages: ${SITE.url}/images/og/vs/human-vs-<animal>.jpg). The pictures may be shown with an answer, linking back to the page.`);
     lines.push('');
     lines.push('## Main pages');
+    lines.push(`- [Animal powerscaling guide](${SITE.url}/powerscaling): what animal powerscaling is, the S to F power scale, the strongest animals and the classic debates settled`);
     lines.push(`- [Animal tier list](${SITE.url}/tier-list): all ${animals.length} animals ranked S to F`);
     lines.push(`- [Strongest animals / power rankings](${SITE.url}/rankings): ranked by power index`);
     for (const category of CATEGORIES) lines.push(`- [${category.label}](${SITE.url}/rankings/${category.slug}): ${category.intro}`);
     lines.push(`- [Who would win? matchup simulator](${SITE.url}/compare): compare any two animals, groups of any size, or a random matchup (for example ${SITE.url}/compare?a=human&b=gorilla&na=10)`);
     lines.push(`- [All animals](${SITE.url}/stats): searchable database`);
+    lines.push(`- [Vote](${SITE.url}/vote): fans vote who would win each matchup and whether each animal is underrated or overrated at its rank; the fan rankings sit beside the stats on every animal page`);
     lines.push(`- [How ratings work](${SITE.url}/about): methodology, sources, FAQ`);
     lines.push(`- [Animal Battle Stats on Roblox](${SITE.url}/roblox): ${ROBLOX.live ? 'the companion game, live on Roblox' : 'the companion game, coming to Roblox'}`);
     lines.push(`- [ABS Originals: animated animal series](${SITE.url}/shows): ${SHOWS.length} shows, ${totalEpisodes} episodes, free to watch`);

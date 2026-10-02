@@ -140,7 +140,7 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
 
 <script>
     import { loadAnimalIndex, artVars, escapeHtml, toast, showReward } from '../scripts/site.js';
-    import { loadVotes, castVote } from '../scripts/votes.js';
+    import { loadVotes, castVote, rememberVote, flushPendingVotes } from '../scripts/votes.js';
     import { sfx } from '../scripts/sfx.js';
 
     const db = document.querySelector('[data-db]');
@@ -297,8 +297,10 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
         row.querySelector('.vt-b.up').classList.toggle('on', entry.mine === 'up');
         row.querySelector('.vt-b.down').classList.toggle('on', entry.mine === 'down');
     }
-    loadVotes().then((map) => {
+    loadVotes().then(async (map) => {
         votes = map;
+        // Votes made as a guest count once the player is signed in.
+        if (window.ABS_USER && await flushPendingVotes(votes)) toast('Your saved votes now count');
         rows.forEach(paintVote);
         if (state.sort === 'votes') apply();
     }).catch(() => {});
@@ -307,7 +309,14 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
         const entry = votes.get(nameOf(row));
         if (!entry) { toast('Votes are loading, try again in a second'); return; }
         const result = await castVote(entry.id, nameOf(row), button.dataset.vote, entry);
-        if (result.needsLogin) { toast('Log in to vote and earn BattlePoints'); setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent(`${location.pathname}?sort=votes`)}`; }, 900); return; }
+        if (result.needsLogin) {
+            // Kept on the device and cast after logging in (scripts/votes.js).
+            rememberVote({ kind: 'rank', name: nameOf(row), type: button.dataset.vote });
+            button.classList.add('on');
+            toast('Vote saved. Log in to make it count and earn BattlePoints');
+            setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent(`${location.pathname}${location.search}`)}`; }, 1400);
+            return;
+        }
         if (result.error) { sfx.error(); toast(result.error); return; }
         votes.set(nameOf(row), result.entry);
         paintVote(row);
@@ -520,9 +529,14 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
         .db-sort .db-sort-i { display: block; }
         .db-sort select { font-size: 0.84rem; }
         .db-tiers button { min-width: 26px; padding: 0 5px; }
-        .db-table .c-stat, .db-table [data-col="weight"], .db-table [data-col="speed"], .db-table [data-col="votes"] { display: none; }
-        .dbp[data-sort="votes"] [data-col="votes"] { display: table-cell; }
-        .c-votes { width: 96px; }
+        .db-table .c-stat, .db-table [data-col="weight"], .db-table [data-col="speed"] { display: none; }
+        /* Votes stay on phones, stacked: underrated, the net score, overrated. */
+        .c-votes { width: 44px; }
+        .vt { flex-direction: column; gap: 1px; }
+        .vt b { min-width: 0; font-size: 0.82rem; line-height: 1; }
+        .vt-b { width: 30px; height: 17px; border-radius: 5px; }
+        .vt-b::before { width: 9px; height: 6px; }
+        .db-table thead .c-votes button { font-size: 0.72rem; letter-spacing: 0.02em; }
         .dbp[data-sort="attack"] [data-col="attack"], .dbp[data-sort="defense"] [data-col="defense"], .dbp[data-sort="agility"] [data-col="agility"],
         .dbp[data-sort="stamina"] [data-col="stamina"], .dbp[data-sort="intelligence"] [data-col="intelligence"], .dbp[data-sort="special"] [data-col="special"],
         .dbp[data-sort="weight"] [data-col="weight"], .dbp[data-sort="speed"] [data-col="speed"] { display: table-cell; }

@@ -91,11 +91,21 @@ Each route is an Astro page in `astro/src/pages/`. The build writes one HTML fil
 | `/community` (and `/community/<tab>`) | `community.astro` |
 | `/profile` (and `/profile/<username>`) | `profile.astro` |
 | `/collection` (and `/collection?u=<username>`) | `collection.astro` |
+| `/vote` (`#rank`, `?m=<a>-vs-<b>`, `?ch=<challenge>`) | `vote.astro` |
+| `/powerscaling` | `powerscaling.astro` |
 | `/login`, `/signup`, `/forgot-password`, `/reset-password` | `AuthScreen.astro` via the matching page |
 | `/about`, `/credits`, `/roblox`, `/404` | matching `.astro` page |
 | `/llms.txt`, `/llms-full.txt`, `/data/*.json` | `.js` endpoints rendered at build time |
 
 `vercel.json` rewrites `/profile/<username>` and `/community/<tab>` to their pages and redirects retired URLs (`/battle`, `/methodology`, `/battlepoints`, `/app`).
+
+### Phones
+
+At 760px and below the page itself scrolls (abs.css, "Phones: the page itself scrolls"): `body.game` takes its natural height, the HUD sticks to the top and the dock to the bottom, `.screen-grid` panels take their natural height and `.scroll` boxes stop scrolling inside themselves (a box that must keep its own scroll carries `.keep-scroll`). Pages add their own phone rules on top (the animal card's height, the Versus call row above the dock). Desktop keeps the one-screen game frame with scrolling panels.
+
+### Animal pages: vote and Size & speed
+
+Under the card, the fan vote (underrated or overrated at its rank, `api/votes.js`). In the Stats tab, Size & speed (`astro/src/lib/body.js`): the measurements the Facts tab trusts, each next to an everyday comparison and its rank among all animals, and a drawing of the animal beside a person (credit card or coin for small animals) where the photo's longest side is the animal's biggest dimension.
 
 ### Build-time data
 `astro/src/lib/catalog.js` reads `animal_stats.json`, `data/animal-profiles.json` and the image manifests once per build and derives ratings, tiers, ranks, images and matchups for every page. Animal, matchup, tier and ranking pages therefore ship their content as complete HTML; live data (votes, comments, community, accounts) is fetched by client scripts.
@@ -108,6 +118,7 @@ Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, import
 - `tournament.js` - bracket play; ranked brackets for signed-in players go through the server-owned bracket API
 - `community.js`, `comments.js`, `votes.js`, `world.js` - community hub, comment threads, animal votes, visitor globe
 - `auth.js`, `profile.js` - sign-in forms and player profiles
+- `vote.js` - the Vote page: deals matchups (every matchup page that is not dead even, classics first) and animals; picks go to the same APIs as Versus calls and the list's arrows (`votes.js`), guests' votes are kept on the device and cast after login (`rememberVote` / `flushPendingVotes` in `votes.js`), and challenges are a friend's picks encoded in the link
 - `collection.js` - the card collection binder: a player's cards, the starter pick, the card of the day and buying a card by name; `?u=<name>` shows someone else's, read-only. Animals in the Roblox game carry a Roblox mark (and their level there, once collected)
 - `roblox-trainer.js` - the trainer card: a linked player's progress in the Roblox game, drawn from `/data/roblox-lite.json` (profiles, public profiles); `roblox.js` also fills the /roblox page's This week tab (the game's Weekly Cup, Family of the Week, featured island and timed events, with live countdowns)
 - `sfx.js`, `track.js` - synthesized sound effects and visit analytics

@@ -215,7 +215,8 @@ async function recordMatchupVote(req, res) {
     if (!await enforceRateLimit(res, {
         scope: 'matchup-vote',
         identity: requestIdentity(req, user.id),
-        max: 30,
+        // the /vote page asks for one call after another, like the animal votes (60 per 10 minutes)
+        max: 60,
         windowMs: 10 * 60 * 1000
     })) return;
 

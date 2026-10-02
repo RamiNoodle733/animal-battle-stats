@@ -543,6 +543,10 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         .pk-grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 6px; padding: 10px; }
         :global(.pk-card) { grid-template-rows: 64px auto; }
     }
+    /* Phones: the page scrolls (abs.css), so the pinned call and Fight row sits just above the dock. */
+    @media (max-width: 760px) {
+        .c-foot { bottom: calc(var(--dock-h) - 8px); }
+    }
     /* Tall tablets in portrait: bigger fighters, so the stage is not half empty. */
     @media (max-width: 900px) and (min-height: 960px) {
         .vs { grid-template-rows: clamp(250px, 34vh, 420px) auto; }

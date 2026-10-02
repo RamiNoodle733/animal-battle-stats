@@ -38,18 +38,21 @@ const version = packageJson.version;
 const MENU = [
     { key: 'animals', href: '/stats', label: 'Animals', icon: 'paw' },
     { key: 'compare', href: '/compare', label: 'Versus', icon: 'vs' },
+    { key: 'vote', href: '/vote', label: 'Vote', icon: 'vote' },
     { key: 'shows', href: '/shows', label: 'Shows', icon: 'tv' },
     { key: 'tiers', href: '/tier-list', label: 'Tiers', icon: 'crown' },
     { key: 'tournament', href: '/tournament', label: 'Tournament', icon: 'trophy' },
     { key: 'community', href: '/community', label: 'Community', icon: 'users' }
 ];
-// Phones: the four places people play most, then Menu (every other page).
-const DOCK = [MENU[0], MENU[1], MENU[4], MENU[2]];
+// Phones: the four places people play most, then Menu (every other page). Vote sits in the
+// middle; Shows has its own button in the HUD on phones.
+const DOCK = [MENU[0], MENU[1], MENU[2], MENU[5]];
 // The menu sheet: every page as a big tile.
 const PAGES = [
     { href: '/', label: 'Home', icon: 'home', key: 'home' },
     { href: '/stats', label: 'Animals & rankings', icon: 'paw', key: 'animals' },
     { href: '/compare', label: 'Who would win?', icon: 'vs', key: 'compare' },
+    { href: '/vote', label: 'Vote', icon: 'medal', key: 'vote' },
     { href: '/tournament', label: 'Tournament', icon: 'trophy', key: 'tournament' },
     { href: '/tier-list', label: 'Tier list', icon: 'crown', key: 'tiers' },
     { href: '/shows', label: 'Shows', icon: 'tv', key: 'shows' },
@@ -166,6 +169,7 @@ const year = new Date().getFullYear();
                 ))}
             </nav>
             <div class="hud-right">
+                <a class="hud-btn hud-shows" href="/shows" aria-label="Shows" aria-current={active === 'shows' ? 'page' : undefined}><UiIcon name="tv" /></a>
                 <button class="hud-btn" type="button" data-open-search aria-label="Search animals" title="Search (press /)">
                     <UiIcon name="search" />
                 </button>
@@ -191,7 +195,7 @@ const year = new Date().getFullYear();
 
         <nav class="dock" aria-label="Quick">
             {DOCK.map((item) => (
-                <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>
+                <a href={item.href} class={item.key === 'vote' ? 'dock-vote' : undefined} aria-current={active === item.key ? 'page' : undefined}>
                     <UiIcon name={item.icon} size={22} />
                     <span>{item.label}</span>
                 </a>
@@ -217,6 +221,7 @@ const year = new Date().getFullYear();
             </nav>
             <div class="sheet-row">
                 <button class="sheet-sound" type="button" data-sound-toggle aria-pressed="true"><UiIcon name="sound" /><span data-sound-text>Sound effects: on</span></button>
+                <a class="sheet-link" href="/powerscaling">Animal powerscaling guide</a>
                 <a class="sheet-link" href="/credits">Sources &amp; photo credits</a>
                 <a class="sheet-link" href="/llms.txt">Data for AI assistants</a>
             </div>

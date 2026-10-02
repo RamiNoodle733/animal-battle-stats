@@ -46,7 +46,7 @@ test('every sitemap page has consistent social, canonical and structured metadat
 });
 
 test('internal links point to real pages or preserved app routes', { skip: !built && 'dist/ not built' }, () => {
-    const appRoutes = new Set(['/profile', '/rewards', '/login', '/signup', '/forgot-password', '/battlepoints', '/llms.txt', '/llms-full.txt', '/animal_stats.json']);
+    const appRoutes = new Set(['/profile', '/rewards', '/login', '/signup', '/forgot-password', '/battlepoints', '/llms.txt', '/llms-full.txt', '/robots.txt', '/animal_stats.json']);
     for (const url of sitemapUrls.filter((value, index) => index % 7 === 0 || !/\/compare\//u.test(value))) {
         const html = fs.readFileSync(fileFor(url), 'utf8');
         for (const link of internalLinks(html)) {

@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.12.2 — 2026-10-02
+
+- **Privacy policy and terms of use** (/privacy, /terms), in plain language, linked from the menu and the log in and sign up screens. They describe what the site actually collects, what other players can see, who else gets data, cookies, how long things are kept and how to get your data or account deleted. Roblox and Google ask for both before letting everyone sign in with them.
+- **More private by default:**
+  - New Google accounts get a neutral player name (like trainer_4821) instead of one made from the email address or the person's real name. It can be changed on the profile.
+  - Public profiles no longer show when a linked player is in the Roblox game (Playing now, Last played); that stays on your own profile. The public profile data no longer includes the Roblox user id.
+  - The password reset link's email and token are kept out of Google Analytics and out of the address bar.
+
 ## 4.12.1 — 2026-10-02
 
 - **The Roblox game shows as coming soon until players can open it.** Roblox still shows the game as unavailable, so every Play on Roblox button led to its "unavailable" page and /roblox showed 0 playing, 0 visits, 0 favorites and 0 likes. Each deploy now asks Roblox first: until the game is public, pages say coming soon. At launch, /roblox switches to live with real numbers by itself, and the next deploy switches every other page.

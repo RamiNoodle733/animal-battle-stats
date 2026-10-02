@@ -380,6 +380,7 @@ body.game {
 .sheet .socials { display: flex; flex-wrap: wrap; gap: 6px; }
 .sheet .socials .chip { min-height: 34px; padding: 0 12px; }
 .sheet .fine { margin-top: 18px; font-size: 0.78rem; color: var(--dim); }
+.sheet .fine a { color: var(--text-2); text-decoration: underline; }
 @media (max-width: 760px) {
     .sheet { bottom: var(--dock-h); width: 100vw; border-left: 0; box-shadow: none; padding-bottom: 18px; }
     .hud .hud-menu { display: none; }

@@ -1,0 +1,58 @@
+---
+// The privacy policy and terms: one readable column, a contents list, and the date they last changed.
+import Base from '../layouts/Base.astro';
+import { SITE, absoluteUrl } from '../lib/site.js';
+
+const { title, heading, description, path, updated, sections = [] } = Astro.props;
+const jsonLd = [{
+    '@type': 'WebPage',
+    url: absoluteUrl(path),
+    name: heading,
+    description,
+    dateModified: updated,
+    isPartOf: { '@id': `${SITE.url}/#website` }
+}];
+const updatedText = new Date(`${updated}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+
+<Base title={`${title} | ${SITE.name}`} description={description} path={path} jsonLd={jsonLd} active="" biome="forest" seed={7}>
+    <article class="legal screen-grid flow">
+        <div class="panel legal-body">
+            <header>
+                <p class="legal-kicker">{SITE.name}</p>
+                <h1 class="screen-title">{heading}</h1>
+                <p class="legal-date">Last updated {updatedText}</p>
+                {sections.length > 0 && (
+                    <nav class="legal-toc" aria-label="On this page">
+                        {sections.map(([id, label]) => <a href={`#${id}`}>{label}</a>)}
+                    </nav>
+                )}
+            </header>
+            <div class="legal-text"><slot /></div>
+        </div>
+    </article>
+</Base>
+
+<style>
+    .legal { max-width: 860px; margin: 0 auto; }
+    .legal-body { padding: clamp(14px, 3vw, 28px); gap: 18px; }
+    .legal-kicker { margin: 0 0 6px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-2); }
+    .legal-date { margin: 8px 0 0; font-size: 0.86rem; color: var(--muted); }
+    .legal-toc { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .legal-toc a { padding: 4px 10px; font-size: 0.8rem; font-weight: 700; color: var(--text-2); text-decoration: none; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); border-radius: 999px; }
+    .legal-toc a:hover { color: #fff; border-color: rgba(255, 215, 0, 0.45); }
+    .legal-text { display: grid; gap: 16px; }
+    .legal-text :global(section) { scroll-margin-top: calc(var(--hud-h) + 12px); }
+    .legal-text :global(h2) { margin: 0 0 8px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
+    .legal-text :global(h3) { margin: 12px 0 4px; font-size: 1rem; font-weight: 800; }
+    .legal-text :global(p), .legal-text :global(li) { color: var(--text-2); line-height: 1.6; }
+    .legal-text :global(p) { margin: 0 0 10px; }
+    .legal-text :global(ul) { margin: 0 0 10px; padding-left: 20px; }
+    .legal-text :global(li) { margin-bottom: 4px; }
+    .legal-text :global(strong) { color: #fff; }
+    .legal-text :global(:is(p, li, td) a) { color: var(--gold-2); font-weight: 700; text-decoration: underline; }
+    .legal-text :global(table) { width: 100%; border-collapse: collapse; margin: 0 0 12px; font-size: 0.88rem; }
+    .legal-text :global(th), .legal-text :global(td) { padding: 7px 8px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); color: var(--text-2); }
+    .legal-text :global(th) { color: #fff; font-weight: 800; }
+    .legal-text :global(.table-wrap) { overflow-x: auto; }
+</style>

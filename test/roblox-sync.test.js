@@ -103,6 +103,8 @@ test('a save becomes a trainer card, keeping only real animals and real trophies
     const pub = save.publicSnapshot(card);
     assert.equal(pub.coins, undefined);
     assert.equal(pub.wildTracks, undefined);
+    assert.equal(pub.playing, undefined, 'whether they are in the game now stays private');
+    assert.equal(pub.lastPlayed, undefined);
     assert.equal(pub.count, 3);
 });
 
@@ -192,6 +194,7 @@ test('syncing: the card is kept, game animals join the binder once, and a failed
         assert.equal(sync.publicRoblox(user).game.coins, undefined);
         user.roblox.showPublic = true;
         assert.equal(sync.publicRoblox(user).account.username, 'Trainer777');
+        assert.deepEqual(Object.keys(sync.publicRoblox(user).account).sort(), ['displayName', 'username'], 'names only, never the Roblox user id');
     } finally {
         Object.assign(globalThis, { fetch: original.fetch });
         User.updateOne = original.updateOne;

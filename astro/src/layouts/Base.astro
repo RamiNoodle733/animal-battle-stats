@@ -137,7 +137,10 @@ const year = new Date().getFullYear();
             window.dataLayer = window.dataLayer || [];
             window.gtag = function gtag() { window.dataLayer.push(arguments); };
             window.gtag('js', new Date());
-            window.gtag('config', GA_ID);
+            // Account links (a password reset's email and token) never reach analytics.
+            var pageUrl = new URL(location.href);
+            ['token', 'email'].forEach(function (key) { pageUrl.searchParams.delete(key); });
+            window.gtag('config', GA_ID, { page_location: pageUrl.href });
             (function () {
                 if (!/(^|\.)animalbattlestats\.com$/.test(location.hostname) || navigator.webdriver) return;
                 function load() {
@@ -228,7 +231,7 @@ const year = new Date().getFullYear();
             <div class="socials">
                 {SOCIAL.map((item) => <a class="chip" href={item.url} rel="me noopener" target="_blank">{item.name}</a>)}
             </div>
-            <p class="fine">© {year} {SITE.name} · v{version}<br />Hypothetical matchups for fun and learning. Never approach wild animals.<br />Roblox is a trademark of Roblox Corporation. This site is not affiliated with or endorsed by Roblox.</p>
+            <p class="fine">© {year} {SITE.name} · v{version} · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a><br />Hypothetical matchups for fun and learning. Never approach wild animals.<br />Roblox is a trademark of Roblox Corporation. This site is not affiliated with or endorsed by Roblox.</p>
         </aside>
 
         <dialog class="search-dialog" id="search-dialog" aria-label="Search animals">

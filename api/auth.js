@@ -583,10 +583,11 @@ function addOrUpdateGoogleProvider(user, googleProfile) {
     });
 }
 
-function googleUsernameBase(googleProfile) {
-    const emailPrefix = String(googleProfile.email || '').split('@')[0];
-    const namePrefix = String(googleProfile.name || '').replace(/[^a-zA-Z0-9_]/g, '').slice(0, 20);
-    return emailPrefix || namePrefix;
+// A new Google account's public name is a neutral one ("trainer_4821"), never taken from the
+// email address or the person's real name: usernames and display names show on leaderboards,
+// comments and chat, and many players are children. They can pick their own on the profile.
+function googleUsername() {
+    return buildUniqueUsername(`trainer_${crypto.randomInt(1000, 10000)}`, 'trainer');
 }
 
 // A free username close to `preferred`; `prefix` names the fallbacks (google_user, google_1a2b...).
@@ -788,13 +789,11 @@ async function handleGoogleCallback(req, res) {
             );
         }
 
-        const googleBase = googleUsernameBase(googleProfile);
-        const username = await buildUniqueUsername(validatePublicName(googleBase, { newName: true }).valid ? googleBase : '', 'google');
-        const googleName = String(googleProfile.name || '').slice(0, 30);
+        const username = await googleUsername();
         const user = new User({
             username,
             email: googleProfile.email,
-            displayName: googleName && validatePublicName(googleName, { newName: true }).valid ? googleName : username,
+            displayName: username,
             emailVerified: true,
             authProviders: [{
                 provider: GOOGLE_PROVIDER,

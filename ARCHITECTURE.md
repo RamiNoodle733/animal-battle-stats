@@ -95,6 +95,7 @@ Each route is an Astro page in `astro/src/pages/`. The build writes one HTML fil
 | `/powerscaling` | `powerscaling.astro` |
 | `/login`, `/signup`, `/forgot-password`, `/reset-password` | `AuthScreen.astro` via the matching page |
 | `/about`, `/credits`, `/roblox`, `/404` | matching `.astro` page |
+| `/privacy`, `/terms` | `privacy.astro`, `terms.astro` on `components/LegalPage.astro`; the privacy policy describes what the code collects, so change it with any new collection, sharing or storage |
 | `/llms.txt`, `/llms-full.txt`, `/data/*.json` | `.js` endpoints rendered at build time |
 
 `vercel.json` rewrites `/profile/<username>` and `/community/<tab>` to their pages and redirects retired URLs (`/battle`, `/methodology`, `/battlepoints`, `/app`).

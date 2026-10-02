@@ -1,0 +1,157 @@
+---
+import LegalPage from '../components/LegalPage.astro';
+import { SITE, SOCIAL } from '../lib/site.js';
+
+// Written from what the code does (api/, lib/, astro/src/scripts/track.js). When collection,
+// sharing or storage changes, change this page and UPDATED with it.
+const UPDATED = '2026-10-02';
+const discord = SOCIAL.find((link) => link.name === 'Discord')?.url;
+const SECTIONS = [
+    ['short', 'The short version'],
+    ['collect', 'What we collect'],
+    ['use', 'How we use it'],
+    ['public', 'What others can see'],
+    ['share', 'Who else gets it'],
+    ['cookies', 'Cookies and storage'],
+    ['keep', 'How long we keep it'],
+    ['choices', 'Your choices'],
+    ['children', 'Children'],
+    ['security', 'Security'],
+    ['contact', 'Changes and contact']
+];
+---
+
+<LegalPage title="Privacy Policy" heading="Privacy policy" description={`What ${SITE.name} collects when you visit, play and post, what other players can see, who else gets it, and how to get your data deleted.`} path="/privacy" updated={UPDATED} sections={SECTIONS}>
+    <p>{SITE.name} (animalbattlestats.com) is run by its creator, {SITE.founder}. This page explains what we collect, why, and what you can do about it. The rules for using the site are in the <a href="/terms">terms of use</a>.</p>
+
+    <section id="short">
+        <h2>The short version</h2>
+        <ul>
+            <li>We collect what the site needs to work: your account if you make one, what you do here (votes, posts, cards), and statistics about visits.</li>
+            <li>We don't sell your data, and there are no ads.</li>
+            <li>Your email address and your visits' locations are never shown to other players.</li>
+            <li>We never store your IP address.</li>
+            <li>Email us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a> and we'll delete your account or send you a copy of your data.</li>
+        </ul>
+    </section>
+
+    <section id="collect">
+        <h2>What we collect</h2>
+        <h3>When you visit (everyone)</h3>
+        <ul>
+            <li>The pages you view, the site that sent you (without its query string), your screen size and language, and your device type, browser and operating system. These are worked out from your browser's user agent, which we don't store.</li>
+            <li>Your approximate location (city, region, country), which our host Vercel works out from your IP address. We don't store your IP address. To count returning visitors we store a scrambled code (a keyed hash) made from your IP address, browser and language, and your username if you're signed in. It can't be turned back into your IP address.</li>
+            <li>How long a visit lasted and how many pages it took, using a random id for each visit. The id is kept in your browser's session storage and is gone when you close the tab.</li>
+            <li>If you're signed in, your visits are recorded under your username. While you're on the site, we note which page you're on, for up to 2 minutes, to show who's online.</li>
+            <li>Google Analytics also counts visits and the pages viewed (see <a href="#share">Who else gets it</a>).</li>
+        </ul>
+        <h3>When you make an account</h3>
+        <ul>
+            <li>Your username, display name and email address, and your password, which is stored only as a bcrypt hash. Nobody, including us, can read it.</li>
+            <li><strong>Sign in with Google:</strong> your Google account id and email address. We never get your Google password.</li>
+            <li><strong>Sign in with Roblox</strong> or connect Roblox: your Roblox user id, username and display name. Roblox doesn't share your email or password with us.</li>
+            <li>When you joined and when you last logged in, and your recent username changes.</li>
+        </ul>
+        <h3>What you do here</h3>
+        <ul>
+            <li>Your votes, fight calls, tournament picks, comments and chat messages, and your XP, level, BattlePoints, cards, quests, looks and Season Pass progress.</li>
+        </ul>
+        <h3>If you connect the Roblox game</h3>
+        <ul>
+            <li>We read your save from the game, read only: trainer level, animals, team, trophies, island progress, Weekly Cup, Sky Trail and Photo Safari results, login streak, when you started, whether you're in a server now and when you last played, and your game wallet (Coins and Wild Tracks). We read it when you or someone else opens your profile or collection (at most once a minute for you, and once every 30 minutes for others). Nothing in the game is ever changed.</li>
+        </ul>
+    </section>
+
+    <section id="use">
+        <h2>How we use it</h2>
+        <ul>
+            <li>To run your account and the site's features: votes, Versus, tournaments, cards, rewards, leaderboards and profiles.</li>
+            <li>To keep the site safe and fair: rate limits, moderation, and stopping cheating and spam.</li>
+            <li>To understand what people use and enjoy, so we can make the site better.</li>
+            <li>To send account emails (verifying your email, resetting your password). Notification emails go out only if you turn them on; they're all off by default.</li>
+        </ul>
+    </section>
+
+    <section id="public">
+        <h2>What other people can see</h2>
+        <ul>
+            <li><strong>Your profile:</strong> username, display name, profile animal, level, XP, prestige, title and frame, the year you joined, and your cards. Leaderboards also show BattlePoints.</li>
+            <li><strong>Your posts:</strong> comments and chat messages, with your name. If you post as Anonymous, other players don't see your name, but moderators can.</li>
+            <li><strong>Online now:</strong> while you're signed in, your name and the page you're on can appear in the list of who's online.</li>
+            <li><strong>Roblox:</strong> if you connect Roblox, your game progress shows on your profile. Your Coins and Wild Tracks don't show, and neither does whether you're playing right now. Your Roblox name shows only if you turn on "Show my Roblox name". Your Roblox avatar and user id are never shown.</li>
+            <li><strong>The world map</strong> on the Community page shows numbers of visits by city, with device types, never names.</li>
+            <li><strong>Never public:</strong> your email, your password, how you sign in, and where your visits come from.</li>
+        </ul>
+    </section>
+
+    <section id="share">
+        <h2>Who else gets it</h2>
+        <p>We don't sell your data and don't share it for advertising. These services help run the site:</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Service</th><th>What for</th><th>What it gets</th></tr></thead>
+                <tbody>
+                    <tr><td>Vercel</td><td>Hosting</td><td>Every request, including your IP address, to deliver pages and work out your approximate location</td></tr>
+                    <tr><td>MongoDB Atlas</td><td>Database</td><td>The account and activity data described here</td></tr>
+                    <tr><td>Google Analytics</td><td>Visit statistics</td><td>Pages viewed, device and approximate location, through its own cookies (<a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">how Google uses it</a>, <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener" target="_blank">opt-out add-on</a>)</td></tr>
+                    <tr><td>Google, Roblox</td><td>Signing in</td><td>Only if you choose to sign in with them</td></tr>
+                    <tr><td>Roblox</td><td>The game link</td><td>A read request for your game save, if you connect Roblox</td></tr>
+                    <tr><td>Our email service</td><td>Account emails</td><td>Your email address and the message</td></tr>
+                    <tr><td>Discord and Slack</td><td>Our team's private activity feed</td><td>A message for site events (visits, sign-ups, votes, posts) with the username or a short guest code, approximate location, device type, and the text of comments and chat messages</td></tr>
+                    <tr><td>Open-Meteo</td><td>Placing visits on the world map</td><td>Place names (city, region, country), never IP addresses</td></tr>
+                    <tr><td>YouTube (youtube-nocookie.com)</td><td>Videos</td><td>Only when you press play on a video</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>We may also share information if the law requires it, or to protect players and the site. These services may process data in the United States and other countries.</p>
+    </section>
+
+    <section id="cookies">
+        <h2>Cookies and storage</h2>
+        <ul>
+            <li><strong>abs_auth_token</strong> keeps you signed in for 7 days. It's HttpOnly, so page scripts can't read it.</li>
+            <li><strong>abs_google_oauth_state</strong> and <strong>abs_roblox_oauth</strong> last 10 minutes, only while you sign in with Google or Roblox.</li>
+            <li><strong>Google Analytics cookies</strong> (_ga and _ga_…) count visits.</li>
+            <li><strong>Browser storage</strong> (not sent to us unless noted): your sound setting, guest votes waiting to be counted once you log in (up to 36 hours), matchups you've already seen on Vote, your tournament setup and best streak, and guests' show progress. Session storage holds the current visit's id, which is sent with page views.</li>
+        </ul>
+        <p>You can block or clear cookies in your browser. If you block the sign-in cookie, you can't stay signed in.</p>
+    </section>
+
+    <section id="keep">
+        <h2>How long we keep it</h2>
+        <ul>
+            <li><strong>Your account and what you've done on it:</strong> until you ask us to delete the account.</li>
+            <li><strong>Visit and activity records:</strong> kept for the site's statistics until we delete them. Ask us and we'll delete yours.</li>
+            <li><strong>Who's online:</strong> 2 minutes. <strong>Sign-in and rate-limit counters:</strong> up to 2 hours. <strong>Tournament entries:</strong> up to 8 days after the tournament.</li>
+            <li><strong>Deleted posts:</strong> a deleted comment leaves the site, but our activity log keeps its text. A deleted chat message is hidden from everyone but kept in our database.</li>
+        </ul>
+    </section>
+
+    <section id="choices">
+        <h2>Your choices</h2>
+        <ul>
+            <li>Change your username and display name on your profile.</li>
+            <li>Turn email notifications on or off at any time (they start off). Every notification email has an unsubscribe link.</li>
+            <li>Unlink Google (once your account has a password), or disconnect Roblox at any time. Cards you got from the game stay in your collection.</li>
+            <li>Hide or show your Roblox name on your public profile.</li>
+            <li>Delete your own comments and chat messages.</li>
+            <li><strong>Get a copy of your data, correct it, or delete your account:</strong> email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> from your account's email address, or message us on <a href={discord} rel="noopener" target="_blank">Discord</a> so we can check it's you. We'll answer within 30 days.</li>
+        </ul>
+        <p>Depending on where you live (for example the EU, the UK or California), you may have more rights over your data, such as objecting to how it's used or complaining to a data protection authority. Email us and we'll help.</p>
+    </section>
+
+    <section id="children">
+        <h2>Children</h2>
+        <p>Accounts are for people 13 and older (see the <a href="/terms#accounts">terms</a>). Anyone can browse, compare animals and vote as a guest without one. We don't knowingly let children under 13 create accounts. If you're a parent or guardian and think your child has made one, email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> and we'll delete it.</p>
+    </section>
+
+    <section id="security">
+        <h2>Security</h2>
+        <p>The site uses HTTPS everywhere. Passwords are stored only as bcrypt hashes. The sign-in cookie can't be read by page scripts, IP addresses are never stored, and sign-in attempts are rate limited. No system is perfect, so use a password you don't use anywhere else.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Changes and contact</h2>
+        <p>If this policy changes, we'll update this page and the date at the top. For anything about your data, email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or message us on <a href={discord} rel="noopener" target="_blank">Discord</a>.</p>
+    </section>
+</LegalPage>

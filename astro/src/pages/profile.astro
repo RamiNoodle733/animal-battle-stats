@@ -101,7 +101,7 @@ const EARN = [
                         {RB_STATS.map(([id, label]) => <div><dt>{label}</dt><dd data-rb-stat={id}>–</dd></div>)}
                     </dl>
                     <p class="small rb-note" data-rb-note>{ROBLOX.live ? 'Loading your stats…' : 'Your stats show up here once the game is live.'}</p>
-                    <label class="rb-public"><input type="checkbox" data-rb-public /><span><b>Show my Roblox name on my public profile</b><small>Your game progress shows there either way, under your name here. Your Roblox avatar and id are never shown.</small></span></label>
+                    <label class="rb-public"><input type="checkbox" data-rb-public /><span><b>Show my Roblox name on my public profile</b><small>Your game progress shows there either way, under your name here (never your Coins, or whether you're playing right now). Your Roblox avatar and id are never shown.</small></span></label>
                     <div class="btn-row">
                         {ROBLOX.live && <a class="btn btn-play btn-sm" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={18} />Play</a>}
                         <a class="btn btn-gold btn-sm" href="/collection"><Icon name="cards" size={18} />My cards</a>

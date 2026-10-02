@@ -64,6 +64,8 @@ if (params.get('roblox_error')) show(params.get('message') || 'Roblox sign-in fa
 if (mode === 'reset' && (!params.get('email') || !params.get('token'))) {
     show('This reset link is incomplete. Request a new one from the forgot password page.', true);
 }
+// The link's email and token are read above; keep them out of the address bar and history.
+if (mode === 'reset' && location.search) history.replaceState(null, '', location.pathname);
 
 // Already signed in: log in and sign up have nothing to do.
 document.addEventListener('abs:user', () => {

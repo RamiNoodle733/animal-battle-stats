@@ -1,0 +1,89 @@
+---
+import LegalPage from '../components/LegalPage.astro';
+import { SITE, SOCIAL } from '../lib/site.js';
+
+const UPDATED = '2026-10-02';
+const discord = SOCIAL.find((link) => link.name === 'Discord')?.url;
+const SECTIONS = [
+    ['about', 'The site'],
+    ['accounts', 'Accounts'],
+    ['rules', 'Community rules'],
+    ['content', 'What you post'],
+    ['points', 'BattlePoints, cards and looks'],
+    ['roblox', 'The Roblox game'],
+    ['ours', 'Our content'],
+    ['no-warranty', 'No guarantees'],
+    ['changes', 'Changes and contact']
+];
+---
+
+<LegalPage title="Terms of Use" heading="Terms of use" description={`The rules for using ${SITE.name}: accounts, community rules, BattlePoints and cards, the Roblox game, and sharing our content.`} path="/terms" updated={UPDATED} sections={SECTIONS}>
+    <p>These terms are the rules for using {SITE.name} at animalbattlestats.com. By using the site you agree to them. They're written to be read, so they're short. How we handle your information is in the <a href="/privacy">privacy policy</a>.</p>
+
+    <section id="about">
+        <h2>The site</h2>
+        <p>{SITE.name} is a free site about real animals: stats, rankings, tier lists, "who would win" matchups, votes, tournaments and cards. It's an independent fan project. It isn't affiliated with or endorsed by Roblox Corporation, Google or any other company named on the site.</p>
+        <p>Every fight on the site is hypothetical. Ratings and predictions come from a model built on published research, and they're estimates for fun and learning, not facts about real fights. We never support making animals fight or harming them in any way.</p>
+    </section>
+
+    <section id="accounts">
+        <h2>Accounts</h2>
+        <ul>
+            <li>You don't need an account to browse, compare animals or vote as a guest.</li>
+            <li>You need to be <strong>13 or older</strong> to create an account. If you're under 13, please enjoy the site without one.</li>
+            <li>One account per person. Keep your password to yourself; you're responsible for what happens on your account.</li>
+            <li>Usernames and display names have to follow the community rules. A name that breaks them is hidden from other players until it's changed.</li>
+            <li>You can sign in with email, Google or Roblox, and link or unlink Google and Roblox from your profile.</li>
+        </ul>
+    </section>
+
+    <section id="rules">
+        <h2>Community rules</h2>
+        <p>Comments, chat, names and everything else you post must not:</p>
+        <ul>
+            <li>harass, bully, threaten or hate on anyone</li>
+            <li>contain sexual content, slurs, or anything inappropriate for a younger audience</li>
+            <li>share anyone's personal information, including your own (real name, address, phone, school, social accounts)</li>
+            <li>spam, advertise, or link to scams</li>
+            <li>pretend to be someone else, including staff</li>
+        </ul>
+        <p>Don't cheat either: no bots, scripts, multiple accounts or exploits to farm votes, BattlePoints, cards or leaderboard places, and don't try to break or overload the site.</p>
+        <p>Moderators can hide names, remove posts and mute players from chat and comments. Breaking the rules badly or repeatedly can get an account closed. If you see something that breaks the rules, tell us on <a href={discord} rel="noopener" target="_blank">Discord</a>.</p>
+    </section>
+
+    <section id="content">
+        <h2>What you post</h2>
+        <p>Comments, chat messages, your username, display name, level and votes can be seen by everyone. You keep ownership of what you write, and you let us show it on the site (and in our community channels, such as the activity feed on Discord). We can remove anything that breaks these terms.</p>
+    </section>
+
+    <section id="points">
+        <h2>BattlePoints, cards and looks</h2>
+        <ul>
+            <li>BattlePoints, cards, looks, levels, quests and the Season Pass are part of the game on this site. They're <strong>free</strong>: they can't be bought with money, sold, traded for money, or cashed out, and they have no money value.</li>
+            <li>Nothing is random. There are no packs or loot boxes: you always know which card you're getting and what it costs.</li>
+            <li>We can adjust balances, cards or progress to fix bugs, undo cheating, or rebalance the game.</li>
+            <li>Site rewards stay on the site. They never turn into anything in the Roblox game.</li>
+        </ul>
+    </section>
+
+    <section id="roblox">
+        <h2>The Roblox game</h2>
+        <p>The {SITE.name} Roblox game is a separate experience on Roblox, and <a href="https://www.roblox.com/info/terms" rel="noopener" target="_blank">Roblox's terms</a> apply there. If you connect your Roblox account here, the site reads your game progress to show on your profile and in your card collection; it never changes anything in the game. Progress only goes from the game to the site. The game's codes, posted on <a href="/roblox">/roblox</a>, are public for everyone.</p>
+    </section>
+
+    <section id="ours">
+        <h2>Our content</h2>
+        <p>The animal stats, research write-ups, rankings, card designs and site design belong to {SITE.name}. Animal photos are used under their own licenses, credited on the <a href="/credits">credits page</a>.</p>
+        <p>You're welcome to share links, cards, videos and screenshots, and to quote our stats with a link back to the page. Search engines and AI assistants may read and cite every public page (see <a href="/robots.txt">robots.txt</a> and <a href="/llms.txt">llms.txt</a>). Please don't copy the whole database or pass the site off as your own.</p>
+    </section>
+
+    <section id="no-warranty">
+        <h2>No guarantees</h2>
+        <p>The site is provided as it is. We work to keep the facts right and the site running, but we can't promise it's always accurate, available or free of bugs. To the extent the law allows, we aren't liable for losses from using the site. We can change, pause or stop any part of it.</p>
+    </section>
+
+    <section id="changes">
+        <h2>Changes and contact</h2>
+        <p>If these terms change, we'll update this page and the date at the top. Questions? Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or message us on <a href={discord} rel="noopener" target="_blank">Discord</a>.</p>
+    </section>
+</LegalPage>

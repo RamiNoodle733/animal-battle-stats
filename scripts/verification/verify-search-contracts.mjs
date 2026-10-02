@@ -25,13 +25,14 @@ const sitemapResponse = await request('/sitemap.xml', { headers: { 'User-Agent':
 assert(sitemapResponse.status === 200, 'OAI-SearchBot could not fetch sitemap', { status: sitemapResponse.status });
 const sitemapText = await sitemapResponse.text();
 const urls = [...sitemapText.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
-assert(urls.length === 234 && new Set(urls).size === urls.length, 'sitemap URL count or uniqueness changed', { count: urls.length });
+// Every animal and matchup page is listed: well over a thousand URLs, each once.
+assert(urls.length >= 1000 && new Set(urls).size === urls.length, 'sitemap URL count or uniqueness changed', { count: urls.length });
 urls.forEach((value) => {
     const url = new URL(value);
     assert(url.origin === SITE_ORIGIN && !url.search && !url.hash, 'sitemap contains a non-canonical URL', { value });
 });
 
-const crawlerSamples = ['/', '/battle', '/about', '/stats/african-elephant'];
+const crawlerSamples = ['/', '/compare', '/vote', '/powerscaling', '/about', '/stats/african-elephant', '/compare/siberian-tiger-vs-african-lion'];
 for (const pathname of crawlerSamples) {
     const response = await request(pathname, { headers: { 'User-Agent': searchBotAgent } });
     assert(response.status === 200, 'crawler-visible page failed', { pathname, status: response.status });
@@ -44,7 +45,7 @@ for (const pathname of crawlerSamples) {
 const queryVariants = [
     ['/?utm_source=contract-test', `${SITE_ORIGIN}/`],
     ['/stats?animal=african-elephant&sort=rank', `${SITE_ORIGIN}/stats`],
-    ['/battle?a=african-lion&b=african-elephant&v=0.1.0-preview', `${SITE_ORIGIN}/battle`],
+    ['/vote?m=siberian-tiger-vs-african-lion', `${SITE_ORIGIN}/vote`],
     ['/compare?animals=african-lion,african-elephant', `${SITE_ORIGIN}/compare`]
 ];
 for (const [pathname, expectedCanonical] of queryVariants) {
@@ -66,7 +67,7 @@ for (const pathname of ['/definitely-not-a-real-abs-route-92741', '/stats/not-a-
     assert(response.status === 404, 'unknown route is a soft 404', { pathname, status: response.status });
 }
 
-const linkSources = ['/', '/battle', '/about', '/stats/african-elephant'];
+const linkSources = ['/', '/vote', '/powerscaling', '/about', '/stats/african-elephant'];
 const checkedLinks = new Set();
 for (const pathname of linkSources) {
     const response = await request(pathname);

@@ -19,7 +19,7 @@ npm run seo:contracts
 npm run seo:audit
 ```
 
-The contract check verifies the 234 unique absolute sitemap URLs, OAI-SearchBot access, metadata and JSON-LD on representative routes, canonical query variants, true 404s, the clean `.html` redirect in production, and reachable internal destinations. The complete SEO audit checks every sitemap URL.
+The contract check verifies that the sitemap lists every canonical URL once (over a thousand), OAI-SearchBot access, metadata and JSON-LD on representative routes, canonical query variants, true 404s, the clean `.html` redirect in production, and reachable internal destinations. The complete SEO audit checks every sitemap URL.
 
 ## SearchBot and training are separate controls
 

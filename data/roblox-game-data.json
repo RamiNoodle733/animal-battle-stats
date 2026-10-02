@@ -1,0 +1,9623 @@
+{
+ "about": "Exported from the Roblox game by tools/export-site-data.luau. Do not edit by hand.",
+ "animals": [
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Trunk Strike"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Crushing Charge"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "SAVANNA",
+   "family": "GIANTS",
+   "id": "african-elephant",
+   "name": "African Elephant",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Colossal",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Paw Swipe"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Pride Tactics"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "SAVANNA",
+   "family": "BIG_CATS",
+   "id": "african-lion",
+   "name": "African Lion",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Endurance Hunting"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Pack Coordination"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "SAVANNA",
+   "family": "WILD_DOGS",
+   "id": "african-wild-dog",
+   "name": "African Wild Dog",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Hooked Beak"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Dynamic Soaring"
+    }
+   ],
+   "archetype": "Traveler",
+   "biome": "OCEAN",
+   "family": "FEATHERED",
+   "id": "albatross",
+   "name": "Albatross",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Large",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Death Roll"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "Underwater Ambush"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "WETLANDS",
+   "family": "SCALES",
+   "id": "alligator",
+   "name": "Alligator",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Large",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Front Kick"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Alert Call"
+    }
+   ],
+   "archetype": "Herd Animal",
+   "biome": "MOUNTAINS",
+   "family": "HOOVES",
+   "id": "alpaca",
+   "name": "Alpaca",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Death Coil"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "Aquatic Stealth"
+    }
+   ],
+   "archetype": "Grappler",
+   "biome": "WETLANDS",
+   "family": "SERPENTS",
+   "id": "anaconda",
+   "name": "Anaconda",
+   "nocturnal": true,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Bioluminescent Lure"
+    },
+    {
+     "kind": "FLURRY",
+     "name": "Vacuum Feeding"
+    }
+   ],
+   "archetype": "Lure",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "anglerfish",
+   "name": "Anglerfish",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Claw Slash"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Bear Hug"
+    }
+   ],
+   "archetype": "Specialist",
+   "biome": "SAVANNA",
+   "family": "ODDBALLS",
+   "id": "anteater",
+   "name": "Anteater",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Snow Pounce"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Camouflage"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "ARCTIC",
+   "family": "WILD_DOGS",
+   "id": "arctic-fox",
+   "name": "Arctic Fox",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Tiny",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Chase Bite"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Pack Hunting"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "ARCTIC",
+   "family": "WILD_DOGS",
+   "id": "arctic-wolf",
+   "name": "Arctic Wolf",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Startle Jump"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Shell Defense"
+    }
+   ],
+   "archetype": "Defender",
+   "biome": "FOREST",
+   "family": "ARMORED",
+   "id": "armadillo",
+   "name": "Armadillo",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Swarm Attack"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Coordinated Hunting"
+    }
+   ],
+   "archetype": "Swarm",
+   "biome": "JUNGLE",
+   "family": "BUGS",
+   "id": "army-ant",
+   "name": "Army Ant",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Gulp"
+    },
+    {
+     "kind": "MEND",
+     "name": "Regenerate"
+    }
+   ],
+   "archetype": "Support",
+   "biome": "WETLANDS",
+   "family": "ODDBALLS",
+   "id": "axolotl",
+   "name": "Axolotl",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Fang Flash"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Troop Call"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "SAVANNA",
+   "family": "PRIMATES",
+   "id": "baboon",
+   "name": "Baboon",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Heavy Kick"
+    },
+    {
+     "kind": "MEND",
+     "name": "Hump Reserve"
+    }
+   ],
+   "archetype": "Survivor",
+   "biome": "DESERT",
+   "family": "HOOVES",
+   "id": "bactrian-camel",
+   "name": "Bactrian Camel",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Claw Dig"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Defensive Stance"
+    }
+   ],
+   "archetype": "Digger",
+   "biome": "FOREST",
+   "family": "MISCHIEF",
+   "id": "badger",
+   "name": "Badger",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Talon Grip"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "Dive Strike"
+    }
+   ],
+   "archetype": "Sky Hunter",
+   "biome": "WETLANDS",
+   "family": "RAPTORS",
+   "id": "bald-eagle",
+   "name": "Bald Eagle",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Small",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Silent Swoop"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Sound Tracking"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "FOREST",
+   "family": "RAPTORS",
+   "id": "barn-owl",
+   "name": "Barn Owl",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Torpedo Bite"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Burst Speed"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "OCEAN",
+   "family": "JAWS",
+   "id": "barracuda",
+   "name": "Barracuda",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Bite Defense"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Dam Builder"
+    }
+   ],
+   "archetype": "Engineer",
+   "biome": "WETLANDS",
+   "family": "ODDBALLS",
+   "id": "beaver",
+   "name": "Beaver",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Sonic Blast"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Bubble Ring"
+    }
+   ],
+   "archetype": "Support",
+   "biome": "ARCTIC",
+   "family": "OPEN_SEA",
+   "id": "beluga-whale",
+   "name": "Beluga Whale",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Head Ram"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Mountain Agility"
+    }
+   ],
+   "archetype": "Climber",
+   "biome": "MOUNTAINS",
+   "family": "HORNS",
+   "id": "bighorn-sheep",
+   "name": "Bighorn Sheep",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Head Butt"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Herd Charge"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "SAVANNA",
+   "family": "HORNS",
+   "id": "bison",
+   "name": "Bison",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Bear Swipe"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Thick Fur"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "FOREST",
+   "family": "BEARS",
+   "id": "black-bear",
+   "name": "Black Bear",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Rapid Strike"
+    },
+    {
+     "kind": "VENOM",
+     "name": "Neurotoxin"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "SAVANNA",
+   "family": "SERPENTS",
+   "id": "black-mamba",
+   "name": "Black Mamba",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Shadow Pounce"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Night Cloak"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "JUNGLE",
+   "family": "BIG_CATS",
+   "id": "black-panther",
+   "name": "Black Panther",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Horn Charge"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Armored Hide"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "SAVANNA",
+   "family": "GIANTS",
+   "id": "black-rhinoceros",
+   "name": "Black Rhinoceros",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Widow's Venom"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Web Trap"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "FOREST",
+   "family": "BUGS",
+   "id": "black-widow",
+   "name": "Black Widow",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Sonic Boom"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Fluke Slam"
+    }
+   ],
+   "archetype": "Titan",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "blue-whale",
+   "name": "Blue Whale",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Colossal",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Crushing Coils"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Patient Wait"
+    }
+   ],
+   "archetype": "Grappler",
+   "biome": "JUNGLE",
+   "family": "SERPENTS",
+   "id": "boa-constrictor",
+   "name": "Boa Constrictor",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Pounce Strike"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Tufted Senses"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "FOREST",
+   "family": "BIG_CATS",
+   "id": "bobcat",
+   "name": "Bobcat",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Spiral Horns"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Forest Fade"
+    }
+   ],
+   "archetype": "Stealth",
+   "biome": "JUNGLE",
+   "family": "HORNS",
+   "id": "bongo",
+   "name": "Bongo",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Sonic Stun"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Pack Tactics"
+    }
+   ],
+   "archetype": "Skirmisher",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "bottlenose-dolphin",
+   "name": "Bottlenose Dolphin",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Lethal Sting"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Invisibility"
+    }
+   ],
+   "archetype": "Passive Killer",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "box-jellyfish",
+   "name": "Box Jellyfish",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "River Ambush"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Bump and Bite"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "OCEAN",
+   "family": "JAWS",
+   "id": "bull-shark",
+   "name": "Bull Shark",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "SPEED",
+   "size": "Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Bullet Sting"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Colony Swarm"
+    }
+   ],
+   "archetype": "Soldier",
+   "biome": "JUNGLE",
+   "family": "BUGS",
+   "id": "bullet-ant",
+   "name": "Bullet Ant",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Tongue Snap"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Mega Leap"
+    }
+   ],
+   "archetype": "Jumper",
+   "biome": "WETLANDS",
+   "family": "ODDBALLS",
+   "id": "bullfrog",
+   "name": "Bullfrog",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Spit Attack"
+    },
+    {
+     "kind": "MEND",
+     "name": "Desert Endurance"
+    }
+   ],
+   "archetype": "Endurance",
+   "biome": "DESERT",
+   "family": "HOOVES",
+   "id": "camel",
+   "name": "Camel",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Jaw Frenzy"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Desert Dash"
+    }
+   ],
+   "archetype": "Berserker",
+   "biome": "DESERT",
+   "family": "BUGS",
+   "id": "camel-spider",
+   "name": "Camel Spider",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Horn Gore"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Stampede"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "SAVANNA",
+   "family": "HORNS",
+   "id": "cape-buffalo",
+   "name": "Cape Buffalo",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Stone Tool Smash"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Clever Tricks"
+    }
+   ],
+   "archetype": "Rogue",
+   "biome": "JUNGLE",
+   "family": "PRIMATES",
+   "id": "capuchin-monkey",
+   "name": "Capuchin Monkey",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Chisel Bite"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Friendship Aura"
+    }
+   ],
+   "archetype": "Support",
+   "biome": "WETLANDS",
+   "family": "ODDBALLS",
+   "id": "capybara",
+   "name": "Capybara",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Mid-air Snatch"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Vertical Leap"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "DESERT",
+   "family": "BIG_CATS",
+   "id": "caracal",
+   "name": "Caracal",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Dagger Kick"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Charge Attack"
+    }
+   ],
+   "archetype": "Striker",
+   "biome": "JUNGLE",
+   "family": "FEATHERED",
+   "id": "cassowary",
+   "name": "Cassowary",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Tongue Strike"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Color Shift"
+    }
+   ],
+   "archetype": "Stealth",
+   "biome": "JUNGLE",
+   "family": "SCALES",
+   "id": "chameleon",
+   "name": "Chameleon",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Precision Strike"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Blur Sprint"
+    }
+   ],
+   "archetype": "Skirmisher",
+   "biome": "SAVANNA",
+   "family": "BIG_CATS",
+   "id": "cheetah",
+   "name": "Cheetah",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Tool Weapon"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Group Coordination"
+    }
+   ],
+   "archetype": "Skirmisher",
+   "biome": "JUNGLE",
+   "family": "PRIMATES",
+   "id": "chimpanzee",
+   "name": "Chimpanzee",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Tree Ambush"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Saber Bite"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "JUNGLE",
+   "family": "BIG_CATS",
+   "id": "clouded-leopard",
+   "name": "Clouded Leopard",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Beak Crack"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Crest Screech"
+    }
+   ],
+   "archetype": "Bard",
+   "biome": "FOREST",
+   "family": "AUSSIE",
+   "id": "cockatoo",
+   "name": "Cockatoo",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Giant Pincer"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Shell Fortress"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "JUNGLE",
+   "family": "ARMORED",
+   "id": "coconut-crab",
+   "name": "Coconut Crab",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Hooked Tentacles"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Ink Cloud"
+    }
+   ],
+   "archetype": "Grappler",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "colossal-squid",
+   "name": "Colossal Squid",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Scavenger Strike"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Sky Glide"
+    }
+   ],
+   "archetype": "Scavenger",
+   "biome": "MOUNTAINS",
+   "family": "RAPTORS",
+   "id": "condor",
+   "name": "Condor",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Pounce Attack"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Mountain Agility"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "MOUNTAINS",
+   "family": "BIG_CATS",
+   "id": "cougar",
+   "name": "Cougar",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Mouse Pounce"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Pack Communication"
+    }
+   ],
+   "archetype": "Pack Hunter",
+   "biome": "SAVANNA",
+   "family": "WILD_DOGS",
+   "id": "coyote",
+   "name": "Coyote",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Peck Barrage"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Mob Call"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "FOREST",
+   "family": "FEATHERED",
+   "id": "crow",
+   "name": "Crow",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Tentacle Snatch"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Hypno Colors"
+    }
+   ],
+   "archetype": "Mage",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "cuttlefish",
+   "name": "Cuttlefish",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Deathstalker Sting"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Pincer Grab"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "DESERT",
+   "family": "BUGS",
+   "id": "deathstalker-scorpion",
+   "name": "Deathstalker Scorpion",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Pack Bite"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Whistle Hunt"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "FOREST",
+   "family": "WILD_DOGS",
+   "id": "dhole",
+   "name": "Dhole",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Endurance Hunt"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Pack Tactics"
+    }
+   ],
+   "archetype": "Pack Hunter",
+   "biome": "DESERT",
+   "family": "WILD_DOGS",
+   "id": "dingo",
+   "name": "Dingo",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Donkey Kick"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Stubborn Will"
+    }
+   ],
+   "archetype": "Worker",
+   "biome": "DESERT",
+   "family": "HOOVES",
+   "id": "donkey",
+   "name": "Donkey",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Hover Strike"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Four-Wing Dodge"
+    }
+   ],
+   "archetype": "Ace",
+   "biome": "WETLANDS",
+   "family": "BUGS",
+   "id": "dragonfly",
+   "name": "Dragonfly",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Electric Shock"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Stun Pulse"
+    }
+   ],
+   "archetype": "Electric",
+   "biome": "WETLANDS",
+   "family": "DEEP_WEIRD",
+   "id": "electric-eel",
+   "name": "Electric Eel",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Antler Charge"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Bugling Intimidation"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "FOREST",
+   "family": "HORNS",
+   "id": "elk",
+   "name": "Elk",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Deep Dive"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Ice Slide"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "ARCTIC",
+   "family": "FEATHERED",
+   "id": "emperor-penguin",
+   "name": "Emperor Penguin",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Pincer Crush"
+    },
+    {
+     "kind": "VENOM",
+     "name": "Sting"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "JUNGLE",
+   "family": "BUGS",
+   "id": "emperor-scorpion",
+   "name": "Emperor Scorpion",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Tiny",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Kick Strike"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Distance Runner"
+    }
+   ],
+   "archetype": "Runner",
+   "biome": "DESERT",
+   "family": "AUSSIE",
+   "id": "emu",
+   "name": "Emu",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Quick Nips"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Heat Sense"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "DESERT",
+   "family": "WILD_DOGS",
+   "id": "fennec-fox",
+   "name": "Fennec Fox",
+   "nocturnal": true,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Tiny",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Tunnel Bite"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "War Dance"
+    }
+   ],
+   "archetype": "Rogue",
+   "biome": "SAVANNA",
+   "family": "MISCHIEF",
+   "id": "ferret",
+   "name": "Ferret",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Beak Jab"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Synchronized Movement"
+    }
+   ],
+   "archetype": "Filter Feeder",
+   "biome": "WETLANDS",
+   "family": "FEATHERED",
+   "id": "flamingo",
+   "name": "Flamingo",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Glide Strike"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Tree Hop"
+    }
+   ],
+   "archetype": "Glider",
+   "biome": "FOREST",
+   "family": "ODDBALLS",
+   "id": "flying-squirrel",
+   "name": "Flying Squirrel",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Giant Fangs"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Leaf Litter Hide"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "JUNGLE",
+   "family": "SERPENTS",
+   "id": "gaboon-viper",
+   "name": "Gaboon Viper",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Bulldoze"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Shell Withdraw"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "DESERT",
+   "family": "SCALES",
+   "id": "galapagos-tortoise",
+   "name": "Galapagos Tortoise",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Horn Flick"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Evasive Dash"
+    }
+   ],
+   "archetype": "Speed Demon",
+   "biome": "SAVANNA",
+   "family": "HORNS",
+   "id": "gazelle",
+   "name": "Gazelle",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Snap Bite"
+    },
+    {
+     "kind": "MEND",
+     "name": "Tail Drop"
+    }
+   ],
+   "archetype": "Climber",
+   "biome": "DESERT",
+   "family": "SCALES",
+   "id": "gecko",
+   "name": "Gecko",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Venom Injection"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Coil Grip"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "JUNGLE",
+   "family": "BUGS",
+   "id": "giant-centipede",
+   "name": "Giant Centipede",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Tentacle Lash"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Abyss Eyes"
+    }
+   ],
+   "archetype": "Grappler",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "giant-squid",
+   "name": "Giant Squid",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Swing Kick"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Canopy Song"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "JUNGLE",
+   "family": "PRIMATES",
+   "id": "gibbon",
+   "name": "Gibbon",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Venom Chew"
+    },
+    {
+     "kind": "MEND",
+     "name": "Fat Tail Reserve"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "DESERT",
+   "family": "SCALES",
+   "id": "gila-monster",
+   "name": "Gila Monster",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Knockout Kick"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Height Advantage"
+    }
+   ],
+   "archetype": "Long Reach",
+   "biome": "SAVANNA",
+   "family": "GIANTS",
+   "id": "giraffe",
+   "name": "Giraffe",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Colossal",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Talon Dive"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Eagle Eye"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "MOUNTAINS",
+   "family": "RAPTORS",
+   "id": "golden-eagle",
+   "name": "Golden Eagle",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Venom Bite"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Hair Flick"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "JUNGLE",
+   "family": "BUGS",
+   "id": "goliath-birdeater",
+   "name": "Goliath Birdeater",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Bite Attack"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Alarm Call"
+    }
+   ],
+   "archetype": "Aggressor",
+   "biome": "WETLANDS",
+   "family": "FEATHERED",
+   "id": "goose",
+   "name": "Goose",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Gorilla Smash"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Intimidation Display"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "MOUNTAINS",
+   "family": "PRIMATES",
+   "id": "gorilla",
+   "name": "Gorilla",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Endurance Hunt"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Pack Tactics"
+    }
+   ],
+   "archetype": "Pack Hunter",
+   "biome": "FOREST",
+   "family": "WILD_DOGS",
+   "id": "gray-wolf",
+   "name": "Gray Wolf",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Crushing Talons"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Night Vision"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "FOREST",
+   "family": "RAPTORS",
+   "id": "great-horned-owl",
+   "name": "Great Horned Owl",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Breach Attack"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Sensory Dominance"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "OCEAN",
+   "family": "JAWS",
+   "id": "great-white-shark",
+   "name": "Great White Shark",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "CUNNING",
+   "size": "Extra Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Anaconda Squeeze"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "River Lurk"
+    }
+   ],
+   "archetype": "Grappler",
+   "biome": "WETLANDS",
+   "family": "SERPENTS",
+   "id": "green-anaconda",
+   "name": "Green Anaconda",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Bear Hug"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Berserker Rage"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "FOREST",
+   "family": "BEARS",
+   "id": "grizzly-bear",
+   "name": "Grizzly Bear",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Kick and Bite"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Spit Shot"
+    }
+   ],
+   "archetype": "Survivor",
+   "biome": "DESERT",
+   "family": "HOOVES",
+   "id": "guanaco",
+   "name": "Guanaco",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Head Ram"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Sensor Sweep"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "OCEAN",
+   "family": "JAWS",
+   "id": "hammerhead-shark",
+   "name": "Hammerhead Shark",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "SPEED",
+   "size": "Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Canopy Ambush"
+    },
+    {
+     "kind": "PIERCE",
+     "name": "Crushing Talons"
+    }
+   ],
+   "archetype": "Sky Hunter",
+   "biome": "JUNGLE",
+   "family": "RAPTORS",
+   "id": "harpy-eagle",
+   "name": "Harpy Eagle",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Quill Jab"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Spine Ball"
+    }
+   ],
+   "archetype": "Defender",
+   "biome": "FOREST",
+   "family": "ARMORED",
+   "id": "hedgehog",
+   "name": "Hedgehog",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Snap Bite"
+    },
+    {
+     "kind": "MEND",
+     "name": "Slime Coat"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "WETLANDS",
+   "family": "ODDBALLS",
+   "id": "hellbender",
+   "name": "Hellbender",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Horn Toss"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Iron Shell"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "JUNGLE",
+   "family": "BUGS",
+   "id": "hercules-beetle",
+   "name": "Hercules Beetle",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Jaw Crush"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Territorial Rage"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "WETLANDS",
+   "family": "GIANTS",
+   "id": "hippopotamus",
+   "name": "Hippopotamus",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Extra Large",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Reckless Fury"
+    },
+    {
+     "kind": "MEND",
+     "name": "Pain Immunity"
+    }
+   ],
+   "archetype": "Berserker",
+   "biome": "SAVANNA",
+   "family": "MISCHIEF",
+   "id": "honey-badger",
+   "name": "Honey Badger",
+   "nocturnal": true,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Hornet Sting"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Hive Swarm"
+    }
+   ],
+   "archetype": "Soldier",
+   "biome": "FOREST",
+   "family": "BUGS",
+   "id": "hornet",
+   "name": "Hornet",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Howl Blast"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Troop Chorus"
+    }
+   ],
+   "archetype": "Bard",
+   "biome": "JUNGLE",
+   "family": "PRIMATES",
+   "id": "howler-monkey",
+   "name": "Howler Monkey",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Needle Beak"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Hover Blur"
+    }
+   ],
+   "archetype": "Speedster",
+   "biome": "JUNGLE",
+   "family": "FEATHERED",
+   "id": "hummingbird",
+   "name": "Hummingbird",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Blitz Bite"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Flat Dash"
+    }
+   ],
+   "archetype": "Speedster",
+   "biome": "FOREST",
+   "family": "BUGS",
+   "id": "huntsman-spider",
+   "name": "Huntsman Spider",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Bone Crusher"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Mob Tactics"
+    }
+   ],
+   "archetype": "Pack Hunter",
+   "biome": "SAVANNA",
+   "family": "WILD_DOGS",
+   "id": "hyena",
+   "name": "Hyena",
+   "nocturnal": true,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Head Butt"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Balance Master"
+    }
+   ],
+   "archetype": "Climber",
+   "biome": "MOUNTAINS",
+   "family": "HORNS",
+   "id": "ibex",
+   "name": "Ibex",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Tail Whip"
+    },
+    {
+     "kind": "MEND",
+     "name": "Sun Bask"
+    }
+   ],
+   "archetype": "Civilian",
+   "biome": "JUNGLE",
+   "family": "SCALES",
+   "id": "iguana",
+   "name": "Iguana",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Horn Jab"
+    },
+    {
+     "kind": "HASTE",
+     "name": "High Jump"
+    }
+   ],
+   "archetype": "Jumper",
+   "biome": "SAVANNA",
+   "family": "HORNS",
+   "id": "impala",
+   "name": "Impala",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Snatch Bite"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Pair Bond"
+    }
+   ],
+   "archetype": "Opportunist",
+   "biome": "SAVANNA",
+   "family": "WILD_DOGS",
+   "id": "jackal",
+   "name": "Jackal",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Crushing Jaws"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "Water Hunter"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "JUNGLE",
+   "family": "BIG_CATS",
+   "id": "jaguar",
+   "name": "Jaguar",
+   "nocturnal": true,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Troop Brawl"
+    },
+    {
+     "kind": "MEND",
+     "name": "Hot Spring Rest"
+    }
+   ],
+   "archetype": "Survivor",
+   "biome": "MOUNTAINS",
+   "family": "PRIMATES",
+   "id": "japanese-macaque",
+   "name": "Japanese Macaque",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Kick Strike"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Bounding Escape"
+    }
+   ],
+   "archetype": "Striker",
+   "biome": "DESERT",
+   "family": "AUSSIE",
+   "id": "kangaroo",
+   "name": "Kangaroo",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Venom Strike"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Intimidation"
+    }
+   ],
+   "archetype": "Venomous Hunter",
+   "biome": "FOREST",
+   "family": "SERPENTS",
+   "id": "king-cobra",
+   "name": "King Cobra",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Spiked Claw"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Spiny Shell"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "ARCTIC",
+   "family": "ARMORED",
+   "id": "king-crab",
+   "name": "King Crab",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Probe Beak"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Night Forage"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "FOREST",
+   "family": "FEATHERED",
+   "id": "kiwi",
+   "name": "Kiwi",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Claw Grip"
+    },
+    {
+     "kind": "MEND",
+     "name": "Eucalyptus Nap"
+    }
+   ],
+   "archetype": "Civilian",
+   "biome": "FOREST",
+   "family": "AUSSIE",
+   "id": "koala",
+   "name": "Koala",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Toxic Bite"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Patient Stalker"
+    }
+   ],
+   "archetype": "Venomous Hunter",
+   "biome": "DESERT",
+   "family": "SCALES",
+   "id": "komodo-dragon",
+   "name": "Komodo Dragon",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Snake Slam"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Laughing Call"
+    }
+   ],
+   "archetype": "Bard",
+   "biome": "FOREST",
+   "family": "AUSSIE",
+   "id": "kookaburra",
+   "name": "Kookaburra",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Corkscrew Horns"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Bush Leap"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "SAVANNA",
+   "family": "HORNS",
+   "id": "kudu",
+   "name": "Kudu",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Flipper Slam"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Leather Shell"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "leatherback-sea-turtle",
+   "name": "Leatherback Sea Turtle",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Tree Ambush"
+    },
+    {
+     "kind": "PIERCE",
+     "name": "Shadow Strike"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "SAVANNA",
+   "family": "BIG_CATS",
+   "id": "leopard",
+   "name": "Leopard",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Venom Spines"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Fin Trap"
+    }
+   ],
+   "archetype": "Toxic",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "lionfish",
+   "name": "Lionfish",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Kick Strike"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Spit Defense"
+    }
+   ],
+   "archetype": "Defender",
+   "biome": "MOUNTAINS",
+   "family": "HOOVES",
+   "id": "llama",
+   "name": "Llama",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Crusher Claw"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Tail Flip"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "OCEAN",
+   "family": "ARMORED",
+   "id": "lobster",
+   "name": "Lobster",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Silent Stalk"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Winter Hunter"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "ARCTIC",
+   "family": "BIG_CATS",
+   "id": "lynx",
+   "name": "Lynx",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Nutcracker Beak"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Rainbow Squawk"
+    }
+   ],
+   "archetype": "Bard",
+   "biome": "JUNGLE",
+   "family": "FEATHERED",
+   "id": "macaw",
+   "name": "Macaw",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Shiny Snatch"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Mirror Mind"
+    }
+   ],
+   "archetype": "Thief",
+   "biome": "FOREST",
+   "family": "FEATHERED",
+   "id": "magpie",
+   "name": "Magpie",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Tail Push"
+    },
+    {
+     "kind": "MEND",
+     "name": "Gentle Nature"
+    }
+   ],
+   "archetype": "Gentle Giant",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "manatee",
+   "name": "Manatee",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Long Fangs"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Fang Display"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "JUNGLE",
+   "family": "PRIMATES",
+   "id": "mandrill",
+   "name": "Mandrill",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Pounce Bite"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Stilt Stride"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "SAVANNA",
+   "family": "WILD_DOGS",
+   "id": "maned-wolf",
+   "name": "Maned Wolf",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Breach Slam"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Barrel Roll"
+    }
+   ],
+   "archetype": "Glider",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "manta-ray",
+   "name": "Manta Ray",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Sonic Punch"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Visual Supremacy"
+    }
+   ],
+   "archetype": "Glass Cannon",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "mantis-shrimp",
+   "name": "Mantis Shrimp",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Tiny",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Spear Bill"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Ocean Sprint"
+    }
+   ],
+   "archetype": "Speedster",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "marlin",
+   "name": "Marlin",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Quick Bites"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Group Alert"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "DESERT",
+   "family": "MISCHIEF",
+   "id": "meerkat",
+   "name": "Meerkat",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Tiny",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Whale Hunter"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Ancient Terror"
+    }
+   ],
+   "archetype": "Titan",
+   "biome": "OCEAN",
+   "family": "JAWS",
+   "id": "megalodon",
+   "name": "Megalodon",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Colossal",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Toxic Wings"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Migration Swarm"
+    }
+   ],
+   "archetype": "Civilian",
+   "biome": "SAVANNA",
+   "family": "BUGS",
+   "id": "monarch-butterfly",
+   "name": "Monarch Butterfly",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Head Bite"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Snake Dodge"
+    }
+   ],
+   "archetype": "Serpent Killer",
+   "biome": "FOREST",
+   "family": "MISCHIEF",
+   "id": "mongoose",
+   "name": "Mongoose",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Tail Lash"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Forked Tongue"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "DESERT",
+   "family": "SCALES",
+   "id": "monitor-lizard",
+   "name": "Monitor Lizard",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Antler Bash"
+    },
+    {
+     "kind": "FLURRY",
+     "name": "Trampling Hooves"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "ARCTIC",
+   "family": "HORNS",
+   "id": "moose",
+   "name": "Moose",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Second Jaw"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "Reef Ambush"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "OCEAN",
+   "family": "JAWS",
+   "id": "moray-eel",
+   "name": "Moray Eel",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Horn Gore"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Cliff Master"
+    }
+   ],
+   "archetype": "Extreme Climber",
+   "biome": "MOUNTAINS",
+   "family": "HORNS",
+   "id": "mountain-goat",
+   "name": "Mountain Goat",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Horn Bash"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Shield Wall"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "ARCTIC",
+   "family": "HORNS",
+   "id": "musk-ox",
+   "name": "Musk Ox",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Chisel Teeth"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Colony Queen"
+    }
+   ],
+   "archetype": "Survivor",
+   "biome": "DESERT",
+   "family": "ODDBALLS",
+   "id": "naked-mole-rat",
+   "name": "Naked Mole Rat",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Tusk Joust"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Echolocation"
+    }
+   ],
+   "archetype": "Specialist",
+   "biome": "ARCTIC",
+   "family": "OPEN_SEA",
+   "id": "narwhal",
+   "name": "Narwhal",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Tentacle Grab"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Chamber Shell"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "nautilus",
+   "name": "Nautilus",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Jungle Pounce"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Rosette Camo"
+    }
+   ],
+   "archetype": "Rogue",
+   "biome": "JUNGLE",
+   "family": "BIG_CATS",
+   "id": "ocelot",
+   "name": "Ocelot",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Camouflage"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Ink Cloud"
+    }
+   ],
+   "archetype": "Trickster",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "octopus",
+   "name": "Octopus",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Silent Step"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Kick"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "JUNGLE",
+   "family": "HOOVES",
+   "id": "okapi",
+   "name": "Okapi",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Surprise Bite"
+    },
+    {
+     "kind": "MEND",
+     "name": "Play Dead"
+    }
+   ],
+   "archetype": "Survivor",
+   "biome": "FOREST",
+   "family": "AUSSIE",
+   "id": "opossum",
+   "name": "Opossum",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Grip Crush"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Tool Use"
+    }
+   ],
+   "archetype": "Specialist",
+   "biome": "JUNGLE",
+   "family": "PRIMATES",
+   "id": "orangutan",
+   "name": "Orangutan",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Coordinated Strike"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Wave Maker"
+    }
+   ],
+   "archetype": "Controller",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "orca",
+   "name": "Orca",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "CUNNING",
+   "size": "Extra Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Rapier Horns"
+    },
+    {
+     "kind": "MEND",
+     "name": "Desert Endurance"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "DESERT",
+   "family": "HORNS",
+   "id": "oryx",
+   "name": "Oryx",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Fish Hook Talons"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Hover Scan"
+    }
+   ],
+   "archetype": "Fisher",
+   "biome": "WETLANDS",
+   "family": "RAPTORS",
+   "id": "osprey",
+   "name": "Osprey",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Lethal Kick"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Sprint Escape"
+    }
+   ],
+   "archetype": "Kicker",
+   "biome": "SAVANNA",
+   "family": "FEATHERED",
+   "id": "ostrich",
+   "name": "Ostrich",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Rock Smash"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Aquatic Agility"
+    }
+   ],
+   "archetype": "Playful Hunter",
+   "biome": "WETLANDS",
+   "family": "MISCHIEF",
+   "id": "otter",
+   "name": "Otter",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Tail Swipe"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Scale Armor"
+    }
+   ],
+   "archetype": "Defender",
+   "biome": "FOREST",
+   "family": "ARMORED",
+   "id": "pangolin",
+   "name": "Pangolin",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Spur Kick"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Tail Display"
+    }
+   ],
+   "archetype": "Bard",
+   "biome": "FOREST",
+   "family": "FEATHERED",
+   "id": "peacock",
+   "name": "Peacock",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Dive Bomb"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Scoop Net"
+    }
+   ],
+   "archetype": "Fisher",
+   "biome": "WETLANDS",
+   "family": "FEATHERED",
+   "id": "pelican",
+   "name": "Pelican",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Death Dive"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Aerial Mastery"
+    }
+   ],
+   "archetype": "Glass Cannon",
+   "biome": "MOUNTAINS",
+   "family": "RAPTORS",
+   "id": "peregrine-falcon",
+   "name": "Peregrine Falcon",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Small",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Feeding Frenzy"
+    },
+    {
+     "kind": "VENOM",
+     "name": "Frenzy Bite"
+    }
+   ],
+   "archetype": "Swarm Hunter",
+   "biome": "WETLANDS",
+   "family": "JAWS",
+   "id": "piranha",
+   "name": "Piranha",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Venom Spur"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Bill Sense"
+    }
+   ],
+   "archetype": "Venomous",
+   "biome": "WETLANDS",
+   "family": "AUSSIE",
+   "id": "platypus",
+   "name": "Platypus",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Contact Poison"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Warning Color"
+    }
+   ],
+   "archetype": "Specialist",
+   "biome": "JUNGLE",
+   "family": "ODDBALLS",
+   "id": "poison-dart-frog",
+   "name": "Poison Dart Frog",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Tiny",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Ice Breaker"
+    },
+    {
+     "kind": "MEND",
+     "name": "Arctic Endurance"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "ARCTIC",
+   "family": "BEARS",
+   "id": "polar-bear",
+   "name": "Polar Bear",
+   "nocturnal": false,
+   "rarity": "LEGENDARY",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Reverse Charge"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Quill Defense"
+    }
+   ],
+   "archetype": "Defender",
+   "biome": "FOREST",
+   "family": "ARMORED",
+   "id": "porcupine",
+   "name": "Porcupine",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Raptor Arms"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Stillness"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "FOREST",
+   "family": "BUGS",
+   "id": "praying-mantis",
+   "name": "Praying Mantis",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Belly Flop"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Nose Honk"
+    }
+   ],
+   "archetype": "Civilian",
+   "biome": "WETLANDS",
+   "family": "PRIMATES",
+   "id": "proboscis-monkey",
+   "name": "Proboscis Monkey",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Horn Hook"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Prairie Sprint"
+    }
+   ],
+   "archetype": "Speedster",
+   "biome": "SAVANNA",
+   "family": "HORNS",
+   "id": "pronghorn",
+   "name": "Pronghorn",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Poison Spikes"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Inflate"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "pufferfish",
+   "name": "Pufferfish",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Wing Dive"
+    },
+    {
+     "kind": "RALLY",
+     "name": "Colony Cliff"
+    }
+   ],
+   "archetype": "Fisher",
+   "biome": "ARCTIC",
+   "family": "FEATHERED",
+   "id": "puffin",
+   "name": "Puffin",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Constrict"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Thermal Vision"
+    }
+   ],
+   "archetype": "Constrictor",
+   "biome": "JUNGLE",
+   "family": "SERPENTS",
+   "id": "python",
+   "name": "Python",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Hop Kick"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Cute Smile"
+    }
+   ],
+   "archetype": "Support",
+   "biome": "DESERT",
+   "family": "AUSSIE",
+   "id": "quokka",
+   "name": "Quokka",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Spotted Pounce"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Night Bite"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "FOREST",
+   "family": "AUSSIE",
+   "id": "quoll",
+   "name": "Quoll",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Bin Ambush"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Tool Use"
+    }
+   ],
+   "archetype": "Clever Scavenger",
+   "biome": "FOREST",
+   "family": "MISCHIEF",
+   "id": "raccoon",
+   "name": "Raccoon",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Pit Viper Strike"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Rattle Warning"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "DESERT",
+   "family": "SERPENTS",
+   "id": "rattlesnake",
+   "name": "Rattlesnake",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Beak Peck"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Trickster Mind"
+    }
+   ],
+   "archetype": "Mage",
+   "biome": "MOUNTAINS",
+   "family": "FEATHERED",
+   "id": "raven",
+   "name": "Raven",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Mouse Pounce"
+    },
+    {
+     "kind": "MEND",
+     "name": "Urban Adaptation"
+    }
+   ],
+   "archetype": "Clever Hunter",
+   "biome": "FOREST",
+   "family": "WILD_DOGS",
+   "id": "red-fox",
+   "name": "Red Fox",
+   "nocturnal": true,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Claw Swipe"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Tree Escape"
+    }
+   ],
+   "archetype": "Agile Climber",
+   "biome": "MOUNTAINS",
+   "family": "ODDBALLS",
+   "id": "red-panda",
+   "name": "Red Panda",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Startle Eyes"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Sticky Leap"
+    }
+   ],
+   "archetype": "Climber",
+   "biome": "JUNGLE",
+   "family": "ODDBALLS",
+   "id": "red-eyed-tree-frog",
+   "name": "Red-Eyed Tree Frog",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Hawk Dive"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Keen Eyes"
+    }
+   ],
+   "archetype": "Hunter",
+   "biome": "MOUNTAINS",
+   "family": "RAPTORS",
+   "id": "red-tailed-hawk",
+   "name": "Red-tailed Hawk",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Antler Thrust"
+    },
+    {
+     "kind": "MEND",
+     "name": "Arctic Endurance"
+    }
+   ],
+   "archetype": "Migrator",
+   "biome": "ARCTIC",
+   "family": "HORNS",
+   "id": "reindeer",
+   "name": "Reindeer",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Python Coil"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "Ambush Bite"
+    }
+   ],
+   "archetype": "Grappler",
+   "biome": "JUNGLE",
+   "family": "SERPENTS",
+   "id": "reticulated-python",
+   "name": "Reticulated Python",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Horn Thrust"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Unstoppable Charge"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "SAVANNA",
+   "family": "GIANTS",
+   "id": "rhinoceros",
+   "name": "Rhinoceros",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Extra Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Leap Scratch"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Stink Fight"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "FOREST",
+   "family": "PRIMATES",
+   "id": "ring-tailed-lemur",
+   "name": "Ring-tailed Lemur",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Scimitar Horns"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Herd Defense"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "SAVANNA",
+   "family": "HORNS",
+   "id": "sable-antelope",
+   "name": "Sable Antelope",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Bill Swipe"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Sail Flash"
+    }
+   ],
+   "archetype": "Speedster",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "sailfish",
+   "name": "Sailfish",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Toxic Skin"
+    },
+    {
+     "kind": "MEND",
+     "name": "Regrow"
+    }
+   ],
+   "archetype": "Survivor",
+   "biome": "WETLANDS",
+   "family": "ODDBALLS",
+   "id": "salamander",
+   "name": "Salamander",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Death Roll"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "Stealth Ambush"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "WETLANDS",
+   "family": "SCALES",
+   "id": "saltwater-crocodile",
+   "name": "Saltwater Crocodile",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Extra Large",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Saw Slash"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Saw Sense"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "OCEAN",
+   "family": "JAWS",
+   "id": "sawfish",
+   "name": "Sawfish",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Flipper Slap"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Aquatic Acrobatics"
+    }
+   ],
+   "archetype": "Swimmer",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "sea-lion",
+   "name": "Sea Lion",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "SPEED",
+   "size": "Large",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Rock Tool"
+    },
+    {
+     "kind": "PIERCE",
+     "name": "Shell Breaker"
+    }
+   ],
+   "archetype": "Tool Master",
+   "biome": "OCEAN",
+   "family": "MISCHIEF",
+   "id": "sea-otter",
+   "name": "Sea Otter",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Deep Dive"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Aquatic Speed"
+    }
+   ],
+   "archetype": "Swimmer",
+   "biome": "ARCTIC",
+   "family": "OPEN_SEA",
+   "id": "seal",
+   "name": "Seal",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Snake Stomp"
+    },
+    {
+     "kind": "PIERCE",
+     "name": "Serpent Hunter"
+    }
+   ],
+   "archetype": "Striker",
+   "biome": "SAVANNA",
+   "family": "RAPTORS",
+   "id": "secretary-bird",
+   "name": "Secretary Bird",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "High Pounce"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Big Ears"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "SAVANNA",
+   "family": "BIG_CATS",
+   "id": "serval",
+   "name": "Serval",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Bill Crush"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Patient Strike"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "WETLANDS",
+   "family": "RAPTORS",
+   "id": "shoebill",
+   "name": "Shoebill",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Ambush Strike"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Jaw Lock"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "ARCTIC",
+   "family": "BIG_CATS",
+   "id": "siberian-tiger",
+   "name": "Siberian Tiger",
+   "nocturnal": true,
+   "rarity": "LEGENDARY",
+   "role": "CUNNING",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Musk Spray"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Warning Display"
+    }
+   ],
+   "archetype": "Chemical Warfare",
+   "biome": "FOREST",
+   "family": "MISCHIEF",
+   "id": "skunk",
+   "name": "Skunk",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Hook Claws"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Stealth Blend"
+    }
+   ],
+   "archetype": "Survivor",
+   "biome": "JUNGLE",
+   "family": "ODDBALLS",
+   "id": "sloth",
+   "name": "Sloth",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Claw Swipe"
+    },
+    {
+     "kind": "MEND",
+     "name": "Ant Vacuum"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "FOREST",
+   "family": "BEARS",
+   "id": "sloth-bear",
+   "name": "Sloth Bear",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Snap Jaw"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Shell Withdraw"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "WETLANDS",
+   "family": "SCALES",
+   "id": "snapping-turtle",
+   "name": "Snapping Turtle",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Alpine Stalker"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Mountain Leap"
+    }
+   ],
+   "archetype": "Ambush Predator",
+   "biome": "MOUNTAINS",
+   "family": "BIG_CATS",
+   "id": "snow-leopard",
+   "name": "Snow Leopard",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Silent Strike"
+    },
+    {
+     "kind": "PIERCE",
+     "name": "Precision Dive"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "ARCTIC",
+   "family": "RAPTORS",
+   "id": "snowy-owl",
+   "name": "Snowy Owl",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Small",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Andes Swipe"
+    },
+    {
+     "kind": "MEND",
+     "name": "Cloud Forest Rest"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "MOUNTAINS",
+   "family": "BEARS",
+   "id": "spectacled-bear",
+   "name": "Spectacled Bear",
+   "nocturnal": false,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Branch Drop"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Tail Swing"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "JUNGLE",
+   "family": "PRIMATES",
+   "id": "spider-monkey",
+   "name": "Spider Monkey",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Mandible Clamp"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Armor Shell"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "FOREST",
+   "family": "BUGS",
+   "id": "stag-beetle",
+   "name": "Stag Beetle",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "VENOM",
+     "name": "Barb Sting"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Sand Hide"
+    }
+   ],
+   "archetype": "Stealth",
+   "biome": "OCEAN",
+   "family": "DEEP_WEIRD",
+   "id": "stingray",
+   "name": "Stingray",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Neck Bite"
+    },
+    {
+     "kind": "SHOCK",
+     "name": "Hypno Dance"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "ARCTIC",
+   "family": "MISCHIEF",
+   "id": "stoat",
+   "name": "Stoat",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Bill Strike"
+    },
+    {
+     "kind": "MEND",
+     "name": "Migration Stamina"
+    }
+   ],
+   "archetype": "Wader",
+   "biome": "WETLANDS",
+   "family": "FEATHERED",
+   "id": "stork",
+   "name": "Stork",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "AMBUSH",
+     "name": "Glide Drop"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Sugar Rush"
+    }
+   ],
+   "archetype": "Glider",
+   "biome": "FOREST",
+   "family": "AUSSIE",
+   "id": "sugar-glider",
+   "name": "Sugar Glider",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Long Claw Rip"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Loose Skin"
+    }
+   ],
+   "archetype": "Fighter",
+   "biome": "JUNGLE",
+   "family": "BEARS",
+   "id": "sun-bear",
+   "name": "Sun Bear",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Wing Attack"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Territory Guard"
+    }
+   ],
+   "archetype": "Territorial",
+   "biome": "WETLANDS",
+   "family": "FEATHERED",
+   "id": "swan",
+   "name": "Swan",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Bill Slash"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Speed Burst"
+    }
+   ],
+   "archetype": "Assassin",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "swordfish",
+   "name": "Swordfish",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "CUNNING",
+   "size": "Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Trample"
+    },
+    {
+     "kind": "AMBUSH",
+     "name": "Water Dive"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "JUNGLE",
+   "family": "HOOVES",
+   "id": "tapir",
+   "name": "Tapir",
+   "nocturnal": true,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "SHOCK",
+     "name": "Paralyzing Sting"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Warning Wings"
+    }
+   ],
+   "archetype": "Slayer",
+   "biome": "DESERT",
+   "family": "BUGS",
+   "id": "tarantula-hawk",
+   "name": "Tarantula Hawk",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Bone Bite"
+    },
+    {
+     "kind": "FLURRY",
+     "name": "Ferocious Fury"
+    }
+   ],
+   "archetype": "Scavenger",
+   "biome": "FOREST",
+   "family": "AUSSIE",
+   "id": "tasmanian-devil",
+   "name": "Tasmanian Devil",
+   "nocturnal": true,
+   "rarity": "COMMON",
+   "role": "CUNNING",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Crushing Bite"
+    },
+    {
+     "kind": "MEND",
+     "name": "Indiscriminate Eat"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "OCEAN",
+   "family": "JAWS",
+   "id": "tiger-shark",
+   "name": "Tiger Shark",
+   "nocturnal": true,
+   "rarity": "EPIC",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Bill Peck"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Fruit Toss"
+    }
+   ],
+   "archetype": "Scout",
+   "biome": "JUNGLE",
+   "family": "FEATHERED",
+   "id": "toucan",
+   "name": "Toucan",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Small",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Torpedo Rush"
+    },
+    {
+     "kind": "HASTE",
+     "name": "School Sprint"
+    }
+   ],
+   "archetype": "Speedster",
+   "biome": "OCEAN",
+   "family": "OPEN_SEA",
+   "id": "tuna",
+   "name": "Tuna",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "WATER"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Tearing Beak"
+    },
+    {
+     "kind": "FOCUS",
+     "name": "Carrion Sense"
+    }
+   ],
+   "archetype": "Scavenger",
+   "biome": "SAVANNA",
+   "family": "RAPTORS",
+   "id": "vulture",
+   "name": "Vulture",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "CUNNING",
+   "size": "Medium",
+   "terrain": "AIR"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Tail Kick"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Bounce Away"
+    }
+   ],
+   "archetype": "Jumper",
+   "biome": "DESERT",
+   "family": "AUSSIE",
+   "id": "wallaby",
+   "name": "Wallaby",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Tusk Gore"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Blubber Shield"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "ARCTIC",
+   "family": "OPEN_SEA",
+   "id": "walrus",
+   "name": "Walrus",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Extra Large",
+   "terrain": "AMPHIBIOUS"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Tusk Charge"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Burrow Retreat"
+    }
+   ],
+   "archetype": "Charger",
+   "biome": "SAVANNA",
+   "family": "HOOVES",
+   "id": "warthog",
+   "name": "Warthog",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Tusk Slash"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Charge"
+    }
+   ],
+   "archetype": "Bruiser",
+   "biome": "FOREST",
+   "family": "HOOVES",
+   "id": "wild-boar",
+   "name": "Wild Boar",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Hoof Strike"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Gallop"
+    }
+   ],
+   "archetype": "Runner",
+   "biome": "SAVANNA",
+   "family": "HOOVES",
+   "id": "wild-horse",
+   "name": "Wild Horse",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "FLURRY",
+     "name": "Stampede"
+    },
+    {
+     "kind": "CRUSH",
+     "name": "Head Butt"
+    }
+   ],
+   "archetype": "Migrator",
+   "biome": "SAVANNA",
+   "family": "HORNS",
+   "id": "wildebeest",
+   "name": "Wildebeest",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Berserker Bite"
+    },
+    {
+     "kind": "MEND",
+     "name": "Tenacity"
+    }
+   ],
+   "archetype": "Berserker",
+   "biome": "ARCTIC",
+   "family": "MISCHIEF",
+   "id": "wolverine",
+   "name": "Wolverine",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "POWER",
+   "size": "Small",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Bulldozer Charge"
+    },
+    {
+     "kind": "GUARD",
+     "name": "Rump Shield"
+    }
+   ],
+   "archetype": "Tank",
+   "biome": "FOREST",
+   "family": "AUSSIE",
+   "id": "wombat",
+   "name": "Wombat",
+   "nocturnal": false,
+   "rarity": "COMMON",
+   "role": "POWER",
+   "size": "Medium",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "PIERCE",
+     "name": "Horn Charge"
+    },
+    {
+     "kind": "HASTE",
+     "name": "Altitude Master"
+    }
+   ],
+   "archetype": "Mountain Tank",
+   "biome": "MOUNTAINS",
+   "family": "HORNS",
+   "id": "yak",
+   "name": "Yak",
+   "nocturnal": false,
+   "rarity": "RARE",
+   "role": "POWER",
+   "size": "Large",
+   "terrain": "LAND"
+  },
+  {
+   "abilities": [
+    {
+     "kind": "CRUSH",
+     "name": "Back Kick"
+    },
+    {
+     "kind": "ROAR",
+     "name": "Herd Confusion"
+    }
+   ],
+   "archetype": "Runner",
+   "biome": "SAVANNA",
+   "family": "HOOVES",
+   "id": "zebra",
+   "name": "Zebra",
+   "nocturnal": false,
+   "rarity": "UNCOMMON",
+   "role": "SPEED",
+   "size": "Medium",
+   "terrain": "LAND"
+  }
+ ],
+ "biomes": [
+  {
+   "accent": "#ffc457",
+   "boss": "african-lion",
+   "bossLevel": 12,
+   "bossTitle": "King of the Savanna",
+   "color": "#d6aa52",
+   "id": "SAVANNA",
+   "lair": "LION ROCK",
+   "levels": [
+    1,
+    10
+   ],
+   "name": "Savanna",
+   "order": 1
+  },
+  {
+   "accent": "#78d66e",
+   "boss": "grizzly-bear",
+   "bossLevel": 26,
+   "bossTitle": "Keeper of the Forest",
+   "color": "#408c4c",
+   "id": "FOREST",
+   "lair": "OAK COURT",
+   "levels": [
+    12,
+    23
+   ],
+   "name": "Forest",
+   "order": 2
+  },
+  {
+   "accent": "#00e696",
+   "boss": "jaguar",
+   "bossLevel": 39,
+   "bossTitle": "Shadow of the Jungle",
+   "color": "#1c965c",
+   "id": "JUNGLE",
+   "lair": "VINE PALACE",
+   "levels": [
+    25,
+    36
+   ],
+   "name": "Jungle",
+   "order": 3
+  },
+  {
+   "accent": "#6edcc8",
+   "boss": "saltwater-crocodile",
+   "bossLevel": 52,
+   "bossTitle": "Ruler of the Swamp",
+   "color": "#46826e",
+   "id": "WETLANDS",
+   "lair": "SUNKEN COURT",
+   "levels": [
+    38,
+    49
+   ],
+   "name": "Wetlands",
+   "order": 4
+  },
+  {
+   "accent": "#ff963c",
+   "boss": "komodo-dragon",
+   "bossLevel": 65,
+   "bossTitle": "Dragon of the Dunes",
+   "color": "#e2964c",
+   "id": "DESERT",
+   "lair": "DUNE PALACE",
+   "levels": [
+    51,
+    62
+   ],
+   "name": "Desert & Outback",
+   "order": 5
+  },
+  {
+   "accent": "#becdff",
+   "boss": "snow-leopard",
+   "bossLevel": 78,
+   "bossTitle": "Prowler of the Peaks",
+   "color": "#8088a0",
+   "id": "MOUNTAINS",
+   "lair": "PEAK CITADEL",
+   "levels": [
+    64,
+    75
+   ],
+   "name": "Mountains",
+   "order": 6
+  },
+  {
+   "accent": "#c8f5ff",
+   "boss": "polar-bear",
+   "bossLevel": 90,
+   "bossTitle": "Emperor of Ice",
+   "color": "#aadcf0",
+   "id": "ARCTIC",
+   "lair": "ICE PALACE",
+   "levels": [
+    77,
+    87
+   ],
+   "name": "Arctic",
+   "order": 7
+  },
+  {
+   "accent": "#00d4ff",
+   "boss": "megalodon",
+   "bossLevel": 100,
+   "bossTitle": "Terror of the Deep",
+   "color": "#145aaa",
+   "id": "OCEAN",
+   "lair": "ABYSS GATE",
+   "levels": [
+    88,
+    96
+   ],
+   "name": "Ocean",
+   "order": 8
+  }
+ ],
+ "codes": [
+  {
+   "code": "WELCOME"
+  },
+  {
+   "code": "WILDSTART",
+   "wildTracks": 5
+  },
+  {
+   "code": "ROAR",
+   "wildTracks": 3
+  },
+  {
+   "code": "FIELDGUIDE",
+   "look": "Field Guide Frame"
+  },
+  {
+   "code": "SEASONONE",
+   "ends": "2026-12-01",
+   "wildTracks": 3
+  }
+ ],
+ "families": [
+  {
+   "color": "#bec8d7",
+   "id": "ARMORED",
+   "name": "Armored",
+   "title": "Shell Collector"
+  },
+  {
+   "color": "#ff8c5a",
+   "id": "AUSSIE",
+   "name": "Aussie",
+   "title": "True Blue"
+  },
+  {
+   "color": "#5078dc",
+   "id": "BEARS",
+   "name": "Bears",
+   "title": "Bear Buddy"
+  },
+  {
+   "color": "#ffaa28",
+   "id": "BIG_CATS",
+   "name": "Big Cats",
+   "title": "Cat Wrangler"
+  },
+  {
+   "color": "#c8e63c",
+   "id": "BUGS",
+   "name": "Bugs",
+   "title": "Bug Catcher"
+  },
+  {
+   "color": "#a855f7",
+   "id": "DEEP_WEIRD",
+   "name": "Deep and Weird",
+   "title": "Abyss Explorer"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "FEATHERED",
+   "name": "Feathered",
+   "title": "Bird Nerd"
+  },
+  {
+   "color": "#96a5be",
+   "id": "GIANTS",
+   "name": "Giants",
+   "title": "Gentle Giant"
+  },
+  {
+   "color": "#fac85a",
+   "id": "HOOVES",
+   "name": "Hooves",
+   "title": "Trailblazer"
+  },
+  {
+   "color": "#ff783c",
+   "id": "HORNS",
+   "name": "Horns",
+   "title": "Herd Leader"
+  },
+  {
+   "color": "#5a96ff",
+   "id": "JAWS",
+   "name": "Jaws",
+   "title": "Deep Diver"
+  },
+  {
+   "color": "#ff4fc3",
+   "id": "MISCHIEF",
+   "name": "Mischief",
+   "title": "Troublemaker"
+  },
+  {
+   "color": "#78e6e6",
+   "id": "ODDBALLS",
+   "name": "Oddballs",
+   "title": "Odd One Out"
+  },
+  {
+   "color": "#00aaff",
+   "id": "OPEN_SEA",
+   "name": "Open Sea",
+   "title": "Sea Captain"
+  },
+  {
+   "color": "#22c55e",
+   "id": "PRIMATES",
+   "name": "Primates",
+   "title": "Troop Leader"
+  },
+  {
+   "color": "#ffd700",
+   "id": "RAPTORS",
+   "name": "Raptors",
+   "title": "Sky Watcher"
+  },
+  {
+   "color": "#3cc8a0",
+   "id": "SCALES",
+   "name": "Scales",
+   "title": "Scale Keeper"
+  },
+  {
+   "color": "#78dc50",
+   "id": "SERPENTS",
+   "name": "Serpents",
+   "title": "Snake Charmer"
+  },
+  {
+   "color": "#78aaff",
+   "id": "WILD_DOGS",
+   "name": "Wild Dogs",
+   "title": "Top Dog"
+  }
+ ],
+ "levelCaps": [
+  20,
+  40,
+  60,
+  80,
+  100
+ ],
+ "looks": [
+  {
+   "id": "PAD_ROUND",
+   "name": "Round Pad",
+   "slot": "shape"
+  },
+  {
+   "id": "PAD_HEX",
+   "name": "Hex Pad",
+   "slot": "shape"
+  },
+  {
+   "id": "PAD_STAR",
+   "name": "Star Pad",
+   "slot": "shape"
+  },
+  {
+   "id": "PAD_DIAMOND",
+   "name": "Diamond Pad",
+   "slot": "shape"
+  },
+  {
+   "id": "PAD_WING",
+   "name": "Wing Pad",
+   "slot": "shape"
+  },
+  {
+   "id": "PAD_TWIN",
+   "name": "Twin Pad",
+   "slot": "shape"
+  },
+  {
+   "id": "PAD_ORBIT",
+   "name": "Orbit Pad",
+   "slot": "shape"
+  },
+  {
+   "id": "PAD_CROWN",
+   "name": "Regal Pad",
+   "slot": "shape"
+  },
+  {
+   "id": "CLASSIC",
+   "name": "Classic",
+   "slot": "ring"
+  },
+  {
+   "id": "DOUBLE",
+   "name": "Double",
+   "slot": "ring"
+  },
+  {
+   "id": "SKYRING",
+   "name": "Sky Ring",
+   "slot": "ring"
+  },
+  {
+   "id": "NONE",
+   "name": "None",
+   "slot": "ring"
+  },
+  {
+   "id": "RARITY",
+   "name": "Rarity",
+   "slot": "aura"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "CYAN",
+   "name": "Cyan",
+   "slot": "aura"
+  },
+  {
+   "color": "#22c55e",
+   "id": "GREEN",
+   "name": "Green",
+   "slot": "aura"
+  },
+  {
+   "color": "#a855f7",
+   "id": "PURPLE",
+   "name": "Purple",
+   "slot": "aura"
+  },
+  {
+   "color": "#ffd700",
+   "id": "GOLD",
+   "name": "Gold",
+   "slot": "aura"
+  },
+  {
+   "color": "#ff6b00",
+   "id": "FIRE",
+   "name": "Fire",
+   "slot": "aura"
+  },
+  {
+   "color": "#beebff",
+   "id": "ICE",
+   "name": "Ice",
+   "slot": "aura"
+  },
+  {
+   "color": "#ffd65a",
+   "id": "STARLIGHT",
+   "name": "Starlight",
+   "slot": "aura"
+  },
+  {
+   "color": "#8c5aff",
+   "id": "GALAXY",
+   "name": "Galaxy",
+   "slot": "aura"
+  },
+  {
+   "color": "#ff96c8",
+   "id": "SAKURA",
+   "name": "Sakura",
+   "slot": "aura"
+  },
+  {
+   "color": "#3ce6c8",
+   "id": "AURORA",
+   "name": "Aurora",
+   "slot": "aura"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "SEASON1",
+   "name": "Wild Season",
+   "slot": "aura"
+  },
+  {
+   "color": "#ff6e1e",
+   "id": "PHOENIX",
+   "name": "Phoenix",
+   "slot": "aura"
+  },
+  {
+   "color": "#96f028",
+   "id": "VENOM",
+   "name": "Venom",
+   "slot": "aura"
+  },
+  {
+   "color": "#ffc83d",
+   "id": "ROYAL",
+   "name": "Royal",
+   "slot": "aura"
+  },
+  {
+   "color": "#fffae1",
+   "id": "LEGEND",
+   "name": "Legend",
+   "slot": "aura"
+  },
+  {
+   "id": "NONE_CROWN",
+   "name": "No Crown",
+   "slot": "crown"
+  },
+  {
+   "color": "#ffc83d",
+   "id": "CROWN_SAVANNA",
+   "name": "Lion Crown",
+   "slot": "crown"
+  },
+  {
+   "color": "#5fc85f",
+   "id": "CROWN_FOREST",
+   "name": "Leaf Crown",
+   "slot": "crown"
+  },
+  {
+   "color": "#ff50aa",
+   "id": "CROWN_JUNGLE",
+   "name": "Bloom Crown",
+   "slot": "crown"
+  },
+  {
+   "color": "#50d2c8",
+   "id": "CROWN_WETLANDS",
+   "name": "Lotus Crown",
+   "slot": "crown"
+  },
+  {
+   "color": "#ff963c",
+   "id": "CROWN_DESERT",
+   "name": "Dune Crown",
+   "slot": "crown"
+  },
+  {
+   "color": "#aab9e6",
+   "id": "CROWN_MOUNTAINS",
+   "name": "Summit Crown",
+   "slot": "crown"
+  },
+  {
+   "color": "#aae1ff",
+   "id": "CROWN_ARCTIC",
+   "name": "Ice Crown",
+   "slot": "crown"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "CROWN_OCEAN",
+   "name": "Shark-Tooth Crown",
+   "slot": "crown"
+  },
+  {
+   "id": "TRAIL_SPARKLE",
+   "name": "Sparkle",
+   "slot": "trail"
+  },
+  {
+   "id": "TRAIL_NONE",
+   "name": "None",
+   "slot": "trail"
+  },
+  {
+   "color": "#5ad25a",
+   "id": "TRAIL_LEAF",
+   "name": "Leaf Drift",
+   "slot": "trail"
+  },
+  {
+   "color": "#beebff",
+   "id": "TRAIL_FROST",
+   "name": "Frost",
+   "slot": "trail"
+  },
+  {
+   "color": "#ff6b00",
+   "id": "TRAIL_EMBER",
+   "name": "Embers",
+   "slot": "trail"
+  },
+  {
+   "color": "#ffd65a",
+   "id": "TRAIL_STARDUST",
+   "name": "Stardust",
+   "slot": "trail"
+  },
+  {
+   "color": "#ff78c8",
+   "id": "TRAIL_RAINBOW",
+   "name": "Rainbow",
+   "slot": "trail"
+  },
+  {
+   "color": "#aaf0ff",
+   "id": "TRAIL_COMET",
+   "name": "Jet Stream",
+   "slot": "trail"
+  },
+  {
+   "color": "#ff9628",
+   "id": "TRAIL_RUNNER",
+   "name": "Trail Runner",
+   "slot": "trail"
+  },
+  {
+   "color": "#d2dcec",
+   "id": "TRAIL_SILVERWIND",
+   "name": "Silver Wind",
+   "slot": "trail"
+  },
+  {
+   "color": "#ffc83d",
+   "id": "TRAIL_GOLDRUSH",
+   "name": "Gold Rush",
+   "slot": "trail"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "TRAIL_SEASON",
+   "name": "Season Spark",
+   "slot": "trail"
+  },
+  {
+   "color": "#ffaa32",
+   "id": "TRAIL_LIGHTNING",
+   "name": "Cheetah Dash",
+   "slot": "trail"
+  },
+  {
+   "color": "#3ce6c8",
+   "id": "TRAIL_AURORA",
+   "name": "Aurora Veil",
+   "slot": "trail"
+  },
+  {
+   "color": "#8c5aff",
+   "id": "TRAIL_GALAXY",
+   "name": "Galaxy Dust",
+   "slot": "trail"
+  },
+  {
+   "color": "#ffffff",
+   "id": "TRAIL_PRISM",
+   "name": "Prism",
+   "slot": "trail"
+  },
+  {
+   "color": "#ff78c8",
+   "id": "TRAIL_BUDDY",
+   "name": "Buddy Trail",
+   "slot": "trail"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "TRAIL_FOUNDER",
+   "name": "Founder Sparks",
+   "slot": "trail"
+  },
+  {
+   "color": "#ff5aaa",
+   "id": "AURA_MAGNET",
+   "name": "Crowd Magnet",
+   "slot": "aura"
+  },
+  {
+   "color": "#00dcd2",
+   "id": "AURA_FOUNDER",
+   "name": "Founder",
+   "slot": "aura"
+  },
+  {
+   "id": "FRAME_RARITY",
+   "name": "Rarity Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#3cd26e",
+   "id": "FRAME_PACK",
+   "name": "Pack Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#ffc83d",
+   "id": "FRAME_GOLD",
+   "name": "Gold Foil",
+   "slot": "frame"
+  },
+  {
+   "color": "#9664ff",
+   "id": "FRAME_GALAXY",
+   "name": "Galaxy Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#ff6e1e",
+   "id": "FRAME_LAVA",
+   "name": "Lava Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#a0e6ff",
+   "id": "FRAME_FROST",
+   "name": "Frost Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#ff78c8",
+   "id": "FRAME_PRISM",
+   "name": "Prism Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "FRAME_FIELDGUIDE",
+   "name": "Field Guide Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#00dcd2",
+   "id": "FRAME_FOUNDER",
+   "name": "Founder Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#ffb028",
+   "id": "FRAME_FOSSIL",
+   "name": "Fossil Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#5ad26e",
+   "id": "FRAME_TRAILBLAZER",
+   "name": "Trailblazer Frame",
+   "slot": "frame"
+  },
+  {
+   "id": "FIN_CLASSIC",
+   "name": "Classic",
+   "slot": "finisher"
+  },
+  {
+   "color": "#ff78c8",
+   "id": "FIN_CONFETTI",
+   "name": "Party Popper",
+   "slot": "finisher"
+  },
+  {
+   "color": "#ff9628",
+   "id": "FIN_METEOR",
+   "name": "Giant Pounce",
+   "slot": "finisher"
+  },
+  {
+   "color": "#ffb93c",
+   "id": "FIN_THUNDER",
+   "name": "Stampede",
+   "slot": "finisher"
+  },
+  {
+   "color": "#6ec8ff",
+   "id": "FIN_VORTEX",
+   "name": "Shark Attack",
+   "slot": "finisher"
+  },
+  {
+   "color": "#ffc83d",
+   "id": "AURA_SUNRISE",
+   "name": "Sunrise",
+   "slot": "aura"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "FRAME_SEASON1",
+   "name": "Wild Season Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#ff6e82",
+   "id": "AURA_CORAL",
+   "name": "Coral",
+   "slot": "aura"
+  },
+  {
+   "color": "#d2ff5a",
+   "id": "TRAIL_FIREFLY",
+   "name": "Fireflies",
+   "slot": "trail"
+  },
+  {
+   "id": "PAD_PAW",
+   "name": "Paw Pad",
+   "slot": "shape"
+  },
+  {
+   "color": "#825aff",
+   "id": "FRAME_NIGHTSAFARI",
+   "name": "Night Safari Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#aaf028",
+   "id": "AURA_TROPIC",
+   "name": "Tropic",
+   "slot": "aura"
+  },
+  {
+   "color": "#c8ebff",
+   "id": "TRAIL_FEATHER",
+   "name": "Feather Drift",
+   "slot": "trail"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "FIN_SEASON1",
+   "name": "Season Parade",
+   "slot": "finisher"
+  },
+  {
+   "color": "#ff9628",
+   "id": "TRAIL_STREAK",
+   "name": "Streak Sparks",
+   "slot": "trail"
+  },
+  {
+   "color": "#3cdc8c",
+   "id": "FRAME_LOYAL",
+   "name": "Loyal Pack Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#3cdc8c",
+   "id": "AURA_EVERGREEN",
+   "name": "Evergreen",
+   "slot": "aura"
+  },
+  {
+   "color": "#ffc83d",
+   "id": "SKIN_GOLD",
+   "name": "Gold Foil Skin",
+   "slot": "skin"
+  },
+  {
+   "color": "#ff78c8",
+   "id": "SKIN_PRISM",
+   "name": "Prism Skin",
+   "slot": "skin"
+  },
+  {
+   "color": "#c8d4eb",
+   "id": "SKIN_CHROME",
+   "name": "Shadow Chrome Skin",
+   "slot": "skin"
+  },
+  {
+   "color": "#3ce6c8",
+   "id": "SKIN_AURORA",
+   "name": "Aurora Skin",
+   "slot": "skin"
+  },
+  {
+   "color": "#ff6e1e",
+   "id": "SKIN_LAVA",
+   "name": "Lava Core Skin",
+   "slot": "skin"
+  },
+  {
+   "color": "#b4e6ff",
+   "id": "SKIN_FROST",
+   "name": "Frost Glass Skin",
+   "slot": "skin"
+  },
+  {
+   "id": "SIDEKICK_NONE",
+   "name": "No Sidekick",
+   "slot": "sidekick"
+  },
+  {
+   "color": "#ff8232",
+   "id": "SIDEKICK_FOX",
+   "name": "Fox Kit",
+   "slot": "sidekick"
+  },
+  {
+   "color": "#ffc83d",
+   "id": "SIDEKICK_LION",
+   "name": "Lion Cub",
+   "slot": "sidekick"
+  },
+  {
+   "color": "#ff6e46",
+   "id": "SIDEKICK_PANDA",
+   "name": "Red Panda Cub",
+   "slot": "sidekick"
+  },
+  {
+   "color": "#aadcff",
+   "id": "SIDEKICK_PENGUIN",
+   "name": "Penguin Chick",
+   "slot": "sidekick"
+  },
+  {
+   "color": "#5ac8e6",
+   "id": "SIDEKICK_OTTER",
+   "name": "Otter Pup",
+   "slot": "sidekick"
+  },
+  {
+   "color": "#ffb450",
+   "id": "SIDEKICK_MEERKAT",
+   "name": "Meerkat Pup",
+   "slot": "sidekick"
+  },
+  {
+   "color": "#bec8e1",
+   "id": "SIDEKICK_KOALA",
+   "name": "Koala Joey",
+   "slot": "sidekick"
+  },
+  {
+   "id": "ENT_CLASSIC",
+   "name": "Classic",
+   "slot": "entrance"
+  },
+  {
+   "color": "#ffd75a",
+   "id": "ENT_SPOTLIGHT",
+   "name": "Spotlight",
+   "slot": "entrance"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "ENT_WARP",
+   "name": "Holo Warp",
+   "slot": "entrance"
+  },
+  {
+   "color": "#ff963c",
+   "id": "ENT_GRAND",
+   "name": "Grand Arrival",
+   "slot": "entrance"
+  },
+  {
+   "id": "VIC_CLASSIC",
+   "name": "Classic",
+   "slot": "victory"
+  },
+  {
+   "color": "#ffcd3c",
+   "id": "VIC_GOLD",
+   "name": "Gold Burst",
+   "slot": "victory"
+  },
+  {
+   "color": "#ff78c8",
+   "id": "VIC_PRISM",
+   "name": "Prism Spin",
+   "slot": "victory"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "VIC_ENCORE",
+   "name": "Encore",
+   "slot": "victory"
+  },
+  {
+   "color": "#ffc457",
+   "id": "FRAME_CREST_SAVANNA",
+   "name": "Savanna Crest Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#78d66e",
+   "id": "FRAME_CREST_FOREST",
+   "name": "Forest Crest Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#00e696",
+   "id": "FRAME_CREST_JUNGLE",
+   "name": "Jungle Crest Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#6edcc8",
+   "id": "FRAME_CREST_WETLANDS",
+   "name": "Wetlands Crest Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#ff963c",
+   "id": "FRAME_CREST_DESERT",
+   "name": "Desert Crest Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#becdff",
+   "id": "FRAME_CREST_MOUNTAINS",
+   "name": "Mountains Crest Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#c8f5ff",
+   "id": "FRAME_CREST_ARCTIC",
+   "name": "Arctic Crest Frame",
+   "slot": "frame"
+  },
+  {
+   "color": "#00d4ff",
+   "id": "FRAME_CREST_OCEAN",
+   "name": "Ocean Crest Frame",
+   "slot": "frame"
+  }
+ ],
+ "maxStars": 5,
+ "rarities": [
+  {
+   "color": "#aab4c4",
+   "id": "COMMON",
+   "name": "Common",
+   "rank": 1
+  },
+  {
+   "color": "#22c55e",
+   "id": "UNCOMMON",
+   "name": "Uncommon",
+   "rank": 2
+  },
+  {
+   "color": "#00aaff",
+   "id": "RARE",
+   "name": "Rare",
+   "rank": 3
+  },
+  {
+   "color": "#a855f7",
+   "id": "EPIC",
+   "name": "Epic",
+   "rank": 4
+  },
+  {
+   "color": "#ffd700",
+   "id": "LEGENDARY",
+   "name": "Legendary",
+   "rank": 5
+  },
+  {
+   "color": "#ff5caa",
+   "id": "MYTHIC",
+   "name": "Mythic",
+   "rank": 6
+  }
+ ],
+ "save": {
+  "fields": [
+   "trainerXp",
+   "animals",
+   "team",
+   "champion",
+   "starter",
+   "seen",
+   "bosses",
+   "legend",
+   "showdowns",
+   "trophies",
+   "stats",
+   "achievements",
+   "trophyDates",
+   "titles",
+   "equippedTitle",
+   "cosmetics",
+   "cup",
+   "race",
+   "safari",
+   "login",
+   "keepsakes",
+   "explore",
+   "kingdoms",
+   "quests",
+   "createdAt",
+   "lastSeen"
+  ],
+  "key": "u{userId}",
+  "onlineSeconds": 240,
+  "store": "ABS_Players_v1"
+ },
+ "schedule": {
+  "cupRules": [
+   {
+    "blurb": "Only animals under 2 kg. Small but mighty!",
+    "color": "#25e2a8",
+    "id": "TINY_TITANS",
+    "name": "TINY TOUGHS"
+   },
+   {
+    "blurb": "Only COMMON animals. The underdogs' cup!",
+    "color": "#aab4c4",
+    "id": "COMMONS",
+    "name": "COMMONS ONLY"
+   },
+   {
+    "blurb": "Only animals that hunt at night.",
+    "color": "#a855f7",
+    "id": "NIGHT_SHIFT",
+    "name": "NIGHT SHIFT"
+   },
+   {
+    "blurb": "All three from the same island.",
+    "color": "#00d4ff",
+    "id": "ONE_ISLAND",
+    "name": "ONE ISLAND"
+   },
+   {
+    "blurb": "Bring 2 or more of the Family of the Week.",
+    "color": "#ffd700",
+    "id": "FAMILY",
+    "name": "FAMILY CUP"
+   },
+   {
+    "blurb": "Only Ocean and Wetlands animals.",
+    "color": "#00aaff",
+    "id": "AQUATIC",
+    "name": "AQUATIC CUP"
+   }
+  ],
+  "events": [
+   {
+    "every": 600,
+    "id": "STAMPEDE",
+    "length": 75,
+    "name": "Stampede",
+    "offset": 0,
+    "where": "the Plaza"
+   },
+   {
+    "every": 900,
+    "id": "RAID",
+    "length": 240,
+    "name": "Raid",
+    "offset": 0,
+    "where": "the Plaza"
+   },
+   {
+    "every": 1080,
+    "id": "TOURNAMENT",
+    "length": 275,
+    "name": "Tournament",
+    "offset": 0,
+    "where": "the stage"
+   },
+   {
+    "every": 1800,
+    "id": "FRENZY",
+    "length": 240,
+    "name": "Coin Frenzy",
+    "offset": 420,
+    "where": "every battle"
+   },
+   {
+    "every": 1440,
+    "id": "NIGHT",
+    "length": 300,
+    "name": "Nightfall",
+    "offset": 1140,
+    "where": "every island"
+   }
+  ],
+  "featuredTracks": 1.5,
+  "weeks": [
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "SCALES",
+    "featured": "SAVANNA",
+    "starts": "2026-09-24",
+    "week": 2960
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "AUSSIE",
+    "featured": "FOREST",
+    "starts": "2026-10-01",
+    "week": 2961
+   },
+   {
+    "cup": "FAMILY",
+    "family": "HOOVES",
+    "featured": "JUNGLE",
+    "starts": "2026-10-08",
+    "week": 2962
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "OPEN_SEA",
+    "featured": "WETLANDS",
+    "starts": "2026-10-15",
+    "week": 2963
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "BIG_CATS",
+    "featured": "DESERT",
+    "starts": "2026-10-22",
+    "week": 2964
+   },
+   {
+    "cup": "COMMONS",
+    "family": "FEATHERED",
+    "featured": "MOUNTAINS",
+    "starts": "2026-10-29",
+    "week": 2965
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "ARMORED",
+    "featured": "ARCTIC",
+    "starts": "2026-11-05",
+    "week": 2966
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "BEARS",
+    "featured": "OCEAN",
+    "starts": "2026-11-12",
+    "week": 2967
+   },
+   {
+    "cup": "FAMILY",
+    "family": "SERPENTS",
+    "featured": "SAVANNA",
+    "starts": "2026-11-19",
+    "week": 2968
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "MISCHIEF",
+    "featured": "FOREST",
+    "starts": "2026-11-26",
+    "week": 2969
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "HORNS",
+    "featured": "JUNGLE",
+    "starts": "2026-12-03",
+    "week": 2970
+   },
+   {
+    "cup": "COMMONS",
+    "family": "JAWS",
+    "featured": "WETLANDS",
+    "starts": "2026-12-10",
+    "week": 2971
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "ODDBALLS",
+    "featured": "DESERT",
+    "starts": "2026-12-17",
+    "week": 2972
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "RAPTORS",
+    "featured": "MOUNTAINS",
+    "starts": "2026-12-24",
+    "week": 2973
+   },
+   {
+    "cup": "FAMILY",
+    "family": "DEEP_WEIRD",
+    "featured": "ARCTIC",
+    "starts": "2026-12-31",
+    "week": 2974
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "WILD_DOGS",
+    "featured": "OCEAN",
+    "starts": "2027-01-07",
+    "week": 2975
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "PRIMATES",
+    "featured": "SAVANNA",
+    "starts": "2027-01-14",
+    "week": 2976
+   },
+   {
+    "cup": "COMMONS",
+    "family": "BUGS",
+    "featured": "FOREST",
+    "starts": "2027-01-21",
+    "week": 2977
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "GIANTS",
+    "featured": "JUNGLE",
+    "starts": "2027-01-28",
+    "week": 2978
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "SCALES",
+    "featured": "WETLANDS",
+    "starts": "2027-02-04",
+    "week": 2979
+   },
+   {
+    "cup": "FAMILY",
+    "family": "AUSSIE",
+    "featured": "DESERT",
+    "starts": "2027-02-11",
+    "week": 2980
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "HOOVES",
+    "featured": "MOUNTAINS",
+    "starts": "2027-02-18",
+    "week": 2981
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "OPEN_SEA",
+    "featured": "ARCTIC",
+    "starts": "2027-02-25",
+    "week": 2982
+   },
+   {
+    "cup": "COMMONS",
+    "family": "BIG_CATS",
+    "featured": "OCEAN",
+    "starts": "2027-03-04",
+    "week": 2983
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "FEATHERED",
+    "featured": "SAVANNA",
+    "starts": "2027-03-11",
+    "week": 2984
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "ARMORED",
+    "featured": "FOREST",
+    "starts": "2027-03-18",
+    "week": 2985
+   },
+   {
+    "cup": "FAMILY",
+    "family": "BEARS",
+    "featured": "JUNGLE",
+    "starts": "2027-03-25",
+    "week": 2986
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "SERPENTS",
+    "featured": "WETLANDS",
+    "starts": "2027-04-01",
+    "week": 2987
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "MISCHIEF",
+    "featured": "DESERT",
+    "starts": "2027-04-08",
+    "week": 2988
+   },
+   {
+    "cup": "COMMONS",
+    "family": "HORNS",
+    "featured": "MOUNTAINS",
+    "starts": "2027-04-15",
+    "week": 2989
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "JAWS",
+    "featured": "ARCTIC",
+    "starts": "2027-04-22",
+    "week": 2990
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "ODDBALLS",
+    "featured": "OCEAN",
+    "starts": "2027-04-29",
+    "week": 2991
+   },
+   {
+    "cup": "FAMILY",
+    "family": "RAPTORS",
+    "featured": "SAVANNA",
+    "starts": "2027-05-06",
+    "week": 2992
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "DEEP_WEIRD",
+    "featured": "FOREST",
+    "starts": "2027-05-13",
+    "week": 2993
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "WILD_DOGS",
+    "featured": "JUNGLE",
+    "starts": "2027-05-20",
+    "week": 2994
+   },
+   {
+    "cup": "COMMONS",
+    "family": "PRIMATES",
+    "featured": "WETLANDS",
+    "starts": "2027-05-27",
+    "week": 2995
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "BUGS",
+    "featured": "DESERT",
+    "starts": "2027-06-03",
+    "week": 2996
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "GIANTS",
+    "featured": "MOUNTAINS",
+    "starts": "2027-06-10",
+    "week": 2997
+   },
+   {
+    "cup": "FAMILY",
+    "family": "SCALES",
+    "featured": "ARCTIC",
+    "starts": "2027-06-17",
+    "week": 2998
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "AUSSIE",
+    "featured": "OCEAN",
+    "starts": "2027-06-24",
+    "week": 2999
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "HOOVES",
+    "featured": "SAVANNA",
+    "starts": "2027-07-01",
+    "week": 3000
+   },
+   {
+    "cup": "COMMONS",
+    "family": "OPEN_SEA",
+    "featured": "FOREST",
+    "starts": "2027-07-08",
+    "week": 3001
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "BIG_CATS",
+    "featured": "JUNGLE",
+    "starts": "2027-07-15",
+    "week": 3002
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "FEATHERED",
+    "featured": "WETLANDS",
+    "starts": "2027-07-22",
+    "week": 3003
+   },
+   {
+    "cup": "FAMILY",
+    "family": "ARMORED",
+    "featured": "DESERT",
+    "starts": "2027-07-29",
+    "week": 3004
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "BEARS",
+    "featured": "MOUNTAINS",
+    "starts": "2027-08-05",
+    "week": 3005
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "SERPENTS",
+    "featured": "ARCTIC",
+    "starts": "2027-08-12",
+    "week": 3006
+   },
+   {
+    "cup": "COMMONS",
+    "family": "MISCHIEF",
+    "featured": "OCEAN",
+    "starts": "2027-08-19",
+    "week": 3007
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "HORNS",
+    "featured": "SAVANNA",
+    "starts": "2027-08-26",
+    "week": 3008
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "JAWS",
+    "featured": "FOREST",
+    "starts": "2027-09-02",
+    "week": 3009
+   },
+   {
+    "cup": "FAMILY",
+    "family": "ODDBALLS",
+    "featured": "JUNGLE",
+    "starts": "2027-09-09",
+    "week": 3010
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "RAPTORS",
+    "featured": "WETLANDS",
+    "starts": "2027-09-16",
+    "week": 3011
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "DEEP_WEIRD",
+    "featured": "DESERT",
+    "starts": "2027-09-23",
+    "week": 3012
+   },
+   {
+    "cup": "COMMONS",
+    "family": "WILD_DOGS",
+    "featured": "MOUNTAINS",
+    "starts": "2027-09-30",
+    "week": 3013
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "PRIMATES",
+    "featured": "ARCTIC",
+    "starts": "2027-10-07",
+    "week": 3014
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "BUGS",
+    "featured": "OCEAN",
+    "starts": "2027-10-14",
+    "week": 3015
+   },
+   {
+    "cup": "FAMILY",
+    "family": "GIANTS",
+    "featured": "SAVANNA",
+    "starts": "2027-10-21",
+    "week": 3016
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "SCALES",
+    "featured": "FOREST",
+    "starts": "2027-10-28",
+    "week": 3017
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "AUSSIE",
+    "featured": "JUNGLE",
+    "starts": "2027-11-04",
+    "week": 3018
+   },
+   {
+    "cup": "COMMONS",
+    "family": "HOOVES",
+    "featured": "WETLANDS",
+    "starts": "2027-11-11",
+    "week": 3019
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "OPEN_SEA",
+    "featured": "DESERT",
+    "starts": "2027-11-18",
+    "week": 3020
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "BIG_CATS",
+    "featured": "MOUNTAINS",
+    "starts": "2027-11-25",
+    "week": 3021
+   },
+   {
+    "cup": "FAMILY",
+    "family": "FEATHERED",
+    "featured": "ARCTIC",
+    "starts": "2027-12-02",
+    "week": 3022
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "ARMORED",
+    "featured": "OCEAN",
+    "starts": "2027-12-09",
+    "week": 3023
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "BEARS",
+    "featured": "SAVANNA",
+    "starts": "2027-12-16",
+    "week": 3024
+   },
+   {
+    "cup": "COMMONS",
+    "family": "SERPENTS",
+    "featured": "FOREST",
+    "starts": "2027-12-23",
+    "week": 3025
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "MISCHIEF",
+    "featured": "JUNGLE",
+    "starts": "2027-12-30",
+    "week": 3026
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "HORNS",
+    "featured": "WETLANDS",
+    "starts": "2028-01-06",
+    "week": 3027
+   },
+   {
+    "cup": "FAMILY",
+    "family": "JAWS",
+    "featured": "DESERT",
+    "starts": "2028-01-13",
+    "week": 3028
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "ODDBALLS",
+    "featured": "MOUNTAINS",
+    "starts": "2028-01-20",
+    "week": 3029
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "RAPTORS",
+    "featured": "ARCTIC",
+    "starts": "2028-01-27",
+    "week": 3030
+   },
+   {
+    "cup": "COMMONS",
+    "family": "DEEP_WEIRD",
+    "featured": "OCEAN",
+    "starts": "2028-02-03",
+    "week": 3031
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "WILD_DOGS",
+    "featured": "SAVANNA",
+    "starts": "2028-02-10",
+    "week": 3032
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "PRIMATES",
+    "featured": "FOREST",
+    "starts": "2028-02-17",
+    "week": 3033
+   },
+   {
+    "cup": "FAMILY",
+    "family": "BUGS",
+    "featured": "JUNGLE",
+    "starts": "2028-02-24",
+    "week": 3034
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "GIANTS",
+    "featured": "WETLANDS",
+    "starts": "2028-03-02",
+    "week": 3035
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "SCALES",
+    "featured": "DESERT",
+    "starts": "2028-03-09",
+    "week": 3036
+   },
+   {
+    "cup": "COMMONS",
+    "family": "AUSSIE",
+    "featured": "MOUNTAINS",
+    "starts": "2028-03-16",
+    "week": 3037
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "HOOVES",
+    "featured": "ARCTIC",
+    "starts": "2028-03-23",
+    "week": 3038
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "OPEN_SEA",
+    "featured": "OCEAN",
+    "starts": "2028-03-30",
+    "week": 3039
+   },
+   {
+    "cup": "FAMILY",
+    "family": "BIG_CATS",
+    "featured": "SAVANNA",
+    "starts": "2028-04-06",
+    "week": 3040
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "FEATHERED",
+    "featured": "FOREST",
+    "starts": "2028-04-13",
+    "week": 3041
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "ARMORED",
+    "featured": "JUNGLE",
+    "starts": "2028-04-20",
+    "week": 3042
+   },
+   {
+    "cup": "COMMONS",
+    "family": "BEARS",
+    "featured": "WETLANDS",
+    "starts": "2028-04-27",
+    "week": 3043
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "SERPENTS",
+    "featured": "DESERT",
+    "starts": "2028-05-04",
+    "week": 3044
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "MISCHIEF",
+    "featured": "MOUNTAINS",
+    "starts": "2028-05-11",
+    "week": 3045
+   },
+   {
+    "cup": "FAMILY",
+    "family": "HORNS",
+    "featured": "ARCTIC",
+    "starts": "2028-05-18",
+    "week": 3046
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "JAWS",
+    "featured": "OCEAN",
+    "starts": "2028-05-25",
+    "week": 3047
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "ODDBALLS",
+    "featured": "SAVANNA",
+    "starts": "2028-06-01",
+    "week": 3048
+   },
+   {
+    "cup": "COMMONS",
+    "family": "RAPTORS",
+    "featured": "FOREST",
+    "starts": "2028-06-08",
+    "week": 3049
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "DEEP_WEIRD",
+    "featured": "JUNGLE",
+    "starts": "2028-06-15",
+    "week": 3050
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "WILD_DOGS",
+    "featured": "WETLANDS",
+    "starts": "2028-06-22",
+    "week": 3051
+   },
+   {
+    "cup": "FAMILY",
+    "family": "PRIMATES",
+    "featured": "DESERT",
+    "starts": "2028-06-29",
+    "week": 3052
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "BUGS",
+    "featured": "MOUNTAINS",
+    "starts": "2028-07-06",
+    "week": 3053
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "GIANTS",
+    "featured": "ARCTIC",
+    "starts": "2028-07-13",
+    "week": 3054
+   },
+   {
+    "cup": "COMMONS",
+    "family": "SCALES",
+    "featured": "OCEAN",
+    "starts": "2028-07-20",
+    "week": 3055
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "AUSSIE",
+    "featured": "SAVANNA",
+    "starts": "2028-07-27",
+    "week": 3056
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "HOOVES",
+    "featured": "FOREST",
+    "starts": "2028-08-03",
+    "week": 3057
+   },
+   {
+    "cup": "FAMILY",
+    "family": "OPEN_SEA",
+    "featured": "JUNGLE",
+    "starts": "2028-08-10",
+    "week": 3058
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "BIG_CATS",
+    "featured": "WETLANDS",
+    "starts": "2028-08-17",
+    "week": 3059
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "FEATHERED",
+    "featured": "DESERT",
+    "starts": "2028-08-24",
+    "week": 3060
+   },
+   {
+    "cup": "COMMONS",
+    "family": "ARMORED",
+    "featured": "MOUNTAINS",
+    "starts": "2028-08-31",
+    "week": 3061
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "BEARS",
+    "featured": "ARCTIC",
+    "starts": "2028-09-07",
+    "week": 3062
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "SERPENTS",
+    "featured": "OCEAN",
+    "starts": "2028-09-14",
+    "week": 3063
+   },
+   {
+    "cup": "FAMILY",
+    "family": "MISCHIEF",
+    "featured": "SAVANNA",
+    "starts": "2028-09-21",
+    "week": 3064
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "HORNS",
+    "featured": "FOREST",
+    "starts": "2028-09-28",
+    "week": 3065
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "JAWS",
+    "featured": "JUNGLE",
+    "starts": "2028-10-05",
+    "week": 3066
+   },
+   {
+    "cup": "COMMONS",
+    "family": "ODDBALLS",
+    "featured": "WETLANDS",
+    "starts": "2028-10-12",
+    "week": 3067
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "RAPTORS",
+    "featured": "DESERT",
+    "starts": "2028-10-19",
+    "week": 3068
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "DEEP_WEIRD",
+    "featured": "MOUNTAINS",
+    "starts": "2028-10-26",
+    "week": 3069
+   },
+   {
+    "cup": "FAMILY",
+    "family": "WILD_DOGS",
+    "featured": "ARCTIC",
+    "starts": "2028-11-02",
+    "week": 3070
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "PRIMATES",
+    "featured": "OCEAN",
+    "starts": "2028-11-09",
+    "week": 3071
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "BUGS",
+    "featured": "SAVANNA",
+    "starts": "2028-11-16",
+    "week": 3072
+   },
+   {
+    "cup": "COMMONS",
+    "family": "GIANTS",
+    "featured": "FOREST",
+    "starts": "2028-11-23",
+    "week": 3073
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "SCALES",
+    "featured": "JUNGLE",
+    "starts": "2028-11-30",
+    "week": 3074
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "AUSSIE",
+    "featured": "WETLANDS",
+    "starts": "2028-12-07",
+    "week": 3075
+   },
+   {
+    "cup": "FAMILY",
+    "family": "HOOVES",
+    "featured": "DESERT",
+    "starts": "2028-12-14",
+    "week": 3076
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "OPEN_SEA",
+    "featured": "MOUNTAINS",
+    "starts": "2028-12-21",
+    "week": 3077
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "BIG_CATS",
+    "featured": "ARCTIC",
+    "starts": "2028-12-28",
+    "week": 3078
+   },
+   {
+    "cup": "COMMONS",
+    "family": "FEATHERED",
+    "featured": "OCEAN",
+    "starts": "2029-01-04",
+    "week": 3079
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "ARMORED",
+    "featured": "SAVANNA",
+    "starts": "2029-01-11",
+    "week": 3080
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "BEARS",
+    "featured": "FOREST",
+    "starts": "2029-01-18",
+    "week": 3081
+   },
+   {
+    "cup": "FAMILY",
+    "family": "SERPENTS",
+    "featured": "JUNGLE",
+    "starts": "2029-01-25",
+    "week": 3082
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "MISCHIEF",
+    "featured": "WETLANDS",
+    "starts": "2029-02-01",
+    "week": 3083
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "HORNS",
+    "featured": "DESERT",
+    "starts": "2029-02-08",
+    "week": 3084
+   },
+   {
+    "cup": "COMMONS",
+    "family": "JAWS",
+    "featured": "MOUNTAINS",
+    "starts": "2029-02-15",
+    "week": 3085
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "ODDBALLS",
+    "featured": "ARCTIC",
+    "starts": "2029-02-22",
+    "week": 3086
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "RAPTORS",
+    "featured": "OCEAN",
+    "starts": "2029-03-01",
+    "week": 3087
+   },
+   {
+    "cup": "FAMILY",
+    "family": "DEEP_WEIRD",
+    "featured": "SAVANNA",
+    "starts": "2029-03-08",
+    "week": 3088
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "WILD_DOGS",
+    "featured": "FOREST",
+    "starts": "2029-03-15",
+    "week": 3089
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "PRIMATES",
+    "featured": "JUNGLE",
+    "starts": "2029-03-22",
+    "week": 3090
+   },
+   {
+    "cup": "COMMONS",
+    "family": "BUGS",
+    "featured": "WETLANDS",
+    "starts": "2029-03-29",
+    "week": 3091
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "GIANTS",
+    "featured": "DESERT",
+    "starts": "2029-04-05",
+    "week": 3092
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "SCALES",
+    "featured": "MOUNTAINS",
+    "starts": "2029-04-12",
+    "week": 3093
+   },
+   {
+    "cup": "FAMILY",
+    "family": "AUSSIE",
+    "featured": "ARCTIC",
+    "starts": "2029-04-19",
+    "week": 3094
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "HOOVES",
+    "featured": "OCEAN",
+    "starts": "2029-04-26",
+    "week": 3095
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "OPEN_SEA",
+    "featured": "SAVANNA",
+    "starts": "2029-05-03",
+    "week": 3096
+   },
+   {
+    "cup": "COMMONS",
+    "family": "BIG_CATS",
+    "featured": "FOREST",
+    "starts": "2029-05-10",
+    "week": 3097
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "FEATHERED",
+    "featured": "JUNGLE",
+    "starts": "2029-05-17",
+    "week": 3098
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "ARMORED",
+    "featured": "WETLANDS",
+    "starts": "2029-05-24",
+    "week": 3099
+   },
+   {
+    "cup": "FAMILY",
+    "family": "BEARS",
+    "featured": "DESERT",
+    "starts": "2029-05-31",
+    "week": 3100
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "SERPENTS",
+    "featured": "MOUNTAINS",
+    "starts": "2029-06-07",
+    "week": 3101
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "MISCHIEF",
+    "featured": "ARCTIC",
+    "starts": "2029-06-14",
+    "week": 3102
+   },
+   {
+    "cup": "COMMONS",
+    "family": "HORNS",
+    "featured": "OCEAN",
+    "starts": "2029-06-21",
+    "week": 3103
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "JAWS",
+    "featured": "SAVANNA",
+    "starts": "2029-06-28",
+    "week": 3104
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "ODDBALLS",
+    "featured": "FOREST",
+    "starts": "2029-07-05",
+    "week": 3105
+   },
+   {
+    "cup": "FAMILY",
+    "family": "RAPTORS",
+    "featured": "JUNGLE",
+    "starts": "2029-07-12",
+    "week": 3106
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "DEEP_WEIRD",
+    "featured": "WETLANDS",
+    "starts": "2029-07-19",
+    "week": 3107
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "WILD_DOGS",
+    "featured": "DESERT",
+    "starts": "2029-07-26",
+    "week": 3108
+   },
+   {
+    "cup": "COMMONS",
+    "family": "PRIMATES",
+    "featured": "MOUNTAINS",
+    "starts": "2029-08-02",
+    "week": 3109
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "BUGS",
+    "featured": "ARCTIC",
+    "starts": "2029-08-09",
+    "week": 3110
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "GIANTS",
+    "featured": "OCEAN",
+    "starts": "2029-08-16",
+    "week": 3111
+   },
+   {
+    "cup": "FAMILY",
+    "family": "SCALES",
+    "featured": "SAVANNA",
+    "starts": "2029-08-23",
+    "week": 3112
+   },
+   {
+    "cup": "AQUATIC",
+    "family": "AUSSIE",
+    "featured": "FOREST",
+    "starts": "2029-08-30",
+    "week": 3113
+   },
+   {
+    "cup": "TINY_TITANS",
+    "family": "HOOVES",
+    "featured": "JUNGLE",
+    "starts": "2029-09-06",
+    "week": 3114
+   },
+   {
+    "cup": "COMMONS",
+    "family": "OPEN_SEA",
+    "featured": "WETLANDS",
+    "starts": "2029-09-13",
+    "week": 3115
+   },
+   {
+    "cup": "NIGHT_SHIFT",
+    "family": "BIG_CATS",
+    "featured": "DESERT",
+    "starts": "2029-09-20",
+    "week": 3116
+   },
+   {
+    "cup": "ONE_ISLAND",
+    "family": "FEATHERED",
+    "featured": "MOUNTAINS",
+    "starts": "2029-09-27",
+    "week": 3117
+   }
+  ]
+ },
+ "starters": [
+  "gorilla",
+  "cheetah",
+  "gray-wolf"
+ ],
+ "trainerLevels": [
+  0,
+  80,
+  167,
+  260,
+  361,
+  470,
+  587,
+  714,
+  851,
+  1000,
+  1159,
+  1332,
+  1519,
+  1720,
+  1938,
+  2173,
+  2426,
+  2701,
+  2997,
+  3316,
+  3661,
+  4034,
+  4437,
+  4872,
+  5342,
+  5849,
+  6397,
+  6989,
+  7628,
+  8318,
+  9063,
+  9868,
+  10738,
+  11677,
+  12691,
+  13786,
+  14969,
+  16246,
+  17626,
+  19116,
+  20725,
+  22463,
+  24340,
+  26367,
+  28556,
+  30921,
+  33475,
+  36233,
+  39211,
+  42428,
+  45902,
+  49654,
+  53707,
+  58083,
+  62810,
+  67914,
+  73427,
+  79382,
+  85812,
+  92757,
+  100258,
+  108358,
+  117107,
+  126555,
+  136760,
+  147780,
+  159683,
+  172537,
+  186420,
+  201414,
+  217607,
+  235095,
+  253983,
+  274382,
+  296412,
+  320205,
+  345901,
+  373653,
+  403626,
+  435996,
+  470955,
+  508712,
+  549489,
+  593528,
+  641090,
+  692457,
+  747934,
+  807848,
+  872556,
+  942440,
+  1017916,
+  1099429,
+  1187463,
+  1282540,
+  1385223,
+  1496121,
+  1615891,
+  1745242,
+  1884941,
+  2035816,
+  2198762,
+  2374743,
+  2564802,
+  2770066,
+  2991751,
+  3231171,
+  3489745,
+  3769005,
+  4070605,
+  4396333,
+  4748120,
+  5128050,
+  5538374,
+  5981523,
+  6460125,
+  6977015,
+  7535256,
+  8138157,
+  8789289,
+  9492512,
+  10251993,
+  11072233,
+  11958091,
+  12914819,
+  13948084,
+  15064011,
+  16269212,
+  17570829,
+  18976575,
+  20494781,
+  22134443,
+  23905279,
+  25817781,
+  27883283,
+  30114026,
+  32523228,
+  35125166,
+  37935260,
+  40970160,
+  44247853,
+  47787761,
+  51610862,
+  55739811,
+  60199076,
+  65015082,
+  70216368,
+  75833758,
+  81900538,
+  88452661,
+  95528954,
+  103171351,
+  111425139,
+  120339230,
+  129966448,
+  140363844,
+  151593031,
+  163720554,
+  176818278,
+  190963820,
+  206241006,
+  222740366,
+  240559675,
+  259804529,
+  280588972,
+  303036169,
+  327279143,
+  353461554,
+  381738559,
+  412277723,
+  445260021,
+  480880903,
+  519351455,
+  560899651,
+  605771703,
+  654233519,
+  706572281,
+  763098143,
+  824146075,
+  890077841,
+  961284148,
+  1038186960,
+  1121241996,
+  1210941436,
+  1307816831,
+  1412442257,
+  1525437718,
+  1647472815,
+  1779270720,
+  1921612458,
+  2075341535,
+  2241368937,
+  2420678532,
+  2614332895,
+  2823479606,
+  3049358055,
+  3293306779,
+  3556771402,
+  3841313194,
+  4148618329,
+  4480507875,
+  4838948585,
+  5226064552,
+  5644149796,
+  6095681860,
+  6583336489,
+  7110003488,
+  7678803847,
+  8293108235,
+  8956556973,
+  9673081611,
+  10446928220,
+  11282682557,
+  12185297242,
+  13160121101,
+  14212930869,
+  15349965419,
+  16577962732,
+  17904199831,
+  19336535897,
+  20883458849,
+  22554135637,
+  24358466568,
+  26307143973,
+  28411715571,
+  30684652897,
+  33139425208,
+  35790579305,
+  38653825729,
+  41746131868,
+  45085822497,
+  48692688377,
+  52588103527,
+  56795151889,
+  61338764120,
+  66245865330,
+  71545534636,
+  77269177487,
+  83450711766,
+  90126768787,
+  97336910370,
+  105123863280,
+  113533772422,
+  122616474296,
+  132425792319,
+  143019855785,
+  154461444327,
+  166818359954,
+  180163828830,
+  194576935216,
+  210143090114,
+  226954537403,
+  245110900475,
+  264719772593,
+  285897354480,
+  308769142918,
+  333470674432,
+  360148328466,
+  388960194824,
+  420077010489,
+  453683171409,
+  489977825201,
+  529176051297,
+  571510135481,
+  617230946399,
+  666609422191,
+  719938176047,
+  777533230210,
+  839735888707,
+  906914759884,
+  979467940754,
+  1057825376095,
+  1142451406262,
+  1233847518843,
+  1332555320430,
+  1439159746145,
+  1554292525916,
+  1678635928070,
+  1812926802395,
+  1957960946667,
+  2114597822480,
+  2283765648358,
+  2466466900307,
+  2663784252412,
+  2876886992684,
+  3107037952179,
+  3355600988433,
+  3624049067588,
+  3913972993075,
+  4227090832601,
+  4565258099289,
+  4930478747312,
+  5324917047177,
+  5750910411031,
+  6210983243994,
+  6707861903593,
+  7244490855961,
+  7824050124517,
+  8449974134559,
+  9125972065403,
+  9856049830716
+ ],
+ "trophies": [
+  {
+   "category": "STORY",
+   "desc": "Pick your first partner",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "WELCOME",
+   "name": "A Partner Chosen",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win your first battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "FIRSTWIN",
+   "name": "First Victory",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat an island's 3 Royal Guards and break its seal",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SEAL1",
+   "name": "Break the Seal",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Break the seal on all 8 islands",
+   "extra": false,
+   "goal": 8,
+   "hidden": false,
+   "id": "SEAL8",
+   "name": "Every Gate Opened",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat the King of the Savanna in its card battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BOSS1",
+   "name": "Savanna Cleared",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat the Keeper of the Forest in its card battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BOSS_FOREST",
+   "name": "Forest Cleared",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat the Shadow of the Jungle in its card battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BOSS_JUNGLE",
+   "name": "Jungle Cleared",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat the Ruler of the Swamp in its card battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BOSS_WETLANDS",
+   "name": "Wetlands Cleared",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat the Dragon of the Dunes in its card battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BOSS_DESERT",
+   "name": "Desert Cleared",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat the Prowler of the Peaks in its card battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BOSS_MOUNTAINS",
+   "name": "Mountains Cleared",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat the Emperor of Ice in its card battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BOSS_ARCTIC",
+   "name": "Arctic Cleared",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat the Terror of the Deep in its card battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BOSS8",
+   "name": "Ocean Cleared",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Megalodon Hunter"
+  },
+  {
+   "category": "STORY",
+   "desc": "Beat 4 island bosses",
+   "extra": false,
+   "goal": 4,
+   "hidden": false,
+   "id": "BOSS4",
+   "name": "Island Hopper",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Island Hopper"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win the Showdown against the King of the Savanna",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SD_SAVANNA",
+   "name": "The Pride Yields",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win the Showdown against the Keeper of the Forest",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SD_FOREST",
+   "name": "Let Sleeping Bears Lie",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win the Showdown against the Shadow of the Jungle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SD_JUNGLE",
+   "name": "Eyes in the Dark",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win the Showdown against the Ruler of the Swamp",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SD_WETLANDS",
+   "name": "Snap Decision",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win the Showdown against the Dragon of the Dunes",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SD_DESERT",
+   "name": "Cold Scales, Hot Sand",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win the Showdown against the Prowler of the Peaks",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SD_MOUNTAINS",
+   "name": "The Silent Peak",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win the Showdown against the Emperor of Ice",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SD_ARCTIC",
+   "name": "Thin Ice",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win the Showdown against the Terror of the Deep",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SD_OCEAN",
+   "name": "The Deep Yields",
+   "points": 90,
+   "tier": "GOLD"
+  },
+  {
+   "category": "STORY",
+   "desc": "Win 4 different Showdowns",
+   "extra": false,
+   "goal": 4,
+   "hidden": false,
+   "id": "SHOWDOWN4",
+   "name": "Crown Chaser",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Crown Chaser"
+  },
+  {
+   "category": "STORY",
+   "desc": "Earn all 8 habitat crowns (win every Showdown)",
+   "extra": false,
+   "goal": 8,
+   "hidden": false,
+   "id": "SHOWDOWN8",
+   "name": "Crown of Every Wild",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Crowned"
+  },
+  {
+   "category": "STORY",
+   "desc": "Finish 30 quests",
+   "extra": false,
+   "goal": 30,
+   "hidden": false,
+   "id": "QUESTS30",
+   "name": "Busy Bee",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Busy Bee"
+  },
+  {
+   "category": "STORY",
+   "desc": "Reach trainer level 25",
+   "extra": false,
+   "goal": 25,
+   "hidden": false,
+   "id": "TRAINER25",
+   "name": "Pro Trainer",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Pro Trainer"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Land a PERFECT hit (tap as the ring closes)",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "PERFECT1",
+   "name": "Timing Is Everything",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Land 25 PERFECT hits",
+   "extra": false,
+   "goal": 25,
+   "hidden": false,
+   "id": "PERFECT25",
+   "name": "Perfect Rhythm",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Land 250 PERFECT hits",
+   "extra": false,
+   "goal": 250,
+   "hidden": false,
+   "id": "MAESTRO",
+   "name": "Timekeeper",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Timekeeper"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Land 1,000 PERFECT hits",
+   "extra": false,
+   "goal": 1000,
+   "hidden": false,
+   "id": "PERFECT1000",
+   "name": "Flawless Tempo",
+   "points": 90,
+   "tier": "GOLD"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Land every hit of a move PERFECT: a FULL COMBO",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "FULLCOMBO",
+   "name": "Full Combo",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "PARRY an attack (block as the ring closes)",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "PARRY1",
+   "name": "Hold the Line",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "PARRY 50 attacks",
+   "extra": false,
+   "goal": 50,
+   "hidden": false,
+   "id": "PARRY50",
+   "name": "Parry Pro",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win a battle with an S grade",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SRANK",
+   "name": "S Rank",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win 5 battles in a row, every one with an S grade",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "SSTREAK",
+   "name": "S Rank Streak",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Beat an island boss with an S grade",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "ROYALS",
+   "name": "Royal S",
+   "points": 90,
+   "tier": "GOLD"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Tag in an animal with the edge and land a TAG COUNTER",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "TAG",
+   "name": "Tag, You're It",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "BRACE against a HEAVY move",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "BRACE",
+   "name": "Brace for Impact",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win with your last animal under 10% HP",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "LASTSTAND",
+   "name": "Last One Standing",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win a HARD fight without losing an animal",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "CLEANSWEEP",
+   "name": "Clean Sweep",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win a DEADLY fight",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "GIANTSLAYER",
+   "name": "Giant Slayer",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win without taking a clean hit (block or parry all)",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "CLEANWIN",
+   "name": "Not a Scratch",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Unscathed"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win 10 battles",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "WIN10",
+   "name": "Scrapper",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win 100 battles",
+   "extra": false,
+   "goal": 100,
+   "hidden": false,
+   "id": "WIN100",
+   "name": "Brawler",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Brawler"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win 1,000 battles",
+   "extra": false,
+   "goal": 1000,
+   "hidden": false,
+   "id": "WIN1000",
+   "name": "Unstoppable",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Unstoppable"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win 10 battles in a row",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "STREAK10",
+   "name": "On Fire",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "On Fire"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Win 50 battles in a row",
+   "extra": false,
+   "goal": 50,
+   "hidden": false,
+   "id": "STREAK50",
+   "name": "Can't Be Stopped",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Menace"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Beat a horde",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "HORDE1",
+   "name": "Crowd Control",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Beat 25 hordes",
+   "extra": false,
+   "goal": 25,
+   "hidden": false,
+   "id": "HORDE25",
+   "name": "Swarm Slayer",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Swarm Slayer"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Beat 1,000 animals in hordes (each one counts)",
+   "extra": false,
+   "goal": 1000,
+   "hidden": false,
+   "id": "HORDE1000",
+   "name": "A Thousand Tiny Problems",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Beat an island ELITE",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "ELITE1",
+   "name": "Elite Hunter",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Beat 20 island ELITES",
+   "extra": false,
+   "goal": 20,
+   "hidden": false,
+   "id": "ELITE20",
+   "name": "Apex Predator",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Apex Predator"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Beat a NIGHT HUNTER (an island's elite after dark)",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "NIGHTHUNTER",
+   "name": "Night Hunter",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Beat all 5 wandering trainers in the Plaza",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "TRAINERS5",
+   "name": "Plaza Champion",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Plaza Champion"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Reach Gauntlet floor 5",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "TOWER5",
+   "name": "Halfway Up",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Clear all 10 Gauntlet floors",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "TOWER10",
+   "name": "Tower Conqueror",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Tower Conqueror"
+  },
+  {
+   "category": "BATTLE",
+   "desc": "Clear the Gauntlet 7 times",
+   "extra": false,
+   "goal": 7,
+   "hidden": false,
+   "id": "TOWER7X",
+   "name": "Every Single Day",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Gauntlet Legend"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Win your first Showdown",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SHOWDOWN1",
+   "name": "Summit Duel",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "COUNTER a boss's attack in a Showdown",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "RIPOSTE",
+   "name": "Riposte",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Stagger a Showdown boss",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "STAGGER1",
+   "name": "Stagger Step",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Land a FINISHER on a staggered boss",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "FINISHER1",
+   "name": "The Final Blow",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Win a Showdown without losing a heart",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "FLAWLESS",
+   "name": "Untouchable",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Untouchable"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Win a Showdown in HUNTER mode",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "HUNTER1",
+   "name": "Hunter's Eye",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Win all 8 Showdowns in HUNTER mode",
+   "extra": false,
+   "goal": 8,
+   "hidden": false,
+   "id": "HUNTER8",
+   "name": "Apex Hunter",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Apex Hunter"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Win a Showdown fast enough for a gold time medal",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SDGOLD1",
+   "name": "Gold Standard",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Gold time medals on all 8 Showdowns",
+   "extra": false,
+   "goal": 8,
+   "hidden": false,
+   "id": "SDGOLD8",
+   "name": "Gold Rush",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Gold Rush"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Earn a Showdown trophy skill (like Lion's Roar)",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "TROPHY1",
+   "name": "Trophy Hunter",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Earn all 8 Showdown trophy skills",
+   "extra": false,
+   "goal": 8,
+   "hidden": false,
+   "id": "TROPHY8",
+   "name": "Trophy Room",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Trophy Room"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Win a Showdown together with another trainer",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "COOP",
+   "name": "Together We Stand",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Join a trainer's CALL FOR HELP and win",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "HELPED",
+   "name": "Answered the Call",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Win a LEGEND fight (a boss's rematch or its Showdown)",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "LEGEND1",
+   "name": "Legend Challenger",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Win a Showdown at LEGEND III",
+   "extra": false,
+   "goal": 3,
+   "hidden": false,
+   "id": "SDLEGEND3",
+   "name": "Summit Legend",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Summit Legend"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Reach LEGEND V against any boss",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "LEGEND5",
+   "name": "Legend Slayer",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Legend Slayer"
+  },
+  {
+   "category": "SHOWDOWN",
+   "desc": "Reach LEGEND X against any boss",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "LEGEND10",
+   "name": "Living Legend",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Living Legend"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Own 5 animals",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "COLLECT5",
+   "name": "Getting Started",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Own 25 animals",
+   "extra": false,
+   "goal": 25,
+   "hidden": false,
+   "id": "COLLECT15",
+   "name": "Menagerie",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Collector"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Own 75 animals",
+   "extra": false,
+   "goal": 75,
+   "hidden": false,
+   "id": "COLLECT40",
+   "name": "Walking Zoo",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Zookeeper"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Own 150 animals",
+   "extra": false,
+   "goal": 150,
+   "hidden": false,
+   "id": "COLLECT100",
+   "name": "Full Roster",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Beast Keeper"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Own every animal (225)",
+   "extra": false,
+   "goal": 225,
+   "hidden": false,
+   "id": "COLLECT225",
+   "name": "Every Last One",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Grand Collector"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Bag an animal from today's WANTED board",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "WANTED1",
+   "name": "Wanted",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Get an animal to 3 stars",
+   "extra": false,
+   "goal": 3,
+   "hidden": false,
+   "id": "STAR3",
+   "name": "Shiny!",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Get an animal to 5 stars",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "STAR5",
+   "name": "Five Star General",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Five Star"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Get an animal to level 50",
+   "extra": false,
+   "goal": 50,
+   "hidden": false,
+   "id": "LV50",
+   "name": "Seasoned",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Ascend an animal",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "ASCEND",
+   "name": "Glow Up",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Ascended"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Ascend an animal all the way to MYTHIC",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "MYTHIC",
+   "name": "Mythic",
+   "points": 90,
+   "tier": "GOLD"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "PACK UP a maxed animal into a pack of two",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "PACK1",
+   "name": "Pack Leader",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Pack Leader"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "PACK UP 10 times",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "PACK10",
+   "name": "Stampede Maker",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Stampede Maker"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Reach 300 collection points (1 per star you own)",
+   "extra": false,
+   "goal": 300,
+   "hidden": false,
+   "id": "POINTS300",
+   "name": "Zoo Director",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Zoo Director"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Reach 1,125 collection points (every animal at 5 stars)",
+   "extra": false,
+   "goal": 1125,
+   "hidden": false,
+   "id": "POINTS1125",
+   "name": "Keeper of the Wild",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Keeper of the Wild"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Beat a DEN ELITE deep in an island's hidden den",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "DEN1",
+   "name": "Den Delver",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "COLLECTION",
+   "desc": "Beat the DEN ELITE on all 8 islands",
+   "extra": false,
+   "goal": 8,
+   "hidden": false,
+   "id": "DEN8",
+   "name": "Every Den",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Den Delver"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Team up 3 of one family (a tier II synergy)",
+   "extra": false,
+   "goal": 2,
+   "hidden": false,
+   "id": "FAMILY2",
+   "name": "Family Reunion",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Win with a HOME PACK: three animals from one island",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "HOMEPACK",
+   "name": "Home Pack",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Beat a boss with a member of its weakness family",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "WEAKSPOT",
+   "name": "Weak Spot",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in a family",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SET1",
+   "name": "Set Complete",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Complete 10 family sets",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "SETS10",
+   "name": "All in the Family",
+   "points": 90,
+   "tier": "GOLD"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Big Cats family (14)",
+   "extra": false,
+   "goal": 14,
+   "hidden": false,
+   "id": "SET_BIG_CATS",
+   "name": "Big Cats Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Cat Wrangler"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Wild Dogs family (12)",
+   "extra": false,
+   "goal": 12,
+   "hidden": false,
+   "id": "SET_WILD_DOGS",
+   "name": "Wild Dogs Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Top Dog"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Bears family (6)",
+   "extra": false,
+   "goal": 6,
+   "hidden": false,
+   "id": "SET_BEARS",
+   "name": "Bears Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Bear Buddy"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Giants family (5)",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "SET_GIANTS",
+   "name": "Giants Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Gentle Giant"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Horns family (18)",
+   "extra": false,
+   "goal": 18,
+   "hidden": false,
+   "id": "SET_HORNS",
+   "name": "Horns Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Herd Leader"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Hooves family (12)",
+   "extra": false,
+   "goal": 12,
+   "hidden": false,
+   "id": "SET_HOOVES",
+   "name": "Hooves Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Trailblazer"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Raptors family (13)",
+   "extra": false,
+   "goal": 13,
+   "hidden": false,
+   "id": "SET_RAPTORS",
+   "name": "Raptors Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Sky Watcher"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Feathered family (18)",
+   "extra": false,
+   "goal": 18,
+   "hidden": false,
+   "id": "SET_FEATHERED",
+   "name": "Feathered Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Bird Nerd"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Primates family (12)",
+   "extra": false,
+   "goal": 12,
+   "hidden": false,
+   "id": "SET_PRIMATES",
+   "name": "Primates Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Troop Leader"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Serpents family (9)",
+   "extra": false,
+   "goal": 9,
+   "hidden": false,
+   "id": "SET_SERPENTS",
+   "name": "Serpents Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Snake Charmer"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Scales family (10)",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "SET_SCALES",
+   "name": "Scales Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Scale Keeper"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Jaws family (9)",
+   "extra": false,
+   "goal": 9,
+   "hidden": false,
+   "id": "SET_JAWS",
+   "name": "Jaws Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Deep Diver"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Open Sea family (15)",
+   "extra": false,
+   "goal": 15,
+   "hidden": false,
+   "id": "SET_OPEN_SEA",
+   "name": "Open Sea Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Sea Captain"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Deep and Weird family (12)",
+   "extra": false,
+   "goal": 12,
+   "hidden": false,
+   "id": "SET_DEEP_WEIRD",
+   "name": "Deep and Weird Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Abyss Explorer"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Armored family (7)",
+   "extra": false,
+   "goal": 7,
+   "hidden": false,
+   "id": "SET_ARMORED",
+   "name": "Armored Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Shell Collector"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Bugs family (16)",
+   "extra": false,
+   "goal": 16,
+   "hidden": false,
+   "id": "SET_BUGS",
+   "name": "Bugs Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Bug Catcher"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Mischief family (11)",
+   "extra": false,
+   "goal": 11,
+   "hidden": false,
+   "id": "SET_MISCHIEF",
+   "name": "Mischief Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Troublemaker"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Aussie family (13)",
+   "extra": false,
+   "goal": 13,
+   "hidden": false,
+   "id": "SET_AUSSIE",
+   "name": "Aussie Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "True Blue"
+  },
+  {
+   "category": "FAMILIES",
+   "desc": "Own every animal in the Oddballs family (13)",
+   "extra": false,
+   "goal": 13,
+   "hidden": false,
+   "id": "SET_ODDBALLS",
+   "name": "Oddballs Complete",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Odd One Out"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Light your first camp",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "CAMP1",
+   "name": "First Light",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Light every camp (40)",
+   "extra": false,
+   "goal": 40,
+   "hidden": false,
+   "id": "CAMPALL",
+   "name": "Trailblazer",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Climb an island's tower on foot, up to its gate",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "CLIMB1",
+   "name": "The Long Climb",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Climb all 8 towers on foot",
+   "extra": false,
+   "goal": 8,
+   "hidden": false,
+   "id": "CLIMB8",
+   "name": "Every Summit",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Summit Climber"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "GLIDE from an island all the way home to the Plaza",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "GLIDE",
+   "name": "Soaring Home",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Find a fossil",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "FOSSIL1",
+   "name": "Fossil Finder",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Find all 24 fossils",
+   "extra": false,
+   "goal": 24,
+   "hidden": false,
+   "id": "FOSSIL24",
+   "name": "Natural History",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Paleontologist"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Read all 32 field notes",
+   "extra": false,
+   "goal": 32,
+   "hidden": false,
+   "id": "NOTESALL",
+   "name": "Well Read",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Field Scholar"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Take in the view from a lookout",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "LOOKOUT1",
+   "name": "Lookout",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Visit every lookout (15)",
+   "extra": false,
+   "goal": 15,
+   "hidden": false,
+   "id": "LOOKOUTALL",
+   "name": "Seen It All",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Lookout"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Find all 6 paw prints on one island in a day",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "PAWS6",
+   "name": "Paw Tracker",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Photograph a nocturnal animal out roaming at night",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "NIGHTOWL",
+   "name": "Night Owl",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Photograph every animal (225) for the Field Guide",
+   "extra": false,
+   "goal": 225,
+   "hidden": false,
+   "id": "FIELDGUIDE",
+   "name": "Field Guide",
+   "points": 90,
+   "tier": "GOLD"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Earn all 5 mastery stars on the Savanna",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "RANGER_SAVANNA",
+   "name": "Savanna Ranger",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Savanna Ranger"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Earn all 5 mastery stars on the Forest",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "RANGER_FOREST",
+   "name": "Forest Ranger",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Forest Ranger"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Earn all 5 mastery stars on the Jungle",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "RANGER_JUNGLE",
+   "name": "Jungle Ranger",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Jungle Ranger"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Earn all 5 mastery stars on the Wetlands",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "RANGER_WETLANDS",
+   "name": "Wetlands Ranger",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Wetlands Ranger"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Earn all 5 mastery stars on the Desert & Outback",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "RANGER_DESERT",
+   "name": "Desert Ranger",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Desert Ranger"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Earn all 5 mastery stars on the Mountains",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "RANGER_MOUNTAINS",
+   "name": "Mountains Ranger",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Mountains Ranger"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Earn all 5 mastery stars on the Arctic",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "RANGER_ARCTIC",
+   "name": "Arctic Ranger",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Arctic Ranger"
+  },
+  {
+   "category": "EXPLORE",
+   "desc": "Earn all 5 mastery stars on the Ocean",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "RANGER_OCEAN",
+   "name": "Ocean Ranger",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Ocean Ranger"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "High-five another trainer (G)",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "HIGHFIVE1",
+   "name": "High Five!",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "High-five other trainers 25 times (G)",
+   "extra": false,
+   "goal": 25,
+   "hidden": false,
+   "id": "FIVE25",
+   "name": "Friendly",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Friendly"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Be part of a HIGH FIVE CHAIN of 3 or more trainers",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "CHAIN3",
+   "name": "Chain Reaction",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "CHEER 25 times at stage fights or Showdowns",
+   "extra": false,
+   "goal": 25,
+   "hidden": false,
+   "id": "CHEER25",
+   "name": "Cheerleader",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "ROAR at other players 50 times (R)",
+   "extra": false,
+   "goal": 50,
+   "hidden": false,
+   "id": "ROAR50",
+   "name": "Loudmouth",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Loudmouth"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Vote in 10 Who Would Win? shows",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "VOTE10",
+   "name": "Armchair Expert",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Call 5 Who Would Win? shows in a row",
+   "extra": false,
+   "goal": 5,
+   "hidden": false,
+   "id": "CALL5",
+   "name": "Called It",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Called It"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Call 10 Who Would Win? shows in a row",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "CALL10",
+   "name": "Nature Documentary",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Nature Narrator"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Pick a Tournament champion",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "TOURNEY1",
+   "name": "Bracket Buster",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Pick 10 Tournament champions",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "TOURNEY10",
+   "name": "Bracketologist",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Bracketologist"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Win a friendly battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "PVP1",
+   "name": "Friendly Fire",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Win 25 friendly battles",
+   "extra": false,
+   "goal": 25,
+   "hidden": false,
+   "id": "PVP25",
+   "name": "Rival",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Rival"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Win a rival battle",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "RIVAL1",
+   "name": "Rival Hunter",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Win 25 rival battles",
+   "extra": false,
+   "goal": 25,
+   "hidden": false,
+   "id": "RIVAL25",
+   "name": "Top Rival",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Top Rival"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Your team wins 10 defences",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "DEFEND10",
+   "name": "Iron Wall",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Iron Wall"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Your team wins 100 defences",
+   "extra": false,
+   "goal": 100,
+   "hidden": false,
+   "id": "DEFEND100",
+   "name": "Fortress",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Fortress"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Help beat a raid",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "RAID1",
+   "name": "Raid Rookie",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Help beat 10 raids",
+   "extra": false,
+   "goal": 10,
+   "hidden": false,
+   "id": "RAID10",
+   "name": "Raid Boss",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Raid Boss"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Be named the MVP of a raid",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "RAIDMVP",
+   "name": "Raid MVP",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Survive every wave of a STAMPEDE",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "STAMPEDE",
+   "name": "Stampede Survivor",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Win a gold medal on the Sky Trail",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "SKYGOLD",
+   "name": "Sky Trail Gold",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Win a GOLD in the Weekly Cup",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "CUPGOLD1",
+   "name": "Cup Champion",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Win 4 Weekly Cup GOLDS",
+   "extra": false,
+   "goal": 4,
+   "hidden": false,
+   "id": "CUPGOLD4",
+   "name": "Cup Legend",
+   "points": 90,
+   "tier": "GOLD",
+   "title": "Cup Champion"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "A friend joins the game through your invite",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "FRIEND",
+   "name": "Bring a Friend",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Claim a 7-day login streak",
+   "extra": false,
+   "goal": 7,
+   "hidden": false,
+   "id": "LOGIN7",
+   "name": "Regular",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Regular"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Play 30 days in a row",
+   "extra": false,
+   "goal": 30,
+   "hidden": false,
+   "id": "LOGIN30",
+   "name": "Loyal Trainer",
+   "points": 30,
+   "tier": "SILVER"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Open the weekly chest 4 weeks in a row",
+   "extra": false,
+   "goal": 4,
+   "hidden": false,
+   "id": "WEEKLY4",
+   "name": "Weekly Regular",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Weekly Regular"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "Watch 60 minutes from the Front Row",
+   "extra": false,
+   "goal": 60,
+   "hidden": false,
+   "id": "FRONTROW60",
+   "name": "Superfan",
+   "points": 15,
+   "tier": "BRONZE",
+   "title": "Superfan"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "CALL an event for the whole server (a bonus trophy)",
+   "extra": true,
+   "goal": 1,
+   "hidden": false,
+   "id": "SUMMON1",
+   "name": "Party Starter",
+   "points": 0,
+   "tier": "BRONZE",
+   "title": "Party Starter"
+  },
+  {
+   "category": "SOCIAL",
+   "desc": "CALL 10 events for the whole server (a bonus trophy)",
+   "extra": true,
+   "goal": 10,
+   "hidden": false,
+   "id": "SUMMON10",
+   "name": "Crowd Pleaser",
+   "points": 0,
+   "tier": "SILVER",
+   "title": "Crowd Pleaser"
+  },
+  {
+   "category": "SECRET",
+   "desc": "Lose a battle to an animal that weighs under 1 kg",
+   "extra": false,
+   "goal": 1,
+   "hidden": true,
+   "hint": "Some losses are just too cute.",
+   "id": "PETTINGZOO",
+   "name": "Petting Zoo",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SECRET",
+   "desc": "Let the Grizzly eat 3 honey puddles in one Showdown",
+   "extra": false,
+   "goal": 1,
+   "hidden": true,
+   "hint": "The Grizzly has a sweet tooth.",
+   "id": "SNACKBREAK",
+   "name": "Snack Break",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SECRET",
+   "desc": "Take a photo of a boss during its Showdown entrance",
+   "extra": false,
+   "goal": 1,
+   "hidden": true,
+   "hint": "Every grand entrance deserves a picture.",
+   "id": "PHOTOBOMB",
+   "name": "Photobomb",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SECRET",
+   "desc": "Spend 20 seconds in the Komodo's oasis in one Showdown",
+   "extra": false,
+   "goal": 1,
+   "hidden": true,
+   "hint": "Even the desert has a cool place to rest.",
+   "id": "HYDRATED",
+   "name": "Hydrated",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SECRET",
+   "desc": "Fall into the Polar Bear's water 5 times and still win",
+   "extra": false,
+   "goal": 1,
+   "hidden": true,
+   "hint": "The Polar Bear's ice is thinner than it looks.",
+   "id": "DEEPEND",
+   "name": "Deep End",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SECRET",
+   "desc": "Join a co-op Showdown in its last phase and win",
+   "extra": false,
+   "goal": 1,
+   "hidden": true,
+   "hint": "Better late than never.",
+   "id": "LATE",
+   "name": "Fashionably Late",
+   "points": 15,
+   "tier": "BRONZE"
+  },
+  {
+   "category": "SECRET",
+   "desc": "Beat a boss with a Common champion at Lv 30+",
+   "extra": false,
+   "goal": 1,
+   "hidden": true,
+   "hint": "Small beginnings, big finish.",
+   "id": "UNDERDOG",
+   "name": "Underdog Story",
+   "points": 30,
+   "tier": "SILVER",
+   "title": "Underdog"
+  },
+  {
+   "category": "PLATINUM",
+   "desc": "Earn every other trophy",
+   "extra": false,
+   "goal": 1,
+   "hidden": false,
+   "id": "PLATINUM",
+   "name": "Apex of the Wild",
+   "points": 300,
+   "tier": "PLATINUM",
+   "title": "Apex of the Wild"
+  }
+ ],
+ "trophyCategories": [
+  {
+   "color": "#00d4ff",
+   "id": "STORY",
+   "name": "STORY"
+  },
+  {
+   "color": "#ff5a3c",
+   "id": "BATTLE",
+   "name": "BATTLE"
+  },
+  {
+   "color": "#ffd700",
+   "id": "SHOWDOWN",
+   "name": "SHOWDOWN"
+  },
+  {
+   "color": "#ff6b00",
+   "id": "COLLECTION",
+   "name": "COLLECTION"
+  },
+  {
+   "color": "#22c55e",
+   "id": "FAMILIES",
+   "name": "FAMILIES"
+  },
+  {
+   "color": "#25e2a8",
+   "id": "EXPLORE",
+   "name": "EXPLORE"
+  },
+  {
+   "color": "#b08cff",
+   "id": "SOCIAL",
+   "name": "SOCIAL"
+  },
+  {
+   "color": "#a855f7",
+   "id": "SECRET",
+   "name": "SECRET"
+  }
+ ],
+ "trophyLevels": [
+  0,
+  15,
+  31,
+  47,
+  64,
+  82,
+  101,
+  120,
+  140,
+  161,
+  183,
+  206,
+  229,
+  253,
+  278,
+  303,
+  330,
+  357,
+  385,
+  413,
+  443,
+  473,
+  504,
+  535,
+  568,
+  601,
+  635,
+  670,
+  705,
+  741,
+  778,
+  816,
+  855,
+  894,
+  934,
+  975,
+  1016,
+  1059,
+  1102,
+  1146,
+  1190,
+  1236,
+  1282,
+  1329,
+  1377,
+  1425,
+  1474,
+  1524,
+  1575,
+  1627,
+  1679,
+  1732,
+  1786,
+  1840,
+  1895,
+  1952,
+  2008,
+  2066,
+  2124,
+  2184,
+  2243,
+  2304,
+  2366,
+  2428,
+  2491,
+  2554,
+  2619,
+  2684,
+  2750,
+  2817,
+  2884,
+  2953,
+  3022,
+  3092,
+  3162,
+  3233,
+  3306,
+  3378,
+  3452,
+  3526,
+  3602,
+  3678,
+  3754,
+  3832,
+  3910,
+  3989,
+  4069,
+  4149,
+  4230,
+  4312,
+  4395,
+  4479,
+  4563,
+  4648,
+  4734,
+  4821,
+  4908,
+  4996,
+  5085
+ ],
+ "trophyTiers": {
+  "BRONZE": {
+   "color": "#ff9646",
+   "name": "BRONZE",
+   "points": 15
+  },
+  "GOLD": {
+   "color": "#ffd700",
+   "name": "GOLD",
+   "points": 90
+  },
+  "PLATINUM": {
+   "color": "#96e8ff",
+   "name": "PLATINUM",
+   "points": 300
+  },
+  "SILVER": {
+   "color": "#c8d2e1",
+   "name": "SILVER",
+   "points": 30
+  }
+ }
+}

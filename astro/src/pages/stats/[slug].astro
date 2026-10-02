@@ -4,13 +4,15 @@ import AnimalImage from '../../components/AnimalImage.astro';
 import Meters from '../../components/Meters.astro';
 import Radar from '../../components/Radar.astro';
 import UiIcon from '../../components/UiIcon.astro';
+import RobloxMark from '../../components/RobloxMark.astro';
+import gameData from '../../../../data/roblox-game-data.json';
 import {
     animals, STATS, SUBSTATS, GROUPS, BIOMES, groupRank, statRank, rivals, tierInfo,
     fmtWeight, fmtLength, fmtSpeed, fmtYears, fmtBite, fmtScore, ordinal, article
 } from '../../lib/catalog.js';
 import { verdict, matchupHref } from '../../lib/matchups.js';
 import { creditFor } from '../../lib/credits.js';
-import { SITE, absoluteUrl } from '../../lib/site.js';
+import { SITE, ROBLOX, absoluteUrl } from '../../lib/site.js';
 import { rolesFor, logo as showLogo } from '../../lib/shows.js';
 import { cardJson, cardFiles, cardAlt, CARD_FILE } from '../../lib/card.js';
 
@@ -31,6 +33,17 @@ const path = `/stats/${animal.slug}`;
 const seed = animal.rank;
 // The battle card as files (front, back, and the page preview that shows it).
 const cardFile = cardFiles(animal);
+// The animal in the Roblox game (data/roblox-game-data.json, from the game's own code): how rare it
+// is there, its island and family, its two moves, and whether it is an island boss or a starter.
+const inGame = gameData.animals.find((item) => item.id === animal.slug) || null;
+const game = inGame && {
+    rarity: gameData.rarities.find((item) => item.id === inGame.rarity),
+    island: gameData.biomes.find((item) => item.id === inGame.biome),
+    family: gameData.families.find((item) => item.id === inGame.family),
+    bossOf: gameData.biomes.find((item) => item.boss === animal.slug),
+    starter: gameData.starters.includes(animal.slug),
+    moves: inGame.abilities.map((ability) => ability.name)
+};
 
 const sortedStats = [...STATS].sort((a, b) => (animal[b.key] || 0) - (animal[a.key] || 0));
 const best = sortedStats[0];
@@ -238,6 +251,16 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                         <span><small>Stars in ABS Originals</small><b>{character.name}, {character.role.toLowerCase()}</b><span>{show.tagline} Watch free →</span></span>
                     </a>
                 ))}
+                {game && (
+                    <a class="stars-in in-game" href={ROBLOX.playUrl || '/roblox'} rel={ROBLOX.playUrl ? 'noopener' : undefined} target={ROBLOX.playUrl ? '_blank' : undefined} style={`--show:${game.rarity?.color || '#00d4ff'}`} data-in-game>
+                        <span class="in-game-mark"><RobloxMark size={34} /></span>
+                        <span>
+                            <small>In the Roblox game</small>
+                            <b>{game.bossOf ? `Boss of the ${game.island?.name || ''} island: ${game.bossOf.bossTitle}` : `${game.rarity?.name || ''} on the ${game.island?.name || ''} island`}{game.starter ? ' · a starter' : ''}</b>
+                            <span>{[game.family && `${game.family.name} family`, game.moves.length && `moves: ${game.moves.join(', ')}`].filter(Boolean).join(' · ')}. {ROBLOX.live ? 'Collect it free →' : 'Coming soon →'}</span>
+                        </span>
+                    </a>
+                )}
                 <p class="summary">{summary}</p>
                 <h2 class="pane-h">Detailed ratings</h2>
                 <div class="pips">

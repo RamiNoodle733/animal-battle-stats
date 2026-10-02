@@ -3,6 +3,7 @@
 import { loadAnimalIndex, escapeHtml, toast, artVars } from './site.js';
 import { sfx } from './sfx.js';
 import { trackLogout } from './track.js';
+import { ago, loadGame, trainerHtml } from './roblox-trainer.js';
 
 const root = document.querySelector('[data-profile]');
 const $ = (selector) => root.querySelector(selector);
@@ -127,12 +128,24 @@ function paintRoblox(user) {
     $('[data-rb-display]').textContent = account.displayName || account.username || 'Roblox player';
     $('[data-rb-user]').textContent = account.username ? `@${account.username}` : '';
     $('[data-rb-profile]').href = account.profileUrl;
+    $('[data-rb-public]').checked = Boolean(account.showPublic);
     if (robloxCardFor !== account.userId) loadRobloxCard(account.userId);
 }
 
-async function loadRobloxCard(userId) {
+// Why there is no fresh game progress, in words.
+const SYNC_ERRORS = {
+    not_configured: 'Game progress isn\'t switched on yet.',
+    no_access: 'Game progress isn\'t switched on yet.',
+    busy: 'Roblox is busy right now.',
+    unavailable: 'Roblox didn\'t answer just now.'
+};
+
+async function loadRobloxCard(userId, { sync = false } = {}) {
     robloxCardFor = userId;
-    const result = await api('action=roblox-player');
+    const button = $('[data-rb-sync]');
+    button.disabled = true;
+    const [result, game] = await Promise.all([api(`action=roblox-player${sync ? '&sync=1' : ''}`), loadGame().catch(() => null)]);
+    button.disabled = false;
     const card = result.ok ? result.body.data : null;
     if (!card?.linked || robloxCardFor !== userId) return;
     const head = $('[data-rb-head]');
@@ -148,6 +161,24 @@ async function loadRobloxCard(userId) {
     $('[data-rb-note]').textContent = !card.live
         ? 'Your stats show up here once the game is live.'
         : card.stats ? 'From the game\'s global leaderboards.' : 'In-game stats are unavailable right now.';
+
+    // The game progress, read from your save.
+    const progress = card.game || {};
+    const snap = progress.snapshot;
+    $('[data-rb-trainer]').innerHTML = snap && game ? trainerHtml(game, snap, { own: true }) : '';
+    button.hidden = !card.live;
+    const error = progress.error ? SYNC_ERRORS[progress.error] || 'Your game progress couldn\'t be read just now.' : '';
+    $('[data-rb-sync-note]').textContent = !card.live
+        ? 'Your game progress shows up here once the game is live.'
+        : snap ? `${snap.playing ? 'You\'re in the game right now. ' : ''}From the game ${ago(progress.at)}.${error ? ` ${error} This is the last one we got.` : ''}`
+            : error || 'No game save yet: play once and your trainer, animals and trophies show up here.';
+    const fresh = $('[data-rb-fresh]');
+    const added = progress.added || [];
+    fresh.hidden = !added.length;
+    if (added.length) {
+        fresh.textContent = `${added.length} card${added.length === 1 ? '' : 's'} from the game joined your collection: ${added.slice(0, 5).map((cardItem) => cardItem.name).join(', ')}${added.length > 5 ? ` and ${added.length - 5} more` : ''}.`;
+        sfx.win();
+    }
 }
 
 function paintRobloxAvailability(enabled) {
@@ -229,7 +260,21 @@ async function loadPublic() {
         return;
     }
     root.dataset.state = 'public';
-    paintCard(result.body.data.user, false);
+    const user = result.body.data.user;
+    paintCard(user, false);
+    paintPublicGame(user);
+}
+
+// Someone else's progress in the Roblox game (and their Roblox name, if they chose to show it).
+async function paintPublicGame(user) {
+    const roblox = user.roblox;
+    if (!roblox?.game || user.hidden) return;
+    const game = await loadGame().catch(() => null);
+    if (!game) return;
+    const who = roblox.account ? { name: roblox.account.displayName || roblox.account.username, username: roblox.account.username } : null;
+    $('[data-p-game-body]').innerHTML = trainerHtml(game, roblox.game, { who, at: roblox.at });
+    $('[data-p-game]').hidden = false;
+    root.dataset.game = '';
 }
 
 // ---------------------------------------------------------------- wiring
@@ -266,13 +311,28 @@ $('[data-p-google-btn]').addEventListener('click', async () => {
     toast('Google account unlinked');
 });
 $('[data-rb-unlink]').addEventListener('click', async () => {
-    if (!confirm('Disconnect your Roblox account from this profile? You can connect it again any time.')) return;
+    if (!confirm('Disconnect your Roblox account from this profile? Cards it brought over stay in your collection. You can connect it again any time.')) return;
     const result = await api('action=unlink-roblox', { method: 'POST', body: {} });
     if (!result.ok) { sfx.error(); toast(result.body.error || 'Could not disconnect Roblox.'); return; }
     me = { ...me, ...result.body.data.user };
     paintCard(me, true);
     paintOwner(me);
     toast('Roblox account disconnected');
+});
+$('[data-rb-sync]').addEventListener('click', () => {
+    if (me?.roblox?.userId) loadRobloxCard(me.roblox.userId, { sync: true });
+});
+$('[data-rb-public]').addEventListener('change', async (event) => {
+    const showPublic = event.target.checked;
+    const result = await api('action=roblox-settings', { method: 'POST', body: { showPublic } });
+    if (!result.ok) {
+        event.target.checked = !showPublic;
+        sfx.error();
+        toast(result.body.error || 'Could not save that.');
+        return;
+    }
+    if (me?.roblox) me.roblox.showPublic = showPublic;
+    toast(showPublic ? 'Your public profile now shows your Roblox name' : 'Your Roblox name is hidden on your public profile');
 });
 $('[data-p-prestige-btn]').addEventListener('click', async () => {
     if (!confirm('Prestige resets you to level 1 and awards a prestige star plus BattlePoints. Continue?')) return;

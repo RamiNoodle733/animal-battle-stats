@@ -1,0 +1,85 @@
+/* The trainer card (scripts/roblox-trainer.js): a player's progress in the Roblox game. */
+.tc { display: grid; gap: 12px; min-width: 0; }
+.tc h4 { display: flex; align-items: baseline; gap: 8px; margin: 2px 0 6px; font-family: var(--font-display); font-size: 1rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-2); }
+.tc h4 small, .tc h5 small { font-family: var(--font-body, inherit); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; color: var(--muted); }
+.tc section { min-width: 0; }
+
+.tc-head { display: flex; align-items: center; gap: 12px; min-width: 0; flex-wrap: wrap; }
+.tc-avatar { flex: none; display: grid; place-items: center; width: 64px; height: 64px; overflow: hidden; background: radial-gradient(circle at 50% 35%, #3a3d44, #121316 75%); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px; }
+.tc-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.tc-avatar img[width="30"] { width: 30px; height: 30px; opacity: 0.6; }
+.tc-who { display: grid; min-width: 0; flex: 1; }
+.tc-who b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; }
+.tc-who small { font-size: 0.8rem; color: var(--muted); }
+.tc-status { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 999px; }
+.tc-status.is-on { color: #7cf5b4; background: rgba(53, 220, 143, 0.1); border-color: rgba(53, 220, 143, 0.45); }
+.tc-status i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: tc-pulse 2s ease-out infinite; }
+@keyframes tc-pulse { 0% { box-shadow: 0 0 0 0 rgba(124, 245, 180, 0.6); } 100% { box-shadow: 0 0 0 9px transparent; } }
+
+.tc-trainer { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 12px; padding: 10px 12px; background: linear-gradient(100deg, rgba(0, 212, 255, 0.12), rgba(9, 10, 12, 0.5) 60%); border: 1px solid rgba(0, 212, 255, 0.35); border-radius: 12px; }
+.tc-lvl { display: grid; justify-items: center; min-width: 64px; line-height: 1; }
+.tc-lvl small { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan, #00d4ff); }
+.tc-lvl b { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: #fff; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5); }
+.tc-xp { display: grid; gap: 5px; min-width: 0; }
+.tc-bar { height: 12px; background: rgba(255, 255, 255, 0.1); clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); overflow: hidden; }
+.tc-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan, #00d4ff), #7df1ff); transition: width 0.8s ease; }
+.tc-xp > small { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.tc-looks { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tc-looks small { font-size: 0.72rem; color: var(--dim); }
+.tc-title { padding: 1px 9px; font-family: var(--font-display); font-size: 0.8rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold-2); background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.4); border-radius: 999px; }
+
+.tc-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; }
+.tc-nums div { display: grid; gap: 2px; padding: 8px 10px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
+.tc-nums dt { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.tc-nums dd { margin: 0; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; color: var(--gold-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tc-nums dd small { font-size: 0.85rem; color: var(--muted); }
+.tc-nums div > small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.68rem; color: var(--dim); }
+
+.tc-team { display: grid; grid-template-columns: repeat(3, minmax(0, 120px)); gap: 8px; }
+.tc-animal { position: relative; display: grid; color: inherit; text-decoration: none; }
+.tc-animal img { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 0 0 2px var(--rar), 0 6px 14px rgba(0, 0, 0, 0.5); }
+.tc-animal.is-champ img { box-shadow: 0 0 0 2px var(--gold, #f6b400), 0 0 16px rgba(255, 215, 0, 0.45); }
+.tc-champ { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); display: grid; place-items: center; width: 24px; height: 24px; background: #15161a; border: 1px solid var(--gold, #f6b400); border-radius: 50%; }
+.tc-lv { display: flex; align-items: center; justify-content: space-between; gap: 4px; margin-top: 6px; padding: 2px 7px; font-size: 0.74rem; background: rgba(9, 10, 12, 0.6); border: 1px solid var(--line); border-radius: 6px; }
+.tc-lv b { font-family: var(--font-display); font-weight: 900; color: #fff; }
+.tc-stars { color: var(--gold-2); font-size: 0.66rem; letter-spacing: -1px; }
+
+.tc-isles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
+.tc-isles li { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; grid-template-areas: "name bar n" "marks marks marks"; align-items: center; gap: 2px 8px; padding: 6px 9px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-left: 3px solid var(--isle); border-radius: 8px; }
+.tc-isles b { grid-area: name; font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.03em; text-transform: uppercase; }
+.tc-ibar { grid-area: bar; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 3px; overflow: hidden; }
+.tc-ibar i { display: block; height: 100%; background: var(--isle); }
+.tc-isles small { grid-area: n; font-size: 0.72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tc-marks { grid-area: marks; display: flex; align-items: center; gap: 6px; min-height: 16px; }
+.tc-marks:empty::after { content: "Not cleared yet"; font-size: 0.66rem; color: var(--dim); }
+.tc-medal.is-silver img { filter: grayscale(1) brightness(1.3); }
+.tc-medal.is-bronze img { filter: sepia(1) hue-rotate(-20deg) saturate(2.5) brightness(0.85); }
+.tc-legend { font-family: var(--font-display); font-size: 0.72rem; font-weight: 900; color: #ff5caa; }
+
+.tc-rars { display: flex; flex-wrap: wrap; gap: 6px; }
+.tc-rar { padding: 3px 9px; font-size: 0.74rem; color: var(--text-2); background: rgba(9, 10, 12, 0.5); border: 1px solid var(--rar); border-radius: 999px; }
+.tc-rar b { color: var(--rar); }
+
+.tc-trophies { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; }
+.tc-trophy { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 6px 9px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+.tc-cup { display: grid; place-items: center; width: 28px; height: 28px; background: color-mix(in srgb, var(--tier) 18%, transparent); border: 1px solid var(--tier); border-radius: 50%; }
+.tc-trophy b { display: block; font-size: 0.84rem; }
+.tc-trophy span > small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.7rem; color: var(--muted); }
+.tc-trophy em { display: grid; justify-items: end; font-style: normal; font-family: var(--font-display); font-size: 0.74rem; font-weight: 900; letter-spacing: 0.06em; color: var(--tier); }
+.tc-trophy em small { font-family: var(--font-body, inherit); font-size: 0.62rem; font-weight: 600; letter-spacing: 0; color: var(--dim); }
+.tc-trophy.is-locked { opacity: 0.5; }
+.tc-trophy.is-locked .tc-cup { filter: grayscale(1); }
+.tc-all { margin-top: 8px; }
+.tc-all summary { cursor: pointer; font-size: 0.8rem; font-weight: 800; color: var(--cyan, #00d4ff); }
+.tc-all h5 { margin: 10px 0 5px; font-family: var(--font-display); font-size: 0.86rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); }
+.tc-none { margin: 0; font-size: 0.8rem; color: var(--dim); }
+
+.tc-extras { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0; padding: 0; list-style: none; font-size: 0.78rem; color: var(--text-2); }
+.tc-extras li { display: inline-flex; align-items: center; gap: 6px; }
+.tc-at { margin: 0; font-size: 0.72rem; color: var(--dim); }
+
+@media (max-width: 760px) {
+    .tc-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tc-isles { grid-template-columns: minmax(0, 1fr); }
+    .tc-lvl b { font-size: 2.1rem; }
+}

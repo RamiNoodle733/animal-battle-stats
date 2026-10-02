@@ -1115,3 +1115,5 @@ body.game {
     .look-frame { animation: none !important; }
     .rw-badge { animation: none; }
 }
+/* An animal page's "In the Roblox game" strip (stats/[slug].astro), styled like .stars-in. */
+.stars-in.in-game .in-game-mark { flex: none; display: grid; place-items: center; width: 52px; height: 52px; color: #fff; background: linear-gradient(160deg, #3a3d44, #0d0e10); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 14px; }

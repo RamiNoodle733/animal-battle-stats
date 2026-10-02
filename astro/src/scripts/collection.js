@@ -1,14 +1,18 @@
 // /collection: fills the binder with a player's cards (lib/collection.js via
 // /api/auth?action=collection), and runs the starter pick, the card of the day
-// and the shop. ?u=<name> shows someone else's collection, read-only.
+// and the shop. ?u=<name> shows someone else's collection, read-only. A linked
+// Roblox player's game animals are brought over by the server on load; the
+// binder shows each one's level in the game.
 import { authApi, escapeHtml, showReward, toast } from './site.js';
 import { sfx } from './sfx.js';
+import { ago } from './roblox-trainer.js';
 
 const root = document.querySelector('[data-col]');
 const $ = (selector) => root.querySelector(selector);
 const slots = new Map([...root.querySelectorAll('[data-slug]')].map((slot) => [slot.dataset.slug, slot]));
 const other = new URLSearchParams(location.search).get('u');
-const view = { show: 'all', tiers: new Set(), group: '', q: '' };
+const view = { show: 'all', tiers: new Set(), group: '', q: '', game: false };
+let game = { linked: false, levels: {} };
 let owned = new Set();
 let mine = false;
 let wallet = 0;
@@ -72,12 +76,50 @@ function paintStarter(starters) {
     </div>`).join('');
 }
 
+// The Roblox game: each game animal's level there, and the Roblox panel.
+function paintGame() {
+    for (const [slug, slot] of slots) {
+        const label = slot.querySelector('[data-slot-game]');
+        if (!label) continue;
+        const level = game.levels?.[slug];
+        label.textContent = level ? `Lv ${level[0]}` : '';
+        slot.querySelector('.slot-rbx').title = level ? `Level ${level[0]}, ${level[1]} star${level[1] === 1 ? '' : 's'} in the Roblox game` : 'In the Roblox game';
+    }
+    const box = $('[data-col-roblox]');
+    const text = $('[data-col-rbx-text]');
+    const link = $('[data-col-rbx-link]');
+    const play = root.querySelector('[data-col-rbx-play]');
+    const sync = $('[data-col-rbx-sync]');
+    if (mine && game.linked) {
+        const error = game.error ? ' Roblox didn\'t answer just now; this is the last sync.' : '';
+        text.innerHTML = game.at
+            ? `<b>${game.count}</b> of ${game.total} game animals collected in Roblox${game.playing ? ', and you\'re playing now' : ''}. Every one is in this binder. <small>Synced ${escapeHtml(ago(game.at))}.${error}</small>`
+            : `Your Roblox account is connected. Play the game and every animal you collect there joins this binder.${error}`;
+        link.hidden = true;
+        sync.hidden = false;
+    } else if (mine) {
+        text.textContent = 'Collecting animals in the Roblox game? Connect Roblox and every one of them joins this binder, with its level from the game.';
+        link.href = '/api/auth?action=link-roblox&returnTo=%2Fcollection';
+        link.removeAttribute('aria-disabled');
+        link.hidden = false;
+        sync.hidden = true;
+    } else if (game.linked && game.count) {
+        text.innerHTML = `<b>${game.count}</b> of ${game.total} game animals collected in the Roblox game${game.playing ? ', playing now' : ''}.`;
+        link.hidden = true;
+        sync.hidden = true;
+    }
+    box.hidden = !(mine || (game.linked && game.count));
+    if (play) play.hidden = box.hidden;
+}
+
 function apply(data) {
     owned = new Set(Object.keys(data.cards || {}));
     if (typeof data.wallet === 'number') wallet = data.wallet;
+    if (data.roblox) game = data.roblox;
     paintCounts();
     paintWallet();
     paintSlots();
+    paintGame();
     if (mine) {
         paintDaily(data.daily);
         paintStarter(data.starters);
@@ -107,7 +149,8 @@ function filter() {
         const visible = (view.show === 'all' || (view.show === 'have' ? have : !have))
             && (!view.tiers.size || view.tiers.has(slot.dataset.tier))
             && (!view.group || slot.dataset.group === view.group)
-            && (!view.q || slot.dataset.name.includes(view.q));
+            && (!view.q || slot.dataset.name.includes(view.q))
+            && (!view.game || slot.dataset.game);
         slot.hidden = !visible;
         if (visible) shown += 1;
     }
@@ -127,6 +170,12 @@ root.querySelectorAll('[data-tier-filter]').forEach((button) => button.addEventL
     sfx.tab();
     filter();
 }));
+$('[data-game-filter]').addEventListener('click', (event) => {
+    view.game = !view.game;
+    event.currentTarget.setAttribute('aria-pressed', String(view.game));
+    sfx.tab();
+    filter();
+});
 $('[data-group-filter]').addEventListener('change', (event) => { view.group = event.target.value; filter(); });
 $('[data-search]').addEventListener('input', (event) => { view.q = event.target.value.trim().toLowerCase(); filter(); });
 
@@ -194,7 +243,27 @@ async function loadMine() {
     }
     mine = true;
     apply(result.body.data);
+    // Cards the game just brought over flip in.
+    const added = (result.body.data.roblox?.added || []).filter((slug) => slots.has(slug));
+    if (added.length) {
+        added.slice(0, 24).forEach((slug, index) => setTimeout(() => {
+            const slot = slots.get(slug);
+            slot.classList.remove('is-new');
+            void slot.offsetWidth;
+            slot.classList.add('is-new');
+        }, 300 + index * 120));
+        sfx.win();
+        toast(`${added.length} card${added.length === 1 ? '' : 's'} from the Roblox game joined your binder!`);
+    }
 }
+
+$('[data-col-rbx-sync]').addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    button.disabled = true;
+    await authApi('roblox-player&sync=1');
+    await loadMine();
+    button.disabled = false;
+});
 
 if (other) {
     loadOther(other);

@@ -8,6 +8,7 @@ import Icon from '../components/Icon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
 import economy from '../../../lib/economy.js';
 import { SITE, ROBLOX } from '../lib/site.js';
+import '../styles/trainer.css';
 
 // Same boards as lib/roblox-game.js; /api/auth?action=roblox-player fills them.
 const RB_STATS = [['POWER', 'Team power'], ['COLLECTION', 'Animals collected'], ['WINS', 'Battles won'], ['SHOW', 'Best show streak']];
@@ -53,6 +54,11 @@ const EARN = [
             <script type="application/json" id="card-thumbs" set:html={JSON.stringify(thumbVersions)}></script>
         </section>
 
+        <section class="panel p-game enter-2" data-p-game hidden>
+            <div class="panel-head"><RobloxMark size={26} /><h2 class="panel-title">In the Roblox game</h2></div>
+            <div class="p-game-body scroll" data-p-game-body></div>
+        </section>
+
         <section class="panel p-main enter-2" data-p-owner-only>
             <div class="tabs" role="tablist">
                 <button type="button" role="tab" aria-selected="true" data-p-tab="edit"><Icon name="gear" size={20} />Profile</button>
@@ -84,13 +90,21 @@ const EARN = [
                             <span class="chip chip-green"><Icon name="check" size={14} />Connected</span>
                         </span>
                     </div>
-                    <h3 class="sub-h">In-game stats</h3>
+                    <div class="rb-sync">
+                        <span class="small" data-rb-sync-note>{ROBLOX.live ? 'Bringing your game progress over…' : 'Your game progress shows up here once the game is live.'}</span>
+                        <button class="btn btn-sm" type="button" data-rb-sync hidden><Icon name="arrow" size={18} />Sync now</button>
+                    </div>
+                    <div class="rb-trainer" data-rb-trainer aria-live="polite"></div>
+                    <p class="rb-fresh small" data-rb-fresh hidden></p>
+                    <h3 class="sub-h">On the global leaderboards</h3>
                     <dl class="rb-stats">
                         {RB_STATS.map(([id, label]) => <div><dt>{label}</dt><dd data-rb-stat={id}>–</dd></div>)}
                     </dl>
                     <p class="small rb-note" data-rb-note>{ROBLOX.live ? 'Loading your stats…' : 'Your stats show up here once the game is live.'}</p>
+                    <label class="rb-public"><input type="checkbox" data-rb-public /><span><b>Show my Roblox name on my public profile</b><small>Your game progress shows there either way, under your name here. Your Roblox avatar and id are never shown.</small></span></label>
                     <div class="btn-row">
                         {ROBLOX.live && <a class="btn btn-play btn-sm" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={18} />Play</a>}
+                        <a class="btn btn-gold btn-sm" href="/collection"><Icon name="cards" size={18} />My cards</a>
                         <a class="btn btn-roblox btn-sm" href="https://www.roblox.com" rel="noopener" target="_blank" data-rb-profile><RobloxMark size={18} />Roblox profile</a>
                         <button class="btn btn-sm" type="button" data-rb-unlink>Disconnect</button>
                     </div>
@@ -98,7 +112,7 @@ const EARN = [
                 <div class="rb-empty" data-rb-empty hidden>
                     <span class="rb-tile" aria-hidden="true"><RobloxMark size={40} /></span>
                     <h3 class="sub-h">Connect your Roblox account</h3>
-                    <p class="small">Show your Roblox name and avatar here and see your in-game stats. Roblox handles the sign-in, so we never see your password. Disconnect any time.</p>
+                    <p class="small">Your progress in the Roblox game shows up here: trainer level, team, animals, islands and trophies. Every animal you collect in the game joins your card collection on this site too. Roblox handles the sign-in, so we never see your password. Disconnect any time.</p>
                     <a class="btn btn-roblox" href="/api/auth?action=link-roblox" aria-disabled="true" data-rb-link><RobloxMark size={20} />Connect Roblox</a>
                     <p class="small rb-note" data-rb-off hidden>Roblox sign-in is not switched on yet.</p>
                 </div>
@@ -188,6 +202,21 @@ const EARN = [
     .rb-stats dt { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
     .rb-stats dd { margin: 2px 0 0; font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; color: var(--gold-2); font-variant-numeric: tabular-nums; }
     .rb-note { margin: 0; color: var(--dim); }
+    .rb-sync { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 12px; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 10px; }
+    .rb-sync .small { color: var(--text-2); }
+    .rb-sync .btn[hidden] { display: none; }
+    .rb-trainer:empty { display: none; }
+    .rb-fresh { margin: 0; padding: 8px 12px; color: #7cf5b4; background: rgba(53, 220, 143, 0.08); border: 1px solid rgba(53, 220, 143, 0.4); border-radius: 10px; }
+    .rb-fresh[hidden] { display: none; }
+    .rb-public { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+    .rb-public input { flex: none; width: 18px; height: 18px; margin-top: 2px; accent-color: var(--cyan); }
+    .rb-public span { display: grid; gap: 2px; font-size: 0.84rem; }
+    .rb-public small { font-size: 0.72rem; color: var(--dim); }
+    .p-game { min-height: 0; }
+    .p-game[hidden] { display: none; }
+    .p-game-body { flex: 1; min-height: 0; padding: 12px 16px 16px; }
+    .prof[data-state="public"][data-game] { grid-template-columns: minmax(280px, 400px) minmax(0, 680px); }
+    .prof[data-state="public"][data-game] .p-earn { display: none; }
     .rb-empty { justify-items: start; }
     .rb-empty p { margin: 0; max-width: 52ch; color: var(--text-2); }
     .rb-tile { display: grid; place-items: center; width: 72px; height: 72px; color: #fff; background: linear-gradient(160deg, #3a3d44, #0d0e10); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 18px; }
@@ -249,6 +278,7 @@ const EARN = [
         .prof { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
         .p-earn { display: none; }
         .prof[data-state="public"] .p-earn { display: flex; }
+        .prof[data-state="public"][data-game] .p-earn { display: none; }
     }
     @media (max-width: 760px) {
         .prof { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
@@ -264,5 +294,9 @@ const EARN = [
         .p-since { display: none; }
         .p-lvl { width: 40px; height: 40px; font-size: 1.2rem; }
         .prof[data-state="public"] { grid-template-columns: minmax(0, 1fr); }
+        /* someone's game progress on a phone: the page scrolls instead of the panel */
+        .prof[data-state="public"][data-game] { display: flex; flex-direction: column; overflow-y: auto; }
+        .prof[data-state="public"][data-game] > .panel { flex: none; }
+        .prof[data-state="public"][data-game] .p-game-body { overflow: visible; }
     }
 </style>

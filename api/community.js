@@ -573,6 +573,18 @@ async function handleAdminOverview(req, res) {
     });
 }
 
+// Owner: whether the site can read the Roblox game's saves (lib/roblox-save.js), and how many
+// players have linked their Roblox account and had their progress brought over.
+async function robloxLinkStatus(User) {
+    const { checkAccess } = require('../lib/roblox-save');
+    const [saves, linked, synced] = await Promise.all([
+        checkAccess(),
+        User.countDocuments({ 'roblox.userId': { $exists: true, $ne: null } }),
+        User.countDocuments({ 'robloxGame.snapshot': { $ne: null }, 'robloxGame.robloxId': { $exists: true } })
+    ]);
+    return { saves, linked, synced };
+}
+
 // Owner: the tracking settings (lib/tracking-settings.js). POST ops:
 //   ignore { username }    leave an account out of tracking
 //   unignore { username }  track it again
@@ -602,6 +614,7 @@ async function handleAdminSettings(req, res) {
             discord: settings.discord,
             groups: tracking.EVENT_GROUPS,
             pageViewModes: tracking.PAGE_VIEW_MODES,
+            roblox: req.method === 'GET' ? await robloxLinkStatus(User) : undefined,
             ...extra
         }
     });

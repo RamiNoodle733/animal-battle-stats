@@ -3,19 +3,24 @@
 // animal's battle card in one binder: the ones a player has, the ones still to
 // get. The rules are lib/collection.js (no packs, nothing random): a starter,
 // the free card of the day, fights called right, tournament champions, and the
-// shop. scripts/collection.js fills in the player's cards from
+// shop, and the Roblox game (a linked player's game animals join the binder,
+// lib/roblox-sync.js). scripts/collection.js fills in the player's cards from
 // /api/auth?action=collection; ?u=<name> shows someone else's.
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import RobloxMark from '../components/RobloxMark.astro';
+import gameData from '../../../data/roblox-game-data.json';
 import collection from '../../../lib/collection.js';
 import { animals, GROUPS } from '../lib/catalog.js';
 import { cardFiles } from '../lib/card.js';
-import { SITE } from '../lib/site.js';
+import { SITE, ROBLOX } from '../lib/site.js';
 import { sectionPreview } from '../lib/previews.js';
 
 const { PRICES } = collection;
 const TIER_ORDER = ['S', 'A', 'B', 'C', 'D', 'F'];
 const tierTotals = Object.fromEntries(TIER_ORDER.map((tier) => [tier, animals.filter((animal) => animal.tier === tier).length]));
+// The animals in the Roblox game, and how rare each is there.
+const inGame = new Map(gameData.animals.map((animal) => [animal.id, gameData.rarities.find((rarity) => rarity.id === animal.rarity)]));
 const slots = animals.map((animal) => ({
     slug: animal.slug,
     name: animal.name,
@@ -23,7 +28,8 @@ const slots = animals.map((animal) => ({
     rank: animal.rank,
     group: animal.group,
     thumb: cardFiles(animal).thumb,
-    price: PRICES[animal.tier]
+    price: PRICES[animal.tier],
+    game: inGame.get(animal.slug) || null
 }));
 const COIN = '/images/ui/icons/coin.svg';
 const WAYS = [
@@ -31,7 +37,8 @@ const WAYS = [
     ['star', 'Card of the day', "Free every day: the home page's Animal of the day."],
     ['target', 'Call a fight right', 'Win the card of the animal you backed.', '/compare'],
     ['trophy', 'Finish a tournament', "Win your champion's card.", '/tournament'],
-    ['coin', 'Buy one by name', `With BattlePoints: ${TIER_ORDER.map((tier) => `${tier} ${PRICES[tier]}`).join(' · ')}.`, '/rewards']
+    ['coin', 'Buy one by name', `With BattlePoints: ${TIER_ORDER.map((tier) => `${tier} ${PRICES[tier]}`).join(' · ')}.`, '/rewards'],
+    ['roblox', 'Play the Roblox game', `Connect Roblox and every animal you collect in the game (${inGame.size} of them) joins your binder.`, '/roblox']
 ];
 const title = `Card Collection: Collect All ${animals.length} Animal Battle Cards | ${SITE.name}`;
 const description = `Collect every animal's battle card: pick a starter, claim a free card every day, win cards by calling fights and finishing tournaments, or buy them with BattlePoints. ${animals.length} cards, no packs, nothing random.`;
@@ -66,6 +73,18 @@ const description = `Collect every animal's battle card: pick a starter, claim a
                 </div>
             </section>
 
+            <section class="panel col-rbx enter-2" data-col-roblox hidden>
+                <div class="panel-head"><RobloxMark size={24} /><h2 class="panel-title">Roblox game</h2></div>
+                <div class="panel-body">
+                    <p data-col-rbx-text></p>
+                    <div class="btn-row">
+                        <a class="btn btn-roblox btn-sm" aria-disabled="true" data-col-rbx-link hidden><RobloxMark size={18} />Connect Roblox</a>
+                        <button class="btn btn-sm" type="button" data-col-rbx-sync hidden><Icon name="arrow" size={18} />Sync now</button>
+                        {ROBLOX.live && <a class="btn btn-play btn-sm" href={ROBLOX.playUrl} rel="noopener" target="_blank" data-col-rbx-play hidden><RobloxMark size={18} />Play</a>}
+                    </div>
+                </div>
+            </section>
+
             <section class="panel col-login enter-2" data-col-login hidden>
                 <div class="panel-body">
                     <b>Start your collection</b>
@@ -78,7 +97,7 @@ const description = `Collect every animal's battle card: pick a starter, claim a
                 <div class="panel-head"><Icon name="book" size={26} /><h2 class="panel-title">How to get cards</h2></div>
                 <ul>
                     {WAYS.map(([icon, label, text, href]) => (
-                        <li><Icon name={icon} size={24} /><span><b>{href ? <a href={href}>{label}</a> : label}</b><small>{text}</small></span></li>
+                        <li>{icon === 'roblox' ? <RobloxMark size={22} /> : <Icon name={icon} size={24} />}<span><b>{href ? <a href={href}>{label}</a> : label}</b><small>{text}</small></span></li>
                     ))}
                 </ul>
                 <p class="small muted col-fine">No packs and nothing random: you always know which card you get.</p>
@@ -100,6 +119,7 @@ const description = `Collect every animal's battle card: pick a starter, claim a
                 <div class="col-tierpick" role="group" aria-label="Tier">
                     {TIER_ORDER.map((tier) => <button type="button" class={`chip t-${tier.toLowerCase()}`} aria-pressed="false" data-tier-filter={tier}>{tier}</button>)}
                 </div>
+                <button type="button" class="chip col-gamepick" aria-pressed="false" data-game-filter title={`The ${inGame.size} animals in the Roblox game`}><RobloxMark size={12} />In Roblox</button>
                 <select class="field col-group" data-group-filter aria-label="Group">
                     <option value="">Every group</option>
                     {GROUPS.map((group) => <option value={group.key}>{group.label}</option>)}
@@ -108,12 +128,12 @@ const description = `Collect every animal's battle card: pick a starter, claim a
             </div>
             <ol class="binder" data-binder>
                 {slots.map((slot) => (
-                    <li class={`slot t-${slot.tier.toLowerCase()}`} data-slug={slot.slug} data-tier={slot.tier} data-group={slot.group} data-name={slot.name.toLowerCase()} data-price={slot.price}>
+                    <li class={`slot t-${slot.tier.toLowerCase()}`} data-slug={slot.slug} data-tier={slot.tier} data-group={slot.group} data-name={slot.name.toLowerCase()} data-price={slot.price} data-game={slot.game?.id}>
                         <a class="slot-card" href={`/stats/${slot.slug}#card`} aria-label={`${slot.name} card`}>
                             <img src={slot.thumb} width="360" height="504" loading="lazy" decoding="async" alt="" />
                             <span class="slot-lock" aria-hidden="true">?</span>
                         </a>
-                        <span class="slot-meta"><small>No. {slot.rank}</small><b>{slot.name}</b></span>
+                        <span class="slot-meta"><small>No. {slot.rank}{slot.game && <span class="slot-rbx" style={`--rar:${slot.game.color}`} title={`In the Roblox game (${slot.game.name})`}><RobloxMark size={9} /><span data-slot-game></span></span>}</small><b>{slot.name}</b></span>
                         <button type="button" class="slot-get" data-get hidden><img src={COIN} alt="" width="14" height="14" />{slot.price}</button>
                     </li>
                 ))}
@@ -151,7 +171,18 @@ const description = `Collect every animal's battle card: pick a starter, claim a
     .col-daily-body > div { display: grid; gap: 6px; justify-items: start; }
     .col-daily-body b { font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; text-transform: uppercase; line-height: 1; }
     .col-daily-body small { font-size: 0.78rem; color: var(--text-2); }
-    .col-login .panel-body { display: grid; gap: 8px; }
+    .col-login .panel-body, .col-rbx .panel-body { display: grid; gap: 8px; }
+    .col-rbx p { margin: 0; font-size: 0.86rem; color: var(--text-2); }
+    .col-rbx p :global(b) { color: #fff; }
+    .col-rbx .btn[hidden] { display: none; }
+    .col-gamepick { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; font-weight: 800; }
+    .col-gamepick[aria-pressed="true"] { color: #fff; background: #1c1d20; border-color: #fff; }
+    .slot-meta small { display: flex; align-items: center; gap: 6px; }
+    .slot-rbx { display: inline-flex; align-items: center; gap: 3px; padding: 0 4px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.02em; color: #fff; background: rgba(5, 6, 8, 0.6); border: 1px solid var(--rar); border-radius: 4px; }
+    .slot-rbx span:empty { display: none; }
+    .slot-rbx span { font-family: var(--font-display); white-space: nowrap; }
+    .slot:not(.owned) .slot-rbx { opacity: 0.55; }
+    .col-side > .panel { flex: none; }
     .col-login p { margin: 0; font-size: 0.86rem; color: var(--text-2); }
     .col-how ul { margin: 0; padding: 6px 14px 4px; list-style: none; display: grid; gap: 8px; }
     .col-how li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; align-items: start; }

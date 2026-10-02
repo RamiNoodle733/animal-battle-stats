@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.11.0 — 2026-10-02
+
+The Roblox game and the site, connected. Connect your Roblox account once and your game progress comes to the site by itself.
+
+- **Your trainer card on your profile.** The Roblox tab shows your progress in the game, read from your save: trainer level and XP, your team with each animal's level and stars, animals collected (and seen) by rarity, all eight islands (seal broken, boss beaten, Showdown medal, LEGEND tier), trophies with your trophy level and the full trophy list, battles won, best streak, Weekly Cup medals, Sky Trail best time, Photo Safari, keepsakes and your login streak. **Playing now** shows while you are in a server. It updates when you open it (at most once a minute), and **Sync now** reads it straight away.
+- **Your game animals join your card collection.** Every animal you have in the game is added to your binder on the site, with its level in the game on the card, and new ones flip in when you open it. Animals that are in the game carry a Roblox mark, and **In Roblox** filters the binder to them.
+- **Other players' progress.** Public profiles show a connected player's trainer card (never their Coins). Their Roblox name only shows if they turn on **Show my Roblox name on my public profile**; the Roblox avatar and id never do.
+- **Every animal page says how it is in the game:** its rarity and island (or the island it rules as boss), its family and its two moves, with a link to collect it.
+- **/roblox has a This week tab:** this week's Weekly Cup, Family of the Week (with its animals) and featured island, the next four weeks, and live countdowns to the next stampede, raid, tournament, Coin Frenzy and nightfall. It is the game's own schedule, so it matches every server.
+- **The codes on /roblox come from the game itself,** so they always match what the game accepts.
+- New cards from the game post once to the activity feed and Discord ("🎮 Bob brought 14 cards over from Roblox"); the owner can switch that off in Events > Settings, which also shows whether the site can read the game's saves.
+- Progress only goes from the game to the site. Roblox allows in-game rewards for things done off Roblox only as public promos, so nothing on the site gives anything in the game.
+
 ## 4.10.0 — 2026-10-02
 
 - **Card collection.** Collect the battle cards, one of every animal (344), in your own binder at **/collection** (Menu → My card collection). Cards you don't have yet are greyed out; tap one you have to open it in 3D. Filter by have / need, tier, group or name.

@@ -258,7 +258,7 @@ Defines:
 | `ROBLOX_CLIENT_ID` | No | Roblox OAuth 2.0 app client ID. With the secret, turns on Continue with Roblox and Connect Roblox (see below) |
 | `ROBLOX_CLIENT_SECRET` | No | Roblox OAuth 2.0 app secret |
 | `ROBLOX_REDIRECT_URI` | No | Overrides the Roblox redirect URL (default `<site>/api/auth?action=roblox-callback`) |
-| `ROBLOX_OPEN_CLOUD_KEY` | No | Open Cloud API key with ordered DataStore read access: game leaderboards and each linked player's in-game stats |
+| `ROBLOX_OPEN_CLOUD_KEY` | No | Open Cloud API key for the game's universe, read only: ordered DataStores (the leaderboards) and the standard DataStore `ABS_Players_v1` (each linked player's save; see "Game progress on the site" below) |
 | `ROBLOX_UNIVERSE_ID` / `ROBLOX_PLACE_ID` | No | Override the ids in `data/roblox-game.json` |
 
 ### Roblox sign-in (Continue with Roblox / Connect Roblox)
@@ -321,10 +321,47 @@ Everything is in `data/roblox-game.json`:
   Use YouTube for anything long.
 - `screenshots`: `[{ "src": "/images/roblox/<file>.webp", "alt": "..." }]`, 16:9, in
   `images/roblox/`. Without any, the page uses the game's screenshots from Roblox.
-- `codes`: the game's redeem codes (copy them from the game's `Config/Codes.luau`), shown with a
-  copy button; `ends` (YYYY-MM-DD) hides one when it expires.
+- `codes`: optional wording for a code's reward. The list of codes itself comes from the game
+  (`data/roblox-game-data.json`, below), so it always matches `Config/Codes.luau`; a code with no
+  wording here is described from what it gives. `ends` comes from the game too.
 - The PLAY buttons link to `roblox.com/games/start?placeId=...&launchData=site`, so the game
   can give a first-time player from the website its join gift.
+
+### Game progress on the site (the Roblox link)
+
+A player who connects their Roblox account gets their game progress on the site: the profile's
+Roblox tab (and their public profile) shows their trainer card, and every animal they have in the
+game joins their card collection. The site reads each linked player's save straight from the game's
+DataStore, read only; nothing in the game changes.
+
+1. In Creator Hub, open **Open Cloud > API Keys**, edit the key in `ROBLOX_OPEN_CLOUD_KEY` (or make
+   one), and add the **DataStore** permission for the game's experience with **Read Entry**
+   (`universe-datastores.objects:read`) for the data store `ABS_Players_v1`. Keep the ordered
+   DataStore read it already has for the leaderboards. No write permission is needed.
+2. Redeploy. Community > World stats > Events > Settings > **Roblox game link** says whether saves
+   can be read and how many players are linked.
+
+How it works: `lib/roblox-save.js` reads `ABS_Players_v1` entry `u<robloxUserId>` (the game's
+DataService) and turns it into a trainer card; `lib/roblox-sync.js` reads it at most once a minute
+for your own pages and once every 30 minutes for someone else's, keeps the card on the user
+(`robloxGame`), and adds the game's animals to their collection (`from: 'roblox'`, one feed post,
+`roblox_cards`). A player in a server right now shows as **Playing now** (the save's session lock was
+refreshed in the last 4 minutes).
+
+What each save field means comes from the game's own code: `data/roblox-game-data.json` (animals,
+islands, trophies, levels, looks, codes, the weekly schedule and timed events). When the game's
+configs change, export and import it again:
+
+```bash
+# in animal-battle-stats-roblox (Lune is pinned in rokit.toml)
+lune run tools/export-site-data.luau
+# in this repo
+node scripts/roblox/import-game-data.js ../animal-battle-stats-roblox
+```
+
+Roblox's rules decide the direction: progress flows from the game to the site, never back.
+In-game rewards for things done off Roblox are only allowed as public promos (codes anyone can use),
+so nothing on the site gives anything in the game.
 
 ### Site activity feed (Discord) and Community stats
 

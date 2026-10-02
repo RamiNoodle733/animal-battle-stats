@@ -42,6 +42,9 @@ animal-stats/
 │   ├── collection.js       # The card collection's rules: cards, prices, starters, card of the day
 │   ├── discord.js          # Discord webhook integration
 │   ├── page-labels.js      # Names pages for people ("Cassowary", "Lion vs Tiger")
+│   ├── roblox-game.js      # The Roblox game's public numbers and leaderboards
+│   ├── roblox-save.js      # Reads a linked player's game save (Open Cloud) into a trainer card
+│   ├── roblox-sync.js      # Keeps that card on the user and brings game animals into the collection
 │   ├── tracking-settings.js # Untracked accounts, what goes to Discord
 │   ├── mongodb.js          # Database connection
 │   ├── xpSystem.js         # XP/leveling system
@@ -105,7 +108,8 @@ Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, import
 - `tournament.js` - bracket play; ranked brackets for signed-in players go through the server-owned bracket API
 - `community.js`, `comments.js`, `votes.js`, `world.js` - community hub, comment threads, animal votes, visitor globe
 - `auth.js`, `profile.js` - sign-in forms and player profiles
-- `collection.js` - the card collection binder: a player's cards, the starter pick, the card of the day and buying a card by name; `?u=<name>` shows someone else's, read-only
+- `collection.js` - the card collection binder: a player's cards, the starter pick, the card of the day and buying a card by name; `?u=<name>` shows someone else's, read-only. Animals in the Roblox game carry a Roblox mark (and their level there, once collected)
+- `roblox-trainer.js` - the trainer card: a linked player's progress in the Roblox game, drawn from `/data/roblox-lite.json` (profiles, public profiles); `roblox.js` also fills the /roblox page's This week tab (the game's Weekly Cup, Family of the Week, featured island and timed events, with live countdowns)
 - `sfx.js`, `track.js` - synthesized sound effects and visit analytics
 - The collectible cards, loaded only when someone opens a card or shares (dynamic `import()`, so no page carries them up front):
   - `abs-card.js` - draws an animal's card on a canvas: the front (art over its biome and tier shards, power, crest, archetype tag, name plate, card number) and the back (number strip, portrait, stat bars, abilities, the signature move). Every other card feature uses it, so they always match
@@ -174,6 +178,15 @@ Players collect the battle cards, one of each animal. Nothing is random and noth
 | Buying by name | S 500, A 300, B 160, C 100, D 60, F 40 BattlePoints | `buyCard`, `{op:'buy'}` |
 
 `GET /api/auth?action=collection` returns the player's own collection (with the card of the day and the starters left to pick); `&username=` returns anyone's (which cards and how they got them). Profiles include a summary (`collectionSummary`). A new card is posted to the activity feed and Discord as `card_collected`.
+
+### The Roblox link
+
+Progress flows from the game to the site, read only (Roblox only allows in-game rewards for off-platform things as public promos, so nothing flows back):
+
+- `data/roblox-game-data.json` is exported from the game's own modules (`tools/export-site-data.luau` in the game repo, run with Lune) and copied here by `scripts/roblox/import-game-data.js`: every game animal's rarity, island, family and moves, the islands and bosses, trophies, trainer and trophy level tables, looks, codes, and the game's weekly schedule and timed events. Pages use it at build time (animal pages' "In the Roblox game" strip, the binder's Roblox marks, the /roblox codes) and the browser gets a trimmed copy at `/data/roblox-lite.json`.
+- `lib/roblox-save.js` reads a linked player's save (`ABS_Players_v1`, entry `u<robloxUserId>`, through Open Cloud) and turns it into a trainer card (`parseSave`): trainer level, animals with level and stars, team, islands (seal, boss, Showdown medal, LEGEND tier), trophies and trophy level, Weekly Cup, Sky Trail, Photo Safari, and whether they are in a server now. Public profiles get it without the wallet (`publicSnapshot`).
+- `lib/roblox-sync.js` (`syncPlayer`) refreshes it when it is older than a minute (your own pages) or 30 minutes (someone else's), keeps it on the user (`robloxGame`), and calls `syncGameCards` in `lib/rewards.js`, which adds each game animal to the collection (`from: 'roblox'`) in the economy transaction and posts one `roblox_cards` event.
+- API: `GET /api/auth?action=roblox-player` (yours, `&sync=1` to read now), `POST ?action=roblox-settings { showPublic }` (whether your public profile names your Roblox account; its progress shows either way), the collection (`roblox: { levels, added }`) and public profile (`roblox: { game, account }`) responses. The owner's Events > Settings shows whether saves can be read (`checkAccess`).
 
 ## Data Flow
 

@@ -20,7 +20,7 @@ const clips = ROBLOX.videos.map((clip) => ({ ...clip, art: clip.animal ? getAnim
 const thumbCount = screenshots.length + (trailer ? 1 : 0);
 // Same boards as lib/roblox-game.js; the section shows once the API has entries.
 const BOARDS = [['POWER', 'Team power', 'bolt'], ['COLLECTION', 'Animals collected', 'cards'], ['WINS', 'Battles won', 'swords'], ['SHOW', 'Best show streak', 'tv']];
-const TABS = [['trailer', 'tv', 'Trailer'], ['gameplay', 'swords', 'Gameplay'], ['codes', 'gift', 'Codes'], ['boards', 'trophy', 'Leaderboards'], ['faq', 'book', 'Questions']]
+const TABS = [['trailer', 'tv', 'Trailer'], ['week', 'compass', 'This week'], ['gameplay', 'swords', 'Gameplay'], ['codes', 'gift', 'Codes'], ['boards', 'trophy', 'Leaderboards'], ['faq', 'book', 'Questions']]
     .filter(([id]) => (id !== 'gameplay' || ROBLOX.videos.length) && (id !== 'codes' || ROBLOX.codes.length));
 const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>';
 const faq = [
@@ -28,7 +28,9 @@ const faq = [
     { q: 'Is it free?', a: 'Yes, it is free to play. There are no loot boxes or paid packs, and nothing you can buy makes an animal stronger.' },
     { q: 'Are the animals the same as on the website?', a: `Yes. All ${gameAnimals.length} animals in the game, with their stats and home biomes, come straight from this site, so new research here changes the game too.${animals.length > gameAnimals.length ? ` The site also covers ${animals.length - gameAnimals.length} animals that are not in the game yet.` : ''}` },
     { q: 'What do you do in the game?', a: 'Fly your champion card across floating biome islands, fight and recruit wild animals, level them up, beat island bosses (the Ocean boss is the Megalodon), and join server-wide shows, tournaments and raids.' },
-    { q: 'How do I connect my Roblox account?', a: 'Press Continue with Roblox on this page or Connect Roblox on your profile. Roblox asks you to approve it, and your profile then shows your Roblox name and your in-game stats. Roblox handles the sign-in, so this site never sees your Roblox password, and you can disconnect at any time.' }
+    { q: 'How do I connect my Roblox account?', a: 'Press Continue with Roblox on this page or Connect Roblox on your profile. Roblox asks you to approve it, and your profile then shows your progress in the game: trainer level, team, animals, islands and trophies. Roblox handles the sign-in, so this site never sees your Roblox password, and you can disconnect at any time.' },
+    { q: 'Does my progress carry over between the game and the website?', a: `From the game to the website, yes: once your Roblox account is connected, your profile shows your trainer card and every animal you collect in the game joins your card collection here, with its level from the game. It does not go the other way: Roblox only allows in-game rewards for things done off Roblox as public promos, so nothing you do on the website gives you items in the game. Codes are the exception, because anyone can use them.` },
+    { q: 'Is the game the same every day for everyone?', a: 'Yes. The Weekly Cup, the Family of the Week, the featured island, stampedes, raids, tournaments and the Coin Frenzy run on one shared clock, so every server has them at the same moment. The This week tab here shows them live.' }
 ];
 const jsonLd = [
     {
@@ -80,7 +82,7 @@ const jsonLd = [
             </ul>
             <div class="rbx-connect" id="connect" data-connect data-state="loading" hidden>
                 <span class="cn-tile"><RobloxMark size={26} /></span>
-                <span class="cn-copy"><b>Your Roblox account</b><small data-cn-note>&nbsp;</small></span>
+                <span class="cn-copy"><b>Your Roblox account</b><small data-cn-note>&nbsp;</small><small class="cn-trainer" data-cn-trainer hidden></small></span>
                 {/* No static href: crawlers must never start a sign-in. roblox.js sets it. */}
                 <a class="btn btn-roblox btn-sm" aria-disabled="true" data-cn-btn><span data-cn-label>Connect</span></a>
             </div>
@@ -131,6 +133,20 @@ const jsonLd = [
                         </button>
                     ))}
                 </div>
+            </div>
+
+            <div class="pane pane-week" data-pane="week" hidden data-week>
+                <div class="wk-grid">
+                    <article class="wk-card" data-wk="cup"><small>Weekly Cup</small><b data-wk-name>–</b><p data-wk-text></p></article>
+                    <article class="wk-card" data-wk="family"><small>Family of the Week</small><b data-wk-name>–</b><p>Their team bonus is stronger all week, and beating them pays double Tracks.</p><div class="wk-members" data-wk-members></div></article>
+                    <article class="wk-card" data-wk="isle"><small>Featured island</small><b data-wk-name>–</b><p data-wk-text></p></article>
+                </div>
+                <p class="wk-left small" data-wk-left></p>
+                <h3 class="wk-h">Up next on every server</h3>
+                <ol class="wk-events" data-wk-events></ol>
+                <h3 class="wk-h">Coming weeks</h3>
+                <ol class="wk-next" data-wk-next></ol>
+                <p class="plate"><Icon name="compass" size={24} /><span>Straight from the game's own schedule: every server runs these at the same moment. Weeks start on Thursday at 00:00 UTC.</span></p>
             </div>
 
             {clips.length > 0 && (
@@ -400,5 +416,33 @@ const jsonLd = [
         .rbx-tabs button { padding: 8px 8px 9px; }
         .rbx-cta .btn-lg { padding: 0 12px; font-size: 0.95rem; }
         .rbx-cta .btn-lg :global(.rbx-mark) { width: 20px; height: 20px; }
+    }
+
+    /* ---- This week (scripts/roblox.js fills it from /data/roblox-lite.json) */
+    .pane-week { display: grid; gap: 10px; align-content: start; overflow-y: auto; }
+    .wk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .wk-card { --wk: var(--cyan); display: grid; gap: 4px; align-content: start; padding: 12px 14px; background: linear-gradient(160deg, color-mix(in srgb, var(--wk) 16%, transparent), rgba(9, 10, 12, 0.55) 70%); border: 1px solid color-mix(in srgb, var(--wk) 55%, transparent); border-radius: 12px; }
+    .wk-card small { font-size: 0.64rem; font-weight: 850; letter-spacing: 0.16em; text-transform: uppercase; color: color-mix(in srgb, var(--wk) 70%, #fff); }
+    .wk-card b { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; }
+    .wk-card p { margin: 0; font-size: 0.8rem; color: var(--text-2); }
+    .wk-members { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+    .wk-members :global(img) { width: 34px; height: auto; border-radius: 3px; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6)); }
+    .wk-left { margin: 0; color: var(--muted); }
+    .wk-h { margin: 6px 0 0; font-family: var(--font-display); font-size: 1rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-2); }
+    .wk-events, .wk-next { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .wk-events { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+    .wk-events :global(li) { display: grid; gap: 2px; padding: 9px 12px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 10px; }
+    .wk-events :global(li.is-on) { border-color: rgba(53, 220, 143, 0.6); background: rgba(53, 220, 143, 0.08); }
+    .wk-events :global(b) { font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; }
+    .wk-events :global(small) { font-size: 0.72rem; color: var(--muted); }
+    .wk-events :global(em) { font-style: normal; font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; color: var(--gold-2); font-variant-numeric: tabular-nums; }
+    .wk-events :global(li.is-on em) { color: #7cf5b4; }
+    .wk-next :global(li) { display: grid; grid-template-columns: 90px repeat(3, minmax(0, 1fr)); gap: 8px; align-items: center; padding: 7px 12px; font-size: 0.82rem; background: rgba(9, 10, 12, 0.4); border: 1px solid var(--line); border-radius: 8px; }
+    .wk-next :global(li span:first-child) { font-weight: 800; color: var(--muted); }
+    .cn-copy .cn-trainer { color: var(--gold-2); white-space: normal; overflow: visible; }
+    .cn-trainer[hidden] { display: none; }
+    @media (max-width: 900px) {
+        .wk-grid { grid-template-columns: minmax(0, 1fr); }
+        .wk-next :global(li) { grid-template-columns: 70px repeat(3, minmax(0, 1fr)); font-size: 0.74rem; }
     }
 </style>

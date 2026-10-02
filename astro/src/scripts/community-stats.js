@@ -341,13 +341,14 @@ export function mountStats(root, { avatar }) {
             case 'tournament_complete': return `finished a ${d.bracketSize || '?'}-animal tournament, won by <b>${escapeHtml(d.champion || '?')}</b>`;
             case 'tournament_quit': return `quit a tournament at ${d.completedMatches || 0}/${d.totalMatches || 0}`;
             case 'level_up': return `reached level ${d.level || '?'}`;
-            case 'card_collected': return `collected the <b>${escapeHtml(d.card || '?')}</b> card <small>· ${escapeHtml({ starter: 'starter', daily: 'card of the day', call: 'fight call', tournament: 'tournament', shop: 'bought' }[d.from] || d.from || '')}</small>`;
+            case 'roblox_cards': return `brought <b>${Number(d.count) || 0}</b> card${Number(d.count) === 1 ? '' : 's'} over from Roblox <small>· ${escapeHtml(d.cards || '')}</small>`;
+            case 'card_collected': return `collected the <b>${escapeHtml(d.card || '?')}</b> card <small>· ${escapeHtml({ starter: 'starter', daily: 'card of the day', call: 'fight call', tournament: 'tournament', shop: 'bought', roblox: 'Roblox' }[d.from] || d.from || '')}</small>`;
             case 'prestige': return `prestiged to ${d.prestige || '?'}`;
             default: return escapeHtml((EVENT_NAMES[event.eventType] || event.eventType).toLowerCase());
         }
     }
 
-    const ICONS = { card_collected: '🃏', site_visit: '👀', site_leave: '👋', login: '🔓', logout: '🔒', signup: '🎉', vote: '🗳️', vote_changed: '🔄', vote_removed: '🗑️', fight: '⚔️', comment: '💬', comment_reply: '↩️', comment_deleted: '🗑️', comment_upvote: '👍', comment_downvote: '👎', chat_message: '💬', chat_reply: '↩️', tournament_complete: '🏆', tournament_quit: '🚪', prestige: '✨', level_up: '⭐' };
+    const ICONS = { card_collected: '🃏', roblox_cards: '🎮', site_visit: '👀', site_leave: '👋', login: '🔓', logout: '🔒', signup: '🎉', vote: '🗳️', vote_changed: '🔄', vote_removed: '🗑️', fight: '⚔️', comment: '💬', comment_reply: '↩️', comment_deleted: '🗑️', comment_upvote: '👍', comment_downvote: '👎', chat_message: '💬', chat_reply: '↩️', tournament_complete: '🏆', tournament_quit: '🚪', prestige: '✨', level_up: '⭐' };
     const VERBS = { login: 'logged in', logout: 'logged out', signup: 'signed up' };
 
     function detailRows(event) {
@@ -497,6 +498,12 @@ export function mountStats(root, { avatar }) {
         const mode = data.discord?.pageViews || 'all';
         for (const radio of form.querySelectorAll('[name="pageViews"]')) radio.checked = radio.value === mode;
         const off = new Set(data.discord?.off || []);
+        const roblox = data.roblox;
+        if (roblox) {
+            const saves = roblox.saves || {};
+            const why = { not_configured: 'Add ROBLOX_OPEN_CLOUD_KEY in Vercel.', no_access: 'In Creator Hub > Open Cloud > API Keys, give the key DataStore read access (Read Entry) for ABS_Players_v1 in this experience.', busy: 'Roblox asked us to slow down; try again in a minute.', unavailable: 'Roblox did not answer; try again in a minute.' }[saves.code] || saves.message || '';
+            $('[data-ev-roblox]').innerHTML = `${saves.ok ? '✅ <b>Game saves can be read.</b>' : `⚠️ <b>Game saves can't be read.</b> ${escapeHtml(why)}`}<br /><small>${fmt(roblox.linked || 0)} linked player${roblox.linked === 1 ? '' : 's'} · ${fmt(roblox.synced || 0)} with progress brought over</small>`;
+        }
         $('[data-ev-groups]').innerHTML = (data.groups || []).map((group) => `<fieldset><legend>${escapeHtml(group.label)}</legend>${group.types.map(([type, label]) => `<label class="ev-check"><input type="checkbox" name="post" value="${escapeHtml(type)}"${off.has(type) ? '' : ' checked'} /> <span>${escapeHtml(label)}</span></label>`).join('')}</fieldset>`).join('');
     }
     async function loadSettings() {

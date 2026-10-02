@@ -16,7 +16,8 @@
  * GET /api/auth?action=roblox-callback - Complete Roblox OAuth sign in or linking
  * GET /api/auth?action=link-roblox - Begin linking Roblox to the current user
  * POST /api/auth?action=unlink-roblox - Unlink Roblox from the current user
- * GET /api/auth?action=roblox-player - The current user's linked Roblox account and in-game stats
+ * GET /api/auth?action=roblox-player - The current user's linked Roblox account and in-game progress (&sync=1: read the save now)
+ * POST /api/auth?action=roblox-settings - { showPublic }: whether the public profile names the Roblox account
  * GET /api/auth?action=hub - BattlePoints, daily streak, quests, Season Pass and looks (lib/economy.js)
  * POST /api/auth?action=claim - Claim { what: daily | quest (slot) | chest | pass }
  * POST /api/auth?action=buy - Buy a look with BattlePoints { item }
@@ -32,6 +33,7 @@ const crypto = require('crypto');
 const { notifyDiscord } = require('../lib/discord');
 const { verifyToken, signToken, verifyPurposeToken } = require('../lib/auth');
 const { robloxPlayerCard } = require('../lib/roblox-game');
+const { OWN_MAX_AGE, PUBLIC_MAX_AGE, publicRoblox, syncPlayer } = require('../lib/roblox-sync');
 const { RewardError, awardUserReward, buyCard, buyItem, claimChest, claimDaily, claimDailyCard, claimPass, claimQuest, claimStarter, collectionForUser, economyForUser, equipItem, showsForUser } = require('../lib/rewards');
 const { collectionSummary, normalizeCollection } = require('../lib/collection');
 const { ITEM_BY_ID, economySummary, normalizeEconomy } = require('../lib/economy');
@@ -246,7 +248,8 @@ function robloxAccountPayload(user) {
         username: account.username || null,
         displayName: account.displayName || account.username || null,
         profileUrl: `https://www.roblox.com/users/${account.userId}/profile`,
-        linkedAt: account.linkedAt || null
+        linkedAt: account.linkedAt || null,
+        showPublic: Boolean(account.showPublic)
     };
 }
 
@@ -388,6 +391,12 @@ module.exports = async function handler(req, res) {
                     return res.status(405).json({ success: false, error: 'Method not allowed' });
                 }
                 return await handleRobloxPlayer(req, res);
+
+            case 'roblox-settings':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleRobloxSettings(req, res);
 
             case 'hub':
                 if (req.method !== 'GET') {
@@ -1101,6 +1110,8 @@ async function handleUnlinkRoblox(req, res) {
 
     user.authProviders = (user.authProviders || []).filter((provider) => provider.provider !== ROBLOX_PROVIDER);
     user.roblox = null;
+    // The game progress goes with the account; cards it brought over stay in the collection.
+    user.robloxGame = undefined;
     await user.save();
     return res.status(200).json({
         success: true,
@@ -1126,7 +1137,10 @@ async function handleRobloxPlayer(req, res) {
         return res.status(200).json({ success: true, data: { linked: false } });
     }
 
-    const card = await robloxPlayerCard(account.userId).catch(() => null);
+    const [card, game] = await Promise.all([
+        robloxPlayerCard(account.userId).catch(() => null),
+        syncPlayer(user, { maxAge: OWN_MAX_AGE, force: req.query.sync === '1' })
+    ]);
     return res.status(200).json({
         success: true,
         data: {
@@ -1134,9 +1148,21 @@ async function handleRobloxPlayer(req, res) {
             account,
             headshot: card?.headshot || null,
             stats: card?.stats || null,
-            live: Boolean(card?.live)
+            live: Boolean(card?.live),
+            game: { snapshot: game.snapshot, at: game.at, error: game.error, added: game.added }
         }
     });
+}
+
+// POST ?action=roblox-settings { showPublic }: whether the public profile names the Roblox account.
+async function handleRobloxSettings(req, res) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) return res.status(401).json({ success: false, error: 'Authentication required' });
+    const showPublic = req.body?.showPublic === true;
+    const result = await User.updateOne({ _id: authUser.id, 'roblox.userId': { $exists: true } }, { $set: { 'roblox.showPublic': showPublic } });
+    if (!result.matchedCount) return res.status(400).json({ success: false, error: 'No Roblox account is connected.' });
+    return res.status(200).json({ success: true, data: { showPublic } });
 }
 
 // ==================== ECONOMY ====================
@@ -2002,6 +2028,7 @@ async function handleGetPublicProfile(req, res) {
     if (!user) {
         return res.status(404).json({ success: false, error: 'User not found' });
     }
+    if (user.roblox?.userId) await syncPlayer(user, { maxAge: PUBLIC_MAX_AGE });
 
     // XP calculations
     const xpProgress = user.xp || 0;
@@ -2026,8 +2053,10 @@ async function handleGetPublicProfile(req, res) {
                 xpNeeded,
                 xpPercentage: Math.min(100, Math.round((xpProgress / xpNeeded) * 100)),
                 role: user.role,
-                // Only whether a Roblox account is connected: never its name, avatar or id.
+                // Whether a Roblox account is connected and its game progress; its name only if
+                // the player chose to show it (never its id or avatar).
                 robloxLinked: Boolean(user.roblox?.userId),
+                roblox: publicRoblox(user),
                 title: publicLooks(user).title,
                 frame: publicLooks(user).frame,
                 // the card collection: how many, by tier, and the best few
@@ -2046,8 +2075,12 @@ async function handleCollection(req, res) {
     const username = typeof req.query.username === 'string' ? req.query.username.trim().slice(0, 40) : '';
     if (username) {
         const escaped = username.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const user = await User.findOne({ username: { $regex: new RegExp(`^${escaped}$`, 'i') } }).select('username displayName economy censoredAt requiresUsernameChange moderationReason censoredBy').lean();
+        let user = await User.findOne({ username: { $regex: new RegExp(`^${escaped}$`, 'i') } }).select('username displayName economy roblox robloxGame censoredAt requiresUsernameChange moderationReason censoredBy').lean();
         if (!user) return res.status(404).json({ success: false, error: 'Player not found' });
+        // A stale game card is refreshed first, so cards from the game show up here too.
+        if (user.roblox?.userId && (await syncPlayer(user, { maxAge: PUBLIC_MAX_AGE })).added?.length) {
+            user = await User.findById(user._id).select('username displayName economy roblox robloxGame censoredAt requiresUsernameChange moderationReason censoredBy').lean();
+        }
         const hidden = isNameHidden(user);
         const { cards } = normalizeCollection(user.economy);
         return res.status(200).json({
@@ -2056,15 +2089,35 @@ async function handleCollection(req, res) {
                 player: hidden ? hiddenName(user) : user.displayName || user.username,
                 username: hidden ? null : user.username,
                 ...collectionSummary(user.economy),
-                cards: Object.fromEntries(Object.entries(cards).map(([slug, entry]) => [slug, { from: entry.from }]))
+                cards: Object.fromEntries(Object.entries(cards).map(([slug, entry]) => [slug, { from: entry.from }])),
+                roblox: robloxBinder(user)
             }
         });
     }
     const authUser = getAuthenticatedUserFromRequest(req);
     if (!authUser) return res.status(401).json({ success: false, error: 'Log in to collect cards' });
-    const user = await User.findById(authUser.id);
+    let user = await User.findById(authUser.id);
     if (!user) return res.status(404).json({ success: false, error: 'User not found' });
-    return res.status(200).json({ success: true, data: collectionForUser(user) });
+    const game = user.roblox?.userId ? await syncPlayer(user, { maxAge: OWN_MAX_AGE }) : null;
+    if (game?.added?.length) user = await User.findById(authUser.id);
+    return res.status(200).json({ success: true, data: { ...collectionForUser(user), roblox: robloxBinder(user, game) } });
+}
+
+// What the binder shows from the Roblox game: each animal's level, stars and ascensions there, and
+// the cards just brought over.
+function robloxBinder(user, game = null) {
+    if (!user?.roblox?.userId) return { linked: false };
+    const snapshot = user.robloxGame?.robloxId === user.roblox.userId ? user.robloxGame.snapshot : null;
+    return {
+        linked: true,
+        levels: snapshot?.animals || {},
+        count: snapshot?.count || 0,
+        total: snapshot?.total || 0,
+        playing: Boolean(snapshot?.playing),
+        at: user.robloxGame?.at || null,
+        added: (game?.added || []).map((card) => card.slug),
+        error: game?.error || null
+    };
 }
 
 // POST ?action=collect { op: 'starter', slug } | { op: 'daily' } | { op: 'buy', slug }

@@ -1,4 +1,5 @@
 import robloxGame from '../../../data/roblox-game.json';
+import gameData from '../../../data/roblox-game-data.json';
 import roster from '../../../animal_stats.json';
 
 export const SITE = Object.freeze({
@@ -42,9 +43,15 @@ function video(entry) {
     return { title: String(entry?.title || ''), youtubeId, src, poster, animal: entry?.animal || null, ready: Boolean(youtubeId || src) };
 }
 const trailer = video({ title: 'Official trailer', ...robloxGame.trailer });
-// Codes: the game's redeem codes (animal-battle-stats-roblox Config/Codes.luau), posted
-// publicly as Roblox requires; `ends` (YYYY-MM-DD, UTC) hides one when it stops working.
-const codes = (robloxGame.codes || []).filter((entry) => /^[A-Z0-9]{2,30}$/.test(entry?.code || '') && (!entry.ends || Date.parse(`${entry.ends}T00:00:00Z`) > Date.now()));
+// Codes: the game's own redeem codes (Config/Codes.luau, through data/roblox-game-data.json), posted
+// publicly as Roblox requires, so the list always matches the game. data/roblox-game.json can word a
+// code's reward; otherwise it is described from what the code gives. `ends` (YYYY-MM-DD, UTC) hides
+// one when it stops working.
+const rewardText = new Map((robloxGame.codes || []).map((entry) => [entry.code, entry.reward]));
+const describeCode = (entry) => ['Coins', entry.wildTracks ? `${entry.wildTracks} Wild Tracks` : null, entry.look ? `the ${entry.look}` : null].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' and $1');
+const codes = (gameData.codes || [])
+    .map((entry) => ({ code: entry.code, reward: rewardText.get(entry.code) || describeCode(entry), ends: entry.ends || null }))
+    .filter((entry) => /^[A-Z0-9]{2,30}$/.test(entry.code) && (!entry.ends || Date.parse(`${entry.ends}T00:00:00Z`) > Date.now()));
 export const ROBLOX = Object.freeze({
     ...robloxGame,
     live: robloxLive,

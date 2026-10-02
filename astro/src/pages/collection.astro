@@ -1,0 +1,214 @@
+---
+// /collection: the card collection, like the Roblox game's holo-cards. Every
+// animal's battle card in one binder: the ones a player has, the ones still to
+// get. The rules are lib/collection.js (no packs, nothing random): a starter,
+// the free card of the day, fights called right, tournament champions, and the
+// shop. scripts/collection.js fills in the player's cards from
+// /api/auth?action=collection; ?u=<name> shows someone else's.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import collection from '../../../lib/collection.js';
+import { animals, GROUPS } from '../lib/catalog.js';
+import { cardFiles } from '../lib/card.js';
+import { SITE } from '../lib/site.js';
+import { sectionPreview } from '../lib/previews.js';
+
+const { PRICES } = collection;
+const TIER_ORDER = ['S', 'A', 'B', 'C', 'D', 'F'];
+const tierTotals = Object.fromEntries(TIER_ORDER.map((tier) => [tier, animals.filter((animal) => animal.tier === tier).length]));
+const slots = animals.map((animal) => ({
+    slug: animal.slug,
+    name: animal.name,
+    tier: animal.tier,
+    rank: animal.rank,
+    group: animal.group,
+    thumb: cardFiles(animal).thumb,
+    price: PRICES[animal.tier]
+}));
+const COIN = '/images/ui/icons/coin.svg';
+const WAYS = [
+    ['cards', 'Pick a starter', 'One of three, to begin.'],
+    ['star', 'Card of the day', "Free every day: the home page's Animal of the day."],
+    ['target', 'Call a fight right', 'Win the card of the animal you backed.', '/compare'],
+    ['trophy', 'Finish a tournament', "Win your champion's card.", '/tournament'],
+    ['coin', 'Buy one by name', `With BattlePoints: ${TIER_ORDER.map((tier) => `${tier} ${PRICES[tier]}`).join(' · ')}.`, '/rewards']
+];
+const title = `Card Collection: Collect All ${animals.length} Animal Battle Cards | ${SITE.name}`;
+const description = `Collect every animal's battle card: pick a starter, claim a free card every day, win cards by calling fights and finishing tournaments, or buy them with BattlePoints. ${animals.length} cards, no packs, nothing random.`;
+---
+
+<Base title={title} description={description} path="/collection" image={sectionPreview('animals')} active="collection" biome="mountains" seed={23}>
+    <div class="col screen-grid flow" data-col data-state="loading">
+        <aside class="col-side">
+            <div class="panel gold col-progress enter">
+                <p class="eyebrow" data-col-owner>Your collection</p>
+                <h1 class="screen-title col-title">Card collection</h1>
+                <div class="col-count"><b data-col-count>0</b><span>/ {animals.length} cards</span></div>
+                <span class="col-bar"><i data-col-bar></i></span>
+                <ul class="col-tiers" aria-label="Cards by tier">
+                    {TIER_ORDER.map((tier) => (
+                        <li><img src={`/images/ui/tier-${tier.toLowerCase()}.svg`} width="20" height="24" alt={`${tier} tier`} /><b data-col-tier={tier}>0</b><small>/{tierTotals[tier]}</small></li>
+                    ))}
+                </ul>
+                <p class="col-wallet" data-col-wallet hidden><img src={COIN} alt="" width="22" height="22" /><b data-col-bp>0</b> BattlePoints</p>
+                <a class="btn btn-sm" href="/collection" data-col-mine hidden>See your own collection</a>
+            </div>
+
+            <section class="panel col-daily enter-2" data-col-daily hidden>
+                <div class="panel-head"><Icon name="star" size={26} /><h2 class="panel-title">Card of the day</h2></div>
+                <div class="col-daily-body">
+                    <img data-col-daily-img width="360" height="504" alt="" />
+                    <div>
+                        <b data-col-daily-name></b>
+                        <small data-col-daily-note></small>
+                        <button class="btn btn-gold btn-sm" type="button" data-col-daily-claim>Claim it</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel col-login enter-2" data-col-login hidden>
+                <div class="panel-body">
+                    <b>Start your collection</b>
+                    <p>Log in to pick a starter card, claim a free card every day and win cards by playing.</p>
+                    <div class="btn-row"><a class="btn btn-gold btn-sm" href="/signup?returnTo=%2Fcollection">Sign up</a><a class="btn btn-sm" href="/login?returnTo=%2Fcollection">Log in</a></div>
+                </div>
+            </section>
+
+            <section class="panel col-how enter-3">
+                <div class="panel-head"><Icon name="book" size={26} /><h2 class="panel-title">How to get cards</h2></div>
+                <ul>
+                    {WAYS.map(([icon, label, text, href]) => (
+                        <li><Icon name={icon} size={24} /><span><b>{href ? <a href={href}>{label}</a> : label}</b><small>{text}</small></span></li>
+                    ))}
+                </ul>
+                <p class="small muted col-fine">No packs and nothing random: you always know which card you get.</p>
+            </section>
+        </aside>
+
+        <section class="panel col-binder enter-2" aria-label="The binder">
+            <div class="col-starter" data-col-starter hidden>
+                <h2 class="sub-h">Pick your starter</h2>
+                <p class="small muted">Your first card. You can collect the other two later.</p>
+                <div class="col-starters" data-col-starters></div>
+            </div>
+            <div class="col-filters">
+                <div class="seg" role="group" aria-label="Show">
+                    <button type="button" aria-pressed="true" data-show="all">All</button>
+                    <button type="button" aria-pressed="false" data-show="have">Have</button>
+                    <button type="button" aria-pressed="false" data-show="need">Need</button>
+                </div>
+                <div class="col-tierpick" role="group" aria-label="Tier">
+                    {TIER_ORDER.map((tier) => <button type="button" class={`chip t-${tier.toLowerCase()}`} aria-pressed="false" data-tier-filter={tier}>{tier}</button>)}
+                </div>
+                <select class="field col-group" data-group-filter aria-label="Group">
+                    <option value="">Every group</option>
+                    {GROUPS.map((group) => <option value={group.key}>{group.label}</option>)}
+                </select>
+                <input class="field col-search" type="search" placeholder="Find a card" aria-label="Find a card" data-search />
+            </div>
+            <ol class="binder" data-binder>
+                {slots.map((slot) => (
+                    <li class={`slot t-${slot.tier.toLowerCase()}`} data-slug={slot.slug} data-tier={slot.tier} data-group={slot.group} data-name={slot.name.toLowerCase()} data-price={slot.price}>
+                        <a class="slot-card" href={`/stats/${slot.slug}#card`} aria-label={`${slot.name} card`}>
+                            <img src={slot.thumb} width="360" height="504" loading="lazy" decoding="async" alt="" />
+                            <span class="slot-lock" aria-hidden="true">?</span>
+                        </a>
+                        <span class="slot-meta"><small>No. {slot.rank}</small><b>{slot.name}</b></span>
+                        <button type="button" class="slot-get" data-get hidden><img src={COIN} alt="" width="14" height="14" />{slot.price}</button>
+                    </li>
+                ))}
+            </ol>
+            <p class="small muted col-empty" data-col-empty hidden>No cards match.</p>
+        </section>
+    </div>
+</Base>
+
+<script>
+    import '../scripts/collection.js';
+</script>
+
+<style>
+    .col { grid-template-columns: minmax(270px, 330px) minmax(0, 1fr); max-width: 1500px; margin: 0 auto; }
+    .col-side { min-height: 0; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
+    .col-progress { padding: 14px 16px; gap: 8px; flex: none; }
+    .col-progress .eyebrow { margin: 0; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-2); }
+    .col-title { margin: 0; font-size: clamp(1.8rem, 3vw, 2.4rem); }
+    .col-count { display: flex; align-items: baseline; gap: 8px; }
+    .col-count b { font-family: var(--font-display); font-size: 3rem; font-weight: 900; line-height: 0.9; color: #fff; text-shadow: 0 3px 0 rgba(0, 0, 0, 0.5); }
+    .col-count span { font-weight: 800; color: var(--text-2); }
+    .col-bar { display: block; height: 10px; background: rgba(255, 255, 255, 0.1); clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%); overflow: hidden; }
+    .col-bar i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--gold-d), var(--gold)); transition: width 0.8s var(--ease); }
+    .col-tiers { margin: 2px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
+    .col-tiers li { display: grid; justify-items: center; gap: 1px; padding: 5px 2px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 8px; }
+    .col-tiers b { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; line-height: 1; }
+    .col-tiers small { font-size: 0.62rem; color: var(--muted); }
+    .col-wallet { display: flex; align-items: center; gap: 6px; margin: 2px 0 0; font-size: 0.86rem; color: var(--text-2); }
+    .col-wallet b { font-family: var(--font-display); font-size: 1.2rem; color: var(--gold-2); }
+    .col-wallet[hidden], [data-col-mine][hidden] { display: none; }
+
+    .col-daily-body { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px 14px 14px; }
+    .col-daily-body img { width: 96px; height: auto; border-radius: 6px; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55)); }
+    .col-daily-body > div { display: grid; gap: 6px; justify-items: start; }
+    .col-daily-body b { font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; text-transform: uppercase; line-height: 1; }
+    .col-daily-body small { font-size: 0.78rem; color: var(--text-2); }
+    .col-login .panel-body { display: grid; gap: 8px; }
+    .col-login p { margin: 0; font-size: 0.86rem; color: var(--text-2); }
+    .col-how ul { margin: 0; padding: 6px 14px 4px; list-style: none; display: grid; gap: 8px; }
+    .col-how li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; align-items: start; }
+    .col-how li span { display: grid; }
+    .col-how li b { font-size: 0.9rem; }
+    .col-how li a { color: var(--cyan-2); }
+    .col-how li small { font-size: 0.76rem; color: var(--text-2); }
+    .col-fine { margin: 4px 14px 12px; }
+
+    .col-binder { min-height: 0; display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; }
+    .col-starter { padding: 12px; background: linear-gradient(180deg, rgba(246, 180, 0, 0.12), rgba(9, 10, 12, 0.4)); border: 1px solid rgba(246, 180, 0, 0.45); border-radius: 12px; }
+    .col-starter[hidden] { display: none; }
+    .col-starter .sub-h { margin: 0; }
+    .col-starter p { margin: 2px 0 10px; }
+    .col-starters { display: grid; grid-template-columns: repeat(3, minmax(0, 170px)); gap: 12px; justify-content: center; }
+    .col-starters :global(.starter) { display: grid; gap: 6px; justify-items: center; }
+    .col-starters :global(.starter img) { width: 100%; height: auto; border-radius: 8px; filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.5)); transition: transform 0.2s var(--ease); }
+    .col-starters :global(.starter:hover img) { transform: translateY(-4px) rotate(-1deg); }
+    .col-filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .col-tierpick { display: flex; gap: 4px; }
+    .col-tierpick .chip { min-width: 34px; justify-content: center; cursor: pointer; font-family: var(--font-display); font-weight: 900; }
+    .col-tierpick .chip[aria-pressed="true"] { color: #1d1400; background: var(--gold); border-color: var(--gold); }
+    .col-group { width: auto; min-height: 36px; }
+    .col-search { flex: 1 1 160px; min-height: 36px; }
+
+    .binder { flex: 1; min-height: 0; overflow-y: auto; margin: 0; padding: 4px 2px 12px; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 14px 10px; align-content: start; }
+    .slot { position: relative; display: grid; gap: 4px; align-content: start; }
+    .slot[hidden] { display: none; }
+    .slot-card { position: relative; display: block; border-radius: 7px; }
+    .slot-card img { display: block; width: 100%; height: auto; border-radius: 7px; transition: filter 0.3s, transform 0.2s var(--ease); }
+    .slot-lock { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: 2.4rem; font-weight: 900; color: rgba(255, 255, 255, 0.55); text-shadow: 0 2px 6px #000; pointer-events: none; }
+    .slot:not(.owned) .slot-card img { filter: grayscale(1) brightness(0.3) contrast(0.9); }
+    .slot.owned .slot-lock { display: none; }
+    .slot.owned .slot-card:hover img { transform: translateY(-3px); }
+    .slot-meta { display: grid; line-height: 1.15; min-width: 0; }
+    .slot-meta small { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; color: var(--muted); }
+    .slot-meta b { font-size: 0.8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .slot:not(.owned) .slot-meta b { color: var(--text-2); }
+    .slot-get { justify-self: start; display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; font: inherit; font-size: 0.74rem; font-weight: 800; color: var(--gold-2); background: rgba(246, 180, 0, 0.1); border: 1px solid rgba(246, 180, 0, 0.45); border-radius: 999px; cursor: pointer; }
+    .slot-get:hover { background: rgba(246, 180, 0, 0.2); }
+    .slot-get[hidden] { display: none; }
+    .slot-get.short { opacity: 0.55; }
+    .slot.is-new .slot-card { animation: col-new 1.4s var(--ease) both; }
+    @keyframes col-new {
+        0% { transform: scale(0.6) rotateY(90deg); filter: brightness(2); }
+        60% { transform: scale(1.08) rotateY(0); filter: brightness(1.3); }
+        100% { transform: none; filter: none; }
+    }
+    .col-empty { margin: 8px 0; }
+    .col-empty[hidden] { display: none; }
+    .col[data-state="loading"] .binder { opacity: 0.7; }
+    @media (prefers-reduced-motion: reduce) { .slot.is-new .slot-card { animation: none; } }
+
+    @media (max-width: 900px) {
+        .col { grid-template-columns: 1fr; }
+        .col-side { overflow: visible; }
+        .binder { overflow: visible; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px 8px; }
+        .col-starters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+</style>

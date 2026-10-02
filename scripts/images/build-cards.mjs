@@ -7,6 +7,7 @@
 //   .cache/cards/cards/<slug>.webp, <slug>-back.webp  each animal's card (750x1050)
 //   .cache/cards/cards/<slug>-base.webp, <slug>-top.webp  the front in two layers,
 //                                                     for the 3D card's live foil
+//   .cache/cards/cards/<slug>-thumb.webp              the front, small (360 wide): the collection binder
 //   .cache/cards/og/<slug>.jpg                        animal page preview: the card and its stats
 //   .cache/cards/og/vs/<a>-vs-<b>.jpg                 matchup page preview: the two cards squared up
 //   .cache/cards/og/vs/human-vs-<animal>.jpg          the same for the Human pages
@@ -30,6 +31,7 @@ const manifestFile = path.join(out, 'manifest.json');
 const DESIGN = 1; // bump after a visual change that the hashed inputs do not cover
 const CARD_WIDTH = 750;
 const FACE_WIDTH = 300; // the card fronts as the matchup previews show them
+const THUMB_WIDTH = 360; // the collection binder's cards
 
 // Drawing is quick; encoding is the slow part, and runs on libuv's thread pool.
 // Size the pool to the machine and keep that many images encoding at once.
@@ -136,7 +138,7 @@ let drawn = 0;
 
 for (const card of jobs.animals) {
     const key = hash(card);
-    const names = [`cards/${card.slug}.webp`, `cards/${card.slug}-back.webp`, `og/${card.slug}.jpg`, `cards/${card.slug}-base.webp`, `cards/${card.slug}-top.webp`];
+    const names = [`cards/${card.slug}.webp`, `cards/${card.slug}-back.webp`, `og/${card.slug}.jpg`, `cards/${card.slug}-base.webp`, `cards/${card.slug}-top.webp`, `cards/${card.slug}-thumb.webp`];
     names.forEach((name) => { nextManifest[name] = key; });
     if (names.every((name) => fresh(name, key))) continue;
     const A = await cardAssets(card);
@@ -148,15 +150,19 @@ for (const card of jobs.animals) {
     const preview = createCanvas(scenes.PREVIEW.w, scenes.PREVIEW.h);
     scenes.drawAnimalPreview(preview.getContext('2d'), card, front, S);
     const small = shrink(front);
+    const thumb = createCanvas(THUMB_WIDTH, Math.round((THUMB_WIDTH * front.height) / front.width));
+    const thumbCtx = thumb.getContext('2d');
+    thumbCtx.imageSmoothingQuality = 'high';
+    thumbCtx.drawImage(front, 0, 0, thumb.width, thumb.height);
     drawn += 1;
     await later(async () => {
-        const [frontFile, backFile, previewFile, baseFile, topFile, faceFile] = await Promise.all([
+        const [frontFile, backFile, previewFile, baseFile, topFile, thumbFile, faceFile] = await Promise.all([
             front.encode('webp', 90), back.encode('webp', 90), preview.encode('jpeg', 88),
-            layers.under.encode('webp', 88), layers.over.encode('webp', 90), small.encode('png')
+            layers.under.encode('webp', 88), layers.over.encode('webp', 90), thumb.encode('webp', 84), small.encode('png')
         ]);
-        [frontFile, backFile, previewFile, baseFile, topFile].forEach((file, index) => write(names[index], file));
+        [frontFile, backFile, previewFile, baseFile, topFile, thumbFile].forEach((file, index) => write(names[index], file));
         faceFiles.set(card.slug, faceFile);
-        release(front, back, preview, layers.under, layers.over, small);
+        release(front, back, preview, layers.under, layers.over, thumb, small);
     });
 }
 // Fighters that only appear in matchups (the Human): their fronts, small.
@@ -232,4 +238,4 @@ for (const name of Object.keys(manifest)) {
 fs.writeFileSync(manifestFile, JSON.stringify(nextManifest));
 const total = Object.keys(nextManifest).length;
 const seconds = (ms) => `${(ms / 1000).toFixed(1)}s`;
-console.log(`Battle cards: ${drawn} animals (${seconds(animalsDone - started)}), ${pairs} matchups and ${sections} section previews (${seconds(Date.now() - animalsDone)}) drawn, ${total - drawn * 5 - pairs - sections} files reused, ${THREADS} threads.`);
+console.log(`Battle cards: ${drawn} animals (${seconds(animalsDone - started)}), ${pairs} matchups and ${sections} section previews (${seconds(Date.now() - animalsDone)}) drawn, ${total - drawn * 6 - pairs - sections} files reused, ${THREADS} threads.`);

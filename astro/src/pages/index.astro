@@ -101,8 +101,8 @@ const jsonLd = [
                     </span>
                     <strong data-daily-title>{firstPair.a.name} vs {firstPair.b.name}</strong>
                 </a>
-                <a class="tile panel gold aotd" href={`/stats/${featured.slug}`} data-aotd>
-                    <span class="tile-k"><Icon name="star" size={22} />Animal of the day</span>
+                <a class="tile panel gold aotd" href="/collection" data-aotd>
+                    <span class="tile-k"><Icon name="star" size={22} />Animal of the day<span class="tile-pay"><Icon name="cards" size={14} />Free card</span></span>
                     <span class="aotd-row">
                         <span class="aart"><AnimalImage animal={featured} sizes="120px" alt="" class="aotd-img animal-art" /></span>
                         <span><strong data-aotd-name>{featured.name}</strong><small data-aotd-meta>#{featured.rank} · {featured.tier} tier · PWR {fmtScore(featured.powerIndex)}</small></span>
@@ -253,8 +253,8 @@ const jsonLd = [
         const pool = list.filter((animal) => animal.res);
         const pick = pool[(day * 7919) % pool.length];
         if (pick) {
+            // the animal of the day is also today's free card (/collection)
             const aotd = document.querySelector('[data-aotd]');
-            aotd.href = `/stats/${pick.s}`;
             swapArt(aotd.querySelector('.aotd-img'), pick);
             aotd.querySelector('[data-aotd-name]').textContent = pick.n;
             aotd.querySelector('[data-aotd-meta]').textContent = `#${pick.r} · ${pick.tier} tier · PWR ${Number.isInteger(pick.p) ? pick.p : pick.p.toFixed(1)}`;

@@ -18,7 +18,7 @@ const MatchupVoteBallot = require('../lib/models/MatchupVoteBallot');
 const TournamentSubmission = require('../lib/models/TournamentSubmission');
 const SiteStats = require('../lib/models/SiteStats');
 const { getAuthUser } = require('../lib/auth');
-const { awardUserReward } = require('../lib/rewards');
+const { awardUserReward, grantCard } = require('../lib/rewards');
 const battleEngine = require('../js/battle-engine');
 const { notifyDiscord } = require('../lib/discord');
 const { setCorsHeaders } = require('../lib/cors');
@@ -306,12 +306,23 @@ async function recordMatchupVote(req, res) {
             voteType: votedFor
         }, req);
 
+        // A fight called right wins the card of the animal backed (lib/collection.js).
+        let card = null;
+        if (correct) {
+            try {
+                card = await grantCard(user.id, votedFor, 'call');
+            } catch (cardError) {
+                console.error('Call card failed:', cardError.message);
+            }
+        }
+
         return res.status(200).json({
             success: true,
             duplicate: false,
             data: formatMatchupVote(matchup, animal1, animal2, votedFor),
             call: { votedFor, winner: fight.winner, correct, odds: fight.odds[votedFor] },
-            reward
+            reward,
+            card: card?.added ? { ...card.card, from: 'call' } : null
         });
     } catch (error) {
         console.error('Error recording matchup vote:', error);
@@ -493,7 +504,15 @@ async function handleTournamentComplete(req, res) {
         console.error('Tournament reward failed:', rewardError.message);
     }
 
-    return res.status(200).json({ success: true, duplicate: false, reward });
+    // A finished tournament wins its champion's card.
+    let card = null;
+    try {
+        card = await grantCard(authenticatedUser.id, tournament.champion, 'tournament');
+    } catch (cardError) {
+        console.error('Tournament card failed:', cardError.message);
+    }
+
+    return res.status(200).json({ success: true, duplicate: false, reward, card: card?.added ? { ...card.card, from: 'tournament' } : null });
 }
 
 /**

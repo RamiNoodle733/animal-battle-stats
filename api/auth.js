@@ -32,7 +32,8 @@ const crypto = require('crypto');
 const { notifyDiscord } = require('../lib/discord');
 const { verifyToken, signToken, verifyPurposeToken } = require('../lib/auth');
 const { robloxPlayerCard } = require('../lib/roblox-game');
-const { RewardError, awardUserReward, buyItem, claimChest, claimDaily, claimPass, claimQuest, economyForUser, equipItem, showsForUser } = require('../lib/rewards');
+const { RewardError, awardUserReward, buyCard, buyItem, claimChest, claimDaily, claimDailyCard, claimPass, claimQuest, claimStarter, collectionForUser, economyForUser, equipItem, showsForUser } = require('../lib/rewards');
+const { collectionSummary, normalizeCollection } = require('../lib/collection');
 const { ITEM_BY_ID, economySummary, normalizeEconomy } = require('../lib/economy');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
@@ -495,6 +496,18 @@ module.exports = async function handler(req, res) {
                     return res.status(405).json({ success: false, error: 'Method not allowed' });
                 }
                 return await handleGetPublicProfile(req, res);
+
+            // The card collection (lib/collection.js): read yours or anyone's, and collect.
+            case 'collection':
+                if (req.method !== 'GET') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleCollection(req, res);
+            case 'collect':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ success: false, error: 'Method not allowed' });
+                }
+                return await handleCollect(req, res);
             
             default:
                 return res.status(400).json({ success: false, error: 'Invalid action' });
@@ -1607,6 +1620,7 @@ async function handleGetProfile(req, res) {
         data: {
             user: {
                 ...buildUserPayload(user),
+                collection: collectionSummary(user.economy),
                 xpToNext: xpNeeded,
                 xpProgress,
                 xpNeeded,
@@ -2016,10 +2030,62 @@ async function handleGetPublicProfile(req, res) {
                 robloxLinked: Boolean(user.roblox?.userId),
                 title: publicLooks(user).title,
                 frame: publicLooks(user).frame,
+                // the card collection: how many, by tier, and the best few
+                collection: collectionSummary(user.economy),
                 createdAt: user.createdAt
             }
         }
     });
+}
+
+// ==================== CARD COLLECTION ====================
+// GET ?action=collection              the signed-in player's collection (starter, card of the day, prices)
+// GET ?action=collection&username=x   anyone's collection: which cards they have
+async function handleCollection(req, res) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const username = typeof req.query.username === 'string' ? req.query.username.trim().slice(0, 40) : '';
+    if (username) {
+        const escaped = username.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const user = await User.findOne({ username: { $regex: new RegExp(`^${escaped}$`, 'i') } }).select('username displayName economy censoredAt requiresUsernameChange moderationReason censoredBy').lean();
+        if (!user) return res.status(404).json({ success: false, error: 'Player not found' });
+        const hidden = isNameHidden(user);
+        const { cards } = normalizeCollection(user.economy);
+        return res.status(200).json({
+            success: true,
+            data: {
+                player: hidden ? hiddenName(user) : user.displayName || user.username,
+                username: hidden ? null : user.username,
+                ...collectionSummary(user.economy),
+                cards: Object.fromEntries(Object.entries(cards).map(([slug, entry]) => [slug, { from: entry.from }]))
+            }
+        });
+    }
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) return res.status(401).json({ success: false, error: 'Log in to collect cards' });
+    const user = await User.findById(authUser.id);
+    if (!user) return res.status(404).json({ success: false, error: 'User not found' });
+    return res.status(200).json({ success: true, data: collectionForUser(user) });
+}
+
+// POST ?action=collect { op: 'starter', slug } | { op: 'daily' } | { op: 'buy', slug }
+async function handleCollect(req, res) {
+    res.setHeader('Cache-Control', 'private, no-store');
+    const authUser = getAuthenticatedUserFromRequest(req);
+    if (!authUser) return res.status(401).json({ success: false, error: 'Log in to collect cards' });
+    const body = req.body || {};
+    const slug = typeof body.slug === 'string' ? body.slug.trim().slice(0, 80) : '';
+    try {
+        let result;
+        if (body.op === 'starter') result = await claimStarter(authUser.id, slug);
+        else if (body.op === 'daily') result = await claimDailyCard(authUser.id);
+        else if (body.op === 'buy') result = await buyCard(authUser.id, slug);
+        else return res.status(400).json({ success: false, error: 'Unknown card action' });
+        return res.status(200).json({ success: true, data: result });
+    } catch (error) {
+        if (error instanceof RewardError) return res.status(error.status).json({ success: false, error: error.message });
+        if (error?.code === 11000) return res.status(409).json({ success: false, error: 'Already claimed.' });
+        throw error;
+    }
 }
 
 // ==================== ADMIN (/admin) ====================

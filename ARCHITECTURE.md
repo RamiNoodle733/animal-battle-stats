@@ -39,6 +39,7 @@ animal-stats/
 │
 ├── lib/                    # Backend shared libraries
 │   ├── auth.js             # Auth utilities (JWT, validation)
+│   ├── collection.js       # The card collection's rules: cards, prices, starters, card of the day
 │   ├── discord.js          # Discord webhook integration
 │   ├── page-labels.js      # Names pages for people ("Cassowary", "Lion vs Tiger")
 │   ├── tracking-settings.js # Untracked accounts, what goes to Discord
@@ -86,6 +87,7 @@ Each route is an Astro page in `astro/src/pages/`. The build writes one HTML fil
 | `/tournament` | `tournament.astro` |
 | `/community` (and `/community/<tab>`) | `community.astro` |
 | `/profile` (and `/profile/<username>`) | `profile.astro` |
+| `/collection` (and `/collection?u=<username>`) | `collection.astro` |
 | `/login`, `/signup`, `/forgot-password`, `/reset-password` | `AuthScreen.astro` via the matching page |
 | `/about`, `/credits`, `/roblox`, `/404` | matching `.astro` page |
 | `/llms.txt`, `/llms-full.txt`, `/data/*.json` | `.js` endpoints rendered at build time |
@@ -103,6 +105,7 @@ Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, import
 - `tournament.js` - bracket play; ranked brackets for signed-in players go through the server-owned bracket API
 - `community.js`, `comments.js`, `votes.js`, `world.js` - community hub, comment threads, animal votes, visitor globe
 - `auth.js`, `profile.js` - sign-in forms and player profiles
+- `collection.js` - the card collection binder: a player's cards, the starter pick, the card of the day and buying a card by name; `?u=<name>` shows someone else's, read-only
 - `sfx.js`, `track.js` - synthesized sound effects and visit analytics
 - The collectible cards, loaded only when someone opens a card or shares (dynamic `import()`, so no page carries them up front):
   - `abs-card.js` - draws an animal's card on a canvas: the front (art over its biome and tier shards, power, crest, archetype tag, name plate, card number) and the back (number strip, portrait, stat bars, abilities, the signature move). Every other card feature uses it, so they always match
@@ -116,7 +119,7 @@ Interactive behaviour lives in `astro/src/scripts/` as plain DOM modules, import
 
 The card data for each animal is written into its page at build time (`astro/src/lib/card.js`, a `<script type="application/json" id="abs-card">`); Versus builds cards from `/data/animals-lite.json` (`cardFromIndex`).
 
-The build also draws every card as image files with the same renderer, on a Node canvas (`scripts/images/build-cards.mjs`, `@napi-rs/canvas`): `/images/cards/<slug>.webp` and `<slug>-back.webp` (750x1050), the front in two layers for the 3D card's live foil (`<slug>-base.webp`, `<slug>-top.webp`; the 3D card and the share pictures use these files instead of drawing the card on the phone), the animal page preview `/images/og/<slug>.jpg`, and a preview for every matchup page, `/images/og/vs/<a>-vs-<b>.jpg` (the Human pages too, and `/images/og/compare.jpg`). They are what link previews, Google and AI assistants show for those pages: `og:image`, the pages' JSON-LD `ImageObject`s, the image sitemap and `llms.txt` all point at them. `cardFiles()` and `matchupPreview()` in `card.js` give each file an address versioned by a hash of what it is drawn from, so a changed card gets a new address (images are cached for a year). Unchanged cards are reused between builds (`.cache/cards/manifest.json`).
+The build also draws every card as image files with the same renderer, on a Node canvas (`scripts/images/build-cards.mjs`, `@napi-rs/canvas`): `/images/cards/<slug>.webp` and `<slug>-back.webp` (750x1050), the front in two layers for the 3D card's live foil (`<slug>-base.webp`, `<slug>-top.webp`; the 3D card and the share pictures use these files instead of drawing the card on the phone), a small front for lists (`<slug>-thumb.webp`, 360 wide: the collection binder and the profile), the animal page preview `/images/og/<slug>.jpg`, and a preview for every matchup page, `/images/og/vs/<a>-vs-<b>.jpg` (the Human pages too, and `/images/og/compare.jpg`). They are what link previews, Google and AI assistants show for those pages: `og:image`, the pages' JSON-LD `ImageObject`s, the image sitemap and `llms.txt` all point at them. `cardFiles()` and `matchupPreview()` in `card.js` give each file an address versioned by a hash of what it is drawn from, so a changed card gets a new address (images are cached for a year). Unchanged cards are reused between builds (`.cache/cards/manifest.json`).
 
 ### Styles
 `astro/src/styles/abs.css` is the design system, imported once by `Base.astro`; Astro bundles it into `/_astro/*.css`. Fonts come from `@fontsource-variable` packages. `astro/src/styles/cards.css` styles the card viewer and the share sheet and ships inside their script (see above).
@@ -157,6 +160,20 @@ All API endpoints are serverless functions (Vercel) in `/api/`:
 | `/api/auth` | POST | Authentication |
 
 ---
+
+### The card collection
+
+Players collect the battle cards, one of each animal. Nothing is random and nothing is sold for money: `lib/collection.js` holds the rules (the roster, prices by tier, the three starters, and the card of the day, which is the home page's Animal of the day), and `lib/rewards.js` makes every change inside the same economy transaction as BattlePoints, with a `RewardClaim` key so each one happens once. Cards are kept in `user.economy.cards` (`{ <slug>: { at, from } }`).
+
+| Way | When | Code |
+|-----|------|------|
+| Starter | one of three, once | `claimStarter`, `POST /api/auth?action=collect {op:'starter'}` |
+| Card of the day | once a UTC day; BattlePoints instead if already collected | `claimDailyCard`, `{op:'daily'}` |
+| Calling a fight right | the card of the animal backed | `grantCard(..., 'call')` in `api/battles.js` |
+| Finishing a ranked tournament | the champion's card | `grantCard(..., 'tournament')` in `api/battles.js` |
+| Buying by name | S 500, A 300, B 160, C 100, D 60, F 40 BattlePoints | `buyCard`, `{op:'buy'}` |
+
+`GET /api/auth?action=collection` returns the player's own collection (with the card of the day and the starters left to pick); `&username=` returns anyone's (which cards and how they got them). Profiles include a summary (`collectionSummary`). A new card is posted to the activity feed and Discord as `card_collected`.
 
 ## Data Flow
 

@@ -341,12 +341,13 @@ export function mountStats(root, { avatar }) {
             case 'tournament_complete': return `finished a ${d.bracketSize || '?'}-animal tournament, won by <b>${escapeHtml(d.champion || '?')}</b>`;
             case 'tournament_quit': return `quit a tournament at ${d.completedMatches || 0}/${d.totalMatches || 0}`;
             case 'level_up': return `reached level ${d.level || '?'}`;
+            case 'card_collected': return `collected the <b>${escapeHtml(d.card || '?')}</b> card <small>· ${escapeHtml({ starter: 'starter', daily: 'card of the day', call: 'fight call', tournament: 'tournament', shop: 'bought' }[d.from] || d.from || '')}</small>`;
             case 'prestige': return `prestiged to ${d.prestige || '?'}`;
             default: return escapeHtml((EVENT_NAMES[event.eventType] || event.eventType).toLowerCase());
         }
     }
 
-    const ICONS = { site_visit: '👀', site_leave: '👋', login: '🔓', logout: '🔒', signup: '🎉', vote: '🗳️', vote_changed: '🔄', vote_removed: '🗑️', fight: '⚔️', comment: '💬', comment_reply: '↩️', comment_deleted: '🗑️', comment_upvote: '👍', comment_downvote: '👎', chat_message: '💬', chat_reply: '↩️', tournament_complete: '🏆', tournament_quit: '🚪', prestige: '✨', level_up: '⭐' };
+    const ICONS = { card_collected: '🃏', site_visit: '👀', site_leave: '👋', login: '🔓', logout: '🔒', signup: '🎉', vote: '🗳️', vote_changed: '🔄', vote_removed: '🗑️', fight: '⚔️', comment: '💬', comment_reply: '↩️', comment_deleted: '🗑️', comment_upvote: '👍', comment_downvote: '👎', chat_message: '💬', chat_reply: '↩️', tournament_complete: '🏆', tournament_quit: '🚪', prestige: '✨', level_up: '⭐' };
     const VERBS = { login: 'logged in', logout: 'logged out', signup: 'signed up' };
 
     function detailRows(event) {

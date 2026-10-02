@@ -430,6 +430,8 @@ async function callFight(button) {
     await fight(body.call.winner === a.n ? 'a' : 'b');
     paintCall(body.call, a, body.reward);
     if (body.reward) showReward(body.reward, button);
+    // a fight called right wins the backed animal's card (lib/collection.js)
+    if (body.card) setTimeout(() => { sfx.win(); toast(`You won the ${body.card.name} card! See it in your collection.`); }, 1400);
     if (window.ABS_USER && body.reward?.call) window.ABS_USER.economy = { ...window.ABS_USER.economy, callStreak: body.reward.call.streak };
 }
 

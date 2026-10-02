@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.10.0 — 2026-10-02
+
+- **Card collection.** Collect the battle cards, one of every animal (344), in your own binder at **/collection** (Menu → My card collection). Cards you don't have yet are greyed out; tap one you have to open it in 3D. Filter by have / need, tier, group or name.
+- **How to get cards, and nothing is random** (no packs, you always know which card you get):
+  - **Pick a starter:** African Lion, Harpy Eagle or Komodo Dragon, once.
+  - **Card of the day:** free every day, the same as the home page's Animal of the day (its tile now says *Free card*). If you already have it, you get BattlePoints instead.
+  - **Call a fight right:** win the card of the animal you backed.
+  - **Finish a ranked tournament:** win your champion's card.
+  - **Buy one by name** with BattlePoints: S 500, A 300, B 160, C 100, D 60, F 40.
+- **Show it off.** Profiles show how many cards a player has and their best six, and link to their binder (`/collection?u=<name>`), which anyone can look through.
+- New cards appear in the activity feed and the Discord feed ("🃏 Bob collected the Orca card"), and can be switched off in Events → Settings like any other event.
+- The Rewards page points BattlePoints at the collection too.
+- The build draws a small version of every card for lists, so the binder loads quickly.
+
 ## 4.9.0 — 2026-10-01
 
 - **Better link previews everywhere.** Every section page now has a preview of its own, drawn from the real battle cards: the home page ("Who would win?" with a fan of the top five), All animals, the tier list and each group's tier list, the rankings and every ranking (its top three on a podium), Versus, Tournament, Community and How ratings work. Each preview's address changes whenever it is redrawn, so apps that cached an old preview (or just the logo) fetch the new one. The home page also names the preview as its main image for Google.

@@ -1,7 +1,8 @@
 ---
 // Player profile: /profile (your own, editable) and /profile/<username>
 // (public, read-only; vercel.json rewrites it here and the script reads the path).
-import { rosterSize } from '../lib/catalog.js';
+import { rosterSize, animals } from '../lib/catalog.js';
+import { cardFiles } from '../lib/card.js';
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
@@ -12,6 +13,8 @@ import { SITE, ROBLOX } from '../lib/site.js';
 const RB_STATS = [['POWER', 'Team power'], ['COLLECTION', 'Animals collected'], ['WINS', 'Battles won'], ['SHOW', 'Best show streak']];
 
 const { ACTIONS } = economy;
+// The card thumbnails' versions, for the collection strip on the card (slug -> v).
+const thumbVersions = Object.fromEntries(animals.map((animal) => [animal.slug, cardFiles(animal).thumb.split('?v=')[1]]));
 const pay = (def) => `+${def.coins} BP · +${def.xp} XP`;
 const EARN = [
     ['target', 'Call a fight', pay(ACTIONS.matchup_call), 'Bonus BattlePoints when you call it right'],
@@ -42,6 +45,12 @@ const EARN = [
                 <div><b data-p-prestige>0</b><span>Prestige</span></div>
             </div>
             <p class="p-since small" data-p-since></p>
+            <a class="p-cards" href="/collection" data-p-cards hidden>
+                <span class="p-cards-n"><b data-p-cards-n>0</b><small>/ {rosterSize} cards</small></span>
+                <span class="p-cards-best" data-p-cards-best></span>
+                <span class="p-cards-go">Collection ›</span>
+            </a>
+            <script type="application/json" id="card-thumbs" set:html={JSON.stringify(thumbVersions)}></script>
         </section>
 
         <section class="panel p-main enter-2" data-p-owner-only>
@@ -190,7 +199,16 @@ const EARN = [
     .p-nums div { display: flex; flex-direction: column; padding: 7px 8px; background: rgba(9, 10, 12, 0.5); border: 1px solid var(--line); border-radius: 8px; }
     .p-nums b { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; line-height: 1; color: var(--gold-2); }
     .p-nums span { font-size: 0.56rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-    .p-since { margin: 0; color: var(--dim); }
+.p-since { margin: 0; color: var(--dim); }
+    .p-cards { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(9, 10, 12, 0.5); border: 1px solid rgba(246, 180, 0, 0.4); border-radius: 10px; transition: border-color 0.15s; }
+    .p-cards:hover { border-color: var(--gold); }
+    .p-cards[hidden] { display: none; }
+    .p-cards-n { display: grid; line-height: 1; }
+    .p-cards-n b { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: var(--gold-2); }
+    .p-cards-n small { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; color: var(--muted); }
+    .p-cards-best { display: flex; min-width: 0; overflow: hidden; }
+    .p-cards-best :global(img) { flex: none; width: 34px; height: auto; margin-right: -8px; border-radius: 3px; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.6)); }
+    .p-cards-go { font-family: var(--font-display); font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2); white-space: nowrap; }
 
     .p-main { min-height: 0; }
     .p-pane { flex: 1; min-height: 0; padding: 14px 16px; display: grid; gap: 12px; align-content: start; }

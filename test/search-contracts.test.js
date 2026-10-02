@@ -59,7 +59,7 @@ test('internal links point to real pages or preserved app routes', { skip: !buil
             // a versioned image (the battle card files) is one file, not a crawl trap
             const versionedImage = link.pathname.startsWith('/images/') && [...link.searchParams.keys()].join() === 'v';
             if (link.search && !versionedImage) {
-                assert.ok(['/compare', '/stats', '/login'].includes(link.pathname), `query trap ${link.href}`);
+                assert.ok(['/compare', '/stats', '/login', '/signup'].includes(link.pathname), `query trap ${link.href}`);
                 assert.ok(link.searchParams.size <= 3, `unbounded query shape ${link.href}`);
             }
         }

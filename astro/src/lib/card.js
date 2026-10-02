@@ -91,6 +91,7 @@ export function cardFiles(animal) {
         back: `/images/cards/${animal.slug}-back.webp?v=${v}`,
         base: `/images/cards/${animal.slug}-base.webp?v=${v}`,
         top: `/images/cards/${animal.slug}-top.webp?v=${v}`,
+        thumb: `/images/cards/${animal.slug}-thumb.webp?v=${v}`,
         preview: `/images/og/${animal.slug}.jpg?v=${v}`
     };
 }

@@ -598,6 +598,7 @@ function paintReward(result) {
     else if (reward?.awarded) box.innerHTML = `Ranked result recorded. <b>+${reward.coins} BattlePoints</b> · <b>+${reward.xp} XP</b>${reward.leveledUp ? ' · <b>Level up!</b>' : ''}`;
     else box.textContent = 'Ranked result recorded. Today’s tournament reward was already claimed.';
     if (reward?.awarded) showReward(reward, box);
+    if (result.body.card) box.insertAdjacentHTML('beforeend', ` · <a href="/collection">You won the <b>${escapeHtml(result.body.card.name)}</b> card</a>`);
 }
 
 async function finish() {

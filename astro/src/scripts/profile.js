@@ -63,7 +63,23 @@ function paintCard(user, own) {
         cell.querySelector('span').textContent = nums[index][1];
     });
     $('[data-p-since]').textContent = user.createdAt ? `Playing since ${new Date(user.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}` : '';
+    paintCards(user, own);
     document.title = `${name} | Animal Battle Stats`;
+}
+
+// The card collection: how many, the best few, and a link to the binder.
+let thumbVersions = null;
+function paintCards(user, own) {
+    const link = $('[data-p-cards]');
+    const cards = user.collection;
+    link.hidden = !cards || (!own && user.hidden);
+    if (link.hidden) return;
+    thumbVersions ||= JSON.parse(document.getElementById('card-thumbs')?.textContent || '{}');
+    link.href = own ? '/collection' : `/collection?u=${encodeURIComponent(user.username)}`;
+    $('[data-p-cards-n]').textContent = fmt(cards.count);
+    $('[data-p-cards-best]').innerHTML = (cards.best || []).map((card) => (thumbVersions[card.slug]
+        ? `<img src="/images/cards/${encodeURIComponent(card.slug)}-thumb.webp?v=${encodeURIComponent(thumbVersions[card.slug])}" alt="${escapeHtml(card.name)} card" width="360" height="504" loading="lazy" />`
+        : '')).join('');
 }
 
 function paintOwner(user) {

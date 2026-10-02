@@ -188,6 +188,7 @@ const BP = '/images/ui/icons/coin.svg';
                         </a>
                     ))}
                     <p class="plate"><Icon name="scroll" size={24} /><span>Everything you do also counts toward today's quests and earns Season Pass XP. Level-ups pay BattlePoints too.</span></p>
+                    <a class="plate" href="/collection"><Icon name="cards" size={24} /><span>Spend BattlePoints on battle cards: pick any animal's card for your <b>collection</b>.</span></a>
                 </div>
             </div>
 
@@ -257,6 +258,9 @@ const BP = '/images/ui/icons/coin.svg';
     .pg-body { flex: 1; min-height: 0; padding: clamp(12px, 2.2vh, 24px) clamp(12px, 2vw, 24px); display: flex; flex-direction: column; gap: clamp(10px, 2vh, 18px); transition: opacity 0.2s; }
     .plate { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 14px; font-size: 0.86rem; color: var(--text-2); background: rgba(9, 10, 12, 0.55); border: 1px solid var(--line); border-radius: 10px; }
     .plate :global(img) { flex: none; }
+    a.plate { text-decoration: none; transition: border-color 0.15s; }
+    a.plate:hover { border-color: var(--gold); }
+    a.plate b { color: var(--gold); }
 
     /* daily */
     .daily { justify-content: center; }

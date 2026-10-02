@@ -75,11 +75,20 @@ if (path.dirname(outputRoot) !== repoRoot || path.basename(outputRoot) !== 'dist
 run('scripts/security/check-sensitive-exports.js', ['--workspace']);
 run('scripts/research/import-research.js');
 run('scripts/images/build-variants.js');
+// Whether players can open the Roblox game yet: until Roblox shows it to everyone, pages say
+// "Coming soon" rather than link to its "unavailable" page (ROBLOX_GAME_PUBLIC, astro/src/lib/site.js).
+let gamePublic = '';
+try {
+    gamePublic = execFileSync(process.execPath, [path.join(repoRoot, 'scripts', 'roblox', 'game-public.js')], { cwd: repoRoot, encoding: 'utf8', timeout: 20000 }).trim();
+} catch {
+    gamePublic = '';
+}
+console.log(`Roblox game public: ${gamePublic === '1' ? 'yes' : gamePublic === '0' ? 'not yet' : 'unknown, following data/roblox-game.json'}`);
 fs.rmSync(astroOut, { recursive: true, force: true });
 execFileSync(process.execPath, [path.join(repoRoot, 'node_modules', 'astro', 'bin', 'astro.mjs'), 'build'], {
     cwd: repoRoot,
     stdio: 'inherit',
-    env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1' }
+    env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1', ...(gamePublic ? { ROBLOX_GAME_PUBLIC: gamePublic } : {}) }
 });
 // Social cards are drawn from the job list the Astro build just wrote; the
 // list itself is build-only and never deployed.

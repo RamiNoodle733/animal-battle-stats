@@ -44,6 +44,7 @@ const { hiddenName, isNameHidden, validatePublicName } = require('../lib/moderat
 const { AdminError, ensureOwnerRole, flagBrokenName, isMuted, isOwnerAccount, listUsers, runAction, summary: adminSummary } = require('../lib/admin');
 const { EPISODE_BY_ID, FOLLOW_PLATFORMS, minWatchSeconds } = require('../lib/shows');
 const {
+    emailConfigured,
     normalizeNotificationPreferences,
     sendEmail,
     verifyUnsubscribeToken
@@ -315,11 +316,12 @@ module.exports = async function handler(req, res) {
 
     const action = req.query.action;
 
-    // Which sign-in providers are set up, so the login page only offers working ones.
+    // Which sign-in providers are set up, so the login page only offers working ones,
+    // and whether email goes out (password resets and verification links).
     if (action === 'providers') {
         if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
         res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
-        return res.status(200).json({ success: true, data: { google: Boolean(getGoogleConfig(req)), roblox: Boolean(getRobloxConfig(req)) } });
+        return res.status(200).json({ success: true, data: { google: Boolean(getGoogleConfig(req)), roblox: Boolean(getRobloxConfig(req)), email: emailConfigured() } });
     }
 
     try {

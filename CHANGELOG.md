@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.12.1 — 2026-10-02
+
+- **The Roblox game shows as coming soon until players can open it.** Roblox still shows the game as unavailable, so every Play on Roblox button led to its "unavailable" page and /roblox showed 0 playing, 0 visits, 0 favorites and 0 likes. Each deploy now asks Roblox first: until the game is public, pages say coming soon. At launch, /roblox switches to live with real numbers by itself, and the next deploy switches every other page.
+- **Forgot password is honest.** Until the site has an email service, it says reset emails aren't switched on yet and points to Discord, instead of saying a link was sent. Sign up no longer says to check your email then, and the profile hides the "Not verified" badge.
+- Email can go straight to Resend's API (`EMAIL_WEBHOOK_TOKEN`), and DEPLOYMENT.md now covers email and Google sign-in.
+
 ## 4.12.0 — 2026-10-02
 
 Phones get real pages, voting becomes a main feature, and animals get a proper size and speed section.

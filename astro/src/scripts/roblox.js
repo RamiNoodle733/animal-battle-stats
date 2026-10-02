@@ -136,6 +136,26 @@ function paintLive(game) {
     }
 }
 
+// Built while the game was still private: Roblox now shows it, so the page goes live without
+// waiting for the next build.
+function goLive(game) {
+    const status = root.querySelector('.rbx-status');
+    if (!status || status.classList.contains('is-live')) return;
+    status.classList.add('is-live');
+    status.lastChild.textContent = 'Live on Roblox';
+    const soon = root.querySelector('.rbx-cta [aria-disabled="true"]');
+    if (soon && Number(game.placeId) > 0) {
+        // Same attributes (the page's scoped-style one included), as a link.
+        const play = document.createElement('a');
+        for (const { name, value } of soon.attributes) if (name !== 'aria-disabled') play.setAttribute(name, value);
+        Object.assign(play, { href: `https://www.roblox.com/games/start?placeId=${encodeURIComponent(game.placeId)}&launchData=site`, rel: 'noopener', target: '_blank' });
+        play.append(...[...soon.childNodes].filter((node) => node.nodeType === Node.ELEMENT_NODE), 'Play on Roblox');
+        soon.replaceWith(play);
+    }
+    const news = [...root.querySelectorAll('.rbx-cta a')].find((link) => link.textContent.trim() === 'Get launch news');
+    if (news) news.lastChild.textContent = 'Join the Discord';
+}
+
 // The game's own Roblox screenshots fill the row until the site has its own.
 function paintRobloxShots(urls) {
     if (Number(root.dataset.shots) > 0 || !urls.length) return;
@@ -166,6 +186,7 @@ fetch('/api/community?action=roblox', { headers: { Accept: 'application/json' } 
     .then((body) => {
         const data = body?.data;
         if (!data?.live || !data.game) return;
+        goLive(data.game);
         paintLive(data.game);
         paintRobloxShots(data.game.thumbnails || []);
         if (data.leaderboards?.length) paintBoards(data.leaderboards);

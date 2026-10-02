@@ -5,7 +5,7 @@ import Icon from './Icon.astro';
 import HoloCard from './HoloCard.astro';
 import RobloxMark from './RobloxMark.astro';
 import { getAnimal } from '../lib/catalog.js';
-import { SITE } from '../lib/site.js';
+import { SITE, SOCIAL } from '../lib/site.js';
 
 const { mode } = Astro.props;
 const COPY = {
@@ -15,6 +15,7 @@ const COPY = {
     reset: { title: 'Choose a new password', path: '/reset-password', heading: 'New password', sub: 'Pick a new password for your account.' }
 };
 const copy = COPY[mode];
+const discord = SOCIAL.find((link) => link.name === 'Discord')?.url;
 const lineup = ['african-lion', 'honey-badger', 'orca'].map(getAnimal).filter(Boolean);
 const PERKS = [
     ['medal', 'Level up', 'Earn XP for votes, posts and tournaments.'],
@@ -25,7 +26,7 @@ const PERKS = [
 ---
 
 <Base title={`${copy.title} | ${SITE.name}`} description={copy.sub} path={copy.path} noindex active="" biome="savanna" seed={5}>
-    <div class="auth" data-auth data-mode={mode}>
+    <div class="auth" data-auth data-mode={mode} data-discord={discord}>
         <section class="auth-hero enter" aria-hidden="true">
             <div class="hero-cards">
                 {lineup.map((animal, index) => <HoloCard animal={animal} tag="span" sizes="220px" priority={index === 1} />)}

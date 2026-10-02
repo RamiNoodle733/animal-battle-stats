@@ -28,20 +28,35 @@ function show(message, error = false) {
 if (returnTo !== '/') {
     root.querySelectorAll('[data-keep-return]').forEach((link) => { link.href = `${link.getAttribute('href')}?returnTo=${encodeURIComponent(returnTo)}`; });
 }
+// What the server has set up: Google and Roblox sign-in, and whether email goes out.
+const providers = fetch('/api/auth?action=providers', { headers: { Accept: 'application/json' } })
+    .then((response) => (response.ok ? response.json() : null))
+    .then((body) => body?.data || null)
+    .catch(() => null);
 const providerRow = root.querySelector('[data-providers-row]');
 if (providerRow) {
     const buttons = { google: root.querySelector('[data-google]'), roblox: root.querySelector('[data-roblox]') };
     buttons.google.href = `/api/auth?action=google-start&returnTo=${encodeURIComponent(returnTo)}`;
     buttons.roblox.href = `/api/auth?action=roblox-start&returnTo=${encodeURIComponent(returnTo)}`;
     // Offer each provider only once the server confirms it is configured.
-    fetch('/api/auth?action=providers', { headers: { Accept: 'application/json' } })
-        .then((response) => (response.ok ? response.json() : null))
-        .then((body) => {
-            Object.entries(buttons).forEach(([name, button]) => { button.hidden = !body?.data?.[name]; });
-            providerRow.hidden = !body?.data?.google && !body?.data?.roblox;
-        })
-        .catch(() => {});
+    providers.then((data) => {
+        Object.entries(buttons).forEach(([name, button]) => { button.hidden = !data?.[name]; });
+        providerRow.hidden = !data?.google && !data?.roblox;
+    });
 }
+
+// Until the site sends email, no reset link can arrive: say so rather than promise one.
+let emailOn = true;
+providers.then((data) => {
+    if (data?.email !== false) return;
+    emailOn = false;
+    if (mode !== 'forgot') return;
+    submit.disabled = true;
+    const discord = Object.assign(document.createElement('a'), { className: 'link', href: root.dataset.discord || '/about', textContent: 'Discord', target: '_blank', rel: 'noopener' });
+    note.replaceChildren('Reset emails are not switched on yet. Message us on ', discord, ' and we will get you back in.');
+    note.classList.remove('error');
+    note.hidden = false;
+});
 
 if (params.get('verified') === '1') show('Email verified. You can log in now.');
 if (params.get('google_error')) show(params.get('message') || 'Google sign-in failed. Please try again.', true);
@@ -122,7 +137,7 @@ form.addEventListener('submit', async (event) => {
         toast('Welcome back!');
         location.href = returnTo;
     } else if (mode === 'signup') {
-        toast('Account created. Check your email to verify it.');
+        toast(emailOn ? 'Account created. Check your email to verify it.' : 'Account created.');
         setTimeout(() => { location.href = returnTo === '/' ? '/profile' : returnTo; }, 900);
     } else if (mode === 'forgot') {
         form.reset();

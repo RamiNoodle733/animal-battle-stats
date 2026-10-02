@@ -11,6 +11,8 @@ const $$ = (selector) => [...root.querySelectorAll(selector)];
 const publicName = decodeURIComponent(location.pathname.split('/')[2] || '');
 const fmt = (value) => Number(value || 0).toLocaleString('en-US');
 let me = null;
+// False once the server says it sends no email (then nothing can be verified).
+let emailOn = true;
 let picked = null;
 let byName = new Map();
 
@@ -97,7 +99,7 @@ function paintOwner(user) {
     const hasEmail = user.hasEmail !== false;
     $('[data-p-email]').textContent = hasEmail ? (user.email || '–') : 'None (you sign in with Roblox)';
     const verified = $('[data-p-verified]');
-    verified.hidden = !hasEmail;
+    verified.hidden = !hasEmail || (!emailOn && !user.emailVerified);
     verified.textContent = user.emailVerified ? 'Verified' : 'Not verified';
     verified.className = `chip ${user.emailVerified ? 'chip-green' : 'chip-gold'}`;
     $('[data-p-notify-head]').hidden = !hasEmail;
@@ -250,6 +252,10 @@ async function loadOwn() {
     api('action=providers', { auth: false }).then((providers) => {
         $('[data-p-google-row]').hidden = !(providers.body?.data?.google || me.googleLinked);
         paintRobloxAvailability(Boolean(providers.body?.data?.roblox));
+        if (providers.body?.data?.email === false) {
+            emailOn = false;
+            if (!me.emailVerified) $('[data-p-verified]').hidden = true;
+        }
     });
 }
 

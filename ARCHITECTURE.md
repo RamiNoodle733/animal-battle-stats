@@ -150,8 +150,9 @@ The surface art in `images/ui/` is rendered by the Python scripts in `scripts/as
 1. reject sensitive exports from the workspace
 2. import finished research into `animal_stats.json` / `data/animal-profiles.json`
 3. encode responsive image variants
-4. `astro build` into `.cache/astro-dist`, then draw the section social cards (`build-og.js`) and the battle cards and page previews (`build-cards.mjs`) from the job lists it writes
-5. assemble an allowlisted `dist/` (Astro output, images, public data), write `sitemap.xml` and `version.json`, and check that every page carries the package version
+4. ask Roblox whether the game is public yet (`scripts/roblox/game-public.js`, passed to Astro as `ROBLOX_GAME_PUBLIC`: while it is private or in review, `ROBLOX.live` is false and pages say coming soon)
+5. `astro build` into `.cache/astro-dist`, then draw the section social cards (`build-og.js`) and the battle cards and page previews (`build-cards.mjs`) from the job lists it writes
+6. assemble an allowlisted `dist/` (Astro output, images, public data), write `sitemap.xml` and `version.json`, and check that every page carries the package version
 
 `node scripts/preview-dist.js 4321` serves `dist/` locally with the `vercel.json` redirects and rewrites. `npm run perf:budget` checks the gzip weight of each screen; `npm test` runs the unit and contract tests (tests that inspect pages skip until `dist/` is built).
 
@@ -197,6 +198,7 @@ Progress flows from the game to the site, read only (Roblox only allows in-game 
 - `data/roblox-game-data.json` is exported from the game's own modules (`tools/export-site-data.luau` in the game repo, run with Lune) and copied here by `scripts/roblox/import-game-data.js`: every game animal's rarity, island, family and moves, the islands and bosses, trophies, trainer and trophy level tables, looks, codes, and the game's weekly schedule and timed events. Pages use it at build time (animal pages' "In the Roblox game" strip, the binder's Roblox marks, the /roblox codes) and the browser gets a trimmed copy at `/data/roblox-lite.json`.
 - `lib/roblox-save.js` reads a linked player's save (`ABS_Players_v1`, entry `u<robloxUserId>`, through Open Cloud) and turns it into a trainer card (`parseSave`): trainer level, animals with level and stars, team, islands (seal, boss, Showdown medal, LEGEND tier), trophies and trophy level, Weekly Cup, Sky Trail, Photo Safari, and whether they are in a server now. Public profiles get it without the wallet (`publicSnapshot`).
 - `lib/roblox-sync.js` (`syncPlayer`) refreshes it when it is older than a minute (your own pages) or 30 minutes (someone else's), keeps it on the user (`robloxGame`), and calls `syncGameCards` in `lib/rewards.js`, which adds each game animal to the collection (`from: 'roblox'`) in the economy transaction and posts one `roblox_cards` event.
+- `lib/roblox-game.js` reads the game's public numbers and leaderboards (`GET /api/community?action=roblox`); `live` needs both `status: "live"` and a game Roblox shows to everyone (`isPublished`: a private or in-review game comes back as placeholders), so /roblox switches to live by itself at launch.
 - API: `GET /api/auth?action=roblox-player` (yours, `&sync=1` to read now), `POST ?action=roblox-settings { showPublic }` (whether your public profile names your Roblox account; its progress shows either way), the collection (`roblox: { levels, added }`) and public profile (`roblox: { game, account }`) responses. The owner's Events > Settings shows whether saves can be read (`checkAccess`).
 
 ## Data Flow

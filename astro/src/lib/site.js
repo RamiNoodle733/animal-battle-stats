@@ -29,8 +29,11 @@ export const SOCIAL = Object.freeze([
 // Roblox game settings live in data/roblox-game.json so the owner can fill in
 // the place/universe id after publishing without touching page code. The page
 // shows the game as live (a Play button) only once `status` is "live": the ids
-// can be filled in while the place is still private.
-const robloxLive = Boolean(robloxGame.placeId) && robloxGame.status === 'live';
+// can be filled in while the place is still private. The production build also
+// asks Roblox (ROBLOX_GAME_PUBLIC, scripts/build-production.js): while the game is
+// private or in review, pages say "Coming soon" instead of linking to Roblox's
+// "unavailable" page, and the next build after launch goes live by itself.
+const robloxLive = Boolean(robloxGame.placeId) && robloxGame.status === 'live' && process.env.ROBLOX_GAME_PUBLIC !== '0';
 // Videos (the trailer and each gameplay clip) take either a YouTube id (the 11
 // characters after watch?v=) or `src`, a video file (/images/roblox/<file>.mp4 or
 // an https URL); `poster` is optional. With neither, the slot shows "Video pending".

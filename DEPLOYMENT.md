@@ -253,13 +253,34 @@ Defines:
 | `NODE_ENV` | No | Environment (development/production) |
 | `DISCORD_WEBHOOK_URL` | No | Discord channel webhook for the site activity feed (visits, sign-ups, votes, comments, tournaments) |
 | `SLACK_WEBHOOK_URL` | No | Slack incoming webhook (`https://hooks.slack.com/services/...`) that receives the same activity feed |
-| `CRON_SECRET` | No | Authorizes the daily `/api/cron/discord-retry` job that retries failed Discord and Slack deliveries |
+| `CRON_SECRET` | No | Authorizes the daily `/api/cron/discord-retry` job that retries failed Discord and Slack deliveries. Without it Vercel's daily call is refused (401) |
+| `EMAIL_WEBHOOK_URL` | No | Where email goes (verification links, password resets, notifications), as JSON `{ from, to, subject, text, html, headers }`. Resend's API (`https://api.resend.com/emails`) takes it as it is. Without it nothing is emailed, and Forgot password says so instead of promising a link |
+| `EMAIL_WEBHOOK_TOKEN` | No | Sent as `Authorization: Bearer <token>` with each email (for Resend, an API key that can send) |
+| `EMAIL_FROM` | No | The sender (default `Animal Battle Stats <no-reply@animalbattlestats.com>`); its domain must be verified with the email service |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | No | Google OAuth web client. With both, turns on Continue with Google and Google linking (see below) |
 | `APP_URL` | No | Overrides the base URL for email and sign-in links (production defaults to the project's production domain) |
 | `ROBLOX_CLIENT_ID` | No | Roblox OAuth 2.0 app client ID. With the secret, turns on Continue with Roblox and Connect Roblox (see below) |
 | `ROBLOX_CLIENT_SECRET` | No | Roblox OAuth 2.0 app secret |
 | `ROBLOX_REDIRECT_URI` | No | Overrides the Roblox redirect URL (default `<site>/api/auth?action=roblox-callback`) |
 | `ROBLOX_OPEN_CLOUD_KEY` | No | Open Cloud API key for the game's universe, read only: ordered DataStores (the leaderboards) and the standard DataStore `ABS_Players_v1` (each linked player's save; see "Game progress on the site" below) |
 | `ROBLOX_UNIVERSE_ID` / `ROBLOX_PLACE_ID` | No | Override the ids in `data/roblox-game.json` |
+
+### Google sign-in (Continue with Google)
+
+1. In Google Cloud Console (APIs & Services), set up the OAuth consent screen: external, app name
+   Animal Battle Stats, the support email, authorized domain `animalbattlestats.com`, scopes
+   `openid`, `email` and `profile` only (no verification needed for these), then **Publish app**.
+2. Create an **OAuth client ID** of type *Web application* with the redirect URI
+   `https://animalbattlestats.com/api/auth?action=google-callback`.
+3. Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in Vercel and redeploy. The Google buttons stay
+   hidden until both are set (`/api/auth?action=providers`).
+
+### Email (verification and password resets)
+
+With [Resend](https://resend.com): add and verify `animalbattlestats.com` (the DNS records it lists),
+create an API key with sending access, then set `EMAIL_WEBHOOK_URL=https://api.resend.com/emails`
+and `EMAIL_WEBHOOK_TOKEN=<the key>` in Vercel and redeploy. Any other service works through a small
+relay that accepts the same JSON.
 
 ### Roblox sign-in (Continue with Roblox / Connect Roblox)
 
@@ -310,7 +331,10 @@ Everything is in `data/roblox-game.json`:
 
 - `status`: `"live"` shows the Play on Roblox buttons (they open the game on Roblox),
   live player numbers, the game's Roblox icon and screenshots, and the leaderboards.
-  Anything else shows the page as coming soon.
+  Anything else shows the page as coming soon. The production build also asks Roblox
+  (`scripts/roblox/game-public.js`): while the game is private or in review, every page says
+  coming soon instead of linking to Roblox's "unavailable" page. Once Roblox shows the game,
+  `/roblox` switches to live by itself and the next deploy switches every other page.
 - `trailer` and each entry in `videos` (the Gameplay grid; the first one is shown big)
   take either `youtubeId`, the 11-character id after `watch?v=` (plays when clicked,
   with sound), or `src`, a video file (muted, loops while on screen). `poster` is an

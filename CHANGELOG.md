@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.13.1 — 2026-10-04
+
+- **The game's data is up to date** for launch day: the Roblox game now has 223 animals (Warthog and Wild Boar left the game; they stay on the site), its archetypes use the site's names (Heavyweight, Mastermind, Loudmouth, Brawler, Speedster), and renamed moves and looks (Canopy Call, Battle Rage, Fury Bite, Apex, Northern Lights, Blaze) show on trainer cards and game cards.
+
 ## 4.13.0 — 2026-10-02
 
 - **No music anywhere on the site.** The share videos no longer have music (the beat, bass line, chords, fanfare and bells are gone). They now have sound effects only: wind, whooshes, card flips, footsteps, punches, thunder, a roar and a gorilla's chest beats, timed to the animation. The site's own sound effects lost every note, chime and beep too: buttons knock and rustle, hits are punches, a win is a gorilla beating its chest, a loss is the air going out and a thud, BattlePoints are pebbles knocking together, and countdowns are stomps.

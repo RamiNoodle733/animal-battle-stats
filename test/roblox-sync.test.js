@@ -69,7 +69,7 @@ function sampleEntry(fields = {}, lock = { job: 'abc', t: SECONDS - 30 }) {
 
 test('the game data covers the game: every game animal is a site card', () => {
     assert.equal(GAME.save.store, 'ABS_Players_v1');
-    assert.equal(GAME.animals.length, 223); // the game's roster (Warthog and Wild Boar left the game on 2026-10-04)
+    assert.equal(GAME.animals.length, 341); // the game's roster: every site animal but the pig-like ones (2026-10-04)
     for (const animal of GAME.animals) assert.ok(collection.cardFor(animal.id), animal.id);
     assert.equal(GAME.biomes.length, 8);
     assert.ok(GAME.trophies.length > 100);
@@ -80,7 +80,7 @@ test('a save becomes a trainer card, keeping only real animals and real trophies
     assert.deepEqual(Object.keys(card.animals).sort(), ['african-lion', 'gorilla', 'megalodon']);
     assert.deepEqual(card.animals.megalodon, [99, 5, 1]);
     assert.equal(card.count, 3);
-    assert.equal(card.total, 223);
+    assert.equal(card.total, 341);
     assert.equal(card.seen, 4);
     assert.deepEqual(card.team, ['african-lion', 'gorilla', 'megalodon']);
     assert.equal(card.champion, 'megalodon');

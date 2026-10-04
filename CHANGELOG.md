@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.13.2 — 2026-10-04
+
+- **Every animal is in the game now.** The Roblox game grew from 223 to 341 animals: every animal on the site except the pig-like ones (Warthog, Wild Boar). Trainer cards and game cards know all of them, plus the game's new endgame trophies and titles.
+
 ## 4.13.1 — 2026-10-04
 
 - **The game's data is up to date** for launch day: the Roblox game now has 223 animals (Warthog and Wild Boar left the game; they stay on the site), its archetypes use the site's names (Heavyweight, Mastermind, Loudmouth, Brawler, Speedster), and renamed moves and looks (Canopy Call, Battle Rage, Fury Bite, Apex, Northern Lights, Blaze) show on trainer cards and game cards.

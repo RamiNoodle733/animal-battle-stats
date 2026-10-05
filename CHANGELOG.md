@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.13.3 — 2026-10-04
+
+- **The Roblox game is out.** The game panel now says 341 animals and shows its endgame: the Collection's Reach, the Citadel, endless sieges and trainer levels up to 500.
+
 ## 4.13.2 — 2026-10-04
 
 - **Every animal is in the game now.** The Roblox game grew from 223 to 341 animals: every animal on the site except the pig-like ones (Warthog, Wild Boar). Trainer cards and game cards know all of them, plus the game's new endgame trophies and titles.

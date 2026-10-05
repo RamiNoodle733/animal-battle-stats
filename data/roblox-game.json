@@ -3,7 +3,7 @@
   "placeId": 118592355937726,
   "universeId": 10767969314,
   "status": "live",
-  "pitch": "Collect all 225 real animals as holo-cards, power them up, and settle who would win in flashy 3D battles on floating islands.",
+  "pitch": "Collect 341 real animals as holo-cards, power them up, and settle who would win in flashy 3D battles across eight islands, a great walled city and the Collection's Reach.",
   "trailer": {
     "youtubeId": null,
     "src": null,
@@ -33,7 +33,7 @@
       "animal": "bald-eagle"
     },
     {
-      "title": "Collect all 225 holo-cards",
+      "title": "Collect all 341 holo-cards",
       "youtubeId": null,
       "src": null,
       "poster": null,
@@ -79,12 +79,16 @@
   ],
   "features": [
     {
-      "title": "Collect 225 real animals",
-      "text": "Every animal on this site is a real-photo holo-card in the game, from army ants to the Megalodon."
+      "title": "Collect 341 real animals",
+      "text": "Almost every animal on this site is a real-photo holo-card in the game, from army ants to the Megalodon."
     },
     {
       "title": "Battle in a 3D world",
       "text": "Fly your champion card across eight biome islands (Savanna, Forest, Jungle, Wetlands, Desert, Mountains, Arctic and Ocean) and fight wild animals where they live."
+    },
+    {
+      "title": "An endgame that never ends",
+      "text": "Past the Ocean lies the Reach: free four strongholds from the Collection, storm the Citadel and face THE LAST TRIAL. Then the sieges begin, and your trainer keeps levelling to 500."
     },
     {
       "title": "Goofy power-scaling",
@@ -103,5 +107,5 @@
       "text": "No packs, no paid odds and nothing you can buy that makes an animal stronger. Rewards come from playing."
     }
   ],
-  "updated": "2026-09-27"
+  "updated": "2026-10-04"
 }

@@ -501,7 +501,7 @@ export function mountStats(root, { avatar }) {
         const roblox = data.roblox;
         if (roblox) {
             const saves = roblox.saves || {};
-            const why = { not_configured: 'Add ROBLOX_OPEN_CLOUD_KEY in Vercel.', no_access: 'In Creator Hub > Open Cloud > API Keys, give the key DataStore read access (Read Entry) for ABS_Players_v1 in this experience.', busy: 'Roblox asked us to slow down; try again in a minute.', unavailable: 'Roblox did not answer; try again in a minute.' }[saves.code] || saves.message || '';
+            const why = { not_configured: 'Add ROBLOX_OPEN_CLOUD_KEY in Vercel.', no_access: 'In Creator Hub > Open Cloud > API Keys, give the key DataStore read access (Read Entry) for ABS_Players_v2 in this experience.', busy: 'Roblox asked us to slow down; try again in a minute.', unavailable: 'Roblox did not answer; try again in a minute.' }[saves.code] || saves.message || '';
             $('[data-ev-roblox]').innerHTML = `${saves.ok ? '✅ <b>Game saves can be read.</b>' : `⚠️ <b>Game saves can't be read.</b> ${escapeHtml(why)}`}<br /><small>${fmt(roblox.linked || 0)} linked player${roblox.linked === 1 ? '' : 's'} · ${fmt(roblox.synced || 0)} with progress brought over</small>`;
         }
         $('[data-ev-groups]').innerHTML = (data.groups || []).map((group) => `<fieldset><legend>${escapeHtml(group.label)}</legend>${group.types.map(([type, label]) => `<label class="ev-check"><input type="checkbox" name="post" value="${escapeHtml(type)}"${off.has(type) ? '' : ' checked'} /> <span>${escapeHtml(label)}</span></label>`).join('')}</fieldset>`).join('');

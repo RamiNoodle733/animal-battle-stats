@@ -68,7 +68,7 @@ function sampleEntry(fields = {}, lock = { job: 'abc', t: SECONDS - 30 }) {
 }
 
 test('the game data covers the game: every game animal is a site card', () => {
-    assert.equal(GAME.save.store, 'ABS_Players_v1');
+    assert.equal(GAME.save.store, 'ABS_Players_v2');
     assert.equal(GAME.animals.length, 341); // the game's roster: every site animal but the pig-like ones (2026-10-04)
     for (const animal of GAME.animals) assert.ok(collection.cardFor(animal.id), animal.id);
     assert.equal(GAME.biomes.length, 8);
@@ -124,7 +124,7 @@ test('Open Cloud: the right entry, and what each answer means', async () => {
     };
     const entry = sampleEntry();
     assert.deepEqual(await save.readSave('12345', { fetchImpl: answer(200, { path: 'x', value: entry }) }), entry);
-    assert.match(calls[0].url, /\/cloud\/v2\/universes\/\d+\/data-stores\/ABS_Players_v1\/entries\/u12345$/);
+    assert.match(calls[0].url, /\/cloud\/v2\/universes\/\d+\/data-stores\/ABS_Players_v2\/entries\/u12345$/);
     assert.equal(calls[0].key, 'test-key');
     assert.deepEqual(await save.readSave('12345', { fetchImpl: answer(200, { value: JSON.stringify(entry) }) }), entry, 'a value sent as text');
     assert.equal(await save.readSave('12345', { fetchImpl: answer(404, {}) }), null, 'never played');

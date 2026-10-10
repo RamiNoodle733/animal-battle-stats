@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.13.4 — 2026-10-09
+
+- **Linked game progress works again.** The Roblox game moved everyone's saves to a fresh start (new save storage) on 2026-10-08, and the site was still reading the old one, so linked trainer cards showed old progress. The site now reads the new saves.
+- **The game's data is up to date:** the islands' boss titles (Pride of the Savanna, Jaws of the Swamp, Breaker of the Ice, Hunter of the Deep), the Ocean's summit boss (the orca), and the game's current looks and codes.
+
 ## 4.13.3 — 2026-10-04
 
 - **The Roblox game is out.** The game panel now says 341 animals and shows its endgame: the Collection's Reach, the Citadel, endless sieges and trainer levels up to 500.

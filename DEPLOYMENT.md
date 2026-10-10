@@ -262,7 +262,7 @@ Defines:
 | `ROBLOX_CLIENT_ID` | No | Roblox OAuth 2.0 app client ID. With the secret, turns on Continue with Roblox and Connect Roblox (see below) |
 | `ROBLOX_CLIENT_SECRET` | No | Roblox OAuth 2.0 app secret |
 | `ROBLOX_REDIRECT_URI` | No | Overrides the Roblox redirect URL (default `<site>/api/auth?action=roblox-callback`) |
-| `ROBLOX_OPEN_CLOUD_KEY` | No | Open Cloud API key for the game's universe, read only: ordered DataStores (the leaderboards) and the standard DataStore `ABS_Players_v1` (each linked player's save; see "Game progress on the site" below) |
+| `ROBLOX_OPEN_CLOUD_KEY` | No | Open Cloud API key for the game's universe, read only: ordered DataStores (the leaderboards) and the standard DataStore `ABS_Players_v2` (each linked player's save; see "Game progress on the site" below) |
 | `ROBLOX_UNIVERSE_ID` / `ROBLOX_PLACE_ID` | No | Override the ids in `data/roblox-game.json` |
 
 ### Google sign-in (Continue with Google)
@@ -360,12 +360,12 @@ DataStore, read only; nothing in the game changes.
 
 1. In Creator Hub, open **Open Cloud > API Keys**, edit the key in `ROBLOX_OPEN_CLOUD_KEY` (or make
    one), and add the **DataStore** permission for the game's experience with **Read Entry**
-   (`universe-datastores.objects:read`) for the data store `ABS_Players_v1`. Keep the ordered
+   (`universe-datastores.objects:read`) for the data store `ABS_Players_v2`. Keep the ordered
    DataStore read it already has for the leaderboards. No write permission is needed.
 2. Redeploy. Community > World stats > Events > Settings > **Roblox game link** says whether saves
    can be read and how many players are linked.
 
-How it works: `lib/roblox-save.js` reads `ABS_Players_v1` entry `u<robloxUserId>` (the game's
+How it works: `lib/roblox-save.js` reads `ABS_Players_v2` entry `u<robloxUserId>` (the game's
 DataService) and turns it into a trainer card; `lib/roblox-sync.js` reads it at most once a minute
 for your own pages and once every 30 minutes for someone else's, keeps the card on the user
 (`robloxGame`), and adds the game's animals to their collection (`from: 'roblox'`, one feed post,

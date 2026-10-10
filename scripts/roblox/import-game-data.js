@@ -29,7 +29,7 @@ for (const animal of data.animals || []) {
 for (const key of ['save', 'animals', 'biomes', 'rarities', 'trophies', 'trophyLevels', 'trainerLevels', 'levelCaps', 'schedule']) {
     if (!data[key]) problems.push(`missing "${key}"`);
 }
-if (data.save?.store !== 'ABS_Players_v1') problems.push(`unexpected save store "${data.save?.store}" (lib/roblox-save.js reads ABS_Players_v1)`);
+if (data.save?.store !== 'ABS_Players_v2') problems.push(`unexpected save store "${data.save?.store}" (lib/roblox-save.js reads ABS_Players_v2)`);
 if (problems.length) {
     console.error(`Not imported:\n- ${problems.join('\n- ')}`);
     process.exit(1);

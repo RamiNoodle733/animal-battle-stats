@@ -2,6 +2,7 @@
 // 3D card tilt and the signed-in player chip. Plain DOM, no framework.
 import { sfx, isSoundOn, setSound } from './sfx.js';
 import './track.js';
+import './analytics.js';
 
 let indexPromise = null;
 

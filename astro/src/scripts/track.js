@@ -6,9 +6,7 @@
 // closes or goes to another site. The server takes the signed-in player from
 // the session cookie.
 //
-// A browser can be left out of tracking (localStorage "abs:untracked"): by the
-// owner from Community → Events, or on its own once an account the owner left
-// out signs in on it, so its later logged-out visits stay out too.
+// Event exclusions are view filters in Community; collection includes every account.
 const SESSION_KEY = 'abs:session';
 const UNTRACKED_KEY = 'abs:untracked';
 const NAV_KEY = 'abs:nav';
@@ -19,21 +17,9 @@ const PING_EVERY = 45 * 1000;
 const automated = navigator.webdriver || /bot|crawl|spider|slurp|headless|lighthouse|pagespeed/i.test(navigator.userAgent);
 const local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
 
-// 'manual' (the owner's switch), 'account' (an untracked account signed in here) or null.
-function untrackedState() {
-    try { return window.localStorage?.getItem(UNTRACKED_KEY) || null; } catch { return null; }
-}
-function setUntracked(value) {
-    try {
-        if (value) window.localStorage?.setItem(UNTRACKED_KEY, value);
-        else window.localStorage?.removeItem(UNTRACKED_KEY);
-    } catch { /* storage blocked */ }
-}
-export const deviceUntracked = () => Boolean(untrackedState());
-export function setDeviceUntracked(on) {
-    setUntracked(on ? 'manual' : null);
-}
-const untracked = deviceUntracked();
+// Retire the old owner exclusion flag: event filtering now affects the view only.
+try { localStorage.removeItem(UNTRACKED_KEY); } catch { /* storage blocked */ }
+const untracked = false;
 
 function read(key) {
     try { return sessionStorage.getItem(key); } catch { return null; }
@@ -126,22 +112,6 @@ function pageView(referrer) {
     });
     if (counted.fresh) post('/api/community?action=visit', {});
     startPinging();
-}
-
-if (!automated && !local) {
-    document.addEventListener('abs:user', (event) => {
-        if (event.detail?.untracked) setUntracked(untrackedState() || 'account');
-        else if (untrackedState() === 'account') setUntracked(null);
-    });
-}
-
-if (!automated && !local && untracked) {
-    // Not tracked: no page views, visits or exits, but still "online" for chat.
-    startPinging();
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') startPinging();
-        else stopPinging();
-    });
 }
 
 if (!automated && !local && !untracked) {

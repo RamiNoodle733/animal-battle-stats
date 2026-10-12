@@ -6,7 +6,6 @@
 // owner admin-overview|admin-analytics|admin-settings.
 import { escapeHtml, toast } from './site.js';
 import { mountGlobe } from './world.js';
-import { deviceUntracked, setDeviceUntracked } from './track.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const fmt = (value) => Number(value || 0).toLocaleString('en-US');
@@ -51,7 +50,10 @@ function headers() {
 
 async function getJson(url) {
     const response = await fetch(url, { credentials: 'same-origin', headers: headers() });
-    if (!response.ok) throw new Error(String(response.status));
+    if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error || `Request failed (${response.status})`);
+    }
     return response.json();
 }
 
@@ -231,14 +233,31 @@ export function mountStats(root, { avatar }) {
 
     // ------------------------------------------------------------ places
     const search = $('[data-place-q]');
+    let placeLimit = 100;
+    let matchingPlaces = [];
     function paintPlaces() {
         const query = search.value.trim().toLowerCase();
         const matches = points.filter((point) => !query || `${point.label} ${countryName(point.country)}`.toLowerCase().includes(query));
-        $('[data-place-count]').textContent = `${fmt(matches.length)} of ${fmt(points.length)} places`;
+        const sort = $('[data-place-sort]').value;
+        matches.sort((a, b) => sort === 'name' ? a.label.localeCompare(b.label) : Number(b[sort] || 0) - Number(a[sort] || 0));
+        matchingPlaces = matches;
+        $('[data-place-count]').textContent = `Showing ${fmt(Math.min(placeLimit, matches.length))} of ${fmt(matches.length)} places${query ? ` (${fmt(points.length)} total)` : ''}`;
+        $('[data-place-more]').hidden = matches.length <= placeLimit;
         const max = Math.max(1, ...matches.map((point) => point.totalEvents || 0));
-        $('[data-places]').innerHTML = matches.slice(0, 250).map((point) => `<li><button class="place" type="button" data-key="${escapeHtml(point.key)}"><i style="width:${Math.max(2, Math.round(((point.totalEvents || 0) / max) * 100))}%"></i><span>${escapeHtml(point.label)}</span><b>${compact(point.totalEvents)} <small>${compact(point.totalVisits)} visits</small></b></button></li>`).join('') || '<li class="muted small">No places match.</li>';
+        $('[data-places]').innerHTML = matches.slice(0, placeLimit).map((point) => `<li><button class="place" type="button" data-key="${escapeHtml(point.key)}"><i style="width:${Math.max(2, Math.round(((point.totalEvents || 0) / max) * 100))}%"></i><span>${escapeHtml(point.label)}</span><b>${compact(point.totalEvents)} <small>${compact(point.totalVisits)} visits</small></b></button></li>`).join('') || '<li class="muted small">No places match.</li>';
     }
-    search.addEventListener('input', paintPlaces);
+    search.addEventListener('input', () => { placeLimit = 100; paintPlaces(); });
+    $('[data-place-sort]').addEventListener('change', () => { placeLimit = 100; paintPlaces(); });
+    $('[data-place-more]').addEventListener('click', () => { placeLimit += 100; paintPlaces(); });
+    function exportCsv(name, columns, rows) {
+        // Neutralize spreadsheet formula prefixes, including whitespace before one.
+        const cell = (value) => { const text = String(value ?? ''); return `"${(/^[\s]*[=+@-]/.test(text) ? `'${text}` : text).replace(/"/g, '""')}"`; };
+        const url = URL.createObjectURL(new Blob(['\ufeff', [columns, ...rows].map((row) => row.map(cell).join(',')).join('\r\n')], { type: 'text/csv;charset=utf-8' }));
+        const link = Object.assign(document.createElement('a'), { href: url, download: name });
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+    $('[data-place-export]').addEventListener('click', () => exportCsv(`abs-places-${range}.csv`, ['Place', 'Country', 'Events', 'Visits', 'Visitors'], matchingPlaces.map((point) => [point.label, point.country, point.totalEvents, point.totalVisits, point.uniqueVisitors])));
     $('[data-places]').addEventListener('click', (event) => {
         const button = event.target.closest('[data-key]');
         if (button) openPlace(button.dataset.key);
@@ -393,13 +412,21 @@ export function mountStats(root, { avatar }) {
         for (const [key, value] of Object.entries(query)) if (value) params.set(key, value);
         const body = await getJson(`/api/community?${params}`);
         const events = body.data?.events || [];
-        return { rows: events.map(eventRow).join(''), next: body.data?.nextCursor || null, ids: events.filter((event) => event.discordDelivery?.status === 'failed').map((event) => event.id) };
+        return { events, total: body.data?.total, rows: events.map(eventRow).join(''), next: body.data?.nextCursor || null, ids: events.filter((event) => event.discordDelivery?.status === 'failed').map((event) => event.id) };
     }
 
     let failedIds = [];
+    let loadedEvents = [];
+    let eventRequest = 0;
+    let eventTotal = null;
+    let loadingEvents = false;
     async function loadEvents(fresh) {
         if (!isOwner()) return;
-        if (fresh) { cursor = null; failedIds = []; eventList.innerHTML = '<li class="muted small">Loading events…</li>'; }
+        if (!fresh && loadingEvents) return;
+        loadingEvents = true;
+        $('[data-ev-more]').disabled = true;
+        const request = ++eventRequest;
+        if (fresh) { cursor = null; failedIds = []; loadedEvents = []; eventList.innerHTML = '<li class="muted small">Loading events…</li>'; }
         const form = new FormData(filters);
         const type = String(form.get('eventType') || '');
         $('[data-ev-visitor]').hidden = !visitorFilter;
@@ -412,21 +439,37 @@ export function mountStats(root, { avatar }) {
                 user: String(form.get('user') || '').trim(),
                 page: String(form.get('page') || '').trim(),
                 visitor: visitorFilter,
+                hideMe: form.get('hideMe'),
+                exclude: String(form.get('exclude') || '').trim(),
+                from: form.get('from') ? `${form.get('from')}T00:00:00.000Z` : '',
+                to: form.get('to') ? `${form.get('to')}T23:59:59.999Z` : '',
+                country: form.get('country'),
+                device: form.get('device'),
                 cursor
             });
+            if (request !== eventRequest) return;
+            loadedEvents.push(...page.events);
+            if (fresh) eventTotal = page.total;
+            $('[data-ev-summary]').textContent = `${fmt(loadedEvents.length)} loaded${eventTotal == null ? '' : ` of ${fmt(eventTotal)} matching events`} · ${new Set(loadedEvents.map((event) => isGuest(event.username) ? event.visitorPseudonym : event.username).filter(Boolean)).size} accounts or guests in loaded events`;
             if (fresh) eventList.innerHTML = '';
             eventList.insertAdjacentHTML('beforeend', page.rows || (fresh ? '<li class="muted small">No events match.</li>' : ''));
             cursor = page.next;
             failedIds = failedIds.concat(page.ids);
             $('[data-ev-more]').hidden = !cursor;
             $('[data-ev-retry]').hidden = !failedIds.length;
-        } catch {
-            eventList.innerHTML = '<li class="muted small">Events are unavailable right now.</li>';
+        } catch (error) {
+            if (request !== eventRequest) return;
+            eventList.innerHTML = `<li class="muted small">${escapeHtml(error.message || 'Events are unavailable right now.')}</li>`;
+            $('[data-ev-summary]').textContent = '';
+        } finally {
+            if (request === eventRequest) { loadingEvents = false; $('[data-ev-more]').disabled = false; }
         }
     }
     let filterTimer = 0;
     filters.addEventListener('input', () => { clearTimeout(filterTimer); filterTimer = setTimeout(() => loadEvents(true), 300); });
     filters.addEventListener('submit', (event) => event.preventDefault());
+    $('[data-ev-reset]').addEventListener('click', () => { filters.reset(); filters.elements.exclude.value = ''; visitorFilter = null; loadEvents(true); });
+    $('[data-ev-export]').addEventListener('click', () => exportCsv('abs-events-loaded.csv', ['UTC time', 'Event', 'Player', 'Page', 'Country', 'Device', 'Discord'], loadedEvents.map((event) => [event.occurredAt, event.eventType, event.username, event.page, event.location?.country, event.device, event.discordDelivery?.status])));
     $('[data-ev-more]').addEventListener('click', () => loadEvents(false));
     $('[data-ev-retry]').addEventListener('click', async () => {
         const result = await postJson('/api/community?action=admin-retry-discord', { ids: failedIds.slice(0, 50) });
@@ -469,7 +512,7 @@ export function mountStats(root, { avatar }) {
             const online = data.online || [];
             set('[data-ev-online-n]', online.length ? `${fmt(online.length)} now` : '');
             $('[data-ev-online]').innerHTML = online.length
-                ? online.map((row) => `<li><span><span class="dot"></span><b>${escapeHtml(row.who)}</b>${row.untracked ? '<span class="ev-tag">not tracked</span>' : ''}<br />${row.pageLabel ? link(row.pageUrl, row.pageLabel) : '<small>somewhere</small>'}</span><small>${ago(row.lastSeen)}</small></li>`).join('')
+                ? online.map((row) => `<li><span><span class="dot"></span><b>${escapeHtml(row.who)}</b><br />${row.pageLabel ? link(row.pageUrl, row.pageLabel) : '<small>somewhere</small>'}</span><small>${ago(row.lastSeen)}</small></li>`).join('')
                 : '<li class="muted small">Nobody right now.</li>';
             const t = data.today || {};
             const tiles = [['Page views', t.pageViews], ['Visits', t.visits], ['Visitors', t.visitors], ['Sign-ups', t.signups], ['Logins', t.logins], ['Fights', t.fights], ['Votes', t.votes], ['Comments', t.comments], ['Arena chat', t.chat], ['Tournaments', t.tournaments]];
@@ -489,11 +532,11 @@ export function mountStats(root, { avatar }) {
     }
 
     // Settings: accounts left out, this browser, and what goes to Discord.
-    const deviceBox = $('[data-ev-device]');
     function paintSettings(data) {
-        $('[data-ev-ignored]').innerHTML = (data.ignored || []).length
-            ? data.ignored.map((row) => `<li><span><b>${escapeHtml(row.username)}</b><br /><small>${fmt(row.events)} stored events${row.addedAt ? ` · since ${escapeHtml(day(row.addedAt))}` : ''}</small></span><span class="acts">${row.events ? `<button type="button" class="btn btn-sm btn-danger" data-ev-purge="${escapeHtml(row.username)}" data-n="${row.events}">Delete their events</button>` : ''}<button type="button" class="btn btn-sm" data-ev-unignore="${escapeHtml(row.username)}">Track again</button></span></li>`).join('')
-            : '<li class="muted small">Every account is tracked.</li>';
+        $('[data-ev-ignored]').innerHTML = (data.excludedAccounts || []).length
+            ? data.excludedAccounts.map((row) => `<li><b>${escapeHtml(row.username)}</b><button type="button" class="btn btn-sm" data-ev-unignore="${escapeHtml(row.username)}">Show in Events</button></li>`).join('')
+            : '<li class="muted small">No saved view exclusions. Every account is tracked.</li>';
+        filters.elements.exclude.value = (data.excludedAccounts || []).map((row) => row.username).join(', ');
         const form = $('[data-ev-discord-form]');
         const mode = data.discord?.pageViews || 'all';
         for (const radio of form.querySelectorAll('[name="pageViews"]')) radio.checked = radio.value === mode;
@@ -508,7 +551,6 @@ export function mountStats(root, { avatar }) {
     }
     async function loadSettings() {
         if (!isOwner()) return;
-        deviceBox.checked = deviceUntracked();
         try {
             const body = await getJson('/api/community?action=admin-settings');
             paintSettings(body.data || {});
@@ -526,22 +568,11 @@ export function mountStats(root, { avatar }) {
     $('[data-ev-ignore]').addEventListener('submit', async (event) => {
         event.preventDefault();
         const input = event.currentTarget.elements.username;
-        if (await changeSettings({ op: 'ignore', username: input.value.trim() })) input.value = '';
+        if (await changeSettings({ op: 'exclude', username: input.value.trim() })) input.value = '';
     });
     $('[data-ev-ignored]').addEventListener('click', async (event) => {
-        const purge = event.target.closest('[data-ev-purge]');
         const unignore = event.target.closest('[data-ev-unignore]');
-        if (purge) {
-            const name = purge.dataset.evPurge;
-            if (!window.confirm(`Delete all ${fmt(purge.dataset.n)} stored events from ${name}? This cannot be undone. The site's numbers and the globe drop them too.`)) return;
-            purge.disabled = true;
-            await changeSettings({ op: 'purge', username: name });
-        }
-        if (unignore) await changeSettings({ op: 'unignore', username: unignore.dataset.evUnignore });
-    });
-    deviceBox.addEventListener('change', () => {
-        setDeviceUntracked(deviceBox.checked);
-        toast(deviceBox.checked ? 'This browser is no longer tracked' : 'This browser is tracked again');
+        if (unignore) await changeSettings({ op: 'include', username: unignore.dataset.evUnignore });
     });
     $('[data-ev-discord-form]').addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -561,7 +592,11 @@ export function mountStats(root, { avatar }) {
         if (view === 'settings') loadSettings();
     }
     $$('[data-ev-view]').forEach((button) => button.addEventListener('click', () => showOwner(button.dataset.evView)));
-    function openOwnerTools() { showOwner(ownerView); }
+    let ownerPreferencesLoaded = false;
+    function openOwnerTools() {
+        if (!ownerPreferencesLoaded) { ownerPreferencesLoaded = true; loadSettings().then(() => showOwner(ownerView)); }
+        else showOwner(ownerView);
+    }
 
     // ------------------------------------------------------------ refresh while open
     let timers = [];

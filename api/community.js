@@ -348,7 +348,7 @@ async function handleAdminAnalytics(req, res) {
 
     await connectToDatabase();
 
-    const owner = await User.findById(authUser.id).select('role').lean();
+    const owner = await User.findById(authUser.id).select('role username').lean();
     if (!owner || owner.role !== 'admin') {
         return res.status(403).json({ success: false, error: 'Administrator access required' });
     }
@@ -398,6 +398,14 @@ async function handleAdminAnalytics(req, res) {
             query.occurredAt.$lte = to;
         }
     }
+    let viewFilters;
+    try {
+        viewFilters = require('../lib/event-view-filters').applyEventViewFilters(query, req.query, owner.username);
+    } catch (error) {
+        return res.status(400).json({ success: false, error: error.message });
+    }
+    // Count before the pagination cursor, so this describes all matching events.
+    const total = !cursor ? await SiteActivity.countDocuments(query) : null;
     if (cursor) {
         if (!mongoose.isValidObjectId(cursor)) {
             return res.status(400).json({ success: false, error: 'Invalid cursor' });
@@ -418,6 +426,7 @@ async function handleAdminAnalytics(req, res) {
         success: true,
         data: {
             events: page.map(buildOwnerEventDetails),
+            total,
             nextCursor: hasMore ? String(page[page.length - 1]._id) : null,
             filters: {
                 key: key || null,
@@ -427,6 +436,7 @@ async function handleAdminAnalytics(req, res) {
                 visitor: visitor || null,
                 page: pageFilter || null,
                 hideViews,
+                ...viewFilters,
                 from: from && !Number.isNaN(from.getTime()) ? from.toISOString() : null,
                 to: to && !Number.isNaN(to.getTime()) ? to.toISOString() : null
             }
@@ -586,12 +596,10 @@ async function robloxLinkStatus(User) {
 }
 
 // Owner: the tracking settings (lib/tracking-settings.js). POST ops:
-//   ignore { username }    leave an account out of tracking
-//   unignore { username }  track it again
-//   purge { username }     delete the stored events of an account that is left out
+//   exclude { username }   hide an account from the Events view
+//   include { username }   show it again; collection is never suppressed
 //   discord { pageViews, off }  what gets posted to Discord
 async function handleAdminSettings(req, res) {
-    const SiteActivity = require('../lib/models/SiteActivity');
     const User = require('../lib/models/User');
     const tracking = require('../lib/tracking-settings');
     setCorsHeaders(req, res, { methods: 'GET, POST, OPTIONS', credentials: true });
@@ -607,10 +615,8 @@ async function handleAdminSettings(req, res) {
     const payload = async (settings, extra = {}) => ({
         success: true,
         data: {
-            ignored: await Promise.all(settings.ignored.map(async (entry) => ({
-                ...entry,
-                events: await SiteActivity.countDocuments({ username: exactName(entry.username) })
-            }))),
+            ignored: [],
+            excludedAccounts: settings.excludedAccounts,
             discord: settings.discord,
             groups: tracking.EVENT_GROUPS,
             pageViewModes: tracking.PAGE_VIEW_MODES,
@@ -626,33 +632,29 @@ async function handleAdminSettings(req, res) {
     const op = String(body.op || '');
     const by = actor?.username || null;
 
-    if (op === 'ignore' || op === 'unignore' || op === 'purge') {
+    if (op === 'exclude' || op === 'include') {
         const username = tracking.cleanUsername(body.username);
         if (!username) return res.status(400).json({ success: false, error: 'Type a username' });
-        const listed = settings.ignored.find((entry) => entry.username.toLowerCase() === username.toLowerCase());
+        const listed = settings.excludedAccounts.find((entry) => entry.username.toLowerCase() === username.toLowerCase());
 
-        if (op === 'ignore') {
+        if (op === 'exclude') {
             if (listed) return res.status(200).json(await payload(settings, { message: `${listed.username} is already left out.` }));
             const user = await User.findOne({ username: exactName(username) }).select('username').lean();
             if (!user) return res.status(404).json({ success: false, error: `No player is called ${username}` });
             settings = await tracking.saveTrackingSettings({
                 ...settings,
-                ignored: [...settings.ignored, { username: user.username, userId: String(user._id), addedAt: new Date().toISOString() }]
+                excludedAccounts: [...settings.excludedAccounts, { username: user.username, userId: String(user._id), addedAt: new Date().toISOString() }]
             }, by);
-            return res.status(200).json(await payload(settings, { message: `${user.username} is no longer tracked.` }));
+            return res.status(200).json(await payload(settings, { message: `${user.username} is hidden in Events. Their activity is still tracked.` }));
         }
-        if (op === 'unignore') {
-            if (!listed) return res.status(200).json(await payload(settings, { message: `${username} is already tracked.` }));
+        if (op === 'include') {
+            if (!listed) return res.status(200).json(await payload(settings));
             settings = await tracking.saveTrackingSettings({
                 ...settings,
-                ignored: settings.ignored.filter((entry) => entry !== listed)
+                excludedAccounts: settings.excludedAccounts.filter((entry) => entry !== listed)
             }, by);
-            return res.status(200).json(await payload(settings, { message: `${listed.username} is tracked again.` }));
+            return res.status(200).json(await payload(settings, { message: `${listed.username} is visible in Events again.` }));
         }
-        // purge: only for accounts already left out, so a slip cannot wipe a real player's history
-        if (!listed) return res.status(400).json({ success: false, error: 'Leave the account out of tracking first' });
-        const result = await SiteActivity.deleteMany({ username: exactName(listed.username) });
-        return res.status(200).json(await payload(settings, { message: `Deleted ${Number(result.deletedCount || 0).toLocaleString('en-US')} events from ${listed.username}.` }));
     }
 
     if (op === 'discord') {

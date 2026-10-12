@@ -1,4 +1,5 @@
 ---
+import SocialLinks from '../components/SocialLinks.astro';
 // The game's official page, as one game screen: the game card on the left (Play
 // on Roblox, live numbers, Discord, Roblox account linking) and a tabbed stage on
 // the right (trailer, gameplay videos, codes, in-game leaderboards, questions).
@@ -9,12 +10,12 @@ import HoloCard from '../components/HoloCard.astro';
 import AnimalImage from '../components/AnimalImage.astro';
 import RobloxMark from '../components/RobloxMark.astro';
 import { getAnimal, animals, gameAnimals } from '../lib/catalog.js';
-import { SITE, ROBLOX, SOCIAL, absoluteUrl } from '../lib/site.js';
+import { SITE, ROBLOX, absoluteUrl } from '../lib/site.js';
 
 const fan = ['honey-badger', 'megalodon', 'army-ant'].map(getAnimal).filter(Boolean);
 const title = `Animal Battle Stats on Roblox: Collect ${gameAnimals.length} Real Animals & Battle | ${SITE.name}`;
 const description = `The Animal Battle Stats Roblox game: collect all ${gameAnimals.length} real animals as holo-cards, power them up and battle across eight biome islands. Free to play, no loot boxes. ${ROBLOX.live ? 'Play now on Roblox.' : 'Coming soon to Roblox.'}`;
-const discord = SOCIAL.find((item) => item.name === 'Discord');
+
 const { trailer, screenshots } = ROBLOX;
 const clips = ROBLOX.videos.map((clip) => ({ ...clip, art: clip.animal ? getAnimal(clip.animal) : null }));
 const thumbCount = screenshots.length + (trailer ? 1 : 0);
@@ -66,8 +67,9 @@ const jsonLd = [
                 {ROBLOX.live
                     ? <a class="btn btn-play btn-lg" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={26} />Play on Roblox</a>
                     : <span class="btn btn-play btn-lg" aria-disabled="true"><RobloxMark size={26} />Coming soon</span>}
-                {discord && <a class="btn" href={discord.url} rel="noopener" target="_blank"><Icon name="friends" size={24} />{ROBLOX.live ? 'Join the Discord' : 'Get launch news'}</a>}
+                <a class="btn" href="/social"><Icon name="friends" size={24} />Follow for game updates</a>
             </div>
+            <SocialLinks />
             <dl class="rbx-live" data-live-stats hidden>
                 <div><dt>Playing</dt><dd data-stat="playing">–</dd></div>
                 <div><dt>Visits</dt><dd data-stat="visits">–</dd></div>

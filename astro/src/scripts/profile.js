@@ -106,8 +106,7 @@ function paintOwner(user) {
     $('[data-p-notify]').hidden = !hasEmail;
     const prefs = user.emailNotifications || {};
     $$('[data-n]').forEach((box) => { box.checked = Boolean(prefs[box.dataset.n]); box.disabled = box.dataset.n !== 'enabled' && !prefs.enabled; });
-    $('[data-p-google]').textContent = user.googleLinked ? 'Linked' : 'Not linked';
-    $('[data-p-google-btn]').textContent = user.googleLinked ? 'Unlink' : 'Link';
+    paintProviders(user);
     $('[data-p-prestige-row]').hidden = !user.isPrestigeReady;
     paintRoblox(user);
     picked = user.profileAnimal || null;
@@ -250,7 +249,8 @@ async function loadOwn() {
     // Google linking shows once the server has Google sign-in configured
     // (or the account already has Google linked, so it can be unlinked).
     api('action=providers', { auth: false }).then((providers) => {
-        $('[data-p-google-row]').hidden = !(providers.body?.data?.google || me.googleLinked);
+        providerAvailability = providers.body?.data || {};
+        paintProviders(me);
         paintRobloxAvailability(Boolean(providers.body?.data?.roblox));
         if (providers.body?.data?.email === false) {
             emailOn = false;
@@ -308,13 +308,47 @@ $$('[data-n]').forEach((box) => box.addEventListener('change', async () => {
     paintOwner(me);
     sfx.tick();
 }));
-$('[data-p-google-btn]').addEventListener('click', async () => {
-    if (!me.googleLinked) { location.href = '/api/auth?action=link-google'; return; }
-    const result = await api('action=unlink-google', { method: 'POST', body: {} });
-    if (!result.ok) { sfx.error(); toast(result.body.error || 'Could not unlink Google.'); return; }
+let providerAvailability = {};
+function paintProviders(user) {
+    $$('[data-account-provider]').forEach((row) => {
+        const name = row.dataset.accountProvider;
+        const provider = (user.authProviders || []).find((entry) => entry.provider === name);
+        row.querySelector('[data-provider-detail]').textContent = provider ? `Connected${provider.email ? ` · ${provider.email}` : ''}` : providerAvailability[name] ? 'Not connected' : 'Sign-in coming soon';
+        const button = row.querySelector('[data-provider-button]');
+        button.textContent = provider ? 'Disconnect' : 'Connect';
+        button.disabled = !provider && !providerAvailability[name];
+    });
+    $('[data-p-roblox-detail]').textContent = user.robloxLinked ? `Connected · ${user.roblox?.username || 'Roblox player'}` : providerAvailability.roblox ? 'Not connected' : 'Sign-in coming soon';
+    $('[data-p-roblox-account]').disabled = !user.robloxLinked && !providerAvailability.roblox;
+    $('[data-current-password]').hidden = user.hasPassword === false;
+    $('[data-password-title]').textContent = user.hasPassword === false ? 'Add a password' : 'Change password';
+}
+$$('[data-provider-button]').forEach((button) => button.addEventListener('click', async () => {
+    const name = button.closest('[data-account-provider]').dataset.accountProvider;
+    if (!(me.authProviders || []).some((entry) => entry.provider === name)) { location.href = `/api/auth?action=link-${name}`; return; }
+    button.disabled = true;
+    const result = await api(`action=unlink-${name}`, { method: 'POST', body: {} });
+    button.disabled = false;
+    if (!result.ok) { toast(result.body.error || 'Could not disconnect that account.'); return; }
     me = { ...me, ...result.body.data.user };
     paintOwner(me);
-    toast('Google account unlinked');
+    toast('Account disconnected');
+}));
+$('[data-p-roblox-account]').addEventListener('click', () => { $('[data-p-tab="roblox"]').hidden = false; showTab('roblox'); });
+$('[data-password-form]').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const values = Object.fromEntries(new FormData(form));
+    const note = $('[data-password-note]');
+    note.hidden = false;
+    if (values.password.length < 8) { note.textContent = 'Use at least 8 characters.'; return; }
+    if (values.password !== values.confirm) { note.textContent = 'The two passwords do not match.'; return; }
+    const button = form.querySelector('button');
+    button.disabled = true;
+    const result = await api('action=password', { method: 'POST', body: { password: values.password, currentPassword: values.currentPassword } });
+    button.disabled = false;
+    note.textContent = result.ok ? 'Password saved.' : result.body.error || 'Could not save your password.';
+    if (result.ok) { form.reset(); me = { ...me, ...result.body.data.user }; paintOwner(me); }
 });
 $('[data-rb-unlink]').addEventListener('click', async () => {
     if (!confirm('Disconnect your Roblox account from this profile? Cards it brought over stay in your collection. You can connect it again any time.')) return;
@@ -395,6 +429,9 @@ deleteForm.addEventListener('submit', async (event) => {
 // comes back with ?roblox_welcome, ?roblox_linked or ?roblox_error.
 const params = new URLSearchParams(location.search);
 if (params.get('google_error')) toast(params.get('message') || 'Google linking failed.');
+if (params.get('google_linked') === '1') toast('Google account connected');
+if (params.get('github_error')) toast(params.get('message') || 'GitHub linking failed.');
+if (params.get('github_linked') === '1') toast('GitHub account connected');
 if (params.get('roblox_welcome') === '1') toast('Welcome! Your account is ready. Pick a profile animal.');
 else if (params.get('roblox_linked') === '1') toast('Roblox account connected');
 else if (params.get('roblox_error')) toast(params.get('message') || 'Roblox linking failed.');
@@ -403,7 +440,7 @@ if (!publicName && ['edit', 'animal', 'roblox', 'account'].includes(startTab)) {
     if (startTab === 'roblox') $('[data-p-tab="roblox"]').hidden = false;
     showTab(startTab);
 }
-if (['roblox_welcome', 'roblox_linked', 'roblox_error', 'google_error'].some((key) => params.has(key))) {
+    if (['roblox_welcome', 'roblox_linked', 'roblox_error', 'google_error', 'google_linked', 'github_error', 'github_linked'].some((key) => params.has(key))) {
     history.replaceState(null, '', location.pathname + (startTab ? `?tab=${startTab}` : ''));
 }
 

@@ -3,6 +3,7 @@
 // came from (?returnTo=, same-origin paths only).
 import { toast } from './site.js';
 import { sfx } from './sfx.js';
+import { measure } from './analytics.js';
 
 const root = document.querySelector('[data-auth]');
 const mode = root.dataset.mode;
@@ -13,7 +14,8 @@ const params = new URLSearchParams(location.search);
 
 function safeReturn(value) {
     const raw = String(value || '').trim();
-    if (!raw.startsWith('/') || raw.startsWith('//') || raw.includes('://') || /^\/(login|signup|forgot-password|reset-password)\b/.test(raw)) return '/';
+    // eslint-disable-next-line no-control-regex -- Reject URL parser control characters and backslashes.
+    if (!raw.startsWith('/') || raw.startsWith('//') || raw.includes('://') || /[\\\u0000-\u001f\u007f]/.test(raw) || /^\/(login|signup|forgot-password|reset-password)\b/.test(raw)) return '/';
     return raw;
 }
 const returnTo = safeReturn(params.get('returnTo'));
@@ -35,13 +37,14 @@ const providers = fetch('/api/auth?action=providers', { headers: { Accept: 'appl
     .catch(() => null);
 const providerRow = root.querySelector('[data-providers-row]');
 if (providerRow) {
-    const buttons = { google: root.querySelector('[data-google]'), roblox: root.querySelector('[data-roblox]') };
-    buttons.google.href = `/api/auth?action=google-start&returnTo=${encodeURIComponent(returnTo)}`;
-    buttons.roblox.href = `/api/auth?action=roblox-start&returnTo=${encodeURIComponent(returnTo)}`;
+    const buttons = { google: root.querySelector('[data-google]'), roblox: root.querySelector('[data-roblox]'), github: root.querySelector('[data-github]') };
+    Object.entries(buttons).forEach(([name, button]) => { button.href = `/api/auth?action=${name}-start&returnTo=${encodeURIComponent(returnTo)}`; });
     // Offer each provider only once the server confirms it is configured.
     providers.then((data) => {
         Object.entries(buttons).forEach(([name, button]) => { button.hidden = !data?.[name]; });
-        providerRow.hidden = !data?.google && !data?.roblox;
+        providerRow.hidden = false;
+        const unavailable = Object.keys(buttons).filter((name) => !data?.[name]).map((name) => ({ google: 'Google', roblox: 'Roblox', github: 'GitHub' })[name]);
+        root.querySelector('[data-provider-status]').textContent = data ? (unavailable.length ? `${unavailable.join(', ')} sign-in is coming soon. Use email and password for now.` : '') : 'Other sign-in options could not load. Email and password are available.';
     });
 }
 
@@ -61,6 +64,10 @@ providers.then((data) => {
 if (params.get('verified') === '1') show('Email verified. You can log in now.');
 if (params.get('google_error')) show(params.get('message') || 'Google sign-in failed. Please try again.', true);
 if (params.get('roblox_error')) show(params.get('message') || 'Roblox sign-in failed. Please try again.', true);
+if (params.get('github_error')) show(params.get('message') || 'GitHub sign-in failed. Please try again.', true);
+root.querySelector('[data-show-password]')?.addEventListener('change', (event) => {
+    ['password', 'confirm'].forEach((name) => { if (form.elements[name]) form.elements[name].type = event.target.checked ? 'text' : 'password'; });
+});
 if (mode === 'reset' && (!params.get('email') || !params.get('token'))) {
     show('This reset link is incomplete. Request a new one from the forgot password page.', true);
 }
@@ -107,6 +114,7 @@ function validate(values) {
         if (!/^[A-Za-z0-9_]{3,20}$/.test(values.username || '')) return invalid('username', 'Usernames are 3 to 20 letters, numbers or underscores.');
         if (!/^\S+@\S+\.\S+$/.test(values.email || '')) return invalid('email', 'Enter a valid email address.');
         if ((values.password || '').length < 8) return invalid('password', 'Passwords need at least 8 characters.');
+        if (values.password !== values.confirm) return invalid('confirm', 'The two passwords do not match.');
     }
     if (mode === 'forgot' && !/^\S+@\S+\.\S+$/.test(values.email || '')) return invalid('email', 'Enter a valid email address.');
     if (mode === 'reset') {
@@ -137,8 +145,10 @@ form.addEventListener('submit', async (event) => {
     sfx.win();
     if (mode === 'login') {
         toast('Welcome back!');
+        measure('login', { method: 'password' });
         location.href = returnTo;
     } else if (mode === 'signup') {
+        measure('sign_up', { method: 'password' });
         toast(emailOn ? 'Account created. Check your email to verify it.' : 'Account created.');
         setTimeout(() => { location.href = returnTo === '/' ? '/profile' : returnTo; }, 900);
     } else if (mode === 'forgot') {

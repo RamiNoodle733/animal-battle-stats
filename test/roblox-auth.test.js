@@ -219,7 +219,7 @@ test('a first Roblox sign-in creates an account named after the Roblox player, w
         assert.equal(user.roblox.username, 'TigerKid_22');
         assert.equal(user.validateSync()?.errors?.password, undefined, 'a Roblox-only account needs no password');
 
-        assert.equal(res.getHeader('Location'), 'https://animalbattlestats.com/profile?roblox_welcome=1');
+        assert.equal(res.getHeader('Location'), 'https://animalbattlestats.com/profile?roblox_welcome=1&auth_event=sign_up&auth_method=roblox');
         const session = cookieValue(res, 'abs_auth_token');
         assert.equal(verifyToken(session.value).username, 'TigerKid_22');
     });

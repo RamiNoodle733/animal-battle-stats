@@ -21,7 +21,7 @@ export const SOCIAL = Object.freeze([
     { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61594841433992' },
     { name: 'X', url: 'https://x.com/AnimalBattStats' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/company/109601979/' },
-    { name: 'Discord', url: 'https://discord.gg/BAaJFCXNTN' },
+    { name: 'Discord', url: 'https://discord.gg/7q7bYGHZ6E' },
     { name: 'Reddit', url: 'https://www.reddit.com/r/AnimalBattleStats/' },
     { name: 'GitHub', url: 'https://github.com/RamiNoodle733/animal-battle-stats' }
 ]);

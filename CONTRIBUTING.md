@@ -59,4 +59,4 @@ Check [DATA_PROGRESS.md](./DATA_PROGRESS.md) to see which animals still need wor
 
 ### Questions?
 
-Open an issue or join our [Discord](https://discord.gg/BAaJFCXNTN).
+Open an issue or join our [Discord](https://discord.gg/7q7bYGHZ6E).

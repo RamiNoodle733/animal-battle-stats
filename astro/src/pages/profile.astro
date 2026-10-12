@@ -128,9 +128,19 @@ const EARN = [
                     <label><input type="checkbox" data-n="newFeatures" /><span>New features and game updates</span></label>
                     <label><input type="checkbox" data-n="weeklyDigest" /><span>Weekly digest</span></label>
                 </div>
-                <div class="p-google" data-p-google-row hidden>
-                    <h3 class="sub-h">Sign-in</h3>
-                    <div class="p-row"><span><b>Google</b><span data-p-google>Not linked</span></span><button class="btn btn-sm" type="button" data-p-google-btn>Link</button></div>
+                <div class="p-google">
+                    <h3 class="sub-h">Connected accounts</h3>
+                    <p class="small">All your sign-in methods open this same profile and collection. Keep at least one sign-in method connected.</p>
+                    {['google', 'github'].map((name) => <div class="p-row" data-account-provider={name}><span><b>{name === 'google' ? 'Google' : 'GitHub'}</b><span data-provider-detail>Checking availability…</span></span><button class="btn btn-sm" type="button" data-provider-button disabled>Connect</button></div>)}
+                    <div class="p-row"><span><b>Roblox</b><span data-p-roblox-detail>Checking availability…</span></span><button class="btn btn-sm" type="button" data-p-roblox-account>Manage</button></div>
+                    <h3 class="sub-h" data-password-title>Password</h3>
+                    <form class="auth-form" data-password-form novalidate>
+                        <label class="fld" data-current-password><span>Current password</span><input name="currentPassword" type="password" autocomplete="current-password" maxlength="200" /></label>
+                        <label class="fld"><span>New password</span><input name="password" type="password" autocomplete="new-password" minlength="8" maxlength="200" required /></label>
+                        <label class="fld"><span>Confirm new password</span><input name="confirm" type="password" autocomplete="new-password" minlength="8" maxlength="200" required /></label>
+                        <p class="small" data-password-note role="status" hidden></p>
+                        <button class="btn btn-sm" type="submit">Save password</button>
+                    </form>
                 </div>
                 <div class="p-row p-prestige" data-p-prestige-row hidden><span><b>Prestige ready</b><span>Reset to level 1 for a prestige star and bonus BattlePoints.</span></span><button class="btn btn-gold btn-sm" type="button" data-p-prestige-btn>Prestige</button></div>
                 <button class="btn btn-sm p-logout" type="button" data-p-logout><Icon name="close" size={20} />Log out</button>

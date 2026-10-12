@@ -1,16 +1,16 @@
 ---
+import SocialLinks from '../components/SocialLinks.astro';
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
 import { PAIRS } from '../lib/matchups.js';
-import { SITE, ROBLOX, SOCIAL, absoluteUrl } from '../lib/site.js';
+import { SITE, ROBLOX, absoluteUrl } from '../lib/site.js';
 import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const title = `Community: Animal Debates, Votes & Leaderboards | ${SITE.name}`;
 const description = 'Join the Animal Battle Stats community: debate who would win, vote on the strongest animals, climb the player leaderboard and follow the Animal Battle Stats Roblox game.';
 const jsonLd = [{ '@type': 'WebPage', url: absoluteUrl('/community'), name: 'Animal Battle Stats community', description, isPartOf: { '@id': `${SITE.url}/#website` } }];
 const classics = PAIRS.filter((pair) => pair.classic).slice(0, 12);
-const discord = SOCIAL.find((item) => item.name === 'Discord');
 const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
 ---
 
@@ -92,8 +92,9 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                             {ROBLOX.live
                                 ? <a class="btn btn-play btn-sm" href={ROBLOX.playUrl} rel="noopener" target="_blank"><RobloxMark size={18} />Play</a>
                                 : <a class="btn btn-white btn-sm" href="/roblox"><RobloxMark size={18} />The game</a>}
-                            {discord && <a class="btn btn-sm" href={discord.url} rel="noopener" target="_blank">Discord</a>}
+                            <a class="btn btn-sm" href="/social">All social media</a>
                         </div>
+                        <SocialLinks />
                     </div>
                 </section>
                 <section class="panel gold stats-panel">
@@ -193,7 +194,9 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                             <label class="field place-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg><input type="search" placeholder="Search places" aria-label="Search places" data-place-q /></label>
                             <span class="small muted" data-place-count></span>
                         </div>
+                        <div class="ip-row"><select class="ev-select" data-place-sort aria-label="Sort places"><option value="totalEvents">Most events</option><option value="totalVisits">Most visits</option><option value="uniqueVisitors">Most visitors</option><option value="name">Name A–Z</option></select><button class="btn btn-sm" type="button" data-place-export>Export places CSV</button></div>
                         <ol class="bars scroll" data-places><li class="muted small">Loading places…</li></ol>
+                        <button class="btn btn-sm" type="button" data-place-more hidden>Show more places</button>
                     </div>
                     <div class="place-detail scroll" data-place-detail hidden></div>
                 </div>
@@ -262,25 +265,30 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                             </select>
                             <input class="ev-select" name="user" type="search" placeholder="Player" aria-label="Player" autocomplete="off" />
                             <input class="ev-select" name="page" type="search" placeholder="Page, e.g. cassowary" aria-label="Page" autocomplete="off" />
+                            <label class="small">From (UTC)<input class="ev-select" name="from" type="date" aria-label="Events from date" /></label>
+                            <label class="small">Through (UTC)<input class="ev-select" name="to" type="date" aria-label="Events through date" /></label>
+                            <input class="ev-select" name="country" maxlength="2" placeholder="Country, e.g. US" aria-label="Country code" />
+                            <select class="ev-select" name="device" aria-label="Device"><option value="">All devices</option><option value="Desktop">Desktop</option><option value="Mobile">Mobile</option><option value="Tablet">Tablet</option></select>
+                            <label class="ev-check"><input type="checkbox" name="hideMe" value="1" /> Hide my activity</label>
+                            <input class="ev-select" name="exclude" type="text" placeholder="Hide accounts, separated by commas" aria-label="Accounts to hide from events" maxlength="1000" />
+                            <button class="btn btn-sm" type="button" data-ev-reset>Reset filters</button>
                         </form>
+                        <p class="small muted">Filters only change this view. All accounts’ activity is still collected.</p>
+                        <p class="small" data-ev-summary role="status"></p>
                         <p class="ev-visitor" data-ev-visitor hidden><span>One visitor: <b data-ev-visitor-name></b></span><button type="button" class="link-btn" data-ev-visitor-clear>Show everyone</button></p>
                         <ol class="ev-list scroll" data-ev-list></ol>
-                        <div class="ev-foot"><button class="btn btn-sm" type="button" data-ev-more hidden>Load more</button><button class="btn btn-sm" type="button" data-ev-retry hidden>Retry failed Discord posts</button></div>
+                        <div class="ev-foot"><button class="btn btn-sm" type="button" data-ev-more hidden>Load more</button><button class="btn btn-sm" type="button" data-ev-export>Export loaded events CSV</button><button class="btn btn-sm" type="button" data-ev-retry hidden>Retry failed Discord posts</button></div>
                     </div>
 
                     <div class="ev-pane scroll" data-ev-pane="settings" hidden>
                         <section>
-                            <h3 class="sub-h">Accounts not tracked</h3>
-                            <p class="small muted">Nothing these accounts do is stored or posted to Discord, and a browser they sign in on stops sending page views, even logged out.</p>
+                            <h3 class="sub-h">Accounts hidden from Events</h3>
+                            <p class="small muted">These are optional view exclusions. Every account is tracked, including yours. The Events filters let you turn exclusions off or hide more accounts.</p>
                             <form class="ev-add" data-ev-ignore>
-                                <input class="ev-select" name="username" placeholder="Username" aria-label="Username to stop tracking" autocomplete="off" maxlength="40" required />
-                                <button class="btn btn-sm" type="submit">Stop tracking</button>
+                                <input class="ev-select" name="username" placeholder="Username" aria-label="Username to hide from Events" autocomplete="off" maxlength="40" required />
+                                <button class="btn btn-sm" type="submit">Hide in Events</button>
                             </form>
                             <ol class="ev-ignored" data-ev-ignored><li class="muted small">Loading…</li></ol>
-                        </section>
-                        <section>
-                            <h3 class="sub-h">This browser</h3>
-                            <label class="ev-check"><input type="checkbox" data-ev-device /> <span><b>Don't track this browser</b><small>Its page views and visits are not sent, even when nobody is logged in. Use it on your own phone and computer.</small></span></label>
                         </section>
                         <section>
                             <h3 class="sub-h">Roblox game link</h3>
@@ -446,6 +454,9 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .places-list[hidden] { display: none; }
     .place-search { flex: 1; min-width: 160px; }
     .hub :global(.bars) { flex: 1; min-height: 0; margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; align-content: start; }
+    .hub :global(.bars) { grid-auto-rows: max-content; }
+    .hub :global([data-places] > li) { min-height: 40px; }
+    .hub :global([data-places] .place) { min-height: 40px; }
     .hub :global(.bars li) { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 6px 10px; font-size: 0.84rem; border-radius: 8px; background: rgba(9, 10, 12, 0.45); overflow: hidden; isolation: isolate; }
     .hub :global(.bars li > i) { position: absolute; inset: 0 auto 0 0; z-index: -1; background: linear-gradient(90deg, rgba(246, 180, 0, 0.22), rgba(246, 180, 0, 0.06)); }
     .hub :global(.bars li span) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

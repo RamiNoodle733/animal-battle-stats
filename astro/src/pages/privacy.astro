@@ -43,11 +43,12 @@ const SECTIONS = [
             <li>Your approximate location (city, region, country), which our host Vercel works out from your IP address. We don't store your IP address. To count returning visitors we store a scrambled code (a keyed hash) made from your IP address, browser and language, and your username if you're signed in. It can't be turned back into your IP address.</li>
             <li>How long a visit lasted and how many pages it took, using a random id for each visit. The id is kept in your browser's session storage and is gone when you close the tab.</li>
             <li>If you're signed in, your visits are recorded under your username. While you're on the site, we note which page you're on, for up to 2 minutes, to show who's online.</li>
-            <li>Google Analytics also counts visits and the pages viewed (see <a href="#share">Who else gets it</a>).</li>
+            <li>Google Analytics also counts visits, pages viewed, sign-ins, sign-ups and clicks to social accounts and the Roblox game, without account names or email addresses (see <a href="#share">Who else gets it</a>).</li>
         </ul>
         <h3>When you make an account</h3>
         <ul>
             <li>Your username, display name and email address, and your password, which is stored only as a bcrypt hash. Nobody, including us, can read it.</li>
+            <li><strong>Sign in with GitHub:</strong> your GitHub user id and verified email address. We request profile and email access only, never repository access. We do not store GitHub access tokens.</li>
             <li><strong>Sign in with Google:</strong> your Google account id and email address. We never get your Google password.</li>
             <li><strong>Sign in with Roblox</strong> or connect Roblox: your Roblox user id, username and display name. Roblox doesn't share your email or password with us.</li>
             <li>When you joined and when you last logged in, and your recent username changes.</li>
@@ -132,7 +133,7 @@ const SECTIONS = [
         <ul>
             <li>Change your username and display name on your profile.</li>
             <li>Turn email notifications on or off at any time (they start off). Every notification email has an unsubscribe link.</li>
-            <li>Unlink Google (once your account has a password), or disconnect Roblox at any time. Cards you got from the game stay in your collection.</li>
+            <li>Disconnect Google, GitHub or Roblox when another sign-in method or a password is available. Cards you got from the game stay in your collection.</li>
             <li>Hide or show your Roblox name on your public profile.</li>
             <li>Delete your own comments and chat messages.</li>
             <li><strong>Delete your account:</strong> Profile → Account → Delete account, with your password (or your username typed out, for an account that signs in with Google or Roblox). It deletes your account, cards, BattlePoints, level, votes, fight calls, comments and chat messages (with the replies under them), your votes on other people's posts and your visit records, straight away. Fight-call totals keep your picks only as anonymous counts, and messages already sent to our team's activity feed stay there.</li>

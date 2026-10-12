@@ -19,20 +19,20 @@ const { describePage, cleanSearch } = require('../lib/page-labels');
 const { sanitizeEventData } = require('../lib/activity-logger');
 const { createEmbed, notifyDiscord } = require('../lib/discord');
 
-test('the owner account is left out by default; accounts match by id or name, never "Anonymous"', async () => {
+test('all accounts are tracked; legacy exclusions migrate to Events view preferences', async () => {
     tracking.resetTrackingCache();
     const settings = await tracking.getTrackingSettings();
-    assert.deepEqual(settings.ignored.map((entry) => entry.username), ['RamiNoodle733']);
-    assert.equal(tracking.isIgnoredAccount(settings, { username: 'raminoodle733' }), true);
+    assert.deepEqual(settings.ignored, []);
+    assert.equal(tracking.isIgnoredAccount(settings, { username: 'raminoodle733' }), false);
     assert.equal(tracking.isIgnoredAccount(settings, { username: 'Someone' }), false);
     assert.equal(tracking.isIgnoredAccount(settings, { username: 'Anonymous' }), false);
 
     const byId = tracking.normalizeTrackingSettings({ ignored: [{ username: 'OldName', userId: '64b7f0c2a1b2c3d4e5f60718' }] });
-    assert.equal(tracking.isIgnoredAccount(byId, { userId: '64b7f0c2a1b2c3d4e5f60718', username: 'RenamedSince' }), true);
+    assert.equal(tracking.isIgnoredAccount(byId, { userId: '64b7f0c2a1b2c3d4e5f60718', username: 'RenamedSince' }), false);
     // An empty list stays empty (the owner chose to track everyone).
     assert.deepEqual(tracking.normalizeTrackingSettings({ ignored: [] }).ignored, []);
     // Junk is dropped, duplicates collapse.
-    assert.deepEqual(tracking.normalizeTrackingSettings({ ignored: ['a b', 'Bob', 'bob', { username: '<x>' }] }).ignored.map((entry) => entry.username), ['Bob']);
+    assert.deepEqual(tracking.normalizeTrackingSettings({ ignored: ['a b', 'Bob', 'bob', { username: '<x>' }] }).excludedAccounts.map((entry) => entry.username), ['Bob']);
 });
 
 test('page views go to Discord every time, only on landing, or never; other types can be turned off', () => {
@@ -149,15 +149,15 @@ function stubDelivery() {
     return state;
 }
 
-test('an account left out is neither stored nor posted', async () => {
+test('owner activity is stored and posted like every other account', async () => {
     const state = stubDelivery();
     try {
         tracking.resetTrackingCache();
         const result = await notifyDiscord('vote', { user: 'RamiNoodle733', animal: 'Cassowary', voteType: 'up' }, null);
-        assert.equal(result.skipped, true);
-        assert.equal(result.reason, 'ignored-account');
-        assert.equal(state.created.length, 0);
-        assert.equal(state.posted.length, 0);
+        assert.equal(result.success, true);
+        await Promise.all(state.background);
+        assert.equal(state.created.length, 1);
+        assert.equal(state.posted.length, 1);
     } finally {
         state.restore();
     }

@@ -157,30 +157,24 @@ test('Versus sends the matchup it shows; other pages send no query', async () =>
     assert.equal(notifies(other)[0].body.search, '');
 });
 
-test('an untracked browser sends no page views, visits or exits, only presence', async () => {
-    const tab = fakeTab();
-    tab.local.setItem('abs:untracked', 'manual');
-    const page = await loadPage(tab, { pathname: '/stats/cassowary' });
-    assert.deepEqual(urls(tab), ['/api/community?action=ping']);
-    page.fire('pagehide');
-    assert.equal(tab.beacons.length, 0);
+test('legacy owner browser exclusions are cleared and page views resume', async () => {
+    for (const marker of ['manual', 'account']) {
+        const tab = fakeTab();
+        tab.local.setItem('abs:untracked', marker);
+        const page = await loadPage(tab, { pathname: '/stats/cassowary' });
+        assert.equal(tab.local.getItem('abs:untracked'), null);
+        assert.equal(notifies(tab).length, 1);
+        page.fire('pagehide');
+        assert.equal(tab.beacons.length, 1);
+    }
 });
 
-test('signing in with an untracked account stops this browser; tracking it again starts it', async () => {
+test('signing in as the owner continues normal collection without a persistent exclusion', async () => {
     const tab = fakeTab();
     const first = await loadPage(tab, { pathname: '/' });
     first.fire('abs:user', { detail: { username: 'RamiNoodle733', untracked: true } });
-    assert.equal(tab.local.getItem('abs:untracked'), 'account');
-
-    tab.requests.length = 0;
-    const second = await loadPage(tab, { pathname: '/rankings' });
-    assert.deepEqual(urls(tab), ['/api/community?action=ping']);
-
-    second.fire('abs:user', { detail: { username: 'RamiNoodle733', untracked: false } });
     assert.equal(tab.local.getItem('abs:untracked'), null);
-
-    // The owner's own switch stays on whoever signs in.
-    tab.local.setItem('abs:untracked', 'manual');
-    second.fire('abs:user', { detail: { username: 'Someone', untracked: false } });
-    assert.equal(tab.local.getItem('abs:untracked'), 'manual');
+    tab.requests.length = 0;
+    await loadPage(tab, { pathname: '/rankings' });
+    assert.equal(notifies(tab).length, 1);
 });

@@ -64,7 +64,7 @@ const RESET_TOKEN_MINUTES = 60;
 const LOGIN_LIMIT = { windowMs: 15 * 60 * 1000, ipMax: 30, identifierMax: 6 };
 const SIGNUP_LIMIT = { windowMs: 60 * 60 * 1000, ipMax: 10, identifierMax: 5 };
 const GENERIC_AUTH_ERROR = 'Unable to complete this request. Please check your details and try again later.';
-const INVALID_LOGIN_ERROR = 'Invalid credentials. If you use Google sign-in or Roblox sign-in, continue with that button.';
+const INVALID_LOGIN_ERROR = 'Invalid credentials. If you use Google sign-in, Roblox sign-in or GitHub sign-in, continue with that button.';
 const GOOGLE_PROVIDER = 'google';
 const GOOGLE_OAUTH_SCOPES = ['openid', 'email', 'profile'];
 const GOOGLE_STATE_COOKIE = 'abs_google_oauth_state';
@@ -154,7 +154,8 @@ async function sendPasswordResetEmail(req, user, token) {
 
 function getSafeReturnPath(value) {
     const raw = String(value || '').trim();
-    if (!raw || !raw.startsWith('/') || raw.startsWith('//') || raw.includes('://')) {
+    // eslint-disable-next-line no-control-regex -- Reject URL parser control characters and backslashes.
+    if (!raw || !raw.startsWith('/') || raw.startsWith('//') || raw.includes('://') || /[\\\u0000-\u001f\u007f]/.test(raw)) {
         return '/';
     }
     return raw;
@@ -274,6 +275,7 @@ function buildUserPayload(user) {
         emailNotifications: normalizeNotificationPreferences(user.emailNotifications || {}),
         authProviders,
         googleLinked: authProviders.some((provider) => provider.provider === GOOGLE_PROVIDER),
+        githubLinked: authProviders.some((provider) => provider.provider === 'github'),
         robloxLinked: Boolean(roblox),
         roblox,
         coins: user.battlePoints || 0,
@@ -324,13 +326,26 @@ module.exports = async function handler(req, res) {
     if (action === 'providers') {
         if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
         res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
-        return res.status(200).json({ success: true, data: { google: Boolean(getGoogleConfig(req)), roblox: Boolean(getRobloxConfig(req)), email: emailConfigured() } });
+        return res.status(200).json({ success: true, data: { google: Boolean(getGoogleConfig(req)), roblox: Boolean(getRobloxConfig(req)), github: Boolean(getGithubConfig(req)), email: emailConfigured() } });
     }
 
     try {
         await connectToDatabase();
 
         switch (action) {
+            case 'github-start':
+            case 'link-github':
+                if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
+                return handleGithubStart(req, res, action === 'link-github' ? 'link' : 'login');
+            case 'github-callback':
+                if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
+                return await handleGithubCallback(req, res);
+            case 'unlink-github':
+                if (req.method !== 'POST') return res.status(405).json({ success: false, error: 'Method not allowed' });
+                return await handleUnlinkGithub(req, res);
+            case 'password':
+                if (req.method !== 'POST') return res.status(405).json({ success: false, error: 'Method not allowed' });
+                return await handlePassword(req, res);
             case 'login':
                 if (req.method !== 'POST') {
                     return res.status(405).json({ success: false, error: 'Method not allowed' });
@@ -552,15 +567,11 @@ function getGoogleConfig(req) {
 }
 
 function encodeGoogleState(payload) {
-    return Buffer.from(JSON.stringify(payload)).toString('base64url');
+    return signToken({ ...payload, purpose: 'google-oauth' }, { expiresIn: GOOGLE_STATE_MAX_AGE_SECONDS });
 }
 
 function decodeGoogleState(value) {
-    try {
-        return JSON.parse(Buffer.from(String(value || ''), 'base64url').toString('utf8'));
-    } catch (_err) {
-        return null;
-    }
+    return verifyPurposeToken(String(value || ''), 'google-oauth');
 }
 
 function getAuthenticatedUserFromRequest(req) {
@@ -756,6 +767,8 @@ async function handleGoogleCallback(req, res) {
                 return googleErrorRedirect(req, res, state, 'already_linked', 'That Google account is already linked to another Animal Battle Stats account.');
             }
 
+            const previous = findLinkedProvider(currentUser, GOOGLE_PROVIDER);
+            if (previous && previous.providerUserId !== googleProfile.sub) return googleErrorRedirect(req, res, state, 'already_linked', 'Disconnect your existing Google account first.');
             addOrUpdateGoogleProvider(currentUser, googleProfile);
             // Accounts made by Roblox sign-in have no email; adopt Google's verified one if it is free.
             if (!hasRealEmail(currentUser) && !await User.exists({ email: googleProfile.email, _id: { $ne: currentUser._id } })) {
@@ -775,7 +788,7 @@ async function handleGoogleCallback(req, res) {
             const token = signSessionToken(alreadyLinkedUser);
             setAuthCookie(res, token);
             await notifyDiscord('login', { username: alreadyLinkedUser.username }, req);
-            return redirectTo(res, getSafeReturnPath(state.returnTo));
+            return redirectTo(res, buildRedirectUrl(req, getSafeReturnPath(state.returnTo), { auth_event: 'login', auth_method: 'google' }));
         }
 
         const existingEmailUser = await User.findOne({ email: googleProfile.email });
@@ -786,7 +799,7 @@ async function handleGoogleCallback(req, res) {
                 await existingEmailUser.save();
                 const token = signSessionToken(existingEmailUser);
                 setAuthCookie(res, token);
-                return redirectTo(res, getSafeReturnPath(state.returnTo));
+                return redirectTo(res, buildRedirectUrl(req, getSafeReturnPath(state.returnTo), { auth_event: 'login', auth_method: 'google' }));
             }
 
             return googleErrorRedirect(
@@ -816,7 +829,7 @@ async function handleGoogleCallback(req, res) {
         const token = signSessionToken(user);
         setAuthCookie(res, token);
         await notifyDiscord('signup', { username: user.username }, req);
-        return redirectTo(res, getSafeReturnPath(state.returnTo));
+        return redirectTo(res, buildRedirectUrl(req, getSafeReturnPath(state.returnTo), { auth_event: 'sign_up', auth_method: 'google' }));
     } catch (error) {
         console.error('Google OAuth callback error:', error);
         return googleErrorRedirect(req, res, state, 'oauth_failed', 'Google sign-in failed. Please try again.');
@@ -873,11 +886,11 @@ async function handleUnlinkGoogle(req, res) {
         return res.status(404).json({ success: false, error: 'User not found' });
     }
 
-    const hasPassword = Boolean(user.password);
+    const hasPassword = Boolean(user.password) || (user.authProviders || []).some((provider) => provider.provider !== GOOGLE_PROVIDER);
     if (!hasPassword) {
         return res.status(400).json({
             success: false,
-            error: 'Add a password to your account before unlinking Google.'
+            error: 'Add a password or another sign-in method before unlinking Google.'
         });
     }
 
@@ -894,6 +907,137 @@ async function handleUnlinkGoogle(req, res) {
         message: 'Google account unlinked.',
         data: { user: buildUserPayload(user) }
     });
+}
+
+// GitHub only grants identity and verified email access, never repository access.
+// PKCE and a purpose-signed HttpOnly cookie bind the callback to its browser and account.
+function getGithubConfig(req) {
+    if (!process.env.GITHUB_CLIENT_ID || !process.env.GITHUB_CLIENT_SECRET) return null;
+    return { clientId: process.env.GITHUB_CLIENT_ID, clientSecret: process.env.GITHUB_CLIENT_SECRET,
+        redirectUri: process.env.GITHUB_REDIRECT_URI || `${getBaseUrl(req)}/api/auth?action=github-callback` };
+}
+
+function githubCookie(res, value = '') {
+    appendSetCookie(res, `abs_github_oauth=${encodeURIComponent(value)}; Max-Age=${value ? 600 : 0}; Path=/api/auth; HttpOnly; SameSite=Lax${process.env.NODE_ENV === 'production' ? '; Secure' : ''}`);
+}
+
+function githubError(req, res, state, code, message) {
+    return redirectTo(res, buildRedirectUrl(req, state?.mode === 'link' ? '/profile' : '/login', { github_error: code, message }));
+}
+
+function handleGithubStart(req, res, mode) {
+    const config = getGithubConfig(req);
+    if (!config) return githubError(req, res, { mode }, 'not_configured', 'GitHub sign-in is not available yet.');
+    const actor = getAuthenticatedUserFromRequest(req);
+    if (mode === 'link' && !actor) return githubError(req, res, null, 'login_required', 'Log in before linking GitHub.');
+    const nonce = crypto.randomBytes(24).toString('hex');
+    const verifier = crypto.randomBytes(32).toString('base64url');
+    githubCookie(res, signToken({ purpose: 'github-oauth', nonce, verifier, mode,
+        returnTo: mode === 'link' ? '/profile?tab=account' : getSafeReturnPath(req.query.returnTo), userId: mode === 'link' ? actor.id : null }, { expiresIn: 600 }));
+    const url = new URL('https://github.com/login/oauth/authorize');
+    Object.entries({ client_id: config.clientId, redirect_uri: config.redirectUri, scope: 'read:user user:email', state: nonce,
+        code_challenge: crypto.createHash('sha256').update(verifier).digest('base64url'), code_challenge_method: 'S256', prompt: 'select_account' })
+        .forEach(([key, value]) => url.searchParams.set(key, value));
+    return redirectTo(res, url.href);
+}
+
+async function handleGithubCallback(req, res) {
+    const state = verifyPurposeToken(parseCookies(req).abs_github_oauth || '', 'github-oauth');
+    githubCookie(res);
+    if (!state || !state.nonce || req.query.state !== state.nonce || !['login', 'link'].includes(state.mode)) {
+        return githubError(req, res, state, 'invalid_state', 'GitHub sign-in expired. Please try again.');
+    }
+    if (req.query.error) return githubError(req, res, state, 'cancelled', 'GitHub sign-in was cancelled.');
+    if (state.mode === 'link') {
+        const actor = getAuthenticatedUserFromRequest(req);
+        if (!actor || String(actor.id) !== String(state.userId)) return githubError(req, res, state, 'login_required', 'Log in to the same account before linking GitHub.');
+    }
+    try {
+        const config = getGithubConfig(req);
+        if (!config || typeof req.query.code !== 'string' || !req.query.code) throw new Error('Missing OAuth configuration or code');
+        const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+            method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ client_id: config.clientId, client_secret: config.clientSecret, redirect_uri: config.redirectUri, code: req.query.code, code_verifier: state.verifier }),
+            signal: AbortSignal.timeout(10000)
+        });
+        const token = await tokenResponse.json();
+        if (!tokenResponse.ok || !token.access_token || token.error) throw new Error('GitHub rejected the authorization code');
+        const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token.access_token}`, 'User-Agent': 'AnimalBattleStats' };
+        const [profileResponse, emailsResponse] = await Promise.all([
+            fetch('https://api.github.com/user', { headers, signal: AbortSignal.timeout(10000) }),
+            fetch('https://api.github.com/user/emails', { headers, signal: AbortSignal.timeout(10000) })
+        ]);
+        if (!profileResponse.ok || !emailsResponse.ok) throw new Error('GitHub identity lookup failed');
+        const profile = await profileResponse.json();
+        const emails = await emailsResponse.json();
+        const verified = Array.isArray(emails) ? emails.filter((entry) => entry.verified && typeof entry.email === 'string') : [];
+        const email = normalizeIdentifier((verified.find((entry) => entry.primary) || verified[0])?.email);
+        if (!Number.isSafeInteger(profile.id) || profile.id <= 0 || !email) return githubError(req, res, state, 'unverified_email', 'Add a verified email to GitHub, then try again.');
+        const identity = String(profile.id);
+        const linked = await User.findOne({ authProviders: { $elemMatch: { provider: 'github', providerUserId: identity } } });
+        let user;
+        let created = false;
+        if (state.mode === 'link') {
+            user = await User.findById(state.userId);
+            if (!user) return githubError(req, res, state, 'login_required', 'Log in before linking GitHub.');
+            if (linked && String(linked._id) !== String(user._id)) return githubError(req, res, state, 'already_linked', 'That GitHub account belongs to another ABS account.');
+            const previous = findLinkedProvider(user, 'github');
+            if (previous && previous.providerUserId !== identity) return githubError(req, res, state, 'already_linked', 'Disconnect your existing GitHub account first.');
+            if (!hasRealEmail(user) && !await User.exists({ email, _id: { $ne: user._id } })) user.email = email;
+        } else if (linked) {
+            user = linked;
+        } else {
+            if (await User.exists({ email })) return githubError(req, res, state, 'existing_account', 'An ABS account already uses that email. Log in to it, then link GitHub in Account settings.');
+            const username = await buildUniqueUsername(profile.login, 'github');
+            user = new User({ username, displayName: username, email, emailVerified: true });
+            created = true;
+        }
+        const provider = findLinkedProvider(user, 'github');
+        if (provider) provider.email = email;
+        else user.authProviders.push({ provider: 'github', providerUserId: identity, email, linkedAt: new Date() });
+        if (user.email === email) user.emailVerified = true;
+        user.lastLogin = new Date();
+        await user.save();
+        setAuthCookie(res, signSessionToken(user));
+        if (state.mode !== 'link') await notifyDiscord(created ? 'signup' : 'login', { username: user.username }, req);
+        const target = getSafeReturnPath(state.returnTo);
+        return redirectTo(res, buildRedirectUrl(req, target, state.mode === 'link' ? { github_linked: '1' } : { auth_event: created ? 'sign_up' : 'login', auth_method: 'github' }));
+    } catch (error) {
+        // Avoid logging OAuth response bodies or access tokens.
+        console.error('GitHub OAuth callback failed:', error?.code || error?.name || 'Error');
+        return githubError(req, res, state, 'oauth_failed', 'GitHub sign-in failed. Please try again.');
+    }
+}
+
+async function handleUnlinkGithub(req, res) {
+    const actor = getAuthenticatedUserFromRequest(req);
+    if (!actor) return res.status(401).json({ success: false, error: 'Authentication required' });
+    const user = await User.findById(actor.id).select('+password');
+    if (!user) return res.status(404).json({ success: false, error: 'Account not found' });
+    if (!findLinkedProvider(user, 'github')) return res.status(400).json({ success: false, error: 'No GitHub account is linked.' });
+    if (!user.password && !user.authProviders.some((provider) => provider.provider !== 'github')) {
+        return res.status(400).json({ success: false, error: 'Add a password or another sign-in method before disconnecting GitHub.' });
+    }
+    user.authProviders = user.authProviders.filter((provider) => provider.provider !== 'github');
+    await user.save();
+    return res.status(200).json({ success: true, data: { user: buildUserPayload(user) } });
+}
+
+async function handlePassword(req, res) {
+    const actor = getAuthenticatedUserFromRequest(req);
+    if (!actor) return res.status(401).json({ success: false, error: 'Authentication required' });
+    const budget = await consumeRateLimit({ scope: 'account-password', identity: String(actor.id), max: 6, windowMs: 60 * 60 * 1000 });
+    if (!budget.allowed) return res.status(429).json({ success: false, error: 'Too many attempts. Try again later.' });
+    const error = validatePasswordPolicy(req.body?.password);
+    if (error) return res.status(400).json({ success: false, error });
+    const user = await User.findById(actor.id).select('+password');
+    if (!user) return res.status(404).json({ success: false, error: 'Account not found' });
+    if (user.password && !await user.comparePassword(String(req.body?.currentPassword || ''))) return res.status(400).json({ success: false, error: 'Your current password is not right.' });
+    user.password = req.body.password;
+    user.passwordResetTokenHash = null;
+    user.passwordResetExpiresAt = null;
+    await user.save();
+    return res.status(200).json({ success: true, data: { user: buildUserPayload(user) }, message: 'Password saved.' });
 }
 
 // ==================== ROBLOX SIGN-IN ====================
@@ -1109,7 +1253,7 @@ async function handleRobloxCallback(req, res) {
             await alreadyLinkedUser.save();
             setAuthCookie(res, signSessionToken(alreadyLinkedUser));
             await notifyDiscord('login', { username: alreadyLinkedUser.username }, req);
-            return redirectTo(res, buildRedirectUrl(req, getSafeReturnPath(state.returnTo)));
+            return redirectTo(res, buildRedirectUrl(req, getSafeReturnPath(state.returnTo), { auth_event: 'login', auth_method: 'roblox' }));
         }
 
         // First Roblox sign-in: a new account named after the Roblox player.
@@ -1127,7 +1271,7 @@ async function handleRobloxCallback(req, res) {
         await user.save();
         setAuthCookie(res, signSessionToken(user));
         await notifyDiscord('signup', { username: user.username }, req);
-        return redirectTo(res, buildRedirectUrl(req, '/profile', { roblox_welcome: '1' }));
+        return redirectTo(res, buildRedirectUrl(req, '/profile', { roblox_welcome: '1', auth_event: 'sign_up', auth_method: 'roblox' }));
     } catch (error) {
         console.error('Roblox OAuth callback error:', error);
         return robloxErrorRedirect(req, res, state, 'oauth_failed', 'Roblox sign-in failed. Please try again.');

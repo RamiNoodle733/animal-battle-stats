@@ -139,7 +139,8 @@ const year = new Date().getFullYear();
             window.gtag('js', new Date());
             // Account links (a password reset's email and token) never reach analytics.
             var pageUrl = new URL(location.href);
-            ['token', 'email'].forEach(function (key) { pageUrl.searchParams.delete(key); });
+            if (pageUrl.pathname.startsWith('/profile/')) pageUrl.pathname = '/profile';
+            ['token', 'email', 'code', 'state', 'message', 'google_error', 'github_error', 'roblox_error', 'auth_event', 'auth_method', 'user', 'username', 'exclude'].forEach(function (key) { pageUrl.searchParams.delete(key); });
             window.gtag('config', GA_ID, { page_location: pageUrl.href });
             (function () {
                 if (!/(^|\.)animalbattlestats\.com$/.test(location.hostname) || navigator.webdriver) return;

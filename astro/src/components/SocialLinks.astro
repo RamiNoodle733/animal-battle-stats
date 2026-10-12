@@ -1,0 +1,12 @@
+---
+import { SOCIAL } from '../lib/site.js';
+import PlatformIcon from './PlatformIcon.astro';
+const icons = { YouTube: 'youtube', TikTok: 'tiktok', Instagram: 'instagram', Facebook: 'facebook', X: 'x', LinkedIn: 'linkedin', Discord: 'discord', Reddit: 'reddit' };
+---
+<nav class="social-links" aria-label="Follow Animal Battle Stats">
+    {SOCIAL.map((item) => <a class="btn btn-sm" href={item.url} target="_blank" rel="me noopener" data-social={item.name.toLowerCase()}><PlatformIcon name={icons[item.name] || 'github'} size={18} />{item.name}</a>)}
+</nav>
+<style>
+    .social-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .social-links a { font-size: 0.72rem; min-height: 36px; }
+</style>

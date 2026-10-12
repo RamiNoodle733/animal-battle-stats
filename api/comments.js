@@ -401,7 +401,7 @@ async function handlePatch(req, res) {
     const comment = await Comment.findOneAndUpdate(
         { _id: id, isHidden: false },
         buildAtomicVotePipeline({ userId: objectUserId, vote: normalizedAction, toggle: true }),
-        { returnDocument: 'after' }
+        { returnDocument: 'after', updatePipeline: true }
     );
     if (!comment) return res.status(404).json({ success: false, error: 'Comment not found' });
 

@@ -419,7 +419,7 @@ async function handlePatch(req, res) {
     const message = await ChatMessage.findOneAndUpdate(
         { _id: messageId, isDeleted: { $ne: true } },
         buildAtomicVotePipeline({ userId: new mongoose.Types.ObjectId(userId), vote: voteType }),
-        { returnDocument: 'after' }
+        { returnDocument: 'after', updatePipeline: true }
     );
     if (!message) return res.status(404).json({ success: false, error: 'Message not found' });
 

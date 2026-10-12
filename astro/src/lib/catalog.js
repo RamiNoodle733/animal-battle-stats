@@ -6,6 +6,7 @@ import variantManifest from '../../../.cache/image-variants/manifest.json';
 import metrics from '../../../lib/animal-metrics.js';
 import battleModel from '../../../js/battle-engine.js';
 import biomeFile from '../../../data/animal-biomes.json';
+import gameData from '../../../data/roblox-game-data.json';
 
 // Biome per animal, shared with the Roblox game's islands.
 export const BIOMES = Object.freeze({
@@ -254,9 +255,10 @@ export function tierInfo(id) {
     return TIERS.find((tier) => tier.id === id) || TIERS[TIERS.length - 1];
 }
 
-// The site's full roster, and the animals the Roblox game has (its biome curation lists each one).
+// The site's full roster and the current roster exported by the Roblox game.
 export const rosterSize = animals.length;
-export const gameAnimals = animals.filter((animal) => Object.hasOwn(biomeFile.animals, animal.slug));
+const gameIds = new Set(gameData.animals.map((animal) => animal.id));
+export const gameAnimals = animals.filter((animal) => gameIds.has(animal.slug));
 export const researchedCount = animals.filter((animal) => animal.researched).length;
 export const sourceCount = animals.reduce((sum, animal) => sum + (animal.profile.sources?.length || 0), 0);
 export const lastResearchDate = animals.map((animal) => animal.profile.researchedAt).filter(Boolean).sort().at(-1) || null;

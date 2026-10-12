@@ -3,9 +3,8 @@ import { animals, TIERS, POWER_WEIGHTS, researchedCount, sourceCount, fmtScore, 
 import { HUMAN_OPPONENTS, humanPairSlug, humansNeeded, humansWin } from '../lib/human.js';
 import { CATEGORIES } from '../lib/categories.js';
 import { PAIRS } from '../lib/matchups.js';
-import { SITE, ROBLOX } from '../lib/site.js';
+import { SITE, ROBLOX, SOCIAL } from '../lib/site.js';
 import { cardFiles, matchupPreview } from '../lib/card.js';
-import { BRAND, SHOWS, totalEpisodes, clock } from '../lib/shows.js';
 
 const pct = (value) => `${Math.round(value * 100)}%`;
 
@@ -33,14 +32,10 @@ export function GET() {
     lines.push(`- [Vote](${SITE.url}/vote): fans vote who would win each matchup and whether each animal is underrated or overrated at its rank; the fan rankings sit beside the stats on every animal page`);
     lines.push(`- [How ratings work](${SITE.url}/about): methodology, sources, FAQ`);
     lines.push(`- [Animal Battle Stats on Roblox](${SITE.url}/roblox): ${ROBLOX.live ? 'the companion game, live on Roblox' : 'the companion game, coming to Roblox'}`);
-    lines.push(`- [ABS Originals: animated animal series](${SITE.url}/shows): ${SHOWS.length} shows, ${totalEpisodes} episodes, free to watch`);
+    lines.push(`- [Social media & community](${SITE.url}/social): official Animal Battle Stats accounts, game updates and animal matchups`);
     lines.push('');
-    lines.push('## ABS Originals (animated series)');
-    lines.push(`${BRAND.about} Watch free at ${SITE.url}/shows (also on YouTube @AnimalBattleStats and TikTok @animalbattlestats_abs).`);
-    for (const show of SHOWS) {
-        lines.push(`- [${show.name}](${SITE.url}${show.url}): ${show.genre.join(', ')}. ${show.tagline} ${show.logline} Season 1: ${show.episodes.length} episodes. Cast: ${show.characters.map((character) => `${character.name} (${character.art ? character.art.name.toLowerCase() : character.animal})`).join(', ')}.`);
-        for (const episode of show.episodes) lines.push(`  - [Episode ${episode.number}: ${episode.title}](${SITE.url}${episode.url}) (${clock(episode.seconds)}): ${episode.summary}`);
-    }
+    lines.push('## Official social accounts');
+    for (const account of SOCIAL) lines.push(`- [${account.name}](${account.url})`);
     lines.push('');
     lines.push('## Top 25 strongest animals');
     for (const animal of animals.slice(0, 25)) {

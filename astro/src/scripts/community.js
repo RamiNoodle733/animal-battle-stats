@@ -97,9 +97,9 @@ async function messageHtml(message, depth = 0) {
         <header>${await avatar(message.profileAnimal)}<b>${escapeHtml(message.isAnonymous ? 'Anonymous' : message.authorUsername)}</b><time>${ago(message.createdAt)}</time></header>
         <p>${escapeHtml(message.content)}</p>
         <footer>
-            <button type="button" class="vote up${message.userVote === 'up' ? ' on' : ''}" data-vote="up" aria-label="Upvote">▲</button>
+            <button type="button" class="vote up${message.userVote === 'up' ? ' on' : ''}" data-vote="up" aria-label="Upvote" aria-pressed="${message.userVote === 'up'}">▲</button>
             <span class="score">${Number(message.score) || 0}</span>
-            <button type="button" class="vote down${message.userVote === 'down' ? ' on' : ''}" data-vote="down" aria-label="Downvote">▼</button>
+            <button type="button" class="vote down${message.userVote === 'down' ? ' on' : ''}" data-vote="down" aria-label="Downvote" aria-pressed="${message.userVote === 'down'}">▼</button>
             ${depth === 0 ? '<button type="button" class="link-btn" data-reply>Reply</button>' : ''}
         </footer>
         ${replies.join('')}
@@ -143,11 +143,23 @@ talkFeed.addEventListener('click', async (event) => {
     const vote = event.target.closest('[data-vote]');
     if (!vote) return;
     if (!window.ABS_USER) { toast('Log in to vote'); return; }
+    const footer = vote.parentElement;
+    if (footer.getAttribute('aria-busy') === 'true') return;
+    footer.setAttribute('aria-busy', 'true');
+    footer.querySelectorAll('[data-vote]').forEach((button) => { button.disabled = true; });
     const voteType = vote.classList.contains('on') ? 'clear' : vote.dataset.vote;
     const response = await fetch('/api/chat', { method: 'PATCH', credentials: 'same-origin', headers: headers(true), body: JSON.stringify({ messageId: post.dataset.id, voteType }) }).catch(() => null);
-    if (!response?.ok) { sfx.error(); return; }
+    const body = await response?.json().catch(() => ({}));
+    footer.removeAttribute('aria-busy');
+    footer.querySelectorAll('[data-vote]').forEach((button) => { button.disabled = false; });
+    if (!response?.ok || !body?.success) { sfx.error(); toast(body?.error || 'Could not vote. Try again.'); return; }
     sfx.tick();
-    loadTalk();
+    footer.querySelector('.score').textContent = body.data.score;
+    footer.querySelectorAll('[data-vote]').forEach((button) => {
+        const selected = body.data.userVote === button.dataset.vote;
+        button.classList.toggle('on', selected);
+        button.setAttribute('aria-pressed', String(selected));
+    });
 });
 
 // ---------------------------------------------------------------- animal comments feed
@@ -174,6 +186,7 @@ async function loadComments(more = false) {
         moreButton.hidden = !body.hasMore;
         moreButton.textContent = body.total ? `Load more (${fmt(Math.max(0, body.total - commentsSkip))} left)` : 'Load more';
     } catch {
+        commentsLoaded = false;
         if (!more) box.innerHTML = '<p class="empty-state">Comments are unavailable right now.</p>';
     }
     moreButton.disabled = false;
@@ -295,6 +308,7 @@ setInterval(() => {
 
 document.addEventListener('abs:user', () => {
     hub.querySelector('[data-composer-note]').textContent = `Posting as ${window.ABS_USER.displayName || window.ABS_USER.username}. Be kind.`;
+    loadTalk();
 });
 
 loadTalk();

@@ -73,16 +73,21 @@ function harness(fields = {}) {
     const user = new User({ username: 'caller', email: 'caller@example.com', password: 'x'.repeat(12), level: 1, xp: 0, battlePoints: 0, ...fields });
     const claims = new Set();
     const saved = [];
-    const original = { startSession: mongoose.startSession, findById: User.findById, save: User.prototype.save, create: RewardClaim.create };
+    const original = { startSession: mongoose.startSession, findById: User.findById, save: User.prototype.save, create: RewardClaim.create, claimInsert: RewardClaim.collection.insertOne };
     mongoose.startSession = async () => ({ withTransaction: async (work) => work(), endSession: async () => {} });
     User.findById = () => ({ session: async () => user, then: (resolve, reject) => Promise.resolve(user).then(resolve, reject) });
     User.prototype.save = async function save() { saved.push(this.toObject()); return this; };
-    RewardClaim.create = async (docs) => {
+    RewardClaim.collection.insertOne = async (doc) => ({ acknowledged: true, insertedId: doc._id });
+    RewardClaim.create = async (docs, options) => {
+        assert.ok(options.session, 'reward claims stay inside the user transaction');
+        if (docs.length > 1) assert.equal(options.ordered, true, 'Mongoose requires ordered writes for multiple claims in a session');
         for (const doc of docs) {
             if (claims.has(doc.claimKey)) throw Object.assign(new Error('duplicate'), { code: 11000 });
         }
+        // Keep Mongoose's actual create/session checks; only the storage is stubbed.
+        const result = await original.create.call(RewardClaim, docs, options);
         for (const doc of docs) claims.add(doc.claimKey);
-        return docs;
+        return result;
     };
     return {
         user,
@@ -93,6 +98,7 @@ function harness(fields = {}) {
             User.findById = original.findById;
             User.prototype.save = original.save;
             RewardClaim.create = original.create;
+            RewardClaim.collection.insertOne = original.claimInsert;
         }
     };
 }

@@ -12,6 +12,25 @@ const built = fs.existsSync(path.join(dist, 'stats', 'salamander.html'));
 const read = (file) => fs.readFileSync(path.join(dist, file), 'utf8');
 const version = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8')).version;
 
+test('the homepage and shared navigation promote Roblox and social accounts', { skip: !built && 'dist/ not built' }, () => {
+    const home = read('index.html');
+    assert.match(home, /class="mm [^"]*primary" href="\/roblox"/);
+    assert.match(home, /href="\/social"/);
+    const gameCount = require('../data/roblox-game-data.json').animals.length;
+    assert.ok(home.includes(`Collect ${gameCount} animals`));
+    assert.ok(read('roblox.html').includes(`Collect ${gameCount} Real Animals`));
+    for (const file of ['index.html', 'community.html', 'stats/african-lion.html', 'social.html']) {
+        const html = read(file);
+        assert.doesNotMatch(html, /href="\/shows(?:\/|"|#)/);
+        assert.doesNotMatch(html, /Stars in ABS Originals/);
+    }
+    const social = read('social.html');
+    assert.match(social, /Play free on Roblox|See the Roblox game/);
+    const accounts = ['youtube.com', 'tiktok.com', 'instagram.com', 'facebook.com', 'x.com', 'linkedin.com', 'discord.gg', 'reddit.com', 'github.com'];
+    for (const account of accounts) assert.ok(social.includes(account), account);
+    assert.doesNotMatch(read('llms.txt'), /ABS Originals|\/shows/);
+});
+
 test('animal profiles are complete static character screens', { skip: !built && 'dist/ not built' }, () => {
     const html = read('stats/salamander.html');
     assert.match(html, new RegExp(`<meta name="abs-version" content="${version.split('.').join('\\.')}"`));

@@ -13,7 +13,6 @@ import {
 import { verdict, matchupHref } from '../../lib/matchups.js';
 import { creditFor } from '../../lib/credits.js';
 import { SITE, ROBLOX, absoluteUrl } from '../../lib/site.js';
-import { rolesFor, logo as showLogo } from '../../lib/shows.js';
 import { cardJson, cardFiles, cardAlt, CARD_FILE } from '../../lib/card.js';
 import { vitals, scale } from '../../lib/body.js';
 
@@ -22,7 +21,6 @@ export function getStaticPaths() {
 }
 
 const { animal } = Astro.props;
-const roles = rolesFor(animal.slug);
 const profile = animal.profile;
 const researched = animal.researched;
 const tier = tierInfo(animal.tier);
@@ -273,12 +271,6 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                         </dl>
                     </section>
                 )}
-                {roles.map(({ show, character }) => (
-                    <a class="stars-in" href={show.url} style={`--show:${show.accent}`}>
-                        <img src={showLogo(show)} alt={show.name} width="720" height="360" loading="lazy" />
-                        <span><small>Stars in ABS Originals</small><b>{character.name}, {character.role.toLowerCase()}</b><span>{show.tagline} Watch free →</span></span>
-                    </a>
-                ))}
                 {game && (
                     <a class="stars-in in-game" href={ROBLOX.playUrl || '/roblox'} rel={ROBLOX.playUrl ? 'noopener' : undefined} target={ROBLOX.playUrl ? '_blank' : undefined} style={`--show:${game.rarity?.color || '#00d4ff'}`} data-in-game>
                         <span class="in-game-mark"><RobloxMark size={34} /></span>

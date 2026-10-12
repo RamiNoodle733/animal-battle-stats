@@ -39,13 +39,13 @@ const MENU = [
     { key: 'animals', href: '/stats', label: 'Animals', icon: 'paw' },
     { key: 'compare', href: '/compare', label: 'Versus', icon: 'vs' },
     { key: 'vote', href: '/vote', label: 'Vote', icon: 'vote' },
-    { key: 'shows', href: '/shows', label: 'Shows', icon: 'tv' },
+    { key: 'roblox', href: '/roblox', label: 'Roblox', icon: 'cards' },
     { key: 'tiers', href: '/tier-list', label: 'Tiers', icon: 'crown' },
     { key: 'tournament', href: '/tournament', label: 'Tournament', icon: 'trophy' },
     { key: 'community', href: '/community', label: 'Community', icon: 'users' }
 ];
 // Phones: the four places people play most, then Menu (every other page). Vote sits in the
-// middle; Shows has its own button in the HUD on phones.
+// middle; Social has its own button in the HUD on phones.
 const DOCK = [MENU[0], MENU[1], MENU[2], MENU[5]];
 // The menu sheet: every page as a big tile.
 const PAGES = [
@@ -55,7 +55,7 @@ const PAGES = [
     { href: '/vote', label: 'Vote', icon: 'medal', key: 'vote' },
     { href: '/tournament', label: 'Tournament', icon: 'trophy', key: 'tournament' },
     { href: '/tier-list', label: 'Tier list', icon: 'crown', key: 'tiers' },
-    { href: '/shows', label: 'Shows', icon: 'tv', key: 'shows' },
+    { href: '/social', label: 'Social media', icon: 'friends', key: 'social' },
     { href: '/community', label: 'Community', icon: 'friends', key: 'community' },
     { href: '/collection', label: 'My card collection', icon: 'cards', key: 'collection' },
     { href: '/rewards', label: 'Rewards & shop', icon: 'gift', key: 'rewards' },
@@ -166,13 +166,13 @@ const year = new Date().getFullYear();
             <nav class="menu" aria-label="Main">
                 {MENU.map((item) => (
                     <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>
-                        <UiIcon name={item.icon} />
+                        {item.key === 'roblox' ? <RobloxMark size={20} /> : <UiIcon name={item.icon} />}
                         <span>{item.label}</span>
                     </a>
                 ))}
             </nav>
             <div class="hud-right">
-                <a class="hud-btn hud-shows" href="/shows" aria-label="Shows" aria-current={active === 'shows' ? 'page' : undefined}><UiIcon name="tv" /></a>
+                <a class="hud-btn hud-social" href="/social" aria-label="Social media" aria-current={active === 'social' ? 'page' : undefined}><UiIcon name="users" /></a>
                 <button class="hud-btn" type="button" data-open-search aria-label="Search animals" title="Search (press /)">
                     <UiIcon name="search" />
                 </button>

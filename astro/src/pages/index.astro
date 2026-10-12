@@ -21,9 +21,9 @@ const featured = animals[0];
 const title = `${SITE.name}: Who Would Win? Animal Matchups, Stats & Powerscaling (${animals.length} Animals)`;
 const description = `Who would win? Compare any two of ${animals.length} real animals with research-backed battle stats, tier lists and power rankings, sources on every profile. Group fights like 100 men vs a gorilla, and an animated fight.`;
 const MENU = [
-    { href: '/compare', label: 'Who would win?', sub: 'Pick two animals and fight', icon: 'vs', cls: 'btn-hot primary' },
+    { href: '/roblox', label: ROBLOX.live ? 'Play on Roblox' : 'Roblox game', sub: `Collect ${gameAnimals.length} animals and battle in a 3D world`, icon: 'roblox', cls: 'btn-play primary' },
+    { href: '/compare', label: 'Who would win?', sub: 'Pick two animals and fight', icon: 'vs' },
     { href: '/vote', label: 'Vote', sub: 'Who wins? Overrated or underrated?', icon: 'medal', cls: 'vote' },
-    { href: '/shows', label: 'Shows', sub: 'ABS Originals: watch & earn BattlePoints', icon: 'tv', badge: 'New' },
     { href: '/stats', label: 'Animals', sub: `All ${animals.length}: stats & rankings`, icon: 'paw' },
     { href: '/tier-list', label: 'Tier list', sub: `S to F, all ${animals.length}`, icon: 'crown' },
     { href: '/compare?random=1', label: 'Random fight', sub: 'Deal a surprise matchup', icon: 'cards' },
@@ -71,7 +71,7 @@ const jsonLd = [
             <nav class="main-menu" aria-label="Main menu">
                 {MENU.map((item) => (
                     <a class={`mm ${item.cls || ''}`} href={item.href}>
-                        <Icon name={item.icon} size={40} />
+                        {item.icon === 'roblox' ? <RobloxMark size={40} /> : <Icon name={item.icon} size={40} />}
                         <span><b>{item.label}{item.badge && <em class="mm-new">{item.badge}</em>}</b><small>{item.sub}</small></span>
                     </a>
                 ))}
@@ -109,11 +109,11 @@ const jsonLd = [
                         <span><strong data-aotd-name>{featured.name}</strong><small data-aotd-meta>#{featured.rank} · {featured.tier} tier · PWR {fmtScore(featured.powerIndex)}</small></span>
                     </span>
                 </a>
-                <a class="tile panel hot roblox" href="/roblox">
-                    <span class="tile-k"><RobloxMark size={16} />{ROBLOX.live ? 'Live on Roblox' : 'Coming to Roblox'}</span>
-                    <strong>Collect all {gameAnimals.length} as holo-cards</strong>
-                    <small>Battle them in a 3D world, run the goofy crowd fights and climb the leaderboards.</small>
-                    <span class={`btn btn-sm ${ROBLOX.live ? 'btn-play' : 'btn-white'}`}><RobloxMark size={18} />{ROBLOX.live ? 'Play free' : 'See the game'}</span>
+                <a class="tile panel hot roblox" href="/social">
+                    <span class="tile-k"><Icon name="friends" size={16} />Social media</span>
+                    <strong>Follow Animal Battle Stats</strong>
+                    <small>Game updates, animal matchups and community posts on our social accounts.</small>
+                    <span class="btn btn-sm btn-white"><Icon name="friends" size={18} />Find our socials</span>
                 </a>
             </div>
 
@@ -289,10 +289,9 @@ const jsonLd = [
     .mm:hover::after { opacity: 1; }
     .mm b { display: block; font-family: var(--font-display); font-size: clamp(1.25rem, 1.8vw, 1.55rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1; }
     .mm small { font-size: 0.74rem; color: var(--muted); }
-    .mm.primary { min-height: 70px; color: #1d1400; background: none; border-color: transparent; border-image: var(--plate-gold) 24 fill / 12px / 0 stretch; box-shadow: 0 8px 24px rgba(246, 180, 0, 0.18); }
-    .mm.primary small { color: #4a3600; }
-    .mm.primary :global(img) { filter: brightness(0) opacity(0.75); }
-    .mm.primary::after { background: #1d1400; }
+    .mm.primary { min-height: 70px; color: #fff; background: none; border-color: transparent; border-image: url('/images/ui/btn-green.png') 24 fill / 12px / 0 stretch; box-shadow: 0 8px 24px rgba(53, 220, 143, 0.18); }
+    .mm.primary small { color: #e0ffed; }
+    .mm.primary::after { background: #fff; }
     .mm-new { display: inline-block; margin-left: 8px; padding: 1px 7px 2px; font-style: normal; font-family: var(--font-body); font-size: 0.62rem; font-weight: 900; letter-spacing: 0.08em; vertical-align: middle; color: #1d1400; background: var(--gold); border-radius: 5px; transform: translateY(-2px); }
     .mm.primary b { font-size: clamp(1.5rem, 2.2vw, 2rem); }
     /* Vote: right under Who would win?, lit in the fans' green and red. */

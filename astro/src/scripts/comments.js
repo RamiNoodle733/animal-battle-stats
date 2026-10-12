@@ -113,11 +113,16 @@ export function mountComments(root, target) {
         const vote = event.target.closest('[data-vote]');
         if (!vote) return;
         if (!window.ABS_USER) { toast('Log in to vote'); return; }
+        const footer = vote.parentElement;
+        if (footer.getAttribute('aria-busy') === 'true') return;
+        footer.setAttribute('aria-busy', 'true');
+        footer.querySelectorAll('.cm-vote').forEach((button) => { button.disabled = true; });
         const response = await fetch(`/api/comments?id=${encodeURIComponent(comment.dataset.id)}`, { method: 'PATCH', credentials: 'same-origin', headers: headers(true), body: JSON.stringify({ action: vote.dataset.vote }) }).catch(() => null);
         const result = await response?.json().catch(() => ({}));
-        if (!response?.ok || !result?.success) { sfx.error(); return; }
+        footer.removeAttribute('aria-busy');
+        footer.querySelectorAll('.cm-vote').forEach((button) => { button.disabled = false; });
+        if (!response?.ok || !result?.success) { sfx.error(); toast(result?.error || 'Could not vote. Try again.'); return; }
         sfx.tick();
-        const footer = vote.parentElement;
         footer.querySelector('.cm-score').textContent = result.score;
         footer.querySelectorAll('.cm-vote').forEach((button) => button.classList.toggle('on', result.userVote === (button.dataset.vote === 'upvote' ? 'up' : 'down')));
     });

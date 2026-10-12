@@ -74,7 +74,8 @@ export const ROBLOX = Object.freeze({
 export const NAV = Object.freeze([
     { key: 'animals', href: '/stats', label: 'Animals' },
     { key: 'compare', href: '/compare', label: 'Who Would Win' },
-    { key: 'shows', href: '/shows', label: 'Shows' },
+    { key: 'roblox', href: '/roblox', label: 'Roblox game' },
+    { key: 'social', href: '/social', label: 'Social media' },
     { key: 'rankings', href: '/rankings', label: 'Rankings' },
     { key: 'tiers', href: '/tier-list', label: 'Tier List' },
     { key: 'tournament', href: '/tournament', label: 'Tournament' },

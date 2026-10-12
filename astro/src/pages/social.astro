@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import PlatformIcon from '../components/PlatformIcon.astro';
+import RobloxMark from '../components/RobloxMark.astro';
+import { SITE, SOCIAL, ROBLOX } from '../lib/site.js';
+
+const title = `Follow Animal Battle Stats: Social Media & Community | ${SITE.name}`;
+const description = 'Follow Animal Battle Stats for Roblox game updates, animal matchups and community posts. Find our official social accounts and join the community.';
+const icons = { YouTube: 'youtube', TikTok: 'tiktok', Instagram: 'instagram', Facebook: 'facebook', X: 'x', LinkedIn: 'linkedin', Discord: 'discord', Reddit: 'reddit' };
+---
+<Base title={title} description={description} path="/social" active="social" biome="savanna" seed={21}>
+    <div class="social-page flow">
+        <section class="panel gold game-promo" aria-labelledby="game-title">
+            <RobloxMark size={60} />
+            <div>
+                <span class="eyebrow">Animal Battle Stats on Roblox</span>
+                <h1 class="screen-title" id="game-title">Collect. Battle. Explore.</h1>
+                <p>Collect real animals as holo-cards, battle across biome islands and climb the leaderboards.</p>
+                <div class="game-actions">
+                    <a class={`btn ${ROBLOX.live ? 'btn-play' : 'btn-white'}`} href={ROBLOX.playUrl || '/roblox'} target={ROBLOX.playUrl ? '_blank' : undefined} rel={ROBLOX.playUrl ? 'noopener' : undefined}><RobloxMark size={22} />{ROBLOX.live ? 'Play free on Roblox' : 'See the Roblox game'}</a>
+                    {ROBLOX.live && <a class="btn btn-white" href="/roblox">Explore the game</a>}
+                </div>
+            </div>
+        </section>
+        <section class="panel socials-panel" aria-labelledby="social-title">
+            <h2 class="panel-title" id="social-title">Follow ABS</h2>
+            <p class="small">Game updates, animal matchups and community posts. Choose your favorite platform.</p>
+            <div class="social-grid">
+                {SOCIAL.map((item) => (
+                    <a class="social-link" href={item.url} target="_blank" rel="me noopener" style="--pf-bg:#151a22">
+                        <PlatformIcon name={icons[item.name] || 'github'} size={30} />
+                        <span><b>{item.name}</b><small>{item.name === 'Discord' || item.name === 'Reddit' ? 'Join the community' : item.name === 'GitHub' ? 'Explore the project' : 'Follow Animal Battle Stats'}</small></span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                ))}
+            </div>
+        </section>
+    </div>
+</Base>
+<style>
+    .social-page { max-width: 1100px; margin: 0 auto; display: grid; gap: 16px; padding-bottom: 16px; }
+    .game-promo { display: flex; align-items: center; gap: 24px; padding: clamp(20px, 4vw, 36px); }
+    .game-promo > :global(svg) { flex: none; }
+    .game-promo p { color: var(--text-2); max-width: 60ch; }
+    .eyebrow { color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; }
+    .game-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .socials-panel { padding: clamp(16px, 3vw, 28px); }
+    .social-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+    .social-link { display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,0.04); color: var(--text); text-decoration: none; }
+    .social-link:hover { border-color: var(--gold); background: rgba(246,180,0,0.08); }
+    .social-link > span:first-of-type { flex: 1; min-width: 0; }
+    .social-link b, .social-link small { display: block; }
+    .social-link small { color: var(--text-2); font-size: 0.75rem; margin-top: 3px; }
+    .social-link > :global(svg) { flex: none; }
+    @media (max-width: 900px) { .social-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 520px) { .game-promo { align-items: flex-start; gap: 12px; } .game-promo > :global(svg) { width: 32px; height: 32px; } .screen-title { font-size: 2rem; } .social-grid { grid-template-columns: 1fr; } .game-actions .btn { width: 100%; } }
+</style>

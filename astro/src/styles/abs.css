@@ -298,11 +298,11 @@ body.game {
     .hud-btn { width: 38px; height: 38px; }
 }
 
-/* Shows: its own HUD button on phones (the dock holds Vote instead). */
-.hud-shows { display: none; }
-.hud-shows[aria-current="page"] { color: var(--gold); }
+/* Social media: its own HUD button on phones (the dock holds Vote instead). */
+.hud-social { display: none; }
+.hud-social[aria-current="page"] { color: var(--gold); }
 @media (max-width: 760px) {
-    .hud-shows { display: inline-grid; }
+    .hud-social { display: inline-grid; }
 }
 
 /* Mobile dock: the bottom tab bar of a phone game. */

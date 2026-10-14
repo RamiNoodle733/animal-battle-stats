@@ -28,7 +28,7 @@
 
 const { connectToDatabase } = require('../lib/mongodb');
 const User = require('../lib/models/User');
-const Animal = require('../lib/models/Animal');
+const { canonicalProfileAnimal, randomProfileAnimal } = require('../lib/profile-animals');
 const crypto = require('crypto');
 const { notifyDiscord } = require('../lib/discord');
 const { verifyToken, signToken, verifyPurposeToken } = require('../lib/auth');
@@ -333,6 +333,19 @@ module.exports = async function handler(req, res) {
         await connectToDatabase();
 
         switch (action) {
+            case 'assign-profile-animals': {
+                if (req.method !== 'POST') return res.status(405).json({ success: false, error: 'Method not allowed' });
+                const actor = getAuthenticatedUserFromRequest(req);
+                const owner = actor && await User.findById(actor.id).select('role');
+                if (owner?.role !== 'admin') return res.status(403).json({ success: false, error: 'Admin access required' });
+                const users = await User.find({ profileAnimal: null }).select('_id').limit(500).lean();
+                const result = users.length ? await User.bulkWrite(users.map((user) => ({ updateOne: {
+                    // Preserve a choice made concurrently with this backfill.
+                    filter: { _id: user._id, profileAnimal: null }, update: { $set: { profileAnimal: randomProfileAnimal() } }
+                } }))) : { modifiedCount: 0 };
+                const remaining = await User.countDocuments({ profileAnimal: null });
+                return res.status(200).json({ success: true, data: { assigned: result.modifiedCount, remaining } });
+            }
             case 'github-start':
             case 'link-github':
                 if (req.method !== 'GET') return res.status(405).json({ success: false, error: 'Method not allowed' });
@@ -1991,12 +2004,9 @@ async function handleUpdateProfile(req, res) {
         if (profileAnimal === null) {
             user.profileAnimal = null;
         } else {
-            const escapedAnimal = profileAnimal.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const canonicalAnimal = await Animal.findOne({ name: { $regex: new RegExp(`^${escapedAnimal}$`, 'i') } })
-                .select('name')
-                .lean();
+            const canonicalAnimal = canonicalProfileAnimal(profileAnimal.trim());
             if (!canonicalAnimal) return res.status(400).json({ success: false, error: 'Unknown profile animal' });
-            user.profileAnimal = canonicalAnimal.name;
+            user.profileAnimal = canonicalAnimal;
         }
     }
 

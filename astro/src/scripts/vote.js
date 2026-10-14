@@ -123,7 +123,7 @@ function paintFans() {
     const row = (entry) => {
         const animal = byName.get(entry.name);
         if (!animal) return '';
-        return `<li><a href="/stats/${animal.s}"><img src="${escapeHtml(animal.i)}" alt="" width="34" height="26" loading="lazy" /><span>${escapeHtml(animal.n)}</span><em class="${entry.net > 0 ? 'pos' : 'neg'}">${entry.net > 0 ? '+' : ''}${entry.net}</em></a></li>`;
+        return `<li><a href="/stats/${animal.s}"><img src="${escapeHtml(animal.i)}" alt="" width="34" height="26" loading="lazy" /><span>${escapeHtml(animal.n)}</span><em aria-label="${entry.up} upvotes, ${entry.down} downvotes">▲ ${entry.up} · ▼ ${entry.down}</em></a></li>`;
     };
     const up = ranking.filter((entry) => entry.net > 0).slice(0, 5);
     const down = ranking.filter((entry) => entry.net < 0).reverse().slice(0, 5);

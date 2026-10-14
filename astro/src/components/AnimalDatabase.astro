@@ -112,7 +112,7 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
                             <td class="c-num" data-col="speed">{short(fmtSpeed(animal.speed_mps))}</td>
                             <td class="c-num x-col" data-col="length">{short(fmtLength(animal.length_cm))}</td>
                             <td class="c-num x-col" data-col="bite">{short(fmtBite(animal.bite_force_psi))}</td>
-                            <td class="c-votes" data-col="votes"><span class="vt"><button type="button" class="vt-b up" data-vote="up" aria-label={`Upvote ${animal.name}: stronger than its rank`}></button><b data-net>·</b><button type="button" class="vt-b down" data-vote="down" aria-label={`Downvote ${animal.name}: weaker than its rank`}></button></span></td>
+                            <td class="c-votes" data-col="votes"><span class="vt"><button type="button" class="vt-b up" data-vote="up" aria-label={`Upvote ${animal.name}: stronger than its rank`}><span data-total="up">·</span></button><button type="button" class="vt-b down" data-vote="down" aria-label={`Downvote ${animal.name}: weaker than its rank`}><span data-total="down">·</span></button><b data-net>Net ·</b></span></td>
                             <td class="c-pick"><button type="button" data-pick aria-pressed="false" aria-label={`Pick ${animal.name} to fight`}>VS</button></td>
                         </tr>
                     ))}
@@ -291,9 +291,16 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
         const net = entry.up - entry.down;
         row.dataset.votes = String(net);
         const cell = row.querySelector('[data-net]');
-        cell.textContent = net > 0 ? `+${net}` : String(net);
+        cell.textContent = `Net ${net > 0 ? '+' : ''}${net}`;
         cell.className = net > 0 ? 'pos' : net < 0 ? 'neg' : '';
         cell.title = `${entry.up} up, ${entry.down} down`;
+        row.querySelector('[data-total="up"]').textContent = entry.up;
+        row.querySelector('[data-total="down"]').textContent = entry.down;
+        for (const type of ['up', 'down']) {
+            const button = row.querySelector(`.vt-b.${type}`);
+            button.setAttribute('aria-pressed', String(entry.mine === type));
+            button.setAttribute('aria-label', `${type === 'up' ? 'Upvote' : 'Downvote'} ${nameOf(row)}: ${entry[type]} ${type}votes`);
+        }
         row.querySelector('.vt-b.up').classList.toggle('on', entry.mine === 'up');
         row.querySelector('.vt-b.down').classList.toggle('on', entry.mine === 'down');
     }
@@ -492,13 +499,13 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
     .has-tray .db-body { padding-bottom: 72px; }
 
     /* Community votes: up / net / down. */
-    .c-votes { width: 104px; }
-    .vt { display: inline-flex; align-items: center; gap: 4px; }
-    .vt b { min-width: 30px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .c-votes { width: 120px; }
+    .vt { display: inline-grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4px; }
+    .vt b { grid-column: 1 / -1; font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
     .vt b.pos { color: #8fe9a2; }
     .vt b.neg { color: #ff9aa2; }
-    .vt-b { position: relative; width: 26px; height: 26px; padding: 0; color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-2); border-radius: 6px; }
-    .vt-b::before { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 7px; transform: translate(-50%, -50%); background: currentColor; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    .vt-b { position: relative; min-width: 50px; height: 30px; padding: 0 6px 0 20px; font-size: 0.8rem; font-weight: 800; color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-2); border-radius: 6px; }
+    .vt-b::before { content: ""; position: absolute; left: 9px; top: 50%; width: 10px; height: 7px; transform: translate(-50%, -50%); background: currentColor; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
     .vt-b.down::before { clip-path: polygon(0 0, 100% 0, 50% 100%); }
     .vt-b:hover { color: #fff; border-color: var(--frame-2); }
     .vt-b.up.on { color: #8fe9a2; border-color: rgba(59, 214, 90, 0.6); background: rgba(59, 214, 90, 0.1); }
@@ -531,10 +538,10 @@ const grade = (value) => (value >= 90 ? 'e' : value >= 80 ? 'h' : value >= 60 ? 
         .db-tiers button { min-width: 26px; padding: 0 5px; }
         .db-table .c-stat, .db-table [data-col="weight"], .db-table [data-col="speed"] { display: none; }
         /* Votes stay on phones, stacked: underrated, the net score, overrated. */
-        .c-votes { width: 44px; }
-        .vt { flex-direction: column; gap: 1px; }
-        .vt b { min-width: 0; font-size: 0.82rem; line-height: 1; }
-        .vt-b { width: 30px; height: 17px; border-radius: 5px; }
+        .c-votes { width: 56px; }
+        .vt { grid-template-columns: 1fr; gap: 3px; }
+        .vt b { min-width: 0; font-size: 0.66rem; line-height: 1.2; }
+        .vt-b { min-width: 44px; height: 30px; border-radius: 5px; }
         .vt-b::before { width: 9px; height: 6px; }
         .db-table thead .c-votes button { font-size: 0.72rem; letter-spacing: 0.02em; }
         .dbp[data-sort="attack"] [data-col="attack"], .dbp[data-sort="defense"] [data-col="defense"], .dbp[data-sort="agility"] [data-col="agility"],

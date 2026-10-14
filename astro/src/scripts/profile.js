@@ -25,16 +25,17 @@ function api(action, { method = 'GET', body, auth = true } = {}) {
         .catch(() => ({ ok: false, status: 0, body: {} }));
 }
 
-function cardHtml(animal, big = false) {
+function cardHtml(animal, big = false, asLink = true) {
     const tier = animal.tier.toLowerCase();
-    return `<a class="card tier-${tier} bio-${animal.b}" href="/stats/${animal.s}"${big ? '' : ' tabindex="-1"'}>
+    const tag = asLink ? 'a' : 'span';
+    return `<${tag} class="card tier-${tier} bio-${animal.b}"${asLink ? ` href="/stats/${animal.s}"${big ? '' : ' tabindex="-1"'}` : ''}>
         <span class="card-inner">
             <span class="card-power"><b>${animal.p}</b><small>PWR</small></span>
             <span class="tier-badge tier-${tier}">${animal.tier}</span>
             <span class="card-art"><img src="${big ? animal.m : animal.i}" alt="" style="${artVars(animal)}" decoding="async"></span>
             <span class="card-plate"><span class="card-name">${escapeHtml(animal.n)}</span><span class="card-meta">${escapeHtml(animal.cls)}</span></span>
             <span class="card-glare"></span>
-        </span></a>`;
+        </span></${tag}>`;
 }
 
 function paintCard(user, own) {
@@ -208,14 +209,17 @@ async function saveProfile(changes, message) {
 async function buildPicker() {
     const list = await loadAnimalIndex();
     const grid = $('[data-p-grid]');
-    grid.innerHTML = list.map((animal) => `<button type="button" class="p-opt" data-name="${escapeHtml(animal.n)}" data-q="${escapeHtml(`${animal.n} ${animal.sci} ${animal.t}`.toLowerCase())}" aria-pressed="${animal.n === picked}" title="${escapeHtml(animal.n)}">${cardHtml(animal)}</button>`).join('');
+    grid.innerHTML = list.map((animal) => `<button type="button" class="p-opt" data-name="${escapeHtml(animal.n)}" data-q="${escapeHtml(`${animal.n} ${animal.sci} ${animal.t}`.toLowerCase())}" aria-pressed="${animal.n === picked}" title="${escapeHtml(animal.n)}">${cardHtml(animal, false, false)}</button>`).join('');
     grid.removeAttribute('aria-busy');
+    let savingAnimal = false;
     grid.addEventListener('click', async (event) => {
         const option = event.target.closest('.p-opt');
         if (!option) return;
         event.preventDefault();
-        if (option.dataset.name === picked) return;
-        await saveProfile({ profileAnimal: option.dataset.name }, `${option.dataset.name} is your profile animal`);
+        if (option.dataset.name === picked || savingAnimal) return;
+        savingAnimal = true; option.disabled = true;
+        try { await saveProfile({ profileAnimal: option.dataset.name }, `${option.dataset.name} is your profile animal`); }
+        finally { savingAnimal = false; option.disabled = false; }
     });
     $('[data-p-q]').addEventListener('input', (event) => {
         const needle = event.target.value.trim().toLowerCase();

@@ -208,10 +208,13 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                 </div>
 
                 <div class="ip ev" data-ip="events" hidden>
+                    <div class="ev-toolbar">
                     <div class="seg ev-views" aria-label="Owner tools">
                         <button type="button" aria-pressed="true" data-ev-view="live">Live</button>
                         <button type="button" aria-pressed="false" data-ev-view="stream">Events</button>
                         <button type="button" aria-pressed="false" data-ev-view="settings">Settings</button>
+                    </div>
+                    <button type="button" class="btn btn-sm" data-ev-layout aria-pressed="false">Show overview</button>
                     </div>
 
                     <div class="ev-pane scroll" data-ev-pane="live">
@@ -239,6 +242,15 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                     </div>
 
                     <div class="ev-pane ev-stream" data-ev-pane="stream" hidden>
+                        <div class="ev-quick" aria-label="Event shortcuts">
+                            <button class="btn btn-sm" type="button" data-ev-preset="today">Last 24 hours</button>
+                            <button class="btn btn-sm" type="button" data-ev-preset="week">7 days</button>
+                            <button class="btn btn-sm" type="button" data-ev-preset="actions">Actions</button>
+                            <button class="btn btn-sm" type="button" data-ev-preset="all">All events</button>
+                            <button class="btn btn-sm" type="button" data-ev-refresh>Refresh</button>
+                        </div>
+                        <details class="ev-filter-box" data-ev-filter-box>
+                        <summary>Filters <span data-ev-filter-count></span><small>Player, page, dates, country, device and hidden accounts</small></summary>
                         <form class="ev-filters" data-ev-filters>
                             <select class="ev-select" name="eventType" aria-label="Event type">
                                 <option value="">All events</option>
@@ -274,6 +286,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                             <button class="btn btn-sm" type="button" data-ev-reset>Reset filters</button>
                         </form>
                         <p class="small muted">Filters only change this view. All accounts’ activity is still collected.</p>
+                        </details>
                         <p class="small" data-ev-summary role="status"></p>
                         <p class="ev-visitor" data-ev-visitor hidden><span>One visitor: <b data-ev-visitor-name></b></span><button type="button" class="link-btn" data-ev-visitor-clear>Show everyone</button></p>
                         <ol class="ev-list scroll" data-ev-list></ol>
@@ -281,6 +294,12 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                     </div>
 
                     <div class="ev-pane scroll" data-ev-pane="settings" hidden>
+                        <section>
+                            <h3 class="sub-h">Starter profile animals</h3>
+                            <p class="small muted">Give accounts without a profile animal a free random animal. Existing choices stay as they are. Pigs and boar relatives are excluded.</p>
+                            <button class="btn btn-sm" type="button" data-ev-profile-defaults>Assign missing profile animals</button>
+                            <p class="small" role="status" data-ev-profile-result></p>
+                        </section>
                         <section>
                             <h3 class="sub-h">Accounts hidden from Events</h3>
                             <p class="small muted">These are optional view exclusions. Every account is tracked, including yours. The Events filters let you turn exclusions off or hide more accounts.</p>
@@ -480,9 +499,23 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .place-detail :global(.pd-cols) { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
     .place-detail :global(.pd-cols h4) { margin: 0 0 4px; font-family: var(--font-display); font-size: 0.9rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-2); }
 
-    /* owner tools: Live, Events, Settings (the column widens while they are open) */
-    .stats-view:has([data-ip-tab="events"][aria-selected="true"]) { grid-template-columns: minmax(230px, 0.62fr) minmax(0, 0.9fr) minmax(460px, 1.55fr); }
+    /* Owner tools get the full workspace; the overview is an explicit choice. */
+    .stats-view[data-intel="events"] { grid-template-columns: minmax(0, 1fr); }
+    .stats-view[data-intel="events"] > .st-live, .stats-view[data-intel="events"] > .st-world { display: none; }
+    .stats-view[data-intel="events"][data-overview="true"] { grid-template-columns: minmax(220px, 0.65fr) minmax(0, 0.85fr) minmax(480px, 1.7fr); }
+    .stats-view[data-intel="events"][data-overview="true"] > .st-live, .stats-view[data-intel="events"][data-overview="true"] > .st-world { display: flex; }
     .ev { gap: 8px; }
+    .ev-toolbar, .ev-quick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; flex: none; }
+    .ev-toolbar > [data-ev-layout] { margin-left: auto; }
+    .ev-filter-box { flex: none; border: 1px solid var(--line-2); border-radius: 10px; background: rgba(9, 10, 12, 0.86); }
+    .ev-filter-box > summary { padding: 10px 12px; cursor: pointer; font-weight: 800; }
+    .ev-filter-box > summary small { margin-left: 12px; color: var(--muted); font-weight: 400; font-size: 0.76rem; }
+    .ev-filter-box > summary span { color: var(--gold-2); }
+    .ev-filter-box .ev-filters { padding: 0 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .ev-filter-box > p { padding: 0 12px 10px; margin: 8px 0 0; }
+    .ev-filter-box[open] { max-height: 42vh; overflow-y: auto; }
+    .ev-quick .btn { min-height: 36px; }
+    .ev-quick .btn[aria-pressed="true"] { border-color: var(--gold); color: var(--gold-2); }
     .ev-views { align-self: flex-start; }
     .ev-views button { padding: 5px 14px; }
     .ev-pane { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
@@ -490,7 +523,8 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .ev-pane section { display: grid; gap: 6px; }
     .ev-pane .sub-h { margin: 0; }
     .ev-pane .sub-h small { margin-left: 6px; font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: none; color: var(--muted); }
-    .ev-stream { gap: 8px; overflow: hidden; }
+    .ev-stream { gap: 8px; overflow-y: auto; }
+    .ev-stream:has(.ev-filter-box[open]) :global(.ev-list) { min-height: 80px; }
     .hub :global(.ev-online), .hub :global(.ev-players), .hub :global(.ev-ignored) { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
     .hub :global(.ev-online li), .hub :global(.ev-players li), .hub :global(.ev-ignored li) { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 10px; padding: 6px 10px; font-size: 0.82rem; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 8px; }
     .hub :global(.ev-online li b), .hub :global(.ev-players li b) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -524,12 +558,12 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .ev-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
     .ev-select { min-width: 0; height: 34px; padding: 0 8px; color: var(--text); font: inherit; font-size: 0.8rem; background: rgba(9, 10, 12, 0.6); border: 1px solid var(--line-2); border-radius: 8px; }
     .ev-select option { background: #17181c; }
-    .hub :global(.ev-list) { flex: 1; min-height: 0; margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; align-content: start; }
+    .hub :global(.ev-list) { flex: 1; min-height: 180px; margin: 0; padding: 0; list-style: none; display: grid; grid-auto-rows: max-content; gap: 6px; align-content: start; }
     .hub :global(.ev-list > li) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; padding: 6px 10px; font-size: 0.8rem; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 8px; }
     .hub :global(.ev-list li b) { font-weight: 800; }
     .hub :global(.ev-list > li > small) { grid-column: 1 / -1; color: var(--muted); font-size: 0.7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .hub :global(.ev-list > li:has(> details)) { display: block; padding: 0; }
-    .hub :global(.ev-list summary) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; padding: 6px 10px; list-style: none; cursor: pointer; }
+    .hub :global(.ev-list summary) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px 12px; padding: 10px 14px; list-style: none; cursor: pointer; font-size: 0.9rem; line-height: 1.4; background: rgba(9, 10, 12, 0.85); }
     .hub :global(.ev-list summary::-webkit-details-marker) { display: none; }
     .hub :global(.ev-list summary:hover) { background: rgba(255, 255, 255, 0.03); }
     .hub :global(.ev-list summary > small) { grid-column: 1 / -1; color: var(--muted); font-size: 0.7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -548,7 +582,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .hub :global(.ev-list .dstat.sent) { color: var(--green); }
     .hub :global(.ev-list .dstat.failed) { color: var(--red); }
     .hub :global(.ev-list .dstat.pending) { color: var(--gold-2); }
-    .ev-foot { display: flex; gap: 8px; justify-content: center; }
+    .ev-foot { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; flex: none; }
     .ev-foot .btn[hidden] { display: none; }
 
     @media (max-height: 760px) and (min-width: 1101px) {
@@ -623,10 +657,17 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
         .st-body { overflow-y: auto; }
         .w-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         .w-strip div:nth-child(n + 4) { display: none; }
-        .stats-view:has([data-ip-tab="events"][aria-selected="true"]) { grid-template-columns: minmax(0, 1fr); }
+        .stats-view[data-intel="events"], .stats-view[data-intel="events"][data-overview="true"] { grid-template-columns: minmax(0, 1fr); }
+        .stats-view[data-intel="events"][data-overview="true"] > .st-live, .stats-view[data-intel="events"][data-overview="true"] > .st-world { display: none; }
+        [data-ev-layout] { display: none; }
         .place-detail :global(.pd-nums) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 480px) {
+        .ev-filter-box > summary small { display: none; }
+        .ev-quick { gap: 4px; }
+        .ev-quick .btn { font-size: 0.74rem; padding: 0 8px; }
+        .hub :global(.ev-list summary) { grid-template-columns: minmax(0, 1fr); }
+        .hub :global(.ev-list .when) { grid-row: 3; }
         .hub-tabs :global(img), .hub-tabs :global(.rbx-mark) { display: none; }
         .hub-tabs button { padding: 8px 9px 9px; }
     }

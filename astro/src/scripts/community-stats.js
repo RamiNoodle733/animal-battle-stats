@@ -86,11 +86,18 @@ export function mountStats(root, { avatar }) {
     }));
     function showIntel(name) {
         showing = name;
+        root.dataset.intel = name;
         $$('[data-ip-tab]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.ipTab === name)));
         $$('[data-ip]').forEach((pane) => { pane.hidden = pane.dataset.ip !== name; });
         if (name === 'events') openOwnerTools();
     }
     $$('[data-ip-tab]').forEach((tab) => tab.addEventListener('click', () => showIntel(tab.dataset.ipTab)));
+    $('[data-ev-layout]').addEventListener('click', (event) => {
+        const overview = root.dataset.overview !== 'true';
+        root.dataset.overview = String(overview);
+        event.currentTarget.setAttribute('aria-pressed', String(overview));
+        event.currentTarget.textContent = overview ? 'Focus on events' : 'Show overview';
+    });
     const revealOwner = () => { if (isOwner()) $('[data-owner-only]').hidden = false; };
     revealOwner();
     document.addEventListener('abs:user', revealOwner);
@@ -424,10 +431,13 @@ export function mountStats(root, { avatar }) {
         if (!isOwner()) return;
         if (!fresh && loadingEvents) return;
         loadingEvents = true;
+        $('[data-ev-refresh]').disabled = true;
         $('[data-ev-more]').disabled = true;
         const request = ++eventRequest;
         if (fresh) { cursor = null; failedIds = []; loadedEvents = []; eventList.innerHTML = '<li class="muted small">Loading events…</li>'; }
         const form = new FormData(filters);
+        const activeFilters = [...form.values()].filter((value) => String(value).trim()).length + Number(Boolean(visitorFilter)) + Number(Boolean(filters.dataset.since));
+        $('[data-ev-filter-count]').textContent = activeFilters ? `· ${activeFilters} active` : '';
         const type = String(form.get('eventType') || '');
         $('[data-ev-visitor]').hidden = !visitorFilter;
         $('[data-ev-visitor-name]').textContent = visitorFilter ? `Guest ${visitorFilter}` : '';
@@ -445,12 +455,13 @@ export function mountStats(root, { avatar }) {
                 to: form.get('to') ? `${form.get('to')}T23:59:59.999Z` : '',
                 country: form.get('country'),
                 device: form.get('device'),
+                ...(filters.dataset.since ? { from: filters.dataset.since } : {}),
                 cursor
             });
             if (request !== eventRequest) return;
             loadedEvents.push(...page.events);
             if (fresh) eventTotal = page.total;
-            $('[data-ev-summary]').textContent = `${fmt(loadedEvents.length)} loaded${eventTotal == null ? '' : ` of ${fmt(eventTotal)} matching events`} · ${new Set(loadedEvents.map((event) => isGuest(event.username) ? event.visitorPseudonym : event.username).filter(Boolean)).size} accounts or guests in loaded events`;
+            $('[data-ev-summary]').textContent = `${fmt(loadedEvents.length)} loaded${eventTotal == null ? '' : ` of ${fmt(eventTotal)} matching events`} · ${new Set(loadedEvents.map((event) => isGuest(event.username) ? event.visitorPseudonym : event.username).filter(Boolean)).size} accounts or guests in loaded events${filters.dataset.since ? ` · since ${new Date(filters.dataset.since).toLocaleString()}` : ''}`;
             if (fresh) eventList.innerHTML = '';
             eventList.insertAdjacentHTML('beforeend', page.rows || (fresh ? '<li class="muted small">No events match.</li>' : ''));
             cursor = page.next;
@@ -459,17 +470,41 @@ export function mountStats(root, { avatar }) {
             $('[data-ev-retry]').hidden = !failedIds.length;
         } catch (error) {
             if (request !== eventRequest) return;
-            eventList.innerHTML = `<li class="muted small">${escapeHtml(error.message || 'Events are unavailable right now.')}</li>`;
-            $('[data-ev-summary]').textContent = '';
+            if (fresh) eventList.innerHTML = '<li class="muted small">Events could not be loaded. Use Refresh to try again.</li>';
+            $('[data-ev-summary]').textContent = `${loadedEvents.length ? `${fmt(loadedEvents.length)} events kept. ` : ''}${error.message || 'Events are unavailable right now.'}`;
         } finally {
-            if (request === eventRequest) { loadingEvents = false; $('[data-ev-more]').disabled = false; }
+            if (request === eventRequest) { loadingEvents = false; $('[data-ev-more]').disabled = false; $('[data-ev-refresh]').disabled = false; }
         }
     }
     let filterTimer = 0;
-    filters.addEventListener('input', () => { clearTimeout(filterTimer); filterTimer = setTimeout(() => loadEvents(true), 300); });
+    filters.addEventListener('input', () => { delete filters.dataset.since; $$('[data-ev-preset]').forEach((button) => button.setAttribute('aria-pressed', 'false')); clearTimeout(filterTimer); filterTimer = setTimeout(() => loadEvents(true), 300); });
     filters.addEventListener('submit', (event) => event.preventDefault());
-    $('[data-ev-reset]').addEventListener('click', () => { filters.reset(); filters.elements.exclude.value = ''; visitorFilter = null; loadEvents(true); });
+    function clearFilters() { clearTimeout(filterTimer); filters.reset(); filters.elements.exclude.value = ''; delete filters.dataset.since; visitorFilter = null; $$('[data-ev-preset]').forEach((button) => button.setAttribute('aria-pressed', 'false')); }
+    $('[data-ev-reset]').addEventListener('click', () => { clearFilters(); loadEvents(true); });
+    $('[data-ev-refresh]').addEventListener('click', () => { clearTimeout(filterTimer); loadEvents(true); });
+    $$('[data-ev-preset]').forEach((button) => button.addEventListener('click', () => {
+        // Shortcuts change the time/type cut, preserving account and location exclusions.
+        clearTimeout(filterTimer);
+        filters.elements.from.value = ''; filters.elements.to.value = ''; delete filters.dataset.since;
+        const preset = button.dataset.evPreset;
+        if (preset === 'today' || preset === 'week') filters.dataset.since = new Date(Date.now() - DAY * (preset === 'today' ? 1 : 7)).toISOString();
+        if (preset === 'actions') filters.elements.eventType.value = '-views';
+        else filters.elements.eventType.value = '';
+        $$('[data-ev-preset]').forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+        loadEvents(true);
+    }));
     $('[data-ev-export]').addEventListener('click', () => exportCsv('abs-events-loaded.csv', ['UTC time', 'Event', 'Player', 'Page', 'Country', 'Device', 'Discord'], loadedEvents.map((event) => [event.occurredAt, event.eventType, event.username, event.page, event.location?.country, event.device, event.discordDelivery?.status])));
+    $('[data-ev-profile-defaults]').addEventListener('click', async (event) => {
+        const button = event.currentTarget;
+        button.disabled = true;
+        try {
+            const result = await postJson('/api/auth?action=assign-profile-animals', {});
+            $('[data-ev-profile-result]').textContent = result.ok
+                ? `${fmt(result.body.data.assigned)} profile animals assigned. ${fmt(result.body.data.remaining)} accounts still need one. Existing choices were preserved.`
+                : result.body.error || 'Could not assign profile animals. Try again.';
+        } catch { $('[data-ev-profile-result]').textContent = 'Connection failed. Try again.'; }
+        finally { button.disabled = false; }
+    });
     $('[data-ev-more]').addEventListener('click', () => loadEvents(false));
     $('[data-ev-retry]').addEventListener('click', async () => {
         const result = await postJson('/api/community?action=admin-retry-discord', { ids: failedIds.slice(0, 50) });

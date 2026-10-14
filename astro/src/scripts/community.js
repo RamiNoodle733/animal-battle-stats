@@ -202,13 +202,13 @@ async function loadFavorites() {
     try {
         const [rows, animals] = await Promise.all([rankingsPromise, animalsPromise]);
         const top = rows
-            .map((row) => ({ name: row.animal.name, net: (row.upvotes || 0) - (row.downvotes || 0), up: row.upvotes || 0 }))
+            .map((row) => ({ name: row.animal.name, net: (row.upvotes || 0) - (row.downvotes || 0), up: row.upvotes || 0, down: row.downvotes || 0 }))
             .filter((row) => row.up > 0)
             .sort((a, b) => b.net - a.net || b.up - a.up)
             .slice(0, 10);
         box.innerHTML = top.length ? top.map((row, index) => {
             const animal = animals.get(row.name.toLowerCase());
-            return `<li class="fav"><b class="pos">${index + 1}</b>${animal ? `<img src="${animal.i}" alt="" width="52" height="40" loading="lazy">` : ''}<a href="/stats/${animal?.s || ''}">${escapeHtml(row.name)}</a><span class="net">+${row.net}</span></li>`;
+            return `<li class="fav"><b class="pos">${index + 1}</b>${animal ? `<img src="${animal.i}" alt="" width="52" height="40" loading="lazy">` : ''}<a href="/stats/${animal?.s || ''}">${escapeHtml(row.name)}</a><span class="net" aria-label="${row.up} upvotes, ${row.down} downvotes">▲ ${row.up} <small>▼ ${row.down}</small></span></li>`;
         }).join('') : '<li class="muted small">No votes yet. <a class="link" href="/rankings">Vote on the rankings</a>.</li>';
     } catch {
         box.innerHTML = '<li class="muted small">Votes are unavailable right now.</li>';

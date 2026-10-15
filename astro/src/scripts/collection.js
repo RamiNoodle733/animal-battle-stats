@@ -6,6 +6,7 @@
 import { authApi, escapeHtml, showReward, toast } from './site.js';
 import { sfx } from './sfx.js';
 import { ago } from './roblox-trainer.js';
+import { measure } from './analytics.js';
 
 const root = document.querySelector('[data-col]');
 const $ = (selector) => root.querySelector(selector);
@@ -193,7 +194,11 @@ async function collect(body, button) {
     const data = result.body.data;
     showReward(data);
     apply({ ...data.collection, wallet: data.wallet });
-    if (data.added) celebrate(data.card, data.from);
+    if (data.added) {
+        celebrate(data.card, data.from);
+        measure('card_collect', { collection_source: body.op, animal_slug: data.card.slug });
+    }
+    if (body.op === 'daily') measure('daily_card_claim', { new_card: Boolean(data.added) });
     return data;
 }
 

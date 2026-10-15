@@ -36,6 +36,8 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                 <form class="composer" data-composer>
                     <label class="visually-hidden" for="msg">Your message</label>
                     <textarea id="msg" maxlength="500" rows="2" placeholder="Who would win: 100 army ants or one honey badger?" data-msg></textarea>
+                    <div class="composer-row"><label class="cm-anonymous"><input type="checkbox" data-talk-anonymous /> Post anonymously</label><button class="cm-link" type="button" data-talk-cancel hidden>Cancel reply</button></div>
+                    <small class="cm-hint">Anonymous hides your name and avatar publicly. Moderators can still identify your account.</small>
                     <div class="composer-row">
                         <span class="small muted" data-composer-note>Be kind. 500 characters max.</span>
                         <button class="btn btn-cyan btn-sm" type="submit" data-post><Icon name="arrow" size={20} />Post</button>
@@ -250,9 +252,9 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                             <button class="btn btn-sm" type="button" data-ev-refresh>Refresh</button>
                         </div>
                         <details class="ev-filter-box" data-ev-filter-box>
-                        <summary>Filters <span data-ev-filter-count></span><small>Player, page, dates, country, device and hidden accounts</small></summary>
+                        <summary>Filters <span data-ev-filter-count></span><small>Accounts, countries, states, cities, pages and dates</small></summary>
                         <form class="ev-filters" data-ev-filters>
-                            <select class="ev-select" name="eventType" aria-label="Event type">
+                            <label class="small">Event type<select class="ev-select" name="eventType" aria-label="Event type">
                                 <option value="">All events</option>
                                 <option value="-views">All but page views</option>
                                 <option value="site_visit">Page views</option>
@@ -268,24 +270,29 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                                 <option value="tournament_complete">Tournaments</option>
                                 <option value="level_up">Level ups</option>
                                 <option value="prestige">Prestiges</option>
-                            </select>
-                            <select class="ev-select" name="deliveryStatus" aria-label="Discord delivery">
+                            </select></label>
+                            <label class="small">Audience<select class="ev-select" name="audience" aria-label="Audience"><option value="">Everyone</option><option value="accounts">Accounts only</option><option value="guests">Guests only</option></select></label>
+                            <label class="small">Account<select class="ev-select" name="account" aria-label="Specific account"><option value="">Any account</option></select></label>
+                            <label class="small">Discord delivery<select class="ev-select" name="deliveryStatus" aria-label="Discord delivery">
                                 <option value="">Any Discord status</option>
                                 <option value="sent">Posted</option>
                                 <option value="pending">Waiting</option>
                                 <option value="failed">Failed</option>
-                            </select>
-                            <input class="ev-select" name="user" type="search" placeholder="Player" aria-label="Player" autocomplete="off" />
-                            <input class="ev-select" name="page" type="search" placeholder="Page, e.g. cassowary" aria-label="Page" autocomplete="off" />
+                            </select></label>
+                            <label class="small">Find player<input class="ev-select" name="user" type="search" placeholder="Username contains…" aria-label="Player" autocomplete="off" /></label>
+                            <label class="small">Page<input class="ev-select" name="page" type="search" placeholder="e.g. cassowary" aria-label="Page" autocomplete="off" /></label>
                             <label class="small">From (UTC)<input class="ev-select" name="from" type="date" aria-label="Events from date" /></label>
                             <label class="small">Through (UTC)<input class="ev-select" name="to" type="date" aria-label="Events through date" /></label>
-                            <input class="ev-select" name="country" maxlength="2" placeholder="Country, e.g. US" aria-label="Country code" />
-                            <select class="ev-select" name="device" aria-label="Device"><option value="">All devices</option><option value="Desktop">Desktop</option><option value="Mobile">Mobile</option><option value="Tablet">Tablet</option></select>
+                            <label class="small">Country<select class="ev-select" name="country" aria-label="Country"><option value="">All countries</option></select></label>
+                            <label class="small">State / region<select class="ev-select" name="region" aria-label="State or region"><option value="">All states / regions</option></select></label>
+                            <label class="small">City<select class="ev-select" name="city" aria-label="City"><option value="">All cities</option></select></label>
+                            <label class="small">Device<select class="ev-select" name="device" aria-label="Device"><option value="">All devices</option><option value="Desktop">Desktop</option><option value="Mobile">Mobile</option><option value="Tablet">Tablet</option></select></label>
                             <label class="ev-check"><input type="checkbox" name="hideMe" value="1" /> Hide my activity</label>
-                            <input class="ev-select" name="exclude" type="text" placeholder="Hide accounts, separated by commas" aria-label="Accounts to hide from events" maxlength="1000" />
+                            <label class="small">Hide accounts<input class="ev-select" name="exclude" type="text" placeholder="Comma-separated names" aria-label="Accounts to hide from events" maxlength="1000" /></label>
                             <button class="btn btn-sm" type="button" data-ev-reset>Reset filters</button>
                         </form>
-                        <p class="small muted">Filters only change this view. All accounts’ activity is still collected.</p>
+                        <p class="small muted">Filters only change this view. Location is approximate. Choices show up to 500 values with the most events; type a player name to find another account.</p>
+                        <p class="small muted" role="status" data-ev-options-status></p>
                         </details>
                         <p class="small" data-ev-summary role="status"></p>
                         <p class="ev-visitor" data-ev-visitor hidden><span>One visitor: <b data-ev-visitor-name></b></span><button type="button" class="link-btn" data-ev-visitor-clear>Show everyone</button></p>
@@ -372,7 +379,8 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .composer { padding: 10px 14px; border-bottom: 1px solid var(--line); }
     .composer textarea { width: 100%; resize: none; padding: 10px 12px; background: rgba(9, 10, 12, 0.6); border: 1px solid var(--line-2); border-radius: 10px; color: var(--text); font: inherit; }
     .composer textarea:focus { outline: none; border-color: var(--cyan); }
-    .composer-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; }
+    .composer-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
+    .hub :global(.msg.reply .msg.reply) { margin-left: 0; }
     .feed { flex: 1; min-height: 0; padding: 10px 14px; display: grid; gap: 8px; align-content: start; }
     .mid-pane { flex: 1; min-height: 0; padding: 12px 14px; }
     .mid-pane .feed { padding: 0; }
@@ -511,7 +519,9 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .ev-filter-box > summary { padding: 10px 12px; cursor: pointer; font-weight: 800; }
     .ev-filter-box > summary small { margin-left: 12px; color: var(--muted); font-weight: 400; font-size: 0.76rem; }
     .ev-filter-box > summary span { color: var(--gold-2); }
-    .ev-filter-box .ev-filters { padding: 0 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .ev-filter-box .ev-filters { padding: 0 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .ev-filters > label:not(.ev-check) { display: flex; flex-direction: column; gap: 5px; min-width: 0; color: var(--muted); }
+    .ev-filters .ev-select { width: 100%; min-width: 0; }
     .ev-filter-box > p { padding: 0 12px 10px; margin: 8px 0 0; }
     .ev-filter-box[open] { max-height: 42vh; overflow-y: auto; }
     .ev-quick .btn { min-height: 36px; }
@@ -525,6 +535,16 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .ev-pane .sub-h small { margin-left: 6px; font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: none; color: var(--muted); }
     .ev-stream { gap: 8px; overflow-y: auto; }
     .ev-stream:has(.ev-filter-box[open]) :global(.ev-list) { min-height: 80px; }
+    @media (min-width: 1101px) {
+        .ev-stream:has(.ev-filter-box[open]) { display: grid; grid-template-columns: minmax(300px, 27%) minmax(0, 1fr); grid-template-rows: auto auto auto minmax(180px, 1fr) auto; overflow: hidden; }
+        .ev-stream:has(.ev-filter-box[open]) .ev-quick { grid-column: 1 / -1; }
+        .ev-stream:has(.ev-filter-box[open]) .ev-filter-box { grid-column: 1; grid-row: 2 / 6; max-height: none; overflow-y: auto; }
+        .ev-stream:has(.ev-filter-box[open]) .ev-filter-box > summary small { display: block; margin: 4px 0 0; }
+        .ev-stream:has(.ev-filter-box[open]) [data-ev-summary] { grid-column: 2; grid-row: 2; }
+        .ev-stream:has(.ev-filter-box[open]) .ev-visitor { grid-column: 2; grid-row: 3; }
+        .ev-stream:has(.ev-filter-box[open]) :global(.ev-list) { grid-column: 2; grid-row: 4; min-height: 180px; }
+        .ev-stream:has(.ev-filter-box[open]) .ev-foot { grid-column: 2; grid-row: 5; }
+    }
     .hub :global(.ev-online), .hub :global(.ev-players), .hub :global(.ev-ignored) { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
     .hub :global(.ev-online li), .hub :global(.ev-players li), .hub :global(.ev-ignored li) { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 10px; padding: 6px 10px; font-size: 0.82rem; background: rgba(9, 10, 12, 0.45); border: 1px solid var(--line); border-radius: 8px; }
     .hub :global(.ev-online li b), .hub :global(.ev-players li b) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

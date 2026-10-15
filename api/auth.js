@@ -36,6 +36,7 @@ const { robloxPlayerCard } = require('../lib/roblox-game');
 const { OWN_MAX_AGE, PUBLIC_MAX_AGE, publicRoblox, syncPlayer } = require('../lib/roblox-sync');
 const { RewardError, awardUserReward, buyCard, buyItem, claimChest, claimDaily, claimDailyCard, claimPass, claimQuest, claimStarter, collectionForUser, economyForUser, equipItem, showsForUser } = require('../lib/rewards');
 const { collectionSummary, normalizeCollection } = require('../lib/collection');
+const { ensureProfileCard } = require('../lib/profile-card');
 const { ITEM_BY_ID, economySummary, normalizeEconomy } = require('../lib/economy');
 const { setCorsHeaders } = require('../lib/cors');
 const { enforceRequestSecurity } = require('../lib/request-security');
@@ -280,6 +281,7 @@ function buildUserPayload(user) {
         roblox,
         coins: user.battlePoints || 0,
         economy: economySummary(normalizeEconomy(user.economy)),
+        ownedProfileAnimals: Object.keys(normalizeCollection(user.economy).cards),
         displayName: user.displayName,
         avatar: user.avatar,
         role: user.role,
@@ -1799,6 +1801,7 @@ async function handleMe(req, res) {
     // The owner's account becomes an admin; a name that breaks the name rules
     // asks its player to rename. Neither may break the page load.
     try {
+        await ensureProfileCard(User, user);
         await ensureOwnerRole(user);
         await flagBrokenName(user);
     } catch (error) {
@@ -1826,12 +1829,10 @@ async function handleMe(req, res) {
 
 // ==================== GET PROFILE ====================
 async function handleGetProfile(req, res) {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    const token = getRequestToken(req);
+    if (!token) {
         return res.status(401).json({ success: false, error: 'No token provided' });
     }
-
-    const token = authHeader.split(' ')[1];
 
     const decoded = verifyToken(token);
     if (!decoded) {
@@ -1843,6 +1844,7 @@ async function handleGetProfile(req, res) {
     if (!user) {
         return res.status(404).json({ success: false, error: 'User not found' });
     }
+    await ensureProfileCard(User, user);
 
     // New XP system: xp is already progress toward next level
     const xpProgress = user.xp || 0;
@@ -1865,12 +1867,10 @@ async function handleGetProfile(req, res) {
 
 // ==================== UPDATE PROFILE ====================
 async function handleUpdateProfile(req, res) {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    const token = getRequestToken(req);
+    if (!token) {
         return res.status(401).json({ success: false, error: 'No token provided' });
     }
-
-    const token = authHeader.split(' ')[1];
 
     const decoded = verifyToken(token);
     if (!decoded) {
@@ -1883,6 +1883,7 @@ async function handleUpdateProfile(req, res) {
     }
 
     const { displayName, username, profileAnimal } = req.body || {};
+    await ensureProfileCard(User, user);
     let publicNameChanged = false;
 
     if (username !== undefined && typeof username !== 'string') {
@@ -2006,6 +2007,10 @@ async function handleUpdateProfile(req, res) {
         } else {
             const canonicalAnimal = canonicalProfileAnimal(profileAnimal.trim());
             if (!canonicalAnimal) return res.status(400).json({ success: false, error: 'Unknown profile animal' });
+            const { cardFor } = require('../lib/collection');
+            if (!normalizeCollection(user.economy).cards[cardFor(canonicalAnimal).slug]) {
+                return res.status(403).json({ success: false, error: 'Collect this animal’s card before using it as your profile picture.', code: 'card_required' });
+            }
             user.profileAnimal = canonicalAnimal;
         }
     }
@@ -2302,6 +2307,7 @@ async function handleCollection(req, res) {
     if (!authUser) return res.status(401).json({ success: false, error: 'Log in to collect cards' });
     let user = await User.findById(authUser.id);
     if (!user) return res.status(404).json({ success: false, error: 'User not found' });
+    await ensureProfileCard(User, user);
     const game = user.roblox?.userId ? await syncPlayer(user, { maxAge: OWN_MAX_AGE }) : null;
     if (game?.added?.length) user = await User.findById(authUser.id);
     return res.status(200).json({ success: true, data: { ...collectionForUser(user), roblox: robloxBinder(user, game) } });

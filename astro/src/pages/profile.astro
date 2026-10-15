@@ -76,6 +76,7 @@ const EARN = [
             </form>
 
             <div class="p-pane p-animal" data-p-pane="animal" hidden>
+                <div class="p-collect-note"><p class="small muted" data-p-owned-count>Choose a card from your collection.</p><a class="btn btn-sm btn-gold" href="/collection">Collect more cards</a></div>
                 <div class="field p-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg><input type="search" placeholder={`Search ${rosterSize} animals`} aria-label="Search animals" data-p-q /></div>
                 <div class="p-grid scroll" data-p-grid aria-busy="true"></div>
             </div>
@@ -272,7 +273,9 @@ const EARN = [
     .fld input:focus { outline: none; border-color: var(--cyan); }
     .fld small { font-size: 0.72rem; color: var(--dim); }
     .p-flag { margin: 0; padding: 9px 12px; font-size: 0.86rem; border-radius: 8px; border: 1px solid rgba(255, 197, 61, 0.5); background: rgba(255, 197, 61, 0.1); color: var(--gold-2); }
-    .p-animal { grid-template-rows: auto minmax(0, 1fr); }
+    .p-animal { grid-template-rows: auto auto minmax(0, 1fr); }
+    .p-collect-note { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .p-collect-note p { margin: 0; }
     .p-grid { min-height: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; align-content: start; padding: 2px; }
     .prof :global(.p-opt) { padding: 0; background: none; border: 0; cursor: pointer; }
     .prof :global(.p-opt[hidden]) { display: none; }

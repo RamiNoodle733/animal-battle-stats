@@ -13,7 +13,7 @@
 const { connectToDatabase } = require('../lib/mongodb');
 const ChatMessage = require('../lib/models/ChatMessage');
 const Comment = require('../lib/models/Comment');
-const Animal = require('../lib/models/Animal');
+const { findAnimal } = require('../lib/canonical-animals');
 const { getCanonicalAnimalImage } = require('../lib/animal-images');
 const { getAuthUser, authorizeRequest } = require('../lib/auth');
 const { notifyDiscord } = require('../lib/discord');
@@ -101,7 +101,7 @@ function buildMessageTree(messages, userMap, viewerId, canModerate) {
             const parent = messageMap[message.parentId.toString()];
             if (parent) {
                 message.parentContent = parent.content || null;
-                message.parentUsername = parent.authorUsername || null;
+                message.parentUsername = parent.isAnonymous ? 'Anonymous' : parent.authorUsername || null;
                 parent.replies.push(message);
             }
         } else {
@@ -196,7 +196,7 @@ async function handleGetFeed(req, res) {
 
         let animalImage = null;
         if (comment.targetType === 'animal' && comment.animalName) {
-            const animal = await Animal.findOne({ name: comment.animalName }).select('image').lean();
+            const animal = findAnimal(comment.animalName);
             animalImage = getCanonicalAnimalImage(comment.animalName, animal?.image || null);
         }
 
@@ -339,7 +339,8 @@ async function handlePost(req, res) {
         windowMs: 10 * 60 * 1000
     })) return;
 
-    const { content, parentId } = req.body || {};
+    const { content, parentId, isAnonymous } = req.body || {};
+    if (isAnonymous !== undefined && typeof isAnonymous !== 'boolean') return res.status(400).json({ success: false, error: 'isAnonymous must be true or false' });
 
     if (typeof content !== 'string' || content.trim().length === 0) {
         return res.status(400).json({ success: false, error: 'Message content required' });
@@ -373,6 +374,7 @@ async function handlePost(req, res) {
         authorId: user.id,
         authorUsername: userDoc ? publicName(userDoc) : user.username,
         profileAnimal: userDoc?.profileAnimal || null,
+        isAnonymous: Boolean(isAnonymous),
         parentId: parentId || null,
         upvotes: [],
         downvotes: []

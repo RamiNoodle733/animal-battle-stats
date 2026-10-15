@@ -5,7 +5,7 @@
 
 const { connectToDatabase } = require('../lib/mongodb');
 const Comment = require('../lib/models/Comment');
-const Animal = require('../lib/models/Animal');
+const { findAnimal } = require('../lib/canonical-animals');
 const { getAuthUser, authorizeRequest } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const { notifyDiscord } = require('../lib/discord');
@@ -24,11 +24,6 @@ function boundedInteger(value, fallback, min, max) {
     if (!['string', 'number'].includes(typeof value) || String(value).trim() === '') return null;
     const parsed = Number(value);
     return Number.isInteger(parsed) && parsed >= min && parsed <= max ? parsed : null;
-}
-
-function exactNameRegex(value) {
-    const escaped = value.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    return new RegExp(`^${escaped}$`, 'i');
 }
 
 module.exports = async function handler(req, res) {
@@ -103,7 +98,8 @@ function buildCommentTree(comments) {
 // GET: Get comments for an animal or comparison (with replies nested)
 async function handleGet(req, res) {
     try {
-        const { animalId, animalName, comparison } = req.query;
+        const { animalId, animalName, comparison, thread } = req.query;
+        if (thread && !mongoose.isValidObjectId(thread)) return res.status(400).json({ success: false, error: 'Invalid thread ID' });
         const limit = boundedInteger(req.query.limit, 100, 1, 100);
         if (limit === null) return res.status(400).json({ success: false, error: 'Invalid limit' });
         if (animalId && !mongoose.isValidObjectId(animalId)) return res.status(400).json({ success: false, error: 'Invalid animal ID' });
@@ -125,10 +121,30 @@ async function handleGet(req, res) {
             query.comparisonKey = comparison;
         }
 
+        if (thread) query._id = thread;
+        else query.parentId = null;
         const comments = await Comment.find(query)
             .sort({ createdAt: -1 })
             .limit(limit)
             .lean();
+        if (thread && !comments.length) return res.status(404).json({ success: false, error: 'This thread is no longer available.' });
+        // Page roots, then fetch their replies. A busy discussion must not lose
+        // its parent just because newer replies filled the root page limit.
+        let frontier = comments.map((comment) => comment._id);
+        const seen = new Set(frontier.map(String));
+        let truncated = false;
+        for (let depth = 0; frontier.length && depth < 20; depth += 1) {
+            const children = await Comment.find({ parentId: { $in: frontier }, isHidden: false })
+                .sort({ createdAt: 1 }).limit(1000 - comments.length).lean();
+            frontier = [];
+            for (const child of children) {
+                if (seen.has(String(child._id))) continue;
+                seen.add(String(child._id)); comments.push(child); frontier.push(child._id);
+            }
+            if (comments.length >= 1000 || (depth === 19 && frontier.length)) { truncated = true; break; }
+        }
+        // An explicit thread may start at a reply; display it as this view's root.
+        if (thread && comments[0]) comments[0].parentId = null;
         
         // Try to get current user data, but don't fail if User model has issues
         const viewer = getAuthUser(req);
@@ -173,11 +189,13 @@ async function handleGet(req, res) {
         
         const tree = buildCommentTree(updatedComments);
         // Count ALL comments (including replies) for the total
-        const totalCount = await Comment.countDocuments(query);
+        const countQuery = { ...query }; delete countQuery.parentId;
+        const totalCount = thread ? comments.length : await Comment.countDocuments(countQuery);
 
         return res.status(200).json({
             success: true,
             count: totalCount,
+            truncated,
             data: tree
         });
     } catch (error) {
@@ -270,9 +288,7 @@ async function handlePost(req, res) {
             }
             if (animalId && !mongoose.isValidObjectId(animalId)) return res.status(400).json({ success: false, error: 'Invalid animal ID' });
             if (animalName !== undefined && (typeof animalName !== 'string' || !animalName.trim() || animalName.length > 100)) return res.status(400).json({ success: false, error: 'Invalid animal name' });
-            const animal = animalId
-                ? await Animal.findById(animalId).select('_id name').lean()
-                : await Animal.findOne({ name: { $regex: exactNameRegex(animalName) } }).select('_id name').lean();
+            const animal = findAnimal(animalId || animalName);
             if (!animal) return res.status(400).json({ success: false, error: 'Unknown animal' });
             commentData.animalId = animal._id;
             commentData.animalName = animal.name;
@@ -285,8 +301,8 @@ async function handlePost(req, res) {
             if (pair.length !== 2 || pair[0].toLowerCase() === pair[1].toLowerCase() || pair.some((name) => name.length > 100)) {
                 return res.status(400).json({ success: false, error: 'Comparison key must identify two different animals' });
             }
-            const animals = await Animal.find({ name: { $in: pair.map(exactNameRegex) } }).select('name').lean();
-            if (animals.length !== 2) return res.status(400).json({ success: false, error: 'Unknown comparison animal' });
+            const animals = pair.map(findAnimal);
+            if (animals.some((animal) => !animal) || animals[0]._id === animals[1]._id) return res.status(400).json({ success: false, error: 'Unknown comparison animal' });
             commentData.comparisonKey = animals.map((animal) => animal.name).sort().join(' vs ');
         } else {
             return res.status(400).json({ success: false, error: 'Invalid target type' });

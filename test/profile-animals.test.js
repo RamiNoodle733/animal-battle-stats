@@ -33,6 +33,7 @@ test('automatic avatars exclude pigs and boar relatives and preserve explicit ch
 test('profile updates validate against the current catalogue without a legacy database lookup', async () => {
     const old = { user: User.findById, animal: Animal.findOne };
     const user = new User({ username:'Preview', email:'preview@example.invalid', password:'testpassword' });
+    user.economy = { cards: Object.fromEntries(listAnimals().map(a=>[a.slug,{at:1,from:'shop'}])), profileGift:'existing' };
     user.save = async () => user;
     User.findById = async () => user;
     Animal.findOne = () => { throw new Error('Legacy catalogue must not be queried'); };
@@ -47,6 +48,15 @@ test('profile updates validate against the current catalogue without a legacy da
         await handler(req('profile', { profileAnimal:'invented animal' }, 'PUT'), response);
         assert.equal(response.statusCode, 400);
     } finally { User.findById=old.user; Animal.findOne=old.animal; }
+});
+test('profile pictures require a collected card even when the animal is valid', async () => {
+    const old=User.findById;
+    const user=new User({username:'Preview',email:'preview@example.invalid',password:'testpassword',profileAnimal:'African Lion',economy:{profileGift:'african-lion',cards:{'african-lion':{at:1,from:'welcome'}}}});
+    user.save=async()=>user;User.findById=async()=>user;
+    try {
+        const denied=res();await handler(req('profile',{profileAnimal:'Aardvark'},'PUT'),denied);assert.equal(denied.statusCode,403);assert.equal(denied.body.code,'card_required');assert.equal(user.profileAnimal,'African Lion');
+        const allowed=res();await handler(req('profile',{profileAnimal:'african-lion'},'PUT'),allowed);assert.equal(allowed.statusCode,200);
+    } finally {User.findById=old;}
 });
 test('avatar backfill is admin-only and uses atomic missing-avatar conditions', async () => {
     const old = { findById:User.findById, find:User.find, bulkWrite:User.bulkWrite, countDocuments:User.countDocuments };

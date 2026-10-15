@@ -95,6 +95,7 @@ test('profile updates reject unknown animals and persist canonical animal names'
         username: 'Rami',
         displayName: 'Rami',
         profileAnimal: null,
+        economy: { profileGift: 'african-elephant', cards: { 'african-elephant': { at: 1, from: 'welcome' } } },
         usernameChanges: [],
         saveCalls: 0,
         async save() { this.saveCalls += 1; }
@@ -208,7 +209,7 @@ test('community leaderboard uses the shared XP curve and completes level 100 pro
 });
 
 test('daily animal vote resolves a concurrent first-vote upsert without duplicating the vote', async () => {
-    const animalId = '507f1f77bcf86cd799439012';
+    const animalId = require('../lib/canonical-animals').findAnimal('African Lion')._id;
     const userId = '507f1f77bcf86cd799439011';
     const originals = {
         animalFind: Animal.findById,
@@ -260,7 +261,7 @@ test('daily animal vote resolves a concurrent first-vote upsert without duplicat
                 voteDate: Vote.getTodayString()
             });
             assert.deepEqual(retryUpdate, {
-                $set: { animalName: 'Lion', votedByUsername: 'Rami', voteType: 'up' }
+                $set: { animalName: 'African Lion', votedByUsername: 'Rami', voteType: 'up' }
             });
         });
     } finally {

@@ -44,7 +44,8 @@ if (providerRow) {
         Object.entries(buttons).forEach(([name, button]) => { button.hidden = !data?.[name]; });
         providerRow.hidden = false;
         const unavailable = Object.keys(buttons).filter((name) => !data?.[name]).map((name) => ({ google: 'Google', roblox: 'Roblox', github: 'GitHub' })[name]);
-        root.querySelector('[data-provider-status]').textContent = data ? (unavailable.length ? `${unavailable.join(', ')} sign-in is coming soon. Use email and password for now.` : '') : 'Other sign-in options could not load. Email and password are available.';
+        root.querySelector('[data-provider-status]').textContent = data ? (unavailable.length ? `${unavailable.join(', ')} sign-in is not available yet. Use email and password.` : '') : 'Other sign-in options could not load. Email and password are available.';
+        providerRow.querySelector('.or').hidden = !['google', 'roblox', 'github'].some((name) => data?.[name]);
     });
 }
 
@@ -124,18 +125,20 @@ function validate(values) {
     return true;
 }
 
+let submitting = false;
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (submitting || submit.disabled) return;
     const values = fields();
     if (!validate(values)) return;
-    submit.disabled = true;
+    submitting = true; submit.disabled = true; form.setAttribute('aria-busy', 'true');
     show('');
     let result;
     if (mode === 'login') result = await post('login', { login: values.login.trim(), password: values.password });
     else if (mode === 'signup') result = await post('signup', { username: values.username.trim(), email: values.email.trim(), password: values.password });
     else if (mode === 'forgot') result = await post('forgot-password', { email: values.email.trim() });
     else result = await post('reset-password', { email: params.get('email'), token: params.get('token'), password: values.password });
-    submit.disabled = false;
+    submitting = false; submit.disabled = false; form.removeAttribute('aria-busy');
 
     if (!result.ok) {
         show(result.error, true);
@@ -150,7 +153,7 @@ form.addEventListener('submit', async (event) => {
     } else if (mode === 'signup') {
         measure('sign_up', { method: 'password' });
         toast(emailOn ? 'Account created. Check your email to verify it.' : 'Account created.');
-        setTimeout(() => { location.href = returnTo === '/' ? '/profile' : returnTo; }, 900);
+        setTimeout(() => { location.href = returnTo === '/' ? '/collection' : returnTo; }, 900);
     } else if (mode === 'forgot') {
         form.reset();
         show(result.data?.message || 'If an account matches that email, a reset link is on its way.');

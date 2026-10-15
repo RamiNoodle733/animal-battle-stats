@@ -5,6 +5,7 @@
 import { loadAnimalIndex, escapeHtml, toast } from './site.js';
 import { sfx } from './sfx.js';
 import { mountStats } from './community-stats.js';
+import { mountComments } from './comments.js';
 
 const hub = document.querySelector('[data-hub]');
 const animalsPromise = loadAnimalIndex().then((list) => new Map(list.map((animal) => [animal.n.toLowerCase(), animal])));
@@ -90,9 +91,13 @@ const talkFeed = hub.querySelector('[data-talk-feed]');
 const composer = hub.querySelector('[data-composer]');
 const textarea = hub.querySelector('[data-msg]');
 let replyTo = null;
+let postingTalk = false;
+const cancelTalk = hub.querySelector('[data-talk-cancel]');
+function resetTalkReply() { replyTo = null; cancelTalk.hidden = true; textarea.placeholder = 'Who would win: 100 army ants or one honey badger?'; }
+cancelTalk.addEventListener('click', resetTalkReply);
 
 async function messageHtml(message, depth = 0) {
-    const replies = depth < 2 ? await Promise.all((message.replies || []).map((reply) => messageHtml(reply, depth + 1))) : [];
+    const replies = await Promise.all((message.replies || []).map((reply) => messageHtml(reply, depth + 1)));
     return `<article class="msg${depth ? ' reply' : ''}" data-id="${escapeHtml(message._id)}">
         <header>${await avatar(message.profileAnimal)}<b>${escapeHtml(message.isAnonymous ? 'Anonymous' : message.authorUsername)}</b><time>${ago(message.createdAt)}</time></header>
         <p>${escapeHtml(message.content)}</p>
@@ -118,16 +123,18 @@ async function loadTalk() {
 
 composer.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (postingTalk) return;
     if (!window.ABS_USER) { toast('Log in to post'); setTimeout(() => { location.href = `/login?returnTo=${encodeURIComponent(location.pathname)}`; }, 800); return; }
     const content = textarea.value.trim();
     if (!content) return;
-    const response = await fetch('/api/chat', { method: 'POST', credentials: 'same-origin', headers: headers(true), body: JSON.stringify(replyTo ? { content, parentId: replyTo } : { content }) }).catch(() => null);
+    postingTalk = true; composer.querySelector('[data-post]').disabled = true;
+    const response = await fetch('/api/chat', { method: 'POST', credentials: 'same-origin', headers: headers(true), body: JSON.stringify({ content, ...(replyTo ? { parentId: replyTo } : {}), isAnonymous: composer.querySelector('[data-talk-anonymous]').checked }) }).catch(() => null);
     const body = await response?.json().catch(() => ({}));
+    postingTalk = false; composer.querySelector('[data-post]').disabled = false;
     if (!response?.ok || !body?.success) { sfx.error(); toast(body?.error || 'Could not post. Try again.'); return; }
     sfx.coin();
     textarea.value = '';
-    replyTo = null;
-    textarea.placeholder = 'Who would win: 100 army ants or one honey badger?';
+    resetTalkReply();
     loadTalk();
 });
 
@@ -136,6 +143,7 @@ talkFeed.addEventListener('click', async (event) => {
     if (!post) return;
     if (event.target.closest('[data-reply]')) {
         replyTo = post.dataset.id;
+        cancelTalk.hidden = false;
         textarea.placeholder = `Reply to ${post.querySelector('b').textContent}…`;
         textarea.focus();
         return;
@@ -178,7 +186,7 @@ async function loadComments(more = false) {
         const items = await Promise.all((body.data || []).map(async (comment) => {
             const animal = comment.animalName ? animals.get(comment.animalName.toLowerCase()) : null;
             const tag = animal ? `<a class="chip chip-cyan" href="/stats/${animal.s}"><img src="${animal.i}" alt="" width="16" height="16">${escapeHtml(animal.n)}</a>` : '';
-            return `<article class="msg"><header>${await avatar(comment.profileAnimal)}<b>${escapeHtml(comment.authorUsername)}</b><time>${ago(comment.createdAt)}</time>${tag}</header><p>${escapeHtml(comment.content)}</p>${comment.replyCount ? `<footer class="small muted">${comment.replyCount} ${comment.replyCount === 1 ? 'reply' : 'replies'}</footer>` : ''}</article>`;
+            return `<article class="msg"><header>${await avatar(comment.profileAnimal)}<b>${escapeHtml(comment.authorUsername)}</b><time>${ago(comment.createdAt)}</time>${tag}</header><a class="thread-link" href="/community?thread=${encodeURIComponent(comment._id)}"><p>${escapeHtml(comment.content)}</p><span class="chip chip-cyan">Open thread · ${Number(comment.replyCount) || 0} replies</span></a></article>`;
         }));
         if (!more) box.innerHTML = items.length ? items.join('') : '<p class="empty-state">No comments yet.</p>';
         else box.insertAdjacentHTML('beforeend', items.join(''));
@@ -192,6 +200,32 @@ async function loadComments(more = false) {
     moreButton.disabled = false;
 }
 hub.querySelector('[data-comments-more]').addEventListener('click', () => loadComments(true));
+
+// A real URL makes threads shareable and usable without selecting feed tabs.
+const threadDialog = document.createElement('dialog');
+threadDialog.className = 'thread-dialog';
+threadDialog.setAttribute('aria-labelledby', 'thread-title');
+threadDialog.innerHTML = '<header><h2 id="thread-title">Animal discussion</h2><button type="button" class="btn btn-sm" data-thread-close aria-label="Close discussion">Close</button></header><div data-thread-content></div>';
+document.body.append(threadDialog);
+threadDialog.querySelector('[data-thread-close]').addEventListener('click', () => threadDialog.close());
+threadDialog.addEventListener('close', () => { const url = new URL(location.href); url.searchParams.delete('thread'); history.replaceState(null, '', url.pathname + url.search + url.hash); });
+function openThread(id) {
+    if (!/^[a-f0-9]{24}$/i.test(id || '')) return;
+    const content = threadDialog.querySelector('[data-thread-content]');
+    content.replaceChildren(); delete content.dataset.mounted;
+    threadDialog.querySelector('h2').textContent = 'Animal discussion';
+    mountComments(content, { threadId: id, onLoaded: (comment) => { threadDialog.querySelector('h2').textContent = comment.animalName || comment.comparisonKey || 'Animal discussion'; } });
+    if (!threadDialog.open) threadDialog.showModal();
+}
+hub.querySelector('[data-comment-feed]').addEventListener('click', (event) => {
+    const link = event.target.closest('.thread-link');
+    if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    history.replaceState(null, '', link.href);
+    openThread(new URL(link.href).searchParams.get('thread'));
+});
+const requestedThread = new URLSearchParams(location.search).get('thread');
+if (requestedThread) { showHub('trending'); showMid('comments'); openThread(requestedThread); }
 
 // ---------------------------------------------------------------- fan favorites and players
 

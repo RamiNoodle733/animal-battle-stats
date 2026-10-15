@@ -12,7 +12,7 @@ const { connectToDatabase } = require('../lib/mongodb');
 const mongoose = require('mongoose');
 const Vote = require('../lib/models/Vote');
 const XpClaim = require('../lib/models/XpClaim');
-const Animal = require('../lib/models/Animal');
+const { findAnimal } = require('../lib/canonical-animals');
 const { getAuthUser } = require('../lib/auth');
 const { awardUserReward } = require('../lib/rewards');
 const { notifyDiscord } = require('../lib/discord');
@@ -140,7 +140,7 @@ async function handlePost(req, res) {
         return res.status(400).json({ success: false, error: 'Invalid animal ID' });
     }
 
-    const animal = await Animal.findById(animalId).select('_id name').lean().catch(() => null);
+    const animal = findAnimal(animalId);
     if (!animal) return res.status(404).json({ success: false, error: 'Animal not found' });
     const animalName = animal.name;
 

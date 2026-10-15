@@ -208,8 +208,11 @@ async function saveProfile(changes, message) {
 
 async function buildPicker() {
     const list = await loadAnimalIndex();
+    const owned = new Set(me.ownedProfileAnimals || []);
+    const choices = list.filter((animal) => owned.has(animal.s));
     const grid = $('[data-p-grid]');
-    grid.innerHTML = list.map((animal) => `<button type="button" class="p-opt" data-name="${escapeHtml(animal.n)}" data-q="${escapeHtml(`${animal.n} ${animal.sci} ${animal.t}`.toLowerCase())}" aria-pressed="${animal.n === picked}" title="${escapeHtml(animal.n)}">${cardHtml(animal, false, false)}</button>`).join('');
+    $('[data-p-owned-count]').textContent = `${choices.length} owned card${choices.length === 1 ? '' : 's'} available as your profile picture.`;
+    grid.innerHTML = choices.map((animal) => `<button type="button" class="p-opt" data-name="${escapeHtml(animal.n)}" data-q="${escapeHtml(`${animal.n} ${animal.sci} ${animal.t}`.toLowerCase())}" aria-pressed="${animal.n === picked}" title="${escapeHtml(animal.n)}">${cardHtml(animal, false, false)}</button>`).join('') || '<p class="small muted">Collect your first card to choose a profile picture.</p>';
     grid.removeAttribute('aria-busy');
     let savingAnimal = false;
     grid.addEventListener('click', async (event) => {
@@ -242,7 +245,8 @@ function missing(title, text) {
 async function loadOwn() {
     const result = await api('action=profile');
     if (!result.ok) {
-        location.replace('/login?returnTo=%2Fprofile');
+        if (result.status === 401) location.replace('/login?returnTo=%2Fprofile');
+        else missing('Profile unavailable', 'Your profile could not load. Refresh this page to try again.');
         return;
     }
     me = result.body.data.user;

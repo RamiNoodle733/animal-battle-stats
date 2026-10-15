@@ -318,7 +318,7 @@ export function mountStats(root, { avatar }) {
     const eventList = $('[data-ev-list]');
     const filters = $('[data-ev-filters]');
     let cursor = null;
-    let ownerView = 'live';
+    let ownerView = 'stream';
     let visitorFilter = null;
     let liveTimer = 0;
 
@@ -454,6 +454,10 @@ export function mountStats(root, { avatar }) {
                 from: form.get('from') ? `${form.get('from')}T00:00:00.000Z` : '',
                 to: form.get('to') ? `${form.get('to')}T23:59:59.999Z` : '',
                 country: form.get('country'),
+                region: form.get('region'),
+                city: form.get('city'),
+                audience: form.get('audience'),
+                account: form.get('account'),
                 device: form.get('device'),
                 ...(filters.dataset.since ? { from: filters.dataset.since } : {}),
                 cursor
@@ -477,11 +481,42 @@ export function mountStats(root, { avatar }) {
         }
     }
     let filterTimer = 0;
-    filters.addEventListener('input', () => { delete filters.dataset.since; $$('[data-ev-preset]').forEach((button) => button.setAttribute('aria-pressed', 'false')); clearTimeout(filterTimer); filterTimer = setTimeout(() => loadEvents(true), 300); });
+    let optionsRequest = 0;
+    async function loadFilterOptions() {
+        const request = ++optionsRequest;
+        const params = new URLSearchParams({ action: 'admin-analytics', options: '1', country: filters.elements.country.value, region: filters.elements.region.value });
+        try {
+            const body = await getJson(`/api/community?${params}`);
+            if (request !== optionsRequest) return;
+            const options = body.data?.options || {};
+            for (const [field, key, all] of [['country', 'countries', 'All countries'], ['region', 'regions', 'All states / regions'], ['city', 'cities', 'All cities'], ['account', 'accounts', 'Any account']]) {
+                const select = filters.elements[field];
+                const chosen = select.value;
+                const rows = [...(options[key] || [])].sort((a,b) => String(a._id).localeCompare(String(b._id)));
+                select.innerHTML = `<option value="">${all}</option>` + rows.map((row) => `<option value="${escapeHtml(row._id)}">${escapeHtml(field === 'country' ? countryName(row._id) : row._id)} (${fmt(row.count)} event${row.count === 1 ? '' : 's'})</option>`).join('');
+                if (chosen && !rows.some((row) => row._id === chosen)) select.add(new Option(chosen, chosen));
+                select.value = chosen;
+            }
+            const types = filters.elements.eventType;
+            for (const row of options.eventTypes || []) if (![...types.options].some((option) => option.value === row._id)) types.add(new Option(EVENT_NAMES[row._id] || row._id.replaceAll('_', ' '), row._id));
+            $('[data-ev-options-status]').textContent = 'Choices reflect stored events. Country narrows states; state narrows cities.';
+        } catch {
+            if (request === optionsRequest) $('[data-ev-options-status]').textContent = 'Filter choices could not load. Refresh Events to retry; other filters still work.';
+        }
+    }
+    filters.addEventListener('input', (event) => {
+        if (event.target.name === 'country') { filters.elements.region.value = ''; filters.elements.city.value = ''; loadFilterOptions(); }
+        if (event.target.name === 'region') { filters.elements.city.value = ''; loadFilterOptions(); }
+        if (['from', 'to'].includes(event.target.name)) {
+            delete filters.dataset.since; $$('[data-ev-preset]').forEach((button) => button.setAttribute('aria-pressed', 'false'));
+        }
+        if (event.target.name === 'eventType') $('[data-ev-preset="actions"]').setAttribute('aria-pressed', 'false');
+        clearTimeout(filterTimer); filterTimer = setTimeout(() => loadEvents(true), 300);
+    });
     filters.addEventListener('submit', (event) => event.preventDefault());
     function clearFilters() { clearTimeout(filterTimer); filters.reset(); filters.elements.exclude.value = ''; delete filters.dataset.since; visitorFilter = null; $$('[data-ev-preset]').forEach((button) => button.setAttribute('aria-pressed', 'false')); }
-    $('[data-ev-reset]').addEventListener('click', () => { clearFilters(); loadEvents(true); });
-    $('[data-ev-refresh]').addEventListener('click', () => { clearTimeout(filterTimer); loadEvents(true); });
+    $('[data-ev-reset]').addEventListener('click', () => { clearFilters(); loadFilterOptions(); loadEvents(true); });
+    $('[data-ev-refresh]').addEventListener('click', () => { clearTimeout(filterTimer); loadFilterOptions(); loadEvents(true); });
     $$('[data-ev-preset]').forEach((button) => button.addEventListener('click', () => {
         // Shortcuts change the time/type cut, preserving account and location exclusions.
         clearTimeout(filterTimer);
@@ -493,7 +528,7 @@ export function mountStats(root, { avatar }) {
         $$('[data-ev-preset]').forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
         loadEvents(true);
     }));
-    $('[data-ev-export]').addEventListener('click', () => exportCsv('abs-events-loaded.csv', ['UTC time', 'Event', 'Player', 'Page', 'Country', 'Device', 'Discord'], loadedEvents.map((event) => [event.occurredAt, event.eventType, event.username, event.page, event.location?.country, event.device, event.discordDelivery?.status])));
+    $('[data-ev-export]').addEventListener('click', () => exportCsv('abs-events-loaded.csv', ['UTC time', 'Event', 'Player', 'Audience', 'Visitor', 'Page', 'Country', 'State / region', 'City', 'Device', 'Browser', 'OS', 'Discord'], loadedEvents.map((event) => [event.occurredAt, event.eventType, event.username, isGuest(event.username) ? 'Guest' : 'Account', event.visitorPseudonym, event.page, event.location?.country, event.location?.region, event.location?.city, event.device, event.browser, event.os, event.discordDelivery?.status])));
     $('[data-ev-profile-defaults]').addEventListener('click', async (event) => {
         const button = event.currentTarget;
         button.disabled = true;
@@ -515,10 +550,12 @@ export function mountStats(root, { avatar }) {
 
     // Following someone: a guest's tag or a player's name shows only their events.
     function follow({ visitor = null, player = null }) {
+        clearFilters();
         visitorFilter = visitor;
-        filters.elements.user.value = player || '';
-        filters.elements.page.value = '';
-        filters.elements.eventType.value = '';
+        const account = filters.elements.account;
+        if (player && ![...account.options].some((option) => option.value === player)) account.add(new Option(player, player));
+        account.value = player || '';
+        filters.elements.audience.value = player ? 'accounts' : 'guests';
         showOwner('stream');
     }
     $('[data-ip="events"]').addEventListener('click', (event) => {
@@ -623,7 +660,7 @@ export function mountStats(root, { avatar }) {
         $$('[data-ev-pane]').forEach((pane) => { pane.hidden = pane.dataset.evPane !== view; });
         clearInterval(liveTimer);
         if (view === 'live') { loadLive(); liveTimer = setInterval(() => { if (showing === 'events' && ownerView === 'live' && !document.hidden && !root.hidden) loadLive(); }, 30000); }
-        if (view === 'stream') loadEvents(true);
+        if (view === 'stream') { loadFilterOptions(); loadEvents(true); }
         if (view === 'settings') loadSettings();
     }
     $$('[data-ev-view]').forEach((button) => button.addEventListener('click', () => showOwner(button.dataset.evView)));

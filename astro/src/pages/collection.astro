@@ -33,6 +33,7 @@ const slots = animals.map((animal) => ({
 }));
 const COIN = '/images/ui/icons/coin.svg';
 const WAYS = [
+    ['cards', 'Welcome card', 'Your free profile animal card comes with your account.', '/profile'],
     ['cards', 'Pick a starter', 'One of three, to begin.'],
     ['star', 'Card of the day', "Free every day: the home page's Animal of the day."],
     ['target', 'Call a fight right', 'Win the card of the animal you backed.', '/compare'],
@@ -41,7 +42,7 @@ const WAYS = [
     ['roblox', 'Play the Roblox game', `Connect Roblox and every animal you collect in the game (${inGame.size} of them) joins your binder.`, '/roblox']
 ];
 const title = `Card Collection: Collect All ${animals.length} Animal Battle Cards | ${SITE.name}`;
-const description = `Collect every animal's battle card: pick a starter, claim a free card every day, win cards by calling fights and finishing tournaments, or buy them with BattlePoints. ${animals.length} cards, no packs, nothing random.`;
+const description = `Collect ${animals.length} animal battle cards: get a free welcome card, pick a starter, claim daily cards, and earn cards through fights and tournaments. Use collected cards as your profile picture.`;
 ---
 
 <Base title={title} description={description} path="/collection" image={sectionPreview('animals')} active="collection" biome="mountains" seed={23}>

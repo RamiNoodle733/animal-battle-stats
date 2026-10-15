@@ -9,8 +9,8 @@ import { SITE, SOCIAL } from '../lib/site.js';
 
 const { mode } = Astro.props;
 const COPY = {
-    login: { title: 'Log in', path: '/login', heading: 'Welcome back', sub: 'Log in to vote, post, play ranked tournaments and level up.' },
-    signup: { title: 'Create account', path: '/signup', heading: 'Join the arena', sub: 'Free forever. Vote on animals, climb the leaderboard and earn BattlePoints.' },
+    login: { title: 'Log in', path: '/login', heading: 'Welcome back', sub: 'Open your card collection, call fights and join the community.' },
+    signup: { title: 'Create account', path: '/signup', heading: 'Start your collection', sub: 'Get a free welcome animal card, pick a starter and collect a new card every day.' },
     forgot: { title: 'Reset password', path: '/forgot-password', heading: 'Forgot your password?', sub: 'Enter your email and we will send you a reset link.' },
     reset: { title: 'Choose a new password', path: '/reset-password', heading: 'New password', sub: 'Pick a new password for your account.' }
 };
@@ -18,8 +18,8 @@ const copy = COPY[mode];
 const discord = SOCIAL.find((link) => link.name === 'Discord')?.url;
 const lineup = ['african-lion', 'honey-badger', 'orca'].map(getAnimal).filter(Boolean);
 const PERKS = [
-    ['medal', 'Level up', 'Earn XP for votes, posts and tournaments.'],
-    ['coin', 'BattlePoints', 'Earn BattlePoints for every vote and fight call, then spend them on looks.'],
+    ['cards', 'Your collection', 'Collect animal cards and use your favorites as your profile picture.'],
+    ['coin', 'BattlePoints', 'Earn BattlePoints through play, then choose cards and profile looks.'],
     ['trophy', 'Ranked tournaments', 'Your picks move the battle ratings.'],
     ['friends', 'Community', 'Debate matchups and comment on animals.']
 ];

@@ -36,6 +36,7 @@ const canonical = absoluteUrl(path);
 const socialImage = absoluteUrl(image);
 const version = packageJson.version;
 const MENU = [
+    { key: 'collection', href: '/collection', label: 'Cards', icon: 'cards' },
     { key: 'animals', href: '/stats', label: 'Animals', icon: 'paw' },
     { key: 'compare', href: '/compare', label: 'Versus', icon: 'vs' },
     { key: 'vote', href: '/vote', label: 'Vote', icon: 'vote' },
@@ -46,7 +47,7 @@ const MENU = [
 ];
 // Phones: the four places people play most, then Menu (every other page). Vote sits in the
 // middle; Social has its own button in the HUD on phones.
-const DOCK = [MENU[0], MENU[1], MENU[2], MENU[5]];
+const DOCK = ['collection', 'compare', 'vote', 'tournament'].map((key) => MENU.find((item) => item.key === key));
 // The menu sheet: every page as a big tile.
 const PAGES = [
     { href: '/', label: 'Home', icon: 'home', key: 'home' },

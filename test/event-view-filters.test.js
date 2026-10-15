@@ -18,7 +18,7 @@ test('all accounts are visible when exclusions are empty', () => {
     assert.deepEqual(query, {});
 });
 test('malformed exclusions, devices, countries and inverted dates are rejected', () => {
-    for (const params of [{ exclude: '.*' }, { exclude: Array(51).fill('Bob').join(',') }, { country: 'United States' }, { device: 'bot' }]) {
+    for (const params of [{ exclude: '.*' }, { exclude: Array(51).fill('Bob').join(',') }, { country: 'United States' }, { device: 'bot' }, {audience:'everyone'}, {account:'.*'}, {region:'a'.repeat(101)}]) {
         assert.throws(() => applyEventViewFilters({}, params, 'Owner'));
     }
     assert.throws(() => applyEventViewFilters({ occurredAt: { $gte: new Date('2026-10-12'), $lte: new Date('2026-10-01') } }, {}, 'Owner'));

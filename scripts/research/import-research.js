@@ -19,6 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { animalId } = require('../../lib/animal-identity');
 const { execFileSync } = require('child_process');
 const { parseResearchProfile } = require('./parse-research-profile');
 const { cleanRecord, cleanProfile } = require('../../lib/wording');
@@ -308,7 +309,7 @@ function main() {
         const researchedAt = commitDates.get(slug)
             || (previous && previous.contentHash === contentHash && previous.researchedAt)
             || today;
-        canonical.push(versionImage(cleanRecord(buildCanonicalRecord(base, profile, researchedAt, overrides[base.name]), slug)));
+        canonical.push(versionImage(cleanRecord(buildCanonicalRecord({ ...base, _id: animalId({ ...base, slug }) }, profile, researchedAt, overrides[base.name]), slug)));
         profiles[slug] = cleanProfile(buildProfileEntry(base, profile, { slug, contentHash, researchedAt }), slug);
         report.researched += 1;
         report.animals[slug] = profile.warnings.length

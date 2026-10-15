@@ -405,6 +405,11 @@ async function handleAdminAnalytics(req, res) {
         return res.status(400).json({ success: false, error: error.message });
     }
     // Count before the pagination cursor, so this describes all matching events.
+    if (req.query.options === '1') {
+        const { eventFilterOptionsPipeline } = require('../lib/event-view-filters');
+        const [options] = await SiteActivity.aggregate(eventFilterOptionsPipeline(viewFilters));
+        return res.status(200).json({ success: true, data: { options: options || {}, limit: 500 } });
+    }
     const total = !cursor ? await SiteActivity.countDocuments(query) : null;
     if (cursor) {
         if (!mongoose.isValidObjectId(cursor)) {

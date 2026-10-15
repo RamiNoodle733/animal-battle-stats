@@ -92,7 +92,7 @@
 html { background: var(--bg); -webkit-text-size-adjust: 100%; }
 body {
     margin: 0;
-    min-width: 320px;
+    min-width: min(320px, 100%);
     color: var(--text);
     font-family: var(--font-body);
     font-size: 15px;
@@ -946,6 +946,17 @@ body.game {
 .cm p { margin: 4px 0 0 38px; font-size: 0.88rem; line-height: 1.4; color: var(--text-2); white-space: pre-line; overflow-wrap: anywhere; }
 .cm footer { display: flex; align-items: center; gap: 6px; margin: 6px 0 0 38px; }
 .cm-reply { margin: 8px 0 0 26px; background: rgba(255, 255, 255, 0.03); }
+.cm-reply .cm-reply { margin-left: 0; border-left-color: var(--cyan); }
+.cm-anonymous { display: flex; align-items: center; gap: 8px; font-size: .84rem; min-height: 36px; }
+.cm-row { flex-wrap: wrap; }
+.cm footer { flex-wrap: wrap; }
+.thread-link { display: block; color: inherit; border-radius: 8px; }
+.thread-link:hover .chip { text-decoration: underline; }
+.thread-dialog { width: min(820px, calc(100vw - 24px)); max-height: 90dvh; padding: 20px; color: var(--text); background: #12161b; border: 1px solid var(--line-2); border-radius: 16px; overflow: auto; }
+.thread-dialog::backdrop { background: #030609c9; backdrop-filter: blur(5px); }
+.thread-dialog > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.thread-dialog h2 { margin: 0; font-family: var(--font-display); }
+@media (max-width: 500px) { .thread-dialog { padding: 12px; } .cm-reply { margin-left: 8px; } .cm p, .cm footer { margin-left: 0; } }
 .cm-vote { width: 26px; height: 22px; display: grid; place-items: center; font-size: 0.62rem; color: var(--muted); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
 .cm-vote.on { color: var(--green); border-color: rgba(53, 220, 143, 0.5); }
 /* Touch screens: every control at least ~32px to tap. */

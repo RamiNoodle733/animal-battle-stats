@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.15.2 — 2026-10-16
+
+- **Photo credits for the Roblox game.** The game's next update stops naming photographers on its cards, and its Settings > CREDITS points here instead. The credits page now lists every photo the game uses too: where a game card uses a different photo from the site's, it is credited under that animal ("Roblox game photo"). The list has a search box (animal, photographer, photo title or license), and the menu's footer links to it.
+
 ## 4.13.4 — 2026-10-09
 
 - **Linked game progress works again.** The Roblox game moved everyone's saves to a fresh start (new save storage) on 2026-10-08, and the site was still reading the old one, so linked trainer cards showed old progress. The site now reads the new saves.

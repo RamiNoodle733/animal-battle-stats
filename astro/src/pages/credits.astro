@@ -1,17 +1,28 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import UiIcon from '../components/UiIcon.astro';
 import AnimalImage from '../components/AnimalImage.astro';
-import { animals, sourceCount, researchedCount } from '../lib/catalog.js';
-import { creditFor } from '../lib/credits.js';
+import { animals, getAnimal, sourceCount, researchedCount } from '../lib/catalog.js';
+import { creditFor, gamePhotoFor } from '../lib/credits.js';
 import { SITE, absoluteUrl } from '../lib/site.js';
 
+// Every animal's photo credit (the site's own), and under it the Roblox game's
+// photo where the game's card uses a different one: the game names nobody and
+// points players to this page (its Settings > CREDITS).
 const rows = animals
-    .map((animal) => ({ animal, credit: creditFor(animal.slug) }))
+    .map((animal) => {
+        const credit = creditFor(animal.slug);
+        const game = gamePhotoFor(animal.slug);
+        const search = [animal.name, credit?.artist, credit?.title, credit?.license, game && 'roblox game', game?.artist, game?.title, game?.license]
+            .filter(Boolean).join(' ').toLowerCase();
+        return { animal, credit, game, sameAs: game?.sameAs ? getAnimal(game.sameAs) : null, search };
+    })
     .sort((a, b) => a.animal.name.localeCompare(b.animal.name));
-const credited = rows.filter((row) => row.credit);
+const credited = rows.filter((row) => row.credit || row.game);
+const gamePhotos = rows.filter((row) => row.game).length;
 const title = `Photo Credits & Sources | ${SITE.name}`;
-const description = `Photographers, licenses and research sources behind Animal Battle Stats: ${credited.length} credited animal photos and ${sourceCount.toLocaleString('en-US')} cited research sources.`;
+const description = `Photographers, licenses and research sources behind Animal Battle Stats and its Roblox game: ${credited.length} credited animal photos and ${sourceCount.toLocaleString('en-US')} cited research sources.`;
 const jsonLd = [{ '@type': 'WebPage', url: absoluteUrl('/credits'), name: 'Photo credits and sources', description, isPartOf: { '@id': `${SITE.url}/#website` } }];
 ---
 
@@ -21,41 +32,91 @@ const jsonLd = [{ '@type': 'WebPage', url: absoluteUrl('/credits'), name: 'Photo
             <div class="panel-head"><Icon name="camera" size={30} /><h1 class="panel-title">Credits</h1></div>
             <div class="panel-body prose">
                 <p>Animal images are real photographs of adult animals, cut out from freely licensed originals on Wikimedia Commons. Thank you to the photographers below.</p>
-                <p><b>{credited.length}</b> of {animals.length} images are credited here. The extinct Megalodon is a scientific reconstruction, and a few animals that are almost never photographed in full keep an illustration until a usable photo exists.</p>
+                <p><b>{credited.length}</b> of {animals.length} animals are credited here, including every photo in the Animal Battle Stats Roblox game ({gamePhotos} of its cards use a different photo from the site's; each is listed under its animal). The extinct Megalodon on the site is a scientific reconstruction, and a few animals that are almost never photographed in full keep an illustration until a usable photo exists.</p>
                 <p><b>{sourceCount.toLocaleString('en-US')}</b> research sources are cited across {researchedCount} animal profiles; each profile's Sources tab lists its own.</p>
                 <p>Icons are the Animal Battle Stats game icon set, shared with the Roblox game. Fonts: Inter and Big Shoulders Display (SIL Open Font License).</p>
                 <p>Photo licenses (CC BY, CC BY-SA, CC0, public domain) allow reuse with credit. Cut-out images derived from CC BY-SA photos are shared under the same license.</p>
             </div>
         </aside>
         <section class="panel list-panel" aria-label="Photo credits">
-            <div class="panel-head"><h2 class="panel-title">Photo credits</h2><span class="aside">{credited.length} photos</span></div>
-            <ul class="credit-list scroll">
-                {rows.map(({ animal, credit }) => (
-                    <li>
+            <div class="panel-head"><h2 class="panel-title">Photo credits</h2><span class="aside" data-credit-count aria-live="polite">{credited.length} photos</span></div>
+            <div class="credit-tools">
+                <label class="field">
+                    <UiIcon name="search" size={17} />
+                    <span class="visually-hidden">Search photo credits</span>
+                    <input type="search" placeholder="Search animals, photographers or licenses" autocomplete="off" spellcheck="false" data-credit-search />
+                </label>
+            </div>
+            <ul class="credit-list scroll" data-credit-list>
+                {rows.map(({ animal, credit, game, sameAs, search }) => (
+                    <li data-q={search}>
                         <AnimalImage animal={animal} sizes="56px" alt="" />
                         <a href={`/stats/${animal.slug}`}><b>{animal.name}</b></a>
-                        {credit
-                            ? <span>“{credit.title}” by {credit.artist} · <a class="link" href={credit.sourcePage} rel="noopener" target="_blank">{credit.license}</a>{credit.modified ? ` · ${credit.modified}` : ''}</span>
-                            : <span class="pending">Verified photo coming soon</span>}
+                        <span class="credit-text">
+                            {credit
+                                ? <span>“{credit.title}” by {credit.artist} · <a class="link" href={credit.sourcePage} rel="noopener" target="_blank">{credit.license}</a>{credit.modified ? ` · ${credit.modified}` : ''}</span>
+                                : !game && <span class="pending">Verified photo coming soon</span>}
+                            {game && (
+                                <span class="game-photo">
+                                    <b>Roblox game photo:</b> “{game.title}” by {game.artist} · {game.sourcePage
+                                        ? <a class="link" href={game.sourcePage} rel="noopener" target="_blank">{game.license}</a>
+                                        : game.license}{sameAs ? ` (the ${sameAs.name} photo)` : ''} · Background removed and cropped
+                                </span>
+                            )}
+                        </span>
                     </li>
                 ))}
             </ul>
+            <p class="credit-none" data-credit-none hidden>No photo credit matches that search.</p>
         </section>
     </div>
 </Base>
 
+<script>
+    // Filters the list as you type (animal, photographer, photo title or license; "roblox" finds the
+    // game's own photos). ?q= in the address fills it in.
+    const input = document.querySelector('[data-credit-search]');
+    const items = [...document.querySelectorAll('[data-credit-list] li')];
+    const count = document.querySelector('[data-credit-count]');
+    const none = document.querySelector('[data-credit-none]');
+    const total = count ? count.textContent : '';
+    function filter() {
+        const words = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+        let shown = 0;
+        for (const item of items) {
+            const text = item.dataset.q || '';
+            const hit = words.every((word) => text.includes(word));
+            item.hidden = !hit;
+            if (hit) shown += 1;
+        }
+        if (count) count.textContent = words.length ? `${shown} of ${items.length}` : total;
+        if (none) none.hidden = shown > 0;
+    }
+    input?.addEventListener('input', filter);
+    const preset = new URLSearchParams(location.search).get('q');
+    if (input && preset) {
+        input.value = preset;
+        filter();
+    }
+</script>
+
 <style>
     .credits { grid-template-columns: minmax(260px, 360px) minmax(0, 1fr); max-width: 1300px; margin: 0 auto; }
     .list-panel { min-height: 0; }
+    .credit-tools { padding: 10px 14px 0; }
     .credit-list { flex: 1; min-height: 0; margin: 0; padding: 10px 14px; list-style: none; display: grid; gap: 6px; align-content: start; }
     .credit-list li { display: grid; grid-template-columns: 56px 170px minmax(0, 1fr); align-items: center; gap: 10px; padding: 4px 8px; background: rgba(9, 10, 12, 0.4); border: 1px solid var(--line); border-radius: 8px; font-size: 0.84rem; }
+    .credit-list li[hidden] { display: none; }
     .credit-list :global(img) { width: 56px; height: 40px; object-fit: contain; }
-    .credit-list span { color: var(--text-2); }
+    .credit-text { display: grid; gap: 2px; min-width: 0; color: var(--text-2); overflow-wrap: anywhere; }
+    .game-photo { color: var(--muted); font-size: 0.8rem; }
+    .game-photo b { color: var(--gold); font-weight: 600; }
     .pending { color: var(--dim) !important; font-style: italic; }
+    .credit-none { margin: 0; padding: 4px 16px 14px; color: var(--muted); }
     @media (max-width: 860px) {
         .credits { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
         .credits aside .panel-body p:not(:first-child) { display: none; }
         .credit-list li { grid-template-columns: 44px minmax(0, 1fr); }
-        .credit-list li span { grid-column: 2; }
+        .credit-list li .credit-text { grid-column: 2; }
     }
 </style>

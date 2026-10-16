@@ -7,6 +7,7 @@ import metrics from '../../../lib/animal-metrics.js';
 import battleModel from '../../../js/battle-engine.js';
 import biomeFile from '../../../data/animal-biomes.json';
 import gameData from '../../../data/roblox-game-data.json';
+import brand from '../../../data/brand.json';
 
 // Biome per animal, shared with the Roblox game's islands.
 export const BIOMES = Object.freeze({
@@ -77,7 +78,7 @@ export function sizeFactor(aspect, fill = 0.5) {
 
 function imageFor(slug, fallbackSrc) {
     const entry = variantManifest[slug];
-    const src = String(fallbackSrc || '').split(/[?#]/)[0] || '/images/logo.png';
+    const src = String(fallbackSrc || '').split(/[?#]/)[0] || brand.mark;
     if (!entry) return { src, width: 800, height: 800, variants: [], ar: 1, k: 1 };
     const largest = entry.variants[entry.variants.length - 1];
     const ar = Math.round((entry.width / entry.height) * 1000) / 1000;

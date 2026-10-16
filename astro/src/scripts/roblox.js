@@ -129,11 +129,6 @@ function paintLive(game) {
     box.querySelector('[data-stat="likes"]').textContent = game.likeRatio != null ? `${Math.round(game.likeRatio * 100)}%` : compact(game.upVotes);
     box.hidden = false;
     if (game.creator) root.querySelector('[data-creator]').textContent = `· By ${game.creator}`;
-    if (game.icon) {
-        const icon = root.querySelector('[data-game-icon]');
-        icon.src = game.icon;
-        icon.classList.add('is-roblox');
-    }
 }
 
 // Built while the game was still private: Roblox now shows it, so the page goes live without

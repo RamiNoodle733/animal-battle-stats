@@ -3,7 +3,7 @@
 // up across the VS emblem, with the result when there is one). Pictures are
 // 1080x1350 (4:5: right for Instagram, TikTok photos, X and Discord); the
 // videos (card-reel.js) reuse the same pieces at 1080x1920.
-import { CARD_W, CARD_H, TIER_COLOURS, STAT_ROWS, cardAssets, cardFaces, renderSide, drawTurned, turnedQuad, loadImage, roundRect, nineSlice, fontsReady, release, segBar, statIcon, fmtScore, wrap, balance } from './abs-card.js';
+import { CARD_W, CARD_H, BRAND_LOGO, TIER_COLOURS, STAT_ROWS, cardAssets, cardFaces, renderSide, drawTurned, turnedQuad, loadImage, roundRect, nineSlice, fontsReady, release, segBar, statIcon, fmtScore, wrap, balance } from './abs-card.js';
 
 export const PICTURE = { w: 1080, h: 1350 };
 export const STORY = { w: 1080, h: 1920 };
@@ -14,7 +14,7 @@ const GOLD = '#f6b400';
 export const sceneArt = () => Promise.all([
     loadImage('/images/ui/hex-bg.webp'),
     loadImage('/images/ui/stage.webp'),
-    loadImage('/images/logo.png'),
+    loadImage(BRAND_LOGO),
     loadImage('/images/ui/vs.svg'),
     loadImage('/images/ui/btn-gold.png'),
     loadImage('/images/ui/btn-silver.png'),

@@ -1,6 +1,9 @@
 import robloxGame from '../../../data/roblox-game.json';
 import gameData from '../../../data/roblox-game-data.json';
 import roster from '../../../animal_stats.json';
+import BRAND from '../../../data/brand.json';
+
+export { BRAND };
 
 export const SITE = Object.freeze({
     name: 'Animal Battle Stats',
@@ -9,7 +12,9 @@ export const SITE = Object.freeze({
     tagline: 'The animal powerscaling database',
     description: `Research-backed battle stats, tier lists, rankings and "who would win" matchups for ${roster.length} real animals, plus the Animal Battle Stats game on Roblox.`,
     email: 'animalbattlestats@gmail.com',
-    logo: '/images/logo.png',
+    logo: BRAND.mark,
+    logoHeader: BRAND.header,
+    logoHero: BRAND.hero,
     founder: 'Rami Abdelrazzaq',
     repo: 'https://github.com/RamiNoodle733/animal-battle-stats'
 });

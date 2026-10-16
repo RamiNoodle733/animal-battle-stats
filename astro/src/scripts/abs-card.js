@@ -8,6 +8,7 @@
 
 export const CARD_W = 500;
 export const CARD_H = 700;
+export const BRAND_LOGO = '/images/branding/abs-satin-v1/mark-512.png';
 
 const DISPLAY = '"Big Shoulders Display", Impact, sans-serif';
 const BODY = 'Inter, system-ui, sans-serif';
@@ -178,7 +179,7 @@ export async function cardAssets(card) {
         loadImage('/images/ui/hex-card.webp'),
         loadImage(card.art?.src),
         loadImage(`/images/ui/tier-${tier}.svg`),
-        loadImage('/images/logo.png'),
+        loadImage(BRAND_LOGO),
         loadImage('/images/ui/holo.webp'),
         tier === 's' ? loadImage('/images/ui/foil-s.webp') : null,
         loadImage('/images/ui/btn-gold.png'),

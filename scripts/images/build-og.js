@@ -16,6 +16,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const sharp = require('sharp');
+const brandAssets = require('../../data/brand.json');
 
 const root = path.resolve(__dirname, '..', '..');
 const jobsFile = path.join(root, '.cache', 'astro-dist', 'data', 'og-jobs.json');
@@ -196,7 +197,7 @@ async function animalLayer(animal, maxW, maxH, mirror = false) {
 
 const logoCache = new Map();
 function logo(size) {
-    if (!logoCache.has(size)) logoCache.set(size, sharp(path.join(root, 'images', 'logo.png')).resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer());
+    if (!logoCache.has(size)) logoCache.set(size, sharp(path.join(root, brandAssets.mark.slice(1))).resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer());
     return logoCache.get(size);
 }
 
@@ -329,7 +330,8 @@ async function main() {
     const only = process.env.OG_ONLY ? new RegExp(process.env.OG_ONLY) : null;
     const nextManifest = only ? { ...manifest } : {};
     const tasks = [];
-    const hash = (value) => crypto.createHash('sha1').update(JSON.stringify([DESIGN, value])).digest('hex').slice(0, 16);
+    const brandHash = crypto.createHash('sha1').update(fs.readFileSync(path.join(root, brandAssets.mark.slice(1)))).digest('hex');
+    const hash = (value) => crypto.createHash('sha1').update(JSON.stringify([DESIGN, brandHash, value])).digest('hex').slice(0, 16);
     const queue = (name, inputs, run) => {
         if (only && !only.test(name)) return;
         const key = hash(inputs);

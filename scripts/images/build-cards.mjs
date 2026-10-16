@@ -25,6 +25,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createCanvas, loadImage, GlobalFonts, DOMMatrix, Path2D } from '@napi-rs/canvas';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const brand = JSON.parse(fs.readFileSync(path.join(root, 'data', 'brand.json'), 'utf8'));
 const jobsFile = path.join(root, '.cache', 'astro-dist', 'data', 'card-jobs.json');
 const out = path.join(root, '.cache', 'cards');
 const manifestFile = path.join(out, 'manifest.json');
@@ -107,7 +108,7 @@ const uiDir = path.join(root, 'images', 'ui');
 const artFiles = [
     ...fs.readdirSync(uiDir).filter((name) => /\.(png|webp|svg)$/.test(name)).map((name) => path.join(uiDir, name)),
     ...fs.readdirSync(path.join(uiDir, 'icons')).map((name) => path.join(uiDir, 'icons', name)),
-    path.join(root, 'images', 'logo.png')
+    path.join(root, brand.mark.slice(1))
 ];
 const base = digest(JSON.stringify([DESIGN, sources.map(digest), artFiles.map((file) => digest(fs.readFileSync(file)))]));
 const hash = (value) => digest(base + JSON.stringify(value)).slice(0, 16);

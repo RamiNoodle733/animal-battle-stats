@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import brand from '../../../data/brand.json';
 import { animals, GROUPS, STATS, matchup, fmtWeight, fmtLength, fmtSpeed, fmtBite, fmtYears, fmtScore } from './catalog.js';
 
 const cap = (text) => (text ? text.charAt(0).toUpperCase() + text.slice(1) : '');
@@ -71,7 +72,7 @@ const RENDERER = (() => {
         path.join(root, 'astro', 'src', 'scripts', 'card-scenes.js'),
         ...fs.readdirSync(ui).filter((name) => /\.(png|webp|svg)$/.test(name)).sort().map((name) => path.join(ui, name)),
         ...fs.readdirSync(path.join(ui, 'icons')).sort().map((name) => path.join(ui, 'icons', name)),
-        path.join(root, 'images', 'logo.png')
+        path.join(root, brand.mark.slice(1))
     ];
     const hash = crypto.createHash('sha1');
     for (const file of files) hash.update(fs.readFileSync(file));

@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.15.3 — 2026-10-16
+
+- **The new ABS Satin logo.** The approved B artwork keeps the ABS letters, paw and background stat bars with the broader proportions. The header, home and Roblox pages, browser/app icons, collectible cards, shared pictures and link previews now use it. New asset URLs and refreshed image fingerprints prevent the previous logo from sticking in caches.
+- **Reusable logo pack.** Transparent marks, wordmarks, social images, web icons, Roblox import files and a Claude handoff guide are exported from the preserved approved master. The Roblox game itself is unchanged.
+
 ## 4.15.2 — 2026-10-16
 
 - **Photo credits for the Roblox game.** The game's next update stops naming photographers on its cards, and its Settings > CREDITS points here instead. The credits page now lists every photo the game uses too: where a game card uses a different photo from the site's, it is credited under that animal ("Roblox game photo"). The list has a search box (animal, photographer, photo title or license), and the menu's footer links to it.

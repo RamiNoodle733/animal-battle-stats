@@ -14,7 +14,7 @@ import packageJson from '../../../package.json';
 import UiIcon from '../components/UiIcon.astro';
 import Icon from '../components/Icon.astro';
 import RobloxMark from '../components/RobloxMark.astro';
-import { SITE, SOCIAL, ROBLOX, absoluteUrl } from '../lib/site.js';
+import { SITE, SOCIAL, ROBLOX, BRAND, absoluteUrl } from '../lib/site.js';
 import { sectionPreview, sectionAlt } from '../lib/previews.js';
 
 const {
@@ -33,7 +33,9 @@ const {
 } = Astro.props;
 
 const canonical = absoluteUrl(path);
-const socialImage = absoluteUrl(image);
+const socialImageUrl = new URL(absoluteUrl(image));
+if (socialImageUrl.origin === SITE.url && !socialImageUrl.searchParams.has('v')) socialImageUrl.searchParams.set('v', BRAND.id);
+const socialImage = socialImageUrl.href;
 const version = packageJson.version;
 const MENU = [
     { key: 'collection', href: '/collection', label: 'Cards', icon: 'cards' },
@@ -109,10 +111,10 @@ const year = new Date().getFullYear();
         <meta name="theme-color" content="#0b0c0e" />
         <meta name="color-scheme" content="dark" />
         <meta name="abs-version" content={version} />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
-        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/png" sizes="32x32" href={BRAND.favicon32} />
+        <link rel="icon" type="image/png" sizes="16x16" href={BRAND.favicon16} />
+        <link rel="apple-touch-icon" href={BRAND.appleTouchIcon} />
+        <link rel="manifest" href={`/manifest.json?v=${BRAND.id}`} />
         <link rel="alternate" type="text/plain" title="Summary for AI assistants" href="/llms.txt" />
         <meta property="og:type" content={type} />
         <meta property="og:site_name" content={SITE.name} />
@@ -162,7 +164,7 @@ const year = new Date().getFullYear();
 
         <header class="hud">
             <a class="brand" href="/" aria-label="Animal Battle Stats home">
-                <img src="/images/logo.png" alt="" width="40" height="40" />
+                <img src={SITE.logoHeader} alt="" width="40" height="40" />
                 <span class="brand-word"><b>Animal Battle</b><span>Stats</span></span>
             </a>
             <nav class="menu" aria-label="Main">

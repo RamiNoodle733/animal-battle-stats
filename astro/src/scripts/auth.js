@@ -4,6 +4,7 @@
 import { toast } from './site.js';
 import { sfx } from './sfx.js';
 import { measure } from './analytics.js';
+import authReturn from '../../../lib/auth-return.js';
 
 const root = document.querySelector('[data-auth]');
 const mode = root.dataset.mode;
@@ -12,13 +13,7 @@ const submit = root.querySelector('[data-submit]');
 const note = root.querySelector('[data-note]');
 const params = new URLSearchParams(location.search);
 
-function safeReturn(value) {
-    const raw = String(value || '').trim();
-    // eslint-disable-next-line no-control-regex -- Reject URL parser control characters and backslashes.
-    if (!raw.startsWith('/') || raw.startsWith('//') || raw.includes('://') || /[\\\u0000-\u001f\u007f]/.test(raw) || /^\/(login|signup|forgot-password|reset-password)\b/.test(raw)) return '/';
-    return raw;
-}
-const returnTo = safeReturn(params.get('returnTo'));
+const returnTo = authReturn.safeReturnPath(params.get('returnTo'));
 
 function show(message, error = false) {
     note.textContent = message;
@@ -44,7 +39,8 @@ if (providerRow) {
         Object.entries(buttons).forEach(([name, button]) => { button.hidden = !data?.[name]; });
         providerRow.hidden = false;
         const unavailable = Object.keys(buttons).filter((name) => !data?.[name]).map((name) => ({ google: 'Google', roblox: 'Roblox', github: 'GitHub' })[name]);
-        root.querySelector('[data-provider-status]').textContent = data ? (unavailable.length ? `${unavailable.join(', ')} sign-in is not available yet. Use email and password.` : '') : 'Other sign-in options could not load. Email and password are available.';
+        const anyAvailable = Object.keys(buttons).some((name) => data?.[name]);
+        root.querySelector('[data-provider-status]').textContent = data ? (unavailable.length ? `${unavailable.join(', ')} sign-in is not available yet.${anyAvailable ? ' Choose another option above or use email and password.' : ' Use email and password.'}` : '') : 'Other sign-in options could not load. Email and password are available.';
         providerRow.querySelector('.or').hidden = !['google', 'roblox', 'github'].some((name) => data?.[name]);
     });
 }

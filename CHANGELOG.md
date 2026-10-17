@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.16.0 — 2026-10-17
+
+- **Animals in the phone navigation.** Browse animals directly from the bottom bar. Cards remain in the home menu, account menu and full Menu. Home tiles fill their rows and classic matchups have direct links.
+- **From animal research to your binder.** Each animal links to its own collectible card. The collection remembers that choice through email/password or provider sign-in, keeps recovery from temporary loading failures clear, and offers a compact expandable collecting guide.
+- **Better account returns.** Cancelling provider sign-in keeps your intended destination. New Roblox signups can return to the chosen card; account-linking feedback returns to the relevant profile tab. Redirects reject sign-in loops and API destinations.
+- **Search access and measurement.** Search and AI crawlers can read public pages while every crawler group excludes API routes. Collection filter URLs keep one canonical page, the text guide includes collecting, and animal-to-binder interest is measured without account details. Provider activation and fresh Google dashboard checks remain pending external access.
+
 ## 4.15.3 — 2026-10-16
 
 - **The new ABS Satin logo.** The approved B artwork keeps the ABS letters, paw and background stat bars with the broader proportions. The header, home and Roblox pages, browser/app icons, collectible cards, shared pictures and link previews now use it. New asset URLs and refreshed image fingerprints prevent the previous logo from sticking in caches.

@@ -47,9 +47,9 @@ const MENU = [
     { key: 'tournament', href: '/tournament', label: 'Tournament', icon: 'trophy' },
     { key: 'community', href: '/community', label: 'Community', icon: 'users' }
 ];
-// Phones: the four places people play most, then Menu (every other page). Vote sits in the
-// middle; Social has its own button in the HUD on phones.
-const DOCK = ['collection', 'compare', 'vote', 'tournament'].map((key) => MENU.find((item) => item.key === key));
+// Animals is useful before signing up. Cards stay in the HUD account menu and
+// the Menu sheet; the dock keeps browsing and the three main ways to play.
+const DOCK = ['animals', 'compare', 'vote', 'tournament'].map((key) => MENU.find((item) => item.key === key));
 // The menu sheet: every page as a big tile.
 const PAGES = [
     { href: '/', label: 'Home', icon: 'home', key: 'home' },

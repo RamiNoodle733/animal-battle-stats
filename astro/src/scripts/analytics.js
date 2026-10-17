@@ -14,6 +14,9 @@ document.addEventListener('click', (event) => {
     if (socials[url.hostname]) measure('social_click', { social_platform: socials[url.hostname], page_path: pagePath });
     if (url.hostname === 'www.roblox.com' && url.pathname.startsWith('/games/')) measure('roblox_play_click', { page_path: pagePath });
     if (url.origin === location.origin && url.pathname === '/roblox') measure('roblox_interest', { page_path: pagePath });
+    if (url.origin === location.origin && link.dataset.discovery === 'collection' && /^[a-z0-9-]{1,80}$/.test(link.dataset.animalSlug || '')) {
+        measure('collection_interest', { animal_slug: link.dataset.animalSlug, page_path: pagePath });
+    }
 });
 
 const params = new URLSearchParams(location.search);

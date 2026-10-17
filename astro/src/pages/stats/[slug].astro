@@ -221,6 +221,9 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                 <button class="btn" type="button" data-card title={`See the ${animal.name} card in 3D`}><UiIcon name="cards" /><span>Card</span></button>
                 <button class="btn" type="button" data-share title={`Share the ${animal.name} card`}><UiIcon name="share" /><span>Share</span></button>
             </div>
+            <a class="collect-next" href={`/collection?animal=${animal.slug}`} data-discovery="collection" data-animal-slug={animal.slug}>
+                <UiIcon name="cards" size={22} /><span><b>Collect the {animal.name} card</b><small>Build your binder. Use cards you own as your profile animal.</small></span><span aria-hidden="true">→</span>
+            </a>
             <script type="application/json" id="abs-card" is:inline set:html={cardJson(animal)}></script>
         </section>
 
@@ -571,6 +574,12 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
 </script>
 
 <style>
+    .collect-next { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--line-2); border-radius: 10px; background: rgba(246, 180, 0, 0.07); }
+    .collect-next > span:first-of-type { flex: 1; min-width: 0; }
+    .collect-next b, .collect-next small { display: block; }
+    .collect-next b { font-size: 0.86rem; color: var(--gold-2); }
+    .collect-next small { font-size: 0.72rem; color: var(--text-2); }
+    .collect-next:hover { border-color: var(--gold); }
     .profile { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); max-width: 1500px; margin: 0 auto; }
 
     /* ---- the card back: number strip, framed portrait, name plate */

@@ -59,7 +59,11 @@ test('internal links point to real pages or preserved app routes', { skip: !buil
             // a versioned image (the battle card files) is one file, not a crawl trap
             const versionedImage = link.pathname.startsWith('/images/') && [...link.searchParams.keys()].join() === 'v';
             if (link.search && !versionedImage) {
-                assert.ok(['/compare', '/stats', '/login', '/signup'].includes(link.pathname), `query trap ${link.href}`);
+                assert.ok(['/compare', '/stats', '/login', '/signup', '/collection'].includes(link.pathname), `query trap ${link.href}`);
+                if (link.pathname === '/collection') {
+                    assert.deepEqual([...link.searchParams.keys()], ['animal']);
+                    assert.ok(animals.some((animal) => slug(animal.name) === link.searchParams.get('animal')), `unknown collection animal ${link.href}`);
+                }
                 assert.ok(link.searchParams.size <= 3, `unbounded query shape ${link.href}`);
             }
         }
@@ -73,6 +77,10 @@ test('robots welcomes search engines and AI assistants and points at the sitemap
     }
     assert.doesNotMatch(robots, /Crawl-delay/u);
     assert.match(robots, new RegExp(`Sitemap: ${SITE_ORIGIN.replaceAll('.', '\\.')}\\/sitemap\\.xml`, 'u'));
+    // A named group overrides '*': its own API exclusion must be present.
+    const groups = robots.split(/\r?\n\s*\r?\n/u).filter((group) => group.includes('User-agent:'));
+    assert.ok(groups.length > 1);
+    for (const group of groups) assert.match(group, /^Disallow: \/api\/$/mu, group);
 });
 
 test('llms.txt summarizes the site for AI assistants', { skip: !built && 'dist/ not built' }, () => {

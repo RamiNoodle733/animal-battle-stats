@@ -11,8 +11,11 @@ import { measure } from './analytics.js';
 const root = document.querySelector('[data-col]');
 const $ = (selector) => root.querySelector(selector);
 const slots = new Map([...root.querySelectorAll('[data-slug]')].map((slot) => [slot.dataset.slug, slot]));
-const other = new URLSearchParams(location.search).get('u');
-const view = { show: 'all', tiers: new Set(), group: '', q: '', game: false };
+const params = new URLSearchParams(location.search);
+const other = params.get('u');
+const focusSlug = slots.has(params.get('animal')) ? params.get('animal') : '';
+const view = { show: 'all', tiers: new Set(), group: '', q: '', game: false, slug: focusSlug };
+let robloxAvailable = null;
 let game = { linked: false, levels: {} };
 let owned = new Set();
 let mine = false;
@@ -20,6 +23,24 @@ let wallet = 0;
 
 const thumbOf = (slug) => slots.get(slug)?.querySelector('img')?.getAttribute('src') || '';
 const nameOf = (slug) => slots.get(slug)?.querySelector('.slot-meta b')?.textContent || slug;
+
+// Keep the animal a reader chose when they sign up or log in. This is a view
+// filter only; ownership and purchases remain authoritative on the server.
+if (focusSlug) {
+    root.dataset.focus = 'true';
+    const note = $('[data-col-focus]');
+    note.hidden = false;
+    note.append(`The ${nameOf(focusSlug)} card. `, Object.assign(document.createElement('a'), { href: '/collection', textContent: 'Browse every card' }));
+    root.querySelectorAll('[data-col-login] a').forEach((link) => {
+        const url = new URL(link.href);
+        url.searchParams.set('returnTo', `/collection?animal=${focusSlug}`);
+        link.href = url.href;
+    });
+}
+fetch('/api/auth?action=providers', { headers: { Accept: 'application/json' } })
+    .then((response) => response.ok ? response.json() : null)
+    .then((body) => { robloxAvailable = Boolean(body?.data?.roblox); paintGame(); })
+    .catch(() => { robloxAvailable = false; paintGame(); });
 
 // ---------------------------------------------------------------- painting
 
@@ -99,10 +120,12 @@ function paintGame() {
         link.hidden = true;
         sync.hidden = false;
     } else if (mine) {
-        text.textContent = 'Collecting animals in the Roblox game? Connect Roblox and every one of them joins this binder, with its level from the game.';
+        text.textContent = robloxAvailable === null ? 'Checking Roblox connection…' : robloxAvailable
+            ? 'Collecting animals in the Roblox game? Connect your Roblox account here to see your game collection when syncing is available.'
+            : 'Roblox connections are currently unavailable. You can still collect cards here and explore the game.';
         link.href = '/api/auth?action=link-roblox&returnTo=%2Fcollection';
         link.removeAttribute('aria-disabled');
-        link.hidden = false;
+        link.hidden = !robloxAvailable;
         sync.hidden = true;
     } else if (game.linked && game.count) {
         text.innerHTML = `<b>${game.count}</b> of ${game.total} game animals collected in the Roblox game${game.playing ? ', playing now' : ''}.`;
@@ -148,6 +171,7 @@ function filter() {
     for (const [slug, slot] of slots) {
         const have = owned.has(slug);
         const visible = (view.show === 'all' || (view.show === 'have' ? have : !have))
+            && (!view.slug || slug === view.slug)
             && (!view.tiers.size || view.tiers.has(slot.dataset.tier))
             && (!view.group || slot.dataset.group === view.group)
             && (!view.q || slot.dataset.name.includes(view.q))
@@ -178,7 +202,13 @@ $('[data-game-filter]').addEventListener('click', (event) => {
     filter();
 });
 $('[data-group-filter]').addEventListener('change', (event) => { view.group = event.target.value; filter(); });
-$('[data-search]').addEventListener('input', (event) => { view.q = event.target.value.trim().toLowerCase(); filter(); });
+$('[data-search]').addEventListener('input', (event) => {
+    view.q = event.target.value.trim().toLowerCase();
+    view.slug = '';
+    delete root.dataset.focus;
+    $('[data-col-focus]').hidden = true;
+    filter();
+});
 
 // ---------------------------------------------------------------- collecting
 
@@ -228,10 +258,10 @@ $('[data-col-daily-claim]').addEventListener('click', (event) => collect({ op: '
 async function loadOther(name) {
     const result = await authApi(`collection&username=${encodeURIComponent(name)}`);
     if (!result.ok) {
-        $('[data-col-owner]').textContent = 'Player not found';
-        root.dataset.state = 'ready';
+        showLoadError(result.status === 404 ? 'This player could not be found. Check the collection link.' : 'This collection could not load. Please try again.');
         return;
     }
+    $('[data-col-error]').hidden = true;
     const data = result.body.data;
     $('[data-col-owner]').textContent = `${data.player}'s collection`;
     document.title = `${data.player}'s card collection | Animal Battle Stats`;
@@ -242,10 +272,17 @@ async function loadOther(name) {
 async function loadMine() {
     const result = await authApi('collection');
     if (!result.ok) {
-        $('[data-col-login]').hidden = false;
-        apply({ cards: {} });
+        if (result.status === 401) {
+            mine = false;
+            $('[data-col-login]').hidden = false;
+            apply({ cards: {} });
+        } else {
+            showLoadError('Your collection could not load. Your cards have not been changed. Please try again.');
+        }
         return;
     }
+    $('[data-col-error]').hidden = true;
+    $('[data-col-login]').hidden = true;
     mine = true;
     apply(result.body.data);
     // Cards the game just brought over flip in.
@@ -261,6 +298,18 @@ async function loadMine() {
         toast(`${added.length} card${added.length === 1 ? '' : 's'} from the Roblox game joined your binder!`);
     }
 }
+
+function showLoadError(message) {
+    root.dataset.state = 'error';
+    $('[data-col-error]').hidden = false;
+    $('[data-col-error-message]').textContent = message;
+}
+$('[data-col-retry]').addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    button.disabled = true;
+    await (other ? loadOther(other) : loadMine());
+    button.disabled = false;
+});
 
 $('[data-col-rbx-sync]').addEventListener('click', async (event) => {
     const button = event.currentTarget;

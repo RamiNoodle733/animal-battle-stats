@@ -29,6 +29,7 @@ export function GET() {
     for (const category of CATEGORIES) lines.push(`- [${category.label}](${SITE.url}/rankings/${category.slug}): ${category.intro}`);
     lines.push(`- [Who would win? matchup simulator](${SITE.url}/compare): compare any two animals, groups of any size, or a random matchup (for example ${SITE.url}/compare?a=human&b=gorilla&na=10)`);
     lines.push(`- [All animals](${SITE.url}/stats): searchable database`);
+    lines.push(`- [Card collection](${SITE.url}/collection): collect animal battle cards through a welcome card, starter choices, free daily cards, fights and tournaments; owned cards can be used as profile animals`);
     lines.push(`- [Vote](${SITE.url}/vote): fans vote who would win each matchup and whether each animal is underrated or overrated at its rank; the fan rankings sit beside the stats on every animal page`);
     lines.push(`- [How ratings work](${SITE.url}/about): methodology, sources, FAQ`);
     lines.push(`- [Animal Battle Stats on Roblox](${SITE.url}/roblox): ${ROBLOX.live ? 'the companion game, live on Roblox' : 'the companion game, coming to Roblox'}`);

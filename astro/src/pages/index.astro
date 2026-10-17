@@ -22,13 +22,13 @@ const title = `${SITE.name}: Who Would Win? Animal Matchups, Stats & Powerscalin
 const description = `Who would win? Compare any two of ${animals.length} real animals with research-backed battle stats, tier lists and power rankings, sources on every profile. Group fights like 100 men vs a gorilla, and an animated fight.`;
 const MENU = [
     { href: '/roblox', label: ROBLOX.live ? 'Play on Roblox' : 'Roblox game', sub: `Collect ${gameAnimals.length} animals and battle in a 3D world`, icon: 'roblox', cls: 'btn-play primary' },
-    { href: '/collection', label: 'Collect cards', sub: 'Your binder, free daily cards and Roblox collection', icon: 'cards', cls: 'vote' },
+    { href: '/stats', label: 'Animals', sub: `All ${animals.length}: stats & rankings`, icon: 'paw' },
     { href: '/compare', label: 'Who would win?', sub: 'Pick two animals and fight', icon: 'vs' },
     { href: '/vote', label: 'Vote', sub: 'Who wins? Overrated or underrated?', icon: 'medal', cls: 'vote' },
-    { href: '/stats', label: 'Animals', sub: `All ${animals.length}: stats & rankings`, icon: 'paw' },
     { href: '/tier-list', label: 'Tier list', sub: `S to F, all ${animals.length}`, icon: 'crown' },
-    { href: '/compare?random=1', label: 'Random fight', sub: 'Deal a surprise matchup', icon: 'cards' },
+    { href: '/collection', label: 'Collect cards', sub: 'Your binder and free daily animal cards', icon: 'cards', cls: 'vote' },
     { href: '/tournament', label: 'Tournament', sub: 'Run a bracket', icon: 'trophy' },
+    { href: '/compare?random=1', label: 'Random fight', sub: 'Deal a surprise matchup', icon: 'cards' },
     { href: '/community', label: 'Community', sub: 'Votes, talk, leaderboards', icon: 'friends' }
 ];
 const jsonLd = [
@@ -81,6 +81,10 @@ const jsonLd = [
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
                 <span>Find an animal, or "lion vs tiger"</span><kbd class="chip">/</kbd>
             </button>
+            <div class="home-debates" aria-label="Popular animal matchups">
+                <span>Settle a classic debate</span>
+                {PAIRS.filter((pair) => pair.classic).slice(0, 4).map((pair) => <a href={`/compare/${pair.slug}`}>{pair.a.name} vs {pair.b.name}</a>)}
+            </div>
         </section>
 
         <section class="show-col" aria-label="Featured">
@@ -300,6 +304,10 @@ const jsonLd = [
     .mm.vote small { color: var(--text-2); }
     .home-search { cursor: text; gap: 10px; color: var(--muted); text-align: left; }
     .home-search span { flex: 1; }
+    .home-debates { display: flex; flex-wrap: wrap; gap: 5px 12px; font-size: 0.76rem; color: var(--text-2); }
+    .home-debates > span { flex-basis: 100%; font-weight: 800; color: var(--muted); }
+    .home-debates a { text-decoration: underline; text-underline-offset: 3px; }
+    .home-debates a:hover { color: var(--gold-2); }
 
     .show-col { min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto auto; gap: 12px; }
     .carousel { --radius: 470px; position: relative; min-height: 0; perspective: 1600px; display: grid; place-items: center; cursor: grab; touch-action: pan-y; user-select: none; }
@@ -350,18 +358,23 @@ const jsonLd = [
     @keyframes marquee { to { transform: translateX(-50%); } }
 
     @media (max-width: 1100px) { .carousel { --radius: 380px; } .ring { width: 160px; height: 213px; } }
+    @media (min-width: 901px) { .menu-col { overflow-y: auto; } }
     /* Short laptop windows: a tighter menu so everything fits without cutting off the last buttons. */
     @media (max-height: 800px) and (min-width: 901px) {
         .menu-col { gap: 8px; }
         .logo-block img { width: 64px; }
         .logo-block h1 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
-        .intro { display: none; }
-        .main-menu { gap: 6px; }
-        .mm { padding: 6px 16px; }
-        .mm.primary { padding: 9px 16px; }
+        .intro { display: block; }
+        .tag { font-size: 0.86rem; line-height: 1.25; margin-top: 3px; }
+        .main-menu { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
+        .mm { min-height: 44px; padding: 5px 12px; }
+        .mm > span { min-width: 0; line-height: 1; }
+        .mm { gap: 8px; }
+        .mm :global(img), .mm :global(svg) { width: 30px; height: 30px; flex-shrink: 0; }
+        .mm.primary { grid-column: 1 / -1; min-height: 58px; padding: 7px 12px; }
         .mm b { font-size: 1.2rem; }
         .mm.primary b { font-size: 1.5rem; }
-        .mm small { font-size: 0.68rem; }
+        .mm small { display: block; font-size: 0.68rem; line-height: 1.25; margin-top: 3px; }
         .ring { width: 160px; height: 213px; }
         .carousel { --radius: 380px; }
         .ring-hint { display: none; }
@@ -378,8 +391,15 @@ const jsonLd = [
         .main-menu { grid-template-columns: 1fr 1fr; gap: 6px; }
         .mm { min-height: 48px; padding: 6px 12px; gap: 8px; }
         .mm::after { display: none; }
-        .mm.primary, .mm.vote { grid-column: 1 / -1; min-height: 56px; }
+        .mm.primary { grid-column: 1 / -1; min-height: 64px; }
         .mm small { display: none; }
+        .mm.primary small { display: block; font-size: 0.73rem; line-height: 1.35; margin-top: 4px; }
+        .mm > span { min-width: 0; }
+        .mm b { font-size: clamp(1.04rem, 4vw, 1.4rem); letter-spacing: 0.025em; }
+        .mm :global(svg) { flex-shrink: 0; width: 28px; height: 28px; }
+        .home-debates { gap: 0; display: grid; grid-template-columns: 1fr 1fr; }
+        .home-debates > span { grid-column: 1 / -1; padding-top: 4px; }
+        .home-debates a { min-height: 44px; display: flex; align-items: center; padding-right: 8px; }
         .mm :global(img) { width: 30px; height: 30px; }
         .show-col { grid-template-rows: auto auto auto; gap: 10px; }
         .carousel { container-type: size; height: clamp(250px, 70vw, 340px); }

@@ -153,14 +153,7 @@ async function sendPasswordResetEmail(req, user, token) {
     });
 }
 
-function getSafeReturnPath(value) {
-    const raw = String(value || '').trim();
-    // eslint-disable-next-line no-control-regex -- Reject URL parser control characters and backslashes.
-    if (!raw || !raw.startsWith('/') || raw.startsWith('//') || raw.includes('://') || /[\\\u0000-\u001f\u007f]/.test(raw)) {
-        return '/';
-    }
-    return raw;
-}
+const { safeReturnPath: getSafeReturnPath } = require('../lib/auth-return');
 
 function buildRedirectUrl(req, path, params = {}) {
     const url = new URL(path, getBaseUrl(req));
@@ -696,7 +689,9 @@ async function handleGoogleStart(req, res, mode = 'login') {
     if (!googleConfig) {
         return redirectTo(res, buildRedirectUrl(req, mode === 'link' ? '/profile' : '/login', {
             google_error: 'not_configured',
-            message: 'Google sign-in is not configured yet.'
+            message: 'Google sign-in is not configured yet.',
+            tab: mode === 'link' ? 'account' : undefined,
+            returnTo: mode === 'link' ? '/profile?tab=account' : returnTo
         }));
     }
 
@@ -713,7 +708,7 @@ async function handleGoogleStart(req, res, mode = 'login') {
     const state = encodeGoogleState({
         nonce,
         mode,
-        returnTo: mode === 'link' ? '/profile' : returnTo,
+        returnTo: mode === 'link' ? '/profile?tab=account' : returnTo,
         userId: mode === 'link' ? authUser.id : null,
         createdAt: Date.now()
     });
@@ -734,7 +729,9 @@ function googleErrorRedirect(req, res, state, code, message) {
     const destination = state?.mode === 'link' ? '/profile' : '/login';
     return redirectTo(res, buildRedirectUrl(req, destination, {
         google_error: code,
-        message
+        message,
+        tab: state?.mode === 'link' ? 'account' : undefined,
+        returnTo: getSafeReturnPath(state?.returnTo)
     }));
 }
 
@@ -937,12 +934,15 @@ function githubCookie(res, value = '') {
 }
 
 function githubError(req, res, state, code, message) {
-    return redirectTo(res, buildRedirectUrl(req, state?.mode === 'link' ? '/profile' : '/login', { github_error: code, message }));
+    return redirectTo(res, buildRedirectUrl(req, state?.mode === 'link' ? '/profile' : '/login', {
+        github_error: code, message, tab: state?.mode === 'link' ? 'account' : undefined,
+        returnTo: getSafeReturnPath(state?.returnTo)
+    }));
 }
 
 function handleGithubStart(req, res, mode) {
     const config = getGithubConfig(req);
-    if (!config) return githubError(req, res, { mode }, 'not_configured', 'GitHub sign-in is not available yet.');
+    if (!config) return githubError(req, res, { mode, returnTo: getSafeReturnPath(req.query.returnTo) }, 'not_configured', 'GitHub sign-in is not available yet.');
     const actor = getAuthenticatedUserFromRequest(req);
     if (mode === 'link' && !actor) return githubError(req, res, null, 'login_required', 'Log in before linking GitHub.');
     const nonce = crypto.randomBytes(24).toString('hex');
@@ -1097,7 +1097,8 @@ function robloxErrorRedirect(req, res, state, code, message) {
     return robloxRedirect(req, res, state?.mode, link ? '/profile' : '/login', {
         roblox_error: code,
         message,
-        tab: link ? 'roblox' : undefined
+        tab: link ? 'roblox' : undefined,
+        returnTo: getSafeReturnPath(state?.returnTo)
     });
 }
 
@@ -1109,7 +1110,8 @@ function handleRobloxStart(req, res, mode = 'login') {
         return robloxRedirect(req, res, mode, null, {
             roblox_error: 'not_configured',
             message: 'Roblox sign-in is not switched on yet.',
-            tab: mode === 'link' ? 'roblox' : undefined
+            tab: mode === 'link' ? 'roblox' : undefined,
+            returnTo
         });
     }
 
@@ -1286,7 +1288,10 @@ async function handleRobloxCallback(req, res) {
         await user.save();
         setAuthCookie(res, signSessionToken(user));
         await notifyDiscord('signup', { username: user.username }, req);
-        return redirectTo(res, buildRedirectUrl(req, '/profile', { roblox_welcome: '1', auth_event: 'sign_up', auth_method: 'roblox' }));
+        const destination = getSafeReturnPath(state.returnTo);
+        return redirectTo(res, buildRedirectUrl(req, destination === '/' ? '/profile' : destination, {
+            roblox_welcome: destination === '/' ? '1' : undefined, auth_event: 'sign_up', auth_method: 'roblox'
+        }));
     } catch (error) {
         console.error('Roblox OAuth callback error:', error);
         return robloxErrorRedirect(req, res, state, 'oauth_failed', 'Roblox sign-in failed. Please try again.');

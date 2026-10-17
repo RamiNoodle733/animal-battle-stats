@@ -90,3 +90,54 @@ test('the providers check reports whether Google sign-in is configured', () => w
         restore();
     }
 }));
+
+test('unavailable sign-in providers preserve collection intent and reject unsafe or looping destinations', () => withEnv({
+    GOOGLE_CLIENT_ID: undefined, GOOGLE_CLIENT_SECRET: undefined,
+    ROBLOX_CLIENT_ID: undefined, ROBLOX_CLIENT_SECRET: undefined,
+    GITHUB_CLIENT_ID: undefined, GITHUB_CLIENT_SECRET: undefined
+}, async () => {
+    const { handler, restore } = loadHandler();
+    try {
+        for (const provider of ['google', 'roblox', 'github']) {
+            for (const [returnTo, expected] of [
+                ['/collection?animal=african-lion', '/collection?animal=african-lion'],
+                ['/compare?a=gorilla#fight', '/compare?a=gorilla#fight'],
+                ['//evil.example', '/'], ['/\\evil.example', '/'], ['/login?returnTo=/login', '/'],
+                ['/API/auth?action=logout', '/'], ['https://evil.example', '/'],
+                ['/collection/../login', '/'], ['/%61pi/auth?action=logout', '/'],
+                ['/%2f%2fevil.example', '/'], ['/%5cevil.example', '/'],
+                ['/collection/../api/auth', '/'], ['/%zz', '/']
+            ]) {
+                const res = response();
+                await handler({ method: 'GET', query: { action: `${provider}-start`, returnTo }, headers: { host: 'animalbattlestats.com' } }, res);
+                const destination = new URL(res.getHeader('Location'));
+                assert.equal(destination.origin, 'https://animalbattlestats.com');
+                assert.equal(destination.pathname, '/login');
+                assert.equal(destination.searchParams.get('returnTo'), expected, `${provider}: ${returnTo}`);
+            }
+        }
+    } finally { restore(); }
+}));
+
+test('cancelled provider sign-in keeps the signed original destination for another login method', () => withEnv({
+    GOOGLE_CLIENT_ID: 'test-client', GOOGLE_CLIENT_SECRET: 'test-secret',
+    ROBLOX_CLIENT_ID: 'test-client', ROBLOX_CLIENT_SECRET: 'test-secret',
+    GITHUB_CLIENT_ID: 'test-client', GITHUB_CLIENT_SECRET: 'test-secret'
+}, async () => {
+    const { handler, restore } = loadHandler();
+    try {
+        for (const provider of ['google', 'roblox', 'github']) {
+            const start = response();
+            const headers = { host: 'animalbattlestats.com' };
+            await handler({ method: 'GET', query: { action: `${provider}-start`, returnTo: '/collection?animal=gorilla' }, headers }, start);
+            const state = new URL(start.getHeader('Location')).searchParams.get('state');
+            const cookies = [].concat(start.getHeader('Set-Cookie')).map((cookie) => cookie.split(';')[0]).join('; ');
+            const res = response();
+            await handler({ method: 'GET', query: { action: `${provider}-callback`, state, error: 'access_denied' }, headers: { ...headers, cookie: cookies } }, res);
+            const destination = new URL(res.getHeader('Location'));
+            assert.equal(destination.pathname, '/login');
+            assert.equal(destination.searchParams.get(`${provider}_error`), 'cancelled');
+            assert.equal(destination.searchParams.get('returnTo'), '/collection?animal=gorilla');
+        }
+    } finally { restore(); }
+}));

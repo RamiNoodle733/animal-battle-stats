@@ -183,8 +183,8 @@ test('the callback rejects a state that does not match the cookie, before callin
     });
 }));
 
-async function callback(handler, { action = 'roblox-start', session } = {}) {
-    const start = await startFlow(handler, { action, headers: session ? { cookie: `abs_auth_token=${session}` } : {} });
+async function callback(handler, { action = 'roblox-start', session, query = {} } = {}) {
+    const start = await startFlow(handler, { action, query, headers: session ? { cookie: `abs_auth_token=${session}` } : {} });
     const nonce = new URL(start.getHeader('Location')).searchParams.get('state');
     const stateCookie = cookieValue(start, 'abs_roblox_oauth').value;
     const cookies = [`abs_roblox_oauth=${encodeURIComponent(stateCookie)}`];
@@ -242,6 +242,21 @@ test('a returning Roblox player signs in to their linked account and their names
         assert.equal(existing.roblox.username, 'TigerKid_22');
         assert.equal(existing.roblox.displayName, 'Tiger Kid');
         assert.equal(existing.authProviders.filter((provider) => provider.provider === 'roblox').length, 1);
+    });
+}));
+
+test('a new Roblox player returns to the card they chose instead of losing collection intent', () => withApi(CONFIGURED, async (handler) => {
+    User.findOne = async () => null;
+    User.exists = async () => null;
+    User.prototype.save = async function save() { return this; };
+    await withFetch(ROBLOX_ROUTES, async () => {
+        const { res } = await callback(handler, { query: { returnTo: '/collection?animal=gorilla' } });
+        const target = new URL(res.getHeader('Location'));
+        assert.equal(target.pathname, '/collection');
+        assert.equal(target.searchParams.get('animal'), 'gorilla');
+        assert.equal(target.searchParams.get('auth_event'), 'sign_up');
+        assert.equal(target.searchParams.has('roblox_welcome'), false);
+        assert.ok(cookieValue(res, 'abs_auth_token'));
     });
 }));
 

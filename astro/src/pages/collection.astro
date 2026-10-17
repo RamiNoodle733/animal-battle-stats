@@ -94,18 +94,21 @@ const description = `Collect ${animals.length} animal battle cards: get a free w
                 </div>
             </section>
 
-            <section class="panel col-how enter-3">
-                <div class="panel-head"><Icon name="book" size={26} /><h2 class="panel-title">How to get cards</h2></div>
+            <details class="panel col-how enter-3">
+                <summary class="panel-head"><Icon name="book" size={26} /><h2 class="panel-title">How to get cards</h2></summary>
                 <ul>
                     {WAYS.map(([icon, label, text, href]) => (
                         <li>{icon === 'roblox' ? <RobloxMark size={22} /> : <Icon name={icon} size={24} />}<span><b>{href ? <a href={href}>{label}</a> : label}</b><small>{text}</small></span></li>
                     ))}
                 </ul>
                 <p class="small muted col-fine">No packs and nothing random: you always know which card you get.</p>
-            </section>
+            </details>
         </aside>
 
         <section class="panel col-binder enter-2" aria-label="The binder">
+            <div class="col-error" data-col-error role="status" hidden>
+                <p data-col-error-message></p><button type="button" class="btn btn-sm" data-col-retry>Try again</button>
+            </div>
             <div class="col-starter" data-col-starter hidden>
                 <h2 class="sub-h">Pick your starter</h2>
                 <p class="small muted">Your first card. You can collect the other two later.</p>
@@ -127,6 +130,7 @@ const description = `Collect ${animals.length} animal battle cards: get a free w
                 </select>
                 <input class="field col-search" type="search" placeholder="Find a card" aria-label="Find a card" data-search />
             </div>
+            <p class="col-focus small" data-col-focus hidden></p>
             <ol class="binder" data-binder>
                 {slots.map((slot) => (
                     <li class={`slot t-${slot.tier.toLowerCase()}`} data-slug={slot.slug} data-tier={slot.tier} data-group={slot.group} data-name={slot.name.toLowerCase()} data-price={slot.price} data-game={slot.game?.id}>
@@ -150,6 +154,15 @@ const description = `Collect ${animals.length} animal battle cards: get a free w
 
 <style>
     .col { grid-template-columns: minmax(270px, 330px) minmax(0, 1fr); max-width: 1500px; margin: 0 auto; }
+    .col-error { padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    .col-error p { margin: 0 0 8px; color: var(--text-2); }
+    .col-error[hidden] { display: none; }
+    .col-how summary { cursor: pointer; min-height: 48px; list-style: none; }
+    .col-how summary::after { content: '+'; margin-left: auto; color: var(--gold-2); font-size: 1.5rem; }
+    .col-how[open] summary::after { content: '−'; }
+    .col-how summary::-webkit-details-marker { display: none; }
+    .col-focus { margin: 0; padding: 10px 14px; background: rgba(246, 180, 0, 0.08); border-bottom: 1px solid var(--line); }
+    .col-focus a { text-decoration: underline; text-underline-offset: 3px; margin-left: 10px; }
     .col-side { min-height: 0; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
     .col-progress { padding: 14px 16px; gap: 8px; flex: none; }
     .col-progress .eyebrow { margin: 0; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-2); }
@@ -235,6 +248,7 @@ const description = `Collect ${animals.length} animal battle cards: get a free w
     .col-empty { margin: 8px 0; }
     .col-empty[hidden] { display: none; }
     .col[data-state="loading"] .binder { opacity: 0.7; }
+    .col[data-focus="true"] .binder { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
     @media (prefers-reduced-motion: reduce) { .slot.is-new .slot-card { animation: none; } }
 
     @media (max-width: 900px) {

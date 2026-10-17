@@ -46,6 +46,7 @@ const queryVariants = [
     ['/?utm_source=contract-test', `${SITE_ORIGIN}/`],
     ['/stats?animal=african-elephant&sort=rank', `${SITE_ORIGIN}/stats`],
     ['/vote?m=siberian-tiger-vs-african-lion', `${SITE_ORIGIN}/vote`],
+    ['/collection?animal=african-lion', `${SITE_ORIGIN}/collection`],
     ['/compare?animals=african-lion,african-elephant', `${SITE_ORIGIN}/compare`]
 ];
 for (const [pathname, expectedCanonical] of queryVariants) {

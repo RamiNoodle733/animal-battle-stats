@@ -11,10 +11,12 @@ import AnimalImage from '../components/AnimalImage.astro';
 import RobloxMark from '../components/RobloxMark.astro';
 import { getAnimal, animals, gameAnimals } from '../lib/catalog.js';
 import { SITE, ROBLOX, absoluteUrl } from '../lib/site.js';
+import gameData from '../../../data/roblox-game-data.json';
 
 const fan = ['honey-badger', 'megalodon', 'army-ant'].map(getAnimal).filter(Boolean);
+const oceanBoss = getAnimal(gameData.biomes.find((biome) => biome.id === 'OCEAN')?.boss)?.name;
 const title = `Animal Battle Stats on Roblox: Collect ${gameAnimals.length} Real Animals & Battle | ${SITE.name}`;
-const description = `The Animal Battle Stats Roblox game: collect all ${gameAnimals.length} real animals as holo-cards, power them up and battle across eight biome islands. Free to play, no loot boxes. ${ROBLOX.live ? 'Play now on Roblox.' : 'Coming soon to Roblox.'}`;
+const description = `The Animal Battle Stats Roblox game: collect all ${gameAnimals.length} real animals as holo-cards, power them up and battle across ${gameData.biomes.length} biome islands. Free to play, no loot boxes. ${ROBLOX.live ? 'Play now on Roblox.' : 'Coming soon to Roblox.'}`;
 
 const { trailer, screenshots } = ROBLOX;
 const clips = ROBLOX.videos.map((clip) => ({ ...clip, art: clip.animal ? getAnimal(clip.animal) : null }));
@@ -28,7 +30,7 @@ const faq = [
     { q: 'Is Animal Battle Stats on Roblox?', a: ROBLOX.live ? `Yes. Animal Battle Stats is live on Roblox and free to play: ${ROBLOX.gameUrl}` : 'The Animal Battle Stats game is in development for Roblox. Join the Discord or check this page for the launch.' },
     { q: 'Is it free?', a: 'Yes, it is free to play. There are no loot boxes or paid packs, and nothing you can buy makes an animal stronger.' },
     { q: 'Are the animals the same as on the website?', a: `Yes. All ${gameAnimals.length} animals in the game, with their stats and home biomes, come straight from this site, so new research here changes the game too.${animals.length > gameAnimals.length ? ` The site also covers ${animals.length - gameAnimals.length} animals that are not in the game yet.` : ''}` },
-    { q: 'What do you do in the game?', a: 'Fly your champion card across floating biome islands, fight and recruit wild animals, level them up, beat island bosses (the Ocean boss is the Megalodon), and join server-wide shows, tournaments and raids.' },
+    { q: 'What do you do in the game?', a: `Fly your champion card across floating biome islands, fight and recruit wild animals, level them up, beat island bosses${oceanBoss ? ` (the Ocean boss is the ${oceanBoss})` : ''}, and join server-wide shows, tournaments and raids.` },
     { q: 'How do I connect my Roblox account?', a: 'Press Continue with Roblox on this page or Connect Roblox on your profile. Roblox asks you to approve it, and your profile then shows your progress in the game: trainer level, team, animals, islands and trophies. Roblox handles the sign-in, so this site never sees your Roblox password, and you can disconnect at any time.' },
     { q: 'Does my progress carry over between the game and the website?', a: `From the game to the website, yes: once your Roblox account is connected, your profile shows your trainer card and every animal you collect in the game joins your card collection here, with its level from the game. It does not go the other way: Roblox only allows in-game rewards for things done off Roblox as public promos, so nothing you do on the website gives you items in the game. Codes are the exception, because anyone can use them.` },
     { q: 'Is the game the same every day for everyone?', a: 'Yes. The Weekly Cup, the Family of the Week, the featured island, stampedes, raids, tournaments and the Coin Frenzy run on one shared clock, so every server has them at the same moment. The This week tab here shows them live.' }

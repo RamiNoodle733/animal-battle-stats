@@ -29,6 +29,8 @@ Repository and HTTP checks can prove that an OAI-SearchBot user agent is not blo
 
 ## Human/external checks
 
+Record significant public-page text, structured-data or link changes in `data/page-updates.json` (exact paths, or a bounded section pattern such as `/stats/*`). The sitemap uses the later of this date and the page's research date. Do not update dates for ordinary rebuilds, version labels or copyright footers. After deployment, run `npm run seo:indexnow` to submit recently changed canonical URLs; a successful submission is receipt, not proof of indexing. Search Console remains a separate check.
+
 - Confirm the production `version.json` commit matches the release commit before recording results.
 - Inspect representative desktop/mobile pages with JavaScript disabled; the title, direct page purpose, navigation and main content must remain visible.
 - Validate changed JSON-LD with Google's Rich Results Test when its type is eligible. A valid `WebPage` or `Dataset` does not guarantee a rich result.

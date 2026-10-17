@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.16.1 — 2026-10-17
+
+- **Accurate search update dates.** The sitemap now accounts for significant page and link changes as well as animal research dates, so today's home, collection and animal-page improvements are eligible for the normal changed-URL submission. Unchanged pages keep their real older dates; rebuilding does not mark the whole site as new.
+- **Roblox details follow the game data.** The game page's island count and Ocean boss answer come from the shared website game catalogue, replacing an outdated boss name. No game files or saves change.
+
 ## 4.16.0 — 2026-10-17
 
 - **Animals in the phone navigation.** Browse animals directly from the bottom bar. Cards remain in the home menu, account menu and full Menu. Home tiles fill their rows and classic matchups have direct links.

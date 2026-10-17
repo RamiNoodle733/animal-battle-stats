@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sitemapDates from '../lib/sitemap-dates.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -10,6 +11,7 @@ const SITE = 'https://animalbattlestats.com';
 const SKIP = new Set(['404.html']);
 
 const profiles = JSON.parse(fs.readFileSync(path.join(root, 'data', 'animal-profiles.json'), 'utf8')).animals;
+const pageUpdates = JSON.parse(fs.readFileSync(path.join(root, 'data', 'page-updates.json'), 'utf8'));
 // ABS Originals episodes get video entries (Google video search).
 const showFile = path.join(root, 'data', 'show-episodes.json');
 const showEpisodes = fs.existsSync(showFile) ? JSON.parse(fs.readFileSync(showFile, 'utf8')).episodes : [];
@@ -18,7 +20,7 @@ const episodeByPath = new Map(showEpisodes.map((episode) => [`/shows/${episode.s
 const showDates = (slug) => showEpisodes.filter((episode) => !slug || episode.show === slug).map((episode) => String(episode.uploadDate || '').slice(0, 10)).filter(Boolean).sort();
 const today = new Date().toISOString().slice(0, 10);
 const researchDates = Object.values(profiles).map((profile) => profile.researchedAt).filter(Boolean).sort();
-const latestResearch = researchDates.at(-1) || today;
+const latestResearch = researchDates.at(-1) || null;
 
 function escapeXml(value) {
     return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
@@ -38,7 +40,7 @@ function htmlFiles(directory, prefix = '') {
     return files;
 }
 
-function lastmodFor(pathname) {
+function researchDateFor(pathname) {
     const episode = episodeByPath.get(pathname);
     if (episode?.uploadDate) return episode.uploadDate.slice(0, 10);
     const show = pathname.match(/^\/shows(?:\/([a-z0-9-]+))?$/);
@@ -48,6 +50,10 @@ function lastmodFor(pathname) {
     const pair = pathname.match(/^\/compare\/([a-z0-9-]+)-vs-([a-z0-9-]+)$/);
     if (pair) return [profiles[pair[1]]?.researchedAt, profiles[pair[2]]?.researchedAt].filter(Boolean).sort().at(-1) || latestResearch;
     return latestResearch;
+}
+
+function lastmodFor(pathname) {
+    return sitemapDates.sitemapLastmod(pathname, researchDateFor(pathname), pageUpdates, today);
 }
 
 const entries = [];
@@ -87,7 +93,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${unique.map((entry) => `  <url>
     <loc>${escapeXml(entry.loc)}</loc>
-    <lastmod>${entry.lastmod}</lastmod>${entry.images.map((image) => `
+    ${entry.lastmod ? `<lastmod>${entry.lastmod}</lastmod>` : ''}${entry.images.map((image) => `
     <image:image><image:loc>${escapeXml(image.loc)}</image:loc></image:image>`).join('')}${entry.video ? `
     <video:video>
       <video:thumbnail_loc>${escapeXml(entry.video.thumbnail)}</video:thumbnail_loc>

@@ -48,6 +48,21 @@ const PERKS = [
                 <p class="auth-sub">{copy.sub}</p>
                 <p class="auth-note" data-note role="status" hidden></p>
 
+                {(mode === 'login' || mode === 'signup') && (
+                    <div class="provider-row" data-providers-row hidden>
+                    <div class="provider-choices">
+                    <a class="btn btn-roblox provider" href="/api/auth?action=roblox-start" data-roblox hidden><RobloxMark size={22} />Continue with Roblox</a>
+                    <a class="btn btn-white provider" href="/api/auth?action=google-start" data-google hidden>
+                        <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+                        Continue with Google
+                    </a>
+                    <a class="btn provider" href="/api/auth?action=github-start" data-github hidden>Continue with GitHub</a>
+                    </div>
+                    <p class="small muted" data-provider-status role="status"></p>
+                    <div class="or"><span>or use email</span></div>
+                    </div>
+                )}
+
                 <form class="auth-form" data-form novalidate>
                     {mode === 'login' && (<>
                         <label class="fld"><span>Email or username</span><input name="login" type="text" autocomplete="username" required maxlength="120" /></label>
@@ -75,17 +90,7 @@ const PERKS = [
                 {(mode === 'login' || mode === 'signup' || mode === 'reset') && <label class="small"><input type="checkbox" data-show-password /> Show passwords</label>}
 
                 {(mode === 'login' || mode === 'signup') && (<>
-                    <div class="provider-row" data-providers-row hidden>
-                    <div class="or"><span>or</span></div>
-                    <a class="btn btn-roblox provider" href="/api/auth?action=roblox-start" data-roblox hidden><RobloxMark size={22} />Continue with Roblox</a>
-                    <a class="btn btn-white provider" href="/api/auth?action=google-start" data-google hidden>
-                        <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
-                        Continue with Google
-                    </a>
-                    <a class="btn provider" href="/api/auth?action=github-start" data-github hidden>Continue with GitHub</a>
-                    <p class="small muted" data-provider-status role="status"></p>
                     <p class="small muted">Use one ABS account for your cards, votes and rewards. Already have an account? Sign in first, then connect other accounts from Profile → Account.</p>
-                    </div>
                     <p class="legal small">By continuing you agree to the <a class="link" href="/terms">terms</a> and to play nice. We never sell your data (<a class="link" href="/privacy">privacy</a>).</p>
                 </>)}
                 {(mode === 'forgot' || mode === 'reset') && <p class="small back"><a class="link" href="/login">Back to log in</a></p>}
@@ -133,12 +138,16 @@ const PERKS = [
     .or::before, .or::after { content: ""; height: 1px; background: var(--line-2); }
     .provider-row { display: grid; gap: 10px; }
     .provider-row[hidden] { display: none; }
-    .provider { width: 100%; text-transform: none; letter-spacing: 0.02em; }
+    .provider-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .provider-choices [data-roblox] { grid-column: 1 / -1; }
+    .provider { width: 100%; min-width: 0; font-size: 1.05rem; text-transform: none; letter-spacing: 0.02em; }
+    .provider-row p:empty { display: none; }
+    @media (max-width: 520px) { .provider-choices { grid-template-columns: minmax(0, 1fr); } }
     .legal, .back { margin: 0; text-align: center; color: var(--dim); }
 
     @media (max-width: 900px) {
-        .auth { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); align-items: start; gap: 10px; }
-        .auth-hero { gap: 0; }
+        .auth { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); align-items: start; gap: 10px; }
+        .auth-hero { display: none; }
         .perks { display: none; }
         .hero-cards :global(.card) { width: 92px; }
         .hero-cards :global(.card:nth-child(2)) { width: 108px; }

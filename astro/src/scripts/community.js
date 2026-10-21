@@ -6,6 +6,7 @@ import { loadAnimalIndex, escapeHtml, toast } from './site.js';
 import { sfx } from './sfx.js';
 import { mountStats } from './community-stats.js';
 import { mountComments } from './comments.js';
+import { playerLink } from './player-link.js';
 
 const hub = document.querySelector('[data-hub]');
 const animalsPromise = loadAnimalIndex().then((list) => new Map(list.map((animal) => [animal.n.toLowerCase(), animal])));
@@ -99,7 +100,7 @@ cancelTalk.addEventListener('click', resetTalkReply);
 async function messageHtml(message, depth = 0) {
     const replies = await Promise.all((message.replies || []).map((reply) => messageHtml(reply, depth + 1)));
     return `<article class="msg${depth ? ' reply' : ''}" data-id="${escapeHtml(message._id)}">
-        <header>${await avatar(message.profileAnimal)}<b>${escapeHtml(message.isAnonymous ? 'Anonymous' : message.authorUsername)}</b><time>${ago(message.createdAt)}</time></header>
+        <header>${playerLink(message.isAnonymous ? null : message.profileUrl, message.isAnonymous ? 'Anonymous' : message.authorUsername, await avatar(message.isAnonymous ? null : message.profileAnimal))}<time>${ago(message.createdAt)}</time></header>
         <p>${escapeHtml(message.content)}</p>
         <footer>
             <button type="button" class="vote up${message.userVote === 'up' ? ' on' : ''}" data-vote="up" aria-label="Upvote" aria-pressed="${message.userVote === 'up'}">▲</button>
@@ -186,7 +187,7 @@ async function loadComments(more = false) {
         const items = await Promise.all((body.data || []).map(async (comment) => {
             const animal = comment.animalName ? animals.get(comment.animalName.toLowerCase()) : null;
             const tag = animal ? `<a class="chip chip-cyan" href="/stats/${animal.s}"><img src="${animal.i}" alt="" width="16" height="16">${escapeHtml(animal.n)}</a>` : '';
-            return `<article class="msg"><header>${await avatar(comment.profileAnimal)}<b>${escapeHtml(comment.authorUsername)}</b><time>${ago(comment.createdAt)}</time>${tag}</header><a class="thread-link" href="/community?thread=${encodeURIComponent(comment._id)}"><p>${escapeHtml(comment.content)}</p><span class="chip chip-cyan">Open thread · ${Number(comment.replyCount) || 0} replies</span></a></article>`;
+            return `<article class="msg"><header>${playerLink(comment.isAnonymous ? null : comment.profileUrl, comment.isAnonymous ? 'Anonymous' : comment.authorUsername, await avatar(comment.isAnonymous ? null : comment.profileAnimal))}<time>${ago(comment.createdAt)}</time>${tag}</header><a class="thread-link" href="/community?thread=${encodeURIComponent(comment._id)}"><p>${escapeHtml(comment.content)}</p><span class="chip chip-cyan">Open thread · ${Number(comment.replyCount) || 0} replies</span></a></article>`;
         }));
         if (!more) box.innerHTML = items.length ? items.join('') : '<p class="empty-state">No comments yet.</p>';
         else box.insertAdjacentHTML('beforeend', items.join(''));
@@ -289,7 +290,7 @@ async function loadPlayers() {
         const body = await getJson('/api/community?action=leaderboard&limit=20');
         const rows = await Promise.all((body.data || []).map(async (player) => `<li class="player">
             <b class="pos">${player.rank}</b>${await avatar(player.profileAnimal)}
-            <span class="pname"><strong>${escapeHtml(player.username)}</strong>${player.title ? `<small class="ptitle">${escapeHtml(player.title)}</small>` : ''}<span class="xpbar"><i style="width:${Math.min(100, Number(player.xpProgress) || 0)}%"></i></span></span>
+            <span class="pname">${playerLink(player.profileUrl, player.username)}${player.title ? `<small class="ptitle">${escapeHtml(player.title)}</small>` : ''}<span class="xpbar"><i style="width:${Math.min(100, Number(player.xpProgress) || 0)}%"></i></span></span>
             <span class="lvl" title="Level">${Number(player.level) || 1}</span>
             <span class="bp"><img src="/images/ui/icons/coin.svg" alt="" width="18" height="18">${compact(player.battlePoints)}</span>
         </li>`));

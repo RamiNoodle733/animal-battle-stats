@@ -24,6 +24,7 @@ const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-l
 const mongoose = require('mongoose');
 const { buildAtomicVotePipeline } = require('../lib/atomic-vote');
 const { serializeCommunityItem } = require('../lib/community-serializer');
+const { publicProfileUrl } = require('../lib/player-profile');
 const { enforceRequestSecurity } = require('../lib/request-security');
 const { collectDescendantIds } = require('../lib/community-tree');
 
@@ -90,7 +91,7 @@ function buildMessageTree(messages, userMap, viewerId, canModerate) {
             message.authorUsername = currentUser.displayName || message.authorUsername;
             message.profileAnimal = currentUser.profileAnimal ?? message.profileAnimal;
         }
-        message = serializeCommunityItem(message, { viewerId, canModerate });
+        message = serializeCommunityItem(message, { viewerId, canModerate, profileUrl: currentUser?.profileUrl });
         
         messageMap[message._id.toString()] = message;
     });
@@ -221,6 +222,7 @@ async function handleGetFeed(req, res) {
         userMap[u._id.toString()] = {
             displayName: publicName(u),
             username: u.username,
+            profileUrl: publicProfileUrl(u),
             profileAnimal: u.profileAnimal
         };
     });
@@ -245,10 +247,10 @@ async function handleGetFeed(req, res) {
                     ...r,
                     authorUsername: replyUser?.displayName || r.authorUsername,
                     profileAnimal: replyUser?.profileAnimal ?? r.profileAnimal,
-                }, { viewerId: viewer?.id, canModerate });
+                }, { viewerId: viewer?.id, canModerate, profileUrl: replyUser?.profileUrl });
             }),
             animalImage
-        }, { viewerId: viewer?.id, canModerate });
+        }, { viewerId: viewer?.id, canModerate, profileUrl: currentUser?.profileUrl });
     });
 
     const totalCount = await Comment.countDocuments({
@@ -307,6 +309,7 @@ async function handleGet(req, res) {
         userMap[u._id.toString()] = {
             displayName: publicName(u),
             username: u.username,
+            profileUrl: publicProfileUrl(u),
             profileAnimal: u.profileAnimal
         };
     });
@@ -389,7 +392,7 @@ async function handlePost(req, res) {
 
     return res.status(201).json({
         success: true,
-        data: { ...serializeCommunityItem(message, { viewerId: user.id }), replies: [] }
+        data: { ...serializeCommunityItem(message, { viewerId: user.id, profileUrl: publicProfileUrl(userDoc) }), replies: [] }
     });
 }
 

@@ -11,6 +11,8 @@ const $$ = (selector) => [...root.querySelectorAll(selector)];
 const publicName = decodeURIComponent(location.pathname.split('/')[2] || '');
 const fmt = (value) => Number(value || 0).toLocaleString('en-US');
 let me = null;
+let viewedPlayer = null;
+let staffRequested = false;
 // False once the server says it sends no email (then nothing can be verified).
 let emailOn = true;
 let picked = null;
@@ -275,9 +277,29 @@ async function loadPublic() {
     }
     root.dataset.state = 'public';
     const user = result.body.data.user;
+    viewedPlayer = user;
     paintCard(user, false);
     paintPublicGame(user);
+    loadStaffView();
 }
+
+// Private moderation data comes from the existing role-checked admin API,
+// separately from the public card. Nothing private is added to public responses.
+async function loadStaffView() {
+    const role = window.ABS_USER?.role;
+    if (!viewedPlayer || staffRequested || !['admin', 'moderator'].includes(role)) return;
+    staffRequested = true;
+    const result = await api(`action=admin&op=users&filter=all&q=${encodeURIComponent(publicName)}`);
+    if (!result.ok) return;
+    const player = (result.body.data?.users || []).find((user) => user.username.toLowerCase() === publicName.toLowerCase());
+    if (!player) return;
+    const date = (value) => value ? new Date(value).toLocaleString() : 'Not recorded';
+    $('[data-p-staff-summary]').textContent = `@${player.username} · ${player.role || 'user'}${player.owner ? ' · Owner' : ''} · Joined ${date(player.createdAt)} · Last login ${date(player.lastLogin)}`;
+    $('[data-p-staff-status]').textContent = [player.hidden ? `Name hidden (${player.shownAs})` : 'Name visible', player.mutedUntil ? `Muted until ${date(player.mutedUntil)}` : 'Not muted', player.reason, player.mutedReason].filter(Boolean).join(' · ');
+    $('[data-p-manage]').href = `/admin?filter=all&q=${encodeURIComponent(player.username)}`;
+    $('[data-p-staff]').hidden = false;
+}
+document.addEventListener('abs:user', loadStaffView);
 
 // Someone else's progress in the Roblox game (and their Roblox name, if they chose to show it).
 async function paintPublicGame(user) {

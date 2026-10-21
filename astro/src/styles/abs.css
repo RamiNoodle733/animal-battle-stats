@@ -186,10 +186,11 @@ body.game {
 .brand-word b { font-size: 1.08rem; letter-spacing: 0.04em; }
 .brand-word span { font-size: 0.74rem; letter-spacing: 0.4em; color: var(--gold); }
 
-.menu { display: flex; align-items: stretch; height: 100%; margin-left: 10px; }
+.menu { display: flex; flex: none; align-items: stretch; height: 100%; margin-left: 10px; }
 .menu a {
     position: relative;
     display: flex;
+    flex: none;
     align-items: center;
     gap: 7px;
     padding: 0 12px;
@@ -201,7 +202,7 @@ body.game {
     color: var(--muted);
     transition: color 0.15s;
 }
-.menu a .ui-icon { width: 18px; height: 18px; opacity: 0.85; }
+.menu a .ui-icon, .menu a .rbx-mark { flex: none; width: 18px; height: 18px; opacity: 0.85; }
 .menu a:hover { color: var(--text); }
 .menu a[aria-current="page"] { color: #fff; }
 .menu a[aria-current="page"] .ui-icon { color: var(--gold); opacity: 1; }
@@ -214,7 +215,7 @@ body.game {
     border-radius: 3px 3px 0 0;
 }
 
-.hud-right { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.hud-right { display: flex; flex: none; align-items: center; gap: 8px; margin-left: auto; }
 .hud-btn {
     position: relative;
     display: inline-grid;
@@ -237,6 +238,9 @@ body.game {
 
 .player-chip {
     display: flex;
+    flex: none;
+    width: 252px;
+    min-width: 0;
     align-items: center;
     gap: 8px;
     height: 40px;
@@ -249,6 +253,7 @@ body.game {
     font-size: 0.85rem;
     white-space: nowrap;
 }
+.player-chip:not(.signed-in) { justify-content: center; }
 /* Player level: the gold hex emblem (images/ui/level.svg) with the number on it. */
 .player-chip .lvl {
     display: grid; place-items: center;
@@ -258,7 +263,11 @@ body.game {
     text-shadow: 0 1px 2px #000, 0 0 6px rgba(0, 0, 0, 0.6);
     background: url("/images/ui/level.svg") center / contain no-repeat;
 }
-.player-chip .who { display: flex; flex-direction: column; line-height: 1.05; }
+.player-chip .who { display: flex; flex: 1; min-width: 0; flex-direction: column; line-height: 1.05; }
+.player-chip .who > span:first-child { overflow: hidden; text-overflow: ellipsis; }
+.player-chip .lvl, .player-chip .bp, .player-chip .bp img { flex: none; }
+.player-chip .bp { max-width: 96px; }
+.player-chip .bp > span { overflow: hidden; text-overflow: ellipsis; }
 .player-chip .xpbar { width: 70px; height: 4px; margin-top: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
 .player-chip .xpbar i { display: block; height: 100%; background: var(--gold); }
 .player-chip .bp { display: flex; align-items: center; gap: 4px; color: var(--gold-2); font-family: var(--font-display); font-size: 1.05rem; }
@@ -266,21 +275,35 @@ body.game {
 
 .play-btn { height: 40px; }
 
+/* Reserve the account slot before the session loads. Navigation never borrows
+   space from its icons when the login label becomes a name and wallet. */
+@media (max-width: 1740px) {
+    .menu a { padding: 0 9px; gap: 6px; font-size: 0.95rem; }
+    .player-chip { width: 218px; }
+}
+@media (max-width: 1600px) {
+    .brand-word { display: none; }
+}
+@media (max-width: 1500px) {
+    .player-chip { width: 150px; }
+    .player-chip .bp { display: none; }
+}
 @media (max-width: 1366px) {
     .play-btn .long { display: none; }
 }
 @media (max-width: 1440px) {
     .menu a { padding: 0 9px; font-size: 0.95rem; }
-    .menu a .ui-icon { display: none; }
+    .menu a .ui-icon, .menu a .rbx-mark { display: none; }
 }
 @media (max-width: 1240px) {
     .player-chip .who { display: none; }
+    .player-chip { width: 50px; padding: 0 7px; }
     .brand-word { display: none; }
 }
 @media (max-width: 1080px) {
     .menu a { padding: 0 8px; }
     .menu a span { display: none; }
-    .menu a .ui-icon { display: block; width: 22px; height: 22px; }
+    .menu a .ui-icon, .menu a .rbx-mark { display: block; width: 22px; height: 22px; }
 }
 @media (max-width: 760px) {
     :root { --hud-h: 52px; --dock-h: calc(60px + env(safe-area-inset-bottom)); }
@@ -290,8 +313,14 @@ body.game {
     .hud .hud-sound, .hud .play-btn { display: none; }
     .brand-word { display: none; }
     .player-chip .who, .player-chip .bp { display: none; }
-    .player-chip { padding: 0 4px; }
+    .player-chip { width: 44px; padding: 0 4px; }
 }
+
+.player-link { display: inline-flex; align-items: center; gap: 8px; min-width: 0; max-width: 100%; color: inherit; border-radius: 5px; }
+.player-link b, .player-link strong { overflow-wrap: anywhere; }
+.player-link:hover { color: var(--gold-2); text-decoration: underline; text-underline-offset: 3px; }
+.player-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.player-link .av, .player-link .cm-av { flex: none; }
 @media (max-width: 420px) {
     .hud { gap: 8px; }
     .hud-right { gap: 6px; }

@@ -167,7 +167,7 @@ test('presence counts every recent tab but only names signed-in players', async 
         assert.equal(res.body.count, 5);
         assert.equal(res.body.guests, 3);
         // A player whose account is gone is still counted, just not listed.
-        assert.deepEqual(res.body.data, [{ username: 'Rami', profileAnimal: 'Orca', page: '/rankings' }]);
+        assert.deepEqual(res.body.data, [{ username: 'Rami', profileUrl: '/profile/rami', profileAnimal: 'Orca', page: '/rankings' }]);
         for (const filter of filters) {
             const windowMs = before - filter.lastSeen.$gte.getTime();
             assert.ok(windowMs >= 119000 && windowMs <= 121000, `window ${windowMs}ms`);

@@ -46,6 +46,12 @@ const EARN = [
                 <div><b data-p-prestige>0</b><span>Prestige</span></div>
             </div>
             <p class="p-since small" data-p-since></p>
+            <aside class="p-staff" data-p-staff hidden aria-label="Player moderation">
+                <h2 class="panel-title">Admin view</h2>
+                <p class="small" data-p-staff-summary></p>
+                <p class="small" data-p-staff-status></p>
+                <a class="btn btn-sm" data-p-manage href="/admin">Manage player</a>
+            </aside>
             <a class="p-cards" href="/collection" data-p-cards hidden>
                 <span class="p-cards-n"><b data-p-cards-n>0</b><small>/ {rosterSize} cards</small></span>
                 <span class="p-cards-best" data-p-cards-best></span>
@@ -191,6 +197,10 @@ const EARN = [
 <style>
     .prof { height: 100%; display: grid; grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.2fr) minmax(260px, 0.8fr); gap: 12px; max-width: 1500px; margin: 0 auto; }
     .prof[data-state="loading"] > .panel { opacity: 0.55; }
+    .p-staff { padding: 12px; border: 1px solid var(--gold); border-radius: 10px; background: rgba(246, 180, 0, 0.06); }
+    .p-staff[hidden] { display: none; }
+    .p-staff .panel-title { font-size: 1.05rem; }
+    .p-staff p { margin: 8px 0; overflow-wrap: anywhere; }
     .prof[data-state="public"] [data-p-owner-only] { display: none; }
     .prof[data-state="public"] { grid-template-columns: minmax(280px, 420px) minmax(260px, 380px); justify-content: center; }
     .prof[data-state="missing"] > .panel:not(.p-empty) { display: none; }
@@ -326,6 +336,7 @@ const EARN = [
         .p-xp { grid-area: xp; }
         .p-nums { grid-area: nums; }
         .p-since { display: none; }
+        .p-staff { grid-column: 1 / -1; }
         .p-lvl { width: 40px; height: 40px; font-size: 1.2rem; }
         .prof[data-state="public"] { grid-template-columns: minmax(0, 1fr); }
         /* someone's game progress on a phone: the page scrolls instead of the panel */

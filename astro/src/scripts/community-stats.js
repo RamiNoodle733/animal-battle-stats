@@ -6,6 +6,7 @@
 // owner admin-overview|admin-analytics|admin-settings.
 import { escapeHtml, toast } from './site.js';
 import { mountGlobe } from './world.js';
+import { playerLink } from './player-link.js';
 
 const DAY = 24 * 60 * 60 * 1000;
 const fmt = (value) => Number(value || 0).toLocaleString('en-US');
@@ -110,7 +111,7 @@ export function mountStats(root, { avatar }) {
             const guests = Number(body.guests) || 0;
             set('[data-st-online]', fmt(count));
             set('[data-st-online-split]', `${fmt(count - guests)} player${count - guests === 1 ? '' : 's'} · ${fmt(guests)} guest${guests === 1 ? '' : 's'}`);
-            const rows = await Promise.all((body.data || []).slice(0, 30).map(async (user) => `<li>${await avatar(user.profileAnimal)}<b>${escapeHtml(user.username)}</b><small>${escapeHtml(pageName(user.page))}</small></li>`));
+            const rows = await Promise.all((body.data || []).slice(0, 30).map(async (user) => `<li>${playerLink(user.profileUrl, user.username, await avatar(user.profileAnimal))}<small>${escapeHtml(pageName(user.page))}</small></li>`));
             $('[data-st-online-list]').innerHTML = rows.join('') || '<li class="muted small">No players signed in right now.</li>';
             $('[data-st-updated]').textContent = `Updated ${new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}`;
         } catch {
@@ -584,7 +585,7 @@ export function mountStats(root, { avatar }) {
             const online = data.online || [];
             set('[data-ev-online-n]', online.length ? `${fmt(online.length)} now` : '');
             $('[data-ev-online]').innerHTML = online.length
-                ? online.map((row) => `<li><span><span class="dot"></span><b>${escapeHtml(row.who)}</b><br />${row.pageLabel ? link(row.pageUrl, row.pageLabel) : '<small>somewhere</small>'}</span><small>${ago(row.lastSeen)}</small></li>`).join('')
+                ? online.map((row) => `<li><span><span class="dot"></span>${playerLink(row.player ? `/profile/${encodeURIComponent(row.who)}` : null, row.who)}<br />${row.pageLabel ? link(row.pageUrl, row.pageLabel) : '<small>somewhere</small>'}</span><small>${ago(row.lastSeen)}</small></li>`).join('')
                 : '<li class="muted small">Nobody right now.</li>';
             const t = data.today || {};
             const tiles = [['Page views', t.pageViews], ['Visits', t.visits], ['Visitors', t.visitors], ['Sign-ups', t.signups], ['Logins', t.logins], ['Fights', t.fights], ['Votes', t.votes], ['Comments', t.comments], ['Arena chat', t.chat], ['Tournaments', t.tournaments]];
@@ -592,7 +593,7 @@ export function mountStats(root, { avatar }) {
             $('[data-ev-pages]').innerHTML = bars((data.topPages || []).map((row) => ({ label: `${link(row.url, row.label)} <small>${escapeHtml(row.kind)}</small>`, value: row.views, note: `${fmt(row.visitors)} visitors` })), { empty: 'No page views today.' });
             $('[data-ev-refs]').innerHTML = bars((data.referrers || []).map((row) => ({ label: escapeHtml(row.host), value: row.count })), { empty: 'Everyone came straight in this week.' });
             $('[data-ev-players]').innerHTML = (data.players || []).length
-                ? data.players.map((row) => `<li><span><button type="button" class="link-btn" data-ev-player="${escapeHtml(row.username)}">${escapeHtml(row.username)}</button></span><small>${fmt(row.events)} events · ${ago(row.last)}</small></li>`).join('')
+                ? data.players.map((row) => `<li><span>${playerLink(`/profile/${encodeURIComponent(row.username)}`, row.username)} <button type="button" class="link-btn" data-ev-player="${escapeHtml(row.username)}">Events</button></span><small>${fmt(row.events)} events · ${ago(row.last)}</small></li>`).join('')
                 : '<li class="muted small">No signed-in players today.</li>';
             const discord = data.discord || {};
             $('[data-ev-discord]').textContent = discord.failed || discord.pending
@@ -606,7 +607,7 @@ export function mountStats(root, { avatar }) {
     // Settings: accounts left out, this browser, and what goes to Discord.
     function paintSettings(data) {
         $('[data-ev-ignored]').innerHTML = (data.excludedAccounts || []).length
-            ? data.excludedAccounts.map((row) => `<li><b>${escapeHtml(row.username)}</b><button type="button" class="btn btn-sm" data-ev-unignore="${escapeHtml(row.username)}">Show in Events</button></li>`).join('')
+            ? data.excludedAccounts.map((row) => `<li>${playerLink(`/profile/${encodeURIComponent(row.username)}`, row.username)}<button type="button" class="btn btn-sm" data-ev-unignore="${escapeHtml(row.username)}">Show in Events</button></li>`).join('')
             : '<li class="muted small">No saved view exclusions. Every account is tracked.</li>';
         filters.elements.exclude.value = (data.excludedAccounts || []).map((row) => row.username).join(', ');
         const form = $('[data-ev-discord-form]');

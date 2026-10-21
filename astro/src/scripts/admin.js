@@ -7,7 +7,11 @@ const app = $('[data-admin-app]');
 const gate = $('[data-admin-gate]');
 const rows = $('[data-rows]');
 const dialog = $('[data-dialog]');
-const view = { filter: 'names', q: '', page: 1, total: 0, pageSize: 50, you: null };
+const search = new URLSearchParams(location.search);
+const initialFilter = ['all', 'names', 'muted', 'staff'].includes(search.get('filter')) ? search.get('filter') : 'names';
+const view = { filter: initialFilter, q: (search.get('q') || '').trim().slice(0, 40), page: 1, total: 0, pageSize: 50, you: null };
+$('[data-search]').elements.q.value = view.q;
+document.querySelectorAll('[data-filter]').forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.filter === view.filter)));
 
 function fmtDate(value) {
     if (!value) return '–';

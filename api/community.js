@@ -24,6 +24,7 @@ const { waitUntil } = require('@vercel/functions');
 const { robloxSnapshot } = require('../lib/roblox-game');
 const { ITEM_BY_ID } = require('../lib/economy');
 const { publicName } = require('../lib/moderation');
+const { publicProfileUrl } = require('../lib/player-profile');
 const { describePage } = require('../lib/page-labels');
 
 // Presence lives in Mongo (lib/models/Presence.js) so every serverless instance
@@ -812,6 +813,7 @@ async function handleLeaderboard(req, res) {
         return {
             rank: index + 1,
             username: publicName(user),
+            profileUrl: publicProfileUrl(user),
             profileAnimal: user.profileAnimal,
             level,
             xp: xpProgress,
@@ -866,6 +868,7 @@ async function handleGetPresence(req, res) {
         if (!user) continue;
         onlineUsers.push({
             username: publicName(user),
+            profileUrl: publicProfileUrl(user),
             profileAnimal: user.profileAnimal || null,
             page: row.page || null
         });

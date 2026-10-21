@@ -143,6 +143,7 @@ const year = new Date().getFullYear();
             // Account links (a password reset's email and token) never reach analytics.
             var pageUrl = new URL(location.href);
             if (pageUrl.pathname.startsWith('/profile/')) pageUrl.pathname = '/profile';
+            if (pageUrl.pathname === '/admin') pageUrl.search = '';
             ['token', 'email', 'code', 'state', 'message', 'google_error', 'github_error', 'roblox_error', 'auth_event', 'auth_method', 'user', 'username', 'exclude'].forEach(function (key) { pageUrl.searchParams.delete(key); });
             window.gtag('config', GA_ID, { page_location: pageUrl.href });
             (function () {
@@ -231,6 +232,8 @@ const year = new Date().getFullYear();
                 <a class="sheet-link" href="/powerscaling">Animal powerscaling guide</a>
                 <a class="sheet-link" href="/credits">Sources &amp; photo credits</a>
                 <a class="sheet-link" href="/llms.txt">Data for AI assistants</a>
+                <a class="sheet-link" href="/admin" data-staff-link hidden>Admin · manage players</a>
+                <a class="sheet-link" href="/community#stats" data-owner-link hidden>Admin · activity &amp; analytics</a>
             </div>
             <div class="socials">
                 {SOCIAL.map((item) => <a class="chip" href={item.url} rel="me noopener" target="_blank">{item.name}</a>)}

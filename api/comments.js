@@ -16,6 +16,7 @@ const { enforceRateLimit, requestIdentity } = require('../lib/distributed-rate-l
 const mongoose = require('mongoose');
 const { buildAtomicVotePipeline } = require('../lib/atomic-vote');
 const { serializeCommunityItem } = require('../lib/community-serializer');
+const { publicProfileUrl } = require('../lib/player-profile');
 const { enforceRequestSecurity } = require('../lib/request-security');
 const { collectDescendantIds } = require('../lib/community-tree');
 
@@ -163,6 +164,7 @@ async function handleGet(req, res) {
                     userMap[u._id.toString()] = {
                         displayName: publicName(u),
                         username: u.username,
+                        profileUrl: publicProfileUrl(u),
                         profileAnimal: u.profileAnimal
                     };
                     if (viewer?.id === u._id.toString()) canModerate = ['admin', 'moderator'].includes(u.role);
@@ -183,6 +185,7 @@ async function handleGet(req, res) {
                 viewerId: viewer?.id,
                 canModerate,
                 authorUsername: currentUser?.displayName || c.authorUsername,
+                profileUrl: currentUser?.profileUrl,
                 profileAnimal: currentUser?.profileAnimal ?? c.profileAnimal
             });
         });
@@ -335,7 +338,7 @@ async function handlePost(req, res) {
 
     return res.status(201).json({
         success: true,
-        data: serializeCommunityItem(comment, { viewerId: user.id }),
+        data: serializeCommunityItem(comment, { viewerId: user.id, profileUrl: publicProfileUrl(userDoc) }),
         reward
     });
 }

@@ -3,6 +3,7 @@
 // Loads on first call and posts roots or nested replies with the session cookie.
 import { escapeHtml, toast, loadAnimalIndex, showReward } from './site.js';
 import { sfx } from './sfx.js';
+import { playerLink } from './player-link.js';
 
 function ago(value) {
     const seconds = Math.max(1, Math.round((Date.now() - new Date(value).getTime()) / 1000));
@@ -47,7 +48,7 @@ export function mountComments(root, target) {
         const icon = comment.profileAnimal ? icons.get(comment.profileAnimal.toLowerCase()) : null;
         const replies = await Promise.all((comment.replies || []).map((reply) => item(reply, depth + 1, icons)));
         return `<article class="cm${depth ? ' cm-reply' : ''}" data-id="${escapeHtml(comment._id)}">
-            <header>${icon ? `<img class="cm-av" src="${icon}" alt="" width="30" height="30" loading="lazy">` : '<span class="cm-av"></span>'}<b>${escapeHtml(comment.isAnonymous ? 'Anonymous' : comment.authorUsername)}</b><time>${ago(comment.createdAt)}</time></header>
+            <header>${playerLink(comment.isAnonymous ? null : comment.profileUrl, comment.isAnonymous ? 'Anonymous' : comment.authorUsername, icon && !comment.isAnonymous ? `<img class="cm-av" src="${icon}" alt="" width="30" height="30" loading="lazy">` : '<span class="cm-av"></span>')}<time>${ago(comment.createdAt)}</time></header>
             <p>${escapeHtml(comment.content)}</p>
             <footer>
                 <button type="button" class="cm-vote${comment.userVote === 'up' ? ' on' : ''}" data-vote="upvote" aria-label="Upvote">▲</button>

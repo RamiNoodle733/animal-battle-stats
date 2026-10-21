@@ -4,6 +4,7 @@
 // Roblox player's game animals are brought over by the server on load; the
 // binder shows each one's level in the game.
 import { authApi, escapeHtml, showReward, toast } from './site.js';
+import { playerLink } from './player-link.js';
 import { sfx } from './sfx.js';
 import { ago } from './roblox-trainer.js';
 import { measure } from './analytics.js';
@@ -263,7 +264,7 @@ async function loadOther(name) {
     }
     $('[data-col-error]').hidden = true;
     const data = result.body.data;
-    $('[data-col-owner]').textContent = `${data.player}'s collection`;
+    $('[data-col-owner]').innerHTML = `${playerLink(data.username ? `/profile/${encodeURIComponent(data.username)}` : null, data.player)}'s collection`;
     document.title = `${data.player}'s card collection | Animal Battle Stats`;
     $('[data-col-mine]').hidden = false;
     apply(data);

@@ -266,12 +266,15 @@ function paintChip(user) {
     if (!chip) return;
     const level = Number(user.level) || 1;
     const progress = user.xpToNext ? Math.min(100, Math.round(((Number(user.xp) || 0) / user.xpToNext) * 100)) : 0;
+    chip.title = `${user.displayName || user.username} · Level ${level} · ${Number(user.battlePoints || 0).toLocaleString('en-US')} BattlePoints`;
     chip.href = '/profile';
     chip.classList.add('signed-in');
     chip.innerHTML = `<span class="lvl" title="Level ${level}">${level}</span>
         <span class="who"><span>${escapeHtml(user.displayName || user.username)}</span><span class="xpbar"><i style="width:${progress}%"></i></span></span>
         <span class="bp" title="BattlePoints" data-wallet><img src="${COIN}" alt="" width="20" height="20"><span data-wallet-n>${Number(user.battlePoints || 0).toLocaleString('en-US')}</span></span>`;
     paintBadge(user.economy?.ready);
+    document.querySelectorAll('[data-staff-link]').forEach((link) => { link.hidden = !['admin', 'moderator'].includes(user.role); });
+    document.querySelectorAll('[data-owner-link]').forEach((link) => { link.hidden = user.role !== 'admin'; });
 }
 
 // Where flying coins land: the BattlePoints counter, or the Rewards button on narrow screens.

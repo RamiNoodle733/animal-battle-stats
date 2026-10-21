@@ -25,6 +25,7 @@ const { robloxSnapshot } = require('../lib/roblox-game');
 const { ITEM_BY_ID } = require('../lib/economy');
 const { publicName } = require('../lib/moderation');
 const { publicProfileUrl } = require('../lib/player-profile');
+const { readGlobeVisitors } = require('../lib/globe-visitors');
 const { describePage } = require('../lib/page-labels');
 
 // Presence lives in Mongo (lib/models/Presence.js) so every serverless instance
@@ -1069,7 +1070,7 @@ async function handleGlobe(req, res) {
         trendDateMatch.occurredAt = { $gte: new Date(now.getTime() - (trendRangeDays * 24 * 60 * 60 * 1000)) };
     }
 
-    const [summaryAgg, pointsAgg, actionsAgg, pagesAgg, trendAgg] = await Promise.all([
+    const [summaryAgg, pointsAgg, actionsAgg, pagesAgg, trendAgg, visitors] = await Promise.all([
         SiteActivity.aggregate([
             {
                 $group: {
@@ -1077,7 +1078,6 @@ async function handleGlobe(req, res) {
                     totalEvents: { $sum: 1 },
                     totalVisits: { $sum: { $cond: [IS_LANDING, 1, 0] } },
                     pageViews: { $sum: { $cond: [IS_PAGE_VIEW, 1, 0] } },
-                    uniqueVisitors: { $addToSet: '$visitorHash' }
                 }
             },
             {
@@ -1086,11 +1086,7 @@ async function handleGlobe(req, res) {
                     totalEvents: 1,
                     totalVisits: 1,
                     pageViews: 1,
-                    uniqueVisitors: {
-                        $size: {
-                            $setDifference: ['$uniqueVisitors', [null, '']]
-                        }
-                    }
+                    uniqueVisitors: 1
                 }
             }
         ]),
@@ -1115,7 +1111,6 @@ async function handleGlobe(req, res) {
                     totalEvents: { $sum: 1 },
                     totalVisits: { $sum: { $cond: [IS_LANDING, 1, 0] } },
                     pageViews: { $sum: { $cond: [IS_PAGE_VIEW, 1, 0] } },
-                    uniqueVisitors: { $addToSet: '$visitorHash' },
                     lastSeen: { $max: '$occurredAt' }
                 }
             },
@@ -1133,11 +1128,7 @@ async function handleGlobe(req, res) {
                     totalEvents: 1,
                     totalVisits: 1,
                     pageViews: 1,
-                    uniqueVisitors: {
-                        $size: {
-                            $setDifference: ['$uniqueVisitors', [null, '']]
-                        }
-                    },
+                    uniqueVisitors: 1,
                     lastSeen: 1
                 }
             },
@@ -1149,7 +1140,6 @@ async function handleGlobe(req, res) {
                 $group: {
                     _id: '$eventType',
                     count: { $sum: 1 },
-                    visitors: { $addToSet: '$visitorHash' }
                 }
             },
             {
@@ -1157,7 +1147,7 @@ async function handleGlobe(req, res) {
                     _id: 0,
                     key: '$_id',
                     count: 1,
-                    cohortSize: { $size: { $setDifference: ['$visitors', [null, '']] } }
+                    cohortSize: 1
                 }
             },
             { $sort: { count: -1 } }
@@ -1168,7 +1158,6 @@ async function handleGlobe(req, res) {
                 $group: {
                     _id: '$page',
                     count: { $sum: 1 },
-                    visitors: { $addToSet: '$visitorHash' }
                 }
             },
             {
@@ -1176,7 +1165,7 @@ async function handleGlobe(req, res) {
                     _id: 0,
                     key: '$_id',
                     count: 1,
-                    cohortSize: { $size: { $setDifference: ['$visitors', [null, '']] } }
+                    cohortSize: 1
                 }
             },
             { $sort: { count: -1 } },
@@ -1196,7 +1185,6 @@ async function handleGlobe(req, res) {
                     events: { $sum: 1 },
                     visits: { $sum: { $cond: [IS_LANDING, 1, 0] } },
                     pageViews: { $sum: { $cond: [IS_PAGE_VIEW, 1, 0] } },
-                    visitors: { $addToSet: '$visitorHash' }
                 }
             },
             { $sort: { _id: 1 } },
@@ -1207,11 +1195,17 @@ async function handleGlobe(req, res) {
                     events: 1,
                     visits: 1,
                     pageViews: 1,
-                    cohortSize: { $size: { $setDifference: ['$visitors', [null, '']] } }
+                    cohortSize: 1
                 }
             }
-        ])
+        ]),
+        readGlobeVisitors(SiteActivity, { trendSince: trendDateMatch.occurredAt?.$gte || null })
     ]);
+    if (summaryAgg[0]) summaryAgg[0].uniqueVisitors = visitors.total;
+    pointsAgg.forEach((row) => { row.uniqueVisitors = visitors.locations.get(row.key) || 0; });
+    actionsAgg.forEach((row) => { row.cohortSize = visitors.actions.get(row.key) || 0; });
+    pagesAgg.forEach((row) => { row.cohortSize = visitors.pages.get(row.key) || 0; });
+    trendAgg.forEach((row) => { row.cohortSize = visitors.days.get(row.day) || 0; });
 
     const activityWindow = (since) => ([
         { $match: { occurredAt: { $gte: since } } },

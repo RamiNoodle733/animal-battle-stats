@@ -21,7 +21,7 @@ export const SITE = Object.freeze({
 
 export const SOCIAL = Object.freeze([
     { name: 'YouTube', url: 'https://www.youtube.com/@AnimalBattleStats' },
-    { name: 'TikTok', url: 'https://www.tiktok.com/@animalbattlestats_abs' },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@animalbattlestats' },
     { name: 'Instagram', url: 'https://www.instagram.com/animalbattlestats' },
     { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61594841433992' },
     { name: 'X', url: 'https://x.com/AnimalBattStats' },

@@ -90,8 +90,9 @@ const jsonLd = [
                 <button type="button" class="btn btn-sm" data-skip>Skip</button>
                 <a class="btn btn-sm vt-more" data-more href="/compare">Full matchup</a>
                 <button type="button" class="btn btn-sm vt-share" data-share title="Share this vote"><UiIcon name="share" size={16} /><span>Share</span></button>
-                <button type="button" class="btn btn-gold vt-next" data-next disabled>Next<UiIcon name="arrow" size={18} /></button>
+                <button type="button" class="btn btn-gold vt-next" data-next disabled>Next now<UiIcon name="arrow" size={18} /></button>
             </div>
+            <p class="vt-auto small muted">Your next vote appears automatically after the results.</p>
 
             <p class="vt-guest" data-guest hidden>
                 <Icon name="lock" size={22} />
@@ -194,6 +195,7 @@ const jsonLd = [
     .vt-result :global(b) { color: #fff; }
     .vt-result :global(.good) { color: #8fe9a2; }
     .vt-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0 14px; }
+    .vt-auto { margin: 0 14px; text-align: center; }
     .vt-next { min-width: 150px; }
     .vt-next:disabled { opacity: 0.45; cursor: default; }
     .vote:not([data-state="result"]) .vt-more, .vote:not([data-state="result"]) .vt-share { display: none; }

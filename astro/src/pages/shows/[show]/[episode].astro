@@ -139,7 +139,7 @@ const jsonLd = [
                 <div class="platforms">
                     <a class="pf pf-youtube" href={youtubeWatch(episode.youtube)} target="_blank" rel="noopener" data-out="youtube"><PlatformIcon name="youtube" size={24} /><span class="pf-copy"><span>YouTube</span><small>Full episode</small></span></a>
                     {episode.youtubeShort && <a class="pf pf-youtube" href={youtubeShort(episode.youtubeShort)} target="_blank" rel="noopener" data-out="youtube-short"><PlatformIcon name="youtube" size={24} /><span class="pf-copy"><span>Shorts</span><small>Vertical cut</small></span></a>}
-                    <a class="pf pf-tiktok" href={episode.tiktok ? tiktokVideo(episode.tiktok) : PLATFORMS.tiktok.url} target="_blank" rel="noopener" data-out="tiktok"><PlatformIcon name="tiktok" size={24} /><span class="pf-copy"><span>TikTok</span><small>{episode.tiktok ? 'This episode' : '@animalbattlestats_abs'}</small></span></a>
+                    <a class="pf pf-tiktok" href={episode.tiktok ? tiktokVideo(episode.tiktok) : PLATFORMS.tiktok.url} target="_blank" rel="noopener" data-out="tiktok"><PlatformIcon name="tiktok" size={24} /><span class="pf-copy"><span>TikTok</span><small>{episode.tiktok ? 'This episode' : '@animalbattlestats'}</small></span></a>
                     {episode.x && <a class="pf pf-x" href={xPost(episode.x)} target="_blank" rel="noopener" data-out="x"><PlatformIcon name="x" size={24} /><span class="pf-copy"><span>X</span><small>Reply with your theory</small></span></a>}
                 </div>
                 <FollowPanel heading="Follow ABS for the next episode" />

@@ -23,6 +23,7 @@ let current = null;
 let challenge = null;
 let fights = [];
 let ranks = [];
+let advanceTimer = 0;
 const session = { votes: 0, fans: 0, fansSeen: 0, model: 0, modelSeen: 0, picks: [] };
 
 const pct = (part, whole) => (whole > 0 ? Math.round((part / whole) * 100) : 0);
@@ -196,6 +197,8 @@ function showRank(animal) {
 }
 
 function next() {
+    if (root.dataset.state === 'busy' || !bySlug.size) return;
+    clearTimeout(advanceTimer);
     if (mode === 'fight') {
         if (challenge && challenge.at < challenge.list.length) {
             const [a, b] = challenge.list[challenge.at];
@@ -213,9 +216,34 @@ function next() {
 
 // ---------------------------------------------------------------- voting
 
+function beginVote() {
+    root.dataset.state = 'busy';
+    $$('[data-mode-btn], [data-skip]').forEach((button) => { button.disabled = true; });
+}
+
+function endVote() {
+    $$('[data-mode-btn], [data-skip]').forEach((button) => { button.disabled = false; });
+}
+
+function voteFailed(message) {
+    endVote();
+    root.dataset.state = 'pick';
+    $$('.is-picked, [data-rank].on').forEach((button) => button.classList.remove('is-picked', 'on'));
+    $('[data-result]').textContent = `${message} Your vote was not saved. Try again.`;
+}
+
+function advanceAfterResult(delay = 1600) {
+    endVote();
+    clearTimeout(advanceTimer);
+    const round = current;
+    advanceTimer = setTimeout(() => {
+        if (current === round && root.dataset.state === 'result') next();
+    }, delay);
+}
+
 async function pickFight(side) {
     if (root.dataset.state !== 'pick' || current?.kind !== 'fight') return;
-    root.dataset.state = 'busy';
+    beginVote();
     const a = bySlug.get(current.a);
     const b = bySlug.get(current.b);
     const picked = side === 'a' ? a : b;
@@ -237,7 +265,8 @@ async function pickFight(side) {
         } else if (result.needsLogin) {
             user = null;
         } else if (result.error) {
-            toast(result.error);
+            voteFailed(result.error);
+            return;
         }
     }
     if (!user) rememberVote({ kind: 'fight', a: a.n, b: b.n, pick: picked.n });
@@ -292,11 +321,12 @@ async function pickFight(side) {
     $('[data-next]').disabled = false;
     paintStats();
     paintChallengeBar();
+    advanceAfterResult(done ? 4500 : 1600);
 }
 
 async function pickRank(type) {
     if (root.dataset.state !== 'pick' || current?.kind !== 'rank') return;
-    root.dataset.state = 'busy';
+    beginVote();
     const animal = current.animal;
     const button = $(`[data-rank="${type}"]`);
     button.classList.add('on');
@@ -308,7 +338,7 @@ async function pickRank(type) {
         if (entry.mine === type) {
             note = ` You already said ${type === 'up' ? 'underrated' : 'overrated'} today.`;
         } else {
-            const result = await castVote(entry.id, animal.n, type, entry);
+            const result = await castVote(entry.id, animal.n, type, entry).catch(() => ({ error: 'No connection.' }));
             if (result.entry) {
                 entry = result.entry;
                 votes.set(animal.n, entry);
@@ -317,9 +347,13 @@ async function pickRank(type) {
             } else if (result.needsLogin) {
                 user = null;
             } else if (result.error) {
-                toast(result.error);
+                voteFailed(result.error);
+                return;
             }
         }
+    } else if (user) {
+        voteFailed('The animal rankings could not load. Refresh the page.');
+        return;
     }
     if (!user) rememberVote({ kind: 'rank', name: animal.n, type });
     let up = entry.up || 0;
@@ -342,6 +376,7 @@ async function pickRank(type) {
     $('[data-next]').disabled = false;
     paintStats();
     paintFans();
+    advanceAfterResult();
 }
 
 // ---------------------------------------------------------------- sharing
@@ -395,6 +430,7 @@ function makeChallenge() {
 // ---------------------------------------------------------------- wiring
 
 function setMode(value) {
+    if (root.dataset.state === 'busy' || !bySlug.size) return;
     mode = value;
     root.dataset.mode = mode;
     $$('[data-mode-btn]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.modeBtn === mode)));
@@ -415,7 +451,7 @@ $$('[data-mode-btn]').forEach((button) => button.addEventListener('click', () =>
 $$('[data-side]').forEach((card) => card.addEventListener('click', () => pickFight(card.dataset.side)));
 $$('[data-rank]').forEach((button) => button.addEventListener('click', () => pickRank(button.dataset.rank)));
 $('[data-next]').addEventListener('click', () => { sfx.tick(); next(); });
-$('[data-skip]').addEventListener('click', () => { if (current?.kind === 'fight') markSeen(pairKey(current.a, current.b)); next(); });
+$('[data-skip]').addEventListener('click', () => { if (root.dataset.state === 'busy') return; if (current?.kind === 'fight') markSeen(pairKey(current.a, current.b)); next(); });
 $('[data-share]').addEventListener('click', shareCurrent);
 $('[data-make-challenge]').addEventListener('click', makeChallenge);
 document.addEventListener('keydown', (event) => {

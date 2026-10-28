@@ -271,7 +271,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                                 <option value="level_up">Level ups</option>
                                 <option value="prestige">Prestiges</option>
                             </select></label>
-                            <label class="small">Audience<select class="ev-select" name="audience" aria-label="Audience"><option value="">Everyone</option><option value="accounts">Accounts only</option><option value="guests">Guests only</option></select></label>
+                            <label class="small">Audience<select class="ev-select" name="audience" aria-label="Audience"><option value="">Everyone</option><option value="accounts" selected>Accounts only</option><option value="guests">Guests only</option></select></label>
                             <label class="small">Account<select class="ev-select" name="account" aria-label="Specific account"><option value="">Any account</option></select></label>
                             <label class="small">Discord delivery<select class="ev-select" name="deliveryStatus" aria-label="Discord delivery">
                                 <option value="">Any Discord status</option>
@@ -287,7 +287,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                             <label class="small">State / region<select class="ev-select" name="region" aria-label="State or region"><option value="">All states / regions</option></select></label>
                             <label class="small">City<select class="ev-select" name="city" aria-label="City"><option value="">All cities</option></select></label>
                             <label class="small">Device<select class="ev-select" name="device" aria-label="Device"><option value="">All devices</option><option value="Desktop">Desktop</option><option value="Mobile">Mobile</option><option value="Tablet">Tablet</option></select></label>
-                            <label class="ev-check"><input type="checkbox" name="hideMe" value="1" /> Hide my activity</label>
+                            <label class="ev-check"><input type="checkbox" name="hideMe" value="1" checked /> Hide my activity</label>
                             <label class="small">Hide accounts<input class="ev-select" name="exclude" type="text" placeholder="Comma-separated names" aria-label="Accounts to hide from events" maxlength="1000" /></label>
                             <button class="btn btn-sm" type="button" data-ev-reset>Reset filters</button>
                         </form>

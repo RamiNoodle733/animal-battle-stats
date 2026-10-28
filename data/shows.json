@@ -7,7 +7,7 @@
   },
   "platforms": {
     "youtube": { "label": "YouTube", "url": "https://www.youtube.com/@AnimalBattleStats?sub_confirmation=1", "verb": "Subscribe" },
-    "tiktok": { "label": "TikTok", "url": "https://www.tiktok.com/@animalbattlestats_abs", "verb": "Follow" },
+    "tiktok": { "label": "TikTok", "url": "https://www.tiktok.com/@animalbattlestats", "verb": "Follow" },
     "instagram": { "label": "Instagram", "url": "https://www.instagram.com/animalbattlestats", "verb": "Follow" },
     "facebook": { "label": "Facebook", "url": "https://www.facebook.com/profile.php?id=61594841433992", "verb": "Follow" },
     "x": { "label": "X", "url": "https://x.com/AnimalBattStats", "verb": "Follow" },

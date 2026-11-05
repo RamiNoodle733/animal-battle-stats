@@ -2228,8 +2228,8 @@ async function handlePrestige(req, res) {
 
 // ==================== GET PUBLIC PROFILE ====================
 async function handleGetPublicProfile(req, res) {
-    const { username } = req.query;
-    
+    const username = typeof req.query.username === 'string' ? req.query.username.trim().slice(0, 40) : '';
+
     if (!username) {
         return res.status(400).json({ success: false, error: 'Username is required' });
     }

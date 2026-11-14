@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.17.0 — 2026-11-14
+
+- **Play any matchup in Roblox.** Every Who Would Win screen has a Play this matchup in Roblox button. It opens the Roblox game on that fight, with you fighting as the first animal, and on a phone it opens the Roblox app. It shows only for one animal against one, and only when the game has both animals. Otherwise it keeps its place, hidden, so nothing on the page moves when it appears. The animals the game has come from its own export (`data/roblox-matchups.json`, refreshed with `scripts/roblox/import-matchups.js`).
+- **Today's matchup is the game's.** The home's daily matchup is now the pair the Roblox game's own stage shows that day, counted with the game's daily rule, and it carries the same button. It turns at midnight UTC without a deploy. On phones it spans the screen.
+
 ## 4.16.1 — 2026-10-17
 
 - **Accurate search update dates.** The sitemap now accounts for significant page and link changes as well as animal research dates, so today's home, collection and animal-page improvements are eligible for the normal changed-URL submission. Unchanged pages keep their real older dates; rebuilding does not mark the whole site as new.

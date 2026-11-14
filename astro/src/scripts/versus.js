@@ -16,6 +16,7 @@ import { sfx, shake } from './sfx.js';
 import { mountComments } from './comments.js';
 import { trackFight } from './track.js';
 import { HUMAN } from './human.js';
+import { paintRobloxMatchup } from './roblox-matchup.js';
 
 // The engine is a UMD file shared with the server build: bundlers hand back
 // its CommonJS export, plain browsers get the global.
@@ -42,6 +43,7 @@ const fightButton = root.querySelector('[data-fight]');
 const callBox = root.querySelector('[data-call]');
 const callNote = root.querySelector('[data-call-note]');
 const callStreak = root.querySelector('[data-call-streak]');
+const robloxButton = root.querySelector('[data-rbx-play]');
 const CALL_NOTE = 'Pick who wins, then watch the fight. Right calls build a streak.';
 
 function toModel(animal) {
@@ -242,6 +244,9 @@ function paintMatchup() {
     const ownPage = a.s === root.dataset.a && b.s === root.dataset.b && state.na === 1 && state.nb === 1;
     if ((location.pathname === '/compare' || !ownPage) && location.search !== `?${params}`) history.replaceState(null, '', `/compare?${params}`);
     document.title = `${label(a, state.na)} vs ${label(b, state.nb)}: Who Would Win? | Animal Battle Stats`;
+    // The Roblox game plays one animal against one, so a crowd or the Human hides PLAY THIS MATCHUP IN ROBLOX.
+    const oneOnOne = state.na === 1 && state.nb === 1 && !a.h && !b.h;
+    paintRobloxMatchup(robloxButton, oneOnOne ? a : null, oneOnOne ? b : null);
     loadFanVotes(a, b);
     document.dispatchEvent(new CustomEvent('abs:matchup'));
 }

@@ -1,0 +1,40 @@
+---
+// PLAY THIS MATCHUP IN ROBLOX: opens the Roblox game on this fight, the player fighting as `a` (the game repo's
+// docs/MATCHUP_LINKS.md). Drawn only while the game is live (site.js). When the game does not have both animals it
+// stays where it is but hidden, so nothing moves when it shows; scripts/roblox-matchup.js keeps it right as the animals
+// change. It is an ordinary https link: on a phone Roblox hands it to the Roblox app.
+import RobloxMark from './RobloxMark.astro';
+import { robloxMatchupUrl, ROBLOX_MATCHUPS } from '../lib/roblox-matchups.js';
+
+const { a, b } = Astro.props;
+const href = a && b ? robloxMatchupUrl(a.slug, b.slug) : null;
+---
+{ROBLOX_MATCHUPS.live && (
+    <a
+        class:list={['btn rbx-play', { 'is-off': !href }]}
+        href={href || undefined}
+        target="_blank"
+        rel="noopener"
+        data-rbx-play
+        data-pair={a && b ? `${a.slug}~${b.slug}` : ''}
+        aria-hidden={href ? undefined : 'true'}
+        tabindex={href ? undefined : '-1'}
+    >
+        <RobloxMark size={22} />
+        <span class="rbx-play-text">
+            <span class="rbx-play-label">Play this matchup in Roblox</span>
+            <small>You fight as the <span data-rbx-as>{a?.name}</span></small>
+        </span>
+    </a>
+)}
+
+<style>
+    /* The site's steel plate, white words and a gold mark: charcoal, gold and white, under the gold FIGHT. */
+    .rbx-play { width: 100%; min-height: 50px; padding: 5px 16px; gap: 10px; }
+    .rbx-play :global(.rbx-mark) { flex: none; width: 22px; height: 22px; color: var(--gold); filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.5)); }
+    .rbx-play-text { display: grid; min-width: 0; gap: 1px; text-align: left; line-height: 1.05; }
+    .rbx-play-label { min-width: 0; text-wrap: balance; }
+    .rbx-play small { overflow: hidden; font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.01em; text-transform: none; text-overflow: ellipsis; white-space: nowrap; color: var(--gold-2); }
+    .rbx-play:hover :global(.rbx-mark) { color: var(--gold-2); }
+    .rbx-play.is-off { visibility: hidden; }
+</style>

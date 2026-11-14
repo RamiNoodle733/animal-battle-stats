@@ -6,10 +6,15 @@
 // scripts/versus.js runs the screen; a/b are the fighters on first paint.
 import UiIcon from './UiIcon.astro';
 import AnimalImage from './AnimalImage.astro';
+import RobloxMatchup from './RobloxMatchup.astro';
 import { STATS, BIOMES, fmtScore, fmtWeight, fmtLength, fmtSpeed, fmtBite } from '../lib/catalog.js';
 import { verdict, PAIRS } from '../lib/matchups.js';
+import { ROBLOX_MATCHUPS } from '../lib/roblox-matchups.js';
 
 const { a, b, pageLevel = 'h1', analysis = true, extraFaq = [], cardImage = null } = Astro.props;
+// PLAY THIS MATCHUP IN ROBLOX, under the console (a row of its own on phones). Not on the Human's pages: the game has
+// animals only.
+const roblox = ROBLOX_MATCHUPS.live && !a.human && !b.human;
 const result = verdict(a, b);
 const oddsA = result.winner.slug === a.slug ? result.odds : 100 - result.odds;
 const oddsB = 100 - oddsA;
@@ -46,7 +51,7 @@ const classics = PAIRS.filter((pair) => pair.classic).slice(0, 14);
 const SEG = Array.from({ length: 10 }, (_, index) => index);
 ---
 
-<div class="vs is-sealed" data-vs data-a={a.slug} data-b={b.slug}>
+<div class:list={['vs is-sealed', { 'with-rbx': roblox }]} data-vs data-a={a.slug} data-b={b.slug}>
     {[['a', a], ['b', b]].map(([side, animal]) => (
         <section class={`fighter side-${side} tier-${animal.tier.toLowerCase()} bio-${animal.biome}`} data-side={side} aria-label={`Fighter ${side === 'a' ? 1 : 2}`}>
             <header class="f-head">
@@ -161,6 +166,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         </div>
         <div class="announcer" data-announcer aria-live="assertive"></div>
     </section>
+    {roblox && <div class="vs-rbx"><RobloxMatchup a={a} b={b} /></div>}
     <button type="button" class="ff" data-ff aria-pressed="false" title="Hold to speed up the fight (or hold Space)"><UiIcon name="fast" size={16} /><span class="ff-slow">Hold to speed up</span><span class="ff-fast">{'4× speed'}</span></button>
 
     <dialog class="picker" data-picker aria-labelledby="picker-title">
@@ -204,6 +210,19 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     .side-a { grid-column: 1; grid-row: 1; }
     .console { grid-column: 2; grid-row: 1; }
     .side-b { grid-column: 3; grid-row: 1; }
+    /* PLAY THIS MATCHUP IN ROBLOX: a band of its own under the console, in line with the fighters' feet. Its room is
+       always kept (hidden, not removed, when the game lacks an animal), so the console never jumps. */
+    .vs.with-rbx { grid-template-rows: minmax(0, 1fr) auto; }
+    .vs.with-rbx .side-a, .vs.with-rbx .side-b { grid-row: 1 / -1; }
+    .vs-rbx { grid-column: 2; grid-row: 2; min-width: 0; display: flex; }
+    /* The band takes about 54px from the console, so the tape's rows sit a little closer to keep the whole tape in view
+       (measured from 1280x720 to 1920x1080; the short-window rule below closes them further). */
+    @media (min-width: 901px) {
+        .vs.with-rbx { row-gap: 8px; }
+        .vs-rbx :global(.rbx-play) { min-height: 46px; }
+        .vs.with-rbx .tape { gap: clamp(4px, 0.8vh, 10px); }
+        .vs.with-rbx .c-pane[data-cpane="tape"] { justify-content: safe center; }
+    }
 
     /* ---------------------------------------------------------------- fighters */
     .fighter { position: relative; min-height: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; gap: 6px; }
@@ -470,6 +489,8 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         .vs-head { padding: 8px 14px 0; }
         .c-pane { padding: 6px 12px 4px; }
         .tape { gap: 4px; }
+        .vs.with-rbx .tape { gap: 2px; }
+        .vs-rbx :global(.rbx-play) { min-height: 44px; }
         .t-row b { font-size: 1.1rem; }
         .t-row.fact b { font-size: 0.8rem; }
         .call-note { display: none; }
@@ -489,6 +510,11 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
         .side-a { grid-column: 1; grid-row: 1; }
         .side-b { grid-column: 2; grid-row: 1; }
         .console { grid-column: 1 / -1; grid-row: 2; }
+        /* Phones: PLAY THIS MATCHUP IN ROBLOX right under the two animals, above the stats. */
+        .vs.with-rbx { grid-template-rows: clamp(150px, 25vh, 250px) auto auto; }
+        .vs.with-rbx .side-a, .vs.with-rbx .side-b { grid-row: 1; }
+        .vs-rbx { grid-column: 1 / -1; grid-row: 2; }
+        .vs.with-rbx .console { grid-row: 3; }
         .fighter { gap: 4px; }
         .f-head { gap: 6px; }
         .f-head .tier-badge { width: 24px; height: 29px; }
@@ -550,6 +576,7 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     /* Tall tablets in portrait: bigger fighters, so the stage is not half empty. */
     @media (max-width: 900px) and (min-height: 960px) {
         .vs { grid-template-rows: clamp(250px, 34vh, 420px) auto; }
+        .vs.with-rbx { grid-template-rows: clamp(250px, 34vh, 420px) auto auto; }
         .f-name { font-size: 1.5rem; }
         .t-row b { font-size: 1.3rem; }
         .t-row .sbar { height: 14px; }
@@ -558,5 +585,6 @@ const SEG = Array.from({ length: 10 }, (_, index) => index);
     }
     @media (max-width: 900px) and (max-height: 700px) {
         .vs { grid-template-rows: clamp(120px, 22vh, 180px) auto; }
+        .vs.with-rbx { grid-template-rows: clamp(120px, 22vh, 180px) auto auto; }
     }
 </style>

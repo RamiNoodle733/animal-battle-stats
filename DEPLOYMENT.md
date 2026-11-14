@@ -351,6 +351,32 @@ Everything is in `data/roblox-game.json`:
 - The PLAY buttons link to `roblox.com/games/start?placeId=...&launchData=site`, so the game
   can give a first-time player from the website its join gift.
 
+### Matchup links (Play this matchup in Roblox)
+
+Every Who Would Win screen (`/compare` and `/compare/<a>-vs-<b>`) has a **Play this matchup in Roblox** button, and the
+home's **Today's matchup** tile carries the same button. It opens the game on that one fight, with the visitor fighting
+as the first animal (the format is the game repo's `docs/MATCHUP_LINKS.md`):
+
+    https://www.roblox.com/games/start?placeId=118592355937726&launchData=m%3D<first>~<second>
+
+- It shows only while the game is live (like every PLAY button above), for one animal against one, and only when the
+  game has both animals. Otherwise it keeps its place, hidden, so nothing on the page moves when it shows. It is not
+  drawn on the Human's pages. On a phone, Roblox hands the link to the Roblox app.
+- Today's matchup is the pair the game's own stage shows that day. Day `d` is `floor(unix seconds / 86400)`, and its pair
+  is `pairs[(d * step) % pairs.length]`. The page computes it, so it is right every day without a deploy.
+- What the button needs from the game is in `data/roblox-matchups.json`: the animal ids a link may name, the famous
+  pairs, and the daily rule's step. Refresh it whenever the game's animals or famous pairs change:
+
+```bash
+# in the game repo (Lune is pinned in rokit.toml)
+lune run tools/export-site-data.luau
+# in this repo
+node scripts/roblox/import-matchups.js <path to the game repo>
+```
+
+  The import refuses an id that is not a site animal, and a place that is not the one in `data/roblox-game.json`. It is
+  separate from `import-game-data.js`, so it does not wait on the save read below.
+
 ### Game progress on the site (the Roblox link)
 
 A player who connects their Roblox account gets their game progress on the site: the profile's

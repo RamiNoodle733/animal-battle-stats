@@ -201,6 +201,13 @@ Players collect the battle cards, one of each animal. Nothing is random and noth
 Progress flows from the game to the site, read only (Roblox only allows in-game rewards for off-platform things as public promos, so nothing flows back):
 
 - `data/roblox-game-data.json` is exported from the game's own modules (`tools/export-site-data.luau` in the game repo, run with Lune) and copied here by `scripts/roblox/import-game-data.js`: every game animal's rarity, island, family and moves, the islands and bosses, trophies, trainer and trophy level tables, looks, codes, and the game's weekly schedule and timed events. Pages use it at build time (animal pages' "In the Roblox game" strip, the binder's Roblox marks, the /roblox codes) and the browser gets a trimmed copy at `/data/roblox-lite.json`.
+- `data/roblox-matchups.json` is the `matchups` part of the same export, copied by `scripts/roblox/import-matchups.js`. It
+  holds the ids a matchup link may name, the game's famous pairs and its daily rule.
+  - `astro/src/lib/matchup-link.js` holds the link format and the rule, shared by the pages, the client scripts and the
+    tests.
+  - `components/RobloxMatchup.astro` is the **Play this matchup in Roblox** button. It is on the Who Would Win screens
+    (`VsScreen`), and the home's **Today's matchup** tile, the game's pair of the day, carries it too.
+  - `scripts/roblox-matchup.js` keeps the button right when the animals change, and loads the ids only then.
 - `lib/roblox-save.js` reads a linked player's save (`ABS_Players_v2`, entry `u<robloxUserId>`, through Open Cloud) and turns it into a trainer card (`parseSave`): trainer level, animals with level and stars, team, islands (seal, boss, Showdown medal, LEGEND tier), trophies and trophy level, Weekly Cup, Sky Trail, Photo Safari, and whether they are in a server now. Public profiles get it without the wallet (`publicSnapshot`).
 - `lib/roblox-sync.js` (`syncPlayer`) refreshes it when it is older than a minute (your own pages) or 30 minutes (someone else's), keeps it on the user (`robloxGame`), and calls `syncGameCards` in `lib/rewards.js`, which adds each game animal to the collection (`from: 'roblox'`) in the economy transaction and posts one `roblox_cards` event.
 - `lib/roblox-game.js` reads the game's public numbers and leaderboards (`GET /api/community?action=roblox`); `live` needs both `status: "live"` and a game Roblox shows to everyone (`isPublished`: a private or in-review game comes back as placeholders), so /roblox switches to live by itself at launch.

@@ -83,8 +83,7 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
                             <div><b data-rs="visits">–</b><span>Visits</span></div>
                             <div><b data-rs="favorites">–</b><span>Favorites</span></div>
                         </div>
-                        <p class="small rbx-copy" data-rbx-copy>{ROBLOX.pitch}{ROBLOX.live ? '' : ' Game leaderboards show up here at launch.'}</p>
-                        <div class="rbx-boards" data-rbx-boards></div>
+                        <p class="small rbx-copy" data-rbx-copy>{ROBLOX.pitch}</p>
                         <ul class="rbx-feats">
                             {ROBLOX.features.map((feature, index) => (
                                 <li><Icon name={FEATURE_ICONS[index % FEATURE_ICONS.length]} size={26} lazy /><span><b>{feature.title}</b><span>{feature.text}</span></span></li>
@@ -406,7 +405,6 @@ const FEATURE_ICONS = ['cards', 'map', 'burst', 'tv', 'bolt', 'shield'];
     .rbx-stats b, .big-nums b, .nums b { font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; line-height: 1; }
     .rbx-stats span, .big-nums span, .nums span, .w-strip span { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .rbx-copy { color: var(--text-2); margin: 10px 0; }
-    .rbx-boards { display: grid; gap: 8px; margin-bottom: 12px; }
 
     /* leaders (animal records from /api/rankings) */
     .leaders { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }

@@ -3,109 +3,89 @@
   "placeId": 118592355937726,
   "universeId": 10767969314,
   "status": "live",
-  "pitch": "Collect 341 real animals as holo-cards, power them up, and settle who would win in flashy 3D battles across eight islands, a great walled city and the Collection's Reach.",
+  "pitch": "Who would win? Fight it out with real animals. Every animal is a real photo card that rides into each duel on your Ranger's craft: strike, block, parry on the glint, break its guard and finish it with your animal's own ultimate.",
   "trailer": {
     "youtubeId": null,
     "src": null,
     "poster": null
   },
   "screenshots": [],
+  "robloxThumbnails": false,
   "videos": [
     {
-      "title": "100 army ants vs a honey badger",
+      "title": "A duel won by skill: strike, block, parry",
       "youtubeId": null,
       "src": null,
       "poster": null,
-      "animal": "army-ant"
+      "animal": "siberian-tiger"
     },
     {
-      "title": "Megalodon boss fight",
+      "title": "Every animal's own ultimate",
       "youtubeId": null,
       "src": null,
       "poster": null,
-      "animal": "megalodon"
+      "animal": "gorilla"
     },
     {
-      "title": "Fly across 8 biome islands",
+      "title": "Ride nine islands",
       "youtubeId": null,
       "src": null,
       "poster": null,
-      "animal": "bald-eagle"
+      "animal": "polar-bear"
     },
     {
-      "title": "Collect all 341 holo-cards",
+      "title": "THE NINTH TOWER: a voiced story",
       "youtubeId": null,
       "src": null,
       "poster": null,
       "animal": "african-lion"
     },
     {
-      "title": "30 wolves vs an elephant",
+      "title": "Duel a friend live",
       "youtubeId": null,
       "src": null,
       "poster": null,
       "animal": "gray-wolf"
     },
     {
-      "title": "Live Who Would Win? shows",
+      "title": "Collect them all: real photo cards",
       "youtubeId": null,
       "src": null,
       "poster": null,
-      "animal": "polar-bear"
+      "animal": "orca"
     }
   ],
-  "codes": [
-    {
-      "code": "WELCOME",
-      "reward": "Coins to start you off"
-    },
-    {
-      "code": "WILDSTART",
-      "reward": "Coins and 5 Wild Tracks"
-    },
-    {
-      "code": "ROAR",
-      "reward": "Coins and 3 Wild Tracks"
-    },
-    {
-      "code": "FIELDGUIDE",
-      "reward": "Coins and the Field Guide card frame"
-    },
-    {
-      "code": "SEASONONE",
-      "reward": "Coins and 3 Wild Tracks",
-      "ends": "2026-12-01"
-    }
-  ],
+  "codesInGame": false,
+  "codes": [],
   "features": [
     {
-      "title": "Collect 341 real animals",
-      "text": "Almost every animal on this site is a real-photo holo-card in the game, from army ants to the Megalodon."
+      "title": "Real animals, real photo cards",
+      "text": "Every animal in the game comes from this site as a real photo card with its real stats, so research here changes the game."
     },
     {
-      "title": "Battle in a 3D world",
-      "text": "Fly your champion card across eight biome islands (Savanna, Forest, Jungle, Wetlands, Desert, Mountains, Arctic and Ocean) and fight wild animals where they live."
+      "title": "Duels won by skill",
+      "text": "Light chains, heavy blows, parries, guard breaks and finishers: strike, block, parry on the glint, break its guard and finish it with your animal's own ultimate."
     },
     {
-      "title": "An endgame that never ends",
-      "text": "Past the Ocean lies the Reach: free four strongholds from the Collection, storm the Citadel and face THE LAST TRIAL. Then the sieges begin, and your trainer keeps levelling to 500."
+      "title": "Every animal fights like itself",
+      "text": "From its real weight, speed and power, with its own named ultimate."
     },
     {
-      "title": "Goofy power-scaling",
-      "text": "Hordes and crowd battles settle the classics: 100 army ants against a honey badger, or 30 wolves against an elephant."
+      "title": "Ride nine islands",
+      "text": "Beat the wild animals, the gate champions and each island's guardian on its summit."
     },
     {
-      "title": "Live shows and tournaments",
-      "text": "Server-wide Who Would Win? shows, 8-animal tournaments, raids against giant crowds and a daily gauntlet, played out on the Plaza stage for everyone at once."
+      "title": "THE NINTH TOWER",
+      "text": "A voiced story across every island."
     },
     {
-      "title": "Real stats drive the fights",
-      "text": "Attack, defense, agility and the rest come straight from this database, so research on the site changes the game."
+      "title": "Friends and the league",
+      "text": "Ride with friends, fight side by side or duel each other live. The day's hunt, the week's trial and the league's boards. Plays upright or sideways on phones."
     },
     {
-      "title": "No loot boxes",
-      "text": "No packs, no paid odds and nothing you can buy that makes an animal stronger. Rewards come from playing."
+      "title": "Level your cards",
+      "text": "Level your cards, fit your rig at the bench and collect them all. No loot boxes: nothing random is ever sold, and nothing in the store is power that play cannot earn."
     }
   ],
-  "updated": "2026-10-04"
+  "updated": "2026-11-14"
 }

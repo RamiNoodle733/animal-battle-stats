@@ -6,7 +6,7 @@ import variantManifest from '../../../.cache/image-variants/manifest.json';
 import metrics from '../../../lib/animal-metrics.js';
 import battleModel from '../../../js/battle-engine.js';
 import biomeFile from '../../../data/animal-biomes.json';
-import gameData from '../../../data/roblox-game-data.json';
+import liveGame from '../../../data/roblox-matchups.json';
 import brand from '../../../data/brand.json';
 
 // Biome per animal, shared with the Roblox game's islands.
@@ -256,9 +256,11 @@ export function tierInfo(id) {
     return TIERS.find((tier) => tier.id === id) || TIERS[TIERS.length - 1];
 }
 
-// The site's full roster and the current roster exported by the Roblox game.
+// The site's full roster and the current roster exported by the Roblox game: the live game's animals are
+// the ids in its newest export (data/roblox-matchups.json, scripts/roblox/import-matchups.js), so its count
+// is never typed; data/roblox-game-data.json still holds each animal's details from the export before it.
 export const rosterSize = animals.length;
-const gameIds = new Set(gameData.animals.map((animal) => animal.id));
+const gameIds = new Set(liveGame.ids);
 export const gameAnimals = animals.filter((animal) => gameIds.has(animal.slug));
 export const researchedCount = animals.filter((animal) => animal.researched).length;
 export const sourceCount = animals.reduce((sum, animal) => sum + (animal.profile.sources?.length || 0), 0);

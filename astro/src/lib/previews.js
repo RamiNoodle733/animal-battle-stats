@@ -3,7 +3,7 @@
 // of real battle cards, drawn at build time by scripts/images/build-cards.mjs
 // with the site's card renderer. Animal and matchup pages have their own
 // (card.js); Roblox and the shows keep theirs.
-import { animals, getAnimal, GROUPS, sourceCount } from './catalog.js';
+import { animals, gameAnimals, getAnimal, GROUPS, sourceCount } from './catalog.js';
 import { CATEGORIES, leaderboard } from './categories.js';
 import { cardData, fileVersion } from './card.js';
 
@@ -58,3 +58,15 @@ export function sectionPreview(id) {
 }
 
 export const sectionAlt = (id) => `Animal Battle Stats battle cards: ${SECTIONS[id].title}`;
+
+// The Roblox game page's own preview (scripts/images/build-og.js draws it from data/og-jobs.json): the live game's words
+// (the game repo's docs/STORE_PAGE.md) and the game's own animal count, its address versioned like the sections' so a
+// changed picture is fetched again (images are cached for a year).
+export const ROBLOX_PREVIEW = Object.freeze({
+    file: 'roblox',
+    kind: 'cards',
+    title: 'Animal Battle Stats on Roblox',
+    sub: `Who would win? Duel with ${gameAnimals.length} real animals`,
+    lineup: ['african-lion', 'orca', 'bald-eagle']
+});
+export const robloxPreview = () => `/images/og/roblox.jpg?v=${fileVersion(ROBLOX_PREVIEW)}`;

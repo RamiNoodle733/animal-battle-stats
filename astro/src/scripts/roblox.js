@@ -1,9 +1,9 @@
-// The Roblox game screen: the stage tabs (trailer and screenshots, this week in
-// the game, gameplay clips, codes, leaderboards, questions), live game numbers and
-// leaderboards (from /api/community?action=roblox), and the Roblox account row,
-// shown once Roblox sign-in is configured.
+// The Roblox game screen: the stage tabs (trailer and screenshots, gameplay clips,
+// codes while the game has any, questions), live game numbers (from
+// /api/community?action=roblox), and the Roblox account row, shown once Roblox
+// sign-in is configured.
 import { escapeHtml, toast } from './site.js';
-import { loadGame, trainerLine } from './roblox-trainer.js';
+import { trainerLine } from './roblox-trainer.js';
 
 const root = document.querySelector('[data-rbx]');
 const stage = root.querySelector('[data-stage]');
@@ -92,7 +92,7 @@ root.querySelector('.rbx-tabs').addEventListener('click', (event) => {
     if (tab) showTab(tab.dataset.tab);
 });
 const wanted = location.hash.slice(1);
-if (wanted && wanted !== 'boards') showTab(wanted, { remember: false });
+if (wanted) showTab(wanted, { remember: false });
 
 // ---------------------------------------------------------------- gameplay clips
 
@@ -151,9 +151,11 @@ function goLive(game) {
     if (news) news.lastChild.textContent = 'Join the Discord';
 }
 
-// The game's own Roblox screenshots fill the row until the site has its own.
+// The game's own Roblox screenshots fill the row until the site has its own, unless
+// data/roblox-game.json turns them off (robloxThumbnails: false, while the Roblox
+// page still shows the old game's pictures).
 function paintRobloxShots(urls) {
-    if (Number(root.dataset.shots) > 0 || !urls.length) return;
+    if (Number(root.dataset.shots) > 0 || root.dataset.robloxShots === '0' || !urls.length) return;
     const hasTrailer = Boolean(trailer.youtube || trailer.src);
     const tiles = urls.slice(0, hasTrailer ? 3 : 4).map((url, index) => `
         <button class="thumb" type="button" data-kind="image" data-src="${escapeHtml(url)}" data-alt="Animal Battle Stats on Roblox" aria-pressed="false" aria-label="Screenshot ${index + 1}">
@@ -163,19 +165,8 @@ function paintRobloxShots(urls) {
     if (!hasTrailer) select(thumbs.querySelector('button.thumb'));
 }
 
-function paintBoards(boards) {
-    let filled = 0;
-    for (const board of boards) {
-        const list = root.querySelector(`[data-board="${board.id}"] ol`);
-        if (!list || !board.top?.length) continue;
-        filled += 1;
-        list.innerHTML = board.top.slice(0, 5).map((entry) => `<li><span class="lb-rank">${Number(entry.rank) || ''}</span><span class="lb-name">${escapeHtml(entry.name)}</span><b>${compact(entry.value)}</b></li>`).join('');
-    }
-    if (!filled) return;
-    root.querySelector('[data-boards-tab]').hidden = false;
-    if (location.hash === '#boards') showTab('boards', { remember: false });
-}
-
+// (The old game's leaderboards are not shown here: they stopped with it, and the new game's boards are not read
+// yet.)
 fetch('/api/community?action=roblox', { headers: { Accept: 'application/json' } })
     .then((response) => (response.ok ? response.json() : null))
     .then((body) => {
@@ -184,84 +175,8 @@ fetch('/api/community?action=roblox', { headers: { Accept: 'application/json' } 
         goLive(data.game);
         paintLive(data.game);
         paintRobloxShots(data.game.thumbnails || []);
-        if (data.leaderboards?.length) paintBoards(data.leaderboards);
     })
     .catch(() => {});
-
-// ---------------------------------------------------------------- this week in the game
-// The game's weekly rotation and timed events come from its shared clock (exported with its own
-// code into /data/roblox-lite.json), so this is what every server is running right now.
-
-const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
-const weekPane = root.querySelector('[data-week]');
-
-function countdown(seconds) {
-    const s = Math.max(0, Math.round(seconds));
-    const h = Math.floor(s / 3600);
-    const m = Math.floor((s % 3600) / 60);
-    const sec = String(s % 60).padStart(2, '0');
-    return h ? `${h}h ${String(m).padStart(2, '0')}m` : `${m}:${sec}`;
-}
-function untilText(ms) {
-    const minutes = Math.max(1, Math.round(ms / 60000));
-    const d = Math.floor(minutes / 1440);
-    const h = Math.floor((minutes % 1440) / 60);
-    return d ? `${d}d ${h}h` : h ? `${h}h ${minutes % 60}m` : `${minutes}m`;
-}
-
-function paintEvents(game) {
-    const t = Math.floor(Date.now() / 1000);
-    const rows = game.schedule.events.map((event) => {
-        const into = (((t - event.offset) % event.every) + event.every) % event.every;
-        const on = into < event.length;
-        return { ...event, on, left: on ? event.length - into : event.every - into };
-    }).sort((a, b) => Number(b.on) - Number(a.on) || a.left - b.left);
-    weekPane.querySelector('[data-wk-events]').innerHTML = rows.map((event) => `<li class="${event.on ? 'is-on' : ''}">
-        <b>${escapeHtml(event.name)}</b>
-        <em>${event.on ? `${countdown(event.left)} left` : `in ${countdown(event.left)}`}</em>
-        <small>${event.on ? 'On now' : 'Next'} · ${escapeHtml(event.where)} · every ${Math.round(event.every / 60)} min</small>
-    </li>`).join('');
-}
-
-async function paintWeek() {
-    const game = await loadGame().catch(() => null);
-    if (!game) {
-        weekPane.querySelector('[data-wk-left]').textContent = 'The game\'s schedule is unavailable right now.';
-        return;
-    }
-    const now = Date.now();
-    const week = Math.floor(now / WEEK_MS);
-    const row = game.schedule.weeks.find((item) => item.week === week);
-    const rules = new Map(game.schedule.cupRules.map((rule) => [rule.id, rule]));
-    if (row) {
-        const cup = rules.get(row.cup);
-        const family = game.familyBy.get(row.family);
-        const isle = game.biomeBy.get(row.featured);
-        const card = (key) => weekPane.querySelector(`[data-wk="${key}"]`);
-        card('cup').style.setProperty('--wk', cup?.color || '#00d4ff');
-        card('cup').querySelector('[data-wk-name]').textContent = cup?.name || '–';
-        card('cup').querySelector('[data-wk-text]').textContent = `${cup?.blurb || ''} Seven floors: bronze at 3 wins, silver at 5, gold at 7.`;
-        card('family').style.setProperty('--wk', family?.color || '#22c55e');
-        card('family').querySelector('[data-wk-name]').textContent = family?.name || '–';
-        card('family').querySelector('[data-wk-members]').innerHTML = game.animals
-            .filter(([, , , , familyId]) => familyId === row.family)
-            .slice(0, 12)
-            .map(([slug, name, , , , thumb]) => (thumb ? `<a href="/stats/${encodeURIComponent(slug)}" title="${escapeHtml(name)}"><img src="${escapeHtml(thumb)}" alt="${escapeHtml(name)}" width="360" height="504" loading="lazy" /></a>` : ''))
-            .join('');
-        card('isle').style.setProperty('--wk', isle?.accent || '#ffc457');
-        card('isle').querySelector('[data-wk-name]').textContent = isle?.name || '–';
-        card('isle').querySelector('[data-wk-text]').textContent = `+${Math.round(((game.schedule.featuredTracks || 1.5) - 1) * 100)}% Tracks from battles there, better LEGEND rematch pay, and its ELITE comes out twice per rotation.${isle?.bossTitle ? ` Boss: the ${isle.bossTitle}.` : ''}`;
-        weekPane.querySelector('[data-wk-left]').textContent = `New week in ${untilText((week + 1) * WEEK_MS - now)}.`;
-    }
-    weekPane.querySelector('[data-wk-next]').innerHTML = game.schedule.weeks
-        .filter((item) => item.week > week)
-        .slice(0, 4)
-        .map((item) => `<li><span>${new Date(item.week * WEEK_MS).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })}</span><span>${escapeHtml(rules.get(item.cup)?.name || item.cup)}</span><span>${escapeHtml(game.familyBy.get(item.family)?.name || item.family)}</span><span>${escapeHtml(game.biomeBy.get(item.featured)?.name || item.featured)}</span></li>`)
-        .join('');
-    paintEvents(game);
-    setInterval(() => { if (!weekPane.hidden) paintEvents(game); }, 1000);
-}
-paintWeek();
 
 // ---------------------------------------------------------------- connect Roblox
 

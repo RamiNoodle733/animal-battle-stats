@@ -327,10 +327,12 @@ public, as Roblox requires.
 
 ### The Roblox game page (`/roblox`)
 
-Everything is in `data/roblox-game.json`:
+Everything is in `data/roblox-game.json`. Its words (`pitch`, `features`, the video titles)
+describe the game that is live, after the game repo's `docs/STORE_PAGE.md`. The game's animal count
+is never typed: it is the length of the newest export's ids (`data/roblox-matchups.json`, below).
 
 - `status`: `"live"` shows the Play on Roblox buttons (they open the game on Roblox),
-  live player numbers, the game's Roblox icon and screenshots, and the leaderboards.
+  live player numbers, and the game's Roblox icon and screenshots.
   Anything else shows the page as coming soon. The production build also asks Roblox
   (`scripts/roblox/game-public.js`): while the game is private or in review, every page says
   coming soon instead of linking to Roblox's "unavailable" page. Once Roblox shows the game,
@@ -343,13 +345,27 @@ Everything is in `data/roblox-game.json`:
 - Video files go in `images/roblox/` (MP4 or WebM, 16:9, a few MB each: they are
   deployed with the site and cached for a year, so give a new file a new name).
   Use YouTube for anything long.
-- `screenshots`: `[{ "src": "/images/roblox/<file>.webp", "alt": "..." }]`, 16:9, in
-  `images/roblox/`. Without any, the page uses the game's screenshots from Roblox.
-- `codes`: optional wording for a code's reward. The list of codes itself comes from the game
-  (`data/roblox-game-data.json`, below), so it always matches `Config/Codes.luau`; a code with no
-  wording here is described from what it gives. `ends` comes from the game too.
-- The PLAY buttons link to `roblox.com/games/start?placeId=...&launchData=site`, so the game
-  can give a first-time player from the website its join gift.
+- `screenshots`: `[{ "src": "/images/roblox/<file>.webp", "alt": "..." }]`, in
+  `images/roblox/`, shown in order: the first fills the stage and every one is a thumbnail under
+  it. **The six slots for the new game's pictures:**
+  - Each picture is 16:9. Give 1920x1080 WebP (the stage draws up to about 1400 by 790 on a wide
+    screen and 1280 by 720 by default; the thumbnails are 320 by 180).
+  - Keep each under about 400 KB, and give each its own alt text.
+  - Give a new picture a new file name, because images are cached for a year.
+- `robloxThumbnails`: without screenshots of its own, the page can show the game's thumbnails from
+  its Roblox page. It is `false` while that page still shows the old game's pictures (the walled
+  city, the old battle screen). Set it to `true` once the Roblox page has the new ones, or add
+  them under `screenshots`.
+- `codesInGame` and `codes`: the Codes tab, shown only while the game redeems codes. The game since
+  2026-11-12 has no Settings > Codes, so `codesInGame` is `false` and the tab is hidden. The list of
+  codes itself would come from the game's export (`data/roblox-game-data.json`, below). `codes`
+  words a code's reward; without it, the reward is described from what the code gives.
+- The PLAY buttons link to `roblox.com/games/start?placeId=...&launchData=site`. Since the
+  2026-11-12 overhaul, the game reads launch data only for matchup links (below). `site` gives
+  nothing, so the old join gift for website players is gone.
+- The old game's leaderboards (`ABS_LB_*`) and its This week tab (Weekly Cup, Family of the Week,
+  timed events) stopped with it and are not shown. The new game's boards (`ABS_Board_*_f2`: fans,
+  the week's trial, the Hall) are not read yet.
 
 ### Matchup links (Play this matchup in Roblox)
 

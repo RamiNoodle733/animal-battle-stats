@@ -314,10 +314,7 @@ async function loadRoblox() {
         stats.hidden = false;
         const gameName = /^\s*\[.*\]\s*$/.test(data.game.name || '') ? 'Animal Battle Stats' : data.game.name;
         hub.querySelector('[data-rbx-copy]').textContent = `${gameName} is live on Roblox.`;
-        if (data.leaderboards?.length) {
-            hub.querySelector('[data-rbx-boards]').innerHTML = data.leaderboards.filter((board) => board.top.length).map((board) => `
-                <div class="board"><h4>${escapeHtml(board.label)}</h4><ol>${board.top.slice(0, 3).map((entry) => `<li><span>${escapeHtml(entry.name)}</span><b>${compact(entry.value)}</b></li>`).join('')}</ol></div>`).join('');
-        }
+        // (The old game's leaderboards are not shown: they stopped with it, and the new game's are not read yet.)
     } catch { /* optional panel */ }
 }
 

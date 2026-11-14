@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.17.1 — 2026-11-14
+
+- **The site describes the Roblox game that is live.** The game page, the home's Play on Roblox tile, the community and social panels, and the link preview now describe the game the way its Roblox page does. Every animal is a real photo card, duels are won by skill (strike, block, parry, guard break and each animal's own ultimate), there are nine islands and a voiced story, you can duel friends, and it plays upright or sideways on phones. The old game's words (holo-cards, battles in 3D, the walled city and the Citadel) are gone.
+- **The game's own count.** The number of animals comes from the game's newest export, never typed.
+- **The game page shows only what the game has.** The This week tab (Weekly Cup, Family of the Week, timed events), the old leaderboards and the Codes tab were the old game's, so they are hidden. The old game's pictures from its Roblox page stay off until the new ones arrive (`robloxThumbnails`).
+- **Each animal's game strip.** It says whether the live game has the animal, the island it guards or lives on, and its own ultimate. The old families and two-move kit are gone.
+
 ## 4.17.0 — 2026-11-14
 
 - **Play any matchup in Roblox.** Every Who Would Win screen has a Play this matchup in Roblox button. It opens the Roblox game on that fight, with you fighting as the first animal, and on a phone it opens the Roblox app. It shows only for one animal against one, and only when the game has both animals. Otherwise it keeps its place, hidden, so nothing on the page moves when it appears. The animals the game has come from its own export (`data/roblox-matchups.json`, refreshed with `scripts/roblox/import-matchups.js`).

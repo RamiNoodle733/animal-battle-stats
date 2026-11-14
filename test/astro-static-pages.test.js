@@ -16,9 +16,10 @@ test('the homepage and shared navigation promote Roblox and social accounts', { 
     const home = read('index.html');
     assert.match(home, /class="mm [^"]*primary" href="\/roblox"/);
     assert.match(home, /href="\/social"/);
-    const gameCount = require('../data/roblox-game-data.json').animals.length;
-    assert.ok(home.includes(`Collect ${gameCount} animals`));
-    assert.ok(read('roblox.html').includes(`Collect ${gameCount} Real Animals`));
+    // The live game's own count (its newest export, data/roblox-matchups.json), never typed, and its own words.
+    const gameCount = require('../data/roblox-matchups.json').ids.length;
+    assert.ok(home.includes(`Duel with ${gameCount} real animals`));
+    assert.ok(read('roblox.html').includes(`Duel with ${gameCount} Real Animals`));
     for (const file of ['index.html', 'community.html', 'stats/african-lion.html', 'social.html']) {
         const html = read(file);
         assert.doesNotMatch(html, /href="\/shows(?:\/|"|#)/);
@@ -29,6 +30,26 @@ test('the homepage and shared navigation promote Roblox and social accounts', { 
     const accounts = ['youtube.com', 'tiktok.com', 'instagram.com', 'facebook.com', 'x.com', 'linkedin.com', 'discord.gg', 'reddit.com', 'github.com'];
     for (const account of accounts) assert.ok(social.includes(account), account);
     assert.doesNotMatch(read('llms.txt'), /ABS Originals|\/shows/);
+});
+
+test('the site describes the Roblox game that is live, not the old one', { skip: !built && 'dist/ not built' }, () => {
+    // (the game repo's docs/STORE_PAGE.md: real photo cards, duels won by skill, nine islands, a voiced story)
+    // (what the save read says about the old card, "trainer level" and the rest, goes with the save read itself)
+    const OLD = /holo-?cards?|holo battle|battle in (a )?3D|3D world|Weekly Cup|Family of the Week|Coin Frenzy|walled city|Collection's Reach|the Citadel|Wild Tracks/i;
+    for (const file of ['index.html', 'roblox.html', 'social.html', 'community.html', 'stats/african-lion.html', 'stats/gorilla.html']) {
+        assert.doesNotMatch(read(file), OLD, file);
+    }
+    const roblox = read('roblox.html');
+    assert.match(roblox, /strike, block, parry/);
+    assert.match(roblox, /nine islands/);
+    assert.match(roblox, /THE NINTH TOWER/);
+    assert.doesNotMatch(roblox, /data-tab="(week|boards|codes)"/, 'no This week, old leaderboards or Codes while the game has none');
+    assert.match(roblox, /data-roblox-shots="0"/, 'the Roblox page\'s old-game thumbnails stay off');
+    assert.match(roblox, /\/images\/og\/roblox\.jpg\?v=[0-9a-f]{10}/, 'the preview is versioned');
+    // an animal the live game no longer has carries no game strip; one it has names its ultimate
+    assert.doesNotMatch(read('stats/aardvark.html'), /data-in-game/);
+    assert.match(read('stats/african-lion.html'), /The Savanna island(?:&#39;|')s guardian/);
+    assert.match(read('stats/gorilla.html'), /Its ultimate: /);
 });
 
 test('animal profiles are complete static character screens', { skip: !built && 'dist/ not built' }, () => {

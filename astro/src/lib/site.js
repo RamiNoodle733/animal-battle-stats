@@ -54,18 +54,23 @@ const trailer = video({ title: 'Official trailer', ...robloxGame.trailer });
 // Codes: the game's own redeem codes (Config/Codes.luau, through data/roblox-game-data.json), posted
 // publicly as Roblox requires, so the list always matches the game. data/roblox-game.json can word a
 // code's reward; otherwise it is described from what the code gives. `ends` (YYYY-MM-DD, UTC) hides
-// one when it stops working.
+// one when it stops working. Shown only while the game redeems codes (`codesInGame`): the new game
+// (2026-11-12) has no Settings > Codes, though its export still lists the old config.
 const rewardText = new Map((robloxGame.codes || []).map((entry) => [entry.code, entry.reward]));
 const describeCode = (entry) => ['Coins', entry.wildTracks ? `${entry.wildTracks} Wild Tracks` : null, entry.look ? `the ${entry.look}` : null].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' and $1');
-const codes = (gameData.codes || [])
+const codes = (robloxGame.codesInGame === false ? [] : gameData.codes || [])
     .map((entry) => ({ code: entry.code, reward: rewardText.get(entry.code) || describeCode(entry), ends: entry.ends || null }))
     .filter((entry) => /^[A-Z0-9]{2,30}$/.test(entry.code) && (!entry.ends || Date.parse(`${entry.ends}T00:00:00Z`) > Date.now()));
 export const ROBLOX = Object.freeze({
     ...robloxGame,
     live: robloxLive,
-    // PLAY buttons: a deep link whose launchData "site" tells the game the player came
-    // from the website, so a first-time player gets the game's join gift (PlayerService).
+    // PLAY buttons: the game's start link. Its launchData "site" only marks a website arrival: the
+    // new game (2026-11-12) reads launch data for matchup links alone (m=<id>~<id>, roblox-matchups.js)
+    // and gives nothing for "site", so the old join gift is gone.
     playUrl: robloxLive ? `https://www.roblox.com/games/start?placeId=${robloxGame.placeId}&launchData=site` : null,
+    // The game's own Roblox page thumbnails on /roblox until the site has its screenshots: off while
+    // that page still shows the old game's pictures.
+    robloxThumbnails: robloxGame.robloxThumbnails !== false,
     // The game's page on Roblox, for structured data and plain links.
     gameUrl: robloxLive ? `https://www.roblox.com/games/${robloxGame.placeId}` : null,
     codes,

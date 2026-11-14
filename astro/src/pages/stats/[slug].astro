@@ -7,7 +7,7 @@ import UiIcon from '../../components/UiIcon.astro';
 import RobloxMark from '../../components/RobloxMark.astro';
 import gameData from '../../../../data/roblox-game-data.json';
 import {
-    animals, STATS, SUBSTATS, GROUPS, BIOMES, groupRank, statRank, rivals, tierInfo,
+    animals, gameAnimals, STATS, SUBSTATS, GROUPS, BIOMES, groupRank, statRank, rivals, tierInfo,
     fmtWeight, fmtLength, fmtSpeed, fmtYears, fmtBite, fmtScore, ordinal, article
 } from '../../lib/catalog.js';
 import { verdict, matchupHref } from '../../lib/matchups.js';
@@ -36,16 +36,17 @@ const cardFile = cardFiles(animal);
 const bodyTiles = vitals(animal);
 const drawing = scale(animal);
 const scaleArt = animal.img.variants?.[1]?.src || animal.img.thumb || animal.img.src;
-// The animal in the Roblox game (data/roblox-game-data.json, from the game's own code): how rare it
-// is there, its island and family, its two moves, and whether it is an island boss or a starter.
-const inGame = gameData.animals.find((item) => item.id === animal.slug) || null;
+// The animal in the Roblox game: whether the live game has it (its newest export: catalog.js gameAnimals) and, from
+// the game's own data (data/roblox-game-data.json), how rare it is in the wild there, its home island, whether it is an
+// island's guardian or a starter, and its ultimate, which the game names after the animal's first ability (the game
+// repo's Duel/Rules.ultName). (The old game's families and its two-move kit are not shown: the duel has neither.)
+const inGame = gameAnimals.some((item) => item.slug === animal.slug) ? gameData.animals.find((item) => item.id === animal.slug) || null : null;
 const game = inGame && {
     rarity: gameData.rarities.find((item) => item.id === inGame.rarity),
     island: gameData.biomes.find((item) => item.id === inGame.biome),
-    family: gameData.families.find((item) => item.id === inGame.family),
-    bossOf: gameData.biomes.find((item) => item.boss === animal.slug),
+    guardianOf: gameData.biomes.find((item) => item.boss === animal.slug),
     starter: gameData.starters.includes(animal.slug),
-    moves: inGame.abilities.map((ability) => ability.name)
+    ultimate: inGame.abilities?.[0]?.name || null
 };
 
 const sortedStats = [...STATS].sort((a, b) => (animal[b.key] || 0) - (animal[a.key] || 0));
@@ -279,8 +280,8 @@ const conservationClass = /Endangered|Vulnerable|Critically|Threatened/.test(pro
                         <span class="in-game-mark"><RobloxMark size={34} /></span>
                         <span>
                             <small>In the Roblox game</small>
-                            <b>{game.bossOf ? `Boss of the ${game.island?.name || ''} island: ${game.bossOf.bossTitle}` : `${game.rarity?.name || ''} on the ${game.island?.name || ''} island`}{game.starter ? ' · a starter' : ''}</b>
-                            <span>{[game.family && `${game.family.name} family`, game.moves.length && `moves: ${game.moves.join(', ')}`].filter(Boolean).join(' · ')}. {ROBLOX.live ? 'Collect it free →' : 'Coming soon →'}</span>
+                            <b>{game.guardianOf ? `The ${game.guardianOf.name} island's guardian` : `${game.rarity?.name || ''} on the ${game.island?.name || ''} island`}{game.starter ? ' · a starter' : ''}</b>
+                            <span>{game.ultimate ? `Its ultimate: ${game.ultimate}. ` : ''}{ROBLOX.live ? 'Collect it free →' : 'Coming soon →'}</span>
                         </span>
                     </a>
                 )}

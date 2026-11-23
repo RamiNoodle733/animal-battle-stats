@@ -129,6 +129,49 @@
           }
         ]
       }
+    },
+    "dumbo-octopus": {
+      "animal": "Dumbo Octopus",
+      "fallback": "/images/animals/dumbo-octopus.png?v=7fa403334c8d",
+      "sourceSha256": "7fa403334c8dc1e6d45bbfb623ede532a8906b5425ae8c1e7751bc60e0aa23e1",
+      "width": 776,
+      "height": 788,
+      "variants": {
+        "avif": [
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-320.avif",
+            "width": 320,
+            "bytes": 15105
+          },
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-640.avif",
+            "width": 640,
+            "bytes": 33416
+          },
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-776.avif",
+            "width": 776,
+            "bytes": 41603
+          }
+        ],
+        "webp": [
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-320.webp",
+            "width": 320,
+            "bytes": 21974
+          },
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-640.webp",
+            "width": 640,
+            "bytes": 54308
+          },
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-776.webp",
+            "width": 776,
+            "bytes": 64810
+          }
+        ]
+      }
     }
   }
 }

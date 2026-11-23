@@ -20,7 +20,8 @@ const CLASSICS = [
     ['great-white-shark', 'hammerhead-shark'], ['bull-shark', 'tiger-shark'], ['rhinoceros', 'hippopotamus'],
     ['grizzly-bear', 'black-bear'], ['african-lion', 'jaguar'], ['honey-badger', 'wolverine'], ['cassowary', 'kangaroo'],
     ['ostrich', 'cassowary'], ['octopus', 'mantis-shrimp'], ['piranha', 'electric-eel'], ['giant-squid', 'colossal-squid'],
-    ['gila-monster', 'salamander']
+    ['gila-monster', 'salamander'],
+    ['dumbo-octopus', 'vampire-squid']
 ];
 
 // Extra questions for matchups people search in a particular way. Keyed by the

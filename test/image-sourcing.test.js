@@ -98,7 +98,7 @@ test('approved source registry is unique, traceable, and active assets are verif
         assert.ok(!registeredNames.has(entry.animal), `Duplicate animal source: ${entry.animal}`);
         registeredNames.add(entry.animal);
         assert.ok(['source-selected', 'active'].includes(entry.status), `Invalid source status: ${entry.status}`);
-        assert.match(entry.sourcePage, /^https:\/\/commons\.wikimedia\.org\/wiki\/File/);
+        assert.match(entry.sourcePage, /^https:\/\/(?:commons\.wikimedia\.org\/wiki\/File|oceanexplorer\.noaa\.gov\/multimedia\/)/);
         assert.match(entry.licenseUrl, /^https:\/\//);
         assert.ok(entry.creator);
         assert.ok(entry.license);

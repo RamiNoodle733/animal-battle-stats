@@ -1,0 +1,20 @@
+{
+  "name": "Vampire Squid",
+  "scientific_name": "Vampyroteuthis infernalis",
+  "type": "Cephalopod",
+  "class": "Trickster",
+  "size": "Tiny",
+  "biome": "OCEAN",
+  "habitat": "Low-oxygen layers of deep open water",
+  "diet": ["Marine snow", "Plankton remains", "Small zooplankton"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A deep-water cephalopod that collects marine snow on retractable filaments and can release glowing particles when threatened.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Dark, low-oxygen open water",
+    "combat_style": "Trickster",
+    "strengths": ["Glowing distraction during escape", "Arm web can cover the mantle", "Low oxygen demand while drifting"],
+    "weaknesses": ["Low striking power", "Soft body with no external armor", "Light displays do not stop a direct hit"]
+  }
+}

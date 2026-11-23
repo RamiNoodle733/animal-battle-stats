@@ -1,5 +1,5 @@
 {
-  "researched": 344,
+  "researched": 346,
   "legacy": 0,
   "rejected": 0,
   "animals": {
@@ -822,6 +822,10 @@
       "status": "researched",
       "added": true
     },
+    "dumbo-octopus": {
+      "status": "researched",
+      "added": true
+    },
     "eastern-brown-snake": {
       "status": "researched",
       "added": true
@@ -1133,6 +1137,10 @@
       "added": true
     },
     "vampire-bat": {
+      "status": "researched",
+      "added": true
+    },
+    "vampire-squid": {
       "status": "researched",
       "added": true
     },

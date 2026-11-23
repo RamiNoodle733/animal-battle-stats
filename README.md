@@ -4,7 +4,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](animalbattlestats.com)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Animals](https://img.shields.io/badge/Animals-344-orange)](#)
+[![Animals](https://img.shields.io/badge/Animals-346-orange)](#)
 [![API](https://img.shields.io/badge/API-MongoDB-green)](DEPLOYMENT.md)
 
 A web application that presents animal statistics in an engaging fighting game-style interface. Compare stats, view animals in a character select screen, and pit them against each other in VS battles!
@@ -23,7 +23,7 @@ A web application that presents animal statistics in an engaging fighting game-s
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 
 ### 📊 Comprehensive Stats
-- **344 Animals**: From Megalodon to Red-Eyed Tree Frog
+- **346 Animals**: From Megalodon to Red-Eyed Tree Frog
 - **Combat Stats**: Attack, Defense, Agility, Stamina, Intelligence, Special Attack
 - **Detailed Substats**: Raw Power, Armor, Speed, Tactics, and more
 - **Scientific Data**: Weight, speed, lifespan, bite force, and more

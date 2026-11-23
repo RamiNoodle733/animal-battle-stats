@@ -2872,6 +2872,17 @@
       },
       "sha256": "976de926174b54715dda550bc2440bdb2a17837dc2be7f1446fa2eff3d95f069"
     },
+    "/images/animals/dumbo-octopus.png": {
+      "width": 776,
+      "height": 788,
+      "subject": {
+        "left": 24,
+        "top": 24,
+        "width": 728,
+        "height": 740
+      },
+      "sha256": "7fa403334c8dc1e6d45bbfb623ede532a8906b5425ae8c1e7751bc60e0aa23e1"
+    },
     "/images/animals/eastern-brown-snake.png": {
       "width": 1024,
       "height": 766,
@@ -3718,6 +3729,17 @@
         "height": 592
       },
       "sha256": "31d21340ef8cf8a4a4248c60427e64d44db01d11adf96161c816d421d0d3a08a"
+    },
+    "/images/animals/vampire-squid.png": {
+      "width": 503,
+      "height": 433,
+      "subject": {
+        "left": 16,
+        "top": 16,
+        "width": 471,
+        "height": 401
+      },
+      "sha256": "73ff40fa44748ef65425cb4a38643af4f07d291943f3bb64e8f44ba0872a6010"
     },
     "/images/animals/water-buffalo.png": {
       "width": 1024,

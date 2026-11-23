@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-24",
+  "updatedAt": "2026-11-12",
   "entries": [
     {
       "animal": "Yak",
@@ -169,6 +169,63 @@
             "src": "/images/animals/optimized/bongo-029836f8ab2f-960.webp",
             "width": 960,
             "bytes": 161214
+          }
+        ]
+      }
+    },
+    {
+      "animal": "Dumbo Octopus",
+      "scientificName": "Grimpoteuthis spp.",
+      "status": "active",
+      "sourceTitle": "Dumbo octopus off the West Florida Escarpment",
+      "sourcePage": "https://oceanexplorer.noaa.gov/multimedia/daily-image-media-20211217/",
+      "creator": "NOAA Ocean Exploration, Exploration of the Gulf of Mexico 2014",
+      "license": "Public domain",
+      "licenseUrl": "https://oceanexplorer.noaa.gov/faqs/",
+      "sourceWidth": 1920,
+      "sourceHeight": 1080,
+      "selectionNotes": "Real, complete adult from the West Florida Escarpment observation identified by Shea et al.",
+      "asset": "/images/animals/dumbo-octopus.png?v=7fa403334c8d",
+      "assetSha256": "7fa403334c8dc1e6d45bbfb623ede532a8906b5425ae8c1e7751bc60e0aa23e1",
+      "assetWidth": 776,
+      "assetHeight": 788,
+      "activatedAt": "2026-11-12",
+      "backgroundRemoval": "Foreground mask with manually reviewed edges; original photo metadata retained",
+      "reviewStatus": "first-pass-reviewed",
+      "reviewNotes": "Fins, mantle and the full curled arm crown are visible on a transparent background.",
+      "variants": {
+        "avif": [
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-320.avif",
+            "width": 320,
+            "bytes": 15105
+          },
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-640.avif",
+            "width": 640,
+            "bytes": 33416
+          },
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-776.avif",
+            "width": 776,
+            "bytes": 41603
+          }
+        ],
+        "webp": [
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-320.webp",
+            "width": 320,
+            "bytes": 21974
+          },
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-640.webp",
+            "width": 640,
+            "bytes": 54308
+          },
+          {
+            "src": "/images/animals/optimized/dumbo-octopus-7fa403334c8d-776.webp",
+            "width": 776,
+            "bytes": 64810
           }
         ]
       }

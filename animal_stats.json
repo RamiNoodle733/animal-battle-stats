@@ -18464,6 +18464,77 @@
     "research_updated": "2026-09-28"
   },
   {
+    "name": "Dumbo Octopus",
+    "scientific_name": "Grimpoteuthis spp.",
+    "type": "Cephalopod",
+    "class": "Grappler",
+    "size": "Tiny",
+    "biome": "OCEAN",
+    "habitat": "Cold deep water near the seafloor",
+    "diet": [
+      "Amphipods",
+      "Marine worms",
+      "Other small invertebrates"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The Dumbo Octopus steers with two ear-shaped fins in the dark waters near the seafloor. Its eight arms spread a flexible web over small prey, then guide the food toward its beak.",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Deep water near the seafloor",
+      "combat_style": "Grappler",
+      "strengths": [
+        "Precise fin steering",
+        "Webbed arms can surround small prey",
+        "Can leave the bottom to disengage"
+      ],
+      "weaknesses": [
+        "Soft body with little protection",
+        "Short reach against larger opponents",
+        "Limited power in a prolonged grapple"
+      ]
+    },
+    "image": "/images/animals/dumbo-octopus.png?v=7fa403334c8d",
+    "_id": "68b24b1a094b7c8334bdc54e",
+    "agility": 59,
+    "attack": 8,
+    "bite_force_psi": 0,
+    "defense": 12,
+    "height_cm": 0,
+    "intelligence": 40,
+    "length_cm": 21.3,
+    "lifespan_years": 0,
+    "special_abilities": [
+      "Fin Glide",
+      "Web Enclosure"
+    ],
+    "speed_mps": 0,
+    "stamina": 31,
+    "substats": {
+      "raw_power": 1.4,
+      "maneuverability": 65,
+      "endurance": 33,
+      "recovery": 22,
+      "tactics": 37,
+      "senses": 49,
+      "ferocity": 12,
+      "weaponry": 8,
+      "protection": 3,
+      "toughness": 7,
+      "speed": 12,
+      "abilities": 58
+    },
+    "unique_traits": [
+      "Cirri Rows",
+      "Deep Seafloor Dweller"
+    ],
+    "updatedAt": "2026-11-23T00:00:00.000Z",
+    "weight_kg": 0.0365,
+    "special": 59,
+    "research_status": "researched",
+    "research_updated": "2026-11-23"
+  },
+  {
     "name": "Eastern Brown Snake",
     "scientific_name": "Pseudonaja textilis",
     "type": "Reptile",
@@ -23961,6 +24032,77 @@
     "special": 86,
     "research_status": "researched",
     "research_updated": "2026-09-28"
+  },
+  {
+    "name": "Vampire Squid",
+    "scientific_name": "Vampyroteuthis infernalis",
+    "type": "Cephalopod",
+    "class": "Trickster",
+    "size": "Tiny",
+    "biome": "OCEAN",
+    "habitat": "Low-oxygen layers of deep open water",
+    "diet": [
+      "Marine snow",
+      "Plankton remains",
+      "Small zooplankton"
+    ],
+    "isNocturnal": false,
+    "isSocial": false,
+    "description": "The Vampire Squid drifts in deep, low-oxygen water and gathers marine snow on two retractable filaments. When disturbed, it folds its webbed arms over its body and can scatter glowing particles as…",
+    "battle_profile": {
+      "preferred_range": "Close",
+      "primary_environment": "Dark, low-oxygen open water",
+      "combat_style": "Trickster",
+      "strengths": [
+        "Glowing distraction during escape",
+        "Arm web can cover the mantle",
+        "Low oxygen demand while drifting"
+      ],
+      "weaknesses": [
+        "Low striking power",
+        "Soft body with no external armor",
+        "Light displays do not stop a direct hit"
+      ]
+    },
+    "image": "/images/animals/vampire-squid.png?v=73ff40fa4474",
+    "_id": "816b66ceccd0912ab527b27f",
+    "agility": 54,
+    "attack": 5,
+    "bite_force_psi": 0,
+    "defense": 19,
+    "height_cm": 0,
+    "intelligence": 44,
+    "length_cm": 25,
+    "lifespan_years": 0,
+    "special_abilities": [
+      "Glowing Particle Screen",
+      "Web Fold"
+    ],
+    "speed_mps": 0,
+    "stamina": 38,
+    "substats": {
+      "raw_power": 1.8,
+      "maneuverability": 60,
+      "endurance": 42,
+      "recovery": 22,
+      "tactics": 44,
+      "senses": 70,
+      "ferocity": 8,
+      "weaponry": 5,
+      "protection": 5,
+      "toughness": 8,
+      "speed": 15,
+      "abilities": 79
+    },
+    "unique_traits": [
+      "Marine Snow Collector",
+      "Low-Oxygen Drifter"
+    ],
+    "updatedAt": "2026-11-23T00:00:00.000Z",
+    "weight_kg": 0.1,
+    "special": 79,
+    "research_status": "researched",
+    "research_updated": "2026-11-23"
   },
   {
     "name": "Water Buffalo",

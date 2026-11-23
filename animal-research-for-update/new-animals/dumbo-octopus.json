@@ -1,0 +1,20 @@
+{
+  "name": "Dumbo Octopus",
+  "scientific_name": "Grimpoteuthis spp.",
+  "type": "Cephalopod",
+  "class": "Grappler",
+  "size": "Tiny",
+  "biome": "OCEAN",
+  "habitat": "Cold deep water near the seafloor",
+  "diet": ["Amphipods", "Marine worms", "Other small invertebrates"],
+  "isNocturnal": false,
+  "isSocial": false,
+  "description": "A small deep-sea octopus that steers with paired fins and uses its webbed arms to enclose prey.",
+  "battle_profile": {
+    "preferred_range": "Close",
+    "primary_environment": "Deep water near the seafloor",
+    "combat_style": "Grappler",
+    "strengths": ["Precise fin steering", "Webbed arms can surround small prey", "Can leave the bottom to disengage"],
+    "weaknesses": ["Soft body with little protection", "Short reach against larger opponents", "Limited power in a prolonged grapple"]
+  }
+}

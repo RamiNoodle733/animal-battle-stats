@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.17.2 — 2026-11-23
+
+- Added Dumbo Octopus and Vampire Squid to site search, animal profiles, comparisons and the card collection. Their head-to-head matchup has its own page.
+
 ## 4.17.1 — 2026-11-14
 
 - **The site describes the Roblox game that is live.** The game page, the home's Play on Roblox tile, the community and social panels, and the link preview now describe the game the way its Roblox page does. Every animal is a real photo card, duels are won by skill (strike, block, parry, guard break and each animal's own ultimate), there are nine islands and a voiced story, you can duel friends, and it plays upright or sideways on phones. The old game's words (holo-cards, battles in 3D, the walled city and the Citadel) are gone.

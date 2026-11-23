@@ -161,6 +161,10 @@ function labeledNumber(text, labels, { maxGap = 14, allowUnitText = false } = {}
 const BINOMIAL = /^[A-Z][a-z]+ (?:\([A-Z][a-z]+\) )?[a-z]+(?:-[a-z]+)?(?: [a-z]+(?:-[a-z]+)?)?$/;
 
 function parseScientificName(h1, identityBody, fullText) {
+    // A common name can cover an entire genus. Accept an explicit `sp.` or
+    // `spp.` in the scientific-name field without treating it as a species.
+    const genus = String(identityBody || '').match(/scientific name\*{0,2}:\*{0,2}\s*\*?([A-Z][a-z]+)\*?\s+(spp?\.)\*?(?=\s|$|[),;])/i);
+    if (genus) return `${genus[1]} ${genus[2]}`;
     const candidates = [];
     const h1Text = String(h1 || '');
     for (const match of h1Text.matchAll(/\(\s*†?\*?_?([A-Z][a-z]+ [a-z-]+(?: [a-z-]+)?)_?\*?\s*\)/g)) candidates.push(match[1]);

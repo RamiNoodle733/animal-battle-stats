@@ -20,6 +20,12 @@ animal needs about 12 searches and page reads).
 - 3.7.0: 24 new animals (317 -> 341), the rest of the pets
 - 3.8.0: 3 new animals (341 -> 344)
 
+## 4.17.2
+
+- dumbo-octopus: researched and in the catalogue, with a verified public domain NOAA cutout.
+
+- vampire-squid: researched and in the catalogue. The credited Ocean Exploration Trust photo is rights-reserved.
+
 ## Pending
 
 - gray-whale: researched, but Commons has no full-body photograph of one

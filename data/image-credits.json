@@ -2712,6 +2712,22 @@
       "license": "Public domain",
       "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
       "modified": "Background removed and cropped"
+    },
+    "dumbo-octopus": {
+      "title": "Dumbo octopus off the West Florida Escarpment",
+      "sourcePage": "https://oceanexplorer.noaa.gov/multimedia/daily-image-media-20211217/",
+      "artist": "NOAA Ocean Exploration, Exploration of the Gulf of Mexico 2014",
+      "license": "Public domain",
+      "licenseUrl": "https://oceanexplorer.noaa.gov/faqs/",
+      "modified": "Background removed and cropped"
+    },
+    "vampire-squid": {
+      "title": "Vampire squid off Socorro Island",
+      "sourcePage": "https://nautiluslive.org/video/2017/11/13/close-encounter-vampire-squid",
+      "artist": "Ocean Exploration Trust / Nautilus Live",
+      "license": "All rights reserved",
+      "licenseUrl": "https://nautiluslive.org/video/2017/11/13/close-encounter-vampire-squid",
+      "modified": "Background removed and cropped"
     }
   }
 }

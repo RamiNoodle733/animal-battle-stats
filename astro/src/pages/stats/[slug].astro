@@ -96,7 +96,7 @@ const description = `${animal.name} ranks #${animal.rank} of ${animals.length} (
 
 const faq = [];
 faq.push({ q: `How strong is ${article(animal.name)} ${animal.name}?`, a: `On the Animal Battle Stats scale, the ${animal.name} has an attack rating of ${fmtScore(animal.attack)} and a power index of ${fmtScore(animal.powerIndex)} out of 100, which ranks it #${animal.rank} of ${animals.length} animals and puts it in ${animal.tier} tier (${tier.name}). Its strongest stat is ${best.label.toLowerCase()} (${fmtScore(animal[best.key])}).` });
-if (w) faq.push({ q: `How much does ${article(animal.name)} ${animal.name} weigh?`, a: `A typical adult ${animal.name} weighs about ${w.metric} (${w.imperial}).${specimen ? ` Rated specimen: ${specimenRaw}` : ''}` });
+if (w) faq.push({ q: `How much does ${article(animal.name)} ${animal.name} weigh?`, a: `This ${animal.name} profile uses a reference weight of about ${w.metric} (${w.imperial}).${specimen ? ` Rated specimen: ${specimenRaw}` : ''}` });
 faq.push({ q: `How fast is ${article(animal.name)} ${animal.name}?`, a: s ? `The ${animal.name}'s top speed is about ${s.metric} (${s.imperial}). Its agility rating is ${fmtScore(animal.agility)} out of 100.` : `There is no reliable measured top speed for the ${animal.name}, so we do not publish one. Its agility rating, which covers acceleration, reflexes and evasion, is ${fmtScore(animal.agility)} out of 100.` });
 if (bite) faq.push({ q: `What is the ${animal.name}'s bite force?`, a: `The ${animal.name}'s bite force is about ${bite.metric}.` });
 if (sections.diet) faq.push({ q: `What does ${article(animal.name)} ${animal.name} eat?`, a: sections.diet });

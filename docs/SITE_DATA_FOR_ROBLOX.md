@@ -6,7 +6,7 @@ and the hooks the site already reads.
 
 ## Animal data (`animal_stats.json`)
 
-- Schema is unchanged. All 344 animals now carry researched stats
+- Schema is unchanged. All 346 animals now carry researched stats
   (`research_status: "researched"`, `research_updated` date); none keeps the
   original placeholder values any more. Version 3.5.0 replaced the last 26
   (Spider Monkey to Zebra), whose old ratings were broken.
@@ -14,6 +14,9 @@ and the hooks the site already reads.
   domestic breeds). Their slugs are the file names in
   `animal-research-for-update/new-animals/`. The game keeps its own roster,
   so these only appear in the game if it adds them.
+- Dumbo Octopus (`dumbo-octopus`) has site stats and a public domain NOAA photo.
+  Vampire Squid (`vampire-squid`) has site stats and uses a
+  rights-reserved Ocean Exploration Trust photo.
 - `speed_mps` and `bite_force_psi` of `0` mean "no reliable measurement",
   not zero. Treat 0 as unknown.
 - `special_abilities` and `unique_traits` changed for researched animals.

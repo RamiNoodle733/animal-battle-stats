@@ -41049,6 +41049,163 @@
         "notes": "Wild bird photographed at Ndumo Nature Reserve. Other candidates are listed under Commons Category:Stephanoaetus coronatus, including File:African_Crowned_Eagle.jpg."
       }
     },
+    "dumbo-octopus": {
+      "name": "Dumbo Octopus",
+      "status": "researched",
+      "researchedAt": "2026-11-23",
+      "sourceFile": "animal-research-for-update/animals/dumbo-octopus.md",
+      "contentHash": "9803b07ab27e6ea7",
+      "scientificName": "Grimpoteuthis spp.",
+      "specimen": "The profile uses a measured 36.5 g, 21.3 cm Grimpoteuthis feitiana specimen as its size reference; its maturity and sex were not reported. The battle ratings describe a small, healthy adult form.",
+      "specimenSex": "unspecified",
+      "extinct": false,
+      "summary": "The Dumbo Octopus steers with two ear-shaped fins in the dark waters near the seafloor. Its eight arms spread a flexible web over small prey, then guide the food toward its beak.",
+      "narrative": [
+        "Near the seafloor, a dumbo octopus can rise into open water and steer with the fins on either side of its mantle. The fins work with the flexible web between its arms, letting the octopus hold and change posture without having to chase prey at speed.",
+        "The same web can spread over a patch of small prey. On the inner surface of the arms, suckers and the little projections called cirri help move the food toward the beak. Small crustaceans and marine worms fit this way of feeding.",
+        "The name Dumbo Octopus covers multiple species in Grimpoteuthis. One small measured specimen from a western Pacific seamount was just over 21 cm long. An octopus filmed far deeper in the Java Trench was identified to the same genus, but it should not be treated as the same species or size."
+      ],
+      "sections": {
+        "habitat": "Dumbo octopuses live in deep waters in multiple ocean basins, often at or just above the bottom. The 1,240 m record for the measured specimen and a sighting at 6,957 m are from different animals. The latter is an exceptional record rather than a usual depth.",
+        "range": "",
+        "diet": "Bottom-dwelling finned octopuses commonly eat amphipods, marine worms and other small invertebrates. Observations of Grimpoteuthis show the arm web and cirri being used to gather and handle small prey.",
+        "ecology": "",
+        "social": "Most field observations describe individuals. There is no reliable evidence of regular group hunting or a day and night activity schedule for the represented form.",
+        "reproduction": "A Grimpoteuthis hatchling was recorded emerging from an egg case on a deep-sea octocoral. Its fins, arms and suckers were already developed enough for movement and handling small prey.",
+        "conservation": "Grimpoteuthis covers multiple species. There is no single genus-wide Red List category. Rare encounters make abundance and population trends difficult to assess.",
+        "features": "Two fins project from the mantle, one on each side. The arms are joined by a flexible web, with suckers and short cirri along the inner surfaces.",
+        "humanInteraction": "Deep-sea cameras and occasional scientific collections provide most direct observations. The animal usually lives far below normal diving depths."
+      },
+      "conservationStatus": "",
+      "funFacts": [
+        "The ear-shaped parts are swimming fins.",
+        "Its eight arms are linked by a flexible web.",
+        "Cirri sit between the suckers along the arms.",
+        "It can swim clear of the seafloor using its fins.",
+        "A dumbo octopus was filmed in the Java Trench at 6,957 m.",
+        "One filmed hatchling already had functioning fins and well-developed suckers."
+      ],
+      "abilities": [
+        {
+          "name": "Fin Glide",
+          "description": "The paired fins propel and steer the octopus as it leaves the seafloor or moves through the water above it."
+        },
+        {
+          "name": "Web Enclosure",
+          "description": "The arms spread their connecting web over small prey, then draw it in toward the mouth."
+        }
+      ],
+      "traits": [
+        {
+          "name": "Cirri Rows",
+          "description": "Small, fingerlike projections line the arms between suckers and help guide food inward."
+        },
+        {
+          "name": "Deep Seafloor Dweller",
+          "description": "Many sightings are near the bottom in cold, dark water. Grimpoteuthis has been filmed in the Java Trench at nearly 7,000 m."
+        }
+      ],
+      "combat": {
+        "weapons": "The arm web encloses small prey at close range. Suckers retain food while the fingerlike cirri between them help move it toward the mouth. This is effective for catching small invertebrates and offers little leverage against a much heavier animal.",
+        "weaknesses": [
+          "Soft tissues and little external protection.",
+          "Short effective reach and very low absolute power.",
+          "Closely tied to deep water; few options if pinned by a stronger animal."
+        ],
+        "goodMatchups": [
+          "Very small bottom-dwelling invertebrates it can enclose under the arm web."
+        ],
+        "badMatchups": [
+          "Larger fish and fast cephalopods that can strike from outside the arm web.",
+          "Hard-shelled animals too large to enclose."
+        ]
+      },
+      "derivedSubstats": [],
+      "facts": {
+        "weight_kg": 0.0365,
+        "height_cm": 0,
+        "length_cm": 21.3,
+        "speed_mps": 0,
+        "lifespan_years": 0,
+        "bite_force_psi": 0
+      },
+      "unverifiedFacts": [
+        "height_cm",
+        "speed_mps",
+        "lifespan_years",
+        "bite_force_psi"
+      ],
+      "sources": [
+        {
+          "title": "Tang, Zheng and Zhang (2025), Caroline Seamount specimen description",
+          "url": "https://doi.org/10.1007/s13127-025-00678-x",
+          "supports": "Measured 36.5 g mass, 212.6 mm total length and 1,240 m depth",
+          "confidence": "Direct measurement of one specimen"
+        },
+        {
+          "title": "Collins (2003), The genus Grimpoteuthis in the north-east Atlantic",
+          "url": "https://doi.org/10.1046/j.1096-3642.2003.00074.x",
+          "supports": "Species boundaries and size variation",
+          "confidence": "Taxonomic study of specimens"
+        },
+        {
+          "title": "Collins, Vecchione and Young, Grimpoteuthis measurements and counts",
+          "url": "https://tolweb.org/notes/?note_id=1580",
+          "supports": "Grimpoteuthis challengeri total lengths up to 370 mm",
+          "confidence": "Specimen table from Collins (2003)"
+        },
+        {
+          "title": "Collins and Villanueva, Taxonomy, ecology and behaviour of the cirrate octopods",
+          "url": "https://www.bas.ac.uk/data/our-data/publication/taxonomy-ecology-and-behaviour-of-the-cirrate-octopods/",
+          "supports": "Fin swimming, near-bottom habitat and prey in cirrate diet samples",
+          "confidence": "Author review; distinguish observations by genus"
+        },
+        {
+          "title": "Villanueva, Segonzac and Guerra (1997), Locomotion modes of deep-sea cirrate octopods",
+          "url": "https://www.researchgate.net/publication/226776070_Locomotion_modes_of_deep-sea_cirrate_octopods_Cephalopoda_based_on_observations_from_video_recordings_on_the_Mid-Atlantic_Ridge",
+          "supports": "Fin swimming, crawling and takeoff observed on video",
+          "confidence": "Direct observations; not a speed measurement"
+        },
+        {
+          "title": "Shea et al. (2018), Dumbo octopod hatchling provides insight into early cirrate life cycle",
+          "url": "https://repository.library.noaa.gov/view/noaa/60140",
+          "supports": "Hatchling anatomy, egg case and pictured adult from the Gulf of Mexico",
+          "confidence": "Observed hatching and anatomical imaging"
+        },
+        {
+          "title": "Jamieson and Vecchione (2020), First in situ observation of Cephalopoda at hadal depths",
+          "url": "https://repository.library.noaa.gov/view/noaa/29154",
+          "supports": "Java Trench records at 5,760 and 6,957 m",
+          "confidence": "Exceptional observations at those depths"
+        },
+        {
+          "title": "NOAA Ocean Exploration, Dumbo Octopus",
+          "url": "https://oceanexplorer.noaa.gov/multimedia/daily-image-media-20211217/",
+          "supports": "Original full-body photograph and expedition credit",
+          "confidence": "Direct expedition imagery"
+        },
+        {
+          "title": "FAO, Cephalopods of the World, volume 3",
+          "url": "https://www.fao.org/4/i3489e/i3489e.pdf",
+          "supports": "Species accounts and swimming with fins and arm web",
+          "confidence": "Identification catalogue compiled by cephalopod specialists"
+        },
+        {
+          "title": "Natural History Museum, Dumbo octopus",
+          "url": "https://www.nhm.ac.uk/discover/what-is-a-dumbo-octopus.html",
+          "supports": "Common-name scope and feeding anatomy",
+          "confidence": "Museum account of the genus"
+        }
+      ],
+      "imageLead": {
+        "status": "COMPLETE - FULL-BODY TRANSPARENT PNG VERIFIED",
+        "sourcePage": "https://oceanexplorer.noaa.gov/multimedia/daily-image-media-20211217/",
+        "originalUrl": "https://oceanexplorer.noaa.gov/wp-content/uploads/2021/12/20211217-hires.jpg",
+        "license": "Public domain, NOAA Ocean Exploration",
+        "sex": "Unknown",
+        "notes": "Adult Grimpoteuthis photographed near 2,000 m in the Gulf of Mexico. The photo is identified to genus, so it is not presented as the size reference specimen."
+      }
+    },
     "eastern-brown-snake": {
       "name": "Eastern Brown Snake",
       "status": "researched",
@@ -53778,6 +53935,157 @@
         "license": "not verified",
         "sex": "Unknown",
         "notes": "No Wikimedia Commons file page for a verified full-body adult was captured in search results. A quadrupedal ground pose showing the whole body and folded wings, or a spread-wing shot, would both work for a cutout."
+      }
+    },
+    "vampire-squid": {
+      "name": "Vampire Squid",
+      "status": "researched",
+      "researchedAt": "2026-11-23",
+      "sourceFile": "animal-research-for-update/animals/vampire-squid.md",
+      "contentHash": "b19f2dd7f606bdae",
+      "scientificName": "Vampyroteuthis infernalis",
+      "specimen": "Healthy adult, roughly 25 cm long and 0.10 kg. Length and mass are references from separate field specimens. Sex is not fixed for the profile.",
+      "specimenSex": "unspecified",
+      "extinct": false,
+      "summary": "The Vampire Squid drifts in deep, low-oxygen water and gathers marine snow on two retractable filaments. When disturbed, it folds its webbed arms over its body and can scatter glowing particles as it escapes.",
+      "narrative": [
+        "A vampire squid can stay suspended in deep water with a thin filament extended into the current. Sinking food particles stick to that filament. The squid draws it across the arms, where mucus and the small cirri help gather the particles into a meal.",
+        "The dark water also gives it room to escape. The squid can fold its arms back over the mantle so that its outline changes. A bright flash from the arm tips or a cloud of glowing particles can occupy a pursuer while the animal slips away.",
+        "Much of this routine takes place where oxygen is scarce. Efficient oxygen transport and a low rate of energy use suit a life spent drifting and collecting food. Those strengths matter more for survival than speed or the ability to overpower other animals."
+      ],
+      "sections": {
+        "habitat": "Vampire squid occur in tropical and temperate oceans around the world. In Monterey Canyon, researchers recorded them chiefly in midwater between 600 and 900 m, within a layer with little dissolved oxygen. The depth of that layer varies with location.",
+        "range": "",
+        "diet": "The squid collects marine snow: sinking bits of organic matter such as plankton remains and discarded mucus structures. Small zooplankton also occur in its diet. Food adheres to the filaments and is carried to the mouth in mucus with help from the cirri.",
+        "ecology": "",
+        "social": "Field observations mainly describe individuals feeding or drifting in open water. Coordinated group behavior and a fixed day and night schedule are not documented.",
+        "reproduction": "Ovary samples indicate that females can lay eggs in multiple batches and have resting periods between them. This does not establish a typical adult lifespan in years.",
+        "conservation": "Broad geographic records exist, but sightings and collected specimens alone do not establish a global population trend.",
+        "features": "Eight webbed arms surround the mouth. Adults swim with a pair of fins and can produce light at the tips of the arms. The soft projections inside the web are cirri.",
+        "humanInteraction": "Researchers study this animal using remotely operated vehicles, collected specimens and short-term observations at sea. It usually lives far below normal diving depths."
+      },
+      "conservationStatus": "",
+      "funFacts": [
+        "Its main food is sinking marine snow.",
+        "Two retractable filaments can gather food without a chase.",
+        "Its arms can fold over the mantle like a covering.",
+        "The arms can flash blue and release glowing particles.",
+        "It uses light for distraction rather than squirting ink.",
+        "Females can lay several batches of eggs with rests between them."
+      ],
+      "abilities": [
+        {
+          "name": "Glowing Particle Screen",
+          "description": "The arm tips can release a cloud of tiny glowing particles that can distract a pursuer while the squid moves away."
+        },
+        {
+          "name": "Web Fold",
+          "description": "The webbed arms curl back over the mantle, changing the outline and exposing rows of soft cirri."
+        }
+      ],
+      "traits": [
+        {
+          "name": "Marine Snow Collector",
+          "description": "Two thin, retractable filaments gather sinking particles. The arms sweep the collected food toward the mouth."
+        },
+        {
+          "name": "Low-Oxygen Drifter",
+          "description": "Low energy use and blood that binds oxygen efficiently support slow activity where dissolved oxygen is scarce."
+        }
+      ],
+      "combat": {
+        "weapons": "Its small beak processes food that reaches the mouth. The long, thin filaments are used to collect particles and small plankton. They are not striking or grappling weapons.",
+        "weaknesses": [
+          "Soft body and little ability to withstand a direct grab.",
+          "No documented high-power attack.",
+          "Glowing distractions are more conspicuous and useful in dark water."
+        ],
+        "goodMatchups": [
+          "In a dark-water encounter, it can break contact with some visually guided pursuers."
+        ],
+        "badMatchups": [
+          "Persistent larger hunters that can find it after the light display.",
+          "Close grapples with larger squid or fish."
+        ]
+      },
+      "derivedSubstats": [],
+      "facts": {
+        "weight_kg": 0.1,
+        "height_cm": 0,
+        "length_cm": 25,
+        "speed_mps": 0,
+        "lifespan_years": 0,
+        "bite_force_psi": 0
+      },
+      "unverifiedFacts": [
+        "height_cm",
+        "speed_mps",
+        "lifespan_years",
+        "bite_force_psi"
+      ],
+      "sources": [
+        {
+          "title": "Hoving and Robison (2012), Vampire squid: detritivores in the oxygen minimum zone",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3479720/",
+          "supports": "Food items, filament use, low-oxygen depth and observations of behavior",
+          "confidence": "Underwater video, anatomy and feeding experiments"
+        },
+        {
+          "title": "Robison et al. (2003), Light Production by the Arm Tips of the Deep-Sea Cephalopod Vampyroteuthis infernalis",
+          "url": "https://doi.org/10.2307/1543231",
+          "supports": "Arm-tip light and released glowing particles",
+          "confidence": "Direct experimental observations"
+        },
+        {
+          "title": "Seibel, Thuesen and Childress (1998), Flight of the vampire",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9679103/",
+          "supports": "Fin swimming and differences between young and adult swimmers",
+          "confidence": "Locomotion study, not a maximum speed measurement"
+        },
+        {
+          "title": "Schwarz (2019), Assessing the lifespans of coldwater octopods, chapter 3",
+          "url": "https://oceanrep.geomar.de/id/eprint/47352/1/Dissertation_Richard_Schwarz_2019.pdf",
+          "supports": "Mature specimens weighing 100 g, 138 g and 398 g",
+          "confidence": "Specimen measurements; not a typical lifespan estimate"
+        },
+        {
+          "title": "Young, Tree of Life, Vampyroteuthis infernalis",
+          "url": "https://tolweb.org/tolarchive/20084/20080530/Vampyroteuthis_infernalis.html",
+          "supports": "25 cm photographed specimen, body anatomy and light organs",
+          "confidence": "Authored by a cephalopod taxonomist; one measured length"
+        },
+        {
+          "title": "Hoving et al. (2015), Vampire squid reproductive strategy is unique among coleoid cephalopods",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25898098/",
+          "supports": "Repeated spawning with rest periods",
+          "confidence": "Reproductive anatomy study"
+        },
+        {
+          "title": "Golikov et al. (2019), Global stable isotope assessment of vampire squid",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6910912/",
+          "supports": "Global sampling and diet variation",
+          "confidence": "Indirect evidence from stable isotopes"
+        },
+        {
+          "title": "MBARI, Vampire squid",
+          "url": "https://www.mbari.org/animal/vampire-squid/",
+          "supports": "Maximum length, midwater habitat and web display",
+          "confidence": "Research institution field guide"
+        },
+        {
+          "title": "MolluscaBase, Vampyroteuthis infernalis",
+          "url": "https://www.marinespecies.org/aphia.php?id=141887&p=taxdetails",
+          "supports": "Accepted scientific name",
+          "confidence": "Taxonomic registry"
+        }
+      ],
+      "imageLead": {
+        "status": "LICENSE UNVERIFIED - DO NOT COMMIT",
+        "sourcePage": "https://nautiluslive.org/video/2017/11/13/close-encounter-vampire-squid",
+        "originalUrl": "https://nautiluslive.org/sites/default/files/images/cruises/na092_vampire_squid_2017-11_1290m_splash.jpg",
+        "license": "Ocean Exploration Trust, all rights reserved; no permission to distribute an edited cutout located",
+        "sex": "Unknown",
+        "notes": "This photo is used for the local build and credited to Ocean Exploration Trust."
       }
     },
     "water-buffalo": {

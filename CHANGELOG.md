@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.17.3 — 2026-11-23
+
+- Added a Delete button for your own posts and replies in Community Talk.
+
 ## 4.17.2 — 2026-11-23
 
 - Added Dumbo Octopus and Vampire Squid to site search, animal profiles, comparisons and the card collection. Their head-to-head matchup has its own page.

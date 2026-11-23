@@ -93,6 +93,7 @@ const composer = hub.querySelector('[data-composer]');
 const textarea = hub.querySelector('[data-msg]');
 let replyTo = null;
 let postingTalk = false;
+let talkLoad = 0;
 const cancelTalk = hub.querySelector('[data-talk-cancel]');
 function resetTalkReply() { replyTo = null; cancelTalk.hidden = true; textarea.placeholder = 'Who would win: 100 army ants or one honey badger?'; }
 cancelTalk.addEventListener('click', resetTalkReply);
@@ -107,17 +108,21 @@ async function messageHtml(message, depth = 0) {
             <span class="score">${Number(message.score) || 0}</span>
             <button type="button" class="vote down${message.userVote === 'down' ? ' on' : ''}" data-vote="down" aria-label="Downvote" aria-pressed="${message.userVote === 'down'}">▼</button>
             ${depth === 0 ? '<button type="button" class="link-btn" data-reply>Reply</button>' : ''}
+            ${message.canDelete === true ? '<button type="button" class="link-btn" data-talk-delete>Delete</button>' : ''}
         </footer>
         ${replies.join('')}
     </article>`;
 }
 
 async function loadTalk() {
+    const request = ++talkLoad;
     try {
         const body = await getJson('/api/chat?limit=40');
         const items = await Promise.all((body.data || []).map((message) => messageHtml(message)));
+        if (request !== talkLoad) return;
         talkFeed.innerHTML = items.length ? items.join('') : '<p class="empty-state">No posts yet. Start the first debate.</p>';
     } catch {
+        if (request !== talkLoad) return;
         talkFeed.innerHTML = '<p class="empty-state">The arena is quiet right now. Try again in a moment.</p>';
     }
 }
@@ -142,6 +147,29 @@ composer.addEventListener('submit', async (event) => {
 talkFeed.addEventListener('click', async (event) => {
     const post = event.target.closest('.msg');
     if (!post) return;
+    const deleteButton = event.target.closest('[data-talk-delete]');
+    if (deleteButton) {
+        if (!confirm('Delete this post? Any replies to it will also be deleted.')) return;
+        const id = post.dataset.id;
+        deleteButton.disabled = true;
+        const response = await fetch(`/api/chat?messageId=${encodeURIComponent(id)}`, {
+            method: 'DELETE',
+            credentials: 'same-origin',
+            headers: headers()
+        }).catch(() => null);
+        const body = await response?.json().catch(() => ({}));
+        if (!response?.ok || !body?.success) {
+            deleteButton.disabled = false;
+            sfx.error();
+            toast(body?.error || 'Could not delete. Try again.');
+            return;
+        }
+        if (replyTo === id) resetTalkReply();
+        post.remove();
+        toast('Post deleted');
+        loadTalk();
+        return;
+    }
     if (event.target.closest('[data-reply]')) {
         replyTo = post.dataset.id;
         cancelTalk.hidden = false;
